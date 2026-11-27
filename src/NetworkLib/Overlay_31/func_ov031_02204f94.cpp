@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern void* data_ov031_022496a4;
+extern void* gIPStackConfig_ov031_022496a4;
 extern int data_ov031_0224c9d0;
 extern int data_ov031_0224c99c;
 extern int data_ov031_0224c9ac;
@@ -19,7 +19,7 @@ extern Struct_ov031_0224e1c0_3 data_ov031_0224e1c0;
 
 // USA: func_ov031_02204f94
 extern "C" ARM void func_ov031_02204f94(void) {
-	void* var0 = data_ov031_022496a4;
+	void* var0 = gIPStackConfig_ov031_022496a4;
 	data_ov031_0224c9d0 = *(int*)((char*)var0 + 4);
 	data_ov031_0224c99c = *(int*)((char*)var0 + 8);
 	data_ov031_0224c9ac = *(int*)((char*)var0 + 0xc);

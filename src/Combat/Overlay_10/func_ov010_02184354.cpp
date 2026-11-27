@@ -96,8 +96,8 @@ struct Vector3i;
 
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 
-struct Struct_02048350_2;
-extern "C" int func_02048350(struct Struct_02048350_2* arg0, int arg1);
+struct PartyMember_02048350_2;
+extern "C" int SpendMP_02048350(struct PartyMember_02048350_2* member, int mpCost);
 
 extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
@@ -400,7 +400,7 @@ extern "C" ARM int func_ov010_02184354(struct Struct_ov010_02184354_8* arg0) {
         struct Struct_ov010_02184354_5* var36 =
             (struct Struct_ov010_02184354_5*)FindActionData_02079e2c((char*)GetActionTables_020797dc(), 0xd2);
         if (var36 != NULL) {
-            func_02048350((struct Struct_02048350_2*)var3, var36->unknown_8_0_);
+            SpendMP_02048350((struct PartyMember_02048350_2*)var3, var36->unknown_8_0_);
         }
         GameObject* var37 = var2->GetUnknownGameObject();
         if (var37 != NULL) {

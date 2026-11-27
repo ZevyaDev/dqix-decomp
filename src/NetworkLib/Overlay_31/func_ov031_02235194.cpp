@@ -6,9 +6,9 @@ struct Struct_ov031_02235194 {
     void* unknown_c_;
 };
 
-extern "C" Struct_ov031_02235194* data_ov031_02290cf4;
+extern "C" Struct_ov031_02235194* gScrollBar_ov031_02290cf4;
 namespace DuplicatePool {
-    extern "C" Struct_ov031_02235194* data_ov031_02290cf4;
+    extern "C" Struct_ov031_02235194* gScrollBar_ov031_02290cf4;
 }
 extern "C" int func_ov031_0223e2e0(int, void*);
 extern "C" void func_ov031_0223ba20(void*);
@@ -16,7 +16,7 @@ extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void**);
 
 // USA: func_ov031_02235194
 extern "C" ARM void func_ov031_02235194(void) {
-    func_ov031_0223e2e0(0, data_ov031_02290cf4->unknown_c_);
-    func_ov031_0223ba20(data_ov031_02290cf4->unknown_0_);
-    FreeAndClearPointer_ov031_0223cf70((void**)&DuplicatePool::data_ov031_02290cf4);
+    func_ov031_0223e2e0(0, gScrollBar_ov031_02290cf4->unknown_c_);
+    func_ov031_0223ba20(gScrollBar_ov031_02290cf4->unknown_0_);
+    FreeAndClearPointer_ov031_0223cf70((void**)&DuplicatePool::gScrollBar_ov031_02290cf4);
 }

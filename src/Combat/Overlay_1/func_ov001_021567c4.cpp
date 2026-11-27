@@ -9,7 +9,7 @@ extern "C" void ResetFollowCameraAngle_020a2718(char* camera);
 extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 extern "C" void func_ov001_02154da0(void);
 extern "C" void func_ov001_02156b20(void* arg0);
-extern "C" void func_ov017_021bb27c(void* arg0);
+extern "C" void EndEventTask_ov017_021bb27c(void* eventTask);
 
 extern char gMusicManager_02109bf4;
 
@@ -41,7 +41,7 @@ extern "C" ARM unsigned short func_ov001_021567c4(Struct_ov001_021567c4* arg0) {
 	ResetFollowCameraAngle_020a2718(var2);
 	SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
 	func_ov001_02156b20(arg0);
-	func_ov017_021bb27c(arg0);
+	EndEventTask_ov017_021bb27c(arg0);
 	arg0->unknown_1_ = 1;
 	return arg0->unknown_a_;
 }

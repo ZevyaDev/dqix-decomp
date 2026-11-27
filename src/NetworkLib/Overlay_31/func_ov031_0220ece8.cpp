@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov031_0220d60c(void);
+extern "C" int GetAccessPointConnection_ov031_0220d60c(void);
 
 struct Struct_ov031_0220ece8_3 {
 	unsigned char unknown_0_;
@@ -25,7 +25,7 @@ struct Struct_ov031_0220ece8_2 {
 
 // USA: func_ov031_0220ece8
 extern "C" ARM Struct_ov031_0220ece8_3* func_ov031_0220ece8(void) {
-	int var0 = func_ov031_0220d60c();
+	int var0 = GetAccessPointConnection_ov031_0220d60c();
 	Struct_ov031_0220ece8_2* var1 = (Struct_ov031_0220ece8_2*)(var0 + 0x2000);
 	Struct_ov031_0220ece8* var2 = var1->unknown_270_;
 	Struct_ov031_0220ece8_3* var3 = 0;

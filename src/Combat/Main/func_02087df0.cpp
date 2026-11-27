@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_02087df0
-extern "C" ARM void func_02087df0(void* arg0) {
-    unsigned char* var0 = (unsigned char*)arg0;
-    *(int*)(var0 + 0x14) &= ~0x10000;
-    *(int*)(var0 + 0x58) &= ~0x1c0000;
-    var0[0x74] = 0;
-    var0[0x97] = 0;
+// USA: ClearSpellResistanceBuff_02087df0
+extern "C" ARM void ClearSpellResistanceBuff_02087df0(void* stats) {
+    unsigned char* statsBytes = (unsigned char*)stats;
+    *(int*)(statsBytes + 0x14) &= ~0x10000;
+    *(int*)(statsBytes + 0x58) &= ~0x1c0000;
+    statsBytes[0x74] = 0;
+    statsBytes[0x97] = 0;
 }

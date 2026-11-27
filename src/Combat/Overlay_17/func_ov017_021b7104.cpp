@@ -10,31 +10,31 @@ enum {Enum_ov017_021b7104_744=0x2e8, Enum_ov017_021b7104_17408=0x4400, Enum_ov01
 
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 
-struct Struct_ov017_021b7104 {
+struct BattleRequest_ov017_021b7104 {
     unsigned char unknown_0_;
     unsigned char unknown_1_;
     unsigned short unknown_2_;
-    unsigned short unknown_4_;
+    unsigned short battleId_4_;
     unsigned char unknown_6_[2];
-    unsigned int unknown_8_;
+    unsigned int scriptedBattleId_8_;
     unsigned char unknown_c_;
     unsigned char unknown_d_;
     unsigned char unknown_e_;
     unsigned char unknown_f_;
     short unknown_10_;
-    unsigned char unknown_12_;
+    unsigned char timeOfDayIndex_12_;
     unsigned char unknown_13_[1];
     unsigned int unknown_14_;
 };
 
-struct Struct_ov017_021b7104_2 {
+struct BattleManager_ov017_021b7104_2 {
     unsigned char unknown_0_[0x20];
     unsigned char unknown_20_;
-    unsigned char unknown_21_;
+    unsigned char timeOfDayIndex_21_;
     unsigned short unknown_22_;
-    unsigned short unknown_24_;
+    unsigned short battleId_24_;
     unsigned short unknown_26_;
-    unsigned int unknown_28_;
+    unsigned int scriptedBattleId_28_;
     unsigned char unknown_2c_[0x40 - 0x2c];
     unsigned char unknown_40_;
     unsigned char unknown_41_;
@@ -48,35 +48,35 @@ struct Struct_ov017_021b7104_2 {
     unsigned char unknown_51_;
 };
 
-// USA: func_ov017_021b7104
-extern "C" ARM void func_ov017_021b7104(Struct_ov017_021b7104_2* arg0, Struct_ov017_021b7104* arg1) {
-    GameState* var0 = GameState::GetInstance();
-    GameResources* var1 = GetGameResources();
+// USA: ApplyBattleRequest_ov017_021b7104
+extern "C" ARM void ApplyBattleRequest_ov017_021b7104(BattleManager_ov017_021b7104_2* battleManager, BattleRequest_ov017_021b7104* request) {
+    GameState* gameState = GameState::GetInstance();
+    GameResources* gameResources = GetGameResources();
 
-    arg0->unknown_22_ = arg1->unknown_1_;
-    arg0->unknown_24_ = arg1->unknown_4_;
-    arg0->unknown_26_ = arg1->unknown_2_;
-    arg0->unknown_20_ = arg1->unknown_0_;
-    int var2;
-    if (arg1->unknown_0_ == 0) {
-        var2 = -1;
+    battleManager->unknown_22_ = request->unknown_1_;
+    battleManager->battleId_24_ = request->battleId_4_;
+    battleManager->unknown_26_ = request->unknown_2_;
+    battleManager->unknown_20_ = request->unknown_0_;
+    int protagonistIndex;
+    if (request->unknown_0_ == 0) {
+        protagonistIndex = -1;
     } else {
-        var2 = GetProtagonistObjectIndex_020100a8(var0);
+        protagonistIndex = GetProtagonistObjectIndex_020100a8(gameState);
     }
-    arg0->unknown_46_ = (unsigned char)var2;
-    arg0->unknown_28_ = arg1->unknown_8_;
-    arg0->unknown_41_ = arg1->unknown_d_;
-    arg0->unknown_40_ = arg1->unknown_c_;
-    arg0->unknown_42_ = arg1->unknown_e_;
-    arg0->unknown_44_ = (unsigned short)arg1->unknown_10_;
-    arg0->unknown_51_ = arg1->unknown_f_;
-    arg0->unknown_48_ = arg1->unknown_14_;
-    arg0->unknown_21_ = arg1->unknown_12_;
+    battleManager->unknown_46_ = (unsigned char)protagonistIndex;
+    battleManager->scriptedBattleId_28_ = request->scriptedBattleId_8_;
+    battleManager->unknown_41_ = request->unknown_d_;
+    battleManager->unknown_40_ = request->unknown_c_;
+    battleManager->unknown_42_ = request->unknown_e_;
+    battleManager->unknown_44_ = (unsigned short)request->unknown_10_;
+    battleManager->unknown_51_ = request->unknown_f_;
+    battleManager->unknown_48_ = request->unknown_14_;
+    battleManager->timeOfDayIndex_21_ = request->timeOfDayIndex_12_;
 
-    if (arg1->unknown_0_ != 0 && arg1->unknown_14_ == 0) {
-        SetFlags00(var1, 0x800);
+    if (request->unknown_0_ != 0 && request->unknown_14_ == 0) {
+        SetFlags00(gameResources, 0x800);
     }
 
-    *((unsigned char*)var1 + 0x4000 + Enum_ov017_021b7104_744) = 0;
-    *(unsigned short*)((char*)var1 + Enum_ov017_021b7104_17408 + Enum_ov017_021b7104_194) = 0;
+    *((unsigned char*)gameResources + 0x4000 + Enum_ov017_021b7104_744) = 0;
+    *(unsigned short*)((char*)gameResources + Enum_ov017_021b7104_17408 + Enum_ov017_021b7104_194) = 0;
 }

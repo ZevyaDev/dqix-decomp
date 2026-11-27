@@ -25,7 +25,7 @@ extern const unsigned char data_ov031_02248eac[3];
 extern const unsigned char data_ov031_02248eb0[4];
 
 extern "C" ARM Struct_ov031_0222b918_2* func_ov031_0223be44(int arg0, int arg1);
-extern "C" int func_ov031_0223bdb0(int, int, void*);
+extern "C" int CopySpriteOAMEntries_ov031_0223bdb0(int, int, void*);
 
 // USA: func_ov031_0222b918
 extern "C" ARM void func_ov031_0222b918(void) {
@@ -40,11 +40,11 @@ extern "C" ARM void func_ov031_0222b918(void) {
 		gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_24_[var1] = func_ov031_0223be44(0, 0x18);
 	}
 	for (var1 = 0; var1 < sizeof(data_ov031_02248eac); var1++) {
-		func_ov031_0223bdb0(0, data_ov031_02248eac[var1], gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_10_[0]);
+		CopySpriteOAMEntries_ov031_0223bdb0(0, data_ov031_02248eac[var1], gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_10_[0]);
 		gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_42_[var1] = gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_10_[0]->unknown_4_ & 0x3ff;
 	}
 	for (var1 = 0; var1 < sizeof(data_ov031_02248eb0); var1++) {
-		func_ov031_0223bdb0(0, data_ov031_02248eb0[var1], gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_24_[0]);
+		CopySpriteOAMEntries_ov031_0223bdb0(0, data_ov031_02248eb0[var1], gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_24_[0]);
 		gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_48_[var1] = gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_24_[0]->unknown_4_ & 0x3ff;
 	}
 	for (var1 = 0; var1 < var0; var1++) {

@@ -5,7 +5,7 @@
 #include "NitroSDK/VRAMAllocation.h"
 
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_020542b4(void* arg0, void* arg1, void* arg2);
+extern "C" void InitPartyMemberSlotAllocators_020542b4(void* slot, void* sourceAllocator, void* textureArena);
 
 extern AllocatorUnion gMainHeap_02114e20;
 
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov017_021a02f0(Struct_ov017_021a02f0_3* arg0) {
     SaveTexturePaletteAllocationState((unsigned int*)(arg0->unknown_2a78_[1].unknown_28_));
 
     for (int var3 = 0; var3 < 4; var3++) {
-        func_020542b4(&arg0->unknown_12c8_[var3], &arg0->unknown_38_[var3 + 1], &arg0->unknown_2cc_[var3 + 1]);
+        InitPartyMemberSlotAllocators_020542b4(&arg0->unknown_12c8_[var3], &arg0->unknown_38_[var3 + 1], &arg0->unknown_2cc_[var3 + 1]);
         arg0->unknown_12c8_[var3].unknown_2_ = var3;
     }
 }

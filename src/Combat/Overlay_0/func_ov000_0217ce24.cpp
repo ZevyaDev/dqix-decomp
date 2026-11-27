@@ -32,7 +32,7 @@ extern "C" Struct_ov000_021735d0_2* GetSelectedMemberPanel_ov000_0217f8c0(Struct
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov000_0218155c(void*);
 extern "C" void func_ov000_0217a9d0(int,int,int,TextWindowManager_0205d81c*);
-extern "C" void func_02092aa4(Struct_02092aa4*, int);
+extern "C" void ResetCallToArms_02092aa4(Struct_02092aa4*, int);
 extern "C" void func_02092a74(SafeAllocator*,SafeAllocator*);
 extern "C" int func_ov000_0217c5f4(void*);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*,int);
@@ -112,7 +112,7 @@ extern "C" ARM void func_ov000_0217ce24(Struct_ov000_021682ec_5* arg0,int arg1,i
             func_ov000_02176e3c(arg0,0,arg0->unknown_1d60_[arg0->unknown_1d68_],arg1,arg2,1);
             arg0->unknown_1d68_++;arg0->unknown_1d60_[arg0->unknown_1d68_]=9;
             arg0->unknown_1af8_.Reset();
-            func_02092aa4((Struct_02092aa4*)&arg0->unknown_7c_, (signed char)arg0->unknown_17c_);
+            ResetCallToArms_02092aa4((Struct_02092aa4*)&arg0->unknown_7c_, (signed char)arg0->unknown_17c_);
             func_02092a74(&arg0->unknown_7c_,&arg0->unknown_1af8_);
             arg0->unknown_b3_|=8;
             break;

@@ -21,7 +21,7 @@ extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
-extern "C" int func_02094b9c(void* arg0, void* arg1);
+extern "C" int IsInsideZoneFeature_02094b9c(void* feature, void* position);
 extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char* prompt);
 extern "C" void func_ov017_0219b33c(void* arg0, void* arg1, int arg2, int arg3);
 
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_02198618(void* arg0) {
     struct Struct_ov017_02198618 var4 = *(struct Struct_ov017_02198618*)((char*)var1 + 0x44);
 
     while (var3 != NULL) {
-        if (func_02094b9c(var3, &var4) != 0) {
+        if (IsInsideZoneFeature_02094b9c(var3, &var4) != 0) {
             unsigned short var5 = *(unsigned short*)(var3 + 0x2c);
             short var6 = *(short*)(var2 + 0x2700 + Enum_ov017_02198618_132);
             if (var5 == var6) {

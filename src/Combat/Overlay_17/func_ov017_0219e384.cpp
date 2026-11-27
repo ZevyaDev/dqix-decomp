@@ -342,7 +342,7 @@ extern "C" void func_0208e520(void* arg0, void* arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern "C" char* strcpy(char* arg0, const char* arg1);
 extern "C" int IsQuestersRestZone_020981e4(int, int);
-extern "C" int func_02098210(int, int);
+extern "C" int IsQuestersRestLobbyZone_02098210(int, int);
 extern "C" void* func_0208e9e8(void);
 extern "C" signed char* GetFollowCamera_020100f8(char*);
 struct Struct_0209c3b4_2;
@@ -356,7 +356,7 @@ struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
 struct Struct_0208f3a8;
 extern "C" void func_0208f3a8(Struct_0208f3a8*);
-extern "C" void func_0206461c(void* arg0, void* arg1);
+extern "C" void LoadZoneTriggers_0206461c(void* flagManager, void* currentMap);
 extern "C" void* GetQuestManager_02094d6c(void);
 extern "C" void func_02095b30(void* arg0, int arg1);
 extern "C" void func_02097ec8(void* arg0);
@@ -377,7 +377,7 @@ extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_02196c08(unsigned char*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov017_021b6e70(struct Struct_ov017_0219e384_7* arg0, int arg1);
-extern "C" void func_ov017_021b7104(void* arg0, struct Struct_ov017_0219e384_7* arg1);
+extern "C" void ApplyBattleRequest_ov017_021b7104(void* battleManager, struct Struct_ov017_0219e384_7* request);
 extern "C" int func_020649f4(void* arg0, void* arg1);
 struct Struct_02013fb4;
 extern "C" int func_0208dc00(Struct_02013fb4*, int, int);
@@ -746,7 +746,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			unsigned short var53 = var6->currentZoneID_;
 			data_ov017_021d75b8.unknown_4_ = -1;
 			if (IsQuestersRestZone_020981e4((int)var8, var53) != 0 &&
-			    func_02098210((int)var8, var53) == 0 &&
+			    IsQuestersRestLobbyZone_02098210((int)var8, var53) == 0 &&
 			    IsLocalWirelessGuest_0202c540(var13) != 0) {
 				unsigned char* var54 = (unsigned char*)var8;
 				if (var54[0x1b62] == 0) {
@@ -834,7 +834,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var15, 0x200000);
 		if (var4->unknown_a_ == 0) {
 			func_0208f3a8((Struct_0208f3a8*)var57);
-			func_0206461c(var11, (unsigned char*)var6->pUnknownStruct_8_);
+			LoadZoneTriggers_0206461c(var11, (unsigned char*)var6->pUnknownStruct_8_);
 			func_02095b30(GetQuestManager_02094d6c(), 0);
 		}
 		if (IsNotLocalWirelessGuest_0202c508(var13) != 0) {
@@ -890,7 +890,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			var17.unknown_6c_.unknown_8_ = var4->unknown_28_;
 			var17.unknown_6c_.unknown_12_ = var16[0x26];
 			func_ov017_021b6e70(&var17.unknown_6c_, var17.unknown_6c_.unknown_2_);
-			func_ov017_021b7104(var69, &var17.unknown_6c_);
+			ApplyBattleRequest_ov017_021b7104(var69, &var17.unknown_6c_);
 			AppendToQueue_020469b4((Queue_0201bdac_2*)var56, (QueueNode_0201bdac*)var69);
 			var4->unknown_28_ = -1;
 			var4->unknown_6e_ |= 1;

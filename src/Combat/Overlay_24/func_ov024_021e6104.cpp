@@ -9,7 +9,7 @@ struct Struct_ov024_021e6104_5 { int unknown_0_; int unknown_4_; };
 extern "C" int func_020850fc(unsigned char* arg0);
 extern "C" struct ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
 extern "C" void* GetTargetResult_ov000_0215fff4(void* target, int index, int listIndex);
-extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
+extern "C" short HealCombatant_ov000_0215a16c(void* battle, int combatantIndex, int amount, short* healedAmount);
 extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021e6104_5* flags, int flagIndex);
@@ -64,7 +64,7 @@ extern "C" ARM int func_ov024_021e6104(struct Struct_ov024_021e6104_4* arg0, int
         int var6 = var1 >> 2;
         if (var6 > 0 && inline_ov000_021584e8(var0) < inline_ov024_021e6104(var0)) {
             short var7 = 0;
-            short var8 = func_ov000_0215a16c(arg0->unknown_10_, arg1, var6, &var7);
+            short var8 = HealCombatant_ov000_0215a16c(arg0->unknown_10_, arg1, var6, &var7);
             struct ActionResult_ov000_021584e8* var9 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
             if (!var9) return 0;
             AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var9, 0x215);

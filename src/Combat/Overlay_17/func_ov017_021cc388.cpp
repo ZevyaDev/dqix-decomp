@@ -23,7 +23,7 @@ extern "C" GameObject* func_0200fee0(GameState* arg0, int arg1);
 
 extern "C" void func_ov017_02190264(unsigned char* arg0, int arg1);
 extern "C" void func_ov017_021905b8(unsigned char* arg0, int arg1, int arg2);
-extern "C" void CreatePartyMemberObject_ov017_0218f064(unsigned char* gameResources, int memberIndex, int arg2, int requestModelLoad, int arg4);
+extern "C" void CreatePartyMemberObject_ov017_0218f064(unsigned char* gameResources, int memberIndex, int kind, int requestModelLoad, int arg4);
 
 extern "C" void func_ov017_021cc4b8(unsigned char arg0, int arg1, int arg2);
 extern "C" ARM void func_020263b0(unsigned char* arg0, unsigned int arg1);

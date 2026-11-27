@@ -74,7 +74,7 @@ extern "C" void AppendCursorTag_02041ea4(char* buffer, int entryIndex);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" void func_02041fac(char* arg0, int arg1, int arg2);
-extern "C" void func_02041b00(char* arg0, int arg1);
+extern "C" void AppendYOffsetTag_02041b00(char* buffer, int yOffset);
 extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_02041b34(char* arg0, int arg1, int arg2);
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov012_021894b4(Struct_ov012_021894b4_2* arg0, char* arg
     AppendXPositionTag_02041a28(arg1, (0xe0 - func_020420e8(var1, 0)) >> 1);
 #endif
     func_02041fac(arg1, (int)var1, 0x10);
-    func_02041b00(arg1, 3);
+    AppendYOffsetTag_02041b00(arg1, 3);
     AppendMenuEntry_02041b70(arg1, 0, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_133c_, 2));
 #if defined(jpn)
     AppendText_02042058(arg1, arg0->unknown_1378_);

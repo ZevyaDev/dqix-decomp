@@ -27,7 +27,7 @@ extern "C" ARM int func_ov001_0215fc48(char* arg0, int arg1) {
         if (!(var6->unknown_2c_.unknown1_0_.unknown_2_4_ & 1) && var6->unknown_2c_.unknown1_0_.unknown_0_ == var0 && var6->unknown_2c_.unknown1_0_.unknown_1_ == var2) {
             var6->unknown_2c_.unknown1_0_.unknown_2_4_ = var6->unknown_2c_.unknown1_0_.unknown_2_4_ | 0x300;
             OpenDoor_02018300(var5, var6, var3, var4, 0);
-            Struct_02016874_2* var7 = func_02018b34(var5, var6);
+            BMDJEntry_02016874_2* var7 = FindDoorEntry_02018b34(var5, var6);
             var7->unknown_2_ |= 0x40;
         }
         var6 = var6->unknown_70_;

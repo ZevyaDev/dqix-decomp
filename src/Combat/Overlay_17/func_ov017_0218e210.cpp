@@ -11,7 +11,7 @@ extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" int func_ov017_0218df50(void*, void*);
 extern "C" int func_ov017_0218dfd8(GameObject*);
 extern "C" void func_ov017_0219344c(GameObject*, int, const Vector3fix*, int, int*, int*);
-extern "C" Struct_ov017_0218e210* func_02033f44(Struct_02033f44*);
+extern "C" Struct_ov017_0218e210* GetCollidedWallTriangle_02033f44(Struct_02033f44*);
 extern "C" int func_02039dcc(unsigned char*);
 extern "C" void func_02039dbc(unsigned char*);
 extern "C" void SetFacing_02033834(Struct_02033834_2*, int);
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov017_0218e210(int arg0, int arg1) {
         var8 |= func_ov017_0218dfd8(var1);
     }
     func_ov017_0219344c(var1, 1, &var2, var6, &var7, &var8);
-    Struct_ov017_0218e210* var9 = func_02033f44((Struct_02033f44*)var1);
+    Struct_ov017_0218e210* var9 = GetCollidedWallTriangle_02033f44((Struct_02033f44*)var1);
     int var10 = 0;
     int var11 = 0;
     if (var8 && var9) {

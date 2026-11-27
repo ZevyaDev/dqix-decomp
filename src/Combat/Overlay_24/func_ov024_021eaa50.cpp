@@ -49,7 +49,7 @@ extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(char*, short*, int, u
 extern "C" int func_ov000_02159cb4(void*, int);
 extern "C" int func_ov024_021eadfc(GameObject*);
 extern "C" unsigned int GetSkillAdjustedMPCost_020dd290(void*, unsigned int);
-extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
+extern "C" int IsSpellcastingBlocked_ov024_021dd010(Struct_ov024_021dced0_2*);
 extern "C" int func_ov000_0215fd24(int, int);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 
@@ -128,7 +128,7 @@ extern "C" ARM int func_ov024_021eaa50(Struct_ov024_021ea4d0* arg0, Struct_ov024
         return var11;
     }
 
-    if ((var2->unknown_10_ & 1) && func_ov024_021dd010((Struct_ov024_021dced0_2*)var5)) {
+    if ((var2->unknown_10_ & 1) && IsSpellcastingBlocked_ov024_021dd010((Struct_ov024_021dced0_2*)var5)) {
         unsigned short var13 = *(unsigned short*)var1;
         int var14 = 0x392;
         *(unsigned short*)(var1 + 2) = var13;

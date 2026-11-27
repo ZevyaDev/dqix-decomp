@@ -3,9 +3,9 @@
 
 extern "C" void func_0204a4ac(void*);
 
-// USA: func_0204a464
-extern "C" ARM void func_0204a464(char* arg0, const char* arg1) {
-    strcpy(arg0 + 0x234, arg1);
-    *(int*)(arg0 + 0x258) = -1;
-    func_0204a4ac(arg0);
+// USA: SetBoneCameraTargetBone_0204a464
+extern "C" ARM void SetBoneCameraTargetBone_0204a464(char* camera, const char* boneName) {
+    strcpy(camera + 0x234, boneName);
+    *(int*)(camera + 0x258) = -1;
+    func_0204a4ac(camera);
 }

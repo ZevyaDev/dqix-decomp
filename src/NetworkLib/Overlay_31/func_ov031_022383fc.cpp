@@ -9,7 +9,7 @@ extern Struct_ov031_022383fc* gDialog_ov031_02290d10;
 struct Struct_ov031_022269d8;
 struct Struct_ov031_02223268_2;
 extern "C" Struct_ov031_02223268_2* func_ov031_0223baa0(Struct_ov031_022269d8* arg0, int arg1);
-extern "C" void func_ov031_0223bdb0(int arg0, int arg1, void* arg2);
+extern "C" void CopySpriteOAMEntries_ov031_0223bdb0(int isSubScreen, int spriteId, void* oamEntries);
 extern "C" void SetSpritePosition_ov031_0223bbd8(void* sprite, int entryIndex, int x, int y);
 
 struct OAMAllocation_ov031_02222ce4;
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov031_022383fc(int arg0) {
 
 	unsigned char var1 = gDialog_ov031_02290d10->unknown_1c_;
 	unsigned char var2 = *((unsigned char*)data_ov031_022492fe + var1 * 2 + arg0);
-	func_ov031_0223bdb0(0, var2 + 1, var0);
+	CopySpriteOAMEntries_ov031_0223bdb0(0, var2 + 1, var0);
 
 	unsigned char var3 = gDialog_ov031_02290d10->unknown_1c_;
 	Struct_ov031_022269d8* var4 = *(Struct_ov031_022269d8**)((char*)gDialog_ov031_02290d10 + 8 + arg0 * 4);

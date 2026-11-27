@@ -11,11 +11,11 @@
 // USA: func_0201cb60
 extern "C" ARM bool func_0201cb60(Script::Parameter *arg0, int arg1, Struct_020134e0::Struct_0201cb60_3 &arg2) {
     Script::Parameter *var0 = arg0;
-    Struct_0201cb60_2 *var1       = static_cast<Struct_0201cb60_2 *>(func_02011584(GameState::GetInstance()));
+    MapList_0201cb60_2 *var1       = static_cast<MapList_0201cb60_2 *>(func_02011584(GameState::GetInstance()));
 
     arg2.unknown_0_ = (arg0++)->ToInt();
     if (var0[1].type == 0) {
-        Struct_0201cb60 *var2 = func_0209998c(var1, (arg0++)->ToString());
+        MapListEntry_0201cb60 *var2 = func_0209998c(var1, (arg0++)->ToString());
         if (var2 == NULL) return false;
         arg2.unknown_1c_ = var2->unknown_0_;
     } else {

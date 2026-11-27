@@ -11,12 +11,12 @@ struct Struct_ov031_02222f44 {
 	unsigned char unknown_4_[19];
 	unsigned char unknown_17_;
 };
-extern Struct_ov031_02222f44* data_ov031_02250ba8;
+extern Struct_ov031_02222f44* gButtonBar_ov031_02250ba8;
 
 // USA: func_ov031_02222f44
 extern "C" ARM void func_ov031_02222f44(void* arg0) {
 	unsigned int var0, var1;
-	Struct_ov031_02222f44* var2 = data_ov031_02250ba8;
+	Struct_ov031_02222f44* var2 = gButtonBar_ov031_02250ba8;
 	GetSpritePosition_ov031_0223bd28((OAMAllocation_ov031_02222f44_2*)var2->unknown_0_[2], 0, &var0, &var1);
 	var1 -= 4;
 	func_ov031_02222eb0((void*)var1);

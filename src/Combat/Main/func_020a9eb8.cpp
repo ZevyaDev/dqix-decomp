@@ -364,11 +364,11 @@ extern "C" unsigned char* GetEquipmentBagCounts_0207c60c(void* bag, unsigned int
 extern "C" short GetEquipmentBagCapacity_0207c620(unsigned char* bag, unsigned int category);
 extern "C" unsigned char func_0207c694(unsigned char* arg0, unsigned int arg1);
 extern "C" unsigned short* func_020120a0(char* arg0, unsigned int arg1);
-extern "C" unsigned char func_0209ca98(char* arg0);
-extern "C" unsigned char func_0205ea18(unsigned char* arg0);
+extern "C" unsigned char GetMusicVolumeLevel_0209ca98(char* manager);
+extern "C" unsigned char GetSoundEffectVolumeLevel_0205ea18(unsigned char* manager);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int GetStoryStep_020107d0(char* gameState);
-extern "C" int func_02010804(char* arg0);
+extern "C" int GetStorySubStep_02010804(char* gameState);
 extern "C" int GetStoryProgress_0201081c(char* gameState);
 extern "C" void AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
 extern "C" int func_0201b588(int arg0);
@@ -552,8 +552,8 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             var22->unknown_2c50_[1] = var35[1];
             var22->unknown_2c50_[2] = var35[2];
             var22->unknown_2c50_[3] = var35[3];
-            var22->unknown_2c58_ = func_0209ca98((char*)&gMusicManager_02109bf4);
-            var22->unknown_2c59_ = func_0205ea18(gSoundEffectManager_02108760);
+            var22->unknown_2c58_ = GetMusicVolumeLevel_0209ca98((char*)&gMusicManager_02109bf4);
+            var22->unknown_2c59_ = GetSoundEffectVolumeLevel_0205ea18(gSoundEffectManager_02108760);
             var22->unknown_2c5a_ = var25->unknown_f7d_;
             var22->unknown_2c5b_ = var34->unknown_63dc_;
             Struct_020a9eb8_2::Struct_020a9eb8_3* var36 = &var26;
@@ -626,7 +626,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
             Struct_020a9eb8_6 var39;
             var39.unknown_0_ = GetStoryChapter_0201079c((char*)var38);
             var39.unknown_4_ = GetStoryStep_020107d0((char*)var38);
-            var39.unknown_8_ = func_02010804((char*)var38);
+            var39.unknown_8_ = GetStorySubStep_02010804((char*)var38);
             var39.unknown_c_ = GetStoryProgress_0201081c((char*)var38);
             func_020a99d0(&var39.unknown_10_, var1);
             func_02075acc((char*)&arg1->unknown_2cac_ - var21, &var39, sizeof(var39), 0);

@@ -3,7 +3,7 @@
 extern "C" int IsBrightnessFadeActive_ov031_0223c054(int useSubScreen);
 extern "C" void func_ov031_022258b4(void);
 extern "C" int PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
-extern unsigned char* data_ov031_02290c98;
+extern unsigned char* gAddressEntryPage_ov031_02290c98;
 extern "C" void func_ov031_02225c38(int arg0);
 extern "C" void func_ov031_02225c4c(unsigned char arg0);
 extern "C" void func_ov031_02225c60(unsigned char arg0);
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov031_0222d9a4(void) {
 	if (IsBrightnessFadeActive_ov031_0223c054(0) != 0) return;
 	func_ov031_022258b4();
 	PlayWifiSetupSoundEffect_ov031_02236878(0x14);
-	if (data_ov031_02290c98[0x14] == 0) {
+	if (gAddressEntryPage_ov031_02290c98[0x14] == 0) {
 		func_ov031_02225c38(0);
 		func_ov031_02225c60(0);
 	} else {

@@ -1,5 +1,4 @@
 #if defined(jpn)
-#define func_ov023_021e6de4 func_ov023_021e7148
 #define func_ov012_0218432c func_ov012_021853a0
 #define func_ov012_0218930c func_ov012_02189be8
 #define func_ov012_0218adac func_ov012_0218bba0
@@ -60,11 +59,11 @@ struct SoundEffectManager_02108760;
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" int PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
-struct Struct_ov012_02186a7c;
-extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
+struct ProfileMenu_ov012_02186a7c;
+extern "C" int IsProfileMenuCancelPressed_ov023_021e6e20(struct ProfileMenu_ov012_02186a7c* menu);
 
 extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void* menu);
-extern "C" int func_ov023_021e6de4(char* arg0);
+extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(char* menu);
 extern "C" int func_ov012_0218432c(int arg0);
 extern "C" int func_ov023_021e6448(void* arg0);
 #if defined(jpn)
@@ -97,7 +96,7 @@ extern "C" ARM void func_ov012_02186e38(char* arg0) {
 		*(int*)(arg0 + Enum_ov012_02186e38_5084) = GetCursorIndex_0205d794((struct Struct_0205c570*)(arg0 + Enum_ov012_02186e38_172));
 	}
 
-	if (func_ov023_021e6de4(arg0) != 0) {
+	if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0) != 0) {
 		PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
 		void* var2 = GameState::GetInstance();
 		int var3 = *(int*)(arg0 + Enum_ov012_02186e38_5084);
@@ -119,6 +118,6 @@ extern "C" ARM void func_ov012_02186e38(char* arg0) {
 		return;
 	}
 
-	if (func_ov023_021e6e20((struct Struct_ov012_02186a7c*)arg0) == 0) return;
+	if (IsProfileMenuCancelPressed_ov023_021e6e20((struct ProfileMenu_ov012_02186a7c*)arg0) == 0) return;
 	func_ov012_0218930c(arg0, 1);
 }

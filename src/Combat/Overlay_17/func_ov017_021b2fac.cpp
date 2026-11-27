@@ -53,7 +53,7 @@ extern "C" void func_ov017_021b3678(struct Struct_ov017_021b2fac* arg0);
 extern "C" int func_ov017_021b3780(struct Struct_ov017_021b2fac* arg0);
 extern "C" int func_ov017_021b3e14(struct Struct_ov017_021b2fac* arg0);
 extern "C" void TintPartyMemberPalettes_ov017_0218fcf8(int, int, int);
-extern "C" void func_020d3c08(char* arg0);
+extern "C" void ClearNPCCompanionTable_020d3c08(char* companionTable);
 struct Struct_020d3c28;
 struct Struct_02013fb4;
 extern "C" void func_020d3c84(Struct_020d3c28*, Struct_02013fb4*, int);
@@ -64,7 +64,7 @@ struct ObjectArchiveLoadInfo_0203d028_11;
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11*);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
-extern "C" void func_02039d48(unsigned char*);
+extern "C" void SetFadeInOnMove_02039d48(unsigned char*);
 extern "C" void func_ov017_02191fec(void* arg0, int arg1);
 
 #if defined(jpn)
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov017_021b2fac(struct Struct_ov017_021b2fac* arg0) {
             if (var3->GetDetailedTaskStatus(arg0->unknown_10_) == 2) {
                 var3->GetLoadedFileByID(arg0->unknown_10_, &var14, &var15);
                 if (var14 != 0) {
-                    func_020d3c08(var16);
+                    ClearNPCCompanionTable_020d3c08(var16);
                     func_020d3c84((Struct_020d3c28*)var16, (Struct_02013fb4*)var14, var15);
                     var13 = var9->unknown_150_ != 0 ? var9->unknown_150_->unknown_56b_0_ : 0;
                     var2 = func_020d3d90((Struct_020d3d90*)var16, var13);
@@ -221,7 +221,7 @@ extern "C" ARM void func_ov017_021b2fac(struct Struct_ov017_021b2fac* arg0) {
             SetMotion_02033b88((Struct_02010604*)var9, 0);
             ((Object3D*)var9)->DisableFlag(0x200);
             ((Object3D*)var9)->SetInheritedAlpha(0);
-            func_02039d48((unsigned char*)var9);
+            SetFadeInOnMove_02039d48((unsigned char*)var9);
             func_ov017_02191fec(var8, var9->unknown_4_);
             var3->RemoveTask(arg0->unknown_10_);
             arg0->unknown_10_ = -1;

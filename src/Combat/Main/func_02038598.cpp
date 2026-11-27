@@ -392,7 +392,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
         if (!func_02033ec8((struct Struct_02033ec8*)arg0)) goto Exit;
         unsigned char var42 = var3->isPartyOrderRebuildPending_52_;
 
-        func_02038508(var3);
+        ResetLadderAction_02038508(var3);
         arg0->unknown_253_ = 1;
         var2->unknown_34_.unknown_0_0_ = 0;
         arg0->unknown_0_.obj3D_.DisableFlag(0x1180);
@@ -451,7 +451,7 @@ extern "C" ARM void func_02038598(Struct_02038598_6* arg0) {
             (struct QueueNode_0201bdac*)var46->unknown_ptr_array_36fc[4]);
         ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)var4, 0x400);
 
-        func_02038508(var3);
+        ResetLadderAction_02038508(var3);
         arg0->unknown_253_ = 1;
         var2->unknown_6_ = 0;
         var2->unknown_34_.unknown_0_0_ = 0;

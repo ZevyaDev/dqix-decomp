@@ -2,11 +2,11 @@
 
 #if defined(jpn)
 struct Struct_ov004_0217101c { unsigned int unknown_0_; char* unknown_4_; };
-extern Struct_ov004_0217101c data_ov004_0217101c;
-#define CONTEXT_VALUE data_ov004_0217101c.unknown_4_
+extern Struct_ov004_0217101c gQuestList_ov004_0217101c;
+#define CONTEXT_VALUE gQuestList_ov004_0217101c.unknown_4_
 #else
-extern char* data_ov004_0217101c;
-#define CONTEXT_VALUE data_ov004_0217101c
+extern char* gQuestList_ov004_0217101c;
+#define CONTEXT_VALUE gQuestList_ov004_0217101c
 #endif
 extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
 

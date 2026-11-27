@@ -92,7 +92,7 @@ extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void func_02026644(char* arg0);
 extern "C" void func_ov017_021c2744(struct Struct_ov002_02157d40_13* arg0);
 extern "C" void ClearLevelEntries_0208247c(void* levelEntries);
-extern "C" void func_02048350(struct Struct_ov002_02157d40_8* arg0, int arg1);
+extern "C" void SpendMP_02048350(struct Struct_ov002_02157d40_8* member, int mpCost);
 extern "C" void func_ov002_02157ce0(char* arg0);
 extern "C" void SetMessageString_02046574(struct Struct_ov002_02157d40_6* window, int index, char* text);
 extern "C" int func_02026a28(struct Struct_ov002_02157d40_11* arg0);
@@ -464,7 +464,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                         AppendText_02042058(arg0->unknown_1bd0_, (const char*)((int)((StringList*)((struct Struct_0201099c_3*)(arg0->unknown_20_)))->GetString(8)));
                         AppendText_02042058(arg0->unknown_1bd0_, (const char*)(var1 + RG(0x860, 0x700)));
                     }
-                    func_02048350((struct Struct_ov002_02157d40_8*)var7, var17->unknown_8_0_);
+                    SpendMP_02048350((struct Struct_ov002_02157d40_8*)var7, var17->unknown_8_0_);
                     if (IsLocalWirelessOn_0202b7d8(var8) != 0) {
                         func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
                     }
@@ -724,7 +724,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     arg0->unknown_2488_ = 0x232c;
                     arg0->unknown_248c_ = 1;
                 }
-                func_02048350((struct Struct_ov002_02157d40_8*)var7, var56->unknown_8_0_);
+                SpendMP_02048350((struct Struct_ov002_02157d40_8*)var7, var56->unknown_8_0_);
                 if (IsLocalWirelessOn_0202b7d8(var8) != 0) {
                     func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
                 }
@@ -912,7 +912,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
         arg0->unknown_1bc0_ = 0;
     }
     if (var9 != 0) {
-        func_02048350((struct Struct_ov002_02157d40_8*)var7, var6->unknown_8_0_);
+        SpendMP_02048350((struct Struct_ov002_02157d40_8*)var7, var6->unknown_8_0_);
         if (IsLocalWirelessOn_0202b7d8(var8) != 0) {
             func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
         }

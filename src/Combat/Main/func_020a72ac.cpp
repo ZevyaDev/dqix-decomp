@@ -20,7 +20,7 @@ struct Struct_020a72ac_2 {
     short unknown_20_;
 };
 struct Struct_02017a94;
-struct Struct_02013380;
+struct BMDJEntry_02013380;
 struct Struct_02033834;
 struct Struct_0200ffc0;
 
@@ -41,7 +41,7 @@ extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_020a6aa4(Vector3i* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
 extern "C" struct Struct_02017a94* func_0201b600(Struct_02017a94* arg0, int arg1, unsigned short arg2);
-extern "C" void func_02013380(struct Struct_02013380* arg0, int arg1, int arg2);
+extern "C" void SetBMDJEntryVisible_02013380(struct BMDJEntry_02013380* entry, int bmdjId, int isVisible);
 extern "C" void func_0201b8c8(struct Struct_02017a94* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_0201b754(void* arg0, int arg1);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
@@ -60,9 +60,9 @@ extern "C" ARM void func_020a72ac(struct Struct_020a72ac_3* arg0) {
         if (arg0->unknown_2786_ == arg0->unknown_0_) {
             if (arg0->unknown_0_ == 0x76c) {
                 struct Struct_02017a94* var4 = func_0201b600((struct Struct_02017a94*)arg0, 0, 4);
-                if (var4) func_02013380((struct Struct_02013380*)var4, 0, 1);
+                if (var4) SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var4, 0, 1);
                 var4 = func_0201b600((struct Struct_02017a94*)arg0, 0, 0x28);
-                if (var4) func_02013380((struct Struct_02013380*)var4, 0, 1);
+                if (var4) SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var4, 0, 1);
             } else if (var2) {
                 var2->MakeVisible();
                 Struct_020a72ac_2* var5 = static_cast<Struct_020a72ac_2*>(func_0201b754(arg0, arg0->unknown_2784_));
@@ -93,9 +93,9 @@ extern "C" ARM void func_020a72ac(struct Struct_020a72ac_3* arg0) {
             }
         } else if (arg0->unknown_0_ == 0x76c) {
             struct Struct_02017a94* var7 = func_0201b600((struct Struct_02017a94*)arg0, 0, 4);
-            if (var7) func_02013380((struct Struct_02013380*)var7, 0, 0);
+            if (var7) SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var7, 0, 0);
             var7 = func_0201b600((struct Struct_02017a94*)arg0, 0, 0x28);
-            if (var7) func_02013380((struct Struct_02013380*)var7, 0, 0);
+            if (var7) SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var7, 0, 0);
         } else if (arg0->unknown_0_ == 0x2774) {
             if (var2) var2->MakeVisible();
         } else if (IsLocalWirelessGuest_0202c540(var1) && arg0->unknown_0_ == 0x2710) {

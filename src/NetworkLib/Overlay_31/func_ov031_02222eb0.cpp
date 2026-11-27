@@ -5,7 +5,7 @@ struct Struct_ov031_02222eb0 {
 	unsigned char unknown_4_[19];
 	unsigned char unknown_17_;
 };
-extern Struct_ov031_02222eb0* data_ov031_02250ba8;
+extern Struct_ov031_02222eb0* gButtonBar_ov031_02250ba8;
 
 extern "C" void SetSpritePosition_ov031_0223bbd8(void* sprite, int entryIndex, int x, int y);
 extern unsigned char data_ov031_02248940[];
@@ -14,14 +14,14 @@ extern unsigned short data_ov031_0224891c[];
 
 // USA: func_ov031_02222eb0
 extern "C" ARM void func_ov031_02222eb0(void* arg0) {
-	Struct_ov031_02222eb0* var0 = data_ov031_02250ba8;
+	Struct_ov031_02222eb0* var0 = gButtonBar_ov031_02250ba8;
 	int var1 = data_ov031_02248940[var0->unknown_17_];
 	SetSpritePosition_ov031_0223bbd8((void*)var0->unknown_0_[2], -1, 0, (int)arg0);
 	int var2 = 0;
 	if (var1 <= 0) return;
 	int var3 = -1;
 	do {
-		var0 = data_ov031_02250ba8;
+		var0 = gButtonBar_ov031_02250ba8;
 		void* var4 = (void*)((int*)var0)[var2];
 		unsigned char var5 = var0->unknown_17_;
 		unsigned char* var6 = data_ov031_02248932 + var5 * 2;

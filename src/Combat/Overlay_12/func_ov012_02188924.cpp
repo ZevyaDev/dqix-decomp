@@ -2,7 +2,6 @@
 #define R(j,u) (j)
 #define func_ov012_0218a7a0 func_ov012_0218b234
 #define func_ov012_0218adac func_ov012_0218bba0
-#define func_ov023_021e6de4 func_ov023_021e7148
 #else
 #define R(j,u) (u)
 #endif
@@ -18,9 +17,9 @@
 extern "C" int func_ov012_02184384(void* arg0, int arg1);
 extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void* menu);
 extern "C" int func_ov023_021e6448(void* arg0);
-extern "C" int func_ov023_021e6de4(char* arg0);
-struct Struct_ov012_02186a7c { char unknown_0_[R(0x90,0xac)]; };
-extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
+extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(char* menu);
+struct ProfileMenu_ov012_02186a7c { char unknown_0_[R(0x90,0xac)]; };
+extern "C" int IsProfileMenuCancelPressed_ov023_021e6e20(struct ProfileMenu_ov012_02186a7c* menu);
 #if defined(jpn)
 extern "C" void func_ov012_0218adac(void* arg0, int arg1, int arg2);
 #else
@@ -69,7 +68,7 @@ extern "C" ARM void func_ov012_02188924(char* arg0) {
     if (func_ov023_021e6448(arg0)) {
         *(int*)(arg0 + R(0x1448,0x13f0)) = GetCursorIndex_0205d794((struct Struct_0205c570*)(arg0 + R(0x90,0xac)));
     }
-    if (func_ov023_021e6de4(arg0)) {
+    if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0)) {
         short* var4 = *(short**)(arg0 + 0x1000 + R(0x420,0x3c8));
         int var5 = *(int*)(arg0 + 0x1000 + R(0x448,0x3f0));
         short var6 = var4[var5];
@@ -97,7 +96,7 @@ extern "C" ARM void func_ov012_02188924(char* arg0) {
         func_ov012_0218930c(arg0, 0);
         return;
     }
-    if (func_ov023_021e6e20((struct Struct_ov012_02186a7c*)arg0)) {
+    if (IsProfileMenuCancelPressed_ov023_021e6e20((struct ProfileMenu_ov012_02186a7c*)arg0)) {
         func_ov012_0218930c(arg0, 1);
     }
 }

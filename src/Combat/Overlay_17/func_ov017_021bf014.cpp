@@ -47,7 +47,7 @@ extern "C" void StartMessage_0204500c(Struct_02046574_2*, char*, int
 #endif
 );
 extern "C" int GetMessageChoice_020457e0(Struct_02046574_2*);
-extern "C" void func_020116c8(void*);
+extern "C" void StopFollowingTreasureMap_020116c8(void*);
 extern "C" void RestartMapDisplay_020dc2d0(int);
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void EnablePlayerControl_020397c0(void*);
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov017_021bf014(Struct_ov017_021bf014* arg0) {
         if (var10 == 0) arg0->unknown_8_ = 6;
         else if (var10 == 1) arg0->unknown_8_ = 9;
     } else if (arg0->unknown_8_ == 6) {
-        func_020116c8(var0);
+        StopFollowingTreasureMap_020116c8(var0);
         RestartMapDisplay_020dc2d0(0);
         arg0->unknown_8_ = 7;
     } else if (arg0->unknown_8_ == 7) {

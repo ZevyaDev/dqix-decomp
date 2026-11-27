@@ -11,7 +11,7 @@ struct Struct_ov023_021fb3c8_2 {
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
-extern "C" void* func_ov023_021fad18(void* arg0);
+extern "C" void* GetMenuObjectSpriteSet_ov023_021fad18(void* object);
 
 struct Struct_ov023_021fb3c8 {
     char unknown_0_[0xc];
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov023_021fb3c8(struct Struct_ov023_021fb3c8* arg0, void
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetMenuObjectList_ov011_021849c8(arg1);
     void* var2 = FindMenuObjectById_ov023_021f6880(var1, arg0->unknown_20_);
-    void* var3 = func_ov023_021fad18(var2);
+    void* var3 = GetMenuObjectSpriteSet_ov023_021fad18(var2);
     struct SpriteAnimationList_0205a254* var4 = *(struct SpriteAnimationList_0205a254**)((char*)var3 + 0x3c);
     if (var4 == NULL) {
         return;

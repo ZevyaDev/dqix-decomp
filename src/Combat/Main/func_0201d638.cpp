@@ -79,7 +79,7 @@ extern "C" ARM int func_0201d638(Script::Parameter* arg0, int arg1) {
                 const char* var3 = arg0->ToString();
                 arg0 += 1;
                 var1 += 1;
-                struct Struct_0201cb60* var4 = func_0209998c((struct Struct_0201cb60_2*)var0, var3);
+                struct MapListEntry_0201cb60* var4 = func_0209998c((struct MapList_0201cb60_2*)var0, var3);
                 if (var4 == 0) return 0;
                 H(0x30) = var4->unknown_0_;
             } else {
@@ -193,7 +193,7 @@ extern "C" ARM int func_0201d638(Script::Parameter* arg0, int arg1) {
             Script::Parameter* var20 = arg0 + 4;
             arg0 += 5;
             const char* var21 = var20->ToString();
-            struct Struct_0201cb60* var22 = func_0209998c((struct Struct_0201cb60_2*)var0, var21);
+            struct MapListEntry_0201cb60* var22 = func_0209998c((struct MapList_0201cb60_2*)var0, var21);
             if (var22 == 0) return 0;
             H(0x32) = var22->unknown_0_;
         } else {

@@ -28,7 +28,7 @@ struct FontGlyph_0204254c {
     char unknown_6_[2];
 };
 
-extern "C" bool func_02044494(void* arg0, void* arg1);
+extern "C" bool IsControlCode_02044494(void* arg0, void* arg1);
 extern "C" bool func_0206ac6c(void* arg0, void* arg1);
 extern "C" int func_0206abf8(void* arg0, void* arg1);
 extern "C" struct FontGlyph_0204254c* FindFontGlyph_0204254c(int text, int font);
@@ -40,7 +40,7 @@ extern "C" ARM int func_0206ac94(void* arg0, unsigned short arg1, unsigned char*
     if (!var1) {
         return 0;
     }
-    if (!func_02044494(arg0, &arg1)) {
+    if (!IsControlCode_02044494(arg0, &arg1)) {
         return 0;
     }
     var0 = 0;

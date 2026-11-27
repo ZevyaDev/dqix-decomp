@@ -2,7 +2,7 @@
 
 struct Struct_ov031_02232ac0 { unsigned char unknown_0_[0x1d]; unsigned char unknown_1d_; };
 struct Struct_ov031_02290cc0_5 { unsigned char unknown_0_; unsigned char unknown_1_[3]; Struct_ov031_02232ac0 *unknown_4_; };
-extern Struct_ov031_02290cc0_5 data_ov031_02290cc0;
+extern Struct_ov031_02290cc0_5 gConnectionListPage_ov031_02290cc0;
 extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
 extern "C" int CloseButtonBar_ov031_02222ddc(void);
 extern "C" char* GetEditedConnectionSettings_ov031_02235c70(void);
@@ -14,8 +14,8 @@ extern "C" void func_ov031_02232b44(void);
 extern "C" ARM void func_ov031_02232ac0(void) {
 	if (IsBrightnessFadeActive_ov031_0223c054(1) != 0) return;
 
-	if (data_ov031_02290cc0.unknown_4_->unknown_1d_ == 1) {
-		if (data_ov031_02290cc0.unknown_0_ == 3 ||
+	if (gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_1d_ == 1) {
+		if (gConnectionListPage_ov031_02290cc0.unknown_0_ == 3 ||
 		    *(unsigned char*)(GetEditedConnectionSettings_ov031_02235c70() + 0xe7) != 0xff) {
 			CloseButtonBar_ov031_02222ddc();
 		}

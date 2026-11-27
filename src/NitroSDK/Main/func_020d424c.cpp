@@ -26,7 +26,7 @@ struct Struct_021142e0_3
     Struct_020d424c_2* unknown_4_;
 };
 
-extern Struct_021142e0_3 data_021142e0;
+extern Struct_021142e0_3 gWirelessIPC_021142e0;
 
 // USA: CheckWirelessState_020d424c
 extern "C" ARM int CheckWirelessState_020d424c(int stateCount, ...)
@@ -36,8 +36,8 @@ extern "C" ARM int CheckWirelessState_020d424c(int stateCount, ...)
     Type_02001bdc allowedStates;
     if (result != 0)
         return result;
-    InvalidateDataCacheRange(&data_021142e0.unknown_4_->unknown_4_->unknown_0_, sizeof(unsigned short));
-    state = data_021142e0.unknown_4_->unknown_4_->unknown_0_;
+    InvalidateDataCacheRange(&gWirelessIPC_021142e0.unknown_4_->unknown_4_->unknown_0_, sizeof(unsigned short));
+    state = gWirelessIPC_021142e0.unknown_4_->unknown_4_->unknown_0_;
     va_start(allowedStates, stateCount);
     result = 3;
     if (stateCount == 0)

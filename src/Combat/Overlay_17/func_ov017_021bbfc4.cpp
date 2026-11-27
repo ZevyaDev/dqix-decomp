@@ -105,7 +105,7 @@ extern "C" int* func_0202ae18();
 extern "C" unsigned char* GetFollowCamera_020100f8(char*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void StopGesture_020531f0(GameObject*);
-extern "C" void func_ov017_021bb27c(Struct_ov017_021bbfc4_5*);
+extern "C" void EndEventTask_ov017_021bb27c(Struct_ov017_021bbfc4_5*);
 extern "C" void* GetMainBG1CharacterBase();
 extern "C" void* GetMainBG1ScreenBase();
 extern "C" int func_0208dc00(Struct_02013fb4*, int, int);
@@ -124,11 +124,11 @@ extern "C" int func_0204bd7c(Struct_0204bd7c*);
 extern "C" int IsLocalWirelessGuest_0202c540(int*);
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int GetStoryStep_020107d0(char*);
-extern "C" int func_02010804(char*);
+extern "C" int GetStorySubStep_02010804(char*);
 TimeOfDay ConvertToTimeOfDay(float);
-extern "C" void func_02010774(char*, int);
-extern "C" void func_020107a8(char*, int);
-extern "C" void func_020107dc(char*, int);
+extern "C" void SetStoryChapter_02010774(char*, int);
+extern "C" void SetStoryStep_020107a8(char*, int);
+extern "C" void SetStorySubStep_020107dc(char*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsNotLocalWirelessGuest_0202c508(int*);
 extern "C" void func_ov017_021d0924(int, int, int, unsigned short);
@@ -155,7 +155,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     if (!var1->GetTaskStatus(arg0->unknown_74_)) return arg0->unknown_a_;
     if (var1->GetDetailedTaskStatus(arg0->unknown_74_) != BackgroundLoader::TaskStatus_Complete) {
         var1->RemoveTask(arg0->unknown_74_);
-        func_ov017_021bb27c(arg0);
+        EndEventTask_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
     }
@@ -174,7 +174,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
         if (!func_0208dc00((Struct_02013fb4*)var12, var13, (int)&arg0->unknown_a0_)) {
             SetBrightness(var2, 0, 0x28);
             var1->RemoveTask(arg0->unknown_74_);
-            func_ov017_021bb27c(arg0);
+            EndEventTask_ov017_021bb27c(arg0);
             arg0->unknown_1_ = 1;
             return arg0->unknown_a_;
         }
@@ -188,14 +188,14 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
             InitZoneEntry_02070378((char*)var14);
             var14->unknown_0_ = arg0->unknown_a0_.unknown_2a_;
             var14->unknown_2_ = 1;
-            func_ov017_021bb27c(arg0);
+            EndEventTask_ov017_021bb27c(arg0);
             arg0->unknown_1_ = 1;
             return arg0->unknown_a_;
         }
     } else if (!func_02071488((Struct_02013fb4*)var12, var13, arg0->unknown_8_, &arg0->unknown_c_)) {
         SetBrightness(var2, 0, 0x28);
         var1->RemoveTask(arg0->unknown_74_);
-        func_ov017_021bb27c(arg0);
+        EndEventTask_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
     }
@@ -213,7 +213,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     if (var18) {
         SetBrightness(var2, 0, 0x28);
         ((Struct_ov017_021bbfc4_3*)var0)->unknown_71f4_ = 0;
-        func_ov017_021bb27c(arg0);
+        EndEventTask_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         SetSubScreenFadeInHeld_020213fc((Struct_020213fc*)var2->unknown_ptr_36d0, 0);
         return arg0->unknown_a_;
@@ -225,10 +225,10 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     if (arg0->unknown_50_ & 0x80) arg0->unknown_c_.unknown_e_ = func_0204bd7c(func_02033fa0(var4));
     if (arg0->unknown_c_.unknown_e_ != var5->currentZoneID_) var15 = 1;
     if (IsLocalWirelessGuest_0202c540(var3) && arg0->unknown_178_0_) {
-        if (arg0->unknown_179_ != GetStoryChapter_0201079c((char*)var0) || arg0->unknown_17a_ != GetStoryStep_020107d0((char*)var0) || arg0->unknown_17b_ != func_02010804((char*)var0) || ConvertToTimeOfDay(arg0->unknown_17c_) != var0->GetTimeOfDay()) {
-            func_02010774((char*)var0, arg0->unknown_179_);
-            func_020107a8((char*)var0, arg0->unknown_17a_);
-            func_020107dc((char*)var0, arg0->unknown_17b_);
+        if (arg0->unknown_179_ != GetStoryChapter_0201079c((char*)var0) || arg0->unknown_17a_ != GetStoryStep_020107d0((char*)var0) || arg0->unknown_17b_ != GetStorySubStep_02010804((char*)var0) || ConvertToTimeOfDay(arg0->unknown_17c_) != var0->GetTimeOfDay()) {
+            SetStoryChapter_02010774((char*)var0, arg0->unknown_179_);
+            SetStoryStep_020107a8((char*)var0, arg0->unknown_17a_);
+            SetStorySubStep_020107dc((char*)var0, arg0->unknown_17b_);
             var0->SetDayTimer(arg0->unknown_17c_);
             LightingManager* var20 = LightingManager::GetInstance();
             var20->dayNightTimer_ = var0->GetDayTimer();
@@ -245,15 +245,15 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
     unsigned int var25 = arg0->unknown_c_.unknown_1_;
     int var26 = var24 * 1000 + var25;
     if (!var15 && !arg0->unknown_c_.unknown_8_ && var24 <= 19 && (var24 && var25) && var23 < var26) {
-        func_02010774((char*)var0, var24);
-        func_020107a8((char*)var0, arg0->unknown_c_.unknown_1_);
+        SetStoryChapter_02010774((char*)var0, var24);
+        SetStoryStep_020107a8((char*)var0, arg0->unknown_c_.unknown_1_);
         if (IsLocalWirelessOn_0202b7d8(var3)) {
             if (IsLocalWirelessGuest_0202c540(var3)) { var17 = var16 = 1; }
         }
         if (IsNotLocalWirelessGuest_0202c508(var3)) {
             int var27 = GetStoryChapter_0201079c((char*)var0);
             int var28 = GetStoryStep_020107d0((char*)var0);
-            int var29 = func_02010804((char*)var0);
+            int var29 = GetStorySubStep_02010804((char*)var0);
             func_ov017_021d0924(2, var19->unknown_332_, 0, (unsigned short)((var27 << 10) | (var28 << 5) | var29));
         }
         var15 = 1;
@@ -274,7 +274,7 @@ extern "C" ARM int func_ov017_021bbfc4(Struct_ov017_021bbfc4_5* arg0) {
         if (TestFlags00(var2, 0x1000)) var30->unknown_6e_ |= 9;
         var30->unknown_60_ = var16;
         SetSubScreenFadeInHeld_020213fc((Struct_020213fc*)var2->unknown_ptr_36d0, 1);
-        func_ov017_021bb27c(arg0);
+        EndEventTask_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
     }

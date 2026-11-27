@@ -9,7 +9,7 @@ struct Struct_02033f44 {
     int unknown_e4_;
 };
 
-// USA: func_02033f44
-extern "C" ARM int* func_02033f44(struct Struct_02033f44* arg0) {
-    return arg0->unknown_e0_6_ ? &arg0->unknown_e4_ : 0;
+// USA: GetCollidedWallTriangle_02033f44
+extern "C" ARM int* GetCollidedWallTriangle_02033f44(struct Struct_02033f44* object) {
+    return object->unknown_e0_6_ ? &object->unknown_e4_ : 0;
 }

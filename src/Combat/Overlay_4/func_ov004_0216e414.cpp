@@ -6,7 +6,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" int func_020aba5c(int arg0);
+extern "C" int ClearSaveHeader_020aba5c(int isSecondCopy);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
@@ -17,7 +17,7 @@ extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned ch
 
 // USA: func_ov004_0216e414
 extern "C" ARM int func_ov004_0216e414(void* arg0) {
-    if (func_020aba5c(1) == 0) {
+    if (ClearSaveHeader_020aba5c(1) == 0) {
         char* var0 = (char*)GetMessageWindow_020421a0();
         ResetMessageWindow_02043204(var0);
         CloseMessageWindow_02043124(var0);

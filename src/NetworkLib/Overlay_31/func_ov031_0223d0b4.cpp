@@ -8,10 +8,10 @@ struct Struct_ov031_0223d0b4 {
     unsigned short unknown_36_;
 };
 
-extern unsigned char data_ov031_02290d40[];
+extern unsigned char gInput_ov031_02290d40[];
 extern unsigned char data_ov031_02290d48[];
 
-#define STATE0223d0b4 (*(Struct_ov031_0223d0b4**)(data_ov031_02290d40 + 4))
+#define STATE0223d0b4 (*(Struct_ov031_0223d0b4**)(gInput_ov031_02290d40 + 4))
 
 // USA: func_ov031_0223d0b4
 extern "C" ARM void func_ov031_0223d0b4(void) {

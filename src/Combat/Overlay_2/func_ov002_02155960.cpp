@@ -81,7 +81,7 @@ extern "C" void func_ov002_02155024(unsigned char*);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void func_ov023_021e7404(void*, int);
 extern "C" void func_ov002_02156178(unsigned char*);
-extern "C" void func_ov023_021eb43c(void*);
+extern "C" void UpdateAccoladeDisplay_ov023_021eb43c(void*);
 extern "C" int func_ov002_02154c30(void*);
 extern "C" void func_ov002_0215b648(unsigned char*);
 extern "C" void func_ov002_02156bc8(Struct_ov002_02155960_7*);
@@ -119,7 +119,7 @@ extern "C" ARM int func_ov002_02155960(Struct_ov002_02155960_7* arg0, int arg1) 
         func_ov023_021e7404(arg0->unknown_8b4_, arg0->unknown_1ba0_);
     func_ov002_02156178((unsigned char*)arg0);
     if (arg0->unknown_2468_ != 0)
-        func_ov023_021eb43c(arg0->unknown_2468_);
+        UpdateAccoladeDisplay_ov023_021eb43c(arg0->unknown_2468_);
     if (arg0->unknown_1bb8_ != 0) {
         arg0->unknown_1cc4_ = 0;
         arg0->unknown_1cc4_ = func_ov002_02154c30(arg0->unknown_ec8_.unknown_ba8_);

@@ -21,7 +21,7 @@ struct Struct_ov000_02171968;
 struct Struct_0209a9dc_2;
 struct Struct_020839dc;
 struct PartyMemberData_0207d300;
-struct Struct_0206f81c;
+struct PartyMemberData_0206f81c;
 struct Struct_ov026_021dc8fc_4;
 struct Struct_ov026_021dc8fc_5 {
     char unknown_0_[8];
@@ -46,12 +46,12 @@ struct ItemData_0201099c_9 {
     unsigned short unknown_14_;
     char unknown_16_[10];
 };
-struct Struct_0206f81c_8 {
+struct ItemData_0206f81c_8 {
     char unknown_0_[8];
     unsigned int unknown_8_0_ : 4;
     unsigned int unknown_8_4_ : 28;
     char unknown_c_[0xc];
-    short unknown_18_;
+    short itemId_18_;
     char unknown_1a_[6];
 };
 struct ItemTable_0201099c_10 { char unknown_0_[0x18]; };
@@ -98,7 +98,7 @@ extern "C" void func_ov000_02171968(Struct_ov000_02171968*, int, int);
 extern "C" int CountHeldItems_02083960(PartyMemberData_0207d300*);
 extern "C" void func_ov000_02171b3c(Struct_ov000_02171b3c*);
 extern "C" void func_ov000_02171b68(void*, int, void*);
-extern "C" Struct_0206f81c_8* func_02083554(Struct_0206f81c*, int);
+extern "C" ItemData_0206f81c_8* func_02083554(PartyMemberData_0206f81c*, int);
 extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" int func_ov026_021dce1c(Struct_ov026_021dc8fc_4*);
 extern "C" Struct_ov026_021dc8fc_2* FindSkillEntry_0209a594(void*, int);
@@ -203,8 +203,8 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
             }
             unsigned char var34 = var31[var32 - 8];
             if (var34 == 0xff) continue;
-            Struct_0206f81c_8* var35 = func_02083554((Struct_0206f81c*)var2, var29[var34]);
-            if (var35 && var35->unknown_18_ > 0) {
+            ItemData_0206f81c_8* var35 = func_02083554((PartyMemberData_0206f81c*)var2, var29[var34]);
+            if (var35 && var35->itemId_18_ > 0) {
                 int var36 = var35->unknown_8_0_ <= 7 ? 1 : 0;
                 if (var36) {
                     func_ov000_02171b68(var3, var30, var35);

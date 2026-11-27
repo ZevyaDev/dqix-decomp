@@ -73,7 +73,7 @@ struct Struct_02029634_3;
 struct Struct_02029988;
 
 extern "C" void func_02029634(Struct_02029988_2* arg0, int arg1);
-extern "C" Struct_02029988_3* func_0202a9ac(Struct_02029634*, int);
+extern "C" Struct_02029988_3* GetTextMenuEntry_0202a9ac(Struct_02029634*, int);
 extern "C" void func_0202a91c(Struct_02029634_3*);
 extern "C" void func_0202a8cc(char*, int);
 extern "C" void func_0202ad98(int arg0, int arg1, int arg2, const char* arg3, ...);
@@ -100,7 +100,7 @@ extern const char data_020ef77d[];
 extern const char data_020ef782[];
 
 static inline Struct_02029988_3* inline_02029988(Struct_02029988_2* arg0, int arg1) {
-    return func_0202a9ac((Struct_02029634*)arg0, arg1);
+    return GetTextMenuEntry_0202a9ac((Struct_02029634*)arg0, arg1);
 }
 
 // USA: func_02029988

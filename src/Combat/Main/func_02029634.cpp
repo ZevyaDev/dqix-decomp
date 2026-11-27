@@ -14,7 +14,7 @@ struct Struct_02029634;
 struct Struct_02029634_2 { int unknown_0_; char unknown_4_[0x34]; int unknown_38_; };
 extern "C" int func_0202a9f4(Struct_02029634_3*);
 extern "C" int func_0202aa94(Struct_02029634_3*);
-extern "C" Struct_02029634_2* func_0202a9ac(Struct_02029634*, int);
+extern "C" Struct_02029634_2* GetTextMenuEntry_0202a9ac(Struct_02029634*, int);
 extern "C" void func_0202a91c(Struct_02029634_3*);
 extern "C" void func_0202a8cc(char*, int);
 
@@ -74,7 +74,7 @@ extern "C" ARM void func_02029634(Struct_02029634_3* arg0, int arg1) {
             }
         }
     }
-    Struct_02029634_2* var0 = func_0202a9ac(reinterpret_cast<Struct_02029634*>(arg0), arg0->unknown_60_);
+    Struct_02029634_2* var0 = GetTextMenuEntry_0202a9ac(reinterpret_cast<Struct_02029634*>(arg0), arg0->unknown_60_);
     if (arg0->unknown_6d_ & 1) return;
     if (g_keyManager.TestKeysPressed(1)) {
         int var1 = arg0->unknown_6d_ & 2;

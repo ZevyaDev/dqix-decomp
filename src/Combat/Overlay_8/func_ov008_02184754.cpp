@@ -99,7 +99,7 @@ void func_ov008_02188ef0(Struct_ov008_021842a0_2* arg0);
 unsigned char UpdateTextWindowManager_0205d0e0(Struct_02081870_2* windowManager, int ticks);
 void func_ov008_02186e4c(Struct_ov008_021842a0_2* arg0, unsigned int arg1);
 void func_ov008_0218747c(Struct_ov008_021842a0_2* arg0, int arg1);
-void func_ov023_021eb43c(void* arg0);
+void UpdateAccoladeDisplay_ov023_021eb43c(void* display);
 }
 
 // USA: func_ov008_02184754
@@ -123,7 +123,7 @@ extern "C" ARM int func_ov008_02184754(Struct_ov008_021842a0_2* arg0)
     if (arg0->unknown_b04_ != NULL)
         func_0209ff6c((Struct_0209ff6c*)arg0->unknown_b04_);
     if (arg0->unknown_b08_ != NULL)
-        func_ov023_021eb43c(arg0->unknown_b08_);
+        UpdateAccoladeDisplay_ov023_021eb43c(arg0->unknown_b08_);
     if (arg0->unknown_b10_ == 14)
         return 1;
     return 0;

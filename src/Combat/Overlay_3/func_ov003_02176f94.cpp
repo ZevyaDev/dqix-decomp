@@ -52,7 +52,7 @@ struct PartyMemberData_02083994;
 extern "C" int GetHeldItemCount_02083994(struct PartyMemberData_02083994 *memberData, int itemId);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c *menuLayout, int textId, int text);
-extern "C" int func_020dcc98(int arg0);
+extern "C" int GetPartyMemberHPColor_020dcc98(int partyMemberIndex);
 struct MenuLayout_02080cc0;
 extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0 *menuLayout, int textId, int color);
 struct MenuLayout_02080fa8;
@@ -142,7 +142,7 @@ extern "C" ARM void func_ov003_02176f94(Struct_ov003_02176f94_2* arg0) {
                     (struct PartyMemberData_02083994 *) func_02053c6c((unsigned char *) var14), arg0->unknown_103a_);
             }
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var0, var4, var11);
-            SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var0, var4, func_020dcc98(var13));
+            SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var0, var4, GetPartyMemberHPColor_020dcc98(var13));
             SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var0, var5, var12);
             if (var12 != 0) {
                 HideMenuLayoutText_02080b2c(var0, var7);

@@ -8,7 +8,7 @@ extern "C" void func_0206cb14(void*, int, unsigned short);
 
 struct Struct_0204500c_4;
 extern "C" void func_0206b198(struct Struct_0204500c_4* arg0, unsigned short arg1);
-extern "C" ARM bool func_02044494(void* arg0, void* arg1);
+extern "C" ARM bool IsControlCode_02044494(void* arg0, void* arg1);
 extern "C" int func_02044420(void* arg0, void* arg1);
 
 #if defined(jpn)
@@ -48,7 +48,7 @@ extern "C" ARM void func_0206b104(struct Struct_0206b104* arg0) {
         #if defined(jpn)
         if (func_02069430(arg0, *var0)) {
 #else
-        if (func_02044494(arg0, var0)) {
+        if (IsControlCode_02044494(arg0, var0)) {
 #endif
             #if defined(jpn)
             var1 += func_02069444(arg0, *var0);

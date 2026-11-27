@@ -9,7 +9,7 @@ extern "C" int func_020881c4(unsigned char*);
 extern "C" int func_0208810c(unsigned char*);
 extern "C" void func_02088220(void*, int);
 extern "C" int func_02088208(void*, int);
-extern "C" void func_02088150(void*);
+extern "C" void SetSuperHighTension_02088150(void*);
 extern "C" int func_ov024_021e8c48(void*, signed char);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int,int,int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
@@ -71,7 +71,7 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
      if(var7>=4){
       var8=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
       if(!var8)return 0;
-      func_02088150(var0->currentStats_);
+      SetSuperHighTension_02088150(var0->currentStats_);
       AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var8,0x34);
       SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var4,7);
       SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_,var8,var0,var6,var4,arg0->unknown_c_->unknown_1c_7_!=0);

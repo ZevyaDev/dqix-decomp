@@ -70,7 +70,7 @@ extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFull
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_02017d7c(void* arg0);
 extern "C" void func_02039d58(unsigned char* arg0);
-extern "C" void func_02039d48(unsigned char* arg0);
+extern "C" void SetFadeInOnMove_02039d48(unsigned char* object);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" int func_ov017_0219ff58(void* arg0, int arg1, int arg2, int arg3);
@@ -174,7 +174,7 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
                 func_02039d58((unsigned char*)var18);
                 var18->obj3D_.SetInheritedAlpha(0x1f);
             } else {
-                func_02039d48((unsigned char*)var18);
+                SetFadeInOnMove_02039d48((unsigned char*)var18);
                 var18->obj3D_.SetInheritedAlpha(0);
             }
         }

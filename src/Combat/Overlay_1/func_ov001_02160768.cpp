@@ -14,15 +14,15 @@ extern SafeAllocator* data_ov001_021658b8[8];
 extern "C" void* func_02010768(void* arg0);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 
-struct Struct_0204a120;
-extern "C" void func_0204a120(struct Struct_0204a120* arg0);
+struct BoneCamera_0204a120;
+extern "C" void InitBoneCamera_0204a120(struct BoneCamera_0204a120* camera);
 
-struct Struct_0204a3f0_2;
+struct BoneCamera_0204a3f0_2;
 struct Struct_0204a3f0;
-extern "C" void func_0204a3f0(struct Struct_0204a3f0_2* arg0, struct Struct_0204a3f0* arg1);
+extern "C" void SetBoneCameraObject_0204a3f0(struct BoneCamera_0204a3f0_2* camera, struct Struct_0204a3f0* trackedObject);
 
-extern "C" void func_0204a440(char* arg0, const char* arg1);
-extern "C" void func_0204a464(char* arg0, const char* arg1);
+extern "C" void SetBoneCameraEyeBone_0204a440(char* camera, const char* boneName);
+extern "C" void SetBoneCameraTargetBone_0204a464(char* camera, const char* boneName);
 extern "C" void func_0204a488(char* arg0, const char* arg1);
 
 struct Struct_0204a5dc;
@@ -53,10 +53,10 @@ extern "C" ARM int func_ov001_02160768(char* arg0) {
 
 	*(void**)((char*)var2 + 0x4) = func_020100bc(var0);
 
-	func_0204a120((struct Struct_0204a120*)var12);
-	func_0204a3f0((struct Struct_0204a3f0_2*)var12, (struct Struct_0204a3f0*)var10);
-	func_0204a440((char*)var12, (const char*)var4);
-	func_0204a464((char*)var12, (const char*)var5);
+	InitBoneCamera_0204a120((struct BoneCamera_0204a120*)var12);
+	SetBoneCameraObject_0204a3f0((struct BoneCamera_0204a3f0_2*)var12, (struct Struct_0204a3f0*)var10);
+	SetBoneCameraEyeBone_0204a440((char*)var12, (const char*)var4);
+	SetBoneCameraTargetBone_0204a464((char*)var12, (const char*)var5);
 	func_0204a488((char*)var12, (const char*)var6);
 	func_0204a5dc((struct Struct_0204a5dc*)var12, (int)var11);
 

@@ -2,7 +2,7 @@
 
 #include "NitroSDK/Memory.h"
 
-extern "C" int func_020bd8ac(unsigned int arg0);
+extern "C" int GetLoadedSoundFile_020bd8ac(unsigned int fileId);
 extern "C" void func_020bd8d4(unsigned int arg0, int arg1);
 extern "C" int func_020bd7c4(unsigned int arg0, void* arg1, int arg2, int arg3);
 extern "C" void* func_020bd444(void);
@@ -22,7 +22,7 @@ extern struct Struct_02110374 data_02110374;
 // USA: func_020be2ec
 extern "C" ARM void* func_020be2ec(unsigned int arg0, struct Struct_020bbf84_2* arg1, int arg2) {
     unsigned int var0;
-    void* var1 = (void*)func_020bd8ac(arg0);
+    void* var1 = (void*)GetLoadedSoundFile_020bd8ac(arg0);
     if (var1 != NULL) {
         goto done;
     }

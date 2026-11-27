@@ -3,11 +3,11 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "Util/Random.h"
 
-struct Struct_ov024_021dd010 { char unknown_0_[0x14]; int unknown_14_; };
-struct Struct_ov024_021dced0_2 { char unknown_0_[0x138]; struct Struct_ov024_021dd010* unknown_138_; };
+struct Struct_ov024_021dd010 { char unknown_0_[0x14]; int statusFlags_14_; };
+struct Struct_ov024_021dced0_2 { char unknown_0_[0x138]; struct Struct_ov024_021dd010* pCurrentStats_138_; };
 
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, unsigned short* indices, int maxCount, int filterFlags);
-extern "C" int func_ov024_021dd010(struct Struct_ov024_021dced0_2* arg0);
+extern "C" int IsSpellcastingBlocked_ov024_021dd010(struct Struct_ov024_021dced0_2* combatant);
 extern "C" int PickRandomTarget_ov024_021ed890(struct Random** targetSelector, int* count, short* targetIndices);
 
 extern unsigned short data_ov024_021feae4;
@@ -30,7 +30,7 @@ extern "C" ARM int func_ov024_021f6150(int* arg0, int arg1, int arg2, int* arg3,
     for (int var6 = 0; var6 < var5; var6++) {
         GameObject* var7 = GetCombatantByID(*arg0, *(short*)&var0[var6]);
         if (!var7) continue;
-        if (func_ov024_021dd010((struct Struct_ov024_021dced0_2*)var7)) continue;
+        if (IsSpellcastingBlocked_ov024_021dd010((struct Struct_ov024_021dced0_2*)var7)) continue;
         int var8 = *arg3;
         *arg3 = var8 + 1;
         arg4[var8] = *((short*)var0 + var6);

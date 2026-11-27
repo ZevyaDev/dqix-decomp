@@ -63,7 +63,7 @@ extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0 *menu
 extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 struct PartyMemberData_0207d300;
 extern "C" int CountHeldItems_02083960(struct PartyMemberData_0207d300 *memberData);
-extern "C" int func_020dcc98(int arg0);
+extern "C" int GetPartyMemberHPColor_020dcc98(int partyMemberIndex);
 struct ItemBag_020a0b8c;
 extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 struct MenuLayout_02080fa8;
@@ -76,7 +76,7 @@ struct ItemData_0201099c_9 {
     unsigned short unknown_1a_;
 };
 extern "C" struct ItemData_0201099c_9 *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
-extern "C" void func_020805f4(void *arg0, int arg1);
+extern "C" void CapitalizeMenuLayoutText_020805f4(void *menuLayout, int textId);
 extern "C" void func_020806c4(void *arg0, int arg1);
 extern "C" void func_ov003_0217818c(void *arg0, struct ItemData_0201099c_9 *arg1, int arg2, int arg3);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void *menuLayout, int textId, int stringId);
@@ -154,7 +154,7 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
                 }
                 ShowMenuLayoutText_02080b40(var2, 0x8a);
                 SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var2, 0x8a, *(int *) ((char *) var15 + 0x134));
-                SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x8a, func_020dcc98(arg0->unknown_1043_));
+                SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0 *) var2, 0x8a, GetPartyMemberHPColor_020dcc98(arg0->unknown_1043_));
                 var3 = var17 != 0;
             } else {
                 HideMenuLayoutWindowTexts_02080b54(var2, 0x15);
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov003_02177938(Struct_ov003_02177938 *arg0) {
                 var22 = var24->unknown_4_;
             }
 #if !defined(jpn)
-            func_020805f4(var2, var4);
+            CapitalizeMenuLayoutText_020805f4(var2, var4);
 #endif
             func_020806c4(var2, var4);
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var2, var4, var22);

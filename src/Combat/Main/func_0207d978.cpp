@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct BattleJoinRecord_0207d7f4 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned int unknown_4_; unsigned int unknown_8_; };
-extern "C" struct BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(struct BattleJoinRecord_0207d7f4* arg0, unsigned short monsterId);
+extern "C" struct BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(struct BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
 
 // USA: func_0207d978
 extern "C" ARM int func_0207d978(struct BattleJoinRecord_0207d7f4* arg0, unsigned short arg1) {

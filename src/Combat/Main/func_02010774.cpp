@@ -7,13 +7,13 @@
 
 extern "C" unsigned char* func_0205ec34(void);
 
-// USA: func_02010774
-extern "C" ARM void func_02010774(char* arg0, int arg1) {
+// USA: SetStoryChapter_02010774
+extern "C" ARM void SetStoryChapter_02010774(char* gameState, int chapter) {
 #if defined(jpn)
-    *(int*)(arg0 + 0x5a50) = arg1;
+    *(int*)(gameState + 0x5a50) = chapter;
 #else
-    *(int*)(arg0 + 0x5cb0) = arg1;
+    *(int*)(gameState + 0x5cb0) = chapter;
 #endif
-    unsigned char* var0 = func_0205ec34();
-    var0[var0[0x332] * 0x1c] = arg1;
+    unsigned char* flagManager = func_0205ec34();
+    flagManager[flagManager[0x332] * 0x1c] = chapter;
 }

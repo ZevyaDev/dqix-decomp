@@ -15,26 +15,26 @@ struct TextWindow_0205d904 {
     short tileY_ae_;
 };
 
-// USA: func_0205d904
-extern "C" ARM void func_0205d904(unsigned char* arg0) {
-    struct TextWindow_0205d0e0* var0;
-    unsigned char* var1;
-    unsigned char* var2;
-    unsigned char* var3;
-    unsigned char* var4;
-    struct TextWindow_0205d904* var5;
+// USA: SetTouchMenuCursorEntryRects_0205d904
+extern "C" ARM void SetTouchMenuCursorEntryRects_0205d904(unsigned char* windowManager) {
+    struct TextWindow_0205d0e0* cursorWindow;
+    unsigned char* entryXs;
+    unsigned char* entryYs;
+    unsigned char* entryWidths;
+    unsigned char* entryHeights;
+    struct TextWindow_0205d904* textWindow;
 
-    var0 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)arg0, arg0[0xb0]);
-    if (var0 == NULL) return;
+    cursorWindow = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)windowManager, windowManager[0xb0]);
+    if (cursorWindow == NULL) return;
 
-    func_0204f138((unsigned char*)var0, &var1, &var2, &var3, &var4);
-    func_0205bd58((struct Struct_0205bd58*)(arg0 + 4), 0x12, (int)var1, (int)var2, (int)var3, (int)var4);
+    func_0204f138((unsigned char*)cursorWindow, &entryXs, &entryYs, &entryWidths, &entryHeights);
+    func_0205bd58((struct Struct_0205bd58*)(windowManager + 4), 0x12, (int)entryXs, (int)entryYs, (int)entryWidths, (int)entryHeights);
 
-    var5 = (struct TextWindow_0205d904*)var0;
+    textWindow = (struct TextWindow_0205d904*)cursorWindow;
     {
-        short var6 = var5->tileX_ac_;
-        short var7 = var5->tileY_ae_;
-        *(short*)(arg0 + 0x3c) = var6 << 3;
-        *(short*)(arg0 + 0x3e) = var7 << 3;
+        short tileX = textWindow->tileX_ac_;
+        short tileY = textWindow->tileY_ae_;
+        *(short*)(windowManager + 0x3c) = tileX << 3;
+        *(short*)(windowManager + 0x3e) = tileY << 3;
     }
 }

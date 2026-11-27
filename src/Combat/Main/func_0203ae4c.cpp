@@ -2,7 +2,7 @@
 
 extern "C" int func_020becd4(void* arg0);
 extern "C" int StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
-extern "C" int func_0203ad14(void* arg0, int arg1, void* arg2, int arg3);
+extern "C" int PlayStream_0203ad14(void* manager, int streamIndex, void* handle, int startPosition);
 typedef int (*Type_0203ae4c)(void*, short, void*, int);
 
 // USA: func_0203ae4c
@@ -41,7 +41,7 @@ extern "C" ARM void func_0203ae4c(void* arg0, int arg1, void* arg2) {
         } else {
             int var5 = *(int*)(var0 + 0xa8);
             if (var5 != 0) {
-                ((Type_0203ae4c)func_0203ad14)(arg0, var1, arg2, var5);
+                ((Type_0203ae4c)PlayStream_0203ad14)(arg0, var1, arg2, var5);
             }
         }
     }

@@ -6,7 +6,7 @@ extern "C" void func_ov031_0220bf5c(unsigned short*, unsigned short*, int);
 extern "C" void func_ov031_0220c0dc(unsigned short*, unsigned short*, unsigned short*, unsigned short*, int, unsigned short*);
 extern "C" void func_ov031_0220be38(unsigned short*, unsigned short*, unsigned short*, int);
 extern void* (*data_ov031_0224c994)(unsigned int);
-extern void (*data_ov031_0224c9c0)(void*);
+extern void (*gIPStackFreeFunction_ov031_0224c9c0)(void*);
 
 // USA: func_ov031_0220c2bc
 extern "C" ARM void func_ov031_0220c2bc(unsigned short* arg0, unsigned short* arg1, unsigned short* arg2, int arg3, unsigned short* arg4) {
@@ -35,5 +35,5 @@ extern "C" ARM void func_ov031_0220c2bc(unsigned short* arg0, unsigned short* ar
         }
         ++var2;
     } while ((unsigned int)var2 < (unsigned int)(arg3 << 4)); }
-    data_ov031_0224c9c0(var0);
+    gIPStackFreeFunction_ov031_0224c9c0(var0);
 }

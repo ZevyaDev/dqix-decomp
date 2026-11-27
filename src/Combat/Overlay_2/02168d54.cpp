@@ -38,7 +38,7 @@ extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void SuspendMapDisplay_020dc2bc(void);
 extern "C" void ClearSkillTable_0209a338(Struct_ov002_02168d54_2* table);
-extern "C" void func_0209a470(Struct_ov002_02168d54_3* arg0, SafeAllocator* arg1, Struct_ov002_02168d54_4* arg2, int arg3);
+extern "C" void BuildSkillTable_0209a470(Struct_ov002_02168d54_3* table, SafeAllocator* allocator, Struct_ov002_02168d54_4* scriptData, int scriptSize);
 int IsSubBrightnessTransitionActive(GameResources* resources);
 extern "C" int func_ov013_021870f0(char* arg0);
 extern "C" void func_ov013_02184360(char* arg0, int arg1);
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
                 unsigned int var4;
                 var2->GetLoadedFileByID(*(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)), &var3, &var4);
                 ClearSkillTable_0209a338((Struct_ov002_02168d54_2*)(arg0 + REGION_VALUE(0x2274, 0x243c)));
-                func_0209a470((Struct_ov002_02168d54_3*)(arg0 + REGION_VALUE(0x2274, 0x243c)), (SafeAllocator*)(arg0 + REGION_VALUE(0x7b4, 0x850)), (Struct_ov002_02168d54_4*)var3, var4);
+                BuildSkillTable_0209a470((Struct_ov002_02168d54_3*)(arg0 + REGION_VALUE(0x2274, 0x243c)), (SafeAllocator*)(arg0 + REGION_VALUE(0x7b4, 0x850)), (Struct_ov002_02168d54_4*)var3, var4);
                 var2->RemoveTask(*(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)));
                 *(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)) = -1;
             }

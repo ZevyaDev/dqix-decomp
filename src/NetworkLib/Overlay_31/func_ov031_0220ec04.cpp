@@ -2,12 +2,12 @@
 #include "NitroSDK/Interrupts.h"
 #include "NitroSDK/WirelessScanDescriptor.h"
 
-extern "C" int func_ov031_0220d60c(void);
+extern "C" int GetAccessPointConnection_ov031_0220d60c(void);
 
 // USA: func_ov031_0220ec04
 extern "C" ARM Struct_ov031_0220ec04_3* func_ov031_0220ec04(int arg0) {
     int var0 = DisableIRQInterrupts();
-    int var1 = func_ov031_0220d60c();
+    int var1 = GetAccessPointConnection_ov031_0220d60c();
     if (var1 == 0) {
         SetIRQInterruptState(var0);
         return 0;

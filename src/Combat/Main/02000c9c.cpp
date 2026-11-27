@@ -15,12 +15,12 @@
 struct Struct_02000c9c_8;
 struct Struct_02000c9c_9;
 struct Struct_02000c9c_11;
-struct Struct_02000c9c_12;
+struct GameState_02000c9c_12;
 struct Struct_02000c9c_13;
 struct Struct_02000c9c_14;
 struct Struct_02000c9c_15;
 struct Struct_02000c9c_16;
-struct Struct_02000c9c_17;
+struct SoundEffectManager_02000c9c_17;
 struct Struct_02000c9c_18;
 
 extern "C" void* GetParty_02010828(GameState* gameState);
@@ -41,7 +41,7 @@ extern "C" void func_020db0f0(Struct_02000c9c_18* arg0);
 extern "C" void func_020db228(void* arg0);
 extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
 extern "C" void OpenMusicArchive_0209c290(void* manager);
-extern "C" void func_0205e88c(Struct_02000c9c_17* arg0);
+extern "C" void InitSoundEffectManager_0205e88c(SoundEffectManager_02000c9c_17* manager);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern "C" void func_020421c4(SafeAllocator* arg0);
 extern "C" void func_02071688();
@@ -57,7 +57,7 @@ extern "C" void* func_02012db0(AllocatorUnion* arg0, unsigned int arg1);
 extern "C" void func_02012dbc(AllocatorUnion* arg0, void* arg1, int arg2);
 extern "C" void func_0208660c(char* arg0);
 extern "C" void func_02099cb8(char* arg0);
-extern "C" int func_020115a8(Struct_02000c9c_12* arg0);
+extern "C" int GetRequestedMovie_020115a8(GameState_02000c9c_12* gameState);
 extern "C" void func_020115b4(Struct_02000c9c_13* arg0, unsigned char arg1);
 extern "C" void func_020115c0(Struct_02000c9c_14* arg0);
 extern "C" void func_020d6cb4();
@@ -248,7 +248,7 @@ extern "C" ARM void main() {
     func_020db228(var2);
     func_0209c174((Struct_02000c9c_16*)gMusicManager_02109bf4);
     OpenMusicArchive_0209c290(gMusicManager_02109bf4);
-    func_0205e88c((Struct_02000c9c_17*)gSoundEffectManager_02108760);
+    InitSoundEffectManager_0205e88c((SoundEffectManager_02000c9c_17*)gSoundEffectManager_02108760);
     LoadSoundEffectSet_0205ea20(gSoundEffectManager_02108760, 100);
     SafeAllocator var3;
     var3.CreateTypeA(data_02114ec4, STARTUP_ALLOCATOR_SIZE);
@@ -324,7 +324,7 @@ extern "C" ARM void main() {
             case 5:
             case 9:
                 RUNOV17();
-                if (func_020115a8((Struct_02000c9c_12*)var0)) {
+                if (GetRequestedMovie_020115a8((GameState_02000c9c_12*)var0)) {
                     SetGameMode_0200fb94((char*)var0, 3);
                     var7 = true;
                 }
@@ -333,7 +333,7 @@ extern "C" ARM void main() {
                 RUNOV21();
                 if (((unsigned char*)var0)[MOVIE_RETURN_FLAG_OFFSET] != 0) {
                     RUNOV17();
-                    if (func_020115a8((Struct_02000c9c_12*)var0)) {
+                    if (GetRequestedMovie_020115a8((GameState_02000c9c_12*)var0)) {
                         SetGameMode_0200fb94((char*)var0, 3);
                         var7 = true;
                     }
@@ -349,7 +349,7 @@ extern "C" ARM void main() {
                     RUNOV16(var8);
                 }
                 func_020a1bb4(&OVERLAY_16_ID);
-                if (func_020115a8((Struct_02000c9c_12*)var0)) {
+                if (GetRequestedMovie_020115a8((GameState_02000c9c_12*)var0)) {
                     SetGameMode_0200fb94((char*)var0, 0);
                     var7 = true;
                 }

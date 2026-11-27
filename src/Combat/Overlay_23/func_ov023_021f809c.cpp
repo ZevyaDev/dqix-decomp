@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
-extern "C" void func_ov023_021f7eb8(void* arg0, void* arg1, int arg2, int arg3,
-    int arg4, int arg5, int arg6, unsigned char arg7, int arg8, int arg9);
+extern "C" void DrawMenuWindow_ov023_021f7eb8(void* window, void* menu, int characterDataOffset, int x,
+    int y, int width, int height, unsigned char palette, int isTransparent, int isFrameless);
 
 struct MenuWindow_ov004_0215fdfc {
     char unknown_0_[0xc8];
@@ -28,6 +28,6 @@ extern "C" ARM void RedrawMenuWindow_ov023_021f809c(struct MenuWindow_ov004_0215
         short width = window->width_c8_;
         short height = window->height_ca_;
         short x = window->tileX_cc_;
-        func_ov023_021f7eb8(window, menu, 0, x, y, width, height, palette, isTransparent, isFrameless);
+        DrawMenuWindow_ov023_021f7eb8(window, menu, 0, x, y, width, height, palette, isTransparent, isFrameless);
     }
 }

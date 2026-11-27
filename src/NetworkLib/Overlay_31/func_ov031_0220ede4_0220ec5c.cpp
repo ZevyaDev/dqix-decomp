@@ -5,7 +5,7 @@
 #endif
 
 
-extern "C" int func_ov031_0220d60c(void);
+extern "C" int GetAccessPointConnection_ov031_0220d60c(void);
 struct Struct_ov031_0220ede4;
 extern "C" ARM Struct_ov031_0220ede4* func_ov031_0220ede4(unsigned char* arg0);
 extern "C" void* func_ov031_0220ece8(void);
@@ -17,7 +17,7 @@ struct Struct_ov031_0220ec5c { unsigned char unknown_0_[0x3c]; unsigned short un
 
 // USA: func_ov031_0220ec5c
 extern "C" ARM void func_ov031_0220ec5c(Struct_ov031_0220ec5c* arg0, int arg1) {
-    int var0 = func_ov031_0220d60c();
+    int var0 = GetAccessPointConnection_ov031_0220d60c();
     if (var0 == 0) return;
     if (*(unsigned char*)(var0 + 0x2000 + 0x26a) != 0 || arg0->unknown_3c_ != 0) return;
     void* var1 = func_ov031_0220ede4((unsigned char*)arg0 + 4);

@@ -11,7 +11,7 @@ struct TextWindow_0205d0e0 {
 };
 
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
-extern "C" void func_0205d904(unsigned char* arg0);
+extern "C" void SetTouchMenuCursorEntryRects_0205d904(unsigned char* windowManager);
 
 // USA: func_ov000_02176210
 extern "C" ARM void func_ov000_02176210(struct TextWindowManager_0205d81c* arg0, int arg1, int arg2) {
@@ -31,5 +31,5 @@ extern "C" ARM void func_ov000_02176210(struct TextWindowManager_0205d81c* arg0,
     if (var8 + var6 > 0x18) var8 = var2 - var6;
     var1->tileX_ac_ = var7;
     var1->tileY_ae_ = var8;
-    func_0205d904((unsigned char*)arg0);
+    SetTouchMenuCursorEntryRects_0205d904((unsigned char*)arg0);
 }

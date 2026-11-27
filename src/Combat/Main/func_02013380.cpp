@@ -7,17 +7,17 @@
 
 extern "C" void* func_0205ec34(void);
 
-struct Struct_02013380 {
+struct BMDJEntry_02013380 {
     unsigned short unknown_0_;
-    unsigned short unknown_2_;
+    unsigned short flags_2_;
 };
 
-// USA: func_02013380
-extern "C" ARM void func_02013380(Struct_02013380* arg0, int arg1, int arg2) {
+// USA: SetBMDJEntryVisible_02013380
+extern "C" ARM void SetBMDJEntryVisible_02013380(BMDJEntry_02013380* entry, int bmdjId, int isVisible) {
     func_0205ec34();
-    if (arg2 != 0)
-        arg0->unknown_2_ &= ~4;
+    if (isVisible != 0)
+        entry->flags_2_ &= ~4;
     else
-        arg0->unknown_2_ |= 4;
-    arg0->unknown_2_ |= 0x40;
+        entry->flags_2_ |= 4;
+    entry->flags_2_ |= 0x40;
 }

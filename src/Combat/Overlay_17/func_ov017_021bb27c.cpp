@@ -107,112 +107,112 @@ static inline Struct_ov017_021bb27c_6* inline_ov017_021bb27c(GameResources* arg0
     return (Struct_ov017_021bb27c_6*)arg0->unknown_ptr_3718;
 }
 
-// USA: func_ov017_021bb27c
-extern "C" ARM void func_ov017_021bb27c(Struct_ov017_021bb27c_7* arg0) {
-    int* var0;
-    GameState* var1 = GameState::GetInstance();
-    GameResources* var2 = GetGameResources();
-    Queue_02038598_5* var3 = (Queue_02038598_5*)var2->unknown_ptr_array_36fc[0];
-    Struct_ov017_021bb27c_6* var4 = inline_ov017_021bb27c(var2);
-    GameObject* var5 = var1->GetUnknownGameObject();
-    void* var6 = (void*)GetFollowCamera_020100f8((char*)var1);
-    var0 = func_0202ae18();
-    Struct_ov017_021bb27c_4* var7 = GetZone3D_02012fe4();
-    if (!TestFlags00(var2, 0x1000)) {
+// USA: EndEventTask_ov017_021bb27c
+extern "C" ARM void EndEventTask_ov017_021bb27c(Struct_ov017_021bb27c_7* eventTask) {
+    int* wireless;
+    GameState* gameState = GameState::GetInstance();
+    GameResources* gameResources = GetGameResources();
+    Queue_02038598_5* queue = (Queue_02038598_5*)gameResources->unknown_ptr_array_36fc[0];
+    Struct_ov017_021bb27c_6* battleTask = inline_ov017_021bb27c(gameResources);
+    GameObject* currentLeader = gameState->GetUnknownGameObject();
+    void* followCamera = (void*)GetFollowCamera_020100f8((char*)gameState);
+    wireless = func_0202ae18();
+    Struct_ov017_021bb27c_4* zone = GetZone3D_02012fe4();
+    if (!TestFlags00(gameResources, 0x1000)) {
         func_ov001_0215aa5c();
     }
-    if (arg0->unknown_8_ == 0x7343 || arg0->unknown_8_ == 0x7346 || arg0->unknown_8_ == 0x7349) var7->unknown_27d6_ = arg0->unknown_8_;
-    for (int var8 = 0; var8 < 4; var8++) {
-        GameObject* var9 = var1->GetPartyMemberByIndex(var8);
-        if (!var9) continue;
-        ResumeMovementUpdate_02033fdc((Struct_02033fdc*)var9);
-        SetMotionKeepingAnimation_02033b58((Struct_02033b58*)var9, 0);
-        if (!IsOnLadder_02039d7c((char*)var9) || GetLadderAction_020399a8(var9)->unknown_1_ != 2) {
-                var9->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
-        } else if (arg0->unknown_11_) {
-                ((Struct_ov017_021bb27c_2*)var9)->unknown_e0_ &= ~1;
-                var9->obj3D_.DisableFlag(0x1180);
-                func_02038508(GetLadderAction_020399a8(var9));
-                var9->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
-        } else var9->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d72, 0);
-        SetFacingInstantly_02033874((Struct_02033834*)var9, var9->obj3D_.rotation_.y);
-        var9->obj3D_.DisableFlag(0x10);
+    if (eventTask->unknown_8_ == 0x7343 || eventTask->unknown_8_ == 0x7346 || eventTask->unknown_8_ == 0x7349) zone->unknown_27d6_ = eventTask->unknown_8_;
+    for (int i = 0; i < 4; i++) {
+        GameObject* partyMember = gameState->GetPartyMemberByIndex(i);
+        if (!partyMember) continue;
+        ResumeMovementUpdate_02033fdc((Struct_02033fdc*)partyMember);
+        SetMotionKeepingAnimation_02033b58((Struct_02033b58*)partyMember, 0);
+        if (!IsOnLadder_02039d7c((char*)partyMember) || GetLadderAction_020399a8(partyMember)->unknown_1_ != 2) {
+                partyMember->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
+        } else if (eventTask->unknown_11_) {
+                ((Struct_ov017_021bb27c_2*)partyMember)->unknown_e0_ &= ~1;
+                partyMember->obj3D_.DisableFlag(0x1180);
+                ResetLadderAction_02038508(GetLadderAction_020399a8(partyMember));
+                partyMember->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
+        } else partyMember->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d72, 0);
+        SetFacingInstantly_02033874((Struct_02033834*)partyMember, partyMember->obj3D_.rotation_.y);
+        partyMember->obj3D_.DisableFlag(0x10);
     }
-    if (IsLocalWirelessOn_0202b7d8(var0)) {
-        Struct_ov017_021bb27c_3* var10 = (Struct_ov017_021bb27c_3*)GetParty_02010828(var1);
-        for (int var11 = 0; var11 < var10->unknown_f7c_; var11++) {
-            Struct_ov017_021bb27c_2* var12 = (Struct_ov017_021bb27c_2*)GetPartyMemberBaseByIndex_0200ff1c(var1, var10->unknown_f78_[var11]);
-            if (var12) { func_02053ec8(var12, 0); func_02053f04(var12); }
+    if (IsLocalWirelessOn_0202b7d8(wireless)) {
+        Struct_ov017_021bb27c_3* party = (Struct_ov017_021bb27c_3*)GetParty_02010828(gameState);
+        for (int i = 0; i < party->unknown_f7c_; i++) {
+            Struct_ov017_021bb27c_2* partyMemberBase = (Struct_ov017_021bb27c_2*)GetPartyMemberBaseByIndex_0200ff1c(gameState, party->unknown_f78_[i]);
+            if (partyMemberBase) { func_02053ec8(partyMemberBase, 0); func_02053f04(partyMemberBase); }
         }
-        if (arg0->unknown_12_) {
-            GetOwnPartyLeaderObjectIndex_020100b0(var1);
-            for (int var13 = 0; var13 < 4; var13++) {
-                Struct_ov017_021bb27c_2* var14 = (Struct_ov017_021bb27c_2*)GetPartyMemberBaseByIndex_0200ff1c(var1, var13);
-                if (var14) {
-                    var14->unknown_c1_0_ &= ~1; var14->unknown_c1_0_ &= ~2; var14->unknown_18c_ &= ~2;
+        if (eventTask->unknown_12_) {
+            GetOwnPartyLeaderObjectIndex_020100b0(gameState);
+            for (int i = 0; i < 4; i++) {
+                Struct_ov017_021bb27c_2* partyMemberBase = (Struct_ov017_021bb27c_2*)GetPartyMemberBaseByIndex_0200ff1c(gameState, i);
+                if (partyMemberBase) {
+                    partyMemberBase->unknown_c1_0_ &= ~1; partyMemberBase->unknown_c1_0_ &= ~2; partyMemberBase->unknown_18c_ &= ~2;
                 }
             }
         }
-        if (arg0->unknown_116_ >= 0) {
-            Struct_ov017_021bb27c_2* var15 = (Struct_ov017_021bb27c_2*)GetPartyMemberBaseByIndex_0200ff1c(var1, arg0->unknown_116_);
-            if (var15) {
-                var15->unknown_c1_0_ &= ~1; var15->unknown_c1_0_ &= ~2; var15->unknown_18c_ &= ~2;
+        if (eventTask->unknown_116_ >= 0) {
+            Struct_ov017_021bb27c_2* partyMemberBase = (Struct_ov017_021bb27c_2*)GetPartyMemberBaseByIndex_0200ff1c(gameState, eventTask->unknown_116_);
+            if (partyMemberBase) {
+                partyMemberBase->unknown_c1_0_ &= ~1; partyMemberBase->unknown_c1_0_ &= ~2; partyMemberBase->unknown_18c_ &= ~2;
             }
         }
     }
-    if (var2) {
-        ClearFlags04(var2, 0x1040);
-        ClearFlags00(var2, 0x10);
-        ClearFlags00(var2, 0x800);
-        ClearFlags00(var2, 0x4000);
+    if (gameResources) {
+        ClearFlags04(gameResources, 0x1040);
+        ClearFlags00(gameResources, 0x10);
+        ClearFlags00(gameResources, 0x800);
+        ClearFlags00(gameResources, 0x4000);
     }
-    void* var16 = arg0->unknown_124_.GetSignedAllocator();
-    if (var16) { arg0->unknown_124_.Destroy(); arg0->unknown_7c_.Free(var16); }
-    if (!TestFlags00(var2, 0x1000)) {
-        var16 = arg0->unknown_7c_.GetSignedAllocator();
-        if (var16) { arg0->unknown_7c_.Destroy(); func_02012da4(&gMainHeap_02114e20, var16); }
+    void* block = eventTask->unknown_124_.GetSignedAllocator();
+    if (block) { eventTask->unknown_124_.Destroy(); eventTask->unknown_7c_.Free(block); }
+    if (!TestFlags00(gameResources, 0x1000)) {
+        block = eventTask->unknown_7c_.GetSignedAllocator();
+        if (block) { eventTask->unknown_7c_.Destroy(); func_02012da4(&gMainHeap_02114e20, block); }
     }
-    if (arg0->unknown_138_) {
-        var16 = arg0->unknown_138_->GetSignedAllocator();
-        if (var16) { arg0->unknown_138_->Destroy(); func_02012da4(&gMainHeap_02114e20, var16); }
-        arg0->unknown_138_ = 0;
+    if (eventTask->unknown_138_) {
+        block = eventTask->unknown_138_->GetSignedAllocator();
+        if (block) { eventTask->unknown_138_->Destroy(); func_02012da4(&gMainHeap_02114e20, block); }
+        eventTask->unknown_138_ = 0;
     }
     ClearGlobalFlags_020466f4(func_020d6c00(), 0x20000);
-    for (int var17 = 0; var17 < 4; var17++) func_ov017_02191fec(var2, var17);
+    for (int i = 0; i < 4; i++) func_ov017_02191fec(gameResources, i);
     ClearGlobalFlags_020466f4(func_020d6c00(), 0x400f);
-    Struct_ov017_021bb27c_5* var18 = (Struct_ov017_021bb27c_5*)GetZoneEntry_0200fd0c(var1);
-    if (arg0->unknown_104_ && !var4->unknown_2_ && (!var18->unknown_2_ || arg0->unknown_10c_) &&
-        !IsTypeInQueue_02046b60(var3, 10) && !(arg0->unknown_16_ == 1 && arg0->unknown_cf_ == 2)) {
+    Struct_ov017_021bb27c_5* zoneEntry = (Struct_ov017_021bb27c_5*)GetZoneEntry_0200fd0c(gameState);
+    if (eventTask->unknown_104_ && !battleTask->unknown_2_ && (!zoneEntry->unknown_2_ || eventTask->unknown_10c_) &&
+        !IsTypeInQueue_02046b60(queue, 10) && !(eventTask->unknown_16_ == 1 && eventTask->unknown_cf_ == 2)) {
         RestartMapDisplay_020dc2d0(0);
     }
-    arg0->unknown_ff_ = 1;
-    for (int var19 = 0; var19 < 4; var19++) {
-        if (arg0->unknown_174_ & (1 << var19)) func_ov017_02190264(var2, var19);
-        if (arg0->unknown_175_ & (1 << var19)) QueuePartyMemberModelLoad_ov017_0218f5a4(var2, var19, 0, 0, 1);
+    eventTask->unknown_ff_ = 1;
+    for (int i = 0; i < 4; i++) {
+        if (eventTask->unknown_174_ & (1 << i)) func_ov017_02190264(gameResources, i);
+        if (eventTask->unknown_175_ & (1 << i)) QueuePartyMemberModelLoad_ov017_0218f5a4(gameResources, i, 0, 0, 1);
     }
-    if (var5) EnablePlayerControl_020397c0(var5);
-    if (var6) EnableCameraTurning_020a27ac(var6);
-    const Struct_ov017_021d6c20* var20 = data_ov017_021d6c20;
-    for (int var21 = 0; var21 < 3; var21++, var20++) {
-        if (var20->unknown_0_ != arg0->unknown_8_) continue;
-        GameObject* var22 = var1->GetUnknownGameObject();
-        Vector3fix var23 = var22->obj3D_.position_;
-        if (fix32abs(var23.x - var20->unknown_4_.x) > var20->unknown_10_.x) break;
-        if (fix32abs(var23.y - var20->unknown_4_.y) > var20->unknown_10_.y) break;
-        if (fix32abs(var23.z - var20->unknown_4_.z) > var20->unknown_10_.z) break;
-        func_ov017_021921fc(&var20->unknown_1c_, var22->obj3D_.rotation_.y, 0); break;
+    if (currentLeader) EnablePlayerControl_020397c0(currentLeader);
+    if (followCamera) EnableCameraTurning_020a27ac(followCamera);
+    const Struct_ov017_021d6c20* partyPlacement = data_ov017_021d6c20;
+    for (int i = 0; i < 3; i++, partyPlacement++) {
+        if (partyPlacement->unknown_0_ != eventTask->unknown_8_) continue;
+        GameObject* currentLeader = gameState->GetUnknownGameObject();
+        Vector3fix leaderPosition = currentLeader->obj3D_.position_;
+        if (fix32abs(leaderPosition.x - partyPlacement->unknown_4_.x) > partyPlacement->unknown_10_.x) break;
+        if (fix32abs(leaderPosition.y - partyPlacement->unknown_4_.y) > partyPlacement->unknown_10_.y) break;
+        if (fix32abs(leaderPosition.z - partyPlacement->unknown_4_.z) > partyPlacement->unknown_10_.z) break;
+        func_ov017_021921fc(&partyPlacement->unknown_1c_, currentLeader->obj3D_.rotation_.y, 0); break;
     }
-    arg0->unknown_cf_ = 0xff; arg0->unknown_9a_ = 0;
-    Struct_ov017_021bb27c* var24 = (Struct_ov017_021bb27c*)var2;
-    if (arg0->unknown_18_ == var24->unknown_44ac_) var24->unknown_44ac_ = 0;
-    if (IsLocalWirelessOn_0202b7d8(var0)) {
-        if (arg0->unknown_a_ <= 2 && arg0->unknown_fd_) return;
-        Struct_ov017_021bb27c_5* var25 = (Struct_ov017_021bb27c_5*)GetZoneEntry_0200fd0c(var1);
-        if (var25->unknown_2_ && arg0->unknown_108_) var25->unknown_e_ = 1;
-        else func_ov017_021d035c(0, GetOwnPartyLeaderObjectIndex_020100b0(var1), arg0->unknown_108_);
-        for (int var26 = 0; var26 < 4; var26++) {
-            GameObject* var27 = var1->GetPartyMemberByIndex(var26);
-            if (var27 && func_02039790(var27, 0x20)) func_ov017_021bd4d0(arg0, var26, 0, 0);
+    eventTask->unknown_cf_ = 0xff; eventTask->unknown_9a_ = 0;
+    Struct_ov017_021bb27c* var24 = (Struct_ov017_021bb27c*)gameResources;
+    if (eventTask->unknown_18_ == var24->unknown_44ac_) var24->unknown_44ac_ = 0;
+    if (IsLocalWirelessOn_0202b7d8(wireless)) {
+        if (eventTask->unknown_a_ <= 2 && eventTask->unknown_fd_) return;
+        Struct_ov017_021bb27c_5* zoneEntry = (Struct_ov017_021bb27c_5*)GetZoneEntry_0200fd0c(gameState);
+        if (zoneEntry->unknown_2_ && eventTask->unknown_108_) zoneEntry->unknown_e_ = 1;
+        else func_ov017_021d035c(0, GetOwnPartyLeaderObjectIndex_020100b0(gameState), eventTask->unknown_108_);
+        for (int i = 0; i < 4; i++) {
+            GameObject* partyMember = gameState->GetPartyMemberByIndex(i);
+            if (partyMember && func_02039790(partyMember, 0x20)) func_ov017_021bd4d0(eventTask, i, 0, 0);
         }
     }
 }

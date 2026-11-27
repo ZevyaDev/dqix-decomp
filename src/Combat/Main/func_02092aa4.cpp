@@ -21,29 +21,29 @@ struct Struct_02092aa4 {
     unsigned char unknown_3b_;
 };
 
-// USA: func_02092aa4
-extern "C" ARM void func_02092aa4(Struct_02092aa4* arg0, int arg1) {
-    arg0->unknown_0_.ResetAllocatorPointer();
-    ((StringList*)((struct StringTable_0201099c_14*)((char*)arg0 + 0x14)))->Reset();
+// USA: ResetCallToArms_02092aa4
+extern "C" ARM void ResetCallToArms_02092aa4(Struct_02092aa4* callToArms, int callerIndex) {
+    callToArms->unknown_0_.ResetAllocatorPointer();
+    ((StringList*)((struct StringTable_0201099c_14*)((char*)callToArms + 0x14)))->Reset();
 
-    arg0->unknown_2c_ = -1;
-    arg0->unknown_30_ = -1;
-    arg0->unknown_32_ = 0;
-    arg0->unknown_34_ = 0;
-    arg0->unknown_35_ = 0;
-    arg0->unknown_36_ = 0;
-    arg0->unknown_37_ = 0;
-    arg0->unknown_38_ = arg1;
-    arg0->unknown_39_ = 0;
-    arg0->unknown_3a_ = 0;
-    arg0->unknown_3b_ = 0;
+    callToArms->unknown_2c_ = -1;
+    callToArms->unknown_30_ = -1;
+    callToArms->unknown_32_ = 0;
+    callToArms->unknown_34_ = 0;
+    callToArms->unknown_35_ = 0;
+    callToArms->unknown_36_ = 0;
+    callToArms->unknown_37_ = 0;
+    callToArms->unknown_38_ = callerIndex;
+    callToArms->unknown_39_ = 0;
+    callToArms->unknown_3a_ = 0;
+    callToArms->unknown_3b_ = 0;
 
-    unsigned char* var0 = (unsigned char*)GetParty_02010828(GameState::GetInstance());
-    unsigned char var1;
-    for (var1 = 0; var1 < var0[0xf7c]; var1++) {
-        unsigned char* var2 = var0 + var1;
+    unsigned char* partyBytes = (unsigned char*)GetParty_02010828(GameState::GetInstance());
+    unsigned char i;
+    for (i = 0; i < partyBytes[0xf7c]; i++) {
+        unsigned char* var2 = partyBytes + i;
         if (var2[0xf78] == 0) {
-            arg0->unknown_37_ |= 1;
+            callToArms->unknown_37_ |= 1;
             return;
         }
     }

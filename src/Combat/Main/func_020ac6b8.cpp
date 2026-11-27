@@ -1,7 +1,7 @@
 #include "GameState/BattleRecordSnapshot.h"
 #include <globaldefs.h>
 
-extern "C" void func_020ac644(struct PlayTime_020ac4f8* arg0, int arg1);
+extern "C" void AddPlayTimeMinutes_020ac644(struct PlayTime_020ac4f8* playTime, int minutes);
 
 // USA: func_020ac6b8
 extern "C" ARM void func_020ac6b8(struct PlayTime_020ac4f8* arg0, int arg1) {
@@ -19,6 +19,6 @@ extern "C" ARM void func_020ac6b8(struct PlayTime_020ac4f8* arg0, int arg1) {
             return;
         }
     }
-    func_020ac644(arg0, var1);
+    AddPlayTimeMinutes_020ac644(arg0, var1);
     arg0->seconds_3_ = arg0->seconds_3_ % 0x3c;
 }

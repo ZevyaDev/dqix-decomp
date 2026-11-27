@@ -15,21 +15,21 @@ struct Metatile_0202756c {
 };
 
 
-// USA: func_0202756c
-extern "C" ARM void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
-        unsigned char arg4, unsigned char arg5, unsigned short arg6, unsigned char arg7, int arg8, int arg9) {
-    struct Metatile_0202756c* var0 = (struct Metatile_0202756c*)((char*)arg0 + 0xe8 + arg3 * 0x28);
-    var0->positionX_14_ = arg1;
-    var0->positionY_18_ = arg2;
-    var0->destinationObjIndex_22_ = arg4 & 0x7f;
-    var0->priority_26_ = arg5 & 0x3;
-    if (arg6 < 0xf) {
-        ((OBJSpriteSet*)((int)((char*)arg0 + 0x94)))->SetMetatilePalette((OBJSpriteSet::Metatile*)(var0), arg6);
+// USA: DrawMetatileAt_0202756c
+extern "C" ARM void DrawMetatileAt_0202756c(void* subScreenDisplay, int positionX, int positionY, int metatileIndex,
+        unsigned char destinationObjIndex, unsigned char priority, unsigned short palette, unsigned char rotScaleDataIndex, int scaleX, int scaleY) {
+    struct Metatile_0202756c* metatile = (struct Metatile_0202756c*)((char*)subScreenDisplay + 0xe8 + metatileIndex * 0x28);
+    metatile->positionX_14_ = positionX;
+    metatile->positionY_18_ = positionY;
+    metatile->destinationObjIndex_22_ = destinationObjIndex & 0x7f;
+    metatile->priority_26_ = priority & 0x3;
+    if (palette < 0xf) {
+        ((OBJSpriteSet*)((int)((char*)subScreenDisplay + 0x94)))->SetMetatilePalette((OBJSpriteSet::Metatile*)(metatile), palette);
     }
-    if (arg7 < 0x40) {
-        var0->rotScaleDataIndex_20_ = arg7;
+    if (rotScaleDataIndex < 0x40) {
+        metatile->rotScaleDataIndex_20_ = rotScaleDataIndex;
     }
-    var0->scaleX_c_ = arg8;
-    var0->scaleY_10_ = arg9;
-    ((OBJSpriteSet*)((char*)arg0 + 0x94))->DrawMetatile((OBJSpriteSet::Metatile*)(var0));
+    metatile->scaleX_c_ = scaleX;
+    metatile->scaleY_10_ = scaleY;
+    ((OBJSpriteSet*)((char*)subScreenDisplay + 0x94))->DrawMetatile((OBJSpriteSet::Metatile*)(metatile));
 }

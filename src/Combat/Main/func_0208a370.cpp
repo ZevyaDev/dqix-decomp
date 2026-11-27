@@ -6,7 +6,7 @@ struct Struct_0208a370 { char unknown_0_[0x18]; unsigned short unknown_18_[6]; }
 struct Struct_0208a370_2 { char unknown_0_[0x148]; Struct_0208a370* unknown_148_; };
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int func_0208a03c(Struct_0208a370_3*, unsigned char, int, int*, int);
-extern "C" int func_ov000_02154a04(Random*, int, int, int);
+extern "C" int CollectEnemyActionTargets_ov000_02154a04(Random*, int, int, int);
 extern unsigned char data_020e8caa[];
 // USA: func_0208a370
 extern "C" ARM int func_0208a370(Struct_0208a370_3* arg0, int arg1, int arg2, int* arg3, int arg4) {
@@ -30,6 +30,6 @@ extern "C" ARM int func_0208a370(Struct_0208a370_3* arg0, int arg1, int arg2, in
         if (func_0208a03c(arg0, (unsigned char)var1, arg2, arg3, arg4)) return var2->unknown_18_[var1];
     }
     *arg3 = 0;
-    *arg3 = func_ov000_02154a04(arg0->unknown_0_, arg2, 2, arg4);
+    *arg3 = CollectEnemyActionTargets_ov000_02154a04(arg0->unknown_0_, arg2, 2, arg4);
     return 2;
 }

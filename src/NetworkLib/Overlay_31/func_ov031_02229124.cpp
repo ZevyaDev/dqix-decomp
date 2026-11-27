@@ -10,7 +10,7 @@ extern "C" void LoadFileToVRAM_ov031_022234d8(const char*, Type_01ff8b48_7);
 extern "C" int func_ov031_02223478(const char*);
 extern "C" Struct_ov031_02229124* func_ov031_0223b61c(int, int, int);
 extern "C" void func_ov031_0221ae00(unsigned int*);
-extern "C" void func_ov031_0223b710(void*);
+extern "C" void FreeLoadedFile_ov031_0223b710(void*);
 struct Struct_ov031_02248dcc { char unknown_0_[22]; };
 struct Struct_ov031_02248de2 { char unknown_0_[23]; };
 extern Struct_ov031_02248dcc data_ov031_02248dcc;
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov031_02229124() {
     }
     CleanInvalidateCacheRange((const void*)(var3), 0x200);
     LoadToMainBGStandardPalette(var3, 0, 0x200);
-    func_ov031_0223b710(var3);
+    FreeLoadedFile_ov031_0223b710(var3);
     BG0CNTSUB = (BG0CNTSUB & ~3) | 3;
     BG1CNTSUB = (BG1CNTSUB & ~3) | 3;
     BG1CNT = (BG1CNT & ~3) | 3;

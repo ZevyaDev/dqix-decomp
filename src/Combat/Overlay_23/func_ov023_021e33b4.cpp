@@ -169,7 +169,7 @@ extern "C" void func_ov023_021e6198(void* arg0, int arg1);
 extern "C" void func_ov023_021e6150(void* arg0, unsigned char arg1);
 extern "C" void func_ov023_021e60e0(void* arg0, unsigned int arg1);
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_02042b30(void* arg0, void* arg1);
+extern "C" void SetMessageWindowTextureArena_02042b30(void* window, void* textureArena);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void InitFollowCamera_020a2010(void* storage);
@@ -325,7 +325,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             ((TextureArena*)((TextureVRAMArea_0203d028*)arg0->unknown_404_))->Reset();
 
             void* var8 = GetMessageWindow_020421a0();
-            func_02042b30(var8, arg0->unknown_474_);
+            SetMessageWindowTextureArena_02042b30(var8, arg0->unknown_474_);
             ((TextureArena*)(arg0->unknown_474_))->Restore();
             InitMessageGlyphs_020432c4(var8);
             ((TextureArena*)(arg0->unknown_474_))->Save();

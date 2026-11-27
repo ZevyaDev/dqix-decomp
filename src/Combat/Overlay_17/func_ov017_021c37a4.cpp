@@ -174,9 +174,9 @@ extern "C" void func_0206e2a0(Struct_0206e2a0* arg0, int arg1);
 extern "C" void func_020d9ae8(Struct_02061c04_7* arg0, int arg1);
 extern "C" void func_020d9dc4(char* arg0, char* arg1);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
-extern "C" void func_02086d88(unsigned char* arg0, int arg1);
+extern "C" void RemoveItemFromBagsOrHeldItems_02086d88(unsigned char* party, int itemId);
 extern "C" void func_ov017_0218d500(void* arg0);
-extern "C" void func_020116c8(void* arg0);
+extern "C" void StopFollowingTreasureMap_020116c8(void* gameState);
 extern "C" void RevivePartyMember_02048150(void* gameObject, int hp, int isPartyOrderRebuildAllowed);
 extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(void* gameResources, int isSet, int combatantIndex, unsigned char flags);
 extern "C" void VectorizedMemset(void* dst, int value, int len);
@@ -364,10 +364,10 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         }
     }
 
-    func_02086d88((unsigned char*)var28, 0x5612);
+    RemoveItemFromBagsOrHeldItems_02086d88((unsigned char*)var28, 0x5612);
     func_ov017_0218d500(var3);
     if (var9) {
-        func_020116c8(var0);
+        StopFollowingTreasureMap_020116c8(var0);
     }
 
     Struct_ov017_021c37a4_8* var37 = (Struct_ov017_021c37a4_8*)var0->GetPartyMemberByIndex(0);

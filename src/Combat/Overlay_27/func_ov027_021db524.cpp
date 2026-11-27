@@ -62,7 +62,7 @@ extern "C" int func_020d51a8(int arg0, int arg1);
 extern "C" int ShutDownWirelessDriver_020d503c(int callback);
 extern "C" int func_020d57f4(int arg0, int arg1, int arg2, int arg3, unsigned short arg4, unsigned short arg5,
                       unsigned short arg6, int arg7, int arg8, int arg9, int arg10);
-extern "C" int func_020d472c(void* arg0);
+extern "C" int SetWirelessNotificationCallback_020d472c(void* callback);
 
 #pragma optimize_for_size off
 
@@ -267,7 +267,7 @@ extern "C" ARM void func_ov027_021db524(Struct_ov027_021db524* arg0) {
             }
         } else {
             func_020d4770(1, 0, 0);
-            func_020d472c(0);
+            SetWirelessNotificationCallback_020d472c(0);
             if (arg0->unknown_2_ != 0) {
                 *(unsigned short*)(data_ov027_021e33e0.unknown_8_ + 0x526) = 0;
                 {

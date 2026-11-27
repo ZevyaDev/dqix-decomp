@@ -592,7 +592,7 @@ extern "C" int GetFollowCamera_020100f8(char*);
 extern "C" int func_020a27c4(Struct_020676e0*);
 extern "C" int func_ov017_021a4e70(unsigned char*);
 extern "C" int func_0205cecc(void*);
-extern "C" int func_0205cb64(void*);
+extern "C" int GetChoiceListCursorIndex_0205cb64(void*);
 extern "C" void func_0206cbe8(void* arg0, unsigned short arg1, unsigned short* arg2);
 extern "C" void func_0205c840(void* arg0);
 
@@ -614,7 +614,7 @@ extern "C" const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* arg1);
 extern "C" int func_020d85dc(const char* arg0, const char* arg1);
 extern "C" double func_020055d4(const char* arg0);
 extern "C" void func_020436dc(Struct_02069ecc* arg0, int arg1, int arg2);
-extern "C" void func_02010834(GameState* arg0, int arg1, int* arg2, int* arg3);
+extern "C" void GetOwnPartyMemberObjectIndices_02010834(GameState* arg0, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
 extern "C" void func_02010890(GameState* arg0, int* arg1, int* arg2);
 extern "C" Struct_02069ecc_4* GetAppearance_02052e2c(GameObject* gameObject);
 extern "C" void func_0206c520(void* arg0, const char** arg1, const char* arg2, int arg3);
@@ -1814,7 +1814,7 @@ extern "C" ARM void func_020676e0(Struct_020676e0_4* arg0, int arg1) {
     }
     int var8 = -1;
     if (var0) var8 = func_0205cecc(arg0->unknown_90_);
-    if (var1) var8 = func_0205cb64(arg0->unknown_90_);
+    if (var1) var8 = GetChoiceListCursorIndex_0205cb64(arg0->unknown_90_);
     else if (var2) var8 = -2;
     arg0->unknown_954_ = var8;
     (arg0->*data_020f079c[var5])(var8);
@@ -2662,7 +2662,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 int var79[4];
                 int var80 = 0;
                 int var81 = 0;
-                func_02010834(var77, var142, var78, &var80);
+                GetOwnPartyMemberObjectIndices_02010834(var77, var142, var78, &var80);
                 func_02010890(var77, var79, &var81);
                 var140 += 7;
                 if (var80 == var81) {

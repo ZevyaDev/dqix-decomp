@@ -15,7 +15,7 @@ struct GlobalFlags_02038598_4;
 
 extern int data_02108e00;
 
-extern "C" int func_02075910(int arg0, void* arg1, int arg2, int arg3);
+extern "C" int ReadSaveMemory_02075910(int offset, void* destination, int length, int isAsync);
 extern "C" void func_02075acc(int arg0, void* arg1, int arg2, int arg3);
 extern "C" int func_020a9eb8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_020d6c00();
@@ -42,7 +42,7 @@ extern "C" ARM int UpdateSaveProgress_020aad1c(struct SaveProgress_020aad1c* pro
         GameResources* resources = GetGameResources();
 #endif
         unsigned int testByte;
-        if (func_02075910(0, &testByte, 1, 0) == 0) {
+        if (ReadSaveMemory_02075910(0, &testByte, 1, 0) == 0) {
 #if defined(jpn)
             SetBrightness(GetGameResources(), -16, 10);
 #else
@@ -59,7 +59,7 @@ extern "C" ARM int UpdateSaveProgress_020aad1c(struct SaveProgress_020aad1c* pro
             SetFlags00(resources, 0x10);
 #endif
             int saveBuffer = (int)&g_fileScratchSpace + 0x1c + 0x29000;
-            if (func_02075910(0x8000, (void*)(progress->saveBuffer_4_ = saveBuffer), 0x6fe4, 1) == 0) {
+            if (ReadSaveMemory_02075910(0x8000, (void*)(progress->saveBuffer_4_ = saveBuffer), 0x6fe4, 1) == 0) {
 #if !defined(jpn)
                 globalFlags = (unsigned int*)func_020d6c00();
                 ClearGlobalFlags_020466f4((struct GlobalFlags_02038598_4*)globalFlags, 0x2000000);

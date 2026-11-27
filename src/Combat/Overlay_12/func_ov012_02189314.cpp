@@ -99,8 +99,8 @@ extern "C" int UpdateKeyMenuCursor_0205bf58(KeyMenuCursor_0205bef8* cursor, unsi
 extern "C" int GetMenuCursorIndex_0205bb84(KeyMenuCursor_0205bef8* cursor);
 extern "C" void PlaySoundEffect_0205eaa0(void* manager, int soundEffectIndex, int handle);
 extern "C" int func_ov023_021e2868(void* arg0);
-extern "C" int func_ov023_021e7148(Struct_ov012_02189314* arg0);
-extern "C" int func_ov023_021e6e20(Struct_ov012_02189314* arg0);
+extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(Struct_ov012_02189314* arg0);
+extern "C" int IsProfileMenuCancelPressed_ov023_021e6e20(Struct_ov012_02189314* menu);
 extern "C" void func_ov012_02186248(Struct_ov012_02189314* arg0, unsigned char arg1, int arg2);
 extern "C" void func_ov023_021e6808(Struct_ov012_02189314* arg0, char* arg1);
 extern "C" void func_ov023_021e68d8(Struct_ov012_02189314* arg0, char* arg1);
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
             var13 = 1;
         }
         int var15 = 0;
-        if (func_ov023_021e7148(arg0) || var13)
+        if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0) || var13)
         {
             PlaySoundEffect_0205eaa0(gSoundEffectManager_02108760, 1, 0);
             int var16 = arg0->unknown_13b8_ / 7;
@@ -298,7 +298,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
             }
             func_ov012_0218bba0(arg0, 0, -1);
         }
-        else if (func_ov023_021e6e20(arg0))
+        else if (IsProfileMenuCancelPressed_ov023_021e6e20(arg0))
         {
             if (arg0->unknown_1375_ == 0)
                 var15 = 1;

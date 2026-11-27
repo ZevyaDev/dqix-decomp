@@ -69,13 +69,13 @@ extern "C" ARM int func_0206cbcc(Script::Parameter* arg0, int arg1) {
         func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var5);
         return 1;
     }
-    Struct_0206bf2c* var7 = (Struct_0206bf2c*)gNPCPlacementParseState_02108cec.unknown_14_->Allocate(0x78);
+    NPCPlacement_0206bf2c* var7 = (NPCPlacement_0206bf2c*)gNPCPlacementParseState_02108cec.unknown_14_->Allocate(0x78);
     if (!var7) return 0;
-    func_0206bf2c(var7);
+    InitNPCPlacement_0206bf2c(var7);
     var7->unknown_46_ = var1;
     var7->unknown_a_0_ = (unsigned char)var3;
     var7->unknown_2_ = var4;
-    var7->unknown_0_ = var5;
+    var7->npcId_0_ = var5;
     if (arg1 < 6) {
         func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var5);
         gNPCPlacementParseState_02108cec.unknown_8_ = var1;

@@ -52,8 +52,8 @@ extern "C" void func_0203bcb8(Struct_02020fc4_3 *arg0, int arg1, int arg2);
 extern "C" void func_0202441c(Struct_0202441c *arg0);
 extern "C" int func_020243b8(void *arg0, int arg1);
 extern "C" int func_02024d48(Struct_020236dc* arg0, int arg1);
-extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
-                              unsigned short arg6, unsigned char arg7, int arg8, int arg9);
+extern "C" void DrawMetatileAt_0202756c(void *subScreenDisplay, int positionX, int positionY, int metatileIndex, unsigned char destinationObjIndex, unsigned char priority,
+                              unsigned short palette, unsigned char rotScaleDataIndex, int scaleX, int scaleY);
 
 // USA: func_02024e78
 extern "C" ARM void func_02024e78(void *arg0) {
@@ -99,7 +99,7 @@ extern "C" ARM void func_02024e78(void *arg0) {
             if (inline_02024518(var13->unknown_e_)) continue;
         }
         if (!func_02024d48(var13, var0->unknown_9c0_)) continue;
-        func_0202756c(arg0, (var15 - 4) << 12, (var16 - 4) << 12, var13->unknown_c_, var13->unknown_e_, 0, var13->unknown_d_,
+        DrawMetatileAt_0202756c(arg0, (var15 - 4) << 12, (var16 - 4) << 12, var13->unknown_c_, var13->unknown_e_, 0, var13->unknown_d_,
                                  0xff, 0x1000, 0x1000);
     }
     func_02023b5c(arg0, var0->unknown_18_ << 3, var0->unknown_1c_ << 3, -4, -4, 0);
@@ -187,7 +187,7 @@ extern "C" ARM void func_020251bc(void *arg0) {
             if (inline_02024518(var15->unknown_e_)) continue;
         }
         if (!func_02024d48(var15, var0->unknown_9c0_)) continue;
-        func_0202756c(arg0, (var17 - 4) * 0x1000, (var18 + 0x5c) * 0x1000, var15->unknown_c_, var15->unknown_e_, 0,
+        DrawMetatileAt_0202756c(arg0, (var17 - 4) * 0x1000, (var18 + 0x5c) * 0x1000, var15->unknown_c_, var15->unknown_e_, 0,
                                  var15->unknown_d_, 0xff, 0x1000, 0x1000);
     }
     func_02023b5c(arg0, var0->unknown_18_ * 8, var0->unknown_48_, -4, 0x5c, 0);

@@ -16,7 +16,7 @@ extern "C" void func_0206e218(unsigned char*, int);
 extern "C" void func_0206eb64(unsigned char*, int, int);
 struct Party_02053f7c;
 extern "C" int CountOwnedItem_02086aec(Party_02053f7c*, int);
-extern "C" int func_02086d88(unsigned char*, int);
+extern "C" int RemoveItemFromBagsOrHeldItems_02086d88(unsigned char*, int);
 
 struct Struct_02095d30 {
     unsigned short unknown_0_0_ : 9;
@@ -72,7 +72,7 @@ extern "C" ARM int func_02095d30(struct Struct_02095d30_2* arg0, int arg1, int a
                 }
                 var8 = CountOwnedItem_02086aec((Party_02053f7c*)var2, var10);
                 for (var9 = 0; var9 < var8; var9++) {
-                    func_02086d88((unsigned char*)var2, var3->unknown_1e_[var7]);
+                    RemoveItemFromBagsOrHeldItems_02086d88((unsigned char*)var2, var3->unknown_1e_[var7]);
                 }
             }
             break;

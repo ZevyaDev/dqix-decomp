@@ -17,7 +17,7 @@ struct Struct_020a66a4;
 extern "C" void func_020a7eb8(struct Struct_020a66a4* arg0);
 extern "C" int func_ov017_021b8b54(void* arg0);
 extern "C" void* GetEffectManager_02057924(void* arg0);
-extern "C" void func_02057ab8(void* arg0, int arg1);
+extern "C" void DrawAttachedEffects_02057ab8(void* effectManager, int objectIndex);
 
 struct Struct_020a66a4_2 {
     char unknown_0_[Enum_020a66a4_14076];
@@ -49,5 +49,5 @@ extern "C" ARM void func_020a66a4(struct Struct_020a66a4_2* arg0) {
         if (func_ov017_021b8b54(var4)) return;
     }
     func_020a7eb8((struct Struct_020a66a4*)var0);
-    func_02057ab8(var3, 0xc9);
+    DrawAttachedEffects_02057ab8(var3, 0xc9);
 }

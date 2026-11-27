@@ -25,14 +25,14 @@ struct Struct_ov008_0218747c_2 {
     PlayTime_020ac4f8 unknown_b40_[2];
 };
 struct Struct_ov008_0218747c_3 { char unknown_0_[0x100d]; unsigned char unknown_100d_; };
-struct Struct_020103f0;
+struct GameState_020103f0;
 struct Struct_020104cc;
-extern "C" void func_020103f0(Struct_020103f0*, unsigned short*, unsigned char*, unsigned char*);
+extern "C" void GetElapsedPlayTime_020103f0(GameState_020103f0*, unsigned short*, unsigned char*, unsigned char*);
 extern "C" Struct_ov008_0218747c_3* func_0202ae18();
 extern "C" int GetLocalWirelessState_0202ba00(int*);
 extern "C" void func_020104cc(Struct_020104cc*, unsigned short*, unsigned char*, unsigned char*);
-extern "C" void func_020ac614(PlayTime_020ac4f8*, int);
-extern "C" void func_020ac644(PlayTime_020ac4f8*, int);
+extern "C" void AddPlayTimeHours_020ac614(PlayTime_020ac4f8*, int);
+extern "C" void AddPlayTimeMinutes_020ac644(PlayTime_020ac4f8*, int);
 static inline Struct_ov008_0218747c* inline_ov008_0218747c(GameState* arg0) { return &((Struct_01ff91ac_37*)arg0)->unknown_7504_; }
 
 // USA: func_ov008_0218747c
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov008_0218747c(Struct_ov008_0218747c_2* arg0, int arg1)
     if (arg1 == 0) {
         var1 = &arg0->unknown_b40_[0];
         var3 = var7;
-        func_020103f0((Struct_020103f0*)var0, &var4, &var5, &var6);
+        GetElapsedPlayTime_020103f0((GameState_020103f0*)var0, &var4, &var5, &var6);
     } else if (arg1 == 1) {
         var1 = &arg0->unknown_b40_[1];
         var3 = var8;
@@ -69,8 +69,8 @@ extern "C" ARM void func_ov008_0218747c(Struct_ov008_0218747c_2* arg0, int arg1)
     if (!var1 || !var3) return;
     unsigned char var12 = var1->minutes_2_;
     func_ov008_02184598(var1);
-    func_020ac614(var1, (unsigned short)(var3->hours_0_ + var4));
-    func_020ac644(var1, (unsigned char)(var3->minutes_2_ + var5));
+    AddPlayTimeHours_020ac614(var1, (unsigned short)(var3->hours_0_ + var4));
+    AddPlayTimeMinutes_020ac644(var1, (unsigned char)(var3->minutes_2_ + var5));
     var1->seconds_3_ += (unsigned char)(var3->seconds_3_ + var6);
     unsigned char var13 = var1->seconds_3_;
     if (var13 > 59) {
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov008_0218747c(Struct_ov008_0218747c_2* arg0, int arg1)
             var1->minutes_2_ = 59;
             var1->seconds_3_ = 59;
         } else {
-            func_020ac644(var1, var14);
+            AddPlayTimeMinutes_020ac644(var1, var14);
             var1->seconds_3_ %= 60;
         }
     }

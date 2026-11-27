@@ -42,7 +42,7 @@ extern "C" void InitBattleAction_ov000_02160030(void*);
 extern "C" Struct_ov000_0215b5a0_4* func_ov000_0215e918(void*);
 extern "C" Struct_ov000_0215b5a0_5* func_ov000_0215e938(void*);
 extern "C" void InitActionTarget_ov000_02157cdc(void*);
-extern "C" void func_02088150(void*);
+extern "C" void SetSuperHighTension_02088150(void*);
 extern "C" void func_02088220(void*, int);
 extern "C" void AppendTargetResult_ov000_0215ffc4(void*, void*, int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAct
         unsigned long long var16 = 0;
         var16 |= 1ULL << 36;
         if (var15 + 1 >= 4) {
-            func_02088150(var14->currentStats_);
+            SetSuperHighTension_02088150(var14->currentStats_);
             var16 |= 1ULL << 7;
         } else {
             func_02088220(var14->currentStats_, var15 + 1);

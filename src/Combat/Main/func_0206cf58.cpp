@@ -42,7 +42,7 @@ extern Struct_02108cec_5 gNPCPlacementParseState_02108cec;
 extern "C" ARM int func_0206cf58(Script::Parameter* arg0, int arg1)
 {
     FlagManager_0205faf4_3* var0;
-    Struct_0206bf2c* var1;
+    NPCPlacement_0206bf2c* var1;
     gNPCPlacementParseState_02108cec.unknown_a_++;
     int var2 = arg0[0].ToInt();
     int var3 = arg0[1].ToInt();
@@ -118,10 +118,10 @@ extern "C" ARM int func_0206cf58(Script::Parameter* arg0, int arg1)
         func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var12);
         return 1;
     }
-    var1 = (Struct_0206bf2c*)gNPCPlacementParseState_02108cec.unknown_14_->Allocate(0x78);
+    var1 = (NPCPlacement_0206bf2c*)gNPCPlacementParseState_02108cec.unknown_14_->Allocate(0x78);
     if (var1 == NULL)
         return 0;
-    func_0206bf2c(var1);
+    InitNPCPlacement_0206bf2c(var1);
     var1->unknown_46_ = var2;
     var1->unknown_4_ = var4;
     var1->unknown_5_ = var5;
@@ -131,7 +131,7 @@ extern "C" ARM int func_0206cf58(Script::Parameter* arg0, int arg1)
     var1->unknown_9_ = var9;
     var1->unknown_a_0_ = (unsigned char)var10;
     var1->unknown_2_ = var11;
-    var1->unknown_0_ = var12;
+    var1->npcId_0_ = var12;
     if (gNPCPlacementParseState_02108cec.unknown_6_ != var12)
         gNPCPlacementParseState_02108cec.unknown_6_ = var12;
     if (arg1 < 12)

@@ -10,7 +10,7 @@ extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_0222750c(int, int);
 extern "C" void func_ov031_02230ef0(unsigned char);
 
-extern "C" void func_ov031_0223b710(int);
+extern "C" void FreeLoadedFile_ov031_0223b710(int);
 
 struct Struct_ov031_02290cc8_5 { char unknown_0_; signed char unknown_1_; unsigned char unknown_2_; char unknown_3_; int unknown_4_; };
 extern Struct_ov031_02290cc8_5 data_ov031_02290cc8;
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov031_02233784(void) {
 
 	FreeCursorSprites_ov031_022238cc();
 	CloseSubScreenMessage_ov031_02223440();
-	func_ov031_0223b710(data_ov031_02290cc8.unknown_4_);
+	FreeLoadedFile_ov031_0223b710(data_ov031_02290cc8.unknown_4_);
 	HideScreenLayers_ov031_0223cbbc(1, 1);
 	HideScreenLayers_ov031_0223cbbc(0, 0x14);
 

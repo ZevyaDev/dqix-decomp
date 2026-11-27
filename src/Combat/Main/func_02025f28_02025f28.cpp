@@ -20,8 +20,8 @@ extern "C" void func_0203bcb8(struct Struct_02020fc4_3* arg0, int arg1, int arg2
 struct Struct_0201bb78 { unsigned short unknown_0_; };
 extern "C" int func_0201bb78(struct Struct_0201bb78* arg0, unsigned int arg1);
 
-extern "C" void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
-        unsigned char arg4, unsigned char arg5, unsigned short arg6, unsigned char arg7, int arg8, int arg9);
+extern "C" void DrawMetatileAt_0202756c(void* subScreenDisplay, int positionX, int positionY, int metatileIndex,
+        unsigned char destinationObjIndex, unsigned char priority, unsigned short palette, unsigned char rotScaleDataIndex, int scaleX, int scaleY);
 
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void func_0202630c(void* arg0, int* arg1, int arg2);
@@ -79,10 +79,10 @@ extern "C" ARM void func_02025f28(unsigned char* arg0) {
         int var10 = var9->unknown_4_;
         int var11 = var9->unknown_8_;
         if ((*(struct Struct_02025f28**)(arg0 + Enum_02025f28_2716))[var5].unknown_2_ == 1) {
-            func_0202756c(arg0, var10 + 0x7d000, var11 + 0x5d000, 0x18,
+            DrawMetatileAt_0202756c(arg0, var10 + 0x7d000, var11 + 0x5d000, 0x18,
                 (var5 + 0x55) & 0xff, var6, 0xff, 0xff, 0x1000, 0x1000);
         } else if ((*(struct Struct_02025f28**)(arg0 + Enum_02025f28_2716))[var5].unknown_2_ == 2) {
-            func_0202756c(arg0, var10 + 0x7d000, var11 + 0x5d000, 0x17,
+            DrawMetatileAt_0202756c(arg0, var10 + 0x7d000, var11 + 0x5d000, 0x17,
                 (var5 + 0x55) & 0xff, 0, 0xff, 0xff, 0x1000, 0x1000);
         }
     }
@@ -111,7 +111,7 @@ extern "C" ARM void func_02025f28(unsigned char* arg0) {
         func_0202630c(arg0, (int*)&var13, 0x7000);
         var13.unknown_0_ -= 0x4000;
         var13.unknown_8_ -= 0x4000;
-        func_0202756c(arg0, var13.unknown_0_, var13.unknown_8_, 0x19, 0x54, 0, 0xff, 0xff, 0x1000, 0x1000);
+        DrawMetatileAt_0202756c(arg0, var13.unknown_0_, var13.unknown_8_, 0x19, 0x54, 0, 0xff, 0xff, 0x1000, 0x1000);
     }
 
     int var14 = (*(unsigned int*)((char*)&data_020fdc4c + Enum_02025f28_12) + var0->GetEffectiveDeltaTime()) % 0x560u;
@@ -129,6 +129,6 @@ extern "C" ARM void func_02025f28(unsigned char* arg0) {
         short var16 = var4->obj3D_.unknown_4_;
         unsigned char var17 = (unsigned char)(var16 + 0x44);
         unsigned short var18 = (unsigned short)(var16 + 4);
-        func_0202756c(arg0, var12[0], var12[2], 5, var17, 0, var18, 0xff, 0x1000, 0x1000);
+        DrawMetatileAt_0202756c(arg0, var12[0], var12[2], 5, var17, 0, var18, 0xff, 0x1000, 0x1000);
     }
 }

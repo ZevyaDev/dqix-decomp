@@ -3,7 +3,7 @@
 
 extern "C" void* GetBattleJoinTable_0207d78c(void);
 struct BattleJoinRecord_0207d7f4;
-extern "C" struct BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(struct BattleJoinRecord_0207d7f4* arg0, unsigned short monsterId);
+extern "C" struct BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(struct BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
 
 extern unsigned char data_ov017_021d7654[4];
 

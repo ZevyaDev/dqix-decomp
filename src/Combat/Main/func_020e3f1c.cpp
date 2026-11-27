@@ -127,7 +127,7 @@ extern "C" void func_020338d4(struct Struct_020338d4* arg0, struct Struct_ov009_
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" void func_020338b0(unsigned char* arg0, int arg1);
 extern "C" void func_0202e6a8(struct Struct_0202e6a8* arg0, int arg1);
-extern "C" int func_0202e800(void* arg0);
+extern "C" int GetCameraDistance_0202e800(void* camera);
 extern "C" void SetCameraEye_0202e5c0(struct Camera_0202e5c0* camera, int x, int y, int z);
 extern "C" void func_0202ea4c(struct Struct_0202ea4c* arg0);
 extern "C" void UpdateCamera_0202e0a4(struct Struct_020e3f1c_2* camera);
@@ -265,7 +265,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
         }
         func_020338b0((unsigned char*)var10, (int)&var6->unknown_44_);
         func_0202e6a8((struct Struct_0202e6a8*)var5, 0);
-        int var19 = func_0202e800(var5);
+        int var19 = GetCameraDistance_0202e800(var5);
         struct Struct_ov009_0218aa28 var20 = var5->unknown_10_;
         if (arg0->unknown_e_ == 1) {
             int var21 = inline_02061c04_5(var19, 0xddb);

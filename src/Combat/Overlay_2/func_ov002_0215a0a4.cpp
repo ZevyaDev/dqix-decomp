@@ -85,7 +85,7 @@ extern "C" Struct_ov002_0215a0a4_5* FindActionData_02079e2c(char*, int);
 extern "C" void* InitNoun_020e46c4(void*);
 extern "C" void SetMessageString_02046574(Struct_ov002_02157d40_6*, int, char*);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
-extern "C" int func_02048350(Struct_ov002_02157d40_8*, int);
+extern "C" int SpendMP_02048350(Struct_ov002_02157d40_8*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int AppendText_02042058(char*, const char*);
 extern "C" void SetMessageNumber_020465c0(Struct_ov002_02157d40_2*, int, int);
@@ -175,7 +175,7 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
         arg0->unknown_1000_.unknown_bbc_ = Enum_ov002_0215a0a4_17;
         arg0->unknown_1000_.unknown_bc0_ = 0;
         if (var12) {
-            func_02048350((Struct_ov002_02157d40_8*)var3, var9->unknown_8_0_);
+            SpendMP_02048350((Struct_ov002_02157d40_8*)var3, var9->unknown_8_0_);
             if (IsLocalWirelessOn_0202b7d8(var2)) func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
         }
         return;
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
             }
             var10++;
         }
-        func_02048350((Struct_ov002_02157d40_8*)var3, var9->unknown_8_0_);
+        SpendMP_02048350((Struct_ov002_02157d40_8*)var3, var9->unknown_8_0_);
         if (IsLocalWirelessOn_0202b7d8(var2)) func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
     } else {
         var0 = var7->GetUnknownGameObject();

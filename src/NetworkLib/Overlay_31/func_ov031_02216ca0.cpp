@@ -19,7 +19,7 @@ struct Struct_ov031_02216ca0_2 {
     int unknown_13f8_;
 };
 struct Struct_ov031_0224e5e8_9 { int unknown_0_; int unknown_4_; Struct_ov031_02216ca0_2* unknown_8_; };
-extern Struct_ov031_0224e5e8_9 data_ov031_0224e5e8;
+extern Struct_ov031_0224e5e8_9 gAccountRequest_ov031_0224e5e8;
 extern "C" void func_ov031_02217598(int);
 extern "C" int func_ov031_02216f54();
 extern "C" void func_ov031_022183b4(Struct_ov031_02216ca0*);
@@ -29,12 +29,12 @@ extern "C" int func_ov031_02216b90(int);
 extern "C" ARM void func_ov031_02216ca0() {
     int var0 = 0;
     while (true) {
-        if (data_ov031_0224e5e8.unknown_8_->unknown_1314_->unknown_1b38_.uniqueID != 0)
-            AwaitContextCompletion(&data_ov031_0224e5e8.unknown_8_->unknown_1314_->unknown_1b38_);
+        if (gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1314_->unknown_1b38_.uniqueID != 0)
+            AwaitContextCompletion(&gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1314_->unknown_1b38_);
         int var1;
-        if (data_ov031_0224e5e8.unknown_8_->unknown_1314_->unknown_1020_ != 8) {
-            data_ov031_0224e5e8.unknown_8_->unknown_1008_ = 0x4e84;
-            int var2 = data_ov031_0224e5e8.unknown_8_->unknown_1314_->unknown_1020_;
+        if (gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1314_->unknown_1020_ != 8) {
+            gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1008_ = 0x4e84;
+            int var2 = gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1314_->unknown_1020_;
             if (var2 == 7) { func_ov031_02217598(20); return; }
             if (var0 > 2) {
                 if (var2 == 2) { func_ov031_02217598(9); return; }
@@ -65,25 +65,25 @@ extern "C" ARM void func_ov031_02216ca0() {
         unsigned long long var4 = GetCurrentTimestamp();
         if ((((GetCurrentTimestamp() - var4) << 6) / 33514ULL) < 5000ULL) {
           do {
-            LockMutex(&data_ov031_0224e5e8.unknown_8_->unknown_13e0_);
-            if (data_ov031_0224e5e8.unknown_8_->unknown_13f8_ == 1) {
-                data_ov031_0224e5e8.unknown_8_->unknown_1008_ = 0x4e84;
-                UnlockMutex(&data_ov031_0224e5e8.unknown_8_->unknown_13e0_);
+            LockMutex(&gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_13e0_);
+            if (gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_13f8_ == 1) {
+                gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1008_ = 0x4e84;
+                UnlockMutex(&gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_13e0_);
                 func_ov031_02217598(20);
                 return;
             }
-            UnlockMutex(&data_ov031_0224e5e8.unknown_8_->unknown_13e0_);
+            UnlockMutex(&gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_13e0_);
             SleepCurrentContext(5000);
           } while ((((GetCurrentTimestamp() - var4) << 6) / 33514ULL) < 5000ULL);
         }
-        func_ov031_022183b4(data_ov031_0224e5e8.unknown_8_->unknown_1314_);
-        LockMutex(&data_ov031_0224e5e8.unknown_8_->unknown_13e0_);
-        data_ov031_0224e5e8.unknown_8_->unknown_1004_ = func_ov031_02216b90(var1);
-        if (data_ov031_0224e5e8.unknown_8_->unknown_1004_ != 0) {
-            data_ov031_0224e5e8.unknown_8_->unknown_1008_ = 0x4e84;
-            UnlockMutex(&data_ov031_0224e5e8.unknown_8_->unknown_13e0_);
+        func_ov031_022183b4(gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1314_);
+        LockMutex(&gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_13e0_);
+        gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1004_ = func_ov031_02216b90(var1);
+        if (gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1004_ != 0) {
+            gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1008_ = 0x4e84;
+            UnlockMutex(&gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_13e0_);
             return;
         }
-        UnlockMutex(&data_ov031_0224e5e8.unknown_8_->unknown_13e0_);
+        UnlockMutex(&gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_13e0_);
     }
 }

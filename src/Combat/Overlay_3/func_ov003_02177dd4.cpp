@@ -55,7 +55,7 @@ extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2 *menu
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int windowId, int palette);
 extern "C" void ShowMenuLayoutWindowTexts_02080bac(void *menuLayout, int windowId);
 extern "C" void func_0208065c(void *arg0, int arg1);
-extern "C" void func_02081130(void *arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowPageArrows_02081130(void *menuLayout, int windowId, int hasPageArrows);
 extern "C" void func_020806b0(void *arg0, int arg1);
 extern "C" int HideMenuLayoutText_02080b2c(void *menuLayout, int textId);
 extern "C" int func_0207c6b8(unsigned char *arg0, unsigned int arg1, int arg2);
@@ -76,7 +76,7 @@ struct ItemData_0201099c_9 {
 extern "C" struct ItemData_0201099c_9 *FindItemData_020dedd0(struct ItemTable_0201099c_10 *itemTable, int itemId);
 extern "C" short func_0207c72c(void *arg0, unsigned int arg1, short arg2);
 extern "C" void func_ov003_0217818c(void *arg0, struct ItemData_0201099c_9 *arg1, int arg2, int arg3);
-extern "C" void func_020805f4(void *arg0, int arg1);
+extern "C" void CapitalizeMenuLayoutText_020805f4(void *menuLayout, int textId);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c *menuLayout, int textId, int text);
 struct MenuLayout_02080fa8;
@@ -153,7 +153,7 @@ extern "C" ARM void func_ov003_02177dd4(Struct_ov003_02177dd4 *arg0) {
     SetMenuLayoutWindowPalette_02080c68(var10, var11, 0);
     ShowMenuLayoutWindowTexts_02080bac(var10, var11);
     func_0208065c(var10, var11);
-    func_02081130(var10, var11, var16 < var7);
+    SetMenuLayoutWindowPageArrows_02081130(var10, var11, var16 < var7);
 
     short var18              = arg0->unknown_1014_ * var16;
     short var19            = var18 + var16;
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov003_02177dd4(Struct_ov003_02177dd4 *arg0) {
             }
             func_ov003_0217818c(arg0, var23, var13, var14);
 #if !defined(jpn)
-            func_020805f4(var10, var12);
+            CapitalizeMenuLayoutText_020805f4(var10, var12);
 #endif
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var10, var12, var20);
             SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8 *) var10, var13, var21);

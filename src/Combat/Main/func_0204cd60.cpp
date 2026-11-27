@@ -51,7 +51,7 @@ extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, i
 extern "C" void func_0204cc68(Struct_0204cd60* arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
 extern "C" void FillTextWindowRect_0204f914(Struct_0204cd60* textWindow, int colorIndex, short left, short top, short right, short bottom);
 extern "C" void func_0204ea5c(Struct_0204cd60* arg0);
-extern "C" void func_0204ecb4(Struct_0204cd60* arg0, int arg1, int arg2, int arg3, int arg4, signed char* arg5);
+extern "C" void DrawTextWindowFrame_0204ecb4(Struct_0204cd60* textWindow, int tileX, int tileY, int width, int height, signed char* margins);
 extern "C" int func_0204fc40(void* arg0, char** arg1, char* arg2, short* arg3, int arg4);
 extern "C" void func_0204f3bc(Struct_0204cd60* arg0, int arg1);
 extern "C" void func_0204df9c(Struct_0204cd60* arg0, Struct_0204cd60_2* arg1, int arg2, int arg3, int arg4, int arg5);
@@ -195,7 +195,7 @@ extern "C" ARM void func_0204cd60(Struct_0204cd60* arg0, char* arg1, short arg2,
         func_0204cc68(arg0, 3, 0, 0, var57, var58);
         func_0204cc68(arg0, var36, (int)arg2, (int)arg2, var57 - arg2, var58 - arg2);
     } else if (!(arg0->unknown_c5_ & 0x10)) {
-        func_0204ecb4(arg0, 0, 0, arg0->unknown_a8_, arg0->unknown_aa_, arg0->unknown_db_);
+        DrawTextWindowFrame_0204ecb4(arg0, 0, 0, arg0->unknown_a8_, arg0->unknown_aa_, arg0->unknown_db_);
     }
 
     var37 = 0xf0;

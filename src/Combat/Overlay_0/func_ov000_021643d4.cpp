@@ -185,7 +185,7 @@ extern "C" void func_02039d58(unsigned char*);
 extern "C" int GetPartyLeaderObjectIndex_02039888(void*);
 void Vector3fixMultiplyScalar(const Vector3i* v, int s, Vector3i* out);
 extern "C" void func_020338d4(Struct_020338d4*, Struct_ov009_0218aa28*);
-extern "C" void func_ov017_021cee78(int arg0, unsigned char arg1);
+extern "C" void SendObjectPosition_ov017_021cee78(int objectIndex, unsigned char isFacingInstant);
 extern "C" void func_02053ec8(void*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 struct LocalWireless_0202c1a4;
@@ -229,7 +229,7 @@ extern "C" void func_020a07e0(Struct_020a07e0*, unsigned int);
 struct Struct_020a00d4;
 extern "C" void func_020a00d4(Struct_020a00d4*, unsigned int);
 extern "C" void SetBattleRecords_020ac494(void*);
-extern "C" void func_0201075c(char*, unsigned char);
+extern "C" void SetPartyWipedOut_0201075c(char*, unsigned char);
 extern "C" void func_ov017_021c894c(int arg0);
 extern "C" void func_ov017_021c8758(int arg0);
 extern "C" void func_ov017_021c8654();
@@ -310,7 +310,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
                 var18->unknown_44_ = var19;
             }
             func_020338d4((Struct_020338d4*)var18, (Struct_ov009_0218aa28*)&var15);
-            func_ov017_021cee78(var17, 0);
+            SendObjectPosition_ov017_021cee78(var17, 0);
         }
     }
     var7->unknown_160_ = var7->unknown_44_;
@@ -454,7 +454,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     func_020a00d4((Struct_020a00d4*)&var42.unknown_68_, 1);
     SetBattleRecords_020ac494(&var42);
     ((Struct_ov000_021643d4_5*)var0)->unknown_5728_ = 0;
-    func_0201075c((char*)var0, 0);
+    SetPartyWipedOut_0201075c((char*)var0, 0);
     func_ov017_021c894c(arg0->unknown_2a0_->unknown_8_);
     func_ov017_021c8758(arg0->unknown_2a0_->unknown_8_);
     func_ov017_021c8654();

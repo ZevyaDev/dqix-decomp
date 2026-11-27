@@ -91,7 +91,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" unsigned int func_02012078(void* arg0);
-extern "C" void func_020116c8(void* arg0);
+extern "C" void StopFollowingTreasureMap_020116c8(void* gameState);
 extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -238,7 +238,7 @@ extern "C" ARM int func_ov017_021afe00(Struct_ov017_021afe00_5* arg0) {
     }
     Struct_ov017_021afe00_2* var17 = (Struct_ov017_021afe00_2*)var0->GetGrottoStruct();
     if (var17->unknown_0_ != 0 && arg0->unknown_9_ == 2) {
-        func_020116c8(var0);
+        StopFollowingTreasureMap_020116c8(var0);
         RestartMapDisplay_020dc2d0(0);
     }
     func_ov017_021d0b30(1, 0, 0);

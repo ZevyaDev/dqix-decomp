@@ -2,7 +2,7 @@
 
 extern "C" int TrySelectTacticOption_ov024_021fe698(char* tacticAI, int option);
 extern "C" int func_ov024_021fdf04(void* arg0, int arg1);
-extern "C" int func_ov024_021fd954(void* arg0, int arg1);
+extern "C" int EvaluatePartyStatusAction_ov024_021fd954(void* tacticAI, int statusEffect);
 
 struct Struct_ov024_021fbe3c { unsigned int unknown_0_0_ : 8; unsigned int unknown_1_0_ : 2; };
 
@@ -30,6 +30,6 @@ extern "C" ARM int func_ov024_021fbe3c(void* arg0) {
 		if (!var2) {
 			return var2;
 		}
-		return func_ov024_021fd954(arg0, 0x13);
+		return EvaluatePartyStatusAction_ov024_021fd954(arg0, 0x13);
 	}
 }

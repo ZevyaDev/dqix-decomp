@@ -24,7 +24,7 @@ extern Struct_ov031_0224e6e0_9 gAOSSSession_ov031_0224e6e0;
 extern char data_ov031_0224b0dc[];
 extern "C" void func_ov031_0221e52c(void*, int, unsigned int);
 extern "C" void func_ov031_0221d060(int);
-extern "C" void func_ov031_0221e51c(void*, const void*, unsigned int);
+extern "C" void Memcpy_ov031_0221e51c(void*, const void*, unsigned int);
 extern "C" unsigned short func_ov031_0221e5f8(unsigned short);
 extern "C" unsigned int func_ov031_0221e5d0(unsigned int);
 extern "C" void func_ov031_0221dfd4(int, void*, const void*, short*, short*, signed char*);
@@ -50,7 +50,7 @@ extern "C" THUMB int func_ov031_0221de00(int arg0, const void* arg1, int arg2) {
     var1.unknown_4_ = func_ov031_0221e5d0(var1.unknown_4_);
     var2.unknown_4_ = 8;
     func_ov031_0221dfd4(gAOSSSession_ov031_0224e6e0.unknown_0_, var3 + sizeof(Struct_ov031_0221d3b0), &var1, &var2.unknown_4_, &var2.unknown_2_, &var2.unknown_0_);
-    func_ov031_0221e51c(&var0, (const char*)arg1 + 8, 8);
+    Memcpy_ov031_0221e51c(&var0, (const char*)arg1 + 8, 8);
     if (func_ov031_0221e354(&var0, 8, data_ov031_0224b0dc, 6)) {
         func_ov031_0221d060(2);
         return -1;

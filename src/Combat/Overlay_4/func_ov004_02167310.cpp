@@ -11,11 +11,11 @@ extern "C" Struct_0208d994* func_0208d994(Struct_0208bf78_5*, int);
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 
 #if defined(jpn)
-extern void* data_ov004_0217101c[2];
-#define CurrentBase0217101c data_ov004_0217101c[1]
+extern void* gQuestList_ov004_0217101c[2];
+#define CurrentBase0217101c gQuestList_ov004_0217101c[1]
 #else
-extern void* data_ov004_0217101c;
-#define CurrentBase0217101c data_ov004_0217101c
+extern void* gQuestList_ov004_0217101c;
+#define CurrentBase0217101c gQuestList_ov004_0217101c
 #endif
 
 // USA: func_ov004_02167310

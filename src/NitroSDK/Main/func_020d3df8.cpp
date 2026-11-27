@@ -69,7 +69,7 @@ struct Struct_020d3df8_3 {
     unsigned char unknown_152_[0xae];
 };
 
-struct Struct_ov031_0224e204 {
+struct ValueQueue_ov031_0224e204 {
     BlockedContextList unknown_0_;
     BlockedContextList unknown_8_;
     void** unknown_10_;
@@ -82,7 +82,7 @@ struct Struct_021142e0 {
     unsigned short unknown_0_;
     unsigned short unknown_2_;
     Struct_020d3df8_3* unknown_4_;
-    Struct_ov031_0224e204 unknown_8_;
+    ValueQueue_ov031_0224e204 unknown_8_;
     void* unknown_28_[10];
 };
 
@@ -94,17 +94,17 @@ struct Struct_020d3df8_4 {
     Struct_01ff8300_4 unknown_e00_;
 };
 
-extern Struct_021142e0 data_021142e0;
+extern Struct_021142e0 gWirelessIPC_021142e0;
 extern unsigned long data_02114380[10][Enum_020d3df8_64] __attribute__((aligned(32)));
 extern "C" void func_020d468c();
-extern "C" void func_020c7de4(Struct_ov031_0224e204*, int, int);
-extern "C" int EnqueueValue_020c7e0c(Struct_ov031_0224e204*, void*, int);
+extern "C" void InitValueQueue_020c7de4(ValueQueue_ov031_0224e204*, int, int);
+extern "C" int EnqueueValue_020c7e0c(ValueQueue_ov031_0224e204*, void*, int);
 extern "C" void func_020d42e0(unsigned int, unsigned int, unsigned int);
 
 // USA: func_020d3df8
 extern "C" ARM Enum_020d3df8 func_020d3df8(void* arg0, unsigned short arg1, unsigned long arg2) {
     const int var0 = DisableIRQInterrupts();
-    if (data_021142e0.unknown_0_) {
+    if (gWirelessIPC_021142e0.unknown_0_) {
         SetIRQInterruptState(var0);
         return Enum_020d3df8_3;
     }
@@ -127,27 +127,27 @@ extern "C" ARM Enum_020d3df8 func_020d3df8(void* arg0, unsigned short arg1, unsi
     }
     InvalidateDataCacheRange(arg0, arg2);
     DMAMemsetSynchronous(arg1, (unsigned int)arg0, 0, arg2);
-    data_021142e0.unknown_4_ = (Struct_020d3df8_3*)arg0;
-    data_021142e0.unknown_4_->unknown_0_ = &((Struct_020d3df8_4*)arg0)->unknown_200_;
-    data_021142e0.unknown_4_->unknown_4_ = (Struct_020d3df8*)(data_021142e0.unknown_4_->unknown_0_ + 1);
-    data_021142e0.unknown_4_->unknown_c_ = (unsigned long*)(data_021142e0.unknown_4_->unknown_4_ + 1);
-    data_021142e0.unknown_4_->unknown_10_ = data_021142e0.unknown_4_->unknown_c_ + Enum_020d3df8_64;
+    gWirelessIPC_021142e0.unknown_4_ = (Struct_020d3df8_3*)arg0;
+    gWirelessIPC_021142e0.unknown_4_->unknown_0_ = &((Struct_020d3df8_4*)arg0)->unknown_200_;
+    gWirelessIPC_021142e0.unknown_4_->unknown_4_ = (Struct_020d3df8*)(gWirelessIPC_021142e0.unknown_4_->unknown_0_ + 1);
+    gWirelessIPC_021142e0.unknown_4_->unknown_c_ = (unsigned long*)(gWirelessIPC_021142e0.unknown_4_->unknown_4_ + 1);
+    gWirelessIPC_021142e0.unknown_4_->unknown_10_ = gWirelessIPC_021142e0.unknown_4_->unknown_c_ + Enum_020d3df8_64;
     func_020d468c();
-    data_021142e0.unknown_4_->unknown_14_ = arg1;
-    data_021142e0.unknown_4_->unknown_14c_ = 0;
-    data_021142e0.unknown_4_->unknown_150_ = 0;
+    gWirelessIPC_021142e0.unknown_4_->unknown_14_ = arg1;
+    gWirelessIPC_021142e0.unknown_4_->unknown_14c_ = 0;
+    gWirelessIPC_021142e0.unknown_4_->unknown_150_ = 0;
     for (int var1 = 0; var1 < 16; var1++) {
-        data_021142e0.unknown_4_->unknown_cc_[var1] = NULL;
-        data_021142e0.unknown_4_->unknown_10c_[var1] = NULL;
+        gWirelessIPC_021142e0.unknown_4_->unknown_cc_[var1] = NULL;
+        gWirelessIPC_021142e0.unknown_4_->unknown_10c_[var1] = NULL;
     }
-    func_020c7de4(&data_021142e0.unknown_8_, (int)data_021142e0.unknown_28_, 10);
+    InitValueQueue_020c7de4(&gWirelessIPC_021142e0.unknown_8_, (int)gWirelessIPC_021142e0.unknown_28_, 10);
     for (int var2 = 0; var2 < 10; var2++) {
         ((Struct_020d3df8_2*)data_02114380[var2])->unknown_0_ = 0x8000;
         CleanCacheRange(data_02114380[var2], 2);
-        EnqueueValue_020c7e0c(&data_021142e0.unknown_8_, data_02114380[var2], 1);
+        EnqueueValue_020c7e0c(&gWirelessIPC_021142e0.unknown_8_, data_02114380[var2], 1);
     }
     SetArm9IPCCommandHandler(10, func_020d42e0);
-    data_021142e0.unknown_0_ = 1;
+    gWirelessIPC_021142e0.unknown_0_ = 1;
     SetIRQInterruptState(var0);
     return Enum_020d3df8_0;
 }

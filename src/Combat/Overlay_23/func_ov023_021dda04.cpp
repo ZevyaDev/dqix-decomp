@@ -7,7 +7,7 @@ extern "C" void func_ov023_021dd404(void* arg0);
 extern "C" int func_ov023_021ddbb8(void* arg0, int arg1, int arg2);
 struct Struct_ov023_021dd59c;
 extern "C" int func_ov023_021ddbf8(struct Struct_ov023_021dd59c* arg0);
-extern "C" void func_ov023_021dc354(void* arg0);
+extern "C" void ReleaseItemInfoPanel_ov023_021dc354(void* panel);
 extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
 
 struct Struct_ov023_021dda04 {
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov023_021dda04(struct Struct_ov023_021dda04* arg0) {
 
     if (arg0->unknown_777_ != 2) return;
 
-    func_ov023_021dc354(arg0);
+    ReleaseItemInfoPanel_ov023_021dc354(arg0);
     if (arg0->unknown_774_ & 0x200) {
         arg0->unknown_776_ = 3;
         return;

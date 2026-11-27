@@ -17,16 +17,16 @@ struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 struct StringList_02072a68_2;
 struct SoundEffectManager_02108760;
-struct Struct_ov012_02186a7c;
+struct ProfileMenu_ov012_02186a7c;
 extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2*, unsigned char, unsigned char);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void func_ov012_021898bc(char*);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c*);
+extern "C" int IsProfileMenuCancelPressed_ov023_021e6e20(ProfileMenu_ov012_02186a7c*);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void*);
-extern "C" int func_ov023_021e7148(void*);
+extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(void*);
 extern "C" void func_ov012_0218bba0(void*, int, int);
 extern "C" void func_ov012_02189be8(void*, int);
 
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov012_02186c1c(char* arg0) {
     if (*(unsigned char*)(arg0 + 0x1340) != 1) return;
     *(unsigned char*)(arg0 + 0x1368) = 1;
     *(int*)(arg0 + 0x1430) = GetCursorIndex_0205d794((Struct_0205c570*)(arg0 + 0x90));
-    if (func_ov023_021e7148(arg0)) {
+    if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0)) {
         int var2 = 1;
         switch (*(int*)(arg0 + 0x1430)) {
         case 0:
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov012_02186c1c(char* arg0) {
         if (!var2) return;
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     } else {
-        if (!func_ov023_021e6e20((Struct_ov012_02186a7c*)arg0)) return;
+        if (!IsProfileMenuCancelPressed_ov023_021e6e20((ProfileMenu_ov012_02186a7c*)arg0)) return;
         func_ov012_02189be8(arg0, 1);
     }
 }
@@ -108,7 +108,7 @@ struct Struct_0205c570;
 struct StringListEntry_02072a68 { short id_0_; void* pText_4_; };
 struct StringList_02072a68_2 { StringListEntry_02072a68* unknown_0_; short capacity_4_; };
 struct SoundEffectManager_02108760;
-struct Struct_ov012_02186a7c;
+struct ProfileMenu_ov012_02186a7c;
 struct Struct_ov012_02186c1c_3 {
     char unknown_0_[4];
     unsigned int unknown_4_0_ : 9;
@@ -147,10 +147,10 @@ extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" void func_ov012_021898bc(char*);
 extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c*);
+extern "C" int IsProfileMenuCancelPressed_ov023_021e6e20(ProfileMenu_ov012_02186a7c*);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(Struct_ov012_02185ab8*);
-extern "C" int func_ov023_021e6de4(Struct_ov012_02185ab8*);
+extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(Struct_ov012_02185ab8*);
 extern "C" void func_ov012_0218adac(Struct_ov012_02185ab8*, int, int, int);
 extern "C" void func_ov012_0218930c(Struct_ov012_02185ab8*, int);
 
@@ -182,7 +182,7 @@ extern "C" ARM void func_ov012_02186c1c(Struct_ov012_02185ab8* arg0) {
     if (arg0->unknown_1370_ != 1) return;
     arg0->unknown_13a0_ = 1;
     arg0->unknown_13d8_ = GetCursorIndex_0205d794((Struct_0205c570*)&arg0->unknown_ac_);
-    if (func_ov023_021e6de4(arg0)) {
+    if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0)) {
         int var7 = 1;
         switch (arg0->unknown_13d8_) {
         case 0:
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov012_02186c1c(Struct_ov012_02185ab8* arg0) {
         if (!var7) return;
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
     } else {
-        if (!func_ov023_021e6e20((Struct_ov012_02186a7c*)arg0)) return;
+        if (!IsProfileMenuCancelPressed_ov023_021e6e20((ProfileMenu_ov012_02186a7c*)arg0)) return;
         func_ov012_0218930c(arg0, 1);
     }
 }

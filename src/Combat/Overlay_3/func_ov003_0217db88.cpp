@@ -27,8 +27,8 @@ enum { Enum_ov003_0217db88_204 = 0xcc };
 
 extern "C" void ResetTextWindowManager_0205d048(void* windowManager);
 struct BGLayer_02020cb8_3;
-struct Struct_0204c754;
-extern "C" void func_0204c754(struct Struct_0204c754* arg0);
+struct TextWindow_0204c754;
+extern "C" void ResetTextWindow_0204c754(struct TextWindow_0204c754* textWindow);
 struct Struct_0205a244;
 struct StringTable_0201099c_14;
 
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov003_0217db88(void* arg0) {
 
     int var2;
     for (var2 = 0; var2 < 1; var2++) {
-        func_0204c754((struct Struct_0204c754*)(*(char**)(var0 + Enum_ov003_0217db88_152) + var2 * 0xe0));
+        ResetTextWindow_0204c754((struct TextWindow_0204c754*)(*(char**)(var0 + Enum_ov003_0217db88_152) + var2 * 0xe0));
     }
 
     ((OBJSpriteSet::List*)((struct Struct_0205a244*)(*(void**)(var0 + Enum_ov003_0217db88_56))))->Destroy();

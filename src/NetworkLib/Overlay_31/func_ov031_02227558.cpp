@@ -5,10 +5,10 @@ struct Struct_ov031_02227558 {
     unsigned int unknown_0_4_ : 28;
 };
 
-extern int data_ov031_02250c0c;
+extern int gWifiSetup_ov031_02250c0c;
 
 // USA: func_ov031_02227558
 extern "C" ARM unsigned int func_ov031_02227558(void) {
-    struct Struct_ov031_02227558* var0 = (struct Struct_ov031_02227558*)((char*)&data_ov031_02250c0c + 0x8);
+    struct Struct_ov031_02227558* var0 = (struct Struct_ov031_02227558*)((char*)&gWifiSetup_ov031_02250c0c + 0x8);
     return var0->unknown_0_0_;
 }

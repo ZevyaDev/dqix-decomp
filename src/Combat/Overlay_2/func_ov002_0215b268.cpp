@@ -3,7 +3,7 @@
 extern int gSoundEffectManager_02108760;
 extern int gMusicManager_02109bf4;
 
-extern "C" unsigned char func_0205ea18(unsigned char* arg0);
+extern "C" unsigned char GetSoundEffectVolumeLevel_0205ea18(unsigned char* manager);
 extern "C" void SetMusicVolumeLevel_0209ca70(void* manager, int volumeLevel);
 struct Struct_02108760_2;
 extern "C" void SetSoundEffectVolumeLevel_0205e9f4(struct Struct_02108760_2* manager, int volumeLevel);
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov002_0215b268(char* arg0) {
 #else
     enum { Enum_ov002_0215b268_3116 = 0xc2c };
 #endif
-    unsigned char var0 = func_0205ea18((unsigned char*)&gSoundEffectManager_02108760);
+    unsigned char var0 = GetSoundEffectVolumeLevel_0205ea18((unsigned char*)&gSoundEffectManager_02108760);
     unsigned char var1 = *(unsigned char*)(arg0 + 0x1000 + Enum_ov002_0215b268_3116);
     SetMusicVolumeLevel_0209ca70(&gMusicManager_02109bf4, var1);
     unsigned char var2 = *(unsigned char*)(arg0 + 0x1000 + Enum_ov002_0215b268_3116 + 1);

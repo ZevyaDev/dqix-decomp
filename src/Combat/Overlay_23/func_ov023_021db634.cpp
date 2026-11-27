@@ -94,7 +94,7 @@ struct Struct_ov023_021ff9e0 {
 extern "C" Struct_ov023_021ff9e0 data_ov023_021ff9e0;
 extern "C" const short data_ov023_021fd5b8[3];
 
-extern "C" Struct_ov023_021db634_2* func_ov023_021db4e4(Struct_ov023_021db634_3* arg0, int arg1);
+extern "C" Struct_ov023_021db634_2* FindLayoutGroup_ov023_021db4e4(Struct_ov023_021db634_3* layout, int groupId);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" unsigned int strlen(const char* arg0);
@@ -117,14 +117,14 @@ extern "C" void func_ov023_021db544(void* arg0, void* arg1, int arg2, int arg3);
 
 #define SHOW_ELEMENT(layout, id)                                           \
     {                                                                      \
-        Struct_ov023_021db634_2* element = func_ov023_021db4e4(layout, id); \
+        Struct_ov023_021db634_2* element = FindLayoutGroup_ov023_021db4e4(layout, id); \
         if (element != NULL)                                               \
             element->unknown_16_ |= 1;                                          \
     }
 
 #define HIDE_ELEMENT(layout, id)                                           \
     {                                                                      \
-        Struct_ov023_021db634_2* element = func_ov023_021db4e4(layout, id); \
+        Struct_ov023_021db634_2* element = FindLayoutGroup_ov023_021db4e4(layout, id); \
         if (element != NULL)                                               \
             element->unknown_16_ &= ~1;                                         \
     }

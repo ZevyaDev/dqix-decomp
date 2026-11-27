@@ -59,7 +59,7 @@ struct Struct_ov015_02190acc
 extern "C" int func_ov015_021925a8(Struct_ov015_02190acc* arg0);
 extern "C" void func_ov015_0219011c(Struct_ov015_0219011c* arg0, int arg1);
 extern "C" int func_ov015_02191284(Struct_02029988_2* arg0);
-extern "C" void* func_0202a9ac(Struct_02029634* arg0, int arg1);
+extern "C" void* GetTextMenuEntry_0202a9ac(Struct_02029634* menu, int index);
 extern "C" const char* func_02029560(void* arg0);
 extern "C" void func_ov015_0218f364(Struct_ov015_0218c03c_2* arg0, const char* arg1);
 extern "C" void func_ov015_021900dc(Struct_ov015_021900dc* arg0);
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov015_02191294(Struct_ov015_02190acc* arg0)
         }
         func_ov015_0219011c((Struct_ov015_0219011c*)arg0->unknown_30_, arg0->unknown_30_->unknown_4c_);
         arg0->unknown_30_->unknown_38_ = func_ov015_02191284(&arg0->unknown_2c4_);
-        void* var4 = func_0202a9ac((Struct_02029634*)&arg0->unknown_2c4_, func_ov015_02191284(&arg0->unknown_2c4_));
+        void* var4 = GetTextMenuEntry_0202a9ac((Struct_02029634*)&arg0->unknown_2c4_, func_ov015_02191284(&arg0->unknown_2c4_));
         if (var4 != NULL)
         {
             if (arg0->unknown_19f_)

@@ -4,7 +4,7 @@
 
 extern "C" int func_02088890(unsigned char* arg0);
 struct Struct_ov024_021dced0_2;
-extern "C" int func_ov024_021dd010(struct Struct_ov024_021dced0_2* arg0);
+extern "C" int IsSpellcastingBlocked_ov024_021dd010(struct Struct_ov024_021dced0_2* combatant);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void func_020888a4(unsigned char* arg0);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
@@ -28,7 +28,7 @@ extern "C" ARM void* func_ov024_021dced0(struct Struct_ov024_021dced0_5* arg0, i
 	if (!var0) return 0;
 	unsigned short var1 = 0;
 	if (func_02088890((unsigned char*)var0->currentStats_) && arg6) {
-		if (func_ov024_021dd010((struct Struct_ov024_021dced0_2*)var0)) {
+		if (IsSpellcastingBlocked_ov024_021dd010((struct Struct_ov024_021dced0_2*)var0)) {
 			var1 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, 0x19, 0x1a);
 		} else {
 			var1 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);

@@ -13,13 +13,13 @@
 #endif
 
 struct SoundEffectManager_02108760;
-struct Struct_02048350_2;
+struct PartyMember_02048350_2;
 extern "C" void *FindActionData_02079e2c(char *actionTables, int actionId);
 extern "C" GameObject *GetGameObjectByIndex_0200ff94(GameState *gameState, int index);
 extern "C" int *func_0202ae18(void);
 extern "C" void *__clear(void *arg0, int arg1);
 extern "C" int GetPartyOrder_020114ec(char *gameState, void *outPartyOrder);
-extern "C" void func_02048350(struct Struct_02048350_2 *arg0, int arg1);
+extern "C" void SpendMP_02048350(struct PartyMember_02048350_2 *member, int mpCost);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" void func_ov002_02157ce0(char *arg0);
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov002_021594e8(struct Struct_ov002_021594e8_2 *arg0, sh
         arg0->unknown_1bbc_ = RG(0x17, 0x18);
     }
     if (var10 != 0) {
-        func_02048350((struct Struct_02048350_2 *) var8, var7->unknown_8_0_);
+        SpendMP_02048350((struct PartyMember_02048350_2 *) var8, var7->unknown_8_0_);
         if (IsLocalWirelessOn_0202b7d8(var9) != 0) {
             func_ov017_021c9e00(arg2, 0, 0, 1);
         }

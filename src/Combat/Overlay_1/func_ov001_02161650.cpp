@@ -13,15 +13,15 @@ extern SafeAllocator* data_ov001_021658b8[8];
 extern "C" void* func_02010768(void* arg0);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 
-struct Struct_0204a120;
-extern "C" void func_0204a120(struct Struct_0204a120* arg0);
+struct BoneCamera_0204a120;
+extern "C" void InitBoneCamera_0204a120(struct BoneCamera_0204a120* camera);
 
-struct Struct_0204a3f0_2;
+struct BoneCamera_0204a3f0_2;
 struct Struct_0204a3f0;
-extern "C" void func_0204a3f0(struct Struct_0204a3f0_2* arg0, struct Struct_0204a3f0* arg1);
+extern "C" void SetBoneCameraObject_0204a3f0(struct BoneCamera_0204a3f0_2* camera, struct Struct_0204a3f0* trackedObject);
 
-extern "C" void func_0204a440(char* arg0, const char* arg1);
-extern "C" void func_0204a464(char* arg0, const char* arg1);
+extern "C" void SetBoneCameraEyeBone_0204a440(char* camera, const char* boneName);
+extern "C" void SetBoneCameraTargetBone_0204a464(char* camera, const char* boneName);
 
 struct Struct_ov001_02161650 { int unknown_0_; int unknown_4_; int unknown_8_; void* unknown_c_; };
 struct Struct_ov001_02165880_46 { char unknown_0_[4]; Struct_ov001_02161650* unknown_4_; };
@@ -47,11 +47,11 @@ extern "C" ARM int func_ov001_02161650(char* arg0) {
 
     *(void**)((char*)var2 + 0x4) = func_020100bc(var0);
 
-    func_0204a120((struct Struct_0204a120*)var7);
-    func_0204a3f0((struct Struct_0204a3f0_2*)var7, (struct Struct_0204a3f0*)var6);
+    InitBoneCamera_0204a120((struct BoneCamera_0204a120*)var7);
+    SetBoneCameraObject_0204a3f0((struct BoneCamera_0204a3f0_2*)var7, (struct Struct_0204a3f0*)var6);
     ((Object3D*)var6)->UntrackAllBones();
-    func_0204a440((char*)var7, (const char*)var4);
-    func_0204a464((char*)var7, (const char*)var5);
+    SetBoneCameraEyeBone_0204a440((char*)var7, (const char*)var4);
+    SetBoneCameraTargetBone_0204a464((char*)var7, (const char*)var5);
     ((Object3D*)((unsigned char*)var6))->StopCurrentAnimation();
     ((Object3D*)((unsigned char*)var6))->EnableFlag(1);
     ((Object3D*)((unsigned char*)var6))->EnableFlag(0x20);

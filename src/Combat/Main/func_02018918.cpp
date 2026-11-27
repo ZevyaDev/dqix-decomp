@@ -14,12 +14,12 @@ extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44*, in
 
 // USA: func_02018918
 extern "C" ARM void func_02018918(Zone3D* arg0, Struct_020134e0::Struct_02018300* arg1) {
-    Struct_02016874_2* var0 = func_02018b34(arg0, arg1);
+    BMDJEntry_02016874_2* var0 = FindDoorEntry_02018b34(arg0, arg1);
     if (var0) {
         var0->unknown_2_ &= ~1;
         var0->unknown_2_ &= ~4;
         for (int var1 = 0; var1 < arg0->unknown_82c_; ++var1) {
-            Struct_02016874_2* var2 = (*(Struct_02016874_2***)(arg0->unk_5f0 + 0x234))[var1];
+            BMDJEntry_02016874_2* var2 = (*(BMDJEntry_02016874_2***)(arg0->unk_5f0 + 0x234))[var1];
             if (var2->unknown_28_ == var0) {
                 var2->unknown_2_ &= ~1;
                 break;

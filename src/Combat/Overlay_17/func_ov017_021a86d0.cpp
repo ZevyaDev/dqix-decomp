@@ -98,7 +98,7 @@ extern "C" void func_0205c77c(Struct_0205c77c*, int);
 extern "C" void OpenChoiceList_0205cd28(unsigned char* choiceList);
 struct SpriteAnimationList_0205a330;
 extern "C" int func_0205cecc(void* arg0);
-extern "C" int func_0205cb64(void* arg0);
+extern "C" int GetChoiceListCursorIndex_0205cb64(void* choiceList);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0205ce50(unsigned char* arg0);
 extern "C" int GetMessageChoice_020457e0(char* window);
@@ -116,7 +116,7 @@ extern "C" void func_ov017_021a65c4(void* arg0, unsigned char arg1, int arg2);
 extern "C" void ResetEventTask_ov017_021baedc(unsigned char* node, int isRestart);
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int GetStoryStep_020107d0(char*);
-extern "C" int func_02010804(char*);
+extern "C" int GetStorySubStep_02010804(char*);
 extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" int func_ov017_021a01b4(char* arg0, int arg1);
 extern "C" void func_ov017_021bbbf8(void*, unsigned short);
@@ -265,7 +265,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
         int var26 = func_0205cecc(arg0->unknown_2c_);
         if (g_keyManager.TestKeysPressed(1)) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
-            var26 = func_0205cb64(arg0->unknown_2c_);
+            var26 = GetChoiceListCursorIndex_0205cb64(arg0->unknown_2c_);
         } else if (g_keyManager.TestKeysPressed(2)) {
             var26 = -2;
         }
@@ -437,7 +437,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
             }
             var27 = GetStoryChapter_0201079c((char*)var0);
             var28 = GetStoryStep_020107d0((char*)var0);
-            int var39 = func_02010804((char*)var0);
+            int var39 = GetStorySubStep_02010804((char*)var0);
             if (var27 == 10 && var28 == 8 && var39 == 1) {
                 if (arg0->unknown_14_ == 0 && arg0->unknown_10_ == 1 &&
                     func_0206dfb0((int)var29, var29 + 0x8c, 4) &&

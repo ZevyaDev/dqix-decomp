@@ -4,15 +4,15 @@ extern "C" int func_ov023_021f6f10(void*);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 
-// USA: func_ov004_02156ed0
-extern "C" ARM void* func_ov004_02156ed0(void* arg0, int arg1) {
-    void* var0 = GetMenuObjectList_ov011_021849c8(arg0);
-    void* var1 = FindMenuObjectById_ov023_021f6880(var0, arg1);
-    if (!var1) {
+// USA: FindMenuGrid_ov004_02156ed0
+extern "C" ARM void* FindMenuGrid_ov004_02156ed0(void* menu, int id) {
+    void* objectList = GetMenuObjectList_ov011_021849c8(menu);
+    void* object = FindMenuObjectById_ov023_021f6880(objectList, id);
+    if (!object) {
         return 0;
     }
-    if (func_ov023_021f6f10(var1) != 7) {
+    if (func_ov023_021f6f10(object) != 7) {
         return 0;
     }
-    return var1;
+    return object;
 }

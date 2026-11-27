@@ -10,7 +10,7 @@ extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 struct Struct_ov011_021844ec;
 extern "C" int func_ov011_021844ec(struct Struct_ov011_021844ec* arg0);
 
-extern "C" void* func_ov023_021f79e4(void* arg0);
+extern "C" void* GetMenuObjectBGLayer_ov023_021f79e4(void* object);
 
 struct TextWindow_0204c7a8;
 extern "C" void SetTextWindowBuffers_0204c7a8(struct TextWindow_0204c7a8* window, SafeAllocator* allocator, int characterData, unsigned int screenDataSize);
@@ -76,7 +76,7 @@ extern "C" ARM int func_ov023_021f7da0(struct Struct_ov011_02185318_3* arg0, voi
     if (var5 == NULL) {
         return 0;
     }
-    arg0->unknown_24_ = func_ov023_021f79e4(var5);
+    arg0->unknown_24_ = GetMenuObjectBGLayer_ov023_021f79e4(var5);
 
     arg0->unknown_108_ = (unsigned char)arg7;
     void* var6 = FindMenuObjectById_ov023_021f6880(var4, arg8);

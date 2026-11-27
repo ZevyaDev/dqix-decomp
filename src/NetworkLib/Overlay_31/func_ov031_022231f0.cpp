@@ -12,34 +12,34 @@ extern "C" ARM void func_ov031_0223ba20(void* arg0);
 extern "C" ARM void FreeAndClearPointer_ov031_0223cf70(Struct_ov031_022231f0** pointer);
 
 #if defined(jpn)
-extern "C" Struct_ov031_022231f0* data_ov031_02250ba8;
+extern "C" Struct_ov031_022231f0* gButtonBar_ov031_02250ba8;
 namespace DuplicatePool {
-    extern "C" Struct_ov031_022231f0* data_ov031_02250ba8;
+    extern "C" Struct_ov031_022231f0* gButtonBar_ov031_02250ba8;
 }
 #else
-extern Struct_ov031_022231f0* data_ov031_02250ba8;
+extern Struct_ov031_022231f0* gButtonBar_ov031_02250ba8;
 #endif
 
 // USA: func_ov031_022231f0
 extern "C" ARM void func_ov031_022231f0(int arg0) {
 	QueueTaskRemoval_ov031_0223e2c0(0, arg0);
 
-	if (data_ov031_02250ba8->unknown_10_) {
-		QueueTaskRemoval_ov031_0223e2c0(0, (int)data_ov031_02250ba8->unknown_10_);
+	if (gButtonBar_ov031_02250ba8->unknown_10_) {
+		QueueTaskRemoval_ov031_0223e2c0(0, (int)gButtonBar_ov031_02250ba8->unknown_10_);
 	}
 
 	int var0 = 0;
 	do {
-		if (data_ov031_02250ba8->unknown_0_[var0]) {
-			func_ov031_0223ba20(data_ov031_02250ba8->unknown_0_[var0]);
+		if (gButtonBar_ov031_02250ba8->unknown_0_[var0]) {
+			func_ov031_0223ba20(gButtonBar_ov031_02250ba8->unknown_0_[var0]);
 		}
 		var0++;
 	} while (var0 < 2);
 
-	func_ov031_0223ba20(data_ov031_02250ba8->unknown_8_);
+	func_ov031_0223ba20(gButtonBar_ov031_02250ba8->unknown_8_);
 
 #if defined(jpn)
-	FreeAndClearPointer_ov031_0223cf70(&DuplicatePool::data_ov031_02250ba8);
+	FreeAndClearPointer_ov031_0223cf70(&DuplicatePool::gButtonBar_ov031_02250ba8);
 #else
 	FreeAndClearPointer_ov031_0223cf70((Struct_ov031_022231f0**)0x02250BA8);
 #endif

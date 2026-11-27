@@ -12,8 +12,8 @@ extern "C" void GetZone3D_02012fe4();
 extern "C" void* func_0202ae18();
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_02023a9c(char* arg0, int arg1);
-extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
-                              unsigned short arg6, unsigned char arg7, int arg8, int arg9);
+extern "C" void DrawMetatileAt_0202756c(void *subScreenDisplay, int positionX, int positionY, int metatileIndex, unsigned char destinationObjIndex, unsigned char priority,
+                              unsigned short palette, unsigned char rotScaleDataIndex, int scaleX, int scaleY);
 
 struct Struct_02023b5c {
     unsigned char unknown_0_[0x10];
@@ -62,7 +62,7 @@ extern "C" ARM void func_02023b5c(void *arg0, int arg1, int arg2, int arg3, int 
         }
         if (!var0->unknown_9ba_) continue;
         ColorEffect_ConfigureAlphaBlend(var2 ? 0x04001050 : 0x04000050, 0, 3, var1, 16 - var1);
-        func_0202756c(arg0, (var7 + arg3) << 12, (var8 + arg4) << 12, 0x17,
+        DrawMetatileAt_0202756c(arg0, (var7 + arg3) << 12, (var8 + arg4) << 12, 0x17,
                                  static_cast<unsigned char>(var4 + 0x60), 1, 0xff, 0xff, 0x1000, 0x1000);
     }
 }

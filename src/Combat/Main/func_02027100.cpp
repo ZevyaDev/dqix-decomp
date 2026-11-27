@@ -18,8 +18,8 @@ enum { Enum_02027100_1880 = 0x758, Enum_02027100_1884 = 0x75c, Enum_02027100_188
 
 extern "C" void func_0203bd08(void);
 extern "C" int func_02053c6c(unsigned char* gameObject);
-extern "C" void func_0202756c(void* arg0, int arg1, int arg2, int arg3,
-        unsigned char arg4, unsigned char arg5, unsigned short arg6, unsigned char arg7, int arg8, int arg9);
+extern "C" void DrawMetatileAt_0202756c(void* subScreenDisplay, int positionX, int positionY, int metatileIndex,
+        unsigned char destinationObjIndex, unsigned char priority, unsigned short palette, unsigned char rotScaleDataIndex, int scaleX, int scaleY);
 extern Struct_020fdc60_2 data_020fdc60[];
 extern int gPartyStatsCache_020fdcb0;
 
@@ -48,7 +48,7 @@ extern "C" ARM void func_02027100(unsigned char* arg0) {
         func_0201fca0(var5, var1, var3);
         func_0201fd38(var5, var1, var3);
         int var6 = (int)var5->unknown_10_;
-        func_0202756c(arg0, var1 << 18, var6 << 12, (var3 + 1) & 0xff,
+        DrawMetatileAt_0202756c(arg0, var1 << 18, var6 << 12, (var3 + 1) & 0xff,
             (var3 + 0x3c) & 0xff, 0, (unsigned short)var3, 0xff, 0x1000, 0x1000);
     }
 }

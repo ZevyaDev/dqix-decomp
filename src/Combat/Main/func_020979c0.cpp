@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_020979c0 {
+struct VRAMBankSwitch_020979c0 {
     int unknown_0_;
     int unknown_4_;
     int unknown_8_;
@@ -14,7 +14,7 @@ struct Struct_020979c0 {
 };
 
 // USA: func_020979c0
-extern "C" ARM void func_020979c0(struct Struct_020979c0* arg0, unsigned char arg1) {
+extern "C" ARM void func_020979c0(struct VRAMBankSwitch_020979c0* arg0, unsigned char arg1) {
     arg0->unknown_0_ = 0;
     arg0->unknown_4_ = 0;
     arg0->unknown_8_ = 0;

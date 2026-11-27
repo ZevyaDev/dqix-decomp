@@ -17,22 +17,22 @@ struct GameState_02010834 {
     struct Party_02010834_2 party_2a04_;
 };
 
-// USA: func_02010834
-extern "C" ARM void func_02010834(struct GameState_02010834* arg0, int arg1, int* arg2, int* arg3) {
-    int var0;
-    unsigned char var1;
-    struct Party_02010834_2* var2;
-    if (arg1 >= 0 && arg1 <= 3) {
-        var0 = 1;
+// USA: GetOwnPartyMemberObjectIndices_02010834
+extern "C" ARM void GetOwnPartyMemberObjectIndices_02010834(struct GameState_02010834* arg0, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount) {
+    int isValidIndex;
+    unsigned char i;
+    struct Party_02010834_2* party;
+    if (protagonistObjectIndex >= 0 && protagonistObjectIndex <= 3) {
+        isValidIndex = 1;
     } else {
-        var0 = 0;
+        isValidIndex = 0;
     }
-    if (var0 == 0) {
+    if (isValidIndex == 0) {
         return;
     }
-    var2 = &arg0->party_2a04_;
-    for (var1 = 0; var1 < var2->memberCount_f7c_; var1++) {
-        arg2[var1] = var2->memberObjectIndices_f78_[var1];
+    party = &arg0->party_2a04_;
+    for (i = 0; i < party->memberCount_f7c_; i++) {
+        outMemberObjectIndices[i] = party->memberObjectIndices_f78_[i];
     }
-    *arg3 = var2->memberCount_f7c_;
+    *outMemberCount = party->memberCount_f7c_;
 }

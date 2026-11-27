@@ -3,7 +3,7 @@
 #include "Filesystem/FileIO.h"
 #include "Resource/PAC.h"
 
-extern "C" int func_ov011_021849d8(void* arg0);
+extern "C" int GetMenuArchiveLoadTaskId_ov011_021849d8(void* menu);
 
 struct Struct_020534ac_2;
 
@@ -22,7 +22,7 @@ struct Struct_ov023_021f71a8 {
 // USA: func_ov023_021f71a8
 extern "C" ARM void func_ov023_021f71a8(struct Struct_ov023_021f71a8* arg0, void* arg1) {
     void* var0 = (void*)(int)BackgroundLoader::GetInstance();
-    int var1 = func_ov011_021849d8(arg1);
+    int var1 = GetMenuArchiveLoadTaskId_ov011_021849d8(arg1);
     if (var1 < 0) {
         return;
     }

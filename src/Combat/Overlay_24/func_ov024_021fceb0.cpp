@@ -2,7 +2,7 @@
 #include "std_library_functions.h"
 
 extern "C" int TrySelectTacticOption_ov024_021fe698(void* tacticAI, int option);
-extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* arg1, int targetGroup, int targetIndex);
+extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* effects, int targetGroup, int targetIndex);
 
 struct Struct_ov024_021fceb0 { char unknown_0_[8]; int unknown_8_; };
 struct Struct_ov024_021fceb0_2 { char unknown_0_[0x148]; Struct_ov024_021fceb0* unknown_148_; };

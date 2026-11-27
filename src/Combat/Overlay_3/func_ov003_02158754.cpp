@@ -9,7 +9,7 @@ extern "C" {
 void _ZN13SafeAllocator5ResetEv(void *);
 void SetObject3DPositionFromVector_02059f38(void *, void *);
 void SetObject3DPosition_020407b4(void *, int, int, int);
-int func_02098210(int, int);
+int IsQuestersRestLobbyZone_02098210(int, int);
 unsigned short *GetZone3D_02012fe4(void);
 }
 
@@ -93,7 +93,7 @@ extern "C" ARM int func_ov003_02158754(struct Struct_ov003_02158754_3 *arg0) {
                 var4->MaybeSetRegularAnimation(data_ov003_0217fe16, 9);
                 var4->EnableFlag(0x40000);
             } else {
-                if (var8 != 0 && func_02098210((int) ((char *) var9 + Enum_ov003_02158754_2112), var10) != 0) {
+                if (var8 != 0 && IsQuestersRestLobbyZone_02098210((int) ((char *) var9 + Enum_ov003_02158754_2112), var10) != 0) {
                     if (var8->unknown_2_ == 0x2347 || var8->unknown_2_ == 0x2348 || var8->unknown_2_ == 0x2349) {
                         if (var8->unknown_2_ == 0x2347) {
                             SetObject3DPosition_020407b4(var4, 0x2347 - 0x2200, 0x266, -13230);

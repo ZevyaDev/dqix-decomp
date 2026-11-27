@@ -9,7 +9,7 @@ extern "C" int IsNodeInQueue_02046b38(struct Queue_02046b38* queue, struct Queue
 extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" bool func_ov017_021b6e70(void* arg0, int arg1);
-extern "C" void func_ov017_021b7104(unsigned char* arg0, void* arg1);
+extern "C" void ApplyBattleRequest_ov017_021b7104(unsigned char* battleManager, void* request);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov017_021c5b44(unsigned char arg0, int arg1, unsigned i
 
         var6.unknown_12_ = arg4;
 
-        func_ov017_021b7104((unsigned char*)var4, &var6);
+        ApplyBattleRequest_ov017_021b7104((unsigned char*)var4, &var6);
 
         AppendToQueue_020469b4((struct Queue_0201bdac_2*)var3, (struct QueueNode_0201bdac*)var4);
     }

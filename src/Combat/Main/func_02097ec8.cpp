@@ -25,10 +25,10 @@ extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
 extern "C" void* func_0202ae18();
 extern "C" void func_0201bd3c(Struct_0208fa8c*, int, int);
 extern "C" void InitPartyMemberData_02082828(Struct_02097ec8*);
-extern "C" void func_020542b4(Struct_02054280*, SafeAllocator*, char*);
+extern "C" void InitPartyMemberSlotAllocators_020542b4(Struct_02054280*, SafeAllocator*, char*);
 extern "C" int IsQuestersRestZone_020981e4(int, int);
 extern "C" int func_02098240(int, int);
-extern "C" int func_02098210(int, int);
+extern "C" int IsQuestersRestLobbyZone_02098210(int, int);
 extern "C" void func_02054280(Struct_02054280*);
 
 static inline SafeAllocator& inline_02021578(GameResources* arg0, int arg1) {
@@ -58,7 +58,7 @@ extern "C" ARM void func_02097ec8(Struct_02097ec8_2* arg0) {
     }
     if (IsQuestersRestZone_020981e4((int)arg0, var1) &&
         !func_02098240((int)arg0, var1) &&
-        !func_02098210((int)arg0, var1) && var1 != 0xc3bb) {
+        !IsQuestersRestLobbyZone_02098210((int)arg0, var1) && var1 != 0xc3bb) {
         GameResources* var3 = GetGameResources();
         SafeAllocator* var4 = &inline_02021578(GetGameResources(), 2);
         var4->Reset();
@@ -66,6 +66,6 @@ extern "C" ARM void func_02097ec8(Struct_02097ec8_2* arg0) {
         arg0->unknown_1b5c_ = (Struct_02097ec8*)var4->Allocate(Enum_02097ec8_2404);
         func_02054280(arg0->unknown_1b58_);
         InitPartyMemberData_02082828(arg0->unknown_1b5c_);
-        func_020542b4(arg0->unknown_1b58_, &var3->allocator_array_1a0[3], &inline_0203d028_5(var3, 0x930));
+        InitPartyMemberSlotAllocators_020542b4(arg0->unknown_1b58_, &var3->allocator_array_1a0[3], &inline_0203d028_5(var3, 0x930));
     }
 }

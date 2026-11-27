@@ -15,7 +15,7 @@ inline int* inline_ov025_021dcf14() { static Struct_01ff8b48_16 s __attribute__(
 extern "C" void func_ov025_021e169c(unsigned char*, int);
 extern "C" unsigned char GetCombatantCell_020493a4(unsigned char*);
 extern "C" unsigned int func_020493c8(unsigned char*);
-extern "C" unsigned int func_020493ec(unsigned char*);
+extern "C" unsigned int GetCombatantReservedCell_020493ec(unsigned char*);
 extern "C" void func_020493b8(unsigned char*, unsigned char);
 extern "C" void func_020493dc(unsigned char*, unsigned char);
 extern "C" void func_02049458(unsigned char*, unsigned char);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0, Struct_ov
     }
     unsigned int var9 = GetCombatantCell_020493a4((unsigned char*)arg1->unknown_8_);
     if (!var7) {
-        var9 = func_020493ec((unsigned char*)arg1->unknown_8_);
+        var9 = GetCombatantReservedCell_020493ec((unsigned char*)arg1->unknown_8_);
         if (var9 == 255) var9 = func_020493c8((unsigned char*)arg1->unknown_8_);
         if (var9 == 255) var9 = GetCombatantCell_020493a4((unsigned char*)arg1->unknown_8_);
     } else {

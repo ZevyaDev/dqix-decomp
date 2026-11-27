@@ -33,7 +33,7 @@ struct Struct_ov017_0219814c_3 {
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0205ec34(void);
 extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
-extern "C" int func_02094b9c(struct Struct_ov017_0219814c* arg0, struct Struct_ov017_0219814c_2* arg1);
+extern "C" int IsInsideZoneFeature_02094b9c(struct Struct_ov017_0219814c* feature, struct Struct_ov017_0219814c_2* position);
 extern "C" struct Struct_ov017_0219814c* func_02053ccc(unsigned char* arg0);
 extern "C" void func_02053cc4(unsigned char* arg0, int arg1);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_0219814c(void) {
 
     var6 = (struct Struct_ov017_0219814c*)GetFirstZoneFeatureOfType_0201e838((unsigned char*)var1 + Enum_ov017_0219814c_108, 3);
     while (var6 != 0) {
-        if (func_02094b9c(var6, &var4)) {
+        if (IsInsideZoneFeature_02094b9c(var6, &var4)) {
             break;
         }
         var6 = var6->unknown_70_;

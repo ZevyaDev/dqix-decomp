@@ -77,7 +77,7 @@ extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
 extern "C" int func_ov000_0217ab48(void* arg0);
 extern "C" void func_ov000_02171458(Struct_ov000_0217b518_3* arg0);
 extern "C" void func_ov000_0217629c(Struct_ov000_0217b518_3* arg0);
-extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(Struct_ov000_0217b518_3* panel, int arg1, int enemyTargetCount);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(Struct_ov000_0217b518_3* panel, int panelCount, int enemyTargetCount);
 extern "C" void func_ov000_02176e3c(Struct_ov000_0217b518* arg0, Struct_ov000_0217b518_3* arg1, int arg2, int arg3, int arg4, int arg5);
 
 #if defined(jpn)

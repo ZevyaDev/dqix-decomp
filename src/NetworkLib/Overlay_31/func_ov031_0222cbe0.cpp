@@ -9,7 +9,7 @@ extern "C" void GetWifiSetupPageArguments_ov031_02227520(int*, int*);
 extern "C" void func_ov031_02235f0c(void*);
 extern "C" int func_ov031_0223dd34(unsigned char*, int);
 extern "C" void func_ov031_0222cd14(void);
-extern "C" void func_ov031_02223998(int);
+extern "C" void ShowPageTitle_ov031_02223998(int);
 extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
 extern "C" void func_ov031_02223518(int);
 extern "C" int func_ov031_0223c560(int, int);
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov031_0222cbe0(void) {
 		*((unsigned char*)data_ov031_02290c94 + 0x29) = var3;
 	}
 	func_ov031_0222cd14();
-	func_ov031_02223998(var1 + 9);
+	ShowPageTitle_ov031_02223998(var1 + 9);
 	if (var2 == 1) {
 		ShowSubScreenMessage_ov031_0222336c(0x35, -1, 0);
 	} else {

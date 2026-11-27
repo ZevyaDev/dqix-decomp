@@ -13,16 +13,16 @@
 #endif
 
 struct SkillTable_0200f3a4_8;
-struct Struct_0209a470;
+struct SkillTable_0209a470;
 struct SpellTable_02086f24_6;
 struct Struct_02013fb4;
 extern "C" void func_020de848(void *itemTable);
 extern "C" void ClearSpellTable_0209a804(int *table);
 extern "C" void ClearSkillTable_0209a338(struct SkillTable_0200f3a4_8 *table);
-extern "C" void func_0209a470(struct Struct_0209a470 *arg0,
-                                                                                                    SafeAllocator *arg1,
-                                                                                                    struct Struct_02013fb4 *arg2,
-                                                                                                    int arg3);
+extern "C" void BuildSkillTable_0209a470(struct SkillTable_0209a470 *table,
+                                                                                                    SafeAllocator *allocator,
+                                                                                                    struct Struct_02013fb4 *scriptData,
+                                                                                                    int scriptSize);
 extern "C" void BuildSpellTable_0209a8b4(struct SpellTable_02086f24_6 *table,
                                                                                                     SafeAllocator *allocator,
                                                                                                     struct Struct_02013fb4 *scriptData,
@@ -80,8 +80,8 @@ extern "C" ARM void func_ov002_02156c7c(char *arg0) {
             ((SafeAllocator *) (arg0 + RG(0, 0x3b4) + RG(0x850, 0x400)))->Reset();
             ClearSkillTable_0209a338((struct SkillTable_0200f3a4_8 *) (arg0 + RG(0x3c, 0x274) + RG(0x2400, 0x2000)));
             if (var4 != NULL && var5 != 0) {
-                func_0209a470(
-                    (struct Struct_0209a470 *) (arg0 + RG(0x3c, 0x274) + RG(0x2400, 0x2000)), (SafeAllocator *) (arg0 + RG(0, 0x3b4) + RG(0x850, 0x400)),
+                BuildSkillTable_0209a470(
+                    (struct SkillTable_0209a470 *) (arg0 + RG(0x3c, 0x274) + RG(0x2400, 0x2000)), (SafeAllocator *) (arg0 + RG(0, 0x3b4) + RG(0x850, 0x400)),
                     (struct Struct_02013fb4 *) var4, var5);
             }
 #if !defined(jpn)

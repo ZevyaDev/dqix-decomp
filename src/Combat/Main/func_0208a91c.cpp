@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
-extern "C" int func_ov000_02154a04(int arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectEnemyActionTargets_ov000_02154a04(int battle, int actorIndex, int actionId, int targetIndices);
 
 struct Struct_0208a91c {
     char unknown_0_[0x10];
@@ -27,7 +27,7 @@ extern "C" ARM int func_0208a91c(int* arg0, int arg1, int arg2, int* arg3, int a
     *arg0 = arg1;
     int var3 = var2->unknown_10_5_;
     if (var3 >= 8) {
-        *arg3 = func_ov000_02154a04(*arg0, arg2, 2, arg4);
+        *arg3 = CollectEnemyActionTargets_ov000_02154a04(*arg0, arg2, 2, arg4);
         return 2;
     } else {
         struct Struct_020f10b0* var4 = &data_020f10b0[var3];

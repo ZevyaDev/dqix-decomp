@@ -10,7 +10,7 @@ extern "C" void SetButtonBarChoice_ov031_02222e20(int);
 extern "C" int AreKeysPressed_ov031_0223d354(int);
 
 extern Struct_ov031_0224909a data_ov031_0224909a[7];
-extern unsigned char data_ov031_02290cc0;
+extern unsigned char gConnectionListPage_ov031_02290cc0;
 
 // USA: func_ov031_02232858
 extern "C" ARM void func_ov031_02232858(void) {
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov031_02232858(void) {
     do {
         if (func_ov031_0223d49c(var1)) {
             SetButtonBarChoice_ov031_02222e20(1);
-            data_ov031_02290cc0 = var0;
+            gConnectionListPage_ov031_02290cc0 = var0;
             func_ov031_02232ce8();
             return;
         }

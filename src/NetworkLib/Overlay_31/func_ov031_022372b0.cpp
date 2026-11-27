@@ -8,7 +8,7 @@ extern Struct_ov031_0224926a data_ov031_0224926a[];
 
 struct Struct_ov031_022372b0 { void* unknown_0_[5]; int unknown_14_; };
 struct Struct_ov031_02290d04_15 { char unknown_0_[4]; Struct_ov031_022372b0* unknown_4_; };
-extern Struct_ov031_02290d04_15 data_ov031_02290d04;
+extern Struct_ov031_02290d04_15 gSubBG1ScreenData_ov031_02290d04;
 
 extern "C" void SetSpritePosition_ov031_0223bbd8(void*, int, int, int);
 extern "C" void QueueTaskRemoval_ov031_0223e2c0(int, void*);
@@ -20,12 +20,12 @@ extern void* data_ov031_02290d08;
 extern "C" ARM void func_ov031_022372b0(void* arg0) {
 	int var0;
 	unsigned int var1;
-	GetSpritePosition_ov031_0223bd28((OAMAllocation_ov031_02222f44_2*)data_ov031_02290d04.unknown_4_->unknown_0_[0], 0, (unsigned int*)&var0, &var1);
+	GetSpritePosition_ov031_0223bd28((OAMAllocation_ov031_02222f44_2*)gSubBG1ScreenData_ov031_02290d04.unknown_4_->unknown_0_[0], 0, (unsigned int*)&var0, &var1);
 	var0 -= 8;
 	int var2 = 0;
 	do {
 		Struct_ov031_0224926a* var3 = &data_ov031_0224926a[var2];
-		void* var4 = data_ov031_02290d04.unknown_4_->unknown_0_[var2];
+		void* var4 = gSubBG1ScreenData_ov031_02290d04.unknown_4_->unknown_0_[var2];
 		unsigned short var5 = var3->unknown_2_;
 		SetSpritePosition_ov031_0223bbd8(var4, -1, var0, var5);
 		var2++;
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov031_022372b0(void* arg0) {
 	QueueTaskRemoval_ov031_0223e2c0(0, arg0);
 	int var6 = 0;
 	do {
-		void* var7 = data_ov031_02290d04.unknown_4_->unknown_0_[var6];
+		void* var7 = gSubBG1ScreenData_ov031_02290d04.unknown_4_->unknown_0_[var6];
 		func_ov031_0223ba20(var7);
 		var6++;
 	} while (var6 < 5);

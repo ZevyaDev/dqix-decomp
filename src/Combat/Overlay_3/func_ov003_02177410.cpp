@@ -25,7 +25,7 @@ struct MenuLayout_02080cc0;
 extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0* menuLayout, int textId, int color);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
-extern "C" void func_020805f4(void* arg0, int arg1);
+extern "C" void CapitalizeMenuLayoutText_020805f4(void* menuLayout, int textId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 struct Struct_ov003_0217faa4 {
@@ -99,7 +99,7 @@ extern "C" ARM void func_ov003_02177410(Struct_ov003_02177410_4* arg0) {
         SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0*)var1, var6, var8);
         SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var1, var6, var7);
 #if !defined(jpn)
-        func_020805f4(var1, var6);
+        CapitalizeMenuLayoutText_020805f4(var1, var6);
 #endif
     }
 

@@ -40,7 +40,7 @@ extern "C" int IsNodeInQueue_02046b38(struct Queue_02046b38* queue, struct Queue
 extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" bool func_ov017_021b6e70(void* arg0, int arg1);
-extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
+extern "C" void ApplyBattleRequest_ov017_021b7104(void* battleManager, void* request);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
@@ -304,7 +304,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                     var39.unknown_f_ = var33;
                     func_ov017_021b6e70(&var39, var39.unknown_2_);
                     var39.unknown_12_ = var34;
-                    func_ov017_021b7104(var36, &var39);
+                    ApplyBattleRequest_ov017_021b7104(var36, &var39);
                     AppendToQueue_020469b4((Queue_0201bdac_2*)var35, (QueueNode_0201bdac*)var36);
                 }
                 var12 = (Struct_ov017_021c530c_5*)arg2->GetUnknownGameObject();

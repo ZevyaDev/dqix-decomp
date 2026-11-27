@@ -9,7 +9,7 @@ enum { Enum_020ac7b4_23752 = 0x5cc8, Enum_020ac7b4_25472 = 0x6380 };
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-extern "C" int func_02075910(int arg0, void* arg1, int arg2, int arg3);
+extern "C" int ReadSaveMemory_02075910(int offset, void* destination, int length, int isAsync);
 extern "C" int func_01ff85b8(void* arg0, int arg1);
 extern "C" void func_02075acc(int arg0, void* arg1, int arg2, int arg3);
 struct Struct_02011544;
@@ -24,7 +24,7 @@ struct Struct_020ac7b4 {
 extern "C" ARM int func_020ac7b4(int arg0) {
     GameState* var0 = GameState::GetInstance();
     int var1;
-    if (!func_02075910(0, &var1, 1, 0)) {
+    if (!ReadSaveMemory_02075910(0, &var1, 1, 0)) {
         *(unsigned char*)((char*)var0 + Enum_020ac7b4_23752) = 1;
         func_02011544((Struct_02011544*)var0);
         return 0;

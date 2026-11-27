@@ -3,7 +3,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" void func_ov017_021a3b40(void *arg0, int arg1);
-extern "C" void DrawChoiceList_0205c96c(void *arg0, int arg1);
+extern "C" void DrawChoiceList_0205c96c(void *choiceList, int arg1);
 
 struct Struct_ov017_021a3b40_3 { char unknown_0_[4]; int unknown_4_; };
 

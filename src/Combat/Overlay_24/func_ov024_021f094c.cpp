@@ -5,7 +5,7 @@
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int IsReflecting_ov024_021eda60(GameObject* combatant);
 struct Struct_ov024_021dced0_2;
-extern "C" int func_ov024_021dd010(struct Struct_ov024_021dced0_2* arg0);
+extern "C" int IsSpellcastingBlocked_ov024_021dd010(struct Struct_ov024_021dced0_2* combatant);
 
 struct Struct_ov024_021f094c { int unknown_0_; };
 
@@ -24,7 +24,7 @@ extern "C" ARM int func_ov024_021f094c(struct Struct_ov024_021f094c* arg0, int a
     for (int var4 = 0; var4 < var2; var4++) {
         GameObject* var5 = GetCombatantByID(arg0->unknown_0_, var1.unknown_0_[var4]);
         if (!var5) continue;
-        if (func_ov024_021dd010((struct Struct_ov024_021dced0_2*)var5)) continue;
+        if (IsSpellcastingBlocked_ov024_021dd010((struct Struct_ov024_021dced0_2*)var5)) continue;
         if (var5->currentStats_->primaryStats.currMP != 0) var3 = 1;
     }
     return var3;

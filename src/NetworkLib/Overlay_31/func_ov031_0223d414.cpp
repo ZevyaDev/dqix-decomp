@@ -8,7 +8,7 @@ struct Struct_ov031_0223d414 {
 	unsigned char unknown_38_0_:1, unknown_38_1_:1, unknown_38_2_:1, unknown_38_3_:1, unknown_38_4_:1, unknown_38_5_:1, unknown_38_6_:1, unknown_38_7_:1;
 };
 struct Struct_ov031_02290d40_6 { unsigned char unknown_0_[4]; struct Struct_ov031_0223d414* unknown_4_; };
-extern struct Struct_ov031_02290d40_6 data_ov031_02290d40;
+extern struct Struct_ov031_02290d40_6 gInput_ov031_02290d40;
 
 struct Struct_ov031_0223d414_2 { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
 
@@ -16,7 +16,7 @@ struct Struct_ov031_0223d414_2 { unsigned short unknown_0_, unknown_2_, unknown_
 extern "C" ARM int func_ov031_0223d414(struct Struct_ov031_0223d414_2* arg0) {
 	int var0 = *(unsigned short*)0x27fffa8 & 0x8000;
 	if (var0 >> 15) return 0;
-	struct Struct_ov031_0223d414* var1 = data_ov031_02290d40.unknown_4_;
+	struct Struct_ov031_0223d414* var1 = gInput_ov031_02290d40.unknown_4_;
 	if (!var1->unknown_38_0_) return 0;
 	unsigned short var2 = var1->unknown_28_;
 	if (arg0->unknown_0_ > var2) return 0;

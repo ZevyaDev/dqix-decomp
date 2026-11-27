@@ -2,7 +2,7 @@
 
 #include <globaldefs.h>
 
-struct Struct_020dd7ac {
+struct EquipStatComparison_020dd7ac {
     int unknown_0_;
     int unknown_4_;
     void *unknown_8_[12];
@@ -34,4 +34,4 @@ struct Struct_020dd7ac {
     unsigned short unknown_7a_;
 };
 
-extern "C" void func_020dd9b4(Struct_020dd7ac *arg0, unsigned int arg1, void *arg2, void *arg3);
+extern "C" void func_020dd9b4(EquipStatComparison_020dd7ac *arg0, unsigned int arg1, void *arg2, void *arg3);

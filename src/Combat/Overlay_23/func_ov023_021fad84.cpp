@@ -3,7 +3,7 @@
 extern "C" void InitMenuObjectBase_ov023_021f6ed8(void* object);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
-extern "C" void* func_ov023_021fad18(void* arg0);
+extern "C" void* GetMenuObjectSpriteSet_ov023_021fad18(void* object);
 extern "C" int func_ov023_021f6c90(void* arg0, int arg1, int arg2);
 extern "C" void* func_ov023_021fa854(char* arg0, unsigned int arg1);
 extern "C" ARM void func_ov023_021f6bec(void* arg0, int arg1, unsigned int arg2, unsigned int arg3);
@@ -85,7 +85,7 @@ extern "C" ARM int func_ov023_021fad84(struct Struct_ov023_021fad84* arg0, void*
         return 0;
     }
 
-    void* var2 = func_ov023_021fad18(var1);
+    void* var2 = GetMenuObjectSpriteSet_ov023_021fad18(var1);
     unsigned char var3 = *(unsigned char*)((char*)var2 + 0x50);
     *(unsigned short*)((char*)arg0 + 0x22) = arg5;
     void* var4 = func_ov023_021fa854((char*)var2, *(unsigned short*)((char*)arg0 + 0x22));

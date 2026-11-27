@@ -24,7 +24,7 @@ extern "C" void func_0203bcb8(Struct_02020fc4_3*, int, int);
 extern "C" void func_0202441c(Struct_0202441c*);
 extern "C" int func_020243b8(void*, int);
 extern "C" int func_02024d48(Struct_020236dc*, int);
-extern "C" void func_0202756c(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
+extern "C" void DrawMetatileAt_0202756c(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
 
 // USA: func_02025b0c
 extern "C" ARM void func_02025b0c(Struct_02020554* arg0) {
@@ -86,7 +86,7 @@ extern "C" ARM void func_02025b0c(Struct_02020554* arg0) {
         if (!func_02024d48(var16, arg0->unknown_9c0_)) {
             continue;
         }
-        func_0202756c(arg0, (var18 + 0x7c) << 12, (var19 + 0x5c) << 12,
+        DrawMetatileAt_0202756c(arg0, (var18 + 0x7c) << 12, (var19 + 0x5c) << 12,
             var16->unknown_c_, var16->unknown_e_, 0, var16->unknown_d_, 0xff, 0x1000, 0x1000);
     }
     func_02023b5c(arg0, 0, arg0->unknown_48_, 0x7c, 0x5c, 1);

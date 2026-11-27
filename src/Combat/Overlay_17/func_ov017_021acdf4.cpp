@@ -115,7 +115,7 @@ extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_0205ce94(unsigned char* arg0);
 extern "C" int AddEffectResource_02057e6c(void* effectManager, int effectId, SafeAllocator* allocator, void* fileData, unsigned int fileSize, TextureVRAMArea_0203d028* textureVRAMArea);
-extern "C" void func_02010834(GameState_02010834* arg0, int arg1, int* arg2, int* arg3);
+extern "C" void GetOwnPartyMemberObjectIndices_02010834(GameState_02010834* arg0, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
@@ -255,7 +255,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
         Struct_ov017_021abba8_2 var12[5];
         Vector3i var13;
         void* var14 = func_0202ae18();
-        func_02010834((GameState_02010834*)var0, *(short*)((char*)var2 + 4), var11, &var10);
+        GetOwnPartyMemberObjectIndices_02010834((GameState_02010834*)var0, *(short*)((char*)var2 + 4), var11, &var10);
         for (int var15 = 0; var15 < var10; var15++) {
             arg0->unknown_1e_ |= 1 << var11[var15];
         }

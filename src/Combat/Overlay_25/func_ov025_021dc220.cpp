@@ -14,7 +14,7 @@ extern "C" void* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_021544
 extern "C" void StopCombatantSidestep_02049ae4(unsigned char* combatant);
 extern "C" int func_02048c10(unsigned char* arg0);
 extern "C" void func_0204a030(unsigned char*, int);
-extern "C" void func_02033920(void* arg0, int arg1, int arg2);
+extern "C" void FaceGameObject_02033920(void* object, int targetObjectIndex, int isTurnAnimated);
 
 extern char data_ov025_021ef404[];
 extern "C" unsigned char _ZZ21inline_ov025_021dcf14vE1s;
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov025_021dc220(void* arg0) {
                         if (_ZZ21inline_ov025_021dcf14vE1s != 0) {
                             func_0204a030((unsigned char*)var8, var3);
                         } else {
-                            func_02033920(var8, var3, 1);
+                            FaceGameObject_02033920(var8, var3, 1);
                         }
                     }
                 }

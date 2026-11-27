@@ -4,7 +4,7 @@ extern "C" void func_ov004_02153978(void* arg0, short* arg1, short* arg2, short*
 extern "C" void func_ov023_021f645c(void* arg0, int arg1, unsigned short arg2, int arg3);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
-extern "C" void func_ov023_021e1518(void* arg0);
+extern "C" void ResetItemSortOrder_ov023_021e1518(void* sortList);
 extern "C" void func_ov023_021e1564(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov023_021e15b4(void* arg0, int arg1, int arg2, int arg3);
 
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov004_0215482c(void* arg0) {
 
         void* var10 = var6->inline_ov004_0215482c_49();
         if (var10) {
-            func_ov023_021e1518(var10);
+            ResetItemSortOrder_ov023_021e1518(var10);
             if (var5) {
                 func_ov023_021e1564(var10, var9, var8, var7);
             } else {

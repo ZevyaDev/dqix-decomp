@@ -25,7 +25,7 @@ extern "C" Struct_ov004_021557ac_5* func_0205ec34();
 extern "C" int func_020deb58(ItemTable_0201099c_10*, int, int, int, int);
 extern "C" Struct_ov004_021557ac_6* func_020dec30(ItemTable_0201099c_10*, int, int, int, int, int);
 extern "C" int func_0206dfb0(int, unsigned char*, int);
-extern "C" void func_ov023_021e1518(void*);
+extern "C" void ResetItemSortOrder_ov023_021e1518(void*);
 extern "C" void func_ov023_021e1474(Struct_ov002_0215b2c8*, ItemTable_0201099c_10*);
 extern Struct_ov004_021557ac_4* data_ov004_021707c4;
 
@@ -103,7 +103,7 @@ extern "C" ARM int func_ov004_021557ac(void* arg0) {
     if (var16 && var17) {
         Struct_ov002_0215b2c8* var18 = var17->inline_ov004_021557ac_60();
         if (var18) {
-            func_ov023_021e1518(var18);
+            ResetItemSortOrder_ov023_021e1518(var18);
             func_ov023_021e1474(var18, var16->inline_ov004_021557ac_59());
         }
     }

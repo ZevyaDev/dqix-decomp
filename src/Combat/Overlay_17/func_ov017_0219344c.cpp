@@ -59,7 +59,7 @@ extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438** queue);
 extern "C" void func_02033f2c(Struct_02033f2c* arg0);
 extern "C" int func_ov017_0218df50(void* arg0, void* arg1);
 extern "C" int func_ov017_0218dfd8(Struct_ov017_0219344c_2* arg0);
-extern "C" int func_02033f44(Struct_02033f44* arg0);
+extern "C" int GetCollidedWallTriangle_02033f44(Struct_02033f44* object);
 extern "C" int func_02039dcc(unsigned char* arg0);
 extern "C" int func_ov017_02193290(Struct_ov017_0219344c_4* arg0, Struct_ov017_0219344c_2* arg1, Vector3i* arg2, Vector3i* arg3, int* arg4, int* arg5, int arg6);
 extern "C" int func_02017d90(Struct_ov017_0219344c_3* arg0, int arg1, Struct_ov017_0219344c_5* arg2, Struct_ov017_0219344c_4 arg3, Struct_ov017_0219344c_2* arg4);
@@ -180,11 +180,11 @@ extern "C" ARM int func_ov017_0219344c(Struct_ov017_0219344c_2* arg0, int arg1, 
             var25 = arg0->position_;
             var27 = &var25;
             if (arg4 != NULL && arg5 != NULL) {
-                if (func_02033f44((Struct_02033f44*)arg0) && !func_02039dcc((unsigned char*)arg0) && var16 != 0) {
+                if (GetCollidedWallTriangle_02033f44((Struct_02033f44*)arg0) && !func_02039dcc((unsigned char*)arg0) && var16 != 0) {
                     arg0->position_ = *arg2;
                     break;
                 }
-                if (func_02033f44((Struct_02033f44*)arg0)) {
+                if (GetCollidedWallTriangle_02033f44((Struct_02033f44*)arg0)) {
                     *arg4 |= func_ov017_0218df50(arg0, 0);
                     *arg5 |= *arg4;
                     *arg5 |= func_ov017_0218dfd8(arg0);
@@ -201,7 +201,7 @@ extern "C" ARM int func_ov017_0219344c(Struct_ov017_0219344c_2* arg0, int arg1, 
                 *arg4 |= func_ov017_0218df50(arg0, 0);
                 *arg5 |= *arg4;
                 *arg5 |= func_ov017_0218dfd8(arg0);
-                if (func_02033f44((Struct_02033f44*)arg0) && *arg5 != 0) {
+                if (GetCollidedWallTriangle_02033f44((Struct_02033f44*)arg0) && *arg5 != 0) {
                     arg0->position_ = *arg2;
                     break;
                 }

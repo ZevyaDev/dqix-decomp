@@ -17,7 +17,7 @@ extern "C" int func_020a0af4(struct Struct_020a095c *arg0, int arg1);
 extern "C" void func_020a095c(struct Struct_0207cf30_4 *arg0, int arg1, int arg2);
 extern "C" void ClearItemSortList_ov023_021e1318(void *sortList);
 extern "C" void func_ov023_021e1330(void *arg0);
-extern "C" void func_ov023_021e1518(void *arg0);
+extern "C" void ResetItemSortOrder_ov023_021e1518(void *sortList);
 extern "C" void func_ov023_021e1474(struct Struct_ov002_0215b2c8 *arg0, struct ItemTable_0201099c_10 *arg1);
 extern "C" void func_ov023_021e1850(void *arg0, void *arg1, const char *arg2, short *arg3, int arg4);
 extern "C" void func_ov023_021e1870(void *arg0, void *arg1, int arg2, int arg3, int arg4);
@@ -74,7 +74,7 @@ extern "C" ARM void func_ov002_0215c618(char *arg0, int arg1) {
     var1 = arg0 + 0x368;
     ClearItemSortList_ov023_021e1318(var1 + 0x400);
     func_ov023_021e1850(var1 + 0x400, &var8, data_ov002_0216d5b6, var3, var5);
-    func_ov023_021e1518(var1 + 0x400);
+    ResetItemSortOrder_ov023_021e1518(var1 + 0x400);
     func_ov023_021e1474((struct Struct_ov002_0215b2c8 *) (var1 + 0x400), (struct ItemTable_0201099c_10 *) (arg0 + 0x750));
     if (*(unsigned char *) (arg0 + 0x2000 + 0x2bd) == 2) {
         func_ov023_021e1870(var1 + 0x400, (void *) 1, -1, -1, 0);

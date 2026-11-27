@@ -96,7 +96,7 @@ extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(Struct_02061c04_21*, int);
 
 // USA: ConfigurePanelMenuCursors_ov000_0217ab8c
-extern "C" ARM void ConfigurePanelMenuCursors_ov000_0217ab8c(Struct_ov000_0217ab8c* panel, int arg1, int enemyTargetCount) {
+extern "C" ARM void ConfigurePanelMenuCursors_ov000_0217ab8c(Struct_ov000_0217ab8c* panel, int panelCount, int enemyTargetCount) {
     int columnCount, rowCount, pageCount, itemCount, index;
     Struct_ov000_0217636c* windowManager;
     if (panel->unknown_4c_ < 0 || !(panel->unknown_24_ & 1) || panel->unknown_c_ == 0 || (windowManager = panel->unknown_38_) == 0) {

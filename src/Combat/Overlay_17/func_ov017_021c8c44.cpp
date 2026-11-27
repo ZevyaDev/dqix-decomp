@@ -41,7 +41,7 @@ extern "C" BattleJoinRecord_0207d7f4* GetBattleJoinTable_0207d78c(void);
 extern "C" void func_0207da7c(BattleJoinRecord_0207d7f4* arg0, unsigned short arg1);
 extern "C" void func_ov017_021a33e0(void* arg0, int arg1);
 extern "C" void SetPartyMemberBattleId_02053f7c(PartyMember_02053f7c_3* member, unsigned short battleId, int isForced);
-extern "C" void func_ov017_021907dc(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void LinkPartyFollowers_ov017_021907dc(int gameResources, int leaderIndex, int resumeFollowing, int updatePlayerControl, int clearFollowTrails);
 extern "C" void func_ov017_02197324(unsigned char* arg0, unsigned short arg1);
 
 // USA: func_ov017_021c8c44
@@ -110,6 +110,6 @@ extern "C" ARM void func_ov017_021c8c44(int arg0, Struct_ov017_021c8c44* arg1, G
         }
     }
 
-    func_ov017_021907dc((int)arg3, arg0, 1, 1, 1);
+    LinkPartyFollowers_ov017_021907dc((int)arg3, arg0, 1, 1, 1);
     func_ov017_02197324(arg3, var1);
 }

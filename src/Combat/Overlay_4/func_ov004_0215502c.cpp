@@ -15,12 +15,12 @@ struct Struct_ov004_0216fa8c {
 
 extern Struct_ov004_0216fa8c data_ov004_0216fa8c;
 
-extern "C" int func_ov011_02184a24(int, void*, int);
+extern "C" int SetMenuCallbacks_ov011_02184a24(int, void*, int);
 
 // USA: func_ov004_0215502c
 extern "C" ARM int func_ov004_0215502c(SafeAllocator* arg0, int arg1) {
 	Struct_ov004_0216fa8c var0 = data_ov004_0216fa8c;
 	void* var1 = arg0->Allocate(sizeof(Struct_ov004_0216fa8c));
 	memcpy(var1, &var0, sizeof(Struct_ov004_0216fa8c));
-	return func_ov011_02184a24(arg1, var1, Enum_ov004_0215502c_20);
+	return SetMenuCallbacks_ov011_02184a24(arg1, var1, Enum_ov004_0215502c_20);
 }

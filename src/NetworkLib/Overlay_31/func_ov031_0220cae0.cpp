@@ -4,7 +4,7 @@ unsigned int DisableIRQInterrupts(void);
 unsigned int SetIRQInterruptState(int state);
 extern "C" int GetWirelessChannelMask_020d4aa8(void);
 extern "C" int func_020d3fdc(void);
-extern "C" int func_020d472c(void* arg0);
+extern "C" int SetWirelessNotificationCallback_020d472c(void* callback);
 extern "C" int func_020d4e48(int arg0);
 extern "C" int func_020d3dcc(int arg0, int arg1);
 extern "C" void SetAccessPointConnectionState_ov031_0220da1c(int);
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov031_0220cae0(int arg0, int arg1) {
 			SetIRQInterruptState(var0);
 			return 5;
 		}
-		if (func_020d472c((void*)func_ov031_0220dbc8) != 0) {
+		if (SetWirelessNotificationCallback_020d472c((void*)func_ov031_0220dbc8) != 0) {
 			SetAccessPointConnectionState_ov031_0220da1c(0xb);
 			SetIRQInterruptState(var0);
 			return 7;

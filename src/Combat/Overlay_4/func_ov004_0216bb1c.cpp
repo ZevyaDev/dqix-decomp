@@ -84,7 +84,7 @@ extern "C" int func_020d2ff0(const char* string);
 extern "C" void func_ov011_02184ad8(void* arg0);
 extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
 extern "C" void func_ov023_021f8120(void* arg0);
-extern "C" void func_ov023_021f7eb8(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9);
+extern "C" void DrawMenuWindow_ov023_021f7eb8(void* window, void* menu, int characterDataOffset, int x, int y, int width, int height, int palette, int isTransparent, int isFrameless);
 extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, unsigned char arg8);
 extern "C" void func_ov004_0216b06c(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
 extern "C" void func_ov004_0216b120(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
@@ -336,10 +336,10 @@ extern "C" ARM int func_ov004_0216bb1c(void* arg0) {
 
     int var43 = data_ov004_02171034.unknown_10_;
     switch (var0) {
-    case 1: func_ov023_021f7eb8(var42, arg0, var43, 6, 0x10, 0x1a, 8, 0, 1, 0); break;
-    case 2: func_ov023_021f7eb8(var42, arg0, var43, 6, 0xe, 0x1a, 0xa, 0, 1, 0); break;
-    case 3: func_ov023_021f7eb8(var42, arg0, var43, 6, 0xd, 0x1a, 0xb, 0, 1, 0); break;
-    case 4: func_ov023_021f7eb8(var42, arg0, var43, 6, 0xc, 0x1a, 0xc, 0, 1, 0); break;
+    case 1: DrawMenuWindow_ov023_021f7eb8(var42, arg0, var43, 6, 0x10, 0x1a, 8, 0, 1, 0); break;
+    case 2: DrawMenuWindow_ov023_021f7eb8(var42, arg0, var43, 6, 0xe, 0x1a, 0xa, 0, 1, 0); break;
+    case 3: DrawMenuWindow_ov023_021f7eb8(var42, arg0, var43, 6, 0xd, 0x1a, 0xb, 0, 1, 0); break;
+    case 4: DrawMenuWindow_ov023_021f7eb8(var42, arg0, var43, 6, 0xc, 0x1a, 0xc, 0, 1, 0); break;
     }
 
     func_ov011_02184ad8(arg0);

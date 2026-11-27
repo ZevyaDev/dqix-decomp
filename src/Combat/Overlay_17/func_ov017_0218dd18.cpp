@@ -21,8 +21,8 @@ struct Struct_ov017_0218dd18_2 {
 extern "C" Vector3fix GetNPCPosition_020406f8(Struct_ov017_0218dd18_2* outPosition);
 struct NPC_0203e0a0;
 extern "C" Struct_ov017_0218dd18* GetNPCPlacement_02040538(NPC_0203e0a0*);
-struct Struct_0203d028_15;
-extern "C" void func_02040774(Struct_0203d028_15*, int, int, int);
+struct NPC_0203d028_15;
+extern "C" void SetNPCPosition_02040774(NPC_0203d028_15*, int, int, int);
 extern "C" unsigned int func_02039dcc(unsigned char* arg0);
 
 // USA: func_ov017_0218dd18
@@ -70,7 +70,7 @@ extern "C" ARM int func_ov017_0218dd18(Object3D* arg0, Struct_ov017_0218dd18_2* 
             Vector3fix_Subtract(&var1, &var0, &var7);
             Vector3fixMultiplyScalar(&var7, fix32_Divide(var5, var6), &var7);
             Vector3fix_Add(&var0, &var7, &var1);
-            func_02040774((Struct_0203d028_15*)arg1, var1.x, var1.y, var1.z);
+            SetNPCPosition_02040774((NPC_0203d028_15*)arg1, var1.x, var1.y, var1.z);
         } else {
             Vector3fix var8;
             Vector3fix_Subtract(&var0, &var1, &var8);

@@ -35,7 +35,7 @@ enum { Enum_ov000_0216873c_5 = 5 };
 #endif
 
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
-extern "C" void func_ov000_02160fbc(void* arg0, int arg1);
+extern "C" void ClearBattleSceneFlags_ov000_02160fbc(void* battleScene, int flags);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" int func_ov000_02160fd4(void* battleScene, int flags);
 extern "C" void func_02013750(void* arg0, int arg1);
@@ -57,7 +57,7 @@ struct Struct_02095924_2;
 struct Struct_02099950;
 extern "C" struct Struct_02095924_2* func_02011584(void* gameState);
 extern "C" struct Struct_02099950* func_02099950(struct Struct_02095924_2* arg0, int arg1);
-extern "C" void func_0206461c(void* arg0, struct Struct_02099950* arg1);
+extern "C" void LoadZoneTriggers_0206461c(void* flagManager, struct Struct_02099950* currentMap);
 extern "C" void SetBattleSceneState_ov000_02160d80(void* battleScene, int state);
 
 extern int data_ov000_0218321c[];
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
     if (IsBrightnessTransitionActive(var1)) {
         return;
     }
-    func_ov000_02160fbc(arg0, 0x200);
+    ClearBattleSceneFlags_ov000_02160fbc(arg0, 0x200);
     func_02013750(arg0->unknown_ec8_, 1);
     func_ov000_02172720(arg0->unknown_3760_);
     SetBattleSceneFlags_ov000_02160fa8(arg0, 0x800);
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov000_0216873c(struct Struct_ov000_0216873c* arg0) {
 #endif
     void* var5 = func_0205ec34();
     unsigned short* var6 = GetZone3D_02012fe4();
-    func_0206461c(var5, func_02099950(func_02011584(var0), *var6));
+    LoadZoneTriggers_0206461c(var5, func_02099950(func_02011584(var0), *var6));
     if (arg0->unknown_0_ != 0) {
         DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_0_ << 8);
     }

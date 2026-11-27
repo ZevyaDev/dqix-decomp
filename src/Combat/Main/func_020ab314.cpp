@@ -64,7 +64,7 @@ struct Struct_020ab314_3 { char unknown_0_[0xa0]; char unknown_a0_[0xd8]; char u
 struct Struct_02011544;
 extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 extern const char data_020f1bf0[];
-extern "C" int func_02075910(int, void*, unsigned int, int);
+extern "C" int ReadSaveMemory_02075910(int, void*, unsigned int, int);
 extern "C" int func_020a94f8(Struct_020a94f8_2*, int);
 extern "C" int func_020ac864(int);
 extern "C" void func_02011544(Struct_02011544*);
@@ -100,13 +100,13 @@ extern "C" ARM int func_020ab314(int* arg0, int arg1, int arg2) {
     else var3 = 0x84;
     var4 = &((Struct_020ab314*)g_fileScratchSpace)->unknown_28000_;
     VectorizedMemset(var4, 0, 0x8000);
-    if (!func_02075910(0, var4, 0x10, 0)) var2 = 0;
+    if (!ReadSaveMemory_02075910(0, var4, 0x10, 0)) var2 = 0;
     Struct_020a94f8_2 var5;
     if (!func_020a94f8(&var5, arg2 != 0)) var2 = 0;
     VectorizedInvertedMemcpy(&var5, &var4->unknown_10_, 0x14);
     func_020ac864(arg2 ? 1 : 0);
     VectorizedInvertedMemcpy(var1->unknown_6380_, var4->unknown_24_, 0x54);
-    if (!func_02075910(var3, &var4->unknown_84_, 0x6f60, 0)) var2 = 0;
+    if (!ReadSaveMemory_02075910(var3, &var4->unknown_84_, 0x6f60, 0)) var2 = 0;
     Struct_020ab314_4* var6 = &var4->unknown_84_;
     if (!strcmp(var5.unknown_8_, data_020f1bf0) && var2) {
         if (func_01ff85b8(var6->unknown_4_, 0x6f5c) != var6->unknown_0_) {

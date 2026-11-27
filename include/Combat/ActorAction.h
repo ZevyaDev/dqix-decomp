@@ -34,7 +34,7 @@ struct LadderAction_02037d10 {
     Struct_020134e0::Struct_02018300* unknown_60_;
 };
 
-extern "C" void func_02038508(LadderAction_02037d10* arg0);
+extern "C" void ResetLadderAction_02038508(LadderAction_02037d10* ladderAction);
 extern "C" LadderAction_02037d10* GetLadderAction_020399a8(void* object);
 extern "C" void func_020398b4(GameObject* arg0, LadderAction_02037d10* arg1);
 extern "C" void func_ov017_021d3f00(LadderAction_02037d10* arg0, unsigned char arg1, unsigned char arg2);

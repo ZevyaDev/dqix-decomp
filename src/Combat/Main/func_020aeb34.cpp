@@ -11,7 +11,7 @@ struct Struct_0203cec4;
 struct Struct_0203fc5c;
 struct NPC_0203de84_2;
 struct Struct_0203de84 { int unknown_0_; int unknown_4_; int unknown_8_; };
-struct Struct_0203d028_15;
+struct NPC_0203d028_15;
 struct Struct_020409b0;
 struct NPC_0203e2c4_2;
 struct Struct_020aeb34 { char unknown_0_[0x10]; int unknown_10_; int unknown_14_; int unknown_18_; short unknown_1c_; };
@@ -20,7 +20,7 @@ struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; }
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int rand(void);
 extern "C" long long ComputeFixedPointSine_020c3260(int angle);
-extern "C" long long func_020c32f8(int arg0);
+extern "C" long long ComputeFixedPointCosine_020c32f8(int angle);
 extern "C" float ConvertInt64ToFloat_0200c700(long long);
 extern "C" struct NPCManager_0203dce4_2* GetNPCManager_0203cf4c();
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438**);
@@ -30,7 +30,7 @@ extern "C" void func_02040648(unsigned int*);
 extern "C" int IsQueueEmpty_02046b08(void**);
 int IsMainBrightnessTransitionActive(struct GameResources*);
 int GetMainBrightnessTransitionState(struct GameResources*);
-extern "C" void func_02040774(struct Struct_0203d028_15*, int, int, int);
+extern "C" void SetNPCPosition_02040774(struct NPC_0203d028_15*, int, int, int);
 extern "C" void SetNPCFacingInstantly_02040b2c(struct NPC_0203e2c4_2*, int);
 extern "C" void GetNPCPosition_020406f8(struct Struct_0203de84*, struct NPC_0203de84_2*);
 extern "C" void func_0203cec4(struct Struct_0203cec4*, int);
@@ -67,7 +67,7 @@ extern "C" ARM void func_020aeb34(void) {
         if (var3->unknown_6_ != 0) return;
         for (int var6 = 0; var6 < 4; var6++) {
             Struct_020aeb34* var7 = (Struct_020aeb34*)GetNPCPlacement_02040538((NPC_0203e0a0*)var1[var6]);
-            func_02040774((struct Struct_0203d028_15*)var1[var6], var7->unknown_10_, var7->unknown_14_, var7->unknown_18_);
+            SetNPCPosition_02040774((struct NPC_0203d028_15*)var1[var6], var7->unknown_10_, var7->unknown_14_, var7->unknown_18_);
             SetNPCFacingInstantly_02040b2c((struct NPC_0203e2c4_2*)var1[var6], var7->unknown_1c_);
         }
         return;
@@ -99,7 +99,7 @@ extern "C" ARM void func_020aeb34(void) {
 
         var12.unknown_0_ = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(ComputeFixedPointSine_020c3260(var11)) / 4294967296.0f)) * 2;
         var12.unknown_4_ = 0;
-        var12.unknown_8_ = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(func_020c32f8(var11)) / 4294967296.0f)) * 2;
+        var12.unknown_8_ = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(ComputeFixedPointCosine_020c32f8(var11)) / 4294967296.0f)) * 2;
 
         var13.unknown_0_ = var8;
         struct NPC_0203dce4* var16 = var1[var10];
@@ -109,9 +109,9 @@ extern "C" ARM void func_020aeb34(void) {
 
         Vector3fix_Add((const Vector3i*)(&var13), (const Vector3i*)(&var12), (Vector3i*)(&var14));
 
-        if ((var16->unknown_14_) != NULL) func_0203cec4((struct Struct_0203cec4*)(var16->unknown_14_), 1);
-        if ((var16->unknown_14_) != NULL) func_0203fc5c((struct Struct_0203fc5c*)(var16->unknown_14_), 0.8f);
+        if ((var16->pSprite_14_) != NULL) func_0203cec4((struct Struct_0203cec4*)(var16->pSprite_14_), 1);
+        if ((var16->pSprite_14_) != NULL) func_0203fc5c((struct Struct_0203fc5c*)(var16->pSprite_14_), 0.8f);
         func_020409b0((struct Struct_020409b0*)var16, (int)&var14);
-        func_02040774((struct Struct_0203d028_15*)var16, var14.unknown_0_, var14.unknown_4_, var14.unknown_8_);
+        SetNPCPosition_02040774((struct NPC_0203d028_15*)var16, var14.unknown_0_, var14.unknown_4_, var14.unknown_8_);
     }
 }

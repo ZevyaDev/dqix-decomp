@@ -5,7 +5,7 @@ extern "C" int func_ov031_02222e54(void);
 extern "C" void func_ov031_0223da58(void* arg0);
 extern "C" void FreeCursorSprites_ov031_022238cc(void);
 extern "C" void CloseSubScreenMessage_ov031_02223440(void);
-extern "C" void func_ov031_0223b710(void* arg0);
+extern "C" void FreeLoadedFile_ov031_0223b710(void* fileData);
 extern "C" void HideScreenLayers_ov031_0223cbbc(int isSubScreen, int layerMask);
 extern "C" void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int stepIndicatorMode, int buttonBarMode);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov031_022295ac(void) {
 	func_ov031_0223da58(data_ov031_02290c5c.unknown_8_);
 	FreeCursorSprites_ov031_022238cc();
 	CloseSubScreenMessage_ov031_02223440();
-	func_ov031_0223b710(data_ov031_02290c5c.unknown_4_);
+	FreeLoadedFile_ov031_0223b710(data_ov031_02290c5c.unknown_4_);
 	HideScreenLayers_ov031_0223cbbc(1, 1);
 	HideScreenLayers_ov031_0223cbbc(0, 0x14);
 

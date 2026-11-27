@@ -27,7 +27,7 @@ struct Struct_ov023_021d9290_2 {
 
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_020420e8(char*, int);
-extern "C" int func_02041b00(char*, int);
+extern "C" int AppendYOffsetTag_02041b00(char*, int);
 extern "C" void __clear(void*, int);
 extern "C" Struct_ov023_021d9290_3* func_ov023_021d994c(Struct_ov023_021d9290_2*, int);
 extern "C" int AppendText_02042058(char*, const char*);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov023_021d9290(Struct_ov023_021d9290_2* arg0, char* arg
                 __clear(var15, 0x100);
                 if (var8 != 0) {
                     AppendText_02042058(arg1, (const char*)(((int)((StringList*)(arg0->unknown_0_))->GetString(0))));
-                    func_02041b00(arg1, var9);
+                    AppendYOffsetTag_02041b00(arg1, var9);
                 }
                 ClearMessageParams_02046380(var1);
                 SetMessageString_02046574(var1, 0, var14->unknown_8_);
@@ -121,7 +121,7 @@ struct Struct_0201099c_3;
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int func_020420e8(void*, int);
 extern "C" int AppendXPositionTag_02041a28(char*, int);
-extern "C" int func_02041b00(char*, int);
+extern "C" int AppendYOffsetTag_02041b00(char*, int);
 extern "C" int func_02041fac(char*, int, int);
 extern "C" void __clear(void*, int);
 extern "C" void* func_ov023_021d994c(void*, int);
@@ -152,7 +152,7 @@ extern "C" ARM void func_ov023_021d9290(char* arg0, char* arg1, unsigned char ar
     char* var2 = (char*)((int)((StringList*)(var0->unknown_0_))->GetString(0x75f8));
     int var3 = func_020420e8(var2, 0);
     AppendXPositionTag_02041a28(arg1, (0xc0 - var3) >> 1);
-    func_02041b00(arg1, 1);
+    AppendYOffsetTag_02041b00(arg1, 1);
     func_02041fac(arg1, (int)var2, 0x10);
 
     unsigned char* var4 = var0->unknown_124_;
@@ -179,7 +179,7 @@ extern "C" ARM void func_ov023_021d9290(char* arg0, char* arg1, unsigned char ar
                 if (var8 != 0) {
                     char* var17 = (char*)((int)((StringList*)(var0->unknown_0_))->GetString(0));
                     AppendText_02042058(arg1, var17);
-                    func_02041b00(arg1, var9);
+                    AppendYOffsetTag_02041b00(arg1, var9);
                 }
                 ClearMessageParams_02046380(var1);
                 struct Struct_ov023_021d9290 var18;

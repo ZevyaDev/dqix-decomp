@@ -8,7 +8,7 @@ struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" float GetHPRatio_ov024_021db358(GameObject*);
 extern "C" void IncrementQuestBattleCounter_ov000_0215a8d4(unsigned char*, int);
-extern "C" short func_ov000_0215a16c(void*, int, int, short*);
+extern "C" short HealCombatant_ov000_0215a16c(void*, int, int, short*);
 extern "C" unsigned short func_ov024_021e9b24(Struct_ov024_021db3a4*, int, Struct_ov024_021db3a4_3*, int);
 extern "C" unsigned long long func_ov024_021e4b14(Struct_ov024_021db3a4*, short, int, Struct_ov024_021db3a4_3*, int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
@@ -29,7 +29,7 @@ extern "C" ARM void* func_ov024_021db3a4(Struct_ov024_021db3a4* arg0, short arg1
     if (arg3->unknown_4_.unknown_0_0_ == 0x20 && IsInParty_02086ef0((Party_02048150*)var2, arg1) && GetHPRatio_ov024_021db358(var0) <= 0.08f && arg6 && arg4 > 0)
         IncrementQuestBattleCounter_ov000_0215a8d4((unsigned char*)arg0->unknown_10_, 7);
     short var3 = 0;
-    short var4 = func_ov000_0215a16c(arg0->unknown_10_, arg2, arg4, &var3);
+    short var4 = HealCombatant_ov000_0215a16c(arg0->unknown_10_, arg2, arg4, &var3);
     int var5 = 0;
     if (var3 <= 0) var5 = 1;
     unsigned short var6 = func_ov024_021e9b24(arg0, arg2, arg3, var5);

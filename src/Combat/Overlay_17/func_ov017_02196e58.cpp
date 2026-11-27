@@ -17,7 +17,7 @@ extern "C" int func_ov004_0216f990(int arg0, int arg1, int arg2);
 extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" bool func_ov017_021b6e70(void* arg0, int arg1);
-extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
+extern "C" void ApplyBattleRequest_ov017_021b7104(void* battleManager, void* request);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
@@ -102,6 +102,6 @@ extern "C" ARM void func_ov017_02196e58(struct Struct_ov017_02196e58* arg0) {
     } else if (var3.unknown_d_ && var6 != NULL) {
         var3.unknown_8_ = func_ov004_0216f990(2, var6->legacy_.bossID_, var6->legacy_.stats_.alternateVersion);
     }
-    func_ov017_021b7104(arg0->unknown_3718_, &var3);
+    ApplyBattleRequest_ov017_021b7104(arg0->unknown_3718_, &var3);
     AppendToQueue_020469b4(arg0->unknown_36fc_, arg0->unknown_3718_);
 }

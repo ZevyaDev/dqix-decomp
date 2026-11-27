@@ -57,7 +57,7 @@ struct Struct_ov017_021c1e6c_5 {
 };
 struct Struct_ov017_021c1e6c_6 { char unknown_0_; unsigned char unknown_1_; char unknown_2_[6]; short unknown_8_; unsigned char unknown_a_, unknown_b_; };
 extern "C" unsigned short* GetZone3D_02012fe4();
-extern "C" void func_020d3c08(char*);
+extern "C" void ClearNPCCompanionTable_020d3c08(char*);
 extern "C" void func_020d3c84(Struct_020d3c28*, Struct_02013fb4*, int);
 extern "C" Struct_ov017_021c1e6c_7* func_020d3d90(Struct_020d3d90*, int);
 extern "C" void CreatePartyMemberObject_ov017_0218f064(GameResources*, int, int, int, int);
@@ -70,7 +70,7 @@ extern "C" void func_02053c4c(char*, char*);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" void SetLeaderObjectIndex_020546a0(void*, int);
-extern "C" void func_020546b4(void*, int);
+extern "C" void SetFollowerIndex_020546b4(void*, int);
 extern "C" void SetObject3DPositionFromVector_02059f38(Struct_02059cfc_2*, Struct_02059cfc_3*);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_ov017_02191508(int, Struct_ov017_021c1e6c_7*);
@@ -78,11 +78,11 @@ extern "C" void func_02039830(void*);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, int, int);
 extern "C" void RebuildPartyOrders_ov017_02191234(GameResources*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
-extern "C" void func_ov017_021907dc(int, int, int, int, int);
+extern "C" void LinkPartyFollowers_ov017_021907dc(int, int, int, int, int);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void func_02039d58(unsigned char*);
 extern "C" int func_02039d68(unsigned char*);
-extern "C" void func_02039d48(unsigned char*);
+extern "C" void SetFadeInOnMove_02039d48(unsigned char*);
 #if defined(jpn)
 extern char data_ov017_021d87c4[], data_ov017_021d87d8[];
 #else
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov017_021c1e6c(Struct_ov017_021c1e6c_6* arg0) {
             var1->GetLoadedFileByID(arg0->unknown_8_, &var5, &var6);
             if (var5) {
                 Struct_020d3c28 var7;
-                func_020d3c08((char*)&var7);
+                ClearNPCCompanionTable_020d3c08((char*)&var7);
                 func_020d3c84(&var7, (Struct_02013fb4*)var5, var6);
                 var4 = func_020d3d90((Struct_020d3d90*)&var7, arg0->unknown_b_);
             }
@@ -169,7 +169,7 @@ configureCombatant:
         GameObject* var17 = GetCompanionByIndex_0200ff58(var0, var8);
         if (var17) {
             SetLeaderObjectIndex_020546a0(var17, 0);
-            func_020546b4(var17, var9);
+            SetFollowerIndex_020546b4(var17, var9);
             var17->obj3D_.SetField06(*var3);
             if (var0->GetUnknownGameObject()) {
                 SetObject3DPositionFromVector_02059f38((Struct_02059cfc_2*)var17, (Struct_02059cfc_3*)&((Struct_ov017_021c1e6c_3*)var0)->unknown_7f60_);
@@ -180,7 +180,7 @@ configureCombatant:
             if (var18) func_02039830(var18);
             RebuildFieldPartyOrder_ov017_02191108(var2, 1, 1, 1, 1);
             RebuildPartyOrders_ov017_02191234(var2);
-            if (IsLocalWirelessGuest_0202c540(func_0202ae18())) func_ov017_021907dc((int)var2, 0, 1, 1, 1);
+            if (IsLocalWirelessGuest_0202c540(func_0202ae18())) LinkPartyFollowers_ov017_021907dc((int)var2, 0, 1, 1, 1);
         } else arg0->unknown_1_ = 1;
     } else if (arg0->unknown_a_ == 2) {
         if (!var1->GetTaskStatus(arg0->unknown_8_)) return;
@@ -207,7 +207,7 @@ configureCombatant:
                     func_02039d58((unsigned char*)var23);
                     for (int var24 = 0; var24 < 4; var24++) {
                         GameObject* var25 = GetCompanionByIndex_0200ff58(var0, var24);
-                        if (var25 && func_02039d68((unsigned char*)var25)) func_02039d48((unsigned char*)var23);
+                        if (var25 && func_02039d68((unsigned char*)var25)) SetFadeInOnMove_02039d48((unsigned char*)var23);
                     }
                     GameObject* var26 = var0->GetGameObjectByIndex(0);
                     if (var26) {

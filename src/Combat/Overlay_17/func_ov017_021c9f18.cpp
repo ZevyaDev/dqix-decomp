@@ -38,7 +38,7 @@ extern "C" void func_02026f20(int, int);
 extern "C" int GetLeaderObjectIndex_020546a8(void*);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
-extern "C" void func_ov017_021907dc(int, int, int, int, int);
+extern "C" void LinkPartyFollowers_ov017_021907dc(int, int, int, int, int);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void*, int, int, int, int);
 
 // USA: func_ov017_021c9f18
@@ -88,6 +88,6 @@ extern "C" ARM void func_ov017_021c9f18(void* arg0, const Struct_ov017_021c9f18*
     var0 = var4;
     if ((var1->obj3D_.unknown_0_ & 0x1000) != 0) var0 = GetLeaderObjectIndex_020546a8(var1);
     GetOwnPartyLeaderObjectIndex_020100b0(arg2);
-    if (var0 != GetOwnProtagonistObjectIndex_0202c1a4(arg4)) func_ov017_021907dc((int)arg3, var0, 1, 1, 1);
+    if (var0 != GetOwnProtagonistObjectIndex_0202c1a4(arg4)) LinkPartyFollowers_ov017_021907dc((int)arg3, var0, 1, 1, 1);
     else RebuildFieldPartyOrder_ov017_02191108(arg3, 1, 1, 1, 1);
 }

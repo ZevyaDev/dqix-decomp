@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_0205c53c;
-extern "C" void func_0205c53c(struct Struct_0205c53c* arg0);
+extern "C" void InitMenuCursors_0205c53c(struct Struct_0205c53c* cursors);
 
 struct TextWindowManager_0205cfd4 {
     char unknown_0_[0x98];
@@ -28,7 +28,7 @@ struct TextWindowManager_0205cfd4 {
 
 // USA: InitTextWindowManager_0205cfd4
 extern "C" ARM void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager) {
-    func_0205c53c((struct Struct_0205c53c*)windowManager);
+    InitMenuCursors_0205c53c((struct Struct_0205c53c*)windowManager);
     windowManager->unknown_98_ = 0;
     windowManager->unknown_9c_ = 0;
     windowManager->unknown_a0_ = 1;

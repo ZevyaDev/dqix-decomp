@@ -2,7 +2,7 @@
 
 extern "C" void func_ov031_022237dc(unsigned short, unsigned short, unsigned short, unsigned short);
 extern "C" void func_ov031_02223720(int, int, int, int);
-extern unsigned char data_ov031_02290cc0;
+extern unsigned char gConnectionListPage_ov031_02290cc0;
 extern short data_ov031_022490d2;
 extern short data_ov031_022490d4;
 extern short data_ov031_022490d6;
@@ -10,7 +10,7 @@ extern short data_ov031_022490d8;
 
 // USA: func_ov031_02232ce8
 extern "C" ARM void func_ov031_02232ce8(void) {
-    unsigned char var0 = data_ov031_02290cc0;
+    unsigned char var0 = gConnectionListPage_ov031_02290cc0;
     if (var0 < 4) {
         int var1 = var0 * 8;
         unsigned short var2 = *(unsigned short*)((char*)&data_ov031_022490d2 + var1);

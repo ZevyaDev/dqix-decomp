@@ -63,7 +63,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 struct Struct_02011590;
 extern "C" int func_02011590(Struct_02011590*);
 extern "C" void func_020115f4(void*, unsigned short);
-extern "C" void func_ov017_021bb27c(void* arg0);
+extern "C" void EndEventTask_ov017_021bb27c(void* eventTask);
 extern "C" void func_ov017_021bb0c4(unsigned char*);
 extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
@@ -83,7 +83,7 @@ struct Struct_02040774_2;
 extern "C" void SetObject3DPosition_020407b4(Struct_02040774_2*, int, int, int);
 struct Struct_02033834;
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
-extern "C" void func_02039d48(unsigned char*);
+extern "C" void SetFadeInOnMove_02039d48(unsigned char*);
 void SetBrightness(GameResources*, int, int);
 extern "C" int func_0209cd50(unsigned short arg0);
 struct Struct_0209c3b4_2;
@@ -309,7 +309,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         if (arg0->unknown_11a_) {
             func_020115f4(var0, arg0->unknown_11a_);
         }
-        func_ov017_021bb27c(arg0);
+        EndEventTask_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
     }
@@ -373,7 +373,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
             if (var30) {
                 SetObject3DPosition_020407b4((Struct_02040774_2*)var30, 0x48cc, 0x199, -0x733);
                 SetFacingInstantly_02033874((Struct_02033834*)var30, 0x3244);
-                func_02039d48((unsigned char*)var30);
+                SetFadeInOnMove_02039d48((unsigned char*)var30);
             }
         }
     }
@@ -404,7 +404,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
             func_02039830(var3);
         }
         SetMainBrightness(var1, 0, 0x28);
-        func_ov017_021bb27c(arg0);
+        EndEventTask_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
     } else {
@@ -526,7 +526,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
     }
     }
     *(int*)((unsigned char*)var0 + Enum_ov017_021bc77c_29172) = 0;
-    func_ov017_021bb27c(arg0);
+    EndEventTask_ov017_021bb27c(arg0);
     arg0->unknown_1_ = 1;
     return arg0->unknown_a_;
 }

@@ -5,25 +5,25 @@
 
 extern "C" void *__clear(void *arg0, int arg1);
 
-struct Struct_0203e0a0_2 {
-    short unknown_0_;
-    short unknown_2_;
-    short unknown_4_;
-    short unknown_6_;
-    unsigned short unknown_8_0_ : 9;
+struct SavedNPCState_0203e0a0_2 {
+    short x_0_;
+    short y_2_;
+    short z_4_;
+    short angle_6_;
+    unsigned short npcId_8_0_ : 9;
     unsigned short unknown_9_1_ : 1;
     unsigned short unknown_9_2_ : 5;
     unsigned short unknown_9_7_ : 1;
 };
 
-struct Struct_0203e0a0_3 {
+struct NPCManager_0203e0a0_3 {
     unsigned char unknown_0_[0xc];
-    NPC_0203dce4 *unknown_c_[32];
-    unsigned int unknown_8c_;
+    NPC_0203dce4 *npcs_c_[32];
+    unsigned int npcCount_8c_;
     unsigned char unknown_90_[0xe];
-    Struct_0203e0a0_2 unknown_9e_[32];
+    SavedNPCState_0203e0a0_2 savedStates_9e_[32];
     unsigned short unknown_1de_;
-    unsigned short unknown_1e0_;
+    unsigned short savedNPCCount_1e0_;
     unsigned short unknown_1e2_;
     unsigned int unknown_1e4_;
 };
@@ -43,62 +43,62 @@ struct Struct_0203e0a0_5 {
     Struct_0203e0a0_4 *unknown_34_;
 };
 
-// USA: func_0203e0a0
-extern "C" ARM void func_0203e0a0(void *arg0, unsigned short arg1) {
-    Struct_0203e0a0_3 *var0 = static_cast<Struct_0203e0a0_3 *>(arg0);
-    var0->unknown_1de_                   = arg1;
-    var0->unknown_1e0_          = 0;
-    NPC_0203dce4 **var1       = var0->unknown_c_;
-    Struct_0203e0a0_2 *var2    = var0->unknown_9e_;
-    unsigned int var3         = 0;
-    for (; var3 < var0->unknown_8c_; ++var1, ++var2, ++var3) {
-        NPC_0203dce4 *var4 = *var1;
-        if (var4 != NULL) {
-            Vector3i var5;
-            __clear(&var5, sizeof(var5));
-            short var6 = 0;
-            if (((unsigned char*)var4->unknown_14_) != NULL) {
-                var5 = *(Vector3i *) (((unsigned char*)var4->unknown_14_) + 4);
-                var6    = (short) func_0203cdd0(((Struct_0203cdd0*)var4->unknown_14_));
-            } else if (((unsigned char*)var4->unknown_18_) != NULL) {
-                var5 = *(Vector3i *) (((unsigned char*)var4->unknown_18_) + 0x44);
-                var6    = (short) *(int *) (((unsigned char*)var4->unknown_18_) + 0x54);
-            } else if (((unsigned char*)var4->unknown_1c_) != NULL) {
-                var5 = *(Vector3i *) (((unsigned char*)var4->unknown_1c_) + 0x44);
-                var6    = (short) *(int *) (((unsigned char*)var4->unknown_1c_) + 0x54);
+// USA: SaveNPCStates_0203e0a0
+extern "C" ARM void SaveNPCStates_0203e0a0(void *manager, unsigned short arg1) {
+    NPCManager_0203e0a0_3 *npcManager = static_cast<NPCManager_0203e0a0_3 *>(manager);
+    npcManager->unknown_1de_                   = arg1;
+    npcManager->savedNPCCount_1e0_          = 0;
+    NPC_0203dce4 **slot       = npcManager->npcs_c_;
+    SavedNPCState_0203e0a0_2 *savedState    = npcManager->savedStates_9e_;
+    unsigned int i         = 0;
+    for (; i < npcManager->npcCount_8c_; ++slot, ++savedState, ++i) {
+        NPC_0203dce4 *npc = *slot;
+        if (npc != NULL) {
+            Vector3i position;
+            __clear(&position, sizeof(position));
+            short angle = 0;
+            if (((unsigned char*)npc->pSprite_14_) != NULL) {
+                position = *(Vector3i *) (((unsigned char*)npc->pSprite_14_) + 4);
+                angle    = (short) func_0203cdd0(((Struct_0203cdd0*)npc->pSprite_14_));
+            } else if (((unsigned char*)npc->unknown_18_) != NULL) {
+                position = *(Vector3i *) (((unsigned char*)npc->unknown_18_) + 0x44);
+                angle    = (short) *(int *) (((unsigned char*)npc->unknown_18_) + 0x54);
+            } else if (((unsigned char*)npc->unknown_1c_) != NULL) {
+                position = *(Vector3i *) (((unsigned char*)npc->unknown_1c_) + 0x44);
+                angle    = (short) *(int *) (((unsigned char*)npc->unknown_1c_) + 0x54);
             }
-            int var7               = var5.x;
-            int var8               = var5.z;
-            int var9               = var5.y;
-            var2->unknown_0_         = (short) (var7 >> 4);
-            var2->unknown_2_         = (short) (var9 >> 4);
-            var2->unknown_4_         = (short) (var8 >> 4);
-            var2->unknown_6_     = var6;
-            unsigned short *var10 = (unsigned short *) GetNPCData_02040528(&var4->flags_0_);
-            if (var10 != NULL) {
-                var2->unknown_8_0_ = *var10;
+            int x               = position.x;
+            int z               = position.z;
+            int y               = position.y;
+            savedState->x_0_         = (short) (x >> 4);
+            savedState->y_2_         = (short) (y >> 4);
+            savedState->z_4_         = (short) (z >> 4);
+            savedState->angle_6_     = angle;
+            unsigned short *npcData = (unsigned short *) GetNPCData_02040528(&npc->flags_0_);
+            if (npcData != NULL) {
+                savedState->npcId_8_0_ = *npcData;
             }
-            var2->unknown_9_1_     = (var4->flags_0_ & 0x8000) != 0;
-            var2->unknown_9_2_    = 0;
-            Struct_0203e0a0_5 *var11 = (Struct_0203e0a0_5 *) GetNPCPlacement_02040538((NPC_0203e0a0 *) var4);
-            if (var11 != NULL) {
-                Struct_0203e0a0_4 *var12 = var11->unknown_34_;
-                while (var12 != NULL) {
-                    if (var12->unknown_c_ != 0) {
+            savedState->unknown_9_1_     = (npc->flags_0_ & 0x8000) != 0;
+            savedState->unknown_9_2_    = 0;
+            Struct_0203e0a0_5 *placement = (Struct_0203e0a0_5 *) GetNPCPlacement_02040538((NPC_0203e0a0 *) npc);
+            if (placement != NULL) {
+                Struct_0203e0a0_4 *node = placement->unknown_34_;
+                while (node != NULL) {
+                    if (node->unknown_c_ != 0) {
                         break;
                     }
-                    ++var2->unknown_9_2_;
-                    var12 = var12->unknown_10_;
-                    if (var12 == var11->unknown_34_) {
+                    ++savedState->unknown_9_2_;
+                    node = node->unknown_10_;
+                    if (node == placement->unknown_34_) {
                         break;
                     }
                 }
             }
-            var2->unknown_9_7_ = var11->unknown_a_3_ == 3;
-            if (var4->flags_0_ & 0x40000) {
-                var0->unknown_1e4_ |= 1U << var3;
+            savedState->unknown_9_7_ = placement->unknown_a_3_ == 3;
+            if (npc->flags_0_ & 0x40000) {
+                npcManager->unknown_1e4_ |= 1U << i;
             }
-            ++var0->unknown_1e0_;
+            ++npcManager->savedNPCCount_1e0_;
         }
     }
 }

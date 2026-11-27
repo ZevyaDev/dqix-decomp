@@ -5,7 +5,7 @@
 #include "Resource/GameResources.h"
 
 extern "C" int func_02027bd0(int);
-extern "C" void func_0202756c(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
+extern "C" void DrawMetatileAt_0202756c(void*, int, int, int, unsigned char, unsigned char, unsigned short, unsigned char, int, int);
 #if defined(jpn)
 #define data_020e7034 data_020e78d5
 #endif
@@ -37,7 +37,7 @@ extern "C" ARM void func_0201fdd0(Struct_020fdc60_2* arg0, int arg1, int arg2, i
         int var10 = (int)(arg0->unknown_10_ + (float)var6);
         int var11 = var1 + var4;
         var11 += var3;
-        func_0202756c(var2, (var5 + ((arg1 << 6) - (var1 << 3))) << 12, var10 << 12, (var9 + 13) & 0xff, var11 & 0xff, 0, var7, 255, 4096, 4096);
+        DrawMetatileAt_0202756c(var2, (var5 + ((arg1 << 6) - (var1 << 3))) << 12, var10 << 12, (var9 + 13) & 0xff, var11 & 0xff, 0, var7, 255, 4096, 4096);
         ++var1;
     } while (var0 > 0);
     if (arg3 <= 0) return;
@@ -47,6 +47,6 @@ extern "C" ARM void func_0201fdd0(Struct_020fdc60_2* arg0, int arg1, int arg2, i
     if (var14 < 40) var14 = 40;
     fix32_t var15 = (arg7 + (arg1 << 6)) << 12;
     fix32_t var16 = (int)(4096.0f * (arg0->unknown_10_ + (float)arg8));
-    func_0202756c(var2, var15, var16, arg9 & 0xff, (arg2 + 44 + arg11 * 8) & 0xff, 0, 6, (arg2 + arg11 * 4) & 0xff, var14, 4096);
-    func_0202756c(var2, var15, var16, arg10 & 0xff, (arg2 + 48 + arg11 * 8) & 0xff, 0, 6, 255, 4096, 4096);
+    DrawMetatileAt_0202756c(var2, var15, var16, arg9 & 0xff, (arg2 + 44 + arg11 * 8) & 0xff, 0, 6, (arg2 + arg11 * 4) & 0xff, var14, 4096);
+    DrawMetatileAt_0202756c(var2, var15, var16, arg10 & 0xff, (arg2 + 48 + arg11 * 8) & 0xff, 0, 6, 255, 4096, 4096);
 }

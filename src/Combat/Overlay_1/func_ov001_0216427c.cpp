@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_0203d028_15;
-extern "C" void func_02040774(struct Struct_0203d028_15* arg0, int arg1, int arg2, int arg3);
+struct NPC_0203d028_15;
+extern "C" void SetNPCPosition_02040774(struct NPC_0203d028_15* npc, int x, int y, int z);
 
 struct Struct_ov001_0216427c { int unknown_0_; char unknown_4_[8]; void* unknown_c_; };
 struct Struct_ov001_0216427c_2 { char unknown_0_[0x44]; int unknown_44_; int unknown_48_; int unknown_4c_; };
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov001_0216427c(Struct_ov001_0216427c* arg0, int arg1, in
 	case 6:
 		var1 = var0->unknown_c_;
 		if (var1 == 0) return 0;
-		func_02040774((struct Struct_0203d028_15*)var1, arg2, arg3, arg4);
+		SetNPCPosition_02040774((struct NPC_0203d028_15*)var1, arg2, arg3, arg4);
 		return 1;
 	default:
 		return 0;

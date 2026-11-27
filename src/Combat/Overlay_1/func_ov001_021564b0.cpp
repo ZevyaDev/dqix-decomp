@@ -16,7 +16,7 @@ void SetMainBrightness(GameResources*, int, int);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_ov001_02156b20(void* arg0);
-extern "C" void func_ov017_021bb27c(void* arg0);
+extern "C" void EndEventTask_ov017_021bb27c(void* eventTask);
 
 struct Struct_ov001_021564b0 { char unknown_0_; char unknown_1_; char unknown_2_[8]; unsigned short unknown_a_; };
 
@@ -33,7 +33,7 @@ extern "C" ARM unsigned short func_ov001_021564b0(struct Struct_ov001_021564b0* 
         char* var3 = (char*)var2 + 0x1000;
         var3[Enum_ov001_021564b0_2494] = 0;
         func_ov001_02156b20(arg0);
-        func_ov017_021bb27c(arg0);
+        EndEventTask_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
     }
     return arg0->unknown_a_;

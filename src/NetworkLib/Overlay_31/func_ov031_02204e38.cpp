@@ -23,7 +23,7 @@ struct Struct_ov031_02204e38 {
 	int unknown_30_;
 	int unknown_34_;
 };
-extern Struct_ov031_02204e38* data_ov031_022496a4;
+extern Struct_ov031_02204e38* gIPStackConfig_ov031_022496a4;
 
 struct Struct_ov031_022496c4 {
 	unsigned short unknown_0_;
@@ -63,7 +63,7 @@ enum Enum_ov031_02204e38 { Enum_ov031_02204e38_1 = 1 };
 // USA: func_ov031_02204e38
 extern "C" ARM void func_ov031_02204e38(void) {
 	Struct_ov031_02204e38_2* var0 = &data_ov031_0224e1c0.unknown_10_;
-	Struct_ov031_02204e38* var1 = data_ov031_022496a4;
+	Struct_ov031_02204e38* var1 = gIPStackConfig_ov031_022496a4;
 	void* var2;
 	int var3;
 	int var4;
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov031_02204e38(void) {
 	}
 	var2 = var1->unknown_28_;
 	if (var2 == NULL) {
-		var2 = data_ov031_022496a4->unknown_18_(var0->unknown_20_);
+		var2 = gIPStackConfig_ov031_022496a4->unknown_18_(var0->unknown_20_);
 	}
 	var0->unknown_1c_ = var2;
 

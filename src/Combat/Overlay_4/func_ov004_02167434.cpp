@@ -46,12 +46,12 @@ extern "C" void func_0208bf28(struct Struct_02065990_2* arg0, int arg1, unsigned
 extern "C" void func_ov004_02166bd8(void* arg0);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
-extern struct Struct_ov004_02167434* data_ov004_0217101c;
+extern struct Struct_ov004_02167434* gQuestList_ov004_0217101c;
 static inline Struct_ov004_02167434* inline_ov004_02167434() {
 #if defined(jpn)
-    return *(Struct_ov004_02167434**)((char*)&data_ov004_0217101c + 4);
+    return *(Struct_ov004_02167434**)((char*)&gQuestList_ov004_0217101c + 4);
 #else
-    return data_ov004_0217101c;
+    return gQuestList_ov004_0217101c;
 #endif
 }
 

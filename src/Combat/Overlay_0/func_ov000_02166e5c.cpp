@@ -122,7 +122,7 @@ extern "C" void func_ov000_02165480(void*, int);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" void func_02053c74(char*, int);
 extern "C" Struct_ov000_02166e5c_6* func_02053c6c(unsigned char*);
-extern "C" void func_020d3c08(char*);
+extern "C" void ClearNPCCompanionTable_020d3c08(char*);
 struct Struct_02061c04_12;
 extern "C" void func_020d3c28(Struct_02061c04_12*);
 struct Struct_020d3d90;
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
         return;
     }
     Struct_ov000_02166e5c_4 var12;
-    func_020d3c08((char*)&var12);
+    ClearNPCCompanionTable_020d3c08((char*)&var12);
     func_020d3c28((Struct_02061c04_12*)&var12);
     Struct_ov000_02166e5c_3* var13 = func_020d3d90((Struct_020d3d90*)&var12, 1);
     sprintf(var11->unknown_3c_, gStringFormat_020ef078, var13);

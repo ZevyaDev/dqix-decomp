@@ -22,7 +22,7 @@ struct Struct_ov031_022353b8 {
     unsigned char unknown_1d_;
 };
 
-extern Struct_ov031_022353b8* data_ov031_02290cf4;
+extern Struct_ov031_022353b8* gScrollBar_ov031_02290cf4;
 
 // USA: func_ov031_022353b8
 extern "C" ARM void func_ov031_022353b8(void) {
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov031_022353b8(void) {
     func_ov031_0223d69c(var0);
 
     {
-        Struct_ov031_022353b8* var1 = data_ov031_02290cf4;
+        Struct_ov031_022353b8* var1 = gScrollBar_ov031_02290cf4;
         if (var0[0] < var1->unknown_10_ - 0x1e) {
             goto fail;
         }
@@ -52,12 +52,12 @@ extern "C" ARM void func_ov031_022353b8(void) {
 
         func_ov031_02235488(var3);
         func_ov031_02235744(var3);
-        data_ov031_02290cf4->unknown_1d_ = 2;
+        gScrollBar_ov031_02290cf4->unknown_1d_ = 2;
         return;
     }
 
 fail:
     StopWifiSetupSoundEffect_ov031_022368e0();
-    data_ov031_02290cf4->unknown_1c_ = 0;
-    data_ov031_02290cf4->unknown_1d_ = 3;
+    gScrollBar_ov031_02290cf4->unknown_1c_ = 0;
+    gScrollBar_ov031_02290cf4->unknown_1d_ = 3;
 }

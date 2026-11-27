@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern unsigned char* data_ov031_02290c98;
+extern unsigned char* gAddressEntryPage_ov031_02290c98;
 extern "C" ARM void func_ov031_0222df84(void);
 
 // USA: func_ov031_0222e1ac
@@ -10,7 +10,7 @@ extern "C" ARM void func_ov031_0222e1ac(void) {
 	int var2;
 	int var3 = 0;
 	do {
-		var0 = data_ov031_02290c98 + 8 + var3;
+		var0 = gAddressEntryPage_ov031_02290c98 + 8 + var3;
 		var2 = 0;
 		do {
 			unsigned char var4 = var0[var2];

@@ -82,13 +82,13 @@ extern "C" ARM int func_020146fc(Zone3D* arg0)
             var5++;
         }
 
-        Struct_02013454* var14 = (Struct_02013454*)(arg0->firstBMDJStruct_41c_);
+        BMDJStruct_02013454* var14 = (BMDJStruct_02013454*)(arg0->firstBMDJStruct_41c_);
         while (var14 != NULL)
         {
             func_02014a24(arg0, var14);
             if (arg0->unknown_42c_ == 2)
                 break;
-            var14 = var14->unknown_54_;
+            var14 = var14->pNext_54_;
         }
 
         var3.Destroy();

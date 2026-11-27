@@ -1,5 +1,4 @@
 #if defined(jpn)
-#define func_ov023_021e6de4 func_ov023_021e7148
 #define func_ov012_0218943c func_ov012_02189d18
 enum {
     Enum_ov012_02186a7c_4976 = 0x1340,
@@ -42,11 +41,11 @@ extern "C" int PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* mana
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 
-struct Struct_ov012_02186a7c;
-extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
+struct ProfileMenu_ov012_02186a7c;
+extern "C" int IsProfileMenuCancelPressed_ov023_021e6e20(struct ProfileMenu_ov012_02186a7c* menu);
 
 extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void* menu);
-extern "C" int func_ov023_021e6de4(char* arg0);
+extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(char* menu);
 extern "C" void func_ov012_0218943c(void* arg0);
 
 // USA: func_ov012_02186a7c
@@ -71,7 +70,7 @@ extern "C" ARM void func_ov012_02186a7c(char* arg0) {
 	*(int*)(arg0 + Enum_ov012_02186a7c_5076) = GetCursorIndex_0205d794((struct Struct_0205c570*)(arg0 + Enum_ov012_02186a7c_172));
 
 	int var1 = 0;
-	if (func_ov023_021e6de4(arg0) != 0) {
+	if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0) != 0) {
 		*(unsigned char*)(arg0 + Enum_ov012_02186a7c_356) = *(unsigned char*)(arg0 + Enum_ov012_02186a7c_4977);
 		*(unsigned char*)(arg0 + Enum_ov012_02186a7c_5024) = 0;
 		PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
@@ -86,7 +85,7 @@ extern "C" ARM void func_ov012_02186a7c(char* arg0) {
 		case 5: var1 = 1; break;
 		}
 	} else {
-		if (func_ov023_021e6e20((struct Struct_ov012_02186a7c*)arg0) != 0) var1 = 1;
+		if (IsProfileMenuCancelPressed_ov023_021e6e20((struct ProfileMenu_ov012_02186a7c*)arg0) != 0) var1 = 1;
 	}
 
 	if (var1 == 0) return;

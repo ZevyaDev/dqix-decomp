@@ -34,7 +34,7 @@ extern "C" void* GetEffectManager_02057924(void);
 extern "C" Struct_ov000_02161020_2* GetZone3D_02012fe4(void);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" int func_02032fdc(GameObject* arg0, int arg1, int arg2);
-extern "C" void func_02057ab8(void* arg0, int arg1);
+extern "C" void DrawAttachedEffects_02057ab8(void* effectManager, int objectIndex);
 extern "C" void DrawShadow_0208f87c(const void* position, int color, int scale, int alpha, int polygonId);
 extern "C" void func_020d76b8(Struct_020d76b8* arg0, int arg1);
 extern "C" void func_020d76d8(unsigned char* arg0, int arg1);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov000_02161020(Struct_ov000_02161020* arg0) {
             var8 = func_02032fdc(var7, 1, var8);
         }
         if (var8 != 0) {
-            func_02057ab8(var2, var6 + 0xc0);
+            DrawAttachedEffects_02057ab8(var2, var6 + 0xc0);
             int var9 = var3->unknown_3c_;
             int var10 = var7->obj3D_.GetCombinedAlpha();
             int var11 = (int)((float)var9 / 31.0f * (float)var10);

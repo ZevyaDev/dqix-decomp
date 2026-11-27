@@ -10,7 +10,7 @@ struct GameResources;
 struct Party_02048150;
 struct StringList_02072a68_2 { char unknown_0_[4]; };
 struct SkillTable_0200f3a4_8;
-struct Struct_0209a470;
+struct SkillTable_0209a470;
 struct Struct_02013fb4;
 struct StringList_020727d8;
 struct Struct_02046574_2;
@@ -183,7 +183,7 @@ extern "C" Party_02048150* GetParty_02010828(GameState* gameState);
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 void* LoadFileIntoMemory(const char* path, void* buffer, unsigned int* outLength);
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8* table);
-extern "C" void func_0209a470(Struct_0209a470* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
+extern "C" void BuildSkillTable_0209a470(SkillTable_0209a470* table, SafeAllocator* allocator, Struct_02013fb4* scriptData, int scriptSize);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void InitNounTable_020e526c(void* nounTable);
@@ -392,7 +392,7 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
         void* var26 = LoadFileIntoMemory(data_ov023_021fe200, g_fileScratchSpace, &var25);
         ClearSkillTable_0209a338((SkillTable_0200f3a4_8*)arg0->unknown_e98_);
         if (var26 != NULL)
-            func_0209a470((Struct_0209a470*)arg0->unknown_e98_, &arg0->unknown_30_, (Struct_02013fb4*)var26, var25);
+            BuildSkillTable_0209a470((SkillTable_0209a470*)arg0->unknown_e98_, &arg0->unknown_30_, (Struct_02013fb4*)var26, var25);
         var26 = ExtractFileFromGP2((const char*)(FindStringInList_02072a68(&arg0->unknown_5904_, 0x2b)), (const char*)(FindStringInList_02072a68(&arg0->unknown_5904_, 0x21)), (unsigned int*)(&var25));
         arg0->unknown_557c_ = (StringList_02072a68_2*)arg0->unknown_30_.Allocate(8);
         ResetStringList_020727d8((StringList_020727d8*)arg0->unknown_557c_);

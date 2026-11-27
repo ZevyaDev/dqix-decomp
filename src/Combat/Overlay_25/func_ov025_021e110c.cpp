@@ -14,7 +14,7 @@ struct Struct_ov025_021e110c {
 
 extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" int func_020493c8(unsigned char*);
-extern "C" int func_020493ec(unsigned char*);
+extern "C" int GetCombatantReservedCell_020493ec(unsigned char*);
 extern "C" void func_ov025_021e12f8(unsigned char* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
 static inline void inline_ov025_021e110c(unsigned char* arg0, unsigned int arg1, unsigned char arg2) {
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov025_021e110c(unsigned char* arg0, Struct_ov025_021e11
                 func_ov025_021e12f8(arg0, var2, arg1[var1].unknown_1_, var5 & 0xff, 0, 0);
             }
         }
-        unsigned int var6 = func_020493ec(arg1[var1].unknown_8_);
+        unsigned int var6 = GetCombatantReservedCell_020493ec(arg1[var1].unknown_8_);
         if (var6 < 0x51) {
             inline_ov025_021e110c(arg0, var6, arg1[var1].unknown_1_);
         }

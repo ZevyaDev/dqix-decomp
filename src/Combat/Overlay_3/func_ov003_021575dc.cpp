@@ -169,7 +169,7 @@ extern "C" int AwardAccolades_ov023_021ed724(void* table, void* accoladeIds, int
 extern "C" void InitAccoladeDisplay_ov023_021eb138(void* display, int kind);
 extern "C" void AllocateAccoladeDisplayBuffers_ov023_021eb080(void* display, void* allocator);
 extern "C" void SetAccoladeDisplayEntries_ov023_021eb564(void* display, void* entries, int entryCount);
-extern "C" void func_ov023_021eb43c(void* arg0);
+extern "C" void UpdateAccoladeDisplay_ov023_021eb43c(void* display);
 extern "C" void DestroyAccoladeDisplay_ov023_021eb26c(void* display);
 
 extern char gSoundEffectManager_02108760;
@@ -481,7 +481,7 @@ extern "C" ARM void func_ov003_021575dc(void* arg0) {
     stateEnd:;
     } else if (var3 == 0x65) {
         if (var0->unknown_204_ != 0) {
-            func_ov023_021eb43c(var0->unknown_204_);
+            UpdateAccoladeDisplay_ov023_021eb43c(var0->unknown_204_);
             if (*(unsigned short*)((char*)var0->unknown_204_ + 0x438) & 4) {
                 DestroyAccoladeDisplay_ov023_021eb26c(var0->unknown_204_);
                 ((SafeAllocator*)(var0->unknown_0_ + 0x64))->Reset();

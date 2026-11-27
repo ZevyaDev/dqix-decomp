@@ -126,7 +126,7 @@ extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void ExpandInflectionTags_020e4864(void* text, void* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
-extern "C" void func_020805f4(void* arg0, int arg1);
+extern "C" void CapitalizeMenuLayoutText_020805f4(void* menuLayout, int textId);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void func_ov006_021571fc(char*);
 struct MusicManager_02109bf4_2;
@@ -394,7 +394,7 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
             ExpandInflectionTags_020e4864(*var9, *arg0->unknown_4_, 1, 0, 0, 0);
             SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, 0x7f, (int)(*arg0->unknown_4_));
         }
-        func_020805f4(arg0->unknown_14_, 0x7f);
+        CapitalizeMenuLayoutText_020805f4(arg0->unknown_14_, 0x7f);
 #endif
         OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 0x12);
         var0->unknown_ae2_ |= 0x400;
@@ -462,7 +462,7 @@ extern "C" ARM void func_ov006_0215cc70(Struct_ov006_0215cc70_3* arg0) {
                 ExpandInflectionTags_020e4864(*var13, *arg0->unknown_4_, 1, 0, 0, 0);
                 SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, 0x7f, (int)(*arg0->unknown_4_));
             }
-            func_020805f4(arg0->unknown_14_, 0x7f);
+            CapitalizeMenuLayoutText_020805f4(arg0->unknown_14_, 0x7f);
 #endif
             OpenMenuLayoutWindow_020813ec(arg0->unknown_14_, 0x12);
             func_ov006_02153cbc(arg0->unknown_74_, arg0->unknown_34_->unknown_0_, -1, arg0->unknown_14c_);

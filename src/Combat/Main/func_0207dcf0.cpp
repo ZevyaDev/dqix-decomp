@@ -7,7 +7,7 @@
 
 struct BattleJoinRecord_0207d7f4 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned int unknown_4_; unsigned int unknown_8_; };
 extern "C" int func_0207d978(struct BattleJoinRecord_0207d7f4* arg0, unsigned short arg1);
-extern "C" struct BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(struct BattleJoinRecord_0207d7f4* arg0, unsigned short monsterId);
+extern "C" struct BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(struct BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
 extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" void func_ov017_021b848c(unsigned char* arg0, signed char* arg1, int arg2, int arg3, unsigned short arg4, signed char arg5, int arg6, int arg7);

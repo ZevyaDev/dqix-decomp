@@ -7,8 +7,8 @@ extern "C" void func_ov031_0223bf48(void* arg0, int arg1);
 struct Struct_ov031_0223b710 { unsigned char unknown_0_[0x84]; void* unknown_84_; };
 extern Struct_ov031_0223b710* data_ov031_02290d24;
 
-// USA: func_ov031_0223b710
-extern "C" ARM void func_ov031_0223b710(Struct_ov031_0223b710_2 arg0) {
-	FreeAndClearPointer_ov031_0223cf70(&arg0);
-	func_ov031_0223bf48(data_ov031_02290d24->unknown_84_, arg0.unknown_0_);
+// USA: FreeLoadedFile_ov031_0223b710
+extern "C" ARM void FreeLoadedFile_ov031_0223b710(Struct_ov031_0223b710_2 fileData) {
+	FreeAndClearPointer_ov031_0223cf70(&fileData);
+	func_ov031_0223bf48(data_ov031_02290d24->unknown_84_, fileData.unknown_0_);
 }

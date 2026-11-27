@@ -27,7 +27,7 @@ struct Struct_ov031_0220603c_4 {
     char unknown_0_[0x18]; void* (*unknown_18_)(int);
 };
 struct Struct_ov031_0224e224 { unsigned int unknown_0_, unknown_4_; };
-extern Struct_ov031_0220603c_4* data_ov031_022496a4;
+extern Struct_ov031_0220603c_4* gIPStackConfig_ov031_022496a4;
 extern Struct_ov031_0224e224 data_ov031_0224e224;
 
 // USA: func_ov031_0220603c
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov031_0220603c(const void* arg0, unsigned int arg1, Stru
     Struct_ov031_0220603c* var1;
     int var2 = DisableIRQInterrupts();
     if (var0->unknown_10a_ >= var0->unknown_108_ + arg1) {
-        var1 = (Struct_ov031_0220603c*)data_ov031_022496a4->unknown_18_(arg1 + 0xc);
+        var1 = (Struct_ov031_0220603c*)gIPStackConfig_ov031_022496a4->unknown_18_(arg1 + 0xc);
         if (var1) {
             var0->unknown_108_ += arg1;
             var1->unknown_0_ = 0;

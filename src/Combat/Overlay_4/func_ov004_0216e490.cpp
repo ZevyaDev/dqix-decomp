@@ -4,14 +4,14 @@
 extern "C" int func_020aaf84(void* arg0, int arg1, int arg2, int arg3);
 struct Struct_02000c9c_11;
 extern "C" void func_0201155c(struct Struct_02000c9c_11* arg0);
-extern "C" unsigned char func_0209ca98(char* arg0);
-extern "C" unsigned char func_0205ea18(unsigned char* arg0);
+extern "C" unsigned char GetMusicVolumeLevel_0209ca98(char* manager);
+extern "C" unsigned char GetSoundEffectVolumeLevel_0205ea18(unsigned char* manager);
 extern "C" void SetMusicVolumeLevel_0209ca70(void* manager, int volumeLevel);
 struct Struct_02108760_2;
 extern "C" void SetSoundEffectVolumeLevel_0205e9f4(struct Struct_02108760_2* manager, int volumeLevel);
 extern "C" int func_020ac864(int arg0);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
-extern "C" int func_020aba5c(int arg0);
+extern "C" int ClearSaveHeader_020aba5c(int isSecondCopy);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
@@ -41,13 +41,13 @@ extern "C" ARM int func_ov004_0216e490(void* arg0) {
         data_ov004_02171034[5] = 1;
 #endif
     } else {
-        unsigned char var2 = func_0209ca98((char*)&gMusicManager_02109bf4);
+        unsigned char var2 = GetMusicVolumeLevel_0209ca98((char*)&gMusicManager_02109bf4);
 #if defined(jpn)
         data_ov004_02171034[7] = var2;
 #else
         data_ov004_02171034[4] = var2;
 #endif
-        unsigned char var3 = func_0205ea18((unsigned char*)&gSoundEffectManager_02108760);
+        unsigned char var3 = GetSoundEffectVolumeLevel_0205ea18((unsigned char*)&gSoundEffectManager_02108760);
 #if defined(jpn)
         data_ov004_02171034[6] = var3;
 #else
@@ -77,7 +77,7 @@ extern "C" ARM int func_ov004_0216e490(void* arg0) {
 #else
     if (data_ov004_02171034[0] == 1) {
 #endif
-        if (func_020aba5c(1) == 0) {
+        if (ClearSaveHeader_020aba5c(1) == 0) {
             char* var4 = (char*)GetMessageWindow_020421a0();
             ResetMessageWindow_02043204(var4);
             CloseMessageWindow_02043124(var4);

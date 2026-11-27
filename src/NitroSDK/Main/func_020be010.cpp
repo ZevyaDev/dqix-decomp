@@ -3,7 +3,7 @@
 extern "C" void* func_020bd580(int arg0);
 extern "C" int func_020be2ec(unsigned int arg0, int arg1, int arg2);
 extern "C" int func_020be280(unsigned int arg0, int arg1, int arg2);
-extern "C" int func_020bd8ac(unsigned int arg0);
+extern "C" int GetLoadedSoundFile_020bd8ac(unsigned int fileId);
 
 struct Struct_020be010 {
     unsigned int unknown_0_0_ : 24;
@@ -23,7 +23,7 @@ extern "C" ARM int func_020be010(int arg0, unsigned int arg1, int arg2, int arg3
         }
         if (var1 == 0) return 9;
     } else {
-        var1 = func_020bd8ac(var0->unknown_0_0_);
+        var1 = GetLoadedSoundFile_020bd8ac(var0->unknown_0_0_);
     }
     if (arg4) *arg4 = var1;
     return 0;

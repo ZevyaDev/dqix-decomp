@@ -3,7 +3,7 @@
 #include "Combat/Main/MessageSlotTable.h"
 
 // USA: func_020dd9b4
-extern "C" ARM void func_020dd9b4(Struct_020dd7ac *arg0, unsigned int arg1, void *arg2, void *arg3) {
+extern "C" ARM void func_020dd9b4(EquipStatComparison_020dd7ac *arg0, unsigned int arg1, void *arg2, void *arg3) {
     if (arg2 == 0 || arg3 == 0) {
         return;
     }

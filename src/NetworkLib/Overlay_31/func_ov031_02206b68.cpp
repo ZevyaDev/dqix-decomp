@@ -14,7 +14,7 @@ extern "C" ARM void* func_ov031_02207168(Struct_ov031_0224e230* arg0);
 
 struct Struct_ov031_02206a68 { Struct_ov031_02206a68* unknown_0_; };
 struct Struct_ov031_02206a68_2 { char unknown_0_[0x1c]; void (*unknown_1c_)(Struct_ov031_02206a68*); };
-extern Struct_ov031_02206a68_2* data_ov031_022496a4;
+extern Struct_ov031_02206a68_2* gIPStackConfig_ov031_022496a4;
 
 struct Struct_ov031_02206a68_3 {
 	char unknown_0_[0x100];
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov031_02206a68(Struct_ov031_02206a68_4* arg0) {
 			Struct_ov031_02206a68* var2 = arg0->unknown_64_->unknown_104_;
 			do {
 				Struct_ov031_02206a68* var3 = var2->unknown_0_;
-				data_ov031_022496a4->unknown_1c_(var2);
+				gIPStackConfig_ov031_022496a4->unknown_1c_(var2);
 				var2 = var3;
 			} while (var2 != NULL);
 		}
@@ -64,6 +64,6 @@ extern "C" ARM void func_ov031_02206a68(Struct_ov031_02206a68_4* arg0) {
 	unsigned int var4 = DisableIRQInterrupts();
 	func_ov031_02207108((Struct_ov031_0224e22c*)arg0);
 	func_ov031_02207168((Struct_ov031_0224e230*)arg0);
-	data_ov031_022496a4->unknown_1c_((Struct_ov031_02206a68*)arg0);
+	gIPStackConfig_ov031_022496a4->unknown_1c_((Struct_ov031_02206a68*)arg0);
 	SetIRQInterruptState(var4);
 }

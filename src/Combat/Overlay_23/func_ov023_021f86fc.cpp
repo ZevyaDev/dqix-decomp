@@ -3,7 +3,7 @@
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(int menu);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void** objectList, int id);
-extern "C" void* func_ov023_021f79e4(void* arg0);
+extern "C" void* GetMenuObjectBGLayer_ov023_021f79e4(void* object);
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" int func_0204fd00(void* arg0, int arg1);
 
@@ -12,7 +12,7 @@ extern "C" ARM void func_ov023_021f86fc(unsigned char* arg0, int arg1) {
     void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
     void* var1 = FindMenuObjectById_ov023_021f6880((void**)var0, arg0[0x108]);
     if (!var1) return;
-    void* var2 = func_ov023_021f79e4(var1);
+    void* var2 = GetMenuObjectBGLayer_ov023_021f79e4(var1);
     if (!IsTextWindowOpen_0204c7e0(arg0 + 0x20)) return;
     if (arg0[0xe5] & 0x20) return;
     if (arg0[0xe5] & 0x80) return;

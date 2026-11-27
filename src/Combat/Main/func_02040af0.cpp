@@ -6,8 +6,8 @@ extern "C" void func_0203cdd8(Struct_0203cdd8*, int);
 
 // USA: func_02040af0
 extern "C" ARM void func_02040af0(NPC_0203dce4* arg0, int arg1) {
-    if (arg0->unknown_14_) {
-        func_0203cdd8((Struct_0203cdd8*)arg0->unknown_14_, arg1);
+    if (arg0->pSprite_14_) {
+        func_0203cdd8((Struct_0203cdd8*)arg0->pSprite_14_, arg1);
         return;
     }
     if (arg0->unknown_18_) {

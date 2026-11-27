@@ -30,54 +30,54 @@ extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(Random*, short*, int,
 extern "C" signed char func_ov000_0215fbe0(Random*, int);
 extern short data_ov000_02182af4[8];
 
-// USA: func_ov000_02154a04
-extern "C" ARM int func_ov000_02154a04(Random* arg0, int arg1, int arg2, short* arg3) {
-    int var0 = 0;
+// USA: CollectEnemyActionTargets_ov000_02154a04
+extern "C" ARM int CollectEnemyActionTargets_ov000_02154a04(Random* battle, int actorIndex, int actionId, short* targetIndices) {
+    int count = 0;
     GameState::GetInstance();
-    ActionData_ov000_02154a04* var1 = (ActionData_ov000_02154a04*)FindActionData_02079e2c((char*)GetActionTables_020797dc(), (short)arg2);
-    if (!var1) return 0;
-    unsigned int var2 = var1->targetSide_9_0_;
-    unsigned int var3 = var1->targetScope_17_4_;
-    if (var3 == 1) {
-        arg3[var0++] = arg1;
-    } else if (var2 == 1) {
-        if (var3 == 2 || var3 == 5) {
-            int var4 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, arg3, 8, 1);
-            arg3[0] = func_ov000_02154f30(arg0, (short)arg1, var4, arg3);
-            var0 = 1;
-        } else if (var3 == 4) {
-            var0 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, arg3, 8, 1);
-        } else if (var3 == 3) {
-            var0 = CollectPartyCombatantIndices_ov000_0215e9fc(arg0, arg3, 8, 1);
+    ActionData_ov000_02154a04* action = (ActionData_ov000_02154a04*)FindActionData_02079e2c((char*)GetActionTables_020797dc(), (short)actionId);
+    if (!action) return 0;
+    unsigned int targetSide = action->targetSide_9_0_;
+    unsigned int targetScope = action->targetScope_17_4_;
+    if (targetScope == 1) {
+        targetIndices[count++] = actorIndex;
+    } else if (targetSide == 1) {
+        if (targetScope == 2 || targetScope == 5) {
+            int partyCount = CollectPartyCombatantIndices_ov000_0215e9fc(battle, targetIndices, 8, 1);
+            targetIndices[0] = func_ov000_02154f30(battle, (short)actorIndex, partyCount, targetIndices);
+            count = 1;
+        } else if (targetScope == 4) {
+            count = CollectPartyCombatantIndices_ov000_0215e9fc(battle, targetIndices, 8, 1);
+        } else if (targetScope == 3) {
+            count = CollectPartyCombatantIndices_ov000_0215e9fc(battle, targetIndices, 8, 1);
         }
-    } else if (var2 == 2) {
-        if (var3 == 2) {
-            short var5 = 0;
-            func_ov000_02153d10(arg0, &var5);
-            arg3[var0++] = var5;
-        } else if (var3 == 8) {
-            short var6 = 0;
-            func_ov000_02153d78(arg0, (short)arg1, &var6);
-            arg3[var0++] = var6;
-        } else if (var3 == 4) {
-            GameObject* var7 = GetEnemyByIndex_0200fea4(GameState::GetInstance(), (short)arg1);
-            var0 = CollectEnemyGroupCombatantIndices_ov000_02153e78(arg0, arg3, 8, ((Enemy_ov000_02154a04_2*)var7)->groupIndex_17c_, 1);
-        } else if (var3 == 3) {
-            var0 = CollectEnemyCombatantIndices_ov000_0215eb1c(arg0, arg3, 8, 1);
+    } else if (targetSide == 2) {
+        if (targetScope == 2) {
+            short allyIndex = 0;
+            func_ov000_02153d10(battle, &allyIndex);
+            targetIndices[count++] = allyIndex;
+        } else if (targetScope == 8) {
+            short otherAllyIndex = 0;
+            func_ov000_02153d78(battle, (short)actorIndex, &otherAllyIndex);
+            targetIndices[count++] = otherAllyIndex;
+        } else if (targetScope == 4) {
+            GameObject* actor = GetEnemyByIndex_0200fea4(GameState::GetInstance(), (short)actorIndex);
+            count = CollectEnemyGroupCombatantIndices_ov000_02153e78(battle, targetIndices, 8, ((Enemy_ov000_02154a04_2*)actor)->groupIndex_17c_, 1);
+        } else if (targetScope == 3) {
+            count = CollectEnemyCombatantIndices_ov000_0215eb1c(battle, targetIndices, 8, 1);
         }
     }
-    short var8[8];
-    unsigned short* var9 = (unsigned short*)data_ov000_02182af4;
-    int var10 = 8;
-    unsigned short* var11 = (unsigned short*)var8;
-    do { *var11 = *var9++; var11++; } while (--var10);
-    short* var12 = var8;
-    int var13 = func_ov000_0215fbe0(arg0, (signed char)var1->unknown_1d_6_);
-    if (var13 > 0) {
-        for (int var14 = 0; var14 < var13; var14++) var12[var14] = arg3[NextRandomMax(arg0, var0)];
-        memset(arg3, 0, var0 * 2);
-        memcpy(arg3, var8, var13 * 2);
-        var0 = var13;
+    short picks[8];
+    unsigned short* source = (unsigned short*)data_ov000_02182af4;
+    int remaining = 8;
+    unsigned short* destination = (unsigned short*)picks;
+    do { *destination = *source++; destination++; } while (--remaining);
+    short* pickList = picks;
+    int pickCount = func_ov000_0215fbe0(battle, (signed char)action->unknown_1d_6_);
+    if (pickCount > 0) {
+        for (int i = 0; i < pickCount; i++) pickList[i] = targetIndices[NextRandomMax(battle, count)];
+        memset(targetIndices, 0, count * 2);
+        memcpy(targetIndices, picks, pickCount * 2);
+        count = pickCount;
     }
-    return var0;
+    return count;
 }

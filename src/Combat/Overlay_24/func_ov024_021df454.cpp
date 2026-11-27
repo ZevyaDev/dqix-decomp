@@ -12,21 +12,21 @@ extern "C" void func_02088644(Struct_02088644*);
 extern "C" int IsEnvenomated_02088514(Struct_02088514*);
 extern "C" void func_02088598(unsigned char*);
 extern "C" int func_ov024_021df6ec(Struct_ov024_021df454_2*);
-extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
+extern "C" int IsSpellcastingBlocked_ov024_021dd010(Struct_ov024_021dced0_2*);
 extern "C" int func_ov024_021df704(Struct_ov024_021df454_7*);
 extern "C" void func_02088874(unsigned char*);
 extern "C" void func_020888c4(unsigned char*);
-extern "C" void func_02088d4c(unsigned char*);
-extern "C" void func_02087838(void*);
-extern "C" void func_0208792c(void*);
-extern "C" void func_02087a20(void*);
-extern "C" void func_02087b14(void*);
-extern "C" void func_02087c08(void*);
-extern "C" void func_02087cfc(void*);
-extern "C" void func_02087df0(void*);
-extern "C" void func_02087efc(unsigned char*);
-extern "C" void func_02087ff0(void*);
-extern "C" void func_020880e4(void*);
+extern "C" void ClearEerieLight_02088d4c(unsigned char*);
+extern "C" void ClearAttackBuff_02087838(void*);
+extern "C" void ClearDefenseBuff_0208792c(void*);
+extern "C" void ClearAgilityBuff_02087a20(void*);
+extern "C" void ClearCharmBuff_02087b14(void*);
+extern "C" void ClearMagicalMightBuff_02087c08(void*);
+extern "C" void ClearMagicalMendingBuff_02087cfc(void*);
+extern "C" void ClearSpellResistanceBuff_02087df0(void*);
+extern "C" void ClearBreathResistanceBuff_02087efc(unsigned char*);
+extern "C" void ClearEvasionBuff_02087ff0(void*);
+extern "C" void ClearBlockChanceBuff_020880e4(void*);
 extern "C" int SelectPartyOrEnemyMessage_ov024_021da644(int, int, int);
 void ApplyCombatantBuffs(int, int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
@@ -79,52 +79,52 @@ extern "C" ARM void* func_ov024_021df454(Struct_ov024_021df454_3* arg0, int arg1
         func_02088874((unsigned char*)var0->currentStats_);
         ++var1;
     }
-    if (func_ov024_021dd010((Struct_ov024_021dced0_2*)var0)) {
+    if (IsSpellcastingBlocked_ov024_021dd010((Struct_ov024_021dced0_2*)var0)) {
         func_020888c4((unsigned char*)var0->currentStats_);
         ++var1;
     }
     if (func_ov024_021df704((Struct_ov024_021df454_7*)var0)) {
-        func_02088d4c((unsigned char*)var0->currentStats_);
+        ClearEerieLight_02088d4c((unsigned char*)var0->currentStats_);
         ++var1;
     }
     if (var0->currentStats_->attackBuff < 0) {
-        func_02087838(var0->currentStats_);
+        ClearAttackBuff_02087838(var0->currentStats_);
         ++var1;
     }
     if (var0->currentStats_->defenseBuff < 0) {
-        func_0208792c(var0->currentStats_);
+        ClearDefenseBuff_0208792c(var0->currentStats_);
         ++var1;
     }
     if (var0->currentStats_->agilityBuff < 0) {
-        func_02087a20(var0->currentStats_);
+        ClearAgilityBuff_02087a20(var0->currentStats_);
         ++var1;
     }
     if (var0->currentStats_->charmBuff < 0) {
-        func_02087b14(var0->currentStats_);
+        ClearCharmBuff_02087b14(var0->currentStats_);
         ++var1;
     }
     if (var0->currentStats_->magicalMightBuff < 0) {
-        func_02087c08(var0->currentStats_);
+        ClearMagicalMightBuff_02087c08(var0->currentStats_);
         ++var1;
     }
     if (var0->currentStats_->magicalMendingBuff < 0) {
-        func_02087cfc(var0->currentStats_);
+        ClearMagicalMendingBuff_02087cfc(var0->currentStats_);
         ++var1;
     }
     if (var0->currentStats_->unknown_5a_2_ < 0) {
-        func_02087df0(var0->currentStats_);
+        ClearSpellResistanceBuff_02087df0(var0->currentStats_);
         ++var1;
     }
     if (((Struct_ov024_021df454_6*)var0->currentStats_)->unknown_5a_5_ < 0) {
-        func_02087efc((unsigned char*)var0->currentStats_);
+        ClearBreathResistanceBuff_02087efc((unsigned char*)var0->currentStats_);
         ++var1;
     }
     if (((Struct_ov024_021df454_6*)var0->currentStats_)->unknown_5b_3_ < 0) {
-        func_02087ff0(var0->currentStats_);
+        ClearEvasionBuff_02087ff0(var0->currentStats_);
         ++var1;
     }
     if (((Struct_ov024_021df454_6*)var0->currentStats_)->unknown_5b_0_ < 0) {
-        func_020880e4(var0->currentStats_);
+        ClearBlockChanceBuff_020880e4(var0->currentStats_);
         ++var1;
     }
     int var2;

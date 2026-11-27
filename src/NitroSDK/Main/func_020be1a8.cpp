@@ -5,12 +5,12 @@ extern "C" int func_020be09c(unsigned int arg0, Type_020bd444_2 arg1, void* arg2
 
 extern "C" void func_020be44c(int, int, int, int);
 extern "C" void* func_020bd444(void);
-extern "C" int func_020bd8ac(unsigned int arg0);
+extern "C" int GetLoadedSoundFile_020bd8ac(unsigned int fileId);
 extern "C" void func_020bd8d4(unsigned int arg0, int arg1);
 
 // USA: func_020be1a8
 extern "C" ARM int func_020be1a8(unsigned int arg0, int arg1, int arg2) {
-    int var0 = func_020bd8ac(arg0);
+    int var0 = GetLoadedSoundFile_020bd8ac(arg0);
     if (var0 == 0) {
         void* var1 = arg2 ? func_020bd444() : 0;
         var0 = func_020be09c(arg0, func_020be44c, var1, arg0, arg1);

@@ -22,7 +22,7 @@ extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
-extern "C" int func_02094b9c(Struct_02018300* arg0, Vector3i* arg1);
+extern "C" int IsInsideZoneFeature_02094b9c(Struct_02018300* feature, Vector3i* position);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 
 // USA: func_ov017_021975e4
@@ -49,8 +49,8 @@ extern "C" ARM void func_ov017_021975e4(GameResources* arg0) {
     Struct_02018300* var9 = (Struct_02018300*)GetFirstZoneFeatureOfType_0201e838((unsigned char*)&var1->substruct_6c_, 9);
     while (var9 != 0) {
         LadderAction_02037d10 var10;
-        func_02038508(&var10);
-        if (func_02094b9c(var9, &var4)) {
+        ResetLadderAction_02038508(&var10);
+        if (IsInsideZoneFeature_02094b9c(var9, &var4)) {
             Vector3i var11;
             int var12 = fix32cos(var9->unknown_20_);
             var11.x = fix32sin(var9->unknown_20_);

@@ -34,7 +34,7 @@ struct Struct_ov031_02205ef8_4 {
     void (*unknown_1c_)(void*);
 };
 
-extern Struct_ov031_02205ef8_4* data_ov031_022496a4;
+extern Struct_ov031_02205ef8_4* gIPStackConfig_ov031_022496a4;
 extern "C" int func_ov031_02207180(void*);
 
 // USA: func_ov031_02205ef8
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov031_02205ef8(Struct_ov031_02205ef8_3* arg0, void* arg1
             if (var1->unknown_0_ == NULL) {
                 var0->unknown_100_ = NULL;
             }
-            data_ov031_022496a4->unknown_1c_(var1);
+            gIPStackConfig_ov031_022496a4->unknown_1c_(var1);
             var0->unknown_108_ -= var2;
         }
     }

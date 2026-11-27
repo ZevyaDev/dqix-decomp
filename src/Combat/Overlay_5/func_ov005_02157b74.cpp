@@ -98,7 +98,7 @@ struct ItemTable_0201099c_10;
 extern "C" Struct_ov005_02157b74_5* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" void SetEquippedItem_02052d7c(Struct_ov005_02157b74_8* gameObject, int slot, short itemId);
 extern "C" void* func_02053c6c(unsigned char*);
-extern "C" void func_0208358c(void* arg0, Struct_ov005_02157b74_5* arg1, int arg2);
+extern "C" void SetEquipment_0208358c(void* memberData, Struct_ov005_02157b74_5* item, int explicitRecordIndex);
 extern "C" void UnequipCategory_02083738(void* memberData, int category);
 struct Struct_ov005_02157b74_3;
 extern "C" void func_ov005_021583fc(Struct_ov005_02157b74_3*, char);
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         void* var10 = func_02053c6c((unsigned char*)var5);
         Struct_ov005_02157b74_5* var11 = FindItemData_020dedd0((ItemTable_0201099c_10*)arg0->unknown_df4_, (short)var9);
         if (var11 != 0) {
-            func_0208358c(var10, var11, var3);
+            SetEquipment_0208358c(var10, var11, var3);
         } else {
             UnequipCategory_02083738(var10, var8->unknown_8_0_);
             if (var8->unknown_8_0_ == 7) {
@@ -278,7 +278,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         }
         SetEquippedItem_02052d7c(var5, var15, (unsigned short)arg1);
         void* var19 = func_02053c6c((unsigned char*)var5);
-        func_0208358c(var19, var13, -1);
+        SetEquipment_0208358c(var19, var13, -1);
         CalculatePartyMemberStats_02083e28(var19, 0);
         func_ov017_021c9e00(var5->unknown_4_, 0, 0, 1);
         if (var13->unknown_8_0_ == 7) {

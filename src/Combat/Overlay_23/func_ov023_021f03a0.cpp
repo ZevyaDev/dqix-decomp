@@ -102,14 +102,14 @@ extern "C" void SetCombatantsOpaque_ov000_02163a7c(BattleScene_ov000_02163a7c*);
 extern "C" void func_ov000_021639b4(BattleScene_ov000_02160da0*);
 extern "C" void func_ov000_02167dd8(unsigned char*);
 extern "C" int CollectCombatantIndices_ov000_02153e40(void*, short*, int, int);
-extern "C" void func_02048cf0(GameObject*, int);
+extern "C" void PlaceCombatantOnCell_02048cf0(GameObject*, int);
 extern "C" void func_ov000_0216e3c4(void*);
 extern "C" unsigned char* func_ov000_02163524(void*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void func_020d7334(unsigned char*, int);
 extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
-extern "C" void func_0203400c(Struct_02032e58*);
+extern "C" void ResumeAnimation_0203400c(Struct_02032e58*);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
@@ -168,7 +168,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleScene_ov000_02160da0* arg0) {
         var11 = CollectCombatantIndices_ov000_02153e40(var10, var4, 12, 0);
         for (var0 = 0; var0 < var11; var0++) {
             GameObject* var13 = var12->GetCombatantByIndex(var4[var0]);
-            if (var13) func_02048cf0(var13, 0);
+            if (var13) PlaceCombatantOnCell_02048cf0(var13, 0);
         }
         func_ov000_0216e3c4(arg0->unknown_c18_);
         unsigned char* var14 = func_ov000_02163524(arg0);
@@ -181,7 +181,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleScene_ov000_02160da0* arg0) {
                     ((Struct_020391ac*)var17)->unknown_c1_ &= ~0xf0;
                     SetMotion_02033b88((Struct_02010604*)var17, 0);
                     var17->obj3D_.SkipAnimationTransition();
-                    func_0203400c((Struct_02032e58*)var17);
+                    ResumeAnimation_0203400c((Struct_02032e58*)var17);
                     var17->obj3D_.MakeVisible();
                 }
             }

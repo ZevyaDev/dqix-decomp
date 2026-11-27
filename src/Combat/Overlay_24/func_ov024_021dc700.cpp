@@ -5,7 +5,7 @@ extern "C" void* GetParty_02010828(GameState*);
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void IncrementQuestBattleCounter_ov000_0215a8d4(unsigned char*, int);
-extern "C" short func_ov000_0215a16c(void*,int,int,short*);
+extern "C" short HealCombatant_ov000_0215a16c(void*,int,int,short*);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void ApplyDamage_ov000_0215a004(void*,int,int,int,void*,void*,int,int);
 extern "C" void SetActionResultFlag_ov000_02159eac(void*,void*,int);
@@ -49,7 +49,7 @@ extern "C" ARM void* func_ov024_021dc700(Struct_ov024_021dc700_4* arg0,int arg1,
     ApplyDamage_ov000_0215a004(arg0->unknown_10_,arg1,arg1,arg4,&var7,arg3,arg0->unknown_c_->unknown_1c_7_!=0,0);
     var7.unknown_0_=0;var7.unknown_4_=0;
     short var8=0;
-    short var9=func_ov000_0215a16c(arg0->unknown_10_,arg2,arg4,&var8);
+    short var9=HealCombatant_ov000_0215a16c(arg0->unknown_10_,arg2,arg4,&var8);
     SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var7,0x25);
     unsigned short var10=var1->currentStats_->primaryStats.currMP;
     unsigned char var11;

@@ -67,7 +67,7 @@ struct Struct_ov004_021583a8_2;
 
 extern "C" void* func_ov004_0216ea38(void* arg0, int arg1);
 extern "C" int GetMessageWindow_020421a0(void);
-extern "C" int func_020d4ac8(void);
+extern "C" int GetWirelessSignalStrength_020d4ac8(void);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" Struct_ov004_0216ed9c_3* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
@@ -112,7 +112,7 @@ extern "C" ARM int func_ov004_0216ed9c(void* arg0) {
     unsigned char var7 = data_ov004_02171048.unknown_4_->unknown_2e_[0];
 
     if (var7 == 2) {
-        int var8 = func_020d4ac8();
+        int var8 = GetWirelessSignalStrength_020d4ac8();
         var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x97);
         if (var0 == 0 || func_ov023_021f6f10(var0) != 1) {
             var0 = 0;

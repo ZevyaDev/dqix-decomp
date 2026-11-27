@@ -25,7 +25,7 @@ extern "C" int func_ov023_021f6f10(void* arg0);
 #else
 extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
-extern "C" void* func_ov023_021f79e4(void* arg0);
+extern "C" void* GetMenuObjectBGLayer_ov023_021f79e4(void* object);
 struct BGLayer_02020cb8_5;
 
 struct Struct_ov004_0216e638 { int unknown_0_, unknown_4_, unknown_8_; };
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov004_0216e638(void* arg0) {
 #else
         if (func_ov024_021f6f10(var4) != 2) continue;
 #endif
-        ((BGLayer*)((struct BGLayer_02020cb8_5*)func_ov023_021f79e4(var4)))->SetOffset(2, 4);
+        ((BGLayer*)((struct BGLayer_02020cb8_5*)GetMenuObjectBGLayer_ov023_021f79e4(var4)))->SetOffset(2, 4);
 
         void* var5 = FindMenuObjectById_ov023_021f6880(var2, var3 + 0x4b0);
         if (!var5) continue;

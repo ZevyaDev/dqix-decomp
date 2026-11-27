@@ -1,115 +1,115 @@
 #include <globaldefs.h>
 
-struct Struct_0204ecb4 {
+struct TextWindow_0204ecb4 {
     char unknown_0_[0xa8];
-    short unknown_a8_;
-    short unknown_aa_;
+    short width_a8_;
+    short height_aa_;
 };
 
-extern "C" int func_0204fd00(Struct_0204ecb4* arg0, int arg1);
+extern "C" int func_0204fd00(TextWindow_0204ecb4* arg0, int arg1);
 extern "C" void* GetWindowTile_020421b0(int tileIndex);
-extern "C" void func_0204e1c8(Struct_0204ecb4* arg0, void* arg1, short arg2, short arg3, int arg4, int arg5, int arg6, int arg7);
+extern "C" void func_0204e1c8(TextWindow_0204ecb4* arg0, void* arg1, short arg2, short arg3, int arg4, int arg5, int arg6, int arg7);
 
 static inline short inline_0204ecb4(short arg0) {
     return arg0 << 3;
 }
 
-// USA: func_0204ecb4
-extern "C" ARM void func_0204ecb4(Struct_0204ecb4* arg0, int arg1, int arg2, short arg3, short arg4, signed char* arg5) {
-    if (arg3 < 0 || arg4 < 0) {
+// USA: DrawTextWindowFrame_0204ecb4
+extern "C" ARM void DrawTextWindowFrame_0204ecb4(TextWindow_0204ecb4* textWindow, int tileX, int tileY, short width, short height, signed char* margins) {
+    if (width < 0 || height < 0) {
         return;
     }
-    short var0;
-    int var1 = 0;
-    int var2 = 0;
-    int var3 = 0;
-    int var4 = 0;
-    if (arg5) {
-        var1 = arg5[0];
-        var2 = arg5[1];
-        var3 = arg5[2];
-        var4 = arg5[3];
+    short lastTileOffset;
+    int topMargin = 0;
+    int bottomMargin = 0;
+    int leftMargin = 0;
+    int rightMargin = 0;
+    if (margins) {
+        topMargin = margins[0];
+        bottomMargin = margins[1];
+        leftMargin = margins[2];
+        rightMargin = margins[3];
     }
 
-    int var5 = func_0204fd00(arg0, 1);
-    int var6 = 0;
-    if (var5 == 1) {
-        var6 = 8;
-    } else if (var5 == 2) {
-        var6 = 12;
+    int sharedEdge = func_0204fd00(textWindow, 1);
+    int tileIndex = 0;
+    if (sharedEdge == 1) {
+        tileIndex = 8;
+    } else if (sharedEdge == 2) {
+        tileIndex = 12;
     }
-    void* var7 = GetWindowTile_020421b0(var6);
-    if (var7) {
-        func_0204e1c8(arg0, var7, var3, var1, 8, 8, 0xf0, 0xf);
+    void* tile = GetWindowTile_020421b0(tileIndex);
+    if (tile) {
+        func_0204e1c8(textWindow, tile, leftMargin, topMargin, 8, 8, 0xf0, 0xf);
     }
 
-    void* var8 = GetWindowTile_020421b0(1);
-    if (var8) {
-        for (short var9 = 1; var9 < arg0->unknown_a8_ - 1; var9++) {
-            func_0204e1c8(arg0, var8, inline_0204ecb4(var9), var1, 8, 8, 0xf0, 0xf);
+    void* topEdgeTile = GetWindowTile_020421b0(1);
+    if (topEdgeTile) {
+        for (short column = 1; column < textWindow->width_a8_ - 1; column++) {
+            func_0204e1c8(textWindow, topEdgeTile, inline_0204ecb4(column), topMargin, 8, 8, 0xf0, 0xf);
         }
     }
 
-    short var10 = arg0->unknown_a8_;
-    var5 = func_0204fd00(arg0, 2);
-    var6 = 2;
-    if (var5 == 3) {
-        var6 = 9;
-    } else if (var5 == 2) {
-        var6 = 13;
+    short windowWidth = textWindow->width_a8_;
+    sharedEdge = func_0204fd00(textWindow, 2);
+    tileIndex = 2;
+    if (sharedEdge == 3) {
+        tileIndex = 9;
+    } else if (sharedEdge == 2) {
+        tileIndex = 13;
     }
-    var7 = GetWindowTile_020421b0(var6);
-    if (var7) {
-        func_0204e1c8(arg0, var7, inline_0204ecb4(var10 - 1) - var4, var1, 8, 8, 0xf0, 0xf);
+    tile = GetWindowTile_020421b0(tileIndex);
+    if (tile) {
+        func_0204e1c8(textWindow, tile, inline_0204ecb4(windowWidth - 1) - rightMargin, topMargin, 8, 8, 0xf0, 0xf);
     }
 
-    var7 = GetWindowTile_020421b0(3);
-    if (var7) {
-        for (short var11 = 1; var11 < arg0->unknown_aa_ - 1; var11++) {
-            func_0204e1c8(arg0, var7, var3, inline_0204ecb4(var11), 8, 8, 0xf0, 0xf);
+    tile = GetWindowTile_020421b0(3);
+    if (tile) {
+        for (short row = 1; row < textWindow->height_aa_ - 1; row++) {
+            func_0204e1c8(textWindow, tile, leftMargin, inline_0204ecb4(row), 8, 8, 0xf0, 0xf);
         }
     }
 
-    var7 = GetWindowTile_020421b0(4);
-    var0 = inline_0204ecb4(arg0->unknown_a8_ - 1);
-    if (var7) {
-        for (short var12 = 1; var12 < arg0->unknown_aa_ - 1; var12++) {
-            func_0204e1c8(arg0, var7, var0 - var4, inline_0204ecb4(var12), 8, 8, 0xf0, 0xf);
+    tile = GetWindowTile_020421b0(4);
+    lastTileOffset = inline_0204ecb4(textWindow->width_a8_ - 1);
+    if (tile) {
+        for (short row = 1; row < textWindow->height_aa_ - 1; row++) {
+            func_0204e1c8(textWindow, tile, lastTileOffset - rightMargin, inline_0204ecb4(row), 8, 8, 0xf0, 0xf);
         }
     }
 
-    short var13 = arg0->unknown_aa_;
-    var5 = func_0204fd00(arg0, 4);
-    var6 = 5;
-    if (var5 == 1) {
-        var6 = 10;
-    } else if (var5 == 4) {
-        var6 = 14;
+    short windowHeight = textWindow->height_aa_;
+    sharedEdge = func_0204fd00(textWindow, 4);
+    tileIndex = 5;
+    if (sharedEdge == 1) {
+        tileIndex = 10;
+    } else if (sharedEdge == 4) {
+        tileIndex = 14;
     }
-    var7 = GetWindowTile_020421b0(var6);
-    if (var7) {
-        func_0204e1c8(arg0, var7, var3, inline_0204ecb4(var13 - 1) - var2, 8, 8, 0xf0, 0xf);
+    tile = GetWindowTile_020421b0(tileIndex);
+    if (tile) {
+        func_0204e1c8(textWindow, tile, leftMargin, inline_0204ecb4(windowHeight - 1) - bottomMargin, 8, 8, 0xf0, 0xf);
     }
 
-    void* var14 = GetWindowTile_020421b0(6);
-    var0 = inline_0204ecb4(arg0->unknown_aa_ - 1);
-    if (var14) {
-        for (short var15 = 1; var15 < arg0->unknown_a8_ - 1; var15++) {
-            func_0204e1c8(arg0, var14, inline_0204ecb4(var15), var0 - var2, 8, 8, 0xf0, 0xf);
+    void* bottomEdgeTile = GetWindowTile_020421b0(6);
+    lastTileOffset = inline_0204ecb4(textWindow->height_aa_ - 1);
+    if (bottomEdgeTile) {
+        for (short column = 1; column < textWindow->width_a8_ - 1; column++) {
+            func_0204e1c8(textWindow, bottomEdgeTile, inline_0204ecb4(column), lastTileOffset - bottomMargin, 8, 8, 0xf0, 0xf);
         }
     }
 
-    var10 = arg0->unknown_a8_;
-    var13 = arg0->unknown_aa_;
-    var5 = func_0204fd00(arg0, 8);
-    var6 = 7;
-    if (var5 == 3) {
-        var6 = 11;
-    } else if (var5 == 4) {
-        var6 = 15;
+    windowWidth = textWindow->width_a8_;
+    windowHeight = textWindow->height_aa_;
+    sharedEdge = func_0204fd00(textWindow, 8);
+    tileIndex = 7;
+    if (sharedEdge == 3) {
+        tileIndex = 11;
+    } else if (sharedEdge == 4) {
+        tileIndex = 15;
     }
-    var7 = GetWindowTile_020421b0(var6);
-    if (var7) {
-        func_0204e1c8(arg0, var7, inline_0204ecb4(var10 - 1) - var4, inline_0204ecb4(var13 - 1) - var2, 8, 8, 0xf0, 0xf);
+    tile = GetWindowTile_020421b0(tileIndex);
+    if (tile) {
+        func_0204e1c8(textWindow, tile, inline_0204ecb4(windowWidth - 1) - rightMargin, inline_0204ecb4(windowHeight - 1) - bottomMargin, 8, 8, 0xf0, 0xf);
     }
 }

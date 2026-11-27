@@ -8,37 +8,37 @@
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 
-struct Struct_02048350 {
+struct PartyMemberStatus_02048350 {
     char unknown_0_[0x6];
-    unsigned short unknown_6_;
+    unsigned short currMP_6_;
 };
 
-struct Struct_02048350_2 {
+struct PartyMember_02048350_2 {
     char unknown_0_[0x4];
-    short unknown_4_;
+    short objectIndex_4_;
     char unknown_6_[0x130 - 0x6];
-    struct Struct_02048350* unknown_130_;
+    struct PartyMemberStatus_02048350* pStatus_130_;
 };
 
-// USA: func_02048350
-extern "C" ARM int func_02048350(struct Struct_02048350_2* arg0, int arg1) {
-    struct Struct_02048350* var0 = arg0->unknown_130_;
-    unsigned short var1 = var0->unknown_6_;
-    GameState* var2 = GameState::GetInstance();
-    GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var2, arg0->unknown_4_);
-    if (var3 != NULL && arg1 > 0) {
-        unsigned char* var4 = (unsigned char*)func_02053c6c((unsigned char*)var3);
-        if (var4 != NULL && HasLearnedSkillEntry_02083b00(var4, 0x106)) {
-            arg1 = (int)(0.75f + 0.75f * (float)arg1);
-            if (arg1 <= 0) {
-                arg1 = 0;
+// USA: SpendMP_02048350
+extern "C" ARM int SpendMP_02048350(struct PartyMember_02048350_2* member, int mpCost) {
+    struct PartyMemberStatus_02048350* status = member->pStatus_130_;
+    unsigned short currMP = status->currMP_6_;
+    GameState* gameState = GameState::GetInstance();
+    GameObject* partyMemberBase = GetPartyMemberBaseByIndex_0200ff1c(gameState, member->objectIndex_4_);
+    if (partyMemberBase != NULL && mpCost > 0) {
+        unsigned char* memberData = (unsigned char*)func_02053c6c((unsigned char*)partyMemberBase);
+        if (memberData != NULL && HasLearnedSkillEntry_02083b00(memberData, 0x106)) {
+            mpCost = (int)(0.75f + 0.75f * (float)mpCost);
+            if (mpCost <= 0) {
+                mpCost = 0;
             }
         }
     }
-    if (var1 <= arg1) {
-        arg0->unknown_130_->unknown_6_ = 0;
-        return var1;
+    if (currMP <= mpCost) {
+        member->pStatus_130_->currMP_6_ = 0;
+        return currMP;
     }
-    arg0->unknown_130_->unknown_6_ = var1 - arg1;
-    return arg1;
+    member->pStatus_130_->currMP_6_ = currMP - mpCost;
+    return mpCost;
 }

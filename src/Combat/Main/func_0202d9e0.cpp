@@ -10,7 +10,7 @@ extern char data_02103400;
 
 extern "C" void func_0202dae0(unsigned short* arg0);
 extern "C" void func_0202db08(unsigned short* arg0);
-extern "C" int func_020d4f7c(int arg0, int arg1, int arg2);
+extern "C" int StartWirelessDriver_020d4f7c(int wirelessDriver, int callback, int dmaChannel);
 extern "C" void SetLocalWirelessLinkError_0202c848(int errorCode);
 
 // USA: func_0202d9e0
@@ -42,7 +42,7 @@ extern "C" ARM int func_0202d9e0(void) {
     *(int*)(&gLocalWirelessLink_021015a0 + 0x24) = 0;
     *(int*)(&gLocalWirelessLink_021015a0 + 0x10) = 3;
 
-    var0 = func_020d4f7c((int)&data_02103400, (int)&func_0202db08, 2);
+    var0 = StartWirelessDriver_020d4f7c((int)&data_02103400, (int)&func_0202db08, 2);
     if (var0 == 2) {
         var1 = 1;
     } else {

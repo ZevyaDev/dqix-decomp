@@ -3,8 +3,8 @@
 
 struct Struct_0205c53c;
 extern "C" void func_0205c564(struct Struct_0205c53c* arg0);
-struct Struct_0204c754;
-extern "C" void func_0204c754(struct Struct_0204c754* arg0);
+struct TextWindow_0204c754;
+extern "C" void ResetTextWindow_0204c754(struct TextWindow_0204c754* textWindow);
 struct BGLayer_02020cb8_3;
 
 struct TextWindowManager_0205d048 {
@@ -23,7 +23,7 @@ extern "C" ARM void ResetTextWindowManager_0205d048(struct TextWindowManager_020
     if (windowManager->pTextWindows_9c_ != 0 && windowManager->textWindowCapacity_b3_ != 0) {
         unsigned char i;
         for (i = 0; i < windowManager->textWindowCapacity_b3_; i++) {
-            func_0204c754((struct Struct_0204c754*)(windowManager->pTextWindows_9c_ + i * 0xe0));
+            ResetTextWindow_0204c754((struct TextWindow_0204c754*)(windowManager->pTextWindows_9c_ + i * 0xe0));
         }
     }
     if (windowManager->pBGLayers_98_ != 0) {

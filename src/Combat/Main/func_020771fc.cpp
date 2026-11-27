@@ -69,7 +69,7 @@ extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44* zones, int zoneId);
 extern "C" Struct_020771fc* func_020283c0(Struct_0201a300_11* arg0, int arg1);
 extern "C" void SetMotionIfDifferent_02033b68(Struct_02033b68* object, int motion);
-extern "C" void* func_02033f44(Struct_02033f44* arg0);
+extern "C" void* GetCollidedWallTriangle_02033f44(Struct_02033f44* object);
 extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" void SetFacing_02033834(Struct_02033834_2* object, int angle);
 
@@ -101,7 +101,7 @@ extern "C" ARM void func_020771fc(Struct_020771fc_2* arg0) {
         break;
     }
     int var4 = 0;
-    void* var5 = func_02033f44((Struct_02033f44*)arg0);
+    void* var5 = GetCollidedWallTriangle_02033f44((Struct_02033f44*)arg0);
     int var6 = 0;
     if (var5 != 0) {
         int var7 = arg0->unknown_ae_;

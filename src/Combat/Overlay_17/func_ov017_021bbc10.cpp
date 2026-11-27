@@ -76,8 +76,8 @@ extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int sta
 extern "C" void func_02053ec8(void*, int);
 extern "C" void func_02053ed8(void* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void func_02010834(GameState_02010834* arg0, int arg1, int* arg2, int* arg3);
-extern "C" void func_02033fcc(Struct_02033fcc*);
+extern "C" void GetOwnPartyMemberObjectIndices_02010834(GameState_02010834* arg0, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
+extern "C" void PauseMovementUpdate_02033fcc(Struct_02033fcc*);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 struct Struct_ov017_021baedc;
 extern "C" void func_ov017_021bb088(Struct_ov017_021baedc*);
@@ -86,7 +86,7 @@ struct SafeAllocator;
 extern "C" void func_ov001_0215aa14(SafeAllocator*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_0202ae18(void);
-extern "C" ARM int func_ov017_021bb27c(Struct_ov017_021bbc10* arg0);
+extern "C" ARM int EndEventTask_ov017_021bb27c(Struct_ov017_021bbc10* eventTask);
 
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
@@ -149,11 +149,11 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
 
     int var10;
     int var11[4];
-    func_02010834((GameState_02010834*)var0, GetProtagonistObjectIndex_020100a8(var0), var11, &var10);
+    GetOwnPartyMemberObjectIndices_02010834((GameState_02010834*)var0, GetProtagonistObjectIndex_020100a8(var0), var11, &var10);
     for (int var12 = 0; var12 < var10; var12++) {
         GameObject* var13 = var0->GetPartyMemberByIndex(var11[var12]);
         if (var13 != NULL) {
-            func_02033fcc((Struct_02033fcc*)var13);
+            PauseMovementUpdate_02033fcc((Struct_02033fcc*)var13);
             if (IsOnLadder_02039d7c((char*)var13) == 0 || GetLadderAction_020399a8(var13)->unknown_1_ != 2) {
                 var13->obj3D_.MaybeSetRegularAnimation(data_ov017_021d7d6c, 0x10);
             }
@@ -177,7 +177,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
         if (var0->GetGameObjectByIndex(arg0->unknown_cd_) == NULL || strstr(var16 + 5, data_ov017_021d7db8) == NULL ||
             strstr(var16 + 5, data_ov017_021d7dbb) == NULL) {
             SetBrightness(var4, 0, 0x28);
-            func_ov017_021bb27c(arg0);
+            EndEventTask_ov017_021bb27c(arg0);
             arg0->unknown_1_ = 1;
             return arg0->unknown_a_;
         }

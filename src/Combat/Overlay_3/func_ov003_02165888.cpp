@@ -18,7 +18,7 @@ extern "C" int HideMenuLayoutWindowTexts_02080b54(void* menuLayout, int windowId
 extern "C" int HideMenuLayoutText_02080b2c(void* menuLayout, int textId);
 extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0* menuLayout, int textId, int color);
-extern "C" int func_020dcc98(int arg0);
+extern "C" int GetPartyMemberHPColor_020dcc98(int partyMemberIndex);
 extern "C" int* func_02053c6c(unsigned char* gameObject);
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 extern "C" void func_02080fe0(void*, int, int);
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov003_02165888(Struct_ov003_02165888* arg0) {
                 ShowMenuLayoutText_02080b40(var0, (short)(var1 + var2 * 4));
             }
 
-            var2 = func_020dcc98((signed char)var9[var15]);
+            var2 = GetPartyMemberHPColor_020dcc98((signed char)var9[var15]);
             if (var1 == ((struct Struct_ov003_02165888_3*)var0)->unknown_2a_ && var2 == 0xf) {
                 var2 = 0xa;
             }
@@ -236,7 +236,7 @@ extern "C" ARM void func_ov003_02165888(Struct_ov003_02165888* arg0) {
             }
             ShowMenuLayoutText_02080b40(var21, var37);
 
-            var23 = func_020dcc98((signed char)var30[var36]);
+            var23 = GetPartyMemberHPColor_020dcc98((signed char)var30[var36]);
             if (var22 == ((struct Struct_ov003_02158334_2*)var21)->unknown_36_ && var23 == 0xf) {
                 var23 = 0xa;
             }

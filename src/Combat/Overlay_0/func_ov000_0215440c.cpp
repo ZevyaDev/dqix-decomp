@@ -18,7 +18,7 @@ struct BattleAction_ov000_0215440c;struct Struct_ov000_0215440c_5 { char unknown
 struct Struct_ov000_0215440c_6 { unsigned char unknown_0_; unsigned char unknown_1_0_:4,unknown_1_4_:2,unknown_1_6_:2; char unknown_2_[4]; unsigned char unknown_6_[8]; unsigned char unknown_e_0_:4,unknown_e_4_:4; char unknown_f_[0x18-0xf]; };
 struct Struct_ov000_02182ae4 { short unknown_0_[8]; };
 extern "C" {extern const Struct_ov000_02182ae4 data_ov000_02182c84;extern const Struct_ov000_02182ae4 data_ov000_02182b64;extern const Struct_ov000_02182ae4 data_ov000_02182ae4;
-int CollectEnemyGroupCombatantIndices_ov000_02153e78(Random*,short*,int,int,int);int CollectEnemyCombatantIndices_ov000_0215eb1c(Random*,short*,int,int);int CollectPartyCombatantIndices_ov000_0215e9fc(Random*,short*,int,int);int func_ov000_02154a04(Random*,int,int,short*);}
+int CollectEnemyGroupCombatantIndices_ov000_02153e78(Random*,short*,int,int,int);int CollectEnemyCombatantIndices_ov000_0215eb1c(Random*,short*,int,int);int CollectPartyCombatantIndices_ov000_0215e9fc(Random*,short*,int,int);int CollectEnemyActionTargets_ov000_02154a04(Random*,int,int,short*);}
 inline int inline_ov000_0215440c(Entry* arg0){return arg0->unknown_20_;}
 inline int inline_ov000_0215440c(Struct_ov000_021537b8_5* arg0){return arg0->unknown_2e_;}
 inline int inline_ov000_0215440c(Struct_ov000_0215440c_5* arg0){return arg0->unknown_e_;}
@@ -97,5 +97,5 @@ extern "C" ARM int func_ov000_0215440c(Random* arg0,Struct_ov000_0215440c_3* arg
   if(var33>0){for(int var34=0;var34<var33;var34++){var32[var34]=arg2[NextRandomMax(arg0,var4)];}memset(arg2,0,var4*2);memcpy(arg2,var31.unknown_0_,var33*2);var4=var33;}
   return var4;
  }
- return func_ov000_02154a04(arg0,(unsigned short)inline_ov000_0215440c(arg1->unknown_10_),(unsigned short)arg1->unknown_0_,arg2);
+ return CollectEnemyActionTargets_ov000_02154a04(arg0,(unsigned short)inline_ov000_0215440c(arg1->unknown_10_),(unsigned short)arg1->unknown_0_,arg2);
 }

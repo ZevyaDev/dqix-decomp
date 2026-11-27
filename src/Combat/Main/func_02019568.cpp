@@ -12,8 +12,8 @@ struct Struct_020177d4;
 struct Struct_02019568;
 extern "C" struct Struct_02019568* func_0201f2a4(struct Struct_020177d4* arg0, int arg1);
 
-struct Struct_02013380;
-extern "C" void func_02013380(struct Struct_02013380* arg0, int arg1, int arg2);
+struct BMDJEntry_02013380;
+extern "C" void SetBMDJEntryVisible_02013380(struct BMDJEntry_02013380* entry, int bmdjId, int isVisible);
 
 struct Struct_02019568_2 {
     unsigned short unknown_0_;
@@ -44,20 +44,20 @@ extern "C" ARM void func_02019568(void* arg0, int arg1) {
             }
 
             if (*(unsigned short*)((char*)var6 + 6) & 0x10) {
-                func_02013380((struct Struct_02013380*)var7, var4, 1);
+                SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var7, var4, 1);
             }
 
             if (!(*(unsigned short*)((char*)var6 + 6) & (1 << var1))) {
-                func_02013380((struct Struct_02013380*)var7, var4, 0);
+                SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var7, var4, 0);
             }
 
             if (arg1 != 0) {
                 if (*(unsigned short*)((char*)var6 + 6) & 0x20) {
-                    func_02013380((struct Struct_02013380*)var7, var4, 0);
+                    SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var7, var4, 0);
                 }
             } else {
                 if (*(unsigned short*)((char*)var6 + 6) & 0x40) {
-                    func_02013380((struct Struct_02013380*)var7, var4, 0);
+                    SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var7, var4, 0);
                 }
             }
 

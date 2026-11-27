@@ -3,12 +3,12 @@
 extern "C" int func_020d41e8(void);
 extern "C" void InvalidateDataCacheRange(const void* addr, unsigned int size);
 
-extern char data_021142e0;
+extern char gWirelessIPC_021142e0;
 
 // USA: func_020d4204
 extern "C" ARM int func_020d4204(void) {
     int var0 = func_020d41e8();
     if (var0 != 0) return var0;
-    InvalidateDataCacheRange((const void*)((int)*(unsigned short**)(*(char**)(&data_021142e0 + 4) + 4)), 2);
-    return *(unsigned short*)*(unsigned short**)(*(char**)(&data_021142e0 + 4) + 4) <= 1 ? 3 : 0;
+    InvalidateDataCacheRange((const void*)((int)*(unsigned short**)(*(char**)(&gWirelessIPC_021142e0 + 4) + 4)), 2);
+    return *(unsigned short*)*(unsigned short**)(*(char**)(&gWirelessIPC_021142e0 + 4) + 4) <= 1 ? 3 : 0;
 }

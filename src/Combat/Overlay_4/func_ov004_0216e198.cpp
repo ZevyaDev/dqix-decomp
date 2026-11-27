@@ -4,7 +4,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
-extern "C" int func_020ab9c0(int arg0);
+extern "C" int GetSaveHeaderStatus_020ab9c0(int isSecondCopy);
 extern "C" int func_020ab5d4(void* arg0, int arg1, int arg2, void* arg3);
 
 struct Struct_ov004_02171034 {
@@ -27,8 +27,8 @@ extern "C" ARM int func_ov004_0216e198(void) {
     SetTitleIdleTimeoutEnabled_02012028(var0, 1);
     data_ov004_02171034[0].unknown_5_ = 0;
     data_ov004_02171034[0].unknown_1_ = 0;
-    int var1 = func_020ab9c0(0);
-    int var2 = func_020ab9c0(1);
+    int var1 = GetSaveHeaderStatus_020ab9c0(0);
+    int var2 = GetSaveHeaderStatus_020ab9c0(1);
     if (var1 == 1 || var2 == 1) {
         data_ov004_02171034[0].unknown_5_ = 6;
         return 0;

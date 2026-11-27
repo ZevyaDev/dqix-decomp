@@ -141,7 +141,7 @@ struct SoundEffectManager_02108760;
 extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char*, unsigned int);
 extern "C" signed char* GetEquipmentBagCounts_0207c60c(void*, unsigned int);
 extern "C" void func_0207c51c(unsigned char*, int);
-extern "C" void func_ov023_021e1518(void*);
+extern "C" void ResetItemSortOrder_ov023_021e1518(void*);
 extern "C" void func_ov023_021e1b5c(void*, int, int, int);
 extern "C" void func_ov023_021e1b0c(void*, int, int, int);
 extern "C" Struct_ov005_0215c530_5* GetEquipMenu_ov017_021a193c(int*);
@@ -178,13 +178,13 @@ extern "C" ARM void func_ov005_0215c530(Struct_ov005_0215c530_3* arg0)
     int var5 = 0;
     if (arg0->unknown_3dd4_[arg0->unknown_3dbc_] == 0 || arg0->unknown_3dd4_[arg0->unknown_3dbc_] == 1)
     {
-        func_ov023_021e1518(&arg0->unknown_19e0_);
+        ResetItemSortOrder_ov023_021e1518(&arg0->unknown_19e0_);
         func_ov023_021e1b5c(&arg0->unknown_19e0_, -1, data_ov005_0215cd00[arg0->unknown_3dbc_], -1);
         var4 = 1;
     }
     else if (arg0->unknown_3dd4_[arg0->unknown_3dbc_] == 3)
     {
-        func_ov023_021e1518(&arg0->unknown_19e0_);
+        ResetItemSortOrder_ov023_021e1518(&arg0->unknown_19e0_);
         func_ov023_021e1b0c(&arg0->unknown_19e0_, -1, data_ov005_0215cd00[arg0->unknown_3dbc_], -1);
         var4 = 1;
     }

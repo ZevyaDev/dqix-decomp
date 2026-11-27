@@ -19,7 +19,7 @@ struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
 struct MenuLayout_02080cc0;
 extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0* menuLayout, int textId, int color);
-extern "C" int func_020dcc98(int arg0);
+extern "C" int GetPartyMemberHPColor_020dcc98(int partyMemberIndex);
 extern "C" void OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 
 // USA: func_ov003_02177300
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov003_02177300(char* arg0) {
         }
         SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var2, var4, var5);
 
-        int var8 = func_020dcc98((signed char)*(int*)(arg0 + Enum_ov003_02177300_4124 + var6 * 4));
+        int var8 = GetPartyMemberHPColor_020dcc98((signed char)*(int*)(arg0 + Enum_ov003_02177300_4124 + var6 * 4));
         SetMenuLayoutTextColor_02080cc0((struct MenuLayout_02080cc0*)var2, var4, var8);
 
         var4 = (short)(var4 + 1);

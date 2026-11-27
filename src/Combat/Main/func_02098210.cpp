@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-// USA: func_02098210
-extern "C" ARM int func_02098210(int arg0, int arg1) {
-    int var0 = 0xc3b5;
-    return arg1 == var0 || arg1 == var0 + 0x64 || arg1 == var0 + 0xc8 || arg1 == var0 + 0x12c;
+// USA: IsQuestersRestLobbyZone_02098210
+extern "C" ARM int IsQuestersRestLobbyZone_02098210(int questersRest, int zoneId) {
+    int firstLobbyZoneId = 0xc3b5;
+    return zoneId == firstLobbyZoneId || zoneId == firstLobbyZoneId + 0x64 || zoneId == firstLobbyZoneId + 0xc8 || zoneId == firstLobbyZoneId + 0x12c;
 }

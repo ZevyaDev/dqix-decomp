@@ -5,7 +5,7 @@ struct Struct_ov031_02209ff0_3 { unsigned char unknown_0_[0x30]; unsigned char u
 struct Struct_ov031_02209ff0 { char unknown_0_[0xc]; Struct_ov031_02209ff0_3* unknown_c_; char unknown_10_[8]; unsigned short unknown_18_; char unknown_1a_[2]; void* unknown_1c_; };
 struct Struct_ov031_02209ff0_2 { unsigned char unknown_0_, unknown_1_, unknown_2_, unknown_3_[2], unknown_5_, unknown_6_[3], unknown_9_, unknown_a_, unknown_b_[32], unknown_2b_, unknown_2c_[32]; };
 extern void* (*data_ov031_0224c994)(unsigned int);
-extern void (*data_ov031_0224c9c0)(void*);
+extern void (*gIPStackFreeFunction_ov031_0224c9c0)(void*);
 extern unsigned short data_ov031_022496fc[] __attribute__((aligned(4)));
 extern "C" unsigned int func_ov031_02207c98();
 extern "C" void func_ov031_02209cf8(void*,int);
@@ -49,5 +49,5 @@ extern "C" ARM void func_ov031_02209ff0(Struct_ov031_02209ff0* arg0) {
     var1->unknown_6_[2]=var5;
     func_ov031_022037a8(var1,var3+5,0,0,arg0);
     func_ov031_022098ac(var0,(int)&var1->unknown_5_,var3);
-    data_ov031_0224c9c0(var1);
+    gIPStackFreeFunction_ov031_0224c9c0(var1);
 }

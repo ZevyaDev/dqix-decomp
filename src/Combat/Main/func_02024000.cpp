@@ -8,8 +8,8 @@
 extern "C" void *GetZone3D_02012fe4(void);
 extern "C" int func_0201b588(int arg0);
 extern "C" int func_0201b5b0(int arg0);
-extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
-                              unsigned short arg6, unsigned char arg7, int arg8, int arg9);
+extern "C" void DrawMetatileAt_0202756c(void *subScreenDisplay, int positionX, int positionY, int metatileIndex, unsigned char destinationObjIndex, unsigned char priority,
+                              unsigned short palette, unsigned char rotScaleDataIndex, int scaleX, int scaleY);
 
 #if defined(jpn)
 enum { Enum_02024000_0 = 0x20, Enum_02024000_0_2 = -0xac, Enum_02024000_28620 = 0x6d8c };
@@ -71,7 +71,7 @@ extern "C" ARM void func_02024000(void *arg0) {
     if (!func_0201b588(var3)) {
         return;
     }
-    func_0202756c(arg0, 0xbc000, 0x3000, 26, 0x42, 0, 0xff, 0xff, 0x1000, 0x1000);
+    DrawMetatileAt_0202756c(arg0, 0xbc000, 0x3000, 26, 0x42, 0, 0xff, 0xff, 0x1000, 0x1000);
     if (!func_0201b5b0(var3)) {
         return;
     }
@@ -104,12 +104,12 @@ extern "C" ARM void func_02024000(void *arg0) {
     if (var11) {
         int var17 = inline_02024000(var6->unknown_2c_, var0->unknown_38_) - (var0->unknown_48_ << 12) + 0x5c000;
         int var18 = inline_02024000(var6->unknown_24_, var0->unknown_38_) - (var0->unknown_44_ << 12) + 0x7c000;
-        func_0202756c(arg0, var18, var17, 24, 0x40, 1, 0xff, 0xff, 0x1000, 0x1000);
+        DrawMetatileAt_0202756c(arg0, var18, var17, 24, 0x40, 1, 0xff, 0xff, 0x1000, 0x1000);
     }
     if (!var12 && !var0->unknown_9ba_) {
         return;
     }
     int var19 = inline_02024000(var13->unknown_2c_, var0->unknown_38_) - (var0->unknown_48_ << 12) + 0x5c000;
     int var20 = inline_02024000(var13->unknown_24_, var0->unknown_38_) - (var0->unknown_44_ << 12) + 0x7c000;
-    func_0202756c(arg0, var20, var19, 25, 0x41, 1, 0xff, 0xff, 0x1000, 0x1000);
+    DrawMetatileAt_0202756c(arg0, var20, var19, 25, 0x41, 1, 0xff, 0xff, 0x1000, 0x1000);
 }

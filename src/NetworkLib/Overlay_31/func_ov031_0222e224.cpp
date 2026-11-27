@@ -8,7 +8,7 @@ struct Struct_ov031_0222e224 {
 };
 
 extern Struct_ov031_02248ee0_3 data_ov031_02248ee0;
-extern Struct_ov031_0222e224* data_ov031_02290c98;
+extern Struct_ov031_0222e224* gAddressEntryPage_ov031_02290c98;
 
 extern "C" void func_ov031_022366d8(unsigned char* arg0, unsigned char* arg1);
 extern "C" void GetWifiSetupPageArguments_ov031_02227520(int* outFirstArgument, int* outSecondArgument);
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov031_0222e224(void) {
     int var7;
     Struct_ov031_0222e224* var8;
 
-    var8 = data_ov031_02290c98;
+    var8 = gAddressEntryPage_ov031_02290c98;
     var7 = 0;
     var5 = 0;
     do {

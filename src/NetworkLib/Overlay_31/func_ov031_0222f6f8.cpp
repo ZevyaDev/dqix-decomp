@@ -31,7 +31,7 @@ extern "C" void FreeCursorSprites_ov031_022238cc(void);
 extern "C" void* CloseScreenTextLayer_ov031_0223c7c4(int isSubScreen);
 extern "C" int CloseSubScreenMessage_ov031_02223440(void);
 extern "C" void func_ov031_02234f08(void);
-extern "C" void func_ov031_0223b710(void* arg0);
+extern "C" void FreeLoadedFile_ov031_0223b710(void* fileData);
 extern "C" void LoadFileToVRAM_ov031_022234d8(int path, void (*loadToVRAM)(int, int, unsigned int));
 extern "C" void HideScreenLayers_ov031_0223cbbc(int isSubScreen, int layerMask);
 extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void** pointer);
@@ -77,12 +77,12 @@ extern "C" ARM void func_ov031_0222f6f8(void) {
     if (gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_40_ != 0xc) CloseSubScreenMessage_ov031_02223440();
 
     func_ov031_02234f08();
-    func_ov031_0223b710(gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_8_);
+    FreeLoadedFile_ov031_0223b710(gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_8_);
 
     int var2 = 0;
     do {
         void* var3 = gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_c_[var2];
-        func_ov031_0223b710(var3);
+        FreeLoadedFile_ov031_0223b710(var3);
         var2++;
     } while (var2 < 2);
 

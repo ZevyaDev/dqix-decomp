@@ -284,7 +284,7 @@ struct StringList_02072a68_2;
 extern "C" int func_020d2ff0(const char*);
 extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
 extern "C" struct Struct_ov004_0215f0c0_10* FindMenuObject_ov004_0215e47c(void* menu, int id);
-extern "C" void* func_ov023_021fad18(void* arg0);
+extern "C" void* GetMenuObjectSpriteSet_ov023_021fad18(void* object);
 extern "C" struct Struct_ov004_0215f0c0_8* func_ov004_0215e438(void* arg0, int arg1);
 extern "C" int GetHaloObject_ov017_021bdbcc(void* gameResources);
 extern "C" void* GetWindowTile_020421b0(int tileIndex);
@@ -328,7 +328,7 @@ extern "C" ARM void func_ov004_0215f0c0(void* arg0) {
         void* var6 = FindMenuObject_ov004_0215e47c(arg0, 0x1f4);
         if (var6 != 0) {
             int var7;
-            void* var8 = func_ov023_021fad18(var6);
+            void* var8 = GetMenuObjectSpriteSet_ov023_021fad18(var6);
             int var9 = data_ov004_02170804;
             if (var9 >= 0) {
                 struct Struct_ov004_0215f0c0_4* var10 = (struct Struct_ov004_0215f0c0_4*)GameState::GetInstance()->GetPartyMemberByIndex(var9);
@@ -814,7 +814,7 @@ extern "C" ARM int func_ov004_0215f770(void* arg0) {
         void* var30 = FindMenuObjectById_ov023_021f6880(var29, 0x1f4);
         if (var28 != 0 && var30 != 0) {
             var28->unknown_24_ = 0x7e;
-            unsigned short* var31 = (unsigned short*)func_ov004_0215e438(func_ov023_021fad18(var30), var28->unknown_22_);
+            unsigned short* var31 = (unsigned short*)func_ov004_0215e438(GetMenuObjectSpriteSet_ov023_021fad18(var30), var28->unknown_22_);
             func_ov023_021f6bec(var29, 0, var28->unknown_24_, *var31);
         }
     }

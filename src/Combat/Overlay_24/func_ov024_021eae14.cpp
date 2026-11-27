@@ -36,20 +36,20 @@ extern "C" int IsEnvenomated_02088514(Struct_02088514*);
 extern "C" void func_02088598(unsigned char*);
 extern "C" int func_ov024_021df6ec(Struct_ov024_021df454_2*);
 extern "C" void func_02088874(unsigned char*);
-extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
+extern "C" int IsSpellcastingBlocked_ov024_021dd010(Struct_ov024_021dced0_2*);
 extern "C" void func_020888c4(unsigned char*);
 extern "C" int func_ov024_021df704(Struct_ov024_021df454_7*);
-extern "C" void func_02088d4c(unsigned char*);
-extern "C" void func_02087838(void*);
-extern "C" void func_0208792c(void*);
-extern "C" void func_02087a20(void*);
-extern "C" void func_02087b14(void*);
-extern "C" void func_02087c08(void*);
-extern "C" void func_02087cfc(void*);
-extern "C" void func_02087df0(void*);
-extern "C" void func_02087efc(unsigned char*);
-extern "C" void func_02087ff0(void*);
-extern "C" void func_020880e4(void*);
+extern "C" void ClearEerieLight_02088d4c(unsigned char*);
+extern "C" void ClearAttackBuff_02087838(void*);
+extern "C" void ClearDefenseBuff_0208792c(void*);
+extern "C" void ClearAgilityBuff_02087a20(void*);
+extern "C" void ClearCharmBuff_02087b14(void*);
+extern "C" void ClearMagicalMightBuff_02087c08(void*);
+extern "C" void ClearMagicalMendingBuff_02087cfc(void*);
+extern "C" void ClearSpellResistanceBuff_02087df0(void*);
+extern "C" void ClearBreathResistanceBuff_02087efc(unsigned char*);
+extern "C" void ClearEvasionBuff_02087ff0(void*);
+extern "C" void ClearBlockChanceBuff_020880e4(void*);
 void ApplyCombatantBuffs(int, int);
 
 // USA: func_ov024_021eae14
@@ -79,22 +79,22 @@ extern "C" ARM int func_ov024_021eae14(Struct_ov017_021d82e0* arg0, int arg1) {
     if (func_ov024_021df6ec((Struct_ov024_021df454_2*)var0)) {
         func_02088874((unsigned char*)var0->currentStats_); var1++;
     }
-    if (func_ov024_021dd010((Struct_ov024_021dced0_2*)var0)) {
+    if (IsSpellcastingBlocked_ov024_021dd010((Struct_ov024_021dced0_2*)var0)) {
         func_020888c4((unsigned char*)var0->currentStats_); var1++;
     }
     if (func_ov024_021df704((Struct_ov024_021df454_7*)var0)) {
-        func_02088d4c((unsigned char*)var0->currentStats_); var1++;
+        ClearEerieLight_02088d4c((unsigned char*)var0->currentStats_); var1++;
     }
-    if (var0->currentStats_->attackBuff < 0) { func_02087838(var0->currentStats_); var1++; }
-    if (var0->currentStats_->defenseBuff < 0) { func_0208792c(var0->currentStats_); var1++; }
-    if (var0->currentStats_->agilityBuff < 0) { func_02087a20(var0->currentStats_); var1++; }
-    if (var0->currentStats_->charmBuff < 0) { func_02087b14(var0->currentStats_); var1++; }
-    if (var0->currentStats_->magicalMightBuff < 0) { func_02087c08(var0->currentStats_); var1++; }
-    if (var0->currentStats_->magicalMendingBuff < 0) { func_02087cfc(var0->currentStats_); var1++; }
-    if (var0->currentStats_->unknown_5a_2_ < 0) { func_02087df0(var0->currentStats_); var1++; }
-    if (((Struct_ov017_021cb974_4*)var0->currentStats_)->unknown_5a_5_ < 0) { func_02087efc((unsigned char*)var0->currentStats_); var1++; }
-    if (((Struct_ov017_021cb974_4*)var0->currentStats_)->unknown_5b_3_ < 0) { func_02087ff0(var0->currentStats_); var1++; }
-    if (((Struct_ov017_021cb974_4*)var0->currentStats_)->unknown_5b_0_ < 0) { func_020880e4(var0->currentStats_); var1++; }
+    if (var0->currentStats_->attackBuff < 0) { ClearAttackBuff_02087838(var0->currentStats_); var1++; }
+    if (var0->currentStats_->defenseBuff < 0) { ClearDefenseBuff_0208792c(var0->currentStats_); var1++; }
+    if (var0->currentStats_->agilityBuff < 0) { ClearAgilityBuff_02087a20(var0->currentStats_); var1++; }
+    if (var0->currentStats_->charmBuff < 0) { ClearCharmBuff_02087b14(var0->currentStats_); var1++; }
+    if (var0->currentStats_->magicalMightBuff < 0) { ClearMagicalMightBuff_02087c08(var0->currentStats_); var1++; }
+    if (var0->currentStats_->magicalMendingBuff < 0) { ClearMagicalMendingBuff_02087cfc(var0->currentStats_); var1++; }
+    if (var0->currentStats_->unknown_5a_2_ < 0) { ClearSpellResistanceBuff_02087df0(var0->currentStats_); var1++; }
+    if (((Struct_ov017_021cb974_4*)var0->currentStats_)->unknown_5a_5_ < 0) { ClearBreathResistanceBuff_02087efc((unsigned char*)var0->currentStats_); var1++; }
+    if (((Struct_ov017_021cb974_4*)var0->currentStats_)->unknown_5b_3_ < 0) { ClearEvasionBuff_02087ff0(var0->currentStats_); var1++; }
+    if (((Struct_ov017_021cb974_4*)var0->currentStats_)->unknown_5b_0_ < 0) { ClearBlockChanceBuff_020880e4(var0->currentStats_); var1++; }
     if (var2) ((Struct_ov017_021cb974_4*)var0->currentStats_)->unknown_3b_0_ = 1;
     ApplyCombatantBuffs(arg0->unknown_10_, arg1);
     return var1;

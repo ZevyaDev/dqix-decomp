@@ -2,7 +2,7 @@
 
 struct Struct_ov031_02232a84 { unsigned char unknown_0_[0x1d]; unsigned char unknown_1d_; };
 struct Struct_ov031_02290cc0_4 { unsigned char unknown_0_; unsigned char unknown_1_[3]; Struct_ov031_02232a84 *unknown_4_; };
-extern Struct_ov031_02290cc0_4 data_ov031_02290cc0;
+extern Struct_ov031_02290cc0_4 gConnectionListPage_ov031_02290cc0;
 extern "C" void func_ov031_02236e60(void);
 extern "C" void DisableButtonBarInput_ov031_02222e98(void);
 extern "C" void StartBrightnessFadeDelay_ov031_0223c278(int);
@@ -11,7 +11,7 @@ extern "C" void func_ov031_02232ac0(void);
 
 // USA: func_ov031_02232a84
 extern "C" ARM void func_ov031_02232a84(void) {
-	if (data_ov031_02290cc0.unknown_4_->unknown_1d_ == 2) {
+	if (gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_1d_ == 2) {
 		func_ov031_02236e60();
 	}
 	DisableButtonBarInput_ov031_02222e98();

@@ -11,8 +11,8 @@ enum { Enum_02019678_1052 = 0x41c };
 struct Struct_020177d4;
 struct Struct_02019568;
 extern "C" struct Struct_02019568* func_0201f2a4(struct Struct_020177d4* arg0, int arg1);
-struct Struct_02013380;
-extern "C" void func_02013380(struct Struct_02013380* arg0, int arg1, int arg2);
+struct BMDJEntry_02013380;
+extern "C" void SetBMDJEntryVisible_02013380(struct BMDJEntry_02013380* entry, int bmdjId, int isVisible);
 
 struct Struct_02019678 {
     unsigned short unknown_0_;
@@ -32,7 +32,7 @@ extern "C" ARM void func_02019678(void* arg0) {
             int var3 = *(int*)var0;
             int var4 = 0;
             if (var3 >= 0) var4 = var3 & 0xff;
-            func_02013380((struct Struct_02013380*)var2, var4, var2->unknown_2_ & 0x20);
+            SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var2, var4, var2->unknown_2_ & 0x20);
         }
         var0 = *(void**)((char*)var0 + 0x54);
     }

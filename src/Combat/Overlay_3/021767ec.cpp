@@ -25,7 +25,7 @@ extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2* menu
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void HideMenuLayoutWindowTexts_02080b54(void* menuLayout, int windowId);
 extern "C" void func_02080608(void* arg0, int arg1);
-extern "C" void func_02081130(void* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutWindowPageArrows_02081130(void* menuLayout, int windowId, int hasPageArrows);
 
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
@@ -41,7 +41,7 @@ extern "C" void func_ov003_0217818c(char* arg0, struct Struct_ov003_021767ec* ar
 #endif
 
 #if !defined(jpn)
-extern "C" void func_020805f4(void* arg0, int arg1);
+extern "C" void CapitalizeMenuLayoutText_020805f4(void* menuLayout, int textId);
 #endif
 
 struct MenuLayout_02080f8c;
@@ -65,7 +65,7 @@ extern "C" ARM int func_ov003_021767ec(char* arg0) {
     func_02080608(var0, 3);
 
     unsigned short var4 = *(unsigned short*)(arg0 + Enum_ov003_021767ec_4166);
-    func_02081130(var0, 3, (var4 & 0x400) != 0);
+    SetMenuLayoutWindowPageArrows_02081130(var0, 3, (var4 & 0x400) != 0);
 
     short var5 = *(short*)(arg0 + Enum_ov003_021767ec_4116);
     unsigned char var6;
@@ -91,7 +91,7 @@ extern "C" ARM int func_ov003_021767ec(char* arg0) {
 #endif
             }
 #if !defined(jpn)
-            func_020805f4(var0, var1);
+            CapitalizeMenuLayoutText_020805f4(var0, var1);
 #endif
             SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var0, var1, var8);
             SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, var2, var9);

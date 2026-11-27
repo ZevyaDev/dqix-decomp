@@ -153,7 +153,7 @@ unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 void func_ov001_0215ab54(int arg0, int arg1, int arg2);
 struct Struct_ov001_021539d8* FindNPCById_0203df78(void* npcManager, int id);
-int func_0203dfdc(void* arg0, int arg1);
+int FindNPCIndexById_0203dfdc(void* npcManager, int id);
 void SetGameObjectByIndex_0200fd38(GameState* gameState, int index, struct Struct_ov001_021539d8_11* object);
 SafeAllocator* func_ov001_0215aab8(void);
 void _ZN8Object3D10InitializeEv(struct Struct_ov001_021539d8_11* arg0);
@@ -167,7 +167,7 @@ void _ZN8Object3D21MaybeSetBCFGAnimationEii(struct Struct_ov001_021539d8_11* arg
 void _ZN8Object3D16SetModelFromFileEP13SafeAllocatorPvjN7Model3D18TextureStagingModeE(struct Struct_ov001_021539d8_11* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, int arg4);
 void GetZone3D_02012fe4(void);
 void func_020404c0(struct Struct_ov001_021539d8* arg0);
-void func_0206bf2c(void* arg0);
+void InitNPCPlacement_0206bf2c(void* placement);
 void func_0203c794(struct Struct_ov001_021539d8_12* arg0);
 char* strstr(const char* arg0, const char* arg1);
 void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
@@ -309,7 +309,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
                 var27->unknown_18_->unknown_d4_0_ = 1;
                 SetGameObjectByIndex_0200fd38(var0, var5->unknown_2_, var27->unknown_18_);
                 var27->unknown_0_ |= 0x10000;
-                func_ov001_0215ab54(6, func_0203dfdc(var2, var5->unknown_8_), var5->unknown_1_);
+                func_ov001_0215ab54(6, FindNPCIndexById_0203dfdc(var2, var5->unknown_8_), var5->unknown_1_);
             }
             break;
         }
@@ -417,7 +417,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             struct Struct_ov001_021539d8* var42 = FindNPCById_0203df78(var2, var5->unknown_8_);
             if (var42 != 0 && var42->unknown_14_ != 0) {
                 var42->unknown_0_ |= 0x10000;
-                func_ov001_0215ab54(2, func_0203dfdc(var2, var5->unknown_8_), var5->unknown_1_);
+                func_ov001_0215ab54(2, FindNPCIndexById_0203dfdc(var2, var5->unknown_8_), var5->unknown_1_);
             }
             break;
         }
@@ -442,7 +442,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
                 break;
             }
             func_020404c0(var19);
-            func_0206bf2c(var15);
+            InitNPCPlacement_0206bf2c(var15);
             func_0203c794(var46);
             var20->unknown_2_ = 3;
             if (strstr(var5->unknown1_8_, data_ov001_02164bc0) != 0) {

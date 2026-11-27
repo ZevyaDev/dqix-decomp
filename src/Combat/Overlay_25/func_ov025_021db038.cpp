@@ -95,7 +95,7 @@ extern "C" void func_ov000_0216df00(void*, int, int, int, float);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void*, int, int);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern "C" int func_ov000_02160fd4(void*, int);
-extern "C" void func_ov000_02160fbc(void*, int);
+extern "C" void ClearBattleSceneFlags_ov000_02160fbc(void*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov025_021dbe10(Struct_ov000_021537b8*);
 extern "C" void func_ov000_0216fe48(Struct_ov000_0216fe48*);
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov025_021db038(Struct_ov000_021537b8* arg0) {
             return;
         }
         if (var12->unknown_998_) return;
-        func_ov000_02160fbc(arg0, 0x1000000);
+        ClearBattleSceneFlags_ov000_02160fbc(arg0, 0x1000000);
         return;
     }
     func_ov025_021eedb0(arg0->unknown_b30_);

@@ -36,7 +36,7 @@ extern "C" void func_ov000_0215faa4(struct Random* arg0, unsigned int arg1, unsi
 extern "C" void func_ov000_02169850(void* arg0);
 extern "C" void ProcessCombatTurn(void* arg0, void* arg1);
 extern "C" void func_ov000_0215e6e8(void* arg0);
-extern "C" void func_ov000_02160fbc(void* arg0, int arg1);
+extern "C" void ClearBattleSceneFlags_ov000_02160fbc(void* battleScene, int flags);
 extern "C" void func_ov000_02160e48(void* arg0);
 extern "C" void* func_0205ec34(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
@@ -62,7 +62,7 @@ extern "C" ARM void func_ov000_02169770(unsigned char* arg0) {
 
     ((class SafeAllocator*)(arg0 + 0x30))->Reset();
     *(unsigned char*)(arg0 + 0x5000 + REGION_OFFSET_4) = 1;
-    func_ov000_02160fbc(arg0, 0x800000);
+    ClearBattleSceneFlags_ov000_02160fbc(arg0, 0x800000);
     func_ov000_02160e48(arg0);
 
     if (*(int*)((char*)*(int**)(arg0 + REGION_OFFSET_5) + 0xc) == 0x19 &&

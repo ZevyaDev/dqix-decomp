@@ -4,7 +4,7 @@
 
 extern "C" int TrySelectTacticOption_ov024_021fe698(void* tacticAI, int option);
 extern "C" void func_ov024_021fdf04(void* arg0, int arg1);
-extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* arg1, int targetGroup, int targetIndex);
+extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* effects, int targetGroup, int targetIndex);
 
 struct Struct_ov024_021fbf18 {
 	char unknown_0_[4];

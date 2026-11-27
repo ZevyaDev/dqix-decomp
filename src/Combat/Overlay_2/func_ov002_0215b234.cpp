@@ -2,8 +2,8 @@
 
 extern unsigned char gSoundEffectManager_02108760;
 extern char gMusicManager_02109bf4;
-extern "C" unsigned char func_0205ea18(unsigned char*);
-extern "C" unsigned char func_0209ca98(char*);
+extern "C" unsigned char GetSoundEffectVolumeLevel_0205ea18(unsigned char*);
+extern "C" unsigned char GetMusicVolumeLevel_0209ca98(char*);
 
 #if defined(jpn)
 #define FIELDS_0215b234 0x1af4
@@ -13,6 +13,6 @@ extern "C" unsigned char func_0209ca98(char*);
 
 // USA: func_ov002_0215b234
 extern "C" ARM void func_ov002_0215b234(unsigned char* arg0) {
-    arg0[FIELDS_0215b234] = func_0209ca98(&gMusicManager_02109bf4);
-    arg0[FIELDS_0215b234 + 1] = func_0205ea18(&gSoundEffectManager_02108760);
+    arg0[FIELDS_0215b234] = GetMusicVolumeLevel_0209ca98(&gMusicManager_02109bf4);
+    arg0[FIELDS_0215b234 + 1] = GetSoundEffectVolumeLevel_0205ea18(&gSoundEffectManager_02108760);
 }

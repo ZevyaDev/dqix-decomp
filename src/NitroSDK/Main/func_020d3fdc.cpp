@@ -15,7 +15,7 @@ struct Struct_021142e0_2 {
     unsigned int unknown_4_;
 };
 
-extern struct Struct_021142e0_2 data_021142e0;
+extern struct Struct_021142e0_2 gWirelessIPC_021142e0;
 
 // USA: func_020d3fdc
 extern "C" ARM int func_020d3fdc(void) {
@@ -30,8 +30,8 @@ extern "C" ARM int func_020d3fdc(void) {
     }
     func_020d468c();
     SetArm9IPCCommandHandler(0xa, 0);
-    data_021142e0.unknown_4_ = 0;
-    data_021142e0.unknown_0_ = 0;
+    gWirelessIPC_021142e0.unknown_4_ = 0;
+    gWirelessIPC_021142e0.unknown_0_ = 0;
     SetIRQInterruptState(var0);
     return 0;
 }

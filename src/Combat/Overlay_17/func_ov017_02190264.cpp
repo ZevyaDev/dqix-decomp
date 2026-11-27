@@ -25,7 +25,7 @@ struct Struct_ov017_02190264 {
 struct Struct_ov000_02161e30_4 { char unknown_0_[2]; unsigned char unknown_2_; };
 struct Struct_ov017_021d622c { int unknown_0_[13]; };
 struct Struct_ov017_02190264_2 { int unknown_0_[4]; };
-struct Struct_02000c9c_12;
+struct GameState_02000c9c_12;
 struct LocalWireless_0202c1a4;
 extern "C" int* func_0202ae18();
 extern "C" int func_ov017_021925e0();
@@ -40,7 +40,7 @@ extern "C" void* func_020120a0(char*, unsigned int);
 extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" void StopGesture_020531f0(GameObject*);
 extern "C" void func_020545ac(short*);
-extern "C" int func_020115a8(Struct_02000c9c_12*);
+extern "C" int GetRequestedMovie_020115a8(GameState_02000c9c_12*);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, int, int);
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
         strcpy(arg0->unknown_435c_[arg1], (char*)var8->baseStats_);
         short* var10 = ((Struct_ov017_02190264*)var8)->unknown_154_;
         if (var10) func_020545ac(var10);
-        if (!func_020115a8((Struct_02000c9c_12*)var1)) {
+        if (!GetRequestedMovie_020115a8((GameState_02000c9c_12*)var1)) {
             Struct_0200f3a4_7* var11 = func_02053c6c((unsigned char*)var8);
             if (var11) InitPartyMemberData_02082828(var11);
         }

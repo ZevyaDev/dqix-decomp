@@ -24,7 +24,7 @@ extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMemb
 extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
 extern "C" int func_0207cf30(void* arg0, short arg1, int arg2, unsigned char arg3);
 extern "C" void func_0207cc18(void* arg0, struct ItemData_0201099c_9* arg1);
-extern "C" int func_0207d134(void* arg0, short arg1, int arg2);
+extern "C" int AddItemToEquipmentBag_0207d134(void* itemContext, short itemId, int count);
 extern "C" int func_0207d200(struct Struct_0207ccf0_4* arg0, short arg1, int arg2);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern AllocatorUnion gMainHeap_02114e20;
@@ -85,7 +85,7 @@ extern "C" ARM int AddItemToPartyMember_0207ccf0(struct ItemContext_0207ccf0* it
         if ((result == 0 && placedCount < count) || isBagAllowed) {
             short remainingCount = (short)(count - placedCount);
             if (inline_0207ccf0(item->unknown_8_0_)) {
-                if (func_0207d134(itemContext, itemId, (signed char)remainingCount)) result = 1;
+                if (AddItemToEquipmentBag_0207d134(itemContext, itemId, (signed char)remainingCount)) result = 1;
             } else if (item->unknown_8_0_ == 9) {
                 if (func_0207d200((struct Struct_0207ccf0_4*)itemContext, itemId, (signed char)remainingCount)) result = 1;
             } else {

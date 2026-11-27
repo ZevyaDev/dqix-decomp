@@ -8,7 +8,7 @@ struct Struct_ov028_021d98b8 {
     unsigned short unknown_a_;
 };
 
-struct Struct_020979c0 {
+struct VRAMBankSwitch_020979c0 {
     unsigned int unknown_0_[8];
 };
 
@@ -17,7 +17,7 @@ struct Struct_ov028_021d8b90 {
     unsigned char unknown_c_[0x10];
     unsigned char unknown_1c_;
     unsigned char unknown_1d_;
-    Struct_020979c0 unknown_20_;
+    VRAMBankSwitch_020979c0 unknown_20_;
     unsigned int unknown_40_;
     SafeAllocator unknown_44_;
     unsigned int unknown_58_;
@@ -35,7 +35,7 @@ struct Struct_ov028_021d8b90 {
     unsigned char unknown_81_;
 };
 
-extern "C" void func_020979c0(Struct_020979c0* arg0, unsigned char arg1);
+extern "C" void func_020979c0(VRAMBankSwitch_020979c0* arg0, unsigned char arg1);
 extern "C" Struct_ov028_021d98b8* func_ov028_021d98b8(Struct_ov028_021d98b8* arg0);
 
 static inline unsigned int inline_ov017_021a86d0(void) {

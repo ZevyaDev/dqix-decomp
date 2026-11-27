@@ -5,7 +5,7 @@
 extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021b6e70(void* arg0, unsigned short arg1);
-extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
+extern "C" void ApplyBattleRequest_ov017_021b7104(void* battleManager, void* request);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
@@ -59,6 +59,6 @@ extern "C" ARM void func_ov017_021b8bb0(int arg0) {
     var4.unknown_4_ = (unsigned short)(arg0 + 0x8005);
     var4.unknown_8_ = arg0;
     func_ov017_021b6e70(&var4, var4.unknown_2_);
-    func_ov017_021b7104(var3, &var4);
+    ApplyBattleRequest_ov017_021b7104(var3, &var4);
     AppendToQueue_020469b4(var2, var3);
 }

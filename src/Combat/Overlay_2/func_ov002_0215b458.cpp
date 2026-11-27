@@ -13,7 +13,7 @@ extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 extern "C" void func_020a0bcc(struct Struct_020a0bcc *arg0);
 extern "C" int func_020a0af4(struct Struct_020a095c *arg0, int arg1);
 extern "C" void func_020a095c(struct Struct_0207cf30_4 *arg0, int arg1, int arg2);
-extern "C" void func_ov023_021e1518(void *arg0);
+extern "C" void ResetItemSortOrder_ov023_021e1518(void *sortList);
 extern "C" void func_ov023_021e1474(struct Struct_ov002_0215b2c8 *arg0,
                                                                                               struct ItemTable_0201099c_10 *arg1);
 extern "C" void func_ov023_021e1870(void *arg0, void *arg1, int arg2, int arg3, int arg4);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov002_0215b458(char *arg0, int arg1) {
     if (var5 == 0) return;
 
     var1 = arg0 + 4;
-    func_ov023_021e1518(var1 + 0x800);
+    ResetItemSortOrder_ov023_021e1518(var1 + 0x800);
     func_ov023_021e1474(
         (struct Struct_ov002_0215b2c8 *) (var1 + 0x800), (struct ItemTable_0201099c_10 *) (arg0 + 0x3ec + 0x400));
     if (*(unsigned char *) (arg0 + 0x2000 + 0x48d) == 2) {

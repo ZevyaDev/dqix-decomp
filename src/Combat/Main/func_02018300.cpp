@@ -49,7 +49,7 @@ extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 // USA: OpenDoor_02018300
 extern "C" ARM void OpenDoor_02018300(Zone3D* zone, Struct_020134e0::Struct_02018300* door, int isSoundPlayed, int isOpenedHere, int isSentToOtherConsoles) {
-    Struct_02016874_2* doorEntry = func_02018b34(zone, door);
+    BMDJEntry_02016874_2* doorEntry = FindDoorEntry_02018b34(zone, door);
     if (!doorEntry) return;
     if (!isOpenedHere && (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 8)) return;
     if (!isOpenedHere && (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 4)) return;
@@ -110,7 +110,7 @@ extern "C" ARM void OpenDoor_02018300(Zone3D* zone, Struct_020134e0::Struct_0201
     door->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(door->unknown_2c_.unknown1_0_.unknown_2_4_ | 1);
     doorEntry->unknown_2_ |= 1;
     for (int i = 0; i < zone->unknown_82c_; i++) {
-        Struct_02016874_2* collisionEntry = (*(Struct_02016874_2***)(zone->unk_5f0 + 0x234))[i];
+        BMDJEntry_02016874_2* collisionEntry = (*(BMDJEntry_02016874_2***)(zone->unk_5f0 + 0x234))[i];
         if (collisionEntry->unknown_28_ == doorEntry) {
             collisionEntry->unknown_2_ |= 1;
             break;

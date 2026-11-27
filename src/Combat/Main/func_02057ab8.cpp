@@ -14,112 +14,112 @@ extern "C" void func_02059f54(void* arg0, int arg1);
 
 struct Struct_02057ab8 {
     char unknown_0_[0xc4];
-    Vector3fix unknown_c4_;
-    Vector3fix unknown_d0_;
-    Vector3fix unknown_dc_;
-    Matrix4x3 unknown_e8_;
+    Vector3fix position_c4_;
+    Vector3fix rotation_d0_;
+    Vector3fix scale_dc_;
+    Matrix4x3 transform_e8_;
 };
 
-struct Struct_02057ab8_2 {
+struct EffectSlot_02057ab8_2 {
     char unknown_0_[4];
-    struct Struct_02057ab8* unknown_4_;
+    struct Struct_02057ab8* pEffectInstance_4_;
     char unknown_8_[0x44 - 0x8];
-    Vector3fix unknown_44_;
-    Vector3fix unknown_50_;
+    Vector3fix position_44_;
+    Vector3fix rotation_50_;
     char unknown_5c_[0xac - 0x5c];
-    int unknown_ac_;
-    short unknown_b0_;
-    short unknown_b2_;
-    short unknown_b4_;
+    int hasBeffFile_ac_;
+    short startDelay_b0_;
+    short parentObjectIndex_b2_;
+    short parentBoneIndex_b4_;
     char unknown_b6_[0xd4 - 0xb6];
 };
 
-struct Struct_02057ab8_3 {
+struct EffectManager_02057ab8_3 {
     char unknown_0_[8];
-    struct Struct_02057ab8_2 unknown_8_[16];
+    struct EffectSlot_02057ab8_2 effectSlots_8_[16];
 };
 
-extern "C" ARM void func_02057ab8(struct Struct_02057ab8_3* arg0, int arg1);
+extern "C" ARM void DrawAttachedEffects_02057ab8(struct EffectManager_02057ab8_3* effectManager, int objectIndex);
 
-// USA: func_02057ab8
-extern "C" ARM void func_02057ab8(struct Struct_02057ab8_3* arg0, int arg1) {
-    GameState* var0 = GameState::GetInstance();
-    int var1;
-    if (arg1 < 0) {
+// USA: DrawAttachedEffects_02057ab8
+extern "C" ARM void DrawAttachedEffects_02057ab8(struct EffectManager_02057ab8_3* effectManager, int objectIndex) {
+    GameState* gameState = GameState::GetInstance();
+    int i;
+    if (objectIndex < 0) {
         return;
     }
-    for (var1 = 0; var1 < 16; var1++) {
-        struct Struct_02057ab8_2* var2 = &arg0->unknown_8_[var1];
-        if (arg1 != var2->unknown_b2_) continue;
-        if (var2->unknown_b0_ > 0) continue;
-        void* var3 = var0->GetGameObjectByIndex(var2->unknown_b2_);
-        if (var3 == 0) {
-            var2->unknown_b2_ = -1;
+    for (i = 0; i < 16; i++) {
+        struct EffectSlot_02057ab8_2* slot = &effectManager->effectSlots_8_[i];
+        if (objectIndex != slot->parentObjectIndex_b2_) continue;
+        if (slot->startDelay_b0_ > 0) continue;
+        void* parent = gameState->GetGameObjectByIndex(slot->parentObjectIndex_b2_);
+        if (parent == 0) {
+            slot->parentObjectIndex_b2_ = -1;
             continue;
         }
-        void* var4 = *(void**)((char*)var3 + 8);
-        if (var4 == 0) {
-            var2->unknown_b2_ = -1;
+        void* model = *(void**)((char*)parent + 8);
+        if (model == 0) {
+            slot->parentObjectIndex_b2_ = -1;
             continue;
         }
-        Nitro3DRenderContext* var5 = (Nitro3DRenderContext*)GetModel3DContext((Model3D*)var4);
-        if (var5 == 0) {
-            var2->unknown_b2_ = -1;
+        Nitro3DRenderContext* renderContext = (Nitro3DRenderContext*)GetModel3DContext((Model3D*)model);
+        if (renderContext == 0) {
+            slot->parentObjectIndex_b2_ = -1;
             continue;
         }
 
-        Matrix4x3 var6;
-        Mat4x3_WriteIdentity(&var6);
-        Vector3fix var7 = *(Vector3fix*)((char*)var3 + 0x44);
-        Vector3fix var8 = *(Vector3fix*)((char*)var3 + 0x50);
-        Vector3fix var9 = ((Object3D*)var3)->GetScale();
-        int var10 = 0;
-        if (var2->unknown_b4_ > -1) {
-            if (Nitro3D_GetBonePosDirMatrices(var5, (Matrix4x3*)var10, (Matrix3x3*)var10, (unsigned int)var2->unknown_b4_)) {
-                const Matrix4x3* var11 = Nitro3DRenderConfig::GetInverseViewMatrix();
-                Nitro3D_GetCurrentPosDirMatrices(&var6, (Matrix3x3*)var10);
-                Mat4x3_Multiply(&var6, var11, &var6);
-                var10 = 1;
+        Matrix4x3 boneMatrix;
+        Mat4x3_WriteIdentity(&boneMatrix);
+        Vector3fix position = *(Vector3fix*)((char*)parent + 0x44);
+        Vector3fix rotation = *(Vector3fix*)((char*)parent + 0x50);
+        Vector3fix scale = ((Object3D*)parent)->GetScale();
+        int hasBoneMatrix = 0;
+        if (slot->parentBoneIndex_b4_ > -1) {
+            if (Nitro3D_GetBonePosDirMatrices(renderContext, (Matrix4x3*)hasBoneMatrix, (Matrix3x3*)hasBoneMatrix, (unsigned int)slot->parentBoneIndex_b4_)) {
+                const Matrix4x3* inverseViewMatrix = Nitro3DRenderConfig::GetInverseViewMatrix();
+                Nitro3D_GetCurrentPosDirMatrices(&boneMatrix, (Matrix3x3*)hasBoneMatrix);
+                Mat4x3_Multiply(&boneMatrix, inverseViewMatrix, &boneMatrix);
+                hasBoneMatrix = 1;
             }
         }
-        if (var2->unknown_ac_ == 0) {
-            Vector3fix var12 = var2->unknown_44_;
-            Vector3fix var13 = var2->unknown_50_;
-            Vector3fix var14 = ((Object3D*)var2)->GetScale();
-            Matrix4x3 var15;
-            Vector3fix var16;
-            var15 = RotationMatrixY(var8.y);
-            Mat4x3_ApplyToVector(&var12, &var15, &var16);
-            Vector3fix_Add(&var7, &var16, &var7);
-            Vector3fixMultiply(&var9, &var14, &var9);
-            var2->unknown_44_ = var7;
-            var2->unknown_50_ = var8;
-            ((Object3D*)var2)->SetScale(&var9);
-            func_02059f54(var2, var1 + 0xd0);
-            func_02057ab8(arg0, var1 + 0xd0);
-            var2->unknown_44_ = var12;
-            var2->unknown_50_ = var13;
-            ((Object3D*)var2)->SetScale(&var14);
-        } else if (var2->unknown_ac_ == 1) {
-            struct Struct_02057ab8* var17 = var2->unknown_4_;
-            if (var17 != 0) {
-                if (var10 == 0) {
-                    var17->unknown_c4_ = var7;
-                    var17->unknown_d0_ = var8;
-                    var17->unknown_dc_ = var9;
+        if (slot->hasBeffFile_ac_ == 0) {
+            Vector3fix localPosition = slot->position_44_;
+            Vector3fix localRotation = slot->rotation_50_;
+            Vector3fix localScale = ((Object3D*)slot)->GetScale();
+            Matrix4x3 yawMatrix;
+            Vector3fix rotatedPosition;
+            yawMatrix = RotationMatrixY(rotation.y);
+            Mat4x3_ApplyToVector(&localPosition, &yawMatrix, &rotatedPosition);
+            Vector3fix_Add(&position, &rotatedPosition, &position);
+            Vector3fixMultiply(&scale, &localScale, &scale);
+            slot->position_44_ = position;
+            slot->rotation_50_ = rotation;
+            ((Object3D*)slot)->SetScale(&scale);
+            func_02059f54(slot, i + 0xd0);
+            DrawAttachedEffects_02057ab8(effectManager, i + 0xd0);
+            slot->position_44_ = localPosition;
+            slot->rotation_50_ = localRotation;
+            ((Object3D*)slot)->SetScale(&localScale);
+        } else if (slot->hasBeffFile_ac_ == 1) {
+            struct Struct_02057ab8* effectInstance = slot->pEffectInstance_4_;
+            if (effectInstance != 0) {
+                if (hasBoneMatrix == 0) {
+                    effectInstance->position_c4_ = position;
+                    effectInstance->rotation_d0_ = rotation;
+                    effectInstance->scale_dc_ = scale;
                 } else {
-                    var7.x = var6.translation.x;
-                    var7.y = var6.translation.y;
-                    var7.z = var6.translation.z;
-                    Mat4x3_ApplyScale(&var6, &var6, 0xf627, 0xf627, 0xf627);
-                    var6.translation.x = var7.x;
-                    var6.translation.y = var7.y;
-                    var6.translation.z = var7.z;
-                    var17->unknown_e8_ = var6;
+                    position.x = boneMatrix.translation.x;
+                    position.y = boneMatrix.translation.y;
+                    position.z = boneMatrix.translation.z;
+                    Mat4x3_ApplyScale(&boneMatrix, &boneMatrix, 0xf627, 0xf627, 0xf627);
+                    boneMatrix.translation.x = position.x;
+                    boneMatrix.translation.y = position.y;
+                    boneMatrix.translation.z = position.z;
+                    effectInstance->transform_e8_ = boneMatrix;
                 }
             }
-            func_02059f54(var2, var1 + 0xd0);
-            func_02057ab8(arg0, var1 + 0xd0);
+            func_02059f54(slot, i + 0xd0);
+            DrawAttachedEffects_02057ab8(effectManager, i + 0xd0);
         }
     }
 }

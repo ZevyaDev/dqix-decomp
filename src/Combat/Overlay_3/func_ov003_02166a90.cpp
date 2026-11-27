@@ -74,7 +74,7 @@ extern "C" Struct_ov003_02166a90_6* func_ov003_02160bf8(Struct_ov003_02166a90_5*
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020108f0(void*, int);
-extern "C" void* func_02010954(char*);
+extern "C" void* FindFreePartyMemberData_02010954(char*);
 extern "C" void func_02086380(unsigned char*);
 extern "C" void func_02082d6c(Struct_02082d6c*, Struct_02082d6c_2*);
 extern "C" void CreatePartyMemberObject_ov017_0218f064(GameResources*, int, int, int, int);
@@ -84,7 +84,7 @@ extern "C" unsigned char* func_ov017_021a4658(unsigned char*, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void SetLeaderObjectIndex_020546a0(void*, int);
 extern "C" int GetLeaderObjectIndex_020546a8(void*);
-extern "C" void func_020546b4(void*, int);
+extern "C" void SetFollowerIndex_020546b4(void*, int);
 typedef void (*Type_ov003_02166a90)(void*, int);
 extern "C" int func_02053c6c(unsigned char*);
 extern "C" void func_02042764(unsigned char*, char*, int);
@@ -109,7 +109,7 @@ extern "C" void RestartMapDisplay_020dc2d0(int);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void*, int, int, int, int);
 extern "C" void LoadPartyMemberColors_020dc7e8(int, int);
 extern "C" void func_ov017_021d0dbc(void);
-extern "C" void func_ov017_021cee78(int, unsigned char);
+extern "C" void SendObjectPosition_ov017_021cee78(int, unsigned char);
 
 // USA: func_ov003_02166a90
 extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) {
@@ -147,7 +147,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
         }
         Struct_ov003_02166a90_7* var7 = (Struct_ov003_02166a90_7*)func_020108f0(var2, arg0->unknown_4a2_);
         if (var7 == 0) {
-            var7 = (Struct_ov003_02166a90_7*)func_02010954((char*)var2);
+            var7 = (Struct_ov003_02166a90_7*)FindFreePartyMemberData_02010954((char*)var2);
         }
         var7->unknown_568_ = arg0->unknown_4a2_;
         func_02086380((unsigned char*)var7);
@@ -176,7 +176,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
                 }
             }
         }
-        ((Type_ov003_02166a90)func_020546b4)(var8, var11);
+        ((Type_ov003_02166a90)SetFollowerIndex_020546b4)(var8, var11);
         GetParty_02010828(var2);
         Struct_ov003_02166a90_2* var14 = (Struct_ov003_02166a90_2*)func_02053c6c((unsigned char*)var8);
 #if defined(jpn)
@@ -230,7 +230,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
             func_ov017_021d0dbc();
         }
         if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18()) != 0) {
-            func_ov017_021cee78(arg0->unknown_4a2_, 1);
+            SendObjectPosition_ov017_021cee78(arg0->unknown_4a2_, 1);
         }
         return 1;
     }

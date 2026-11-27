@@ -138,7 +138,7 @@ extern "C" int func_020850a4(unsigned char* arg0);
 extern "C" void* GetEffectManager_02057924(void);
 struct Vector3i;
 void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
-extern "C" int func_020c32f8(int);
+extern "C" int ComputeFixedPointCosine_020c32f8(int);
 extern "C" int ComputeFixedPointSine_020c3260(int);
 extern "C" float ConvertInt64ToFloat_0200c700(int);
 extern "C" short func_ov000_0216352c(int arg0, float arg1, float arg2);
@@ -429,7 +429,7 @@ extern "C" ARM void func_ov025_021ebb90(struct Struct_ov025_021e9778_4* arg0) {
                                         Vector3fixMultiplyScalar((Vector3i const*)&var5, var2.unknown_8_, (Vector3i*)&var2);
                                         *(Vector3i*)&var6 = *(Vector3i const*)((struct Struct_ov009_0218aa28*)((char*)var56 + 0x50));
                                         int var57 = -var6.unknown_4_;
-                                        int var58 = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(func_020c32f8(var57)) / 4294967296.0f));
+                                        int var58 = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(ComputeFixedPointCosine_020c32f8(var57)) / 4294967296.0f));
                                         int var59 = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(ComputeFixedPointSine_020c3260(var57)) / 4294967296.0f));
                                         Mat3x3_WriteRotationY((Matrix3x3*)&var7, (fix32_t)var59, (fix32_t)var58);
                                         Mat3x3_ApplyToVector((const Vector3fix*)&var2, (const Matrix3x3*)&var7, (Vector3fix*)&var2);

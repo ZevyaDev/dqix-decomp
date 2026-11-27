@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_02037d88_8;
-extern "C" void func_02039d48(unsigned char* arg0);
+extern "C" void SetFadeInOnMove_02039d48(unsigned char* object);
 
 struct Struct_ov017_021d2c78 {
 	unsigned char unknown_0_[4];
@@ -21,5 +21,5 @@ extern "C" ARM void func_ov017_021d2c78(void* arg0, Struct_ov017_021d2c78* arg1)
 	if (arg1->unknown_5_ != 0) return;
 	if (arg1->unknown_6_ == 0) return;
 
-	func_02039d48((unsigned char*)var1);
+	SetFadeInOnMove_02039d48((unsigned char*)var1);
 }

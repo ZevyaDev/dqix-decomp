@@ -20,7 +20,7 @@ extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAct
 extern "C" void func_ov025_021de110(void*);
 extern "C" void func_ov025_021eee48(Struct_ov025_021dcf14_7*, Struct_ov025_021dcf14_8*);
 extern "C" int func_ov025_021df9f4(GameObject*);
-extern "C" void func_02033920(GameObject*, int, int);
+extern "C" void FaceGameObject_02033920(GameObject*, int, int);
 
 // USA: func_ov025_021e2ca4
 extern "C" ARM int func_ov025_021e2ca4(Struct_ov025_021e2ca4* arg0, BattleAction_ov000_0215440c_2* arg1, Struct_ov025_021dcf14_7* arg2) {
@@ -79,7 +79,7 @@ extern "C" ARM int func_ov025_021e2ca4(Struct_ov025_021e2ca4* arg0, BattleAction
         var21.unknown_a_ = var11;
         var21.unknown_c_.unknown1_0_ = fix32_Atan2(var18.x, var18.z);
         func_ov025_021eee48(arg2, &var21);
-        if (func_ov025_021df9f4(var8)) func_02033920(var8, var0->unknown_20_, 1);
+        if (func_ov025_021df9f4(var8)) FaceGameObject_02033920(var8, var0->unknown_20_, 1);
     }
     return 1;
 }

@@ -37,7 +37,7 @@ struct Struct_ov017_021982ac {
     unsigned int unknown_0_[3];
 };
 
-extern "C" int func_02094b9c(struct Struct_ov017_021982ac_2* arg0, struct Struct_ov017_021982ac* arg1);
+extern "C" int IsInsideZoneFeature_02094b9c(struct Struct_ov017_021982ac_2* feature, struct Struct_ov017_021982ac* position);
 extern "C" void func_020a28dc(void* arg0, int arg1, void* arg2, void* arg3);
 
 // USA: func_ov017_021982ac
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021982ac(void) {
 
     var6 = 0;
     while (var4 != 0) {
-        if (func_02094b9c(var4, &var3)) {
+        if (IsInsideZoneFeature_02094b9c(var4, &var3)) {
             int var7 = var4->unknown_2c_0_;
             if (var7 == 4) {
                 if (func_020a2cc4(var5)) {

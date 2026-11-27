@@ -3,10 +3,10 @@
 #include "GameState/GameState.h"
 
 extern "C" void UpdateTextWindowManager_0205d0e0(void* windowManager, int ticks);
-struct Struct_020103f0;
-extern "C" void func_020103f0(struct Struct_020103f0* arg0, unsigned short* arg1, unsigned char* arg2, unsigned char* arg3);
-extern "C" void func_020ac614(struct PlayTime_020ac4f8* arg0, int arg1);
-extern "C" void func_020ac644(struct PlayTime_020ac4f8* arg0, int arg1);
+struct GameState_020103f0;
+extern "C" void GetElapsedPlayTime_020103f0(struct GameState_020103f0* gameState, unsigned short* hours, unsigned char* minutes, unsigned char* seconds);
+extern "C" void AddPlayTimeHours_020ac614(struct PlayTime_020ac4f8* playTime, int hours);
+extern "C" void AddPlayTimeMinutes_020ac644(struct PlayTime_020ac4f8* playTime, int minutes);
 struct Struct_ov023_021e71a0;
 extern "C" void func_ov023_021e71a0(struct Struct_ov023_021e71a0* arg0);
 class Struct_ov012_0218adac;
@@ -47,15 +47,15 @@ extern "C" ARM void func_ov023_021e7404(char* arg0, int arg1) {
         }
 
         var1 = GameState::GetInstance();
-        func_020103f0((struct Struct_020103f0*)var1, &var5, &var7, &var6);
+        GetElapsedPlayTime_020103f0((struct GameState_020103f0*)var1, &var5, &var7, &var6);
 
         func_ov023_021e71a0((struct Struct_ov023_021e71a0*)(arg0 + Enum_ov023_021e7404_1550));
 
         unsigned short var8 = *(unsigned short*)(var2 + 0x3c);
-        func_020ac614((struct PlayTime_020ac4f8*)(arg0 + Enum_ov023_021e7404_1550), (unsigned short)(var8 + var5));
+        AddPlayTimeHours_020ac614((struct PlayTime_020ac4f8*)(arg0 + Enum_ov023_021e7404_1550), (unsigned short)(var8 + var5));
 
         unsigned char var9 = *(unsigned char*)(var2 + 0x3e);
-        func_020ac644((struct PlayTime_020ac4f8*)(arg0 + Enum_ov023_021e7404_1550), (unsigned char)(var9 + var7));
+        AddPlayTimeMinutes_020ac644((struct PlayTime_020ac4f8*)(arg0 + Enum_ov023_021e7404_1550), (unsigned char)(var9 + var7));
 
         unsigned char var10 = *(unsigned char*)(var2 + 0x3f);
         *(unsigned char*)(arg0 + Enum_ov023_021e7404_1553) = *(unsigned char*)(arg0 + Enum_ov023_021e7404_1553) + (unsigned char)(var10 + var6);
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov023_021e7404(char* arg0, int arg1) {
                 }
             }
 
-            func_020ac644((struct PlayTime_020ac4f8*)(arg0 + Enum_ov023_021e7404_1550), var11);
+            AddPlayTimeMinutes_020ac644((struct PlayTime_020ac4f8*)(arg0 + Enum_ov023_021e7404_1550), var11);
             *(unsigned char*)(arg0 + Enum_ov023_021e7404_1553) = *(unsigned char*)(arg0 + Enum_ov023_021e7404_1553) % 60;
         }
 afterMinuteCarry:

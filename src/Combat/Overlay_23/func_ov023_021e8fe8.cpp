@@ -6,12 +6,12 @@
 #define func_0202ae18 func_0202a9d0
 #endif
 
-extern "C" void func_020ac614(struct PlayTime_020ac4f8* arg0, int arg1);
+extern "C" void AddPlayTimeHours_020ac614(struct PlayTime_020ac4f8* playTime, int hours);
 
-extern "C" void func_020ac644(struct PlayTime_020ac4f8* arg0, int arg1);
+extern "C" void AddPlayTimeMinutes_020ac644(struct PlayTime_020ac4f8* playTime, int minutes);
 
-struct Struct_020103f0;
-extern "C" void func_020103f0(struct Struct_020103f0* arg0, unsigned short* arg1, unsigned char* arg2, unsigned char* arg3);
+struct GameState_020103f0;
+extern "C" void GetElapsedPlayTime_020103f0(struct GameState_020103f0* gameState, unsigned short* hours, unsigned char* minutes, unsigned char* seconds);
 
 struct Struct_020104cc;
 extern "C" void func_020104cc(struct Struct_020104cc* arg0, unsigned short* arg1, unsigned char* arg2, unsigned char* arg3);
@@ -37,7 +37,7 @@ extern "C" ARM struct PlayTime_020ac4f8 func_ov023_021e8fe8(struct PlayTime_020a
     var1.seconds_3_ = 0;
 
     if (arg1 == 0) {
-        func_020103f0((struct Struct_020103f0*)var0, &var2, &var3, &var4);
+        GetElapsedPlayTime_020103f0((struct GameState_020103f0*)var0, &var2, &var3, &var4);
     } else {
         void* var5 = func_0202ae18();
         int var6 = GetLocalWirelessState_0202ba00((int*)var5);
@@ -51,8 +51,8 @@ extern "C" ARM struct PlayTime_020ac4f8 func_ov023_021e8fe8(struct PlayTime_020a
         }
     }
 
-    func_020ac614(&var1, (unsigned short)(arg0.hours_0_ + var2));
-    func_020ac644(&var1, (unsigned char)(arg0.minutes_2_ + var3));
+    AddPlayTimeHours_020ac614(&var1, (unsigned short)(arg0.hours_0_ + var2));
+    AddPlayTimeMinutes_020ac644(&var1, (unsigned char)(arg0.minutes_2_ + var3));
 
     var1.seconds_3_ = var1.seconds_3_ + (unsigned char)(arg0.seconds_3_ + var4);
     unsigned char var8 = var1.seconds_3_;
@@ -67,7 +67,7 @@ extern "C" ARM struct PlayTime_020ac4f8 func_ov023_021e8fe8(struct PlayTime_020a
                 goto done;
             }
         }
-        func_020ac644(&var1, var9);
+        AddPlayTimeMinutes_020ac644(&var1, var9);
         var1.seconds_3_ = var1.seconds_3_ % 0x3c;
     }
 done:

@@ -90,7 +90,7 @@ struct GlobalFlags_02038598_4;
 
 extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 extern const char data_020f1bf0[];
-extern "C" int func_02075910(int, void*, unsigned int, int);
+extern "C" int ReadSaveMemory_02075910(int, void*, unsigned int, int);
 extern "C" int func_01ff85b8(void*, int);
 extern "C" Struct_020aaf84_4* func_0205ec34();
 #if defined(jpn)
@@ -158,7 +158,7 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
     if (arg2) var7 = 0x8084;
     else var7 = 0x84;
     var12 = &((Struct_020aaf84*)g_fileScratchSpace)->unknown_28000_;
-    if (!func_02075910(var7, var12, 0x6f60, 0)) var2 = 0;
+    if (!ReadSaveMemory_02075910(var7, var12, 0x6f60, 0)) var2 = 0;
     if (!strcmp(var1.unknown_8_, data_020f1bf0) && var2) {
         if (func_01ff85b8(var12->unknown_4_, 0x6f5c) != var12->unknown_0_) {
             var3->unknown_5a68_ = arg2 ? 3 : 2;
@@ -244,7 +244,7 @@ extern "C" ARM int func_020aaf84(int* arg0, int arg1, int arg2, int arg3) {
     if (arg2) var21 = 0x8084;
     else var21 = 0x84;
     var27 = &((Struct_020aaf84*)g_fileScratchSpace)->unknown_28000_;
-    if (!func_02075910(var21, var27, 0x6f60, 0)) var15 = 0;
+    if (!ReadSaveMemory_02075910(var21, var27, 0x6f60, 0)) var15 = 0;
     if (!strcmp(var14.unknown_8_, data_020f1bf0) && var15) {
         if (func_01ff85b8(var27->unknown_4_, 0x6f5c) != var27->unknown_0_) {
             var16->unknown_5cc8_ = arg2 ? 3 : 2;

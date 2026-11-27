@@ -64,7 +64,7 @@ extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void AddEffectResource_02057e6c(void*, int, SafeAllocator*, void*, unsigned int, TextureVRAMArea_0203d028*);
 extern "C" void UnloadExtraSoundSet_0205ebec(void*);
-extern "C" void func_02010834(GameState_02010834*, int, int*, int*);
+extern "C" void GetOwnPartyMemberObjectIndices_02010834(GameState_02010834*, int, int*, int*);
 extern "C" void PlayEffect_02057fb4(void*, int, void*);
 extern "C" void LoadExtraSoundSet_0205ebc0(void*, int, int);
 extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
         if (arg0->unknown_c_ <= 50) return;
         UnloadExtraSoundSet_0205ebec(&gSoundEffectManager_02108760);
         int var12[4], var13;
-        func_02010834((GameState_02010834*)var0, var1->obj3D_.unknown_4_, var12, &var13);
+        GetOwnPartyMemberObjectIndices_02010834((GameState_02010834*)var0, var1->obj3D_.unknown_4_, var12, &var13);
         Struct_ov017_021a6c2c var14[4];
         for (int var15 = 0; var15 < var13; var15++) {
             GameObject* var16 = var0->GetGameObjectByIndex(var12[var15]);
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
         arg0->unknown_c_ += var0->GetTickCount();
         if (arg0->unknown_c_ < 38) return;
         int var19[4], var20;
-        func_02010834((GameState_02010834*)var0, var1->obj3D_.unknown_4_, var19, &var20);
+        GetOwnPartyMemberObjectIndices_02010834((GameState_02010834*)var0, var1->obj3D_.unknown_4_, var19, &var20);
         for (int var21 = 0; var21 < var20; var21++) {
             GameObject* var22 = var0->GetGameObjectByIndex(var19[var21]);
             if (var22) var22->obj3D_.MakeHidden();
@@ -175,7 +175,7 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
         if (IsBrightnessTransitionActive(var2)) return;
         if (IsOnLadder_02039d7c((char*)var1)) {
             LadderAction_02037d10* var23 = GetLadderAction_020399a8(var1);
-            func_02038508(var23);
+            ResetLadderAction_02038508(var23);
             ((Struct_ov017_021a6c2c_5*)var1)->unknown_e0_ &= ~1;
             var1->obj3D_.DisableFlag(0x1180);
             func_ov017_021d3f00(var23, 0, 1);
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov017_021a6c2c(Struct_ov017_021a6c2c_2* arg0) {
             var24->unknown_14_ = 0x199; var24->unknown_18_ = -0x1000;
         }
         int var25[4], var26;
-        func_02010834((GameState_02010834*)var0, var1->obj3D_.unknown_4_, var25, &var26);
+        GetOwnPartyMemberObjectIndices_02010834((GameState_02010834*)var0, var1->obj3D_.unknown_4_, var25, &var26);
         for (int var27 = 0; var27 < var26; var27++) {
             GameObject* var28 = var0->GetGameObjectByIndex(var25[var27]);
             if (var28) var28->obj3D_.MakeVisible();

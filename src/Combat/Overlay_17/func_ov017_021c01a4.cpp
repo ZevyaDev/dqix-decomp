@@ -11,7 +11,7 @@ extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 struct Struct_02092aa4;
-extern "C" void func_02092aa4(Struct_02092aa4*, int);
+extern "C" void ResetCallToArms_02092aa4(Struct_02092aa4*, int);
 extern "C" void func_02092a74(SafeAllocator* arg0, SafeAllocator* arg1);
 extern "C" int ReleaseFileTablesForSpace_020a0cc4(int neededSize);
 extern "C" void LoadFileTables_020a0c0c();
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov017_021c01a4(struct Struct_ov017_021c01a4* arg0) {
             arg0->unknown_1_ = 1;
             return;
         }
-        func_02092aa4(data_ov017_021d8474, arg0->unknown_20_);
+        ResetCallToArms_02092aa4(data_ov017_021d8474, arg0->unknown_20_);
         func_02092a74((SafeAllocator*)data_ov017_021d8474, &arg0->unknown_8_);
         arg0->unknown_1c_++;
     } else if (arg0->unknown_1c_ == 1) {

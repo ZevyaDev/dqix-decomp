@@ -12,7 +12,7 @@ extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsign
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 struct Struct_ov024_021f6a1c;
 extern "C" void func_ov024_021f6a1c(struct Struct_ov024_021f6a1c* arg0, void* arg1);
-extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* arg1, int targetGroup, int targetIndex);
+extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* effects, int targetGroup, int targetIndex);
 
 struct Struct_ov024_021fc068_5 {
 	unsigned short unknown_0_;

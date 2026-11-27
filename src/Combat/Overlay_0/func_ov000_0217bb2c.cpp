@@ -28,7 +28,7 @@ extern "C" int func_ov000_0217b518(void* arg0, int arg1, int arg2);
 extern "C" int func_ov000_0217b6d0(void* arg0, int arg1, int arg2);
 extern "C" int func_ov000_0217b8a4(void* arg0, int arg1, int arg2);
 extern "C" void func_ov000_0217629c(void* arg0);
-extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int arg1, int enemyTargetCount);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int panelCount, int enemyTargetCount);
 extern "C" Struct_ov000_0217bb2c_3* func_ov000_02170cf8(void* arg0, int arg1);
 extern "C" void func_ov000_02176e3c(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
 

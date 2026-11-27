@@ -11,7 +11,7 @@ struct Struct_ov004_021676a4 { char unknown_0_[0xc]; unsigned char unknown_c_; }
 extern "C" Struct_ov004_021676a4* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 
 extern "C" int func_ov024_021f6f10(void* arg0);
-extern "C" void* func_ov023_021f79e4(void* arg0);
+extern "C" void* GetMenuObjectBGLayer_ov023_021f79e4(void* object);
 
 struct BGLayer_0204b988;
 struct BGLayer_0204b8d0;
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov004_021676a4(void* arg0) {
     if (func_ov024_021f6f10(var3) != 2) return 0;
 
     var3->unknown_c_ |= 1;
-    void* var4 = func_ov023_021f79e4(var3);
+    void* var4 = GetMenuObjectBGLayer_ov023_021f79e4(var3);
     ((BGLayer*)((struct BGLayer_0204b988*)var4))->BlitSpriteByIndex(1, 0, 0, 0xffff);
 
     if (var1 > 1) {

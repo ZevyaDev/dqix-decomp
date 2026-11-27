@@ -17,7 +17,7 @@ extern "C" short CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" void ClearItemSortList_ov023_021e1318(struct ItemSortList_ov002_0215505c_2 *sortList);
 extern "C" void func_ov023_021e133c(void *arg0, void *arg1, int arg2, int arg3, int arg4, short arg5);
-extern "C" void func_ov023_021e1518(void *arg0);
+extern "C" void ResetItemSortOrder_ov023_021e1518(void *sortList);
 extern "C" void func_ov023_021e1474(struct Struct_ov002_0215b2c8 *arg0,
                                                                                               struct ItemTable_0201099c_10 *arg1);
 extern "C" char data_ov002_0216cf83[];
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov002_0215b2c8(char *arg0) {
         func_ov023_021e133c(var7 + 0x800, arg0 + 0x850, (int) var12, var0, (int) var1, var11);
     }
     BackgroundLoader::RemoveLockGlobal();
-    func_ov023_021e1518(var7 + 0x800);
+    ResetItemSortOrder_ov023_021e1518(var7 + 0x800);
     func_ov023_021e1474(
         (struct Struct_ov002_0215b2c8 *) (var7 + 0x800), (struct ItemTable_0201099c_10 *) (arg0 + 0x3ec + 0x400));
     *(void **) (arg0 + 0x2534) = ((SafeAllocator *) (arg0 + 0x850))->Allocate(0x140);

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-extern "C" void func_02033920(void* arg0, int arg1, int arg2);
+extern "C" void FaceGameObject_02033920(void* object, int targetObjectIndex, int isTurnAnimated);
 
 struct Struct_020494c0 {
     char unknown_0_[0x4c];
@@ -23,5 +23,5 @@ extern "C" ARM void func_020494c0(struct Struct_02048f64_2* arg0) {
     var0 = arg0->unknown_13c_;
     var1 = var0->unknown_4c_;
     if (var1 == 0xff) var1 = var0->unknown_4d_;
-    func_02033920(arg0, var1, 0);
+    FaceGameObject_02033920(arg0, var1, 0);
 }

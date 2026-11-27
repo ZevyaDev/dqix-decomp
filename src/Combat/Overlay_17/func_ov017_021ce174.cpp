@@ -9,9 +9,9 @@
 struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4*);
 extern "C" void* func_0205ec34(void);
-extern "C" void func_02010774(char* arg0, int arg1);
-extern "C" void func_020107a8(char* arg0, int arg1);
-extern "C" void func_020107dc(char* arg0, int arg1);
+extern "C" void SetStoryChapter_02010774(char* gameState, int chapter);
+extern "C" void SetStoryStep_020107a8(char* gameState, int step);
+extern "C" void SetStorySubStep_020107dc(char* gameState, int subStep);
 extern "C" void func_0206e080(char* arg0, int arg1);
 extern "C" void func_0206e0d0(char* arg0, int arg1);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
@@ -36,18 +36,18 @@ extern "C" ARM void func_ov017_021ce174(void* arg0, struct Struct_ov017_021ce174
 
     switch (arg1->unknown_4_0_) {
     case 0:
-        func_02010774(arg2, arg1->unknown_6_);
-        func_020107a8(arg2, 1);
-        func_020107dc(arg2, 1);
+        SetStoryChapter_02010774(arg2, arg1->unknown_6_);
+        SetStoryStep_020107a8(arg2, 1);
+        SetStorySubStep_020107dc(arg2, 1);
         func_0206e080((char*)var0, var0[0x332]);
         break;
     case 1:
-        func_020107a8(arg2, arg1->unknown_6_);
-        func_020107dc(arg2, 1);
+        SetStoryStep_020107a8(arg2, arg1->unknown_6_);
+        SetStorySubStep_020107dc(arg2, 1);
         func_0206e0d0((char*)var0, var0[0x332]);
         break;
     case 2:
-        func_020107dc(arg2, arg1->unknown_6_);
+        SetStorySubStep_020107dc(arg2, arg1->unknown_6_);
         break;
     case 3:
         SetFlag_0206df6c(var0, var0 + 0x8c, arg1->unknown_8_, arg1->unknown_6_);

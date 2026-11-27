@@ -10,7 +10,7 @@ struct Struct_ov031_02290c5c {
 extern Struct_ov031_02290c5c data_ov031_02290c5c;
 
 extern "C" void func_ov031_02229124(void);
-extern "C" void func_ov031_02223998(int);
+extern "C" void ShowPageTitle_ov031_02223998(int);
 extern "C" void func_ov031_022373b4(int);
 extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
 extern "C" ARM int func_ov031_0223be44(int arg0, int arg1);
@@ -27,7 +27,7 @@ extern unsigned short data_ov031_02248e18[];
 extern "C" ARM void func_ov031_0222905c(void) {
     data_ov031_02290c5c.unknown_1_ = 0;
     func_ov031_02229124();
-    func_ov031_02223998(0x10);
+    ShowPageTitle_ov031_02223998(0x10);
     func_ov031_022373b4(3);
     ShowSubScreenMessage_ov031_0222336c(0x39, -1, 0);
     Struct_ov031_0222905c* var0 = (Struct_ov031_0222905c*)func_ov031_0223be44(0, 0x5b);

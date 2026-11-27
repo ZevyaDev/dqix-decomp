@@ -24,7 +24,7 @@ extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" Struct_02049b54_3 GetCombatantLineupPosition_02049b54(Combatant_02049b54_2* combatant);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834* object, int angle);
-extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
+extern "C" void SetCombatantLineupFacing_02049bac(unsigned char* combatant, int* rotation);
 extern "C" int IsDead_02010088(Struct_02010088* object);
 
 extern "C" {
@@ -65,7 +65,7 @@ extern "C" ARM void func_ov026_021daec8(Struct_ov000_02161e30* arg0, Struct_ov02
             Vector3fix var13;
             __clear(&var13, sizeof(var13));
             var13.y = var12;
-            func_02049bac((unsigned char*)var8, &var13.x);
+            SetCombatantLineupFacing_02049bac((unsigned char*)var8, &var13.x);
 
             var5[var3++] = var0[var7];
         }

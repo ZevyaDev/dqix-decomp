@@ -15,7 +15,7 @@ enum { Enum_ov017_021984f4_108 = 0x6c };
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
-extern "C" int func_02094b9c(void* arg0, void* arg1);
+extern "C" int IsInsideZoneFeature_02094b9c(void* feature, void* position);
 int fix32ReduceAngle0To2Pi(int angle);
 int fix32SignedAngleDistance(int a, int b);
 int fix32abs(int x);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov017_021984f4(void* arg0) {
     unsigned char var6 = 1;
     unsigned char var7 = 0;
     while (var3 != NULL) {
-        if (func_02094b9c(var3, &var4) != 0) {
+        if (IsInsideZoneFeature_02094b9c(var3, &var4) != 0) {
             int var8 = (short)fix32ReduceAngle0To2Pi(var3->unknown_20_ + 0x3244);
             func_ov017_0218da48(arg0, var8, 0xccc, -819, var7);
             int var9 = fix32abs(fix32SignedAngleDistance(var1->obj3D_.rotation_.y, var3->unknown_20_));

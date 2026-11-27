@@ -2,7 +2,7 @@
 
 struct Struct_02033834;
 extern "C" void _ZN8Vector3iaSERKS_(int* arg0, int* arg1);
-extern "C" void func_02048cf0(void* arg0, int arg1);
+extern "C" void PlaceCombatantOnCell_02048cf0(void* combatant, int isCurrentCellKept);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
 struct Struct_020e7b18 { unsigned int unknown_0_[3]; };
@@ -24,7 +24,7 @@ struct Struct_02049d6c_2 {
 // USA: func_02049d6c
 extern "C" ARM void func_02049d6c(struct Struct_02049d6c_2* arg0) {
     if (arg0->unknown_13c_ == NULL) return;
-    func_02048cf0(arg0, 0);
+    PlaceCombatantOnCell_02048cf0(arg0, 0);
     arg0->unknown_13c_->unknown_20_ &= ~0x21;
     struct Struct_02049d6c* var0 = arg0->unknown_13c_;
     var0->unknown_20_ |= 2;

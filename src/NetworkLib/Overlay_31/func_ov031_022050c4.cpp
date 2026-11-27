@@ -13,12 +13,12 @@ struct Struct_ov031_022050c4 {
 	char unknown_0_[0x1c];
 	void (*unknown_1c_)(int);
 };
-extern void* data_ov031_022496a4;
+extern void* gIPStackConfig_ov031_022496a4;
 
 // USA: func_ov031_022050c4
 extern "C" ARM int func_ov031_022050c4(void) {
 	if (data_ov031_0224e200.unknown_20_ < data_ov031_0224e200.unknown_18_) return -1;
-	((Struct_ov031_022050c4*)data_ov031_022496a4)->unknown_1c_(data_ov031_0224e200.unknown_0_);
+	((Struct_ov031_022050c4*)gIPStackConfig_ov031_022496a4)->unknown_1c_(data_ov031_0224e200.unknown_0_);
 	data_ov031_0224e200.unknown_0_ = 0;
 	return 0;
 }

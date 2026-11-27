@@ -8,7 +8,7 @@ enum { Enum_ov000_0217bfbc_1092 = 0x444, Enum_ov000_0217bfbc_2 = 2, Enum_ov000_0
 
 extern "C" int HitTestCursorWindowTouch_0205d97c(int);
 extern "C" void func_ov000_0217629c(void* arg0);
-extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int arg1, int enemyTargetCount);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int panelCount, int enemyTargetCount);
 extern "C" void func_ov000_02176e3c(int arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
 
 extern int data_ov000_02184294[3];

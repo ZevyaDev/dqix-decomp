@@ -6,13 +6,13 @@ struct Struct_ov031_0224e5e8_4 {
 	char unknown_0_[8];
 	void *unknown_8_;
 };
-extern struct Struct_ov031_0224e5e8_4 data_ov031_0224e5e8;
+extern struct Struct_ov031_0224e5e8_4 gAccountRequest_ov031_0224e5e8;
 extern void *data_ov031_02249ba8;
 extern "C" void func_ov031_022183b4(void);
 
 // USA: func_ov031_02216a2c
 extern "C" ARM void func_ov031_02216a2c(void) {
-	void *var0 = data_ov031_0224e5e8.unknown_8_;
+	void *var0 = gAccountRequest_ov031_0224e5e8.unknown_8_;
 	if (var0 == 0) return;
 	char *var1 = (char*)var0 + 0x1000;
 	int var2 = *(int*)(var1 + 0x314);
@@ -20,6 +20,6 @@ extern "C" ARM void func_ov031_02216a2c(void) {
 	if (var2 != 0) {
 		func_ov031_022183b4();
 	}
-	var3(&data_ov031_02249ba8, data_ov031_0224e5e8.unknown_8_, 0);
-	data_ov031_0224e5e8.unknown_8_ = 0;
+	var3(&data_ov031_02249ba8, gAccountRequest_ov031_0224e5e8.unknown_8_, 0);
+	gAccountRequest_ov031_0224e5e8.unknown_8_ = 0;
 }

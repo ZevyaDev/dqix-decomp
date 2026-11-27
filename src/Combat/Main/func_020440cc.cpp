@@ -99,7 +99,7 @@ ARM int MessageWindow_02021b84::func_020440cc() {
                 if (func_02069430(this, var9)) {
                     int var10 = func_02069444(this, var9);
 #else
-                if (func_02044494(this, &var9)) {
+                if (IsControlCode_02044494(this, &var9)) {
                     int var10 = func_02044420(this, &var9);
 #endif
                     if (var10) {

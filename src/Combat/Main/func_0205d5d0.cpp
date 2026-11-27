@@ -20,7 +20,7 @@ struct TextWindowManager_0205d5d0 {
 };
 
 extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
-extern "C" void func_0205d904(unsigned char* arg0);
+extern "C" void SetTouchMenuCursorEntryRects_0205d904(unsigned char* windowManager);
 #if defined(jpn)
 extern "C" void func_0204cb20(void* arg0, int arg1, int arg2);
 #else
@@ -49,7 +49,7 @@ extern "C" ARM int SetTextWindowText_0205d5d0(struct TextWindowManager_0205d5d0*
 #else
         func_0204cb20(textWindow, text, isWrappedAtScreenWidth, font);
 #endif
-        func_0205d904((unsigned char*)windowManager);
+        SetTouchMenuCursorEntryRects_0205d904((unsigned char*)windowManager);
         return 0;
     }
     return 1;

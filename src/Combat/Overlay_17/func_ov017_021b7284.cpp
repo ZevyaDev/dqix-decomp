@@ -179,7 +179,7 @@ extern "C" int func_0207d978(BattleJoinRecord_0207d7f4* arg0, unsigned short arg
 extern "C" int func_0207da30(unsigned char* arg0, int arg1, int arg2);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" void func_0207d7f4(BattleJoinRecord_0207d7f4* arg0, unsigned short arg1, int arg2, int arg3, signed char arg4, unsigned short arg5, unsigned char arg6);
-extern "C" BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(BattleJoinRecord_0207d7f4* arg0, unsigned short monsterId);
+extern "C" BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
 extern "C" void func_ov017_021ca2a0(int arg0, int arg1);
 
 struct Struct_ov017_021b7284_10 {

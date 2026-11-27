@@ -25,17 +25,17 @@ struct Struct_ov031_022350bc {
     unsigned char unknown_1a_;
     unsigned char unknown_1b_;
 };
-extern Struct_ov031_022350bc* data_ov031_02290cf4;
+extern Struct_ov031_022350bc* gScrollBar_ov031_02290cf4;
 
 // USA: func_ov031_022350bc
 extern "C" ARM void func_ov031_022350bc(int arg0, int arg1, unsigned short arg2, unsigned short arg3, int arg4) {
-    data_ov031_02290cf4 = (Struct_ov031_022350bc*)AllocateZeroedMemory_ov031_0223cf4c(0x20, 4);
-    data_ov031_02290cf4->unknown_1b_ = (unsigned char)arg0;
-    data_ov031_02290cf4->unknown_19_ = (unsigned char)arg1;
-    data_ov031_02290cf4->unknown_1a_ = (unsigned char)arg4;
-    func_ov031_0223cb10((unsigned short)arg2, (unsigned short)arg3, (Struct_ov031_022350bc_2*)((char*)data_ov031_02290cf4 + 0x10));
-    data_ov031_02290cf4->unknown_0_ = func_ov031_0223be70(0, data_ov031_022491f0[arg0], 1);
-    SetSpritePosition_ov031_0223bbd8((void*)data_ov031_02290cf4->unknown_0_, -1, arg2, arg3 + arg4);
-    SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)data_ov031_02290cf4->unknown_0_, -1, 1);
-    data_ov031_02290cf4->unknown_c_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_02235234, 0, 0x80);
+    gScrollBar_ov031_02290cf4 = (Struct_ov031_022350bc*)AllocateZeroedMemory_ov031_0223cf4c(0x20, 4);
+    gScrollBar_ov031_02290cf4->unknown_1b_ = (unsigned char)arg0;
+    gScrollBar_ov031_02290cf4->unknown_19_ = (unsigned char)arg1;
+    gScrollBar_ov031_02290cf4->unknown_1a_ = (unsigned char)arg4;
+    func_ov031_0223cb10((unsigned short)arg2, (unsigned short)arg3, (Struct_ov031_022350bc_2*)((char*)gScrollBar_ov031_02290cf4 + 0x10));
+    gScrollBar_ov031_02290cf4->unknown_0_ = func_ov031_0223be70(0, data_ov031_022491f0[arg0], 1);
+    SetSpritePosition_ov031_0223bbd8((void*)gScrollBar_ov031_02290cf4->unknown_0_, -1, arg2, arg3 + arg4);
+    SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)gScrollBar_ov031_02290cf4->unknown_0_, -1, 1);
+    gScrollBar_ov031_02290cf4->unknown_c_ = (int)AddTask_ov031_0223e218(0, (void*)func_ov031_02235234, 0, 0x80);
 }

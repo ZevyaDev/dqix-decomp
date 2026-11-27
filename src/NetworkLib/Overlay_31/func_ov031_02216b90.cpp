@@ -42,7 +42,7 @@ extern "C" void func_ov031_02217db4(void* arg0, int arg1);
 extern Struct_ov031_02249b54 data_ov031_02249b54;
 extern Struct_ov031_02249b54 data_ov031_02249b54;
 extern const char data_ov031_02249bb8[];
-extern Struct_ov031_0224e5e8_8 data_ov031_0224e5e8;
+extern Struct_ov031_0224e5e8_8 gAccountRequest_ov031_0224e5e8;
 extern int data_ov031_0224e5f4;
 extern Struct_02111304_6 gContextScheduler_02111304;
 
@@ -51,28 +51,28 @@ extern "C" ARM int func_ov031_02216b90(int arg0) {
     if (strcmp(data_ov031_02249b54.unknown_0_, data_ov031_02249bb8) != 0) {
         data_ov031_02249b54.unknown_14_ = 1;
     }
-    data_ov031_02249b54.unknown_c_ = data_ov031_0224e5e8.unknown_8_->unknown_120c_;
-    data_ov031_02249b54.unknown_10_ = data_ov031_0224e5e8.unknown_8_->unknown_1210_;
+    data_ov031_02249b54.unknown_c_ = gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_120c_;
+    data_ov031_02249b54.unknown_10_ = gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1210_;
 #if defined(jpn)
-    if (func_ov031_02217c00(data_ov031_0224e5e8.unknown_8_->unknown_1314_, ((__typeof__(&data_ov031_02249b54))0x0224A754)) != 0) {
+    if (func_ov031_02217c00(gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1314_, ((__typeof__(&data_ov031_02249b54))0x0224A754)) != 0) {
 #else
-    if (func_ov031_02217c00(data_ov031_0224e5e8.unknown_8_->unknown_1314_, ((__typeof__(&data_ov031_02249b54))0x02249B54)) != 0) {
+    if (func_ov031_02217c00(gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1314_, ((__typeof__(&data_ov031_02249b54))0x02249B54)) != 0) {
 #endif
         return 4;
     }
     if (arg0 == 1) {
         func_ov031_0221ae00(&data_ov031_0224e5f4);
     }
-    data_ov031_0224e5e8.unknown_8_->unknown_1004_ = func_ov031_022173f4(data_ov031_0224e5e8.unknown_8_->unknown_1314_,
-                                                          data_ov031_0224e5e8.unknown_8_->unknown_1200_,
-                                                          data_ov031_0224e5e8.unknown_8_->unknown_11cc_);
-    if (data_ov031_0224e5e8.unknown_8_->unknown_1004_ != 0) {
+    gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1004_ = func_ov031_022173f4(gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1314_,
+                                                          gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1200_,
+                                                          gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_11cc_);
+    if (gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1004_ != 0) {
         return 4;
     }
-    if (func_ov031_02217d1c(data_ov031_0224e5e8.unknown_8_->unknown_1314_) != 0) {
+    if (func_ov031_02217d1c(gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1314_) != 0) {
         return 4;
     }
-    func_ov031_02217db4(data_ov031_0224e5e8.unknown_8_->unknown_1314_,
+    func_ov031_02217db4(gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1314_,
                         GetContextPriority((ProcessorContext*)gContextScheduler_02111304.unknown_4_) - 1);
     return 0;
 }

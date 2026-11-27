@@ -221,7 +221,7 @@ extern "C" int func_02053ed0(void* arg0);
 extern "C" int func_0203402c(struct Struct_0203402c* arg0);
 extern "C" int fix32_Divide(int arg0, int arg1);
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
-extern "C" unsigned short func_0202bc8c(struct LocalWireless_0202b2f0* arg0);
+extern "C" unsigned short GetConnectedConsoleMask_0202bc8c(struct LocalWireless_0202b2f0* wireless);
 extern "C" int func_ov017_021bd3a4(struct Struct_ov017_0218e674* arg0);
 extern "C" int GetPartyLeaderObjectIndex_02039888(void* object);
 struct Vector3i;
@@ -499,7 +499,7 @@ dispatched:
         var30->unknown_c_ = (short)(var2[2] >> 7);
         var30->unknown_e_ = (short)var3[1];
         var30->unknown_1_0_ = (unsigned short)var31;
-        var30->unknown_4_0_ = func_0202bc8c(var7);
+        var30->unknown_4_0_ = GetConnectedConsoleMask_0202bc8c(var7);
         var30->unknown_6_0_ = g_keyManager.currentKeys_;
         var30->unknown_3_4_ = 1;
         var30->unknown_3_7_ = var32;

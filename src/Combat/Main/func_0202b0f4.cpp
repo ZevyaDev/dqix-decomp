@@ -3,10 +3,10 @@
 extern "C" void SaveAndDisableVCounterInterrupt_020d8654();
 extern "C" void func_0202dd28();
 extern "C" int func_0202b1f4(int* arg0, int arg1);
-extern "C" void func_0202aec0(void* arg0);
+extern "C" void ResetLocalWireless_0202aec0(void* wireless);
 extern "C" void RestoreVCounterInterrupt_020d8694(void);
 void SleepCurrentContext(unsigned int);
-extern "C" int func_0202d6a8(void);
+extern "C" int GetLocalWirelessLinkState_0202d6a8(void);
 extern "C" void func_0202dd98(void);
 extern "C" int func_0202df10();
 
@@ -16,13 +16,13 @@ extern "C" ARM unsigned char StopLocalWireless_0202b0f4(int* wireless) {
     SaveAndDisableVCounterInterrupt_020d8654();
     if (*wireless != 0) {
         int waitCount = 0;
-        while (func_0202d6a8() == 3) {
+        while (GetLocalWirelessLinkState_0202d6a8() == 3) {
             waitCount++;
             if (waitCount > 5000) {
                 func_0202dd28();
                 status = func_0202b1f4(wireless, 1);
                 if (status == 3) {
-                    func_0202aec0(wireless);
+                    ResetLocalWireless_0202aec0(wireless);
                     RestoreVCounterInterrupt_020d8694();
                     return (unsigned char)status;
                 }
@@ -34,7 +34,7 @@ extern "C" ARM unsigned char StopLocalWireless_0202b0f4(int* wireless) {
         func_0202dd98();
         status = func_0202b1f4(wireless, 1);
         if (status == 3) {
-            func_0202aec0(wireless);
+            ResetLocalWireless_0202aec0(wireless);
             RestoreVCounterInterrupt_020d8694();
             return (unsigned char)status;
         }
@@ -42,14 +42,14 @@ extern "C" ARM unsigned char StopLocalWireless_0202b0f4(int* wireless) {
             func_0202dd28();
             status = func_0202b1f4(wireless, 1);
             if (status == 3) {
-                func_0202aec0(wireless);
+                ResetLocalWireless_0202aec0(wireless);
                 RestoreVCounterInterrupt_020d8694();
                 return (unsigned char)status;
             }
         }
         func_0202df10();
     }
-    func_0202aec0(wireless);
+    ResetLocalWireless_0202aec0(wireless);
     RestoreVCounterInterrupt_020d8694();
     return (unsigned char)status;
 }

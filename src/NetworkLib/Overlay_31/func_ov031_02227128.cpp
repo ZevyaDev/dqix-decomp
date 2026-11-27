@@ -16,7 +16,7 @@ extern "C" void func_020c9be0(void);
 extern "C" ARM void func_020cf020(void);
 
 extern "C" void func_ov031_0223dda8(void);
-extern int data_ov031_02250c0c;
+extern int gWifiSetup_ov031_02250c0c;
 extern "C" ARM void func_ov031_0223ce9c(void* arg0);
 extern "C" ARM void func_ov031_0223d780(void);
 extern "C" void func_ov031_0223e00c(void);
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov031_02227128(void) {
     func_020c3898();
     *(volatile unsigned int*)0x4001000 &= ~0x10000;
     func_ov031_0223dda8();
-    func_ov031_0223ce9c(*(void**)((char*)&data_ov031_02250c0c + 0x4));
+    func_ov031_0223ce9c(*(void**)((char*)&gWifiSetup_ov031_02250c0c + 0x4));
     func_ov031_0223d780();
     func_ov031_0223e00c();
     func_ov031_0223b324();

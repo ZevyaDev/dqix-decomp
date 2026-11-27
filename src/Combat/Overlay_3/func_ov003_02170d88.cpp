@@ -161,7 +161,7 @@ struct Struct_02000c9c_8;
 struct Struct_ov003_02170d88_13;
 extern "C" void* func_0202ae18();
 struct Struct_0202aec0_2;
-extern "C" void func_0202aec0(Struct_0202aec0_2*);
+extern "C" void ResetLocalWireless_0202aec0(Struct_0202aec0_2*);
 extern "C" void* func_0202ae24();
 extern "C" void ResetLocalWirelessPacketQueue_0205e22c(void*);
 extern "C" void VectorizedMemset(void*, int, unsigned int);
@@ -195,7 +195,7 @@ extern "C" ARM void func_ov003_02170d88(Struct_ov003_02170d88_4* arg0) {
     arg0->unknown_720_ = 0;
     arg0->unknown_724_ = 0;
     Struct_0202aec0_2* var1 = static_cast<Struct_0202aec0_2*>(func_0202ae18());
-    func_0202aec0(var1);
+    ResetLocalWireless_0202aec0(var1);
     void* var2 = func_0202ae24();
     ResetLocalWirelessPacketQueue_0205e22c(var2);
     GameState* var3 = GameState::GetInstance();

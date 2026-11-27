@@ -4,8 +4,8 @@
 #include "Combat/WorkRecord.h"
 
 // USA: func_0206db48
-extern "C" ARM void func_0206db48(void *arg0, Struct_0206bf2c *arg1) {
-    Struct_0206bf2c *var0 = (Struct_0206bf2c *) FindNPCPlacement_0206db20(arg0, arg1->unknown_0_);
+extern "C" ARM void func_0206db48(void *arg0, NPCPlacement_0206bf2c *arg1) {
+    NPCPlacement_0206bf2c *var0 = (NPCPlacement_0206bf2c *) FindNPCPlacement_0206db20(arg0, arg1->npcId_0_);
     int var1;
     if (arg1->unknown_a_2_) {
         var1 = 0;
@@ -61,18 +61,18 @@ extern "C" ARM void func_0206db48(void *arg0, Struct_0206bf2c *arg1) {
             return;
         }
         if (var0->unknown_6c_ == 0) {
-            if (var0->unknown_64_ != 0) {
-                var0->unknown_64_->unknown_68_ = arg1;
+            if (var0->pPrevious_64_ != 0) {
+                var0->pPrevious_64_->pNext_68_ = arg1;
             }
-            if (var0->unknown_68_ != 0) {
-                var0->unknown_68_->unknown_64_ = arg1;
+            if (var0->pNext_68_ != 0) {
+                var0->pNext_68_->pPrevious_64_ = arg1;
             }
-            arg1->unknown_64_ = var0->unknown_64_;
-            arg1->unknown_68_ = var0->unknown_68_;
-            var0->unknown_64_   = 0;
-            var0->unknown_68_   = 0;
-            if (arg1->unknown_64_ == 0) {
-                *(Struct_0206bf2c **) arg0 = arg1;
+            arg1->pPrevious_64_ = var0->pPrevious_64_;
+            arg1->pNext_68_ = var0->pNext_68_;
+            var0->pPrevious_64_   = 0;
+            var0->pNext_68_   = 0;
+            if (arg1->pPrevious_64_ == 0) {
+                *(NPCPlacement_0206bf2c **) arg0 = arg1;
             }
         }
         if (var0->unknown_6c_ != 0) {
@@ -82,10 +82,10 @@ extern "C" ARM void func_0206db48(void *arg0, Struct_0206bf2c *arg1) {
         arg1->unknown_70_ = var0;
         var0->unknown_6c_   = arg1;
     } else {
-        if (*(Struct_0206bf2c **) arg0 != 0) {
-            (*(Struct_0206bf2c **) arg0)->unknown_64_ = arg1;
+        if (*(NPCPlacement_0206bf2c **) arg0 != 0) {
+            (*(NPCPlacement_0206bf2c **) arg0)->pPrevious_64_ = arg1;
         }
-        arg1->unknown_68_            = *(Struct_0206bf2c **) arg0;
-        *(Struct_0206bf2c **) arg0 = arg1;
+        arg1->pNext_68_            = *(NPCPlacement_0206bf2c **) arg0;
+        *(NPCPlacement_0206bf2c **) arg0 = arg1;
     }
 }

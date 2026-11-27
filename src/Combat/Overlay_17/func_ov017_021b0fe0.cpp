@@ -14,7 +14,7 @@ enum { Enum_ov017_021b0fe0_1788 = 0x6fc, Enum_ov017_021b0fe0_1816 = 0x718, Enum_
 
 extern "C" void func_ov017_021c45b4(int arg0);
 extern "C" void func_ov017_021cc97c(int arg0);
-extern "C" void func_ov017_021cee78(int arg0, unsigned char arg1);
+extern "C" void SendObjectPosition_ov017_021cee78(int objectIndex, unsigned char isFacingInstant);
 extern "C" void func_ov017_021ce32c(int arg0);
 
 extern "C" void func_ov017_021c41fc(int arg0, int arg1);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov017_021b0fe0(int arg0) {
 	func_ov017_021ccfd0(arg0);
 	func_ov017_021cff8c(arg0, 1);
 	func_ov017_021ce32c(arg0);
-	func_ov017_021cee78(arg0, 0);
+	SendObjectPosition_ov017_021cee78(arg0, 0);
 	func_ov017_021d0e00(arg0);
 	func_ov017_021c9e00(arg0, 1, 0, 1);
 	func_ov017_021d25f4(arg0 & 0xff);

@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-// USA: func_ov023_021e1518
-extern "C" ARM void func_ov023_021e1518(void* arg0) {
-    char* var0 = *(char**)((char*)arg0 + 0x4);
-    short var1 = *(short*)((char*)arg0 + 0x8);
-    for (short var2 = 0; var2 < var1; var2++) {
-        char* var3 = var0 + (var2 << 4);
-        *(unsigned int*)var3 = 0;
-        *(unsigned char*)(var3 + 0xe) &= ~1;
+// USA: ResetItemSortOrder_ov023_021e1518
+extern "C" ARM void ResetItemSortOrder_ov023_021e1518(void* sortList) {
+    char* entries = *(char**)((char*)sortList + 0x4);
+    short entryCount = *(short*)((char*)sortList + 0x8);
+    for (short i = 0; i < entryCount; i++) {
+        char* entry = entries + (i << 4);
+        *(unsigned int*)entry = 0;
+        *(unsigned char*)(entry + 0xe) &= ~1;
     }
-    *(int*)arg0 = 0;
+    *(int*)sortList = 0;
 }

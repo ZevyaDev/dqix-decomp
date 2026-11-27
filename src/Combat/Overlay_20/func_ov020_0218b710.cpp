@@ -90,7 +90,7 @@ extern "C" void func_020440a4(void* arg0);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" void ClearMessageGlyphs_02045cac(MessageWindow_02045cac* window);
 extern "C" void InitChoiceList_0205c790(char* choiceList);
-extern "C" int func_020ab9c0(int arg0);
+extern "C" int GetSaveHeaderStatus_020ab9c0(int isSecondCopy);
 extern "C" void AddChoiceListEntry_0205cb74(char* choiceList, int text);
 extern "C" void DrawMessageGlyphs_0204359c(void* window, int glyphCount);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc* cursor, int index);
@@ -599,7 +599,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         arg0->unknown_bd_ = 1;
         arg0->unknown_bc_ = 1;
 #if defined(jpn)
-        if (func_020ab9c0(1) == 4) {
+        if (GetSaveHeaderStatus_020ab9c0(1) == 4) {
             Struct_ov020_0218b710_6 var18 = *(Struct_ov020_0218b710_6*)data_ov020_0218da90;
             for (int var19 = 0; var19 < 8; var19++) {
                 AddChoiceListEntry_0205cb74(arg0->unknown_c_, (int)(var18.unknown_0_ + var19 * 0x20));
@@ -620,7 +620,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         arg0->unknown_c2_ = 0x28;
         func_0205dfa8(arg0->unknown_c_);
 #else
-        if (func_020ab9c0(1) == 4) {
+        if (GetSaveHeaderStatus_020ab9c0(1) == 4) {
             for (int var22 = 0; var22 < 8; var22++) {
                 AddChoiceListEntry_0205cb74(arg0->unknown_c_, (int)(data_ov020_0218da90 + var22 * 0x20));
                 DrawMessageGlyphs_0204359c(var17, 0x10);

@@ -25,7 +25,7 @@ struct SoundEffectManager_02108760;
 struct TextWindowManager_0205d81c;
 struct TextWindowManager_0205dee8;
 struct Struct_020a83b0;
-struct Struct_02048350_2;
+struct PartyMember_02048350_2;
 struct Struct_ov002_02165b44 {
     char *unknown_0_;
     int unknown_4_;
@@ -49,7 +49,7 @@ extern "C" GameObject *GetGameObjectByIndex_0200ff94(GameState *gameState, int i
 extern "C" int func_0206dfb0(int flagManager, unsigned char *flags, int flagIndex);
 extern "C" char *func_020a83b0(struct Struct_020a83b0 *arg0, int arg1);
 extern "C" char *FindActionData_02079e2c(char *actionTables, int actionId);
-extern "C" void func_02048350(struct Struct_02048350_2 *arg0, int arg1);
+extern "C" void SpendMP_02048350(struct PartyMember_02048350_2 *member, int mpCost);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void *GetZoneEntry_0200fd0c(GameState *gameState);
 extern "C" void VectorizedMemset(void *dst, int value, unsigned int length);
@@ -130,8 +130,8 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     } else {
                         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
                         char *var12 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), 0xca);
-                        func_02048350(
-                            (struct Struct_02048350_2 *) GetGameObjectByIndex_0200ff94(var3, *(signed char *) (arg0 + 0x1ae8)),
+                        SpendMP_02048350(
+                            (struct PartyMember_02048350_2 *) GetGameObjectByIndex_0200ff94(var3, *(signed char *) (arg0 + 0x1ae8)),
                             ((struct Struct_ov002_02165b44 *) var12)->unknown_8_0_);
                         if (IsLocalWirelessOn_0202b7d8(var11)) func_ov017_021c9e00(*(signed char *) (arg0 + 0x1ae8), 0, 0, 1);
                     }
@@ -284,8 +284,8 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                     } else {
                         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760 *) gSoundEffectManager_02108760, 0x64, 0);
                         char *var31 = FindActionData_02079e2c((char*)GetActionTables_020797dc(), 0xca);
-                        func_02048350(
-                            (struct Struct_02048350_2 *) GetGameObjectByIndex_0200ff94(var22, *(signed char *) (arg0 + 0x1c00 + 0x20)),
+                        SpendMP_02048350(
+                            (struct PartyMember_02048350_2 *) GetGameObjectByIndex_0200ff94(var22, *(signed char *) (arg0 + 0x1c00 + 0x20)),
                             ((struct Struct_ov002_02165b44 *) var31)->unknown_8_0_);
                         if (IsLocalWirelessOn_0202b7d8(var30)) func_ov017_021c9e00(*(signed char *) (arg0 + 0x1c00 + 0x20), 0, 0, 1);
                     }

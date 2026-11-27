@@ -36,7 +36,7 @@ extern "C" void ResetMatrixStacks_020c5414();
 extern "C" int func_020c555c(int edgeColors);
 extern "C" void* func_020100bc(GameState* gameState);
 extern "C" void UpdateCamera_0202e0a4(void* camera);
-extern "C" void WriteAndLoadViewMatrix_020c57d4(int eyePosition, int upDirection, int targetPosition, int arg3, void* outMatrix);
+extern "C" void WriteAndLoadViewMatrix_020c57d4(int eyePosition, int upDirection, int targetPosition, int isLoadedAsPositionVector, void* outMatrix);
 extern "C" void SetOrthographicProjection_020c5770(int top, int bottom, int left, int right, int nearPlane, int farPlane, int matrixScale, int isLoadedAsProjection, void* projectionMatrix);
 extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" void func_ov015_02190348(void* arg0);

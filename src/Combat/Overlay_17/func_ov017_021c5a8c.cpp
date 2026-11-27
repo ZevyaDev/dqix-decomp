@@ -14,7 +14,7 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void);
 extern "C" void func_ov017_021ca2a0(int arg0, int arg1);
 extern "C" void* GetBattleJoinTable_0207d78c(void);
 struct BattleJoinRecord_0207d7f4;
-extern "C" struct BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(struct BattleJoinRecord_0207d7f4* arg0, unsigned short monsterId);
+extern "C" struct BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(struct BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
 extern "C" void func_0207d7f4(void* arg0, unsigned short arg1, int arg2, int arg3, int arg4, unsigned short arg5, unsigned char arg6);
 extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" void func_ov017_021b88d0(void* arg0, int arg1, unsigned short arg2);

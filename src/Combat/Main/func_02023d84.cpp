@@ -14,8 +14,8 @@
 struct GlobalFlags_02012de8;
 extern "C" void *func_020d6c00();
 extern "C" int func_02046708(GlobalFlags_02012de8 *globalFlags, unsigned int mask);
-extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
-                              unsigned short arg6, unsigned char arg7, int arg8, int arg9);
+extern "C" void DrawMetatileAt_0202756c(void *subScreenDisplay, int positionX, int positionY, int metatileIndex, unsigned char destinationObjIndex, unsigned char priority,
+                              unsigned short palette, unsigned char rotScaleDataIndex, int scaleX, int scaleY);
 
 struct Struct_020e7064 {
     int unknown_0_[4];
@@ -77,7 +77,7 @@ extern "C" ARM void func_02023d84(void *arg0, Struct_020236dc *arg1, int arg2, i
             if (arg7) {
                 var15 = -(static_cast<int>(static_cast<float>(FIX32_MULTIPLY(var11->unknown_0_.y, var13)) / 4096.0f) - arg4);
             }
-            func_0202756c(arg0, (var14 + arg5 - 1) << 12, (var15 + arg6 - 1) << 12, 8,
+            DrawMetatileAt_0202756c(arg0, (var14 + arg5 - 1) << 12, (var15 + arg6 - 1) << 12, 8,
                                      static_cast<unsigned char>(var6 + 0x54), 0, 0xff, 0xff, 0x1000, 0x1000);
         }
     }

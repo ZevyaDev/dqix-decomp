@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/StringList.h"
 
-extern "C" void* func_ov023_021db4e4(void* arg0, int arg1);
+extern "C" void* FindLayoutGroup_ov023_021db4e4(void* layout, int groupId);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
 struct Struct_0201099c_3;
 
@@ -30,32 +30,32 @@ extern "C" ARM void func_ov023_021dbd10(void* arg0, struct Struct_ov023_021dbd10
 
     int var1 = (arg1->unknown_8_0_ <= 7) ? 1 : 0;
     if (var1) {
-        var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0x9);
+        var0 = (struct Struct_ov023_021dbd10*)FindLayoutGroup_ov023_021db4e4(arg0, 0x9);
         if (var0) var0->unknown_16_ &= ~1;
-        var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0x1c);
+        var0 = (struct Struct_ov023_021dbd10*)FindLayoutGroup_ov023_021db4e4(arg0, 0x1c);
         if (var0) var0->unknown_16_ &= ~1;
-        var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0x1b);
+        var0 = (struct Struct_ov023_021dbd10*)FindLayoutGroup_ov023_021db4e4(arg0, 0x1b);
         if (var0) var0->unknown_16_ &= ~1;
-        var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0xb);
+        var0 = (struct Struct_ov023_021dbd10*)FindLayoutGroup_ov023_021db4e4(arg0, 0xb);
         if (var0) var0->unknown_16_ &= ~1;
-        var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0x2a);
+        var0 = (struct Struct_ov023_021dbd10*)FindLayoutGroup_ov023_021db4e4(arg0, 0x2a);
         if (var0) var0->unknown_16_ &= ~1;
-        var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0x2c);
+        var0 = (struct Struct_ov023_021dbd10*)FindLayoutGroup_ov023_021db4e4(arg0, 0x2c);
         if (var0) var0->unknown_16_ &= ~1;
         return;
     }
 
-    var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0x14);
+    var0 = (struct Struct_ov023_021dbd10*)FindLayoutGroup_ov023_021db4e4(arg0, 0x14);
     if (var0) var0->unknown_16_ &= ~1;
-    var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0x13);
+    var0 = (struct Struct_ov023_021dbd10*)FindLayoutGroup_ov023_021db4e4(arg0, 0x13);
     if (var0) var0->unknown_16_ &= ~1;
-    var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0x10);
+    var0 = (struct Struct_ov023_021dbd10*)FindLayoutGroup_ov023_021db4e4(arg0, 0x10);
     if (var0) var0->unknown_16_ &= ~1;
-    var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0x12);
+    var0 = (struct Struct_ov023_021dbd10*)FindLayoutGroup_ov023_021db4e4(arg0, 0x12);
     if (var0) var0->unknown_16_ &= ~1;
-    var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0xf);
+    var0 = (struct Struct_ov023_021dbd10*)FindLayoutGroup_ov023_021db4e4(arg0, 0xf);
     if (var0) var0->unknown_16_ &= ~1;
-    var0 = (struct Struct_ov023_021dbd10*)func_ov023_021db4e4(arg0, 0xe);
+    var0 = (struct Struct_ov023_021dbd10*)FindLayoutGroup_ov023_021db4e4(arg0, 0xe);
     if (var0) var0->unknown_16_ &= ~1;
 
     func_ov023_021e23d0(arg0, 0x19, ((int)((StringList*)(data_ov023_021ff9e0.unknown_14_))->GetString(0x24)), 0xa, 0xf);

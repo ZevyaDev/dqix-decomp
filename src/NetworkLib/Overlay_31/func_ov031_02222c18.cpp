@@ -2,7 +2,7 @@
 
 extern "C" int FastIntModulus(int arg0, int arg1);
 extern "C" int FastIntDivide(int arg0, unsigned int arg1);
-extern "C" void func_ov031_0223bdb0(int arg0, int arg1, void* arg2);
+extern "C" void CopySpriteOAMEntries_ov031_0223bdb0(int isSubScreen, int spriteId, void* oamEntries);
 
 struct Struct_ov031_02222b0c { unsigned int unknown_0_; unsigned short unknown_4_; unsigned short unknown_6_; };
 struct Struct_ov031_02222b0c_2 {
@@ -18,7 +18,7 @@ extern unsigned char data_ov031_02248910[];
 extern "C" ARM void func_ov031_02222c18(void) {
 	data_ov031_02250ba4->unknown_9_ = FastIntModulus(data_ov031_02250ba4->unknown_9_ + 1, 0x28);
 	int var0 = FastIntDivide(data_ov031_02250ba4->unknown_9_, 5);
-	func_ov031_0223bdb0(0, var0 + 0x47, data_ov031_02250ba4->unknown_4_);
+	CopySpriteOAMEntries_ov031_0223bdb0(0, var0 + 0x47, data_ov031_02250ba4->unknown_4_);
 
 	data_ov031_02250ba4->unknown_4_->unknown_4_ = (data_ov031_02250ba4->unknown_4_->unknown_4_ & ~0xc00) | 0x400;
 

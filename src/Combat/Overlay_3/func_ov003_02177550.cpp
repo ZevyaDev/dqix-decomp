@@ -22,7 +22,7 @@ extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int window
 extern "C" void ShowMenuLayoutWindowTexts_02080bac(void *menuLayout, int windowId);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c *menuLayout, int textId, int text);
-extern "C" void func_020805f4(void *arg0, int arg1);
+extern "C" void CapitalizeMenuLayoutText_020805f4(void *menuLayout, int textId);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void *menuLayout, int textId, int stringId);
 struct MenuLayout_02080cc0;
 extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0 *menuLayout, int textId, int color);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov003_02177550(Struct_ov003_02177550_2 *arg0) {
     ShowMenuLayoutWindowTexts_02080bac(var2, 0xf);
     SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c *) var2, 0x70, var3->unknown_4_);
 #if !defined(jpn)
-    func_020805f4(var2, 0x70);
+    CapitalizeMenuLayoutText_020805f4(var2, 0x70);
 #endif
     int var4         = GetEquipRestrictions_020dd4c4(arg0->unknown_1043_, var3);
     unsigned int var5 = var3->unknown_c_7_;

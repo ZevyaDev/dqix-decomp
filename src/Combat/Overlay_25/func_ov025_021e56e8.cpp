@@ -13,7 +13,7 @@ extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int a
 extern "C" void func_ov025_021e4448(int* arg0, int arg1, int arg2, int arg3);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* GetBattleCamera_ov000_02160f14(void* battleScene);
-extern "C" int func_0202e800(void* arg0);
+extern "C" int GetCameraDistance_0202e800(void* camera);
 
 extern Vector3fix data_ov025_021eef24;
 
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov025_021e56e8(struct Struct_ov025_021e56e8* arg0, int a
         float var6 = 0.08f;
         float var7 = 6.5f;
         float var8 = 7.0f;
-        float var9 = func_0202e800(var4) / 4096.0f;
+        float var9 = GetCameraDistance_0202e800(var4) / 4096.0f;
         float var10 = var9 * ((var6 - var5) / (var8 - var7)) + (var8 * var5 - var7 * var6) / (var8 - var7);
         if (var10 < 0.065f) {
             var10 = 0.065f;

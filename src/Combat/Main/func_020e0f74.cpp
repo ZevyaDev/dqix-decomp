@@ -27,8 +27,8 @@ extern "C" void *func_020d6c00();
 extern "C" int func_02046708(GlobalFlags_02012de8 *globalFlags, unsigned int mask);
 extern "C" void *func_0202ae18();
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
-extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
-                              unsigned short arg6, unsigned char arg7, int arg8, int arg9);
+extern "C" void DrawMetatileAt_0202756c(void *subScreenDisplay, int positionX, int positionY, int metatileIndex, unsigned char destinationObjIndex, unsigned char priority,
+                              unsigned short palette, unsigned char rotScaleDataIndex, int scaleX, int scaleY);
 
 struct Struct_020e0f74 {
 #if defined(jpn)
@@ -71,15 +71,15 @@ extern "C" ARM void func_020e0f74(void *arg0) {
     if (IsLocalWirelessOn_0202b7d8(var1)) {
         var2 += 14;
     }
-    func_0202756c(arg0, var2 << 12, 5 << 12, 0, 0x1f, 1, 0xff, 0xff, 0x1000, 0x1000);
-    func_0202756c(arg0, 106 << 12, 130 << 12, 1, Enum_020e0f74_38, 1, 0xff, 0xff, 0x1000, 0x1000);
+    DrawMetatileAt_0202756c(arg0, var2 << 12, 5 << 12, 0, 0x1f, 1, 0xff, 0xff, 0x1000, 0x1000);
+    DrawMetatileAt_0202756c(arg0, 106 << 12, 130 << 12, 1, Enum_020e0f74_38, 1, 0xff, 0xff, 0x1000, 0x1000);
 
     if (var0->unknown_766_ < 1000 && var0->unknown_766_ != 0) {
         int var3 = Enum_020e0f74_30;
         if (IsLocalWirelessOn_0202b7d8(var1)) {
             var3 += 11;
         }
-        func_0202756c(arg0, Enum_020e0f74_5 << 12, var3 << 12, 2, Enum_020e0f74_51, 1, 0xff, 0xff, 0x1000, 0x1000);
+        DrawMetatileAt_0202756c(arg0, Enum_020e0f74_5 << 12, var3 << 12, 2, Enum_020e0f74_51, 1, 0xff, 0xff, 0x1000, 0x1000);
     }
-    func_0202756c(arg0, 0, Enum_020e0f74_129 << 12, 3, Enum_020e0f74_65, 1, 0xff, 0xff, 0x1000, 0x1000);
+    DrawMetatileAt_0202756c(arg0, 0, Enum_020e0f74_129 << 12, 3, Enum_020e0f74_65, 1, 0xff, 0xff, 0x1000, 0x1000);
 }

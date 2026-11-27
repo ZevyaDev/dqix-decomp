@@ -16,11 +16,11 @@ enum { Enum_ov004_02166ac4_2402 = 0x962 };
 
 
 #if defined(jpn)
-extern char* data_ov004_0217101c[2];
-#define CurrentBase0217101c data_ov004_0217101c[1]
+extern char* gQuestList_ov004_0217101c[2];
+#define CurrentBase0217101c gQuestList_ov004_0217101c[1]
 #else
-extern char* data_ov004_0217101c;
-#define CurrentBase0217101c data_ov004_0217101c
+extern char* gQuestList_ov004_0217101c;
+#define CurrentBase0217101c gQuestList_ov004_0217101c
 #endif
 extern "C" void* func_0205ec34(void);
 extern "C" int* GetQuestManager_02094d6c(void);

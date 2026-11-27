@@ -27,7 +27,7 @@ struct Struct_ov017_0218eafc {
 };
 
 extern "C" void* GetEffectManager_02057924(void);
-extern "C" void func_02057ab8(void* arg0, int arg1);
+extern "C" void DrawAttachedEffects_02057ab8(void* effectManager, int objectIndex);
 extern "C" int func_ov017_021922ac(void* arg0, unsigned int arg1);
 extern "C" int func_02039d68(unsigned char* arg0);
 extern "C" int func_02053cdc(int* arg0);
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
     void* var1 = GetEffectManager_02057924();
     int var2 = func_ov017_021922ac(arg0, (unsigned char)arg1);
-    if (var2) func_02057ab8(var1, arg1);
+    if (var2) DrawAttachedEffects_02057ab8(var1, arg1);
     if (func_020100bc(var0) == 0) return;
 
     Struct_020236dc_2* var3 = (Struct_020236dc_2*)var0->GetPartyMemberByIndex(arg1);
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
         Nitro3DRenderConfig::SubmitToFifo();
         arg0->unknown_36c8_->SetAlpha(var9);
         arg0->unknown_36c8_->Draw(var8);
-        if (!var2) func_02057ab8(var1, arg1);
+        if (!var2) DrawAttachedEffects_02057ab8(var1, arg1);
         return;
     }
 
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
             }
         }
         func_ov017_0218dba0(arg1);
-        if (!var2) func_02057ab8(var1, arg1);
+        if (!var2) DrawAttachedEffects_02057ab8(var1, arg1);
     }
 
     if (func_02053cdc((int*)var3)) {

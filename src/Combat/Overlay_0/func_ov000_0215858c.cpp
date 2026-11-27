@@ -94,31 +94,31 @@ extern "C" void func_02088b34(unsigned char* arg0);
 extern "C" int func_ov000_02156c94(GameObject* arg0);
 extern "C" void func_02088cf4(unsigned char* arg0);
 extern "C" int func_ov000_02156cac(GameObject* arg0);
-extern "C" void func_02088d4c(unsigned char* arg0);
+extern "C" void ClearEerieLight_02088d4c(unsigned char* stats);
 extern "C" int func_ov000_021598ec(GameObject* arg0);
-extern "C" void func_02088c38(unsigned char* arg0);
+extern "C" void ClearFireBarrier_02088c38(unsigned char* stats);
 extern "C" int func_ov000_02159904(GameObject* arg0);
-extern "C" void func_02088c9c(unsigned char* arg0);
+extern "C" void ClearIceBarrier_02088c9c(unsigned char* stats);
 extern "C" int func_ov000_0215991c(GameObject* arg0);
-extern "C" void func_02087838(void* arg0);
+extern "C" void ClearAttackBuff_02087838(void* stats);
 extern "C" int func_ov000_02159934(GameObject* arg0);
-extern "C" void func_0208792c(void* arg0);
+extern "C" void ClearDefenseBuff_0208792c(void* stats);
 extern "C" int func_ov000_0215994c(GameObject* arg0);
-extern "C" void func_02087a20(void* arg0);
+extern "C" void ClearAgilityBuff_02087a20(void* stats);
 extern "C" int func_ov000_02159964(GameObject* arg0);
-extern "C" void func_02087b14(void* arg0);
+extern "C" void ClearCharmBuff_02087b14(void* stats);
 extern "C" int func_ov000_0215997c(GameObject* arg0);
-extern "C" void func_02087c08(void* arg0);
+extern "C" void ClearMagicalMightBuff_02087c08(void* stats);
 extern "C" int func_ov000_02159994(GameObject* arg0);
-extern "C" void func_02087cfc(void* arg0);
+extern "C" void ClearMagicalMendingBuff_02087cfc(void* stats);
 extern "C" int func_ov000_021599ac(GameObject* arg0);
-extern "C" void func_02087df0(void* arg0);
+extern "C" void ClearSpellResistanceBuff_02087df0(void* stats);
 extern "C" int func_ov000_021599c4(GameObject* arg0);
-extern "C" void func_02087efc(unsigned char* arg0);
+extern "C" void ClearBreathResistanceBuff_02087efc(unsigned char* stats);
 extern "C" int func_ov000_02156258(GameObject* arg0);
-extern "C" void func_020880e4(void* arg0);
+extern "C" void ClearBlockChanceBuff_020880e4(void* stats);
 extern "C" int func_ov000_021563ec(GameObject* arg0);
-extern "C" void func_02087ff0(void* arg0);
+extern "C" void ClearEvasionBuff_02087ff0(void* stats);
 extern "C" int func_ov000_02153a8c(GameObject* arg0);
 extern "C" void func_020890f4(unsigned char* arg0);
 extern "C" int func_ov000_02156404(GameObject* arg0);
@@ -346,7 +346,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_9e_ = var0->unknown_9e_ - 1;
         if (data_ov000_02182ad4[var0->unknown_9e_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_9e_ = 0;
-            func_02088d4c((unsigned char*)var1->currentStats_);
+            ClearEerieLight_02088d4c((unsigned char*)var1->currentStats_);
             func_ov000_021584e8(arg0, var23, var1, arg2, 0x25e, 0);
         }
     }
@@ -359,7 +359,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_8f_ = var0->unknown_8f_ - 1;
         if (data_ov000_02182ad4[var0->unknown_8f_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_8f_ = 0;
-            func_02088c38((unsigned char*)var1->currentStats_);
+            ClearFireBarrier_02088c38((unsigned char*)var1->currentStats_);
             func_ov000_021584e8(arg0, var24, var1, arg2, 0x1cc, 0);
         }
     }
@@ -372,7 +372,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_90_ = var0->unknown_90_ - 1;
         if (data_ov000_02182ad4[var0->unknown_90_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_90_ = 0;
-            func_02088c9c((unsigned char*)var1->currentStats_);
+            ClearIceBarrier_02088c9c((unsigned char*)var1->currentStats_);
             func_ov000_021584e8(arg0, var25, var1, arg2, 0x1cd, 0);
         }
     }
@@ -385,7 +385,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_91_ = var0->unknown_91_ - 1;
         if (data_ov000_02182ad4[var0->unknown_91_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_91_ = 0;
-            func_02087838(var1->currentStats_);
+            ClearAttackBuff_02087838(var1->currentStats_);
             func_ov000_021584e8(arg0, var26, var1, arg2, 0x1ce, 0);
             UpdateCombatantAttack((int)arg0, arg1);
         }
@@ -399,7 +399,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_92_ = var0->unknown_92_ - 1;
         if (data_ov000_02182ad4[var0->unknown_92_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_92_ = 0;
-            func_0208792c(var1->currentStats_);
+            ClearDefenseBuff_0208792c(var1->currentStats_);
             func_ov000_021584e8(arg0, var27, var1, arg2, 0x1cf, 0);
             UpdateCombatantDefense((int)arg0, arg1);
         }
@@ -413,7 +413,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_93_ = var0->unknown_93_ - 1;
         if (data_ov000_02182ad4[var0->unknown_93_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_93_ = 0;
-            func_02087a20(var1->currentStats_);
+            ClearAgilityBuff_02087a20(var1->currentStats_);
             func_ov000_021584e8(arg0, var28, var1, arg2, 0x1db, 0);
             UpdateCombatantAgility((int)arg0, arg1);
         }
@@ -427,7 +427,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_94_ = var0->unknown_94_ - 1;
         if (data_ov000_02182ad4[var0->unknown_94_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_94_ = 0;
-            func_02087b14(var1->currentStats_);
+            ClearCharmBuff_02087b14(var1->currentStats_);
             func_ov000_021584e8(arg0, var29, var1, arg2, 0x1d0, 0);
             UpdateCombatantCharm((int)arg0, arg1);
         }
@@ -441,7 +441,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_95_ = var0->unknown_95_ - 1;
         if (data_ov000_02182ad4[var0->unknown_95_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_95_ = 0;
-            func_02087c08(var1->currentStats_);
+            ClearMagicalMightBuff_02087c08(var1->currentStats_);
             func_ov000_021584e8(arg0, var30, var1, arg2, 0x1d1, 0);
             UpdateCombatantMagicalMight((int)arg0, arg1);
         }
@@ -455,7 +455,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_96_ = var0->unknown_96_ - 1;
         if (data_ov000_02182ad4[var0->unknown_96_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_96_ = 0;
-            func_02087cfc(var1->currentStats_);
+            ClearMagicalMendingBuff_02087cfc(var1->currentStats_);
             func_ov000_021584e8(arg0, var31, var1, arg2, 0x1d2, 0);
             UpdateCombatantMagicalMending((int)arg0, arg1);
         }
@@ -469,7 +469,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_97_ = var0->unknown_97_ - 1;
         if (data_ov000_02182bd4[var0->unknown_97_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_97_ = 0;
-            func_02087df0(var1->currentStats_);
+            ClearSpellResistanceBuff_02087df0(var1->currentStats_);
             func_ov000_021584e8(arg0, var32, var1, arg2, 0x1d3, 0);
         }
     }
@@ -482,7 +482,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_98_ = var0->unknown_98_ - 1;
         if (data_ov000_02182ad4[var0->unknown_98_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_98_ = 0;
-            func_02087efc((unsigned char*)var1->currentStats_);
+            ClearBreathResistanceBuff_02087efc((unsigned char*)var1->currentStats_);
             func_ov000_021584e8(arg0, var33, var1, arg2, 0x1d4, 0);
         }
     }
@@ -495,7 +495,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_99_ = var0->unknown_99_ - 1;
         if (data_ov000_02182bd4[var0->unknown_99_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_99_ = 0;
-            func_020880e4(var1->currentStats_);
+            ClearBlockChanceBuff_020880e4(var1->currentStats_);
             func_ov000_021584e8(arg0, var34, var1, arg2, 0x1d5, 0);
         }
     }
@@ -508,7 +508,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_9a_ = var0->unknown_9a_ - 1;
         if (data_ov000_02182bd4[var0->unknown_9a_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_9a_ = 0;
-            func_02087ff0(var1->currentStats_);
+            ClearEvasionBuff_02087ff0(var1->currentStats_);
             func_ov000_021584e8(arg0, var35, var1, arg2, 0x1d9, 0);
         }
     }

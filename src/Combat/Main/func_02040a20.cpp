@@ -7,7 +7,7 @@ struct Struct_02040a20 { unsigned int unknown_0_[3]; };
 extern "C" ARM int func_02040a20(NPC_0203dce4* arg0) {
     void* var0;
 
-    var0 = arg0->unknown_14_;
+    var0 = arg0->pSprite_14_;
     if (var0 != NULL) {
         return func_0203cdd0((struct Struct_0203cdd0*)var0);
     }

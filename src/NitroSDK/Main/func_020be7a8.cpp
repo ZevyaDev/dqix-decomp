@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* func_020bd4b8(int arg0);
-extern "C" int func_020bd8ac(unsigned int arg0);
+extern "C" int GetLoadedSoundFile_020bd8ac(unsigned int fileId);
 
 struct Struct_020be7a8 { int unknown_0_; int unknown_4_; int unknown_8_; };
 struct Struct_020be7a8_2 { char unknown_0_[0x1c]; unsigned int unknown_1c_; struct Struct_020be7a8 unknown_20_[1]; };
@@ -17,7 +17,7 @@ extern "C" ARM int func_020be7a8(void *arg0, int arg1, int arg2) {
         return 0;
     }
     int var1 = *(int*)var0;
-    int var2 = func_020bd8ac((unsigned int)var1);
+    int var2 = GetLoadedSoundFile_020bd8ac((unsigned int)var1);
     if (var2 == 0) {
         return 0;
     }

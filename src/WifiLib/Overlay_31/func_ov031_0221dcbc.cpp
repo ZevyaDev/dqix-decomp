@@ -16,7 +16,7 @@ extern char data_ov031_0224b0dc[];
 extern "C" void func_ov031_0221e52c(void*, int, unsigned int);
 extern "C" void* func_ov031_0221c49c(int);
 extern "C" void func_ov031_0221d060(int);
-extern "C" void func_ov031_0221e51c(void*, const void*, unsigned int);
+extern "C" void Memcpy_ov031_0221e51c(void*, const void*, unsigned int);
 extern "C" short func_ov031_0221df48(void*);
 extern "C" void func_ov031_0221c4ac(int);
 extern "C" unsigned short func_ov031_0221e5f8(unsigned short);
@@ -37,8 +37,8 @@ extern "C" THUMB int func_ov031_0221dcbc(int arg0, const void* arg1, int arg2) {
     if (!var2) { func_ov031_0221d060(2); return -1; }
     func_ov031_0221e52c(var2, 0, 528);
     unsigned char* var3 = var1 + sizeof(Struct_ov031_0221d3b0);
-    func_ov031_0221e51c(data_ov031_0224f440, arg1, 8);
-    func_ov031_0221e51c(&var0.unknown_6_, data_ov031_0224f440, 8);
+    Memcpy_ov031_0221e51c(data_ov031_0224f440, arg1, 8);
+    Memcpy_ov031_0221e51c(&var0.unknown_6_, data_ov031_0224f440, 8);
     var0.unknown_4_ = func_ov031_0221df48(var2->unknown_4_);
     if (var0.unknown_4_ < 0) {
         func_ov031_0221d060(3);

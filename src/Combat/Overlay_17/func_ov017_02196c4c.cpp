@@ -43,7 +43,7 @@ struct Struct_0204be3c;
 extern "C" unsigned short func_0204be3c(struct Struct_0204be3c* arg0);
 extern "C" int func_ov017_021970a0(int arg0);
 extern "C" void func_ov017_021b6e70(void* arg0, unsigned short arg1);
-extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
+extern "C" void ApplyBattleRequest_ov017_021b7104(void* battleManager, void* request);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
@@ -149,7 +149,7 @@ extern "C" ARM int func_ov017_02196c4c(Struct_ov017_02196c4c* arg0) {
     var9.unknown_f_ = func_ov017_021970a0(0);
     func_ov017_021b6e70(&var9, var9.unknown_2_);
     var9.unknown_12_ = var5->timeOfDayIndex_;
-    func_ov017_021b7104(arg0->unknown_3718_, &var9);
+    ApplyBattleRequest_ov017_021b7104(arg0->unknown_3718_, &var9);
     AppendToQueue_020469b4((struct Queue_0201bdac_2*)arg0->unknown_36fc_, (struct QueueNode_0201bdac*)arg0->unknown_3718_);
     return 1;
 }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/GameResources.h"
 
-extern "C" void func_ov017_021b8d1c(void*);
+extern "C" void ResetTalkTask_ov017_021b8d1c(void*);
 struct Struct_0206528c;
 extern "C" struct Struct_0206528c_2* func_0206528c(struct Struct_0206528c* arg0, int arg1);
 extern "C" void* GetNPCManager_0203cf4c(void);
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov017_0219593c(void) {
 	unsigned char* var2;
 
 	void* var3 = func_0203cff4(GetNPCManager_0203cf4c());
-	func_ov017_021b8d1c(var1);
+	ResetTalkTask_ov017_021b8d1c(var1);
 	var1->unknown_114_ = func_0206528c((struct Struct_0206528c*)var3, 0x63);
 	var1->unknown_124_ = 0xd7;
 	if (var1->unknown_114_ != 0) {

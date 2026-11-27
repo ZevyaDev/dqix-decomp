@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-// USA: func_020493ec
-extern "C" ARM int func_020493ec(unsigned char* arg0) {
-    unsigned char* var0 = *(unsigned char**)(arg0 + 0x13c);
-    return var0 != 0 ? var0[0x1e] : 0xff;
+// USA: GetCombatantReservedCell_020493ec
+extern "C" ARM int GetCombatantReservedCell_020493ec(unsigned char* combatant) {
+    unsigned char* battleState = *(unsigned char**)(combatant + 0x13c);
+    return battleState != 0 ? battleState[0x1e] : 0xff;
 }

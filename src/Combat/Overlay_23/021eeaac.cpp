@@ -16,7 +16,7 @@
 struct StringList_020727d8;
 struct LocalWireless_0202b2f0;
 struct SkillTable_0200f3a4_8;
-struct Struct_0209a470;
+struct SkillTable_0209a470;
 struct SpellTable_02086f24_6;
 struct Struct_02013fb4;
 struct Struct_ov023_021eeaac_2;
@@ -37,7 +37,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" LocalWireless_0202b2f0* func_0202ae18(void);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8* table);
-extern "C" void func_0209a470(Struct_0209a470* arg0, SafeAllocator* arg1, Struct_02013fb4* arg2, int arg3);
+extern "C" void BuildSkillTable_0209a470(SkillTable_0209a470* table, SafeAllocator* allocator, Struct_02013fb4* scriptData, int scriptSize);
 extern "C" void ClearSpellTable_0209a804(int* table);
 extern "C" void BuildSpellTable_0209a8b4(SpellTable_02086f24_6* table, SafeAllocator* allocator, Struct_02013fb4* scriptData, int scriptSize);
 extern "C" void func_ov023_021eefac(Struct_ov023_021eeaac_2* arg0);
@@ -208,7 +208,7 @@ extern "C" ARM int func_ov023_021eeaac(char* arg0) {
         void* var30;
         var1->GetLoadedFileByID(var2[1], &var30, &var29);
         ClearSkillTable_0209a338((SkillTable_0200f3a4_8*)(var2 + 0xe8 / 4));
-        func_0209a470((Struct_0209a470*)(var2 + 0xe8 / 4), var3, (Struct_02013fb4*)var30, var29);
+        BuildSkillTable_0209a470((SkillTable_0209a470*)(var2 + 0xe8 / 4), var3, (Struct_02013fb4*)var30, var29);
         var1->RemoveTask(var2[1]);
         var2[1] = var1->QueueLoadFile(&data_ov023_021fe218, NULL);
         var2[0]++;

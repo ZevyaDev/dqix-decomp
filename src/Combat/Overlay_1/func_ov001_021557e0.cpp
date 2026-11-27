@@ -19,12 +19,12 @@ extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" void* GetWirelessLockTable_020e2ff8(void);
 struct Struct_02033fcc;
-extern "C" void func_02033fcc(struct Struct_02033fcc* arg0);
+extern "C" void PauseMovementUpdate_02033fcc(struct Struct_02033fcc* object);
 extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 struct GameState_02010834;
-extern "C" void func_02010834(struct GameState_02010834* arg0, int arg1, int* arg2, int* arg3);
+extern "C" void GetOwnPartyMemberObjectIndices_02010834(struct GameState_02010834* arg0, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
 extern "C" void func_02039d58(unsigned char* arg0);
 extern "C" void* func_020d6c00(void);
 extern "C" void* GetParty_02010828(GameState* gameState);
@@ -110,7 +110,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
             if (var5 == 0) {
                 continue;
             }
-            func_02033fcc((struct Struct_02033fcc*)var5);
+            PauseMovementUpdate_02033fcc((struct Struct_02033fcc*)var5);
             if (IsOnLadder_02039d7c((char*)var5) == 0 || GetLadderAction_020399a8(var5)->unknown_1_ != 2) {
                 var5->obj3D_.MaybeSetRegularAnimation(data_ov001_02164bd1, 0x10);
             }
@@ -120,7 +120,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
 
         int var6[4];
         int var7;
-        func_02010834((struct GameState_02010834*)var2, GetProtagonistObjectIndex_020100a8(var2), var6, &var7);
+        GetOwnPartyMemberObjectIndices_02010834((struct GameState_02010834*)var2, GetProtagonistObjectIndex_020100a8(var2), var6, &var7);
         for (int var8 = 0; var8 < var7; var8++) {
             GameObject* var9 = var2->GetPartyMemberByIndex(var6[var8]);
             if (var9 == 0) {

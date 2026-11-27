@@ -14,7 +14,7 @@ extern "C" int HasTension_ov024_021da998(Struct_ov024_021da670_6*);
 extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" int func_ov024_021e47dc(Struct_ov024_021e4604*);
 extern "C" int func_ov024_021edc08(Struct_ov024_021eda78_5*);
-extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
+extern "C" int IsSpellcastingBlocked_ov024_021dd010(Struct_ov024_021dced0_2*);
 extern "C" int func_02088660(Struct_02088660*);
 extern "C" int func_ov024_021fb430(Struct_ov024_021fa7ec_5*);
 extern "C" int func_ov024_021fb448(Struct_ov024_021fa7ec_6*);
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov024_021fc754(Struct_ov024_021fc754_4* arg0) {
         var4.unknown_0_[7].unknown_0_ = func_ov024_021e47dc((Struct_ov024_021e4604*)var2);
         var4.unknown_0_[8].unknown_0_ = func_ov024_021edc08((Struct_ov024_021eda78_5*)var2);
         var4.unknown_0_[9].unknown_0_ = (inline_ov024_021fc754(var2)->unknown_14_ & 0x40000000) != 0;
-        var4.unknown_0_[10].unknown_0_ = func_ov024_021dd010((Struct_ov024_021dced0_2*)var2);
+        var4.unknown_0_[10].unknown_0_ = IsSpellcastingBlocked_ov024_021dd010((Struct_ov024_021dced0_2*)var2);
         var4.unknown_0_[11].unknown_0_ = func_ov024_021edc08((Struct_ov024_021eda78_5*)var2);
         var4.unknown_0_[12].unknown_0_ = (inline_ov024_021fc754(var2)->unknown_14_ & 0x200000) != 0;
         var4.unknown_0_[13].unknown_0_ = (inline_ov024_021fc754(var2)->unknown_14_ & 0x80000000) != 0;

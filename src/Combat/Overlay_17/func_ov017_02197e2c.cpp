@@ -28,7 +28,7 @@ extern "C" bool IsPerformingGesture_020535c8(signed char*);
 extern "C" void* func_02046b1c(Struct_02046b1c*);
 extern "C" Struct_020133fc* func_020177a8(unsigned char*, int);
 int fix32abs(int);
-extern "C" int func_020c32f8(int);
+extern "C" int ComputeFixedPointCosine_020c32f8(int);
 extern "C" int ComputeFixedPointSine_020c3260(int);
 extern "C" float ConvertInt64ToFloat_0200c700(int);
 extern "C" int func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov017_02197e2c(GameResources* arg0) {
         var16.y = 0;
         Vector3fix_Subtract(&var16, &var14, &var16);
         int var17 = -(var8->unknown_c_ - 0x6487);
-        int var18 = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(func_020c32f8(var17)) / 4294967296.0f));
+        int var18 = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(ComputeFixedPointCosine_020c32f8(var17)) / 4294967296.0f));
         int var19 = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(ComputeFixedPointSine_020c3260(var17)) / 4294967296.0f));
         Matrix3x3 var20;
         Mat3x3_WriteRotationY(&var20, var19, var18);

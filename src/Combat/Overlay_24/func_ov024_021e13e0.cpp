@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 int RoundUp(float);
-extern "C" short func_ov000_0215a16c(void*, int, int, short*);
+extern "C" short HealCombatant_ov000_0215a16c(void*, int, int, short*);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void SetActionResultFlag_ov000_02159eac(void*, void*, int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
@@ -22,7 +22,7 @@ extern "C" ARM void* func_ov024_021e13e0(Struct_ov024_021e13e0_2* arg0, int arg1
     var2.unknown_0_ = 0;
     var2.unknown_4_ = 0;
     short var3 = 0;
-    short var4 = func_ov000_0215a16c(arg0->unknown_10_, arg2, var1, &var3);
+    short var4 = HealCombatant_ov000_0215a16c(arg0->unknown_10_, arg2, var1, &var3);
     void* var5 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var5) return 0;
     int var6 = 0;

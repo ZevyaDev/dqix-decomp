@@ -21,10 +21,10 @@
 
 struct Struct_02013fb4;
 struct Struct_020e57e0 { int unknown_0_[3]; };
-struct Struct_02000c9c_12;
+struct GameState_02000c9c_12;
 struct MusicManager_02109bf4_4;
 struct Struct_02000c9c_16;
-struct Struct_02000c9c_17;
+struct SoundEffectManager_02000c9c_17;
 
 struct Struct_ov016_0218b5c4_7 { char unknown_0_[0x40]; };
 
@@ -93,7 +93,7 @@ extern "C" void func_0202a6c4(Struct_ov016_0218b5c4_8* arg0);
 extern "C" void func_0202a8cc(char*, int);
 extern "C" void WaitForVBlank_020c9820();
 extern "C" void TurnOnMainDisplay_020c38d4();
-extern "C" int func_020115a8(Struct_02000c9c_12* arg0);
+extern "C" int GetRequestedMovie_020115a8(GameState_02000c9c_12* gameState);
 extern "C" void UpdateInput_02012efc();
 extern "C" void ResetGeometryEngine_020c52e8();
 extern "C" void ResetMatrixStacks_020c5414();
@@ -113,7 +113,7 @@ extern "C" void StopStream_0203ad88(void* manager, void* handle, int fadeDuratio
 extern "C" void UpdateSound_020bbd9c();
 extern "C" void func_0205e8d4(void* arg0);
 extern "C" void CloseSoundArchive_0203a950(void* manager);
-extern "C" void func_0205e88c(Struct_02000c9c_17* arg0);
+extern "C" void InitSoundEffectManager_0205e88c(SoundEffectManager_02000c9c_17* manager);
 extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
 extern "C" void func_0209c2b8(void* arg0);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
@@ -215,8 +215,8 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     WriteBrightnessRegister_020c39a0((short*)0x400106c, -16);
 
     int var15 = -1;
-    if (func_020115a8((Struct_02000c9c_12*)var8) != 0) {
-        var15 = func_020115a8((Struct_02000c9c_12*)var8);
+    if (GetRequestedMovie_020115a8((GameState_02000c9c_12*)var8) != 0) {
+        var15 = GetRequestedMovie_020115a8((GameState_02000c9c_12*)var8);
         arg0->unknown_94_ = 0;
     }
     UpdateInput_02012efc();
@@ -273,7 +273,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     int var18 = 2;
     if (GetTitleState_0201201c(var8) == 5) {
         var18 = 1;
-    } else if (func_020115a8((Struct_02000c9c_12*)var8) != 0) {
+    } else if (GetRequestedMovie_020115a8((GameState_02000c9c_12*)var8) != 0) {
         var18 = 0;
     }
 
@@ -289,7 +289,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
                 UpdateSound_020bbd9c();
                 func_0205e8d4(&gSoundEffectManager_02108760);
                 CloseSoundArchive_0203a950(&gMusicManager_02109bf4);
-                func_0205e88c((Struct_02000c9c_17*)&gSoundEffectManager_02108760);
+                InitSoundEffectManager_0205e88c((SoundEffectManager_02000c9c_17*)&gSoundEffectManager_02108760);
                 func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
                 func_0209c2b8(&gMusicManager_02109bf4);
             }
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
             if (var19->unknown_11_ != 0) {
                 func_0205e8d4(&gSoundEffectManager_02108760);
                 CloseSoundArchive_0203a950(&gMusicManager_02109bf4);
-                func_0205e88c((Struct_02000c9c_17*)&gSoundEffectManager_02108760);
+                InitSoundEffectManager_0205e88c((SoundEffectManager_02000c9c_17*)&gSoundEffectManager_02108760);
                 func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
                 LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 100);
                 OpenMusicArchive_0209c290(&gMusicManager_02109bf4);

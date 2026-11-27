@@ -14,13 +14,13 @@ struct Struct_ov024_021f9874_4 {
     unsigned char unknown_0_7_ : 1;
 };
 
-struct Struct_ov024_021f9874_6 {
-    float unknown_0_;
-    unsigned char unknown_4_;
-    unsigned char unknown_5_;
-    unsigned char unknown_6_;
-    unsigned char unknown_7_;
-    unsigned char unknown_8_;
+struct ActionEffect_ov024_021f9874_6 {
+    float amount_0_;
+    unsigned char statusEffect_4_;
+    unsigned char isEnemyTarget_5_;
+    unsigned char targetIndex_6_;
+    unsigned char chance_7_;
+    unsigned char kind_8_;
     struct Struct_ov024_021f9874_4 unknown_9_;
     char unknown_a_[2];
 };
@@ -35,10 +35,10 @@ struct RankedAction_ov024_021f9874_7 {
     unsigned char targetIndex_b_;
 };
 
-struct Struct_ov024_021f9874_8 {
-    struct Struct_ov024_021f9874_6 unknown_0_[16];
-    int unknown_c0_;
-    float unknown_c4_;
+struct ActionEffectList_ov024_021f9874_8 {
+    struct ActionEffect_ov024_021f9874_6 effects_0_[16];
+    int count_c0_;
+    float bonusScore_c4_;
 };
 
 struct ActionData_ov024_021f9874_9 {
@@ -47,7 +47,7 @@ struct ActionData_ov024_021f9874_9 {
     unsigned int unknown_5_4_ : 20;
     char unknown_8_[0xc];
     unsigned int unknown_14_0_ : 28;
-    unsigned int unknown_17_4_ : 4;
+    unsigned int targetScope_17_4_ : 4;
 };
 
 struct ActionListEntry_ov024_021f9874 {
@@ -63,7 +63,7 @@ struct Struct_ov024_021f9874_2 {
 };
 
 struct TacticAI_ov024_021f9874_3 {
-    int unknown_0_;
+    int pBattle_0_;
     char unknown_4_[2];
     unsigned char tactic_6_;
     char unknown_7_[1];
@@ -143,11 +143,11 @@ extern unsigned char data_ov024_021ffca4[33];
 extern unsigned char data_ov024_021ffcc5[39];
 
 // USA: RankCandidateAction_ov024_021f9874
-extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021f9874_3* tacticAI, struct Struct_ov024_021f9874_8* arg1, unsigned char targetGroup, unsigned char targetIndex) {
+extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021f9874_3* tacticAI, struct ActionEffectList_ov024_021f9874_8* effects, unsigned char targetGroup, unsigned char targetIndex) {
     char var0[0x38];
     int isEnemyDefeated[8];
     float enemyDamage[8];
-    struct Struct_ov024_021f9874_5 var3;
+    struct Struct_ov024_021f9874_5 scoredCategories;
     float scores[14];
     float deathChance[8];
     int healAmounts[4];
@@ -168,7 +168,7 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
     memset(var0, 0, 0x38);
     __clear(isEnemyDefeated, 0x20);
     __clear(enemyDamage, 0x20);
-    __clear(&var3, 0xe);
+    __clear(&scoredCategories, 0xe);
     __clear(scores, 0x38);
     __clear(deathChance, 0x20);
     __clear(healAmounts, 0x10);
@@ -176,38 +176,38 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
 
     var17 = 0;
 
-    for (int i = 0; i < arg1->unknown_c0_; i++) {
-        struct Struct_ov024_021f9874_6* effect = &arg1->unknown_0_[i];
-        if (effect->unknown_8_ != 0) continue;
-        if (effect->unknown_5_ == 0) continue;
+    for (int i = 0; i < effects->count_c0_; i++) {
+        struct ActionEffect_ov024_021f9874_6* effect = &effects->effects_0_[i];
+        if (effect->kind_8_ != 0) continue;
+        if (effect->isEnemyTarget_5_ == 0) continue;
         {
-            int enemyIndex = effect->unknown_6_;
-            float damage = effect->unknown_0_ * effect->unknown_9_.unknown_0_0_;
+            int enemyIndex = effect->targetIndex_6_;
+            float damage = effect->amount_0_ * effect->unknown_9_.unknown_0_0_;
             if (tacticAI->unknown_34_ != 0) damage *= 1.2f;
             enemyDamage[enemyIndex] += damage;
             if (enemyDamage[enemyIndex] >= tacticAI->estimatedEnemyHP_c4_[enemyIndex]) isEnemyDefeated[enemyIndex] = 10;
-            var3.unknown_2_ = 1;
+            scoredCategories.unknown_2_ = 1;
             if (effect->unknown_9_.unknown_0_6_) var17 = 1;
         }
     }
 
     hasDeathEffect = 0;
     if (tacticAI->unknown_14_ != 0) {
-        for (int i = 0; i < arg1->unknown_c0_; i++) {
-            struct Struct_ov024_021f9874_6* effect = &arg1->unknown_0_[i];
-            if (effect->unknown_8_ != 2) continue;
-            if (effect->unknown_5_ == 0) continue;
-            deathChance[effect->unknown_6_] = 0.01f * effect->unknown_7_;
-            var3.unknown_2_ = 1;
+        for (int i = 0; i < effects->count_c0_; i++) {
+            struct ActionEffect_ov024_021f9874_6* effect = &effects->effects_0_[i];
+            if (effect->kind_8_ != 2) continue;
+            if (effect->isEnemyTarget_5_ == 0) continue;
+            deathChance[effect->targetIndex_6_] = 0.01f * effect->chance_7_;
+            scoredCategories.unknown_2_ = 1;
             hasDeathEffect = 1;
             if (effect->unknown_9_.unknown_0_6_) var17 = 1;
         }
         if (hasDeathEffect) {
             float remainingHP;
             int i;
-            for (i = 0; i < arg1->unknown_c0_; i++) {
+            for (i = 0; i < effects->count_c0_; i++) {
                 float enemyHP;
-                var3.unknown_2_ = 1;
+                scoredCategories.unknown_2_ = 1;
                 enemyHP = tacticAI->estimatedEnemyHP_c4_[i];
                 remainingHP = enemyHP - enemyDamage[i];
                 if (remainingHP <= 0.0f) continue;
@@ -229,23 +229,23 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
         }
     }
 
-    for (int i = 0; i < arg1->unknown_c0_; i++) {
-        struct Struct_ov024_021f9874_6* effect = &arg1->unknown_0_[i];
-        if (effect->unknown_8_ == 3) {
-            if (effect->unknown_5_ != 0) continue;
-            healAmounts[effect->unknown_6_] += effect->unknown_0_;
-            var3.unknown_6_ = 1;
+    for (int i = 0; i < effects->count_c0_; i++) {
+        struct ActionEffect_ov024_021f9874_6* effect = &effects->effects_0_[i];
+        if (effect->kind_8_ == 3) {
+            if (effect->isEnemyTarget_5_ != 0) continue;
+            healAmounts[effect->targetIndex_6_] += effect->amount_0_;
+            scoredCategories.unknown_6_ = 1;
         }
-        if (effect->unknown_8_ == 4 && effect->unknown_5_ == 0) {
-            var7[effect->unknown_6_] += effect->unknown_0_;
-            var3.unknown_7_ = 1;
+        if (effect->kind_8_ == 4 && effect->isEnemyTarget_5_ == 0) {
+            var7[effect->targetIndex_6_] += effect->amount_0_;
+            scoredCategories.unknown_7_ = 1;
         }
     }
 
     scores[13] = tacticAI->mpCost_650_;
     if (tacticAI->pCandidate_648_->unknown_3_ != 0) scores[13] += 30.0f;
 
-    if (var3.unknown_2_ != 0) {
+    if (scoredCategories.unknown_2_ != 0) {
         float* var36 = enemyDamage;
         for (int i = 0; i < tacticAI->enemyCount_9c_; i++) {
             float damage = var36[i];
@@ -258,12 +258,12 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
         if (tacticAI->pCandidate_648_->unknown_3_ != 0 && tacticAI->tactic_6_ != 0) scores[2] = 0.0f;
     }
 
-    if (var3.unknown_6_ != 0) {
+    if (scoredCategories.unknown_6_ != 0) {
         for (int memberIndex = 0; memberIndex < 4; memberIndex++) {
             int healAmount = healAmounts[memberIndex];
             if (healAmount == 0) continue;
             {
-                float healScore = 100.0f * healAmount / inline_ov024_021dc700(GetCombatantByID(tacticAI->unknown_0_, (short)memberIndex));
+                float healScore = 100.0f * healAmount / inline_ov024_021dc700(GetCombatantByID(tacticAI->pBattle_0_, (short)memberIndex));
                 if (memberIndex == tacticAI->lowestHPMemberIndex_128_) healScore *= 2.0f;
                 scores[6] += healScore;
             }
@@ -279,21 +279,21 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
         }
     }
 
-    for (int i = 0; i < arg1->unknown_c0_; i++) {
-        struct Struct_ov024_021f9874_6* effect = &arg1->unknown_0_[i];
-        if (effect->unknown_8_ == 5 && effect->unknown_5_ == 0) {
-            scores[5] += effect->unknown_7_;
-            var3.unknown_5_ = 1;
+    for (int i = 0; i < effects->count_c0_; i++) {
+        struct ActionEffect_ov024_021f9874_6* effect = &effects->effects_0_[i];
+        if (effect->kind_8_ == 5 && effect->isEnemyTarget_5_ == 0) {
+            scores[5] += effect->chance_7_;
+            scoredCategories.unknown_5_ = 1;
         }
     }
 
     if (tacticAI->pCandidate_648_->actionId_0_ == 0x28) {
-        var3.unknown_6_ = 1;
+        scoredCategories.unknown_6_ = 1;
         scores[6] = 400.0f;
     }
 
-    for (int i = 0; i < arg1->unknown_c0_; i++) {
-        struct Struct_ov024_021f9874_6* effect = &arg1->unknown_0_[i];
+    for (int i = 0; i < effects->count_c0_; i++) {
+        struct ActionEffect_ov024_021f9874_6* effect = &effects->effects_0_[i];
         int isOptionEnabled;
 
         isOptionEnabled = 1;
@@ -305,23 +305,23 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
         }
         __clear(categoryWeights, 0x10);
 
-        if (effect->unknown_8_ == 8) {
-            if (effect->unknown_5_ != 0) continue;
+        if (effect->kind_8_ == 8) {
+            if (effect->isEnemyTarget_5_ != 0) continue;
             categoryWeights[0] = 10.0f;
             {
                 int j;
                 for (j = 0; j < 6; j++) {
                     unsigned int weight = data_ov024_021ffc98[j * 2 + 1];
-                    if (effect->unknown_4_ == data_ov024_021ffc98[j * 2]) categoryWeights[0] = weight;
+                    if (effect->statusEffect_4_ == data_ov024_021ffc98[j * 2]) categoryWeights[0] = weight;
                 }
             }
-        } else if (effect->unknown_8_ == 7) {
+        } else if (effect->kind_8_ == 7) {
             int memberIndex;
-            if (effect->unknown_5_ != 0) continue;
-            memberIndex = effect->unknown_6_;
-            if (effect->unknown_4_ == 0xd) {
+            if (effect->isEnemyTarget_5_ != 0) continue;
+            memberIndex = effect->targetIndex_6_;
+            if (effect->statusEffect_4_ == 0xd) {
                 categoryWeights[1] = tacticAI->unknown_16c_ * 13 / 100;
-                if (effect->unknown_4_ == 0x11 && tacticAI->pAction_64c_->unknown_17_4_ == 2) {
+                if (effect->statusEffect_4_ == 0x11 && tacticAI->pAction_64c_->targetScope_17_4_ == 2) {
                     if (memberIndex >= 0 && memberIndex < 4) categoryWeights[1] *= tacticAI->unknown_44_[memberIndex];
                 }
             } else {
@@ -329,29 +329,29 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
                 for (j = 0; j < 0xb; j++) {
                     int category = data_ov024_021ffca4[j * 3 + 1];
                     unsigned int weight = data_ov024_021ffca4[j * 3 + 2];
-                    if (effect->unknown_4_ != data_ov024_021ffca4[j * 3]) continue;
+                    if (effect->statusEffect_4_ != data_ov024_021ffca4[j * 3]) continue;
                     {
                         categoryWeights[category] = weight;
                         if (isOptionEnabled == 0) categoryWeights[category] = 0.0f;
-                        if (effect->unknown_4_ == 0x11 && tacticAI->pAction_64c_->unknown_17_4_ == 2) {
+                        if (effect->statusEffect_4_ == 0x11 && tacticAI->pAction_64c_->targetScope_17_4_ == 2) {
                             if (memberIndex >= 0 && memberIndex < 4) categoryWeights[category] *= tacticAI->unknown_44_[memberIndex];
                         }
-                        if (effect->unknown_0_ < 0.0f) {
+                        if (effect->amount_0_ < 0.0f) {
                             categoryWeights[category] = -3.0f * weight;
                         }
                         break;
                     }
                 }
             }
-        } else if (effect->unknown_8_ == 6) {
-            if (effect->unknown_5_ == 0) continue;
-            categoryWeights[3] += effect->unknown_0_;
-        } else if (effect->unknown_8_ == 5) {
+        } else if (effect->kind_8_ == 6) {
+            if (effect->isEnemyTarget_5_ == 0) continue;
+            categoryWeights[3] += effect->amount_0_;
+        } else if (effect->kind_8_ == 5) {
             int enemyIndex;
-            if (effect->unknown_5_ == 0) continue;
-            enemyIndex = effect->unknown_6_;
+            if (effect->isEnemyTarget_5_ == 0) continue;
+            enemyIndex = effect->targetIndex_6_;
             if (isEnemyDefeated[enemyIndex] != 0) continue;
-            if (effect->unknown_4_ == 0x12) {
+            if (effect->statusEffect_4_ == 0x12) {
                 GameObject* enemy = tacticAI->enemies_7c_[enemyIndex];
                 if (enemy != 0) {
                     unsigned int defense = inline_ov024_021f9874(enemy);
@@ -366,7 +366,7 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
                 for (j = 0; j < 0xd; j++) {
                     int category = data_ov024_021ffcc5[j * 3 + 1];
                     unsigned int weight = data_ov024_021ffcc5[j * 3 + 2];
-                    if (effect->unknown_4_ != data_ov024_021ffcc5[j * 3]) continue;
+                    if (effect->statusEffect_4_ != data_ov024_021ffcc5[j * 3]) continue;
                     categoryWeights[category] = weight;
                     if (isOptionEnabled == 0) categoryWeights[category] = 0.0f;
                 }
@@ -374,31 +374,31 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
         }
 
         if (categoryWeights[0]) {
-            float entryCureScore = categoryWeights[0] * effect->unknown_7_;
+            float entryCureScore = categoryWeights[0] * effect->chance_7_;
             entryCureScore = 0.01f * entryCureScore;
             scores[8] += entryCureScore;
-            var3.unknown_8_ = 1;
+            scoredCategories.unknown_8_ = 1;
         }
         if (categoryWeights[1]) {
-            float var63 = categoryWeights[1] * effect->unknown_7_;
+            float var63 = categoryWeights[1] * effect->chance_7_;
             var63 = 0.01f * var63;
             var63 = optionWeight * var63;
             scores[9] += var63;
-            var3.unknown_9_ = 1;
+            scoredCategories.unknown_9_ = 1;
         }
         if (categoryWeights[2]) {
-            float var64 = categoryWeights[2] * effect->unknown_7_;
+            float var64 = categoryWeights[2] * effect->chance_7_;
             var64 = 0.01f * var64;
             var64 = optionWeight * var64;
             scores[10] += var64;
-            var3.unknown_a_ = 1;
+            scoredCategories.unknown_a_ = 1;
         }
         if (categoryWeights[3]) {
-            float var65 = categoryWeights[3] * effect->unknown_7_;
+            float var65 = categoryWeights[3] * effect->chance_7_;
             var65 = 0.01f * var65;
             var65 = optionWeight * var65;
             scores[11] += var65;
-            var3.unknown_b_ = 1;
+            scoredCategories.unknown_b_ = 1;
         }
     }
 
@@ -413,7 +413,7 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
     }
 
     damageScore = 0.0f;
-    if (var3.unknown_2_ != 0) {
+    if (scoredCategories.unknown_2_ != 0) {
         damageScore = scores[2];
         if (tacticAI->unknown_2c_ != 0) damageScore += scores[11];
         if (var17 != 0) damageScore *= tacticAI->unknown_30_;
@@ -424,11 +424,11 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
         }
     }
 
-    if (var3.unknown_5_ != 0) {
+    if (scoredCategories.unknown_5_ != 0) {
         rankEntry.score_4_ = scores[5] - 0.1f * scores[13];
         func_ov024_021f6830(tacticAI->reviveRanking_498_, &rankEntry);
     }
-    if (tacticAI->unknown_655_ != 0 && var3.unknown_6_ != 0) {
+    if (tacticAI->unknown_655_ != 0 && scoredCategories.unknown_6_ != 0) {
         rankEntry.score_4_ = scores[6] - 0.1f * scores[13];
         func_ov024_021f6830(tacticAI->healRanking_4c8_, &rankEntry);
     }
@@ -437,7 +437,7 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
     if (tacticAI->tactic_6_ == 0) costWeight = 0.01f;
     var15 = 0.0f; var12 = 0.0f; var13 = 0.0f;
 
-    if (var3.unknown_8_ != 0) {
+    if (scoredCategories.unknown_8_ != 0) {
         float cureScore = scores[8] - 0.1f * scores[13];
         cureScore += 0.01f * scores[6];
         rankEntry.score_4_ = cureScore;
@@ -446,40 +446,40 @@ extern "C" ARM void RankCandidateAction_ov024_021f9874(struct TacticAI_ov024_021
     if (tacticAI->tactic_6_ == 2 && tacticAI->pAction_64c_->id_4_0_ != 0x1f9) {
         damageScore *= 0.3f;
     }
-    if (var3.unknown_9_ != 0) {
+    if (scoredCategories.unknown_9_ != 0) {
         var15 = scores[9] - scores[13] * costWeight;
         rankEntry.score_4_ = var15;
         func_ov024_021f6830(tacticAI->unknown_558_, &rankEntry);
     }
-    if (var3.unknown_a_ != 0) {
+    if (scoredCategories.unknown_a_ != 0) {
         var12 = scores[10] - scores[13] * costWeight;
         rankEntry.score_4_ = var12;
         func_ov024_021f6830(tacticAI->unknown_588_, &rankEntry);
     }
-    if (var3.unknown_b_ != 0) {
+    if (scoredCategories.unknown_b_ != 0) {
         var13 = scores[11] - scores[13] * costWeight;
         rankEntry.score_4_ = var13;
         func_ov024_021f6830(tacticAI->unknown_5b8_, &rankEntry);
     }
 
     if (tacticAI->tactic_6_ != 0 && tacticAI->pAction_64c_->id_4_0_ == 1) {
-        unsigned char* var68 = (unsigned char*)func_02053c6c((unsigned char*)tacticAI->pMember_8_);
+        unsigned char* memberData = (unsigned char*)func_02053c6c((unsigned char*)tacticAI->pMember_8_);
         int firstTargetIndex;
         int targetMP;
-        if (var68 != 0 && *(short*)(var68 + 0x2ac) > 0 &&
-            ((struct Struct_ov024_021f9874_2*)(var68 + 0x29c))->unknown_0_4_ == 3 &&
+        if (memberData != 0 && *(short*)(memberData + 0x2ac) > 0 &&
+            ((struct Struct_ov024_021f9874_2*)(memberData + 0x29c))->unknown_0_4_ == 3 &&
             !func_ov024_021eadfc(tacticAI->pMember_8_) &&
-            (firstTargetIndex = arg1->unknown_0_[0].unknown_6_, firstTargetIndex >= 0) && firstTargetIndex < 8 &&
+            (firstTargetIndex = effects->effects_0_[0].targetIndex_6_, firstTargetIndex >= 0) && firstTargetIndex < 8 &&
             tacticAI->enemies_7c_[firstTargetIndex] != 0 &&
             (targetMP = tacticAI->enemies_7c_[firstTargetIndex]->currentStats_->primaryStats.currMP, targetMP > 0)) {
             mpRatio = (float)inline_ov000_0215cd44_2(tacticAI->pMember_8_) / inline_ov024_021dc540_2(tacticAI->pMember_8_);
-            if (mpRatio <= 0.1f) arg1->unknown_c4_ += 50.0f;
-            if (mpRatio <= 0.3f) arg1->unknown_c4_ += 30.0f;
-            if (mpRatio <= 0.5f) arg1->unknown_c4_ += 10.0f;
+            if (mpRatio <= 0.1f) effects->bonusScore_c4_ += 50.0f;
+            if (mpRatio <= 0.3f) effects->bonusScore_c4_ += 30.0f;
+            if (mpRatio <= 0.5f) effects->bonusScore_c4_ += 10.0f;
         }
     }
 
-    totalScore = arg1->unknown_c4_ + var15;
+    totalScore = effects->bonusScore_c4_ + var15;
     totalScore = var12 + totalScore;
     totalScore = var13 + totalScore;
     totalScore = damageScore + totalScore;

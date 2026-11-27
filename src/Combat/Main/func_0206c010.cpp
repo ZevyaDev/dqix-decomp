@@ -19,7 +19,7 @@ extern struct Struct_02108cec gNPCPlacementParseState_02108cec;
 
 // USA: func_0206c010
 extern "C" ARM int func_0206c010(Script::Parameter* arg0, int arg1) {
-    struct Struct_0206bf2c* var0;
+    struct NPCPlacement_0206bf2c* var0;
     Script::Parameter* var1;
     int var2;
 
@@ -28,15 +28,15 @@ extern "C" ARM int func_0206c010(Script::Parameter* arg0, int arg1) {
     if (var2 != gNPCPlacementParseState_02108cec.unknown_c_) {
         return 1;
     }
-    var0 = (struct Struct_0206bf2c*)((SafeAllocator*)gNPCPlacementParseState_02108cec.unknown_14_)->Allocate(0x78);
+    var0 = (struct NPCPlacement_0206bf2c*)((SafeAllocator*)gNPCPlacementParseState_02108cec.unknown_14_)->Allocate(0x78);
     if (var0 == 0) {
         return 0;
     }
-    func_0206bf2c(var0);
+    InitNPCPlacement_0206bf2c(var0);
     var0->unknown_2_ = (unsigned short)var2;
-    var0->unknown_0_ = (unsigned char)arg0[1].ToInt();
+    var0->npcId_0_ = (unsigned char)arg0[1].ToInt();
     if (arg1 < 3) {
-        func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var0->unknown_0_);
+        func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var0->npcId_0_);
         return 1;
     }
     var1 = arg0[2].ToVec3fix((Vector3fix*)var0->unknown_10_);

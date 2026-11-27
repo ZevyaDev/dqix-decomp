@@ -5,16 +5,16 @@ extern "C" int func_020d41e8(void);
 unsigned int SetIRQInterruptState(int mask);
 extern "C" void* GetWirelessDriver_020d41d8(void);
 
-// USA: func_020d472c
-extern "C" ARM int func_020d472c(void* arg0) {
-    unsigned int var0 = DisableIRQInterrupts();
-    int var1 = func_020d41e8();
-    if (var1 != 0) {
-        SetIRQInterruptState(var0);
-        return var1;
+// USA: SetWirelessNotificationCallback_020d472c
+extern "C" ARM int SetWirelessNotificationCallback_020d472c(void* callback) {
+    unsigned int priorState = DisableIRQInterrupts();
+    int result = func_020d41e8();
+    if (result != 0) {
+        SetIRQInterruptState(priorState);
+        return result;
     }
-    void* var2 = GetWirelessDriver_020d41d8();
-    *(void**)((char*)var2 + 0xc8) = arg0;
-    SetIRQInterruptState(var0);
+    void* wirelessDriver = GetWirelessDriver_020d41d8();
+    *(void**)((char*)wirelessDriver + 0xc8) = callback;
+    SetIRQInterruptState(priorState);
     return 0;
 }

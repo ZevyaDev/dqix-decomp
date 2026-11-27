@@ -85,7 +85,7 @@ extern "C" int func_020857ec(unsigned char*);
 extern "C" short HasTension_ov024_021da998(Struct_ov024_021da670_6*);
 extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" int func_ov024_021e47dc(Struct_ov024_021e4604*);
-extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
+extern "C" int IsSpellcastingBlocked_ov024_021dd010(Struct_ov024_021dced0_2*);
 extern "C" void func_02087704(void*);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" int func_02088840(unsigned char*);
@@ -234,11 +234,11 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
         }
 
         if (func_020856f4(var10->unknown_150_)
-            && func_ov024_021dd010((Struct_ov024_021dced0_2*)var1)
+            && IsSpellcastingBlocked_ov024_021dd010((Struct_ov024_021dced0_2*)var1)
             && inline_ov000_0215a908_5(var1)->unknown_4b_ != 0) {
             if ((float)var9 < (arg0->unknown_c_->unknown_1c_7_ ? 100.0f : 25.0f)) {
                 int var15 = 0x18;
-                if (func_ov024_021dd010((Struct_ov024_021dced0_2*)var1)) var15 = 0x1a;
+                if (IsSpellcastingBlocked_ov024_021dd010((Struct_ov024_021dced0_2*)var1)) var15 = 0x1a;
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var15);
                 var6 = 1;
                 func_020888a4((unsigned char*)var1->currentStats_);

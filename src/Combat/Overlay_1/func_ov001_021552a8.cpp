@@ -99,7 +99,7 @@ struct Struct_ov001_021552a8_2 {
 extern "C" char* GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
-extern "C" void func_ov017_021bb27c(void* arg0);
+extern "C" void EndEventTask_ov017_021bb27c(void* eventTask);
 extern "C" void ResetQuestDisplay_0208b9a0(void* display, unsigned char arg1);
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void func_0208b8c4(Struct_0208b8c4* arg0, SafeAllocator* arg1);
@@ -174,7 +174,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
 #endif
         var3->RemoveTask(arg0->unknown_110_);
         SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, arg0->unknown_94_, 0);
-        func_ov017_021bb27c(arg0);
+        EndEventTask_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
     }
@@ -240,7 +240,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
     const void* var8;
     unsigned int var10;
     if (FindFilesInNarcBySubstring(var7, data_ov001_021661d7, &var8, &var10, 1) == 0) {
-        func_ov017_021bb27c(arg0);
+        EndEventTask_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
     }
@@ -279,21 +279,21 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         SignedAllocatorHeader* var22 = arg0->unknown_7c_.GetSignedAllocator();
         arg0->unknown_7c_.Destroy();
         func_02012da4(&gMainHeap_02114e20, var22);
-        func_ov017_021bb27c(arg0);
+        EndEventTask_ov017_021bb27c(arg0);
         arg0->unknown_1_ = 1;
         return arg0->unknown_a_;
     }
 
     int var23;
     int var24;
-    Struct_02013454* var25;
+    BMDJStruct_02013454* var25;
     Struct_ov001_021552a8_2* var26 = func_0205ec34();
     var25 = func_020196fc((Zone3D*)GetZone3D_02012fe4(), 0);
-    var24 = var25->unknown_4_.unknown_10_;
+    var24 = var25->unknown_4_.entryCount_10_;
     if (var25 != NULL) {
         memset(var26->unknown_45b_, 0, sizeof(var26->unknown_45b_));
         for (var23 = 0; var23 < var24; var23++) {
-            Struct_02016874_2* var27 = &var25->unknown_44_[var23];
+            BMDJEntry_02016874_2* var27 = &var25->pEntries_44_[var23];
             if (var27 != NULL && !(var27->unknown_2_ & 4)) {
                 SetFlag_0206df6c(var26, var26->unknown_45b_, (unsigned char)var23, 1);
             }

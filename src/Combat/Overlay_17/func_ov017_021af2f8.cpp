@@ -28,7 +28,7 @@ struct Struct_0205e854;
 extern "C" LocalWireless_0202b2f0* func_0202ae18(void);
 extern "C" void* func_0202ae24(void);
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
-extern "C" int func_0202d6a8(void);
+extern "C" int GetLocalWirelessLinkState_0202d6a8(void);
 extern "C" void* func_020d6c00(void);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" int* GetNoticeQueue_020936f8(void);
@@ -59,7 +59,7 @@ extern "C" ARM unsigned char func_ov017_021af2f8(Struct_ov017_021af2f8* arg0) {
     GetLocalWirelessPlayerRecord_0202c178(var1, 0);
     Struct_0205e854* var2 = (Struct_0205e854*)func_0202ae24();
 
-    if (IsLocalWirelessPlayerDisconnected_0202c578(var1, 0) != 0 || func_0202d6a8() == 8) {
+    if (IsLocalWirelessPlayerDisconnected_0202c578(var1, 0) != 0 || GetLocalWirelessLinkState_0202d6a8() == 8) {
         ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x8020);
         int* var3 = GetNoticeQueue_020936f8();
         func_020939dc(var3);

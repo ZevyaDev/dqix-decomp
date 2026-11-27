@@ -8,7 +8,7 @@ struct Struct_ov031_0222da60 {
     unsigned char unknown_14_;
     unsigned char unknown_15_;
 };
-extern Struct_ov031_0222da60* data_ov031_02290c98;
+extern Struct_ov031_0222da60* gAddressEntryPage_ov031_02290c98;
 extern "C" unsigned char func_ov031_02225c24(void);
 extern "C" void func_ov031_02225c38(int);
 extern "C" void func_ov031_02225c4c(unsigned char);
@@ -29,65 +29,65 @@ extern "C" ARM void func_ov031_0222da60(void) {
     case 0:
         return;
     case 16:
-        if (data_ov031_02290c98->unknown_14_ == 0 && data_ov031_02290c98->unknown_8_[2] == 0) break;
+        if (gAddressEntryPage_ov031_02290c98->unknown_14_ == 0 && gAddressEntryPage_ov031_02290c98->unknown_8_[2] == 0) break;
         PlayWifiSetupSoundEffect_ov031_02236878(3);
-        if (data_ov031_02290c98->unknown_8_[data_ov031_02290c98->unknown_14_ * 3 + 2] == 0)
-            --data_ov031_02290c98->unknown_14_;
-        VectorizedMemset(data_ov031_02290c98->unknown_8_ + data_ov031_02290c98->unknown_14_ * 3, 0, 3);
-        if (data_ov031_02290c98->unknown_14_ == 0 && data_ov031_02290c98->unknown_8_[2] == 0)
+        if (gAddressEntryPage_ov031_02290c98->unknown_8_[gAddressEntryPage_ov031_02290c98->unknown_14_ * 3 + 2] == 0)
+            --gAddressEntryPage_ov031_02290c98->unknown_14_;
+        VectorizedMemset(gAddressEntryPage_ov031_02290c98->unknown_8_ + gAddressEntryPage_ov031_02290c98->unknown_14_ * 3, 0, 3);
+        if (gAddressEntryPage_ov031_02290c98->unknown_14_ == 0 && gAddressEntryPage_ov031_02290c98->unknown_8_[2] == 0)
             func_ov031_02225c38(0);
         func_ov031_02225c4c(1);
         func_ov031_02225c60(0);
         break;
     case 17:
-        if (data_ov031_02290c98->unknown_14_ >= 3) break;
-        if (data_ov031_02290c98->unknown_8_[data_ov031_02290c98->unknown_14_ * 3 + 2] == 0) break;
+        if (gAddressEntryPage_ov031_02290c98->unknown_14_ >= 3) break;
+        if (gAddressEntryPage_ov031_02290c98->unknown_8_[gAddressEntryPage_ov031_02290c98->unknown_14_ * 3 + 2] == 0) break;
         PlayWifiSetupSoundEffect_ov031_02236878(1);
-        ++data_ov031_02290c98->unknown_14_;
+        ++gAddressEntryPage_ov031_02290c98->unknown_14_;
         func_ov031_02225c60(0);
         break;
     case 18:
-        data_ov031_02290c98->unknown_15_ = 0;
+        gAddressEntryPage_ov031_02290c98->unknown_15_ = 0;
         PlayWifiSetupSoundEffect_ov031_02236878(7);
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222de08);
         return;
     case 19:
         if (func_ov031_0222e224()) {
             PlayWifiSetupSoundEffect_ov031_02236878(6);
-            data_ov031_02290c98->unknown_15_ = 1;
+            gAddressEntryPage_ov031_02290c98->unknown_15_ = 1;
         } else {
-            data_ov031_02290c98->unknown_15_ = 2;
+            gAddressEntryPage_ov031_02290c98->unknown_15_ = 2;
             PlayWifiSetupSoundEffect_ov031_02236878(9);
         }
-        data_ov031_02290c98->unknown_14_ = 3;
-        *data_ov031_02290c98->unknown_4_ = (*data_ov031_02290c98->unknown_4_ & 0xc1fffcff) | 0x200;
+        gAddressEntryPage_ov031_02290c98->unknown_14_ = 3;
+        *gAddressEntryPage_ov031_02290c98->unknown_4_ = (*gAddressEntryPage_ov031_02290c98->unknown_4_ & 0xc1fffcff) | 0x200;
         func_ov031_0222e048();
         func_ov031_0222e1ac();
         SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222de08);
         return;
     default:
-        if (data_ov031_02290c98->unknown_14_ == 3 && func_ov031_0222dd70(26)) break;
+        if (gAddressEntryPage_ov031_02290c98->unknown_14_ == 3 && func_ov031_0222dd70(26)) break;
         PlayWifiSetupSoundEffect_ov031_02236878(1);
-        unsigned char* var1 = data_ov031_02290c98->unknown_8_;
-        int var2 = data_ov031_02290c98->unknown_14_ * 3;
+        unsigned char* var1 = gAddressEntryPage_ov031_02290c98->unknown_8_;
+        int var2 = gAddressEntryPage_ov031_02290c98->unknown_14_ * 3;
         if (var1[var2 + 2] == 0) {
             var1[var2 + 2] = var0;
         } else if (var1[var2 + 1] == 0) {
             var1[var2 + 1] = var1[var2 + 2];
             var1[var2 + 2] = var0;
             if (func_ov031_0222dd70(26)) {
-                if (data_ov031_02290c98->unknown_14_ < 3) ++data_ov031_02290c98->unknown_14_;
+                if (gAddressEntryPage_ov031_02290c98->unknown_14_ < 3) ++gAddressEntryPage_ov031_02290c98->unknown_14_;
             }
         } else {
             var1[var2] = var1[var2 + 1];
             var1[var2 + 1] = var1[var2 + 2];
             var1[var2 + 2] = var0;
-            if (data_ov031_02290c98->unknown_14_ < 3) ++data_ov031_02290c98->unknown_14_;
+            if (gAddressEntryPage_ov031_02290c98->unknown_14_ < 3) ++gAddressEntryPage_ov031_02290c98->unknown_14_;
         }
         func_ov031_02225c38(1);
-        if (data_ov031_02290c98->unknown_14_ < 3) func_ov031_02225c60(1);
+        if (gAddressEntryPage_ov031_02290c98->unknown_14_ < 3) func_ov031_02225c60(1);
         else func_ov031_02225c60(0);
-        if (data_ov031_02290c98->unknown_14_ == 3 && func_ov031_0222dd70(26))
+        if (gAddressEntryPage_ov031_02290c98->unknown_14_ == 3 && func_ov031_0222dd70(26))
             func_ov031_02225c4c(0);
         break;
     }

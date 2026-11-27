@@ -19,7 +19,7 @@ struct TextWindow_0205d0e0 {
 struct TextWindowManager_0205d81c;
 
 extern "C" void func_ov000_02179cdc(void* arg0, void* arg1);
-extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int arg1, int enemyTargetCount);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int panelCount, int enemyTargetCount);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void func_ov000_02179ed8(void* arg0, void* arg1, void* arg2);
 #if defined(jpn)

@@ -171,7 +171,7 @@ extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* func_020d6c00();
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* func_0202ae18(void);
-extern "C" void func_0201075c(char* arg0, unsigned char arg1);
+extern "C" void SetPartyWipedOut_0201075c(char* gameState, unsigned char isWipedOut);
 extern "C" unsigned char func_02010750(char* arg0);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
@@ -225,13 +225,13 @@ extern "C" ARM void func_ov023_021f4c04(BattleScene_ov000_02160da0* arg0) {
     int var10 = arg0->unknown_eac_;
 
     if (var10 == 0) {
-        func_0201075c((char*)var3, 1);
+        SetPartyWipedOut_0201075c((char*)var3, 1);
         for (int var11 = 0; var11 < 4; var11++) {
             GameObject* var12 = var3->GetPartyMemberByIndex(var11);
             if (var12 == NULL) continue;
             if (((Struct_ov023_021f4c04_3*)var12)->unknown_130_->unknown_0_ & 1) continue;
             if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var11)) continue;
-            func_0201075c((char*)var3, 0);
+            SetPartyWipedOut_0201075c((char*)var3, 0);
         }
         if (func_02010750((char*)var3) != 0 && IsLocalWirelessOn_0202b7d8((int*)var9) != 0) {
             func_ov017_021d2400();

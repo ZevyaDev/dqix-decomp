@@ -175,12 +175,12 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
     DISPCNT = (DISPCNT & ~0x1f00) | 0x100;
 
     void* var21 = func_0205ec34();
-    Struct_02013454* var22 = func_020196fc((Zone3D*)GetZone3D_02012fe4(), 0);
-    Struct_02016874_2* var23;
-    int var24 = var22->unknown_4_.unknown_10_;
+    BMDJStruct_02013454* var22 = func_020196fc((Zone3D*)GetZone3D_02012fe4(), 0);
+    BMDJEntry_02016874_2* var23;
+    int var24 = var22->unknown_4_.entryCount_10_;
     if (var22 != 0) {
         for (int var25 = 0; var25 < var24; var25++) {
-            var23 = &var22->unknown_44_[var25];
+            var23 = &var22->pEntries_44_[var25];
             if (func_0206dfb0((int)var21, (unsigned char*)((char*)var21 + 0x45b), var25 & 0xff) != 0) {
                 if (var23 != 0) {
                     var23->unknown_2_ &= ~4;

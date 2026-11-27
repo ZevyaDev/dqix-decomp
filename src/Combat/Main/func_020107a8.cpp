@@ -7,14 +7,14 @@
 
 extern "C" unsigned char* func_0205ec34(void);
 
-// USA: func_020107a8
-extern "C" ARM void func_020107a8(char* arg0, int arg1) {
+// USA: SetStoryStep_020107a8
+extern "C" ARM void SetStoryStep_020107a8(char* gameState, int step) {
 #if defined(jpn)
-    *(int*)(arg0 + 0x5a54) = arg1;
+    *(int*)(gameState + 0x5a54) = step;
 #else
-    *(int*)(arg0 + 0x5cb4) = arg1;
+    *(int*)(gameState + 0x5cb4) = step;
 #endif
-    unsigned char* var0 = func_0205ec34();
-    unsigned char* var1 = var0 + var0[0x332] * 0x1c;
-    var1[1] = arg1;
+    unsigned char* flagManager = func_0205ec34();
+    unsigned char* storyRecord = flagManager + flagManager[0x332] * 0x1c;
+    storyRecord[1] = step;
 }

@@ -8,8 +8,8 @@ extern "C" int func_020d2ff0(const char* string);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 extern const char data_020efe98;
 
-// USA: func_02041b00
-extern "C" ARM int func_02041b00(char* arg0, int arg1) {
-    char* var0 = arg0 + func_020d2ff0(arg0);
-    return (var0 + sprintf(var0, &data_020efe98, arg1)) - arg0;
+// USA: AppendYOffsetTag_02041b00
+extern "C" ARM int AppendYOffsetTag_02041b00(char* buffer, int yOffset) {
+    char* end = buffer + func_020d2ff0(buffer);
+    return (end + sprintf(end, &data_020efe98, yOffset)) - buffer;
 }

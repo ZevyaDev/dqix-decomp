@@ -5,7 +5,7 @@
 #include "Input/Input.h"
 
 extern "C" int func_02053604(signed char* arg0);
-extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
+extern "C" void StopSoundEffect_0205eabc(void* manager, void* handle, int fadeDuration);
 extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
@@ -69,7 +69,7 @@ extern "C" ARM void StopGesture_020531f0(struct Struct_020531f0_2* gameObject) {
     }
 
     if (func_02053604((signed char*)gameObject) == 0x19) {
-        func_0205eabc((void*)&gSoundEffectManager_02108760, (char*)gameObject + Enum_020531f0_408, 0);
+        StopSoundEffect_0205eabc((void*)&gSoundEffectManager_02108760, (char*)gameObject + Enum_020531f0_408, 0);
     }
 
     memset(gameObject->unknown_178_, 0, 4);

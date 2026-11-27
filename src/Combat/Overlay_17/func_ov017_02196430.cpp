@@ -140,12 +140,12 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 struct BattleJoinRecord_0207d7f4;
 extern "C" BattleJoinRecord_0207d7f4* GetBattleJoinTable_0207d78c();
-extern "C" Struct_ov017_02196430_6* FindBattleJoinRecord_0207d9bc(BattleJoinRecord_0207d7f4* arg0, unsigned short monsterId);
+extern "C" Struct_ov017_02196430_6* FindBattleJoinRecord_0207d9bc(BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
 extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" void func_ov017_021b6e70(Struct_ov017_02196430_5* arg0, int arg1);
 extern "C" int func_ov017_021970a0(int arg0);
-extern "C" void func_ov017_021b7104(void* arg0, Struct_ov017_02196430_5* arg1);
+extern "C" void ApplyBattleRequest_ov017_021b7104(void* battleManager, Struct_ov017_02196430_5* request);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 
 extern Struct_ov017_021d6438 data_ov017_021d6438;
@@ -395,7 +395,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
         }
         var18.unknown_14_ = var25;
         var18.unknown_12_ = var7->timeOfDayIndex_;
-        func_ov017_021b7104(var0->unknown_3718_, &var18);
+        ApplyBattleRequest_ov017_021b7104(var0->unknown_3718_, &var18);
         AppendToQueue_020469b4((Queue_0201bdac_2*)var0->unknown_36fc_, (QueueNode_0201bdac*)var0->unknown_3718_);
         return 1;
     }

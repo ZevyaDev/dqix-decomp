@@ -8,7 +8,7 @@ struct Struct_02087d78 {
     int unknown_5a_2_ : 3;
 };
 
-extern "C" void func_02087df0(void* arg0);
+extern "C" void ClearSpellResistanceBuff_02087df0(void* stats);
 
 // USA: func_02087d78
 extern "C" ARM int func_02087d78(struct Struct_02087d78* arg0, int arg1) {
@@ -16,7 +16,7 @@ extern "C" ARM int func_02087d78(struct Struct_02087d78* arg0, int arg1) {
     if (var0 > 2) var0 = 2;
     if (var0 < -2) var0 = -2;
     if (var0 == 0) {
-        func_02087df0(arg0);
+        ClearSpellResistanceBuff_02087df0(arg0);
         return 0;
     }
     arg0->unknown_5a_2_ = var0;

@@ -19,7 +19,7 @@ struct TextWindow_0205d0e0 {
     short tileY_ae_;
 };
 extern "C" struct TextWindow_0205d0e0 *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
-extern "C" void func_0205d904(unsigned char *arg0);
+extern "C" void SetTouchMenuCursorEntryRects_0205d904(unsigned char *windowManager);
 
 struct Struct_ov002_02160fb4 {
 #if defined(jpn)
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov002_02160fb4(char *arg0) {
     var1 = 0xf - var3;
     inline_ov002_02160fb4(var4, var0, var1);
     inline_ov002_02160fb4_2(var4, var2, var3);
-    func_0205d904((unsigned char *) (arg0 + 0xe20));
+    SetTouchMenuCursorEntryRects_0205d904((unsigned char *) (arg0 + 0xe20));
 }
 #else
 extern "C" ARM void func_ov002_02160fb4(char *arg0) {
@@ -88,6 +88,6 @@ extern "C" ARM void func_ov002_02160fb4(char *arg0) {
     var6 = 0xf - var8;
     inline_ov002_02160fb4(var9, var5, var6);
     inline_ov002_02160fb4_2(var9, var7, var8);
-    func_0205d904((unsigned char *) (arg0 + 0xec8));
+    SetTouchMenuCursorEntryRects_0205d904((unsigned char *) (arg0 + 0xec8));
 }
 #endif

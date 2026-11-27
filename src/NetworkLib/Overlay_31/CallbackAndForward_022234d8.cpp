@@ -4,7 +4,7 @@
 extern "C" int func_ov031_02223478(int);
 extern "C" int func_ov031_0223b61c(int, int*, int);
 
-extern "C" void func_ov031_0223b710(int arg0);
+extern "C" void FreeLoadedFile_ov031_0223b710(int fileData);
 
 typedef void (*VRAMLoader_ov031_022234d8)(void*, int, int);
 
@@ -15,5 +15,5 @@ extern "C" ARM void LoadFileToVRAM_ov031_022234d8(int path, VRAMLoader_ov031_022
     int fileData = func_ov031_0223b61c(localizedPath, &length, 4);
     CleanInvalidateCacheRange((const void*)((void*)fileData), length);
     loadToVRAM((void*)fileData, 0, length);
-    func_ov031_0223b710(fileData);
+    FreeLoadedFile_ov031_0223b710(fileData);
 }

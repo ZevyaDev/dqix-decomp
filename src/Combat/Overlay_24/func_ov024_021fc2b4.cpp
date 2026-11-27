@@ -2,7 +2,7 @@
 
 extern "C" int TrySelectTacticOption_ov024_021fe698(void* tacticAI, int option);
 extern "C" void func_ov024_021fdf04(void* arg0, int arg1);
-extern "C" void func_ov024_021fd954(void* arg0, int arg1);
+extern "C" void EvaluatePartyStatusAction_ov024_021fd954(void* tacticAI, int statusEffect);
 
 // USA: func_ov024_021fc2b4
 extern "C" ARM void func_ov024_021fc2b4(void* arg0) {
@@ -22,5 +22,5 @@ extern "C" ARM void func_ov024_021fc2b4(void* arg0) {
 	if (!TrySelectTacticOption_ov024_021fe698(arg0, 0xa)) {
 		return;
 	}
-	func_ov024_021fd954(arg0, 0x16);
+	EvaluatePartyStatusAction_ov024_021fd954(arg0, 0x16);
 }

@@ -48,8 +48,8 @@ struct Struct_0201099c_3;
 #endif
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c*, int, int);
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8*, int, int);
-extern "C" void func_020805f4(void*, int);
-extern "C" void func_02081130(void*, int, int);
+extern "C" void CapitalizeMenuLayoutText_020805f4(void*, int);
+extern "C" void SetMenuLayoutWindowPageArrows_02081130(void*, int, int);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void ExpandInflectionTags_020e4864(const char*, char*, int, int, int, int);
 extern "C" void OpenMenuLayoutWindow_020813ec(void*, int);
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov006_0215f4dc(Struct_ov006_02157a60* arg0) {
                 ExpandInflectionTags_020e4864(*var10, arg0->unknown_4_[var9], 1, 0, 0, 0);
                 SetMenuLayoutTextString_02080f8c((MenuLayout_02080f8c*)arg0->unknown_14_, var6, (int)arg0->unknown_4_[var9]);
             }
-            func_020805f4(var4, var6);
+            CapitalizeMenuLayoutText_020805f4(var4, var6);
 #endif
             unsigned char var11 = var1[var8];
             if (arg0->unknown_370_ == var5[var8]) var11 -= arg0->unknown_38b_;
@@ -110,6 +110,6 @@ extern "C" ARM void func_ov006_0215f4dc(Struct_ov006_02157a60* arg0) {
     ShowMenuLayoutText_02080b40(var4, 0x7e);
     SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var4, 0x7c, arg0->unknown_388_ + 1);
     SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var4, 0x7d, arg0->unknown_389_);
-    func_02081130(var4, 0x11, (arg0->unknown_394_ & 4) ? 1 : 0);
+    SetMenuLayoutWindowPageArrows_02081130(var4, 0x11, (arg0->unknown_394_ & 4) ? 1 : 0);
     OpenMenuLayoutWindow_020813ec(var4, 0x11);
 }

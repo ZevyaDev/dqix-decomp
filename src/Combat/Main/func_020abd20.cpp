@@ -19,7 +19,7 @@ extern "C" void func_020a9a50(void* arg0, char* arg1, int arg2);
 extern "C" void func_020a9ba4(void* arg0);
 extern "C" void func_020a9af8(unsigned char* arg0);
 extern "C" void func_020a9b2c(void* arg0);
-extern "C" void func_020116c8(void* arg0);
+extern "C" void StopFollowingTreasureMap_020116c8(void* gameState);
 extern "C" void* func_020120a0(char* arg0, unsigned int arg1);
 
 struct Struct_02011544;
@@ -76,7 +76,7 @@ extern "C" ARM int func_020abd20() {
 #endif
         *(unsigned int*)(var5 + 0xb48) = *(unsigned int*)(var4 + 0x2c80);
         *(unsigned int*)(var5 + 0xb4c) = *(unsigned int*)(var4 + 0x2c84);
-        func_020116c8(var0);
+        StopFollowingTreasureMap_020116c8(var0);
         memcpy(func_020120a0((char*)var0, 0), var3 + 0x2c54, 8);
         BackgroundLoader::RemoveLockGlobal();
         return 1;

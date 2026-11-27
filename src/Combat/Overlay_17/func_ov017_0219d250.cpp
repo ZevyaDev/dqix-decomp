@@ -142,9 +142,9 @@ extern "C" void func_ov017_02191bdc(unsigned char*, int);
 struct Struct_02095924_2;
 extern "C" Struct_ov017_0219d250_6* func_02099950(Struct_02095924_2*, int);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-extern "C" void func_02010774(char*, int);
-extern "C" void func_020107a8(char*, int);
-extern "C" void func_020107dc(char*, int);
+extern "C" void SetStoryChapter_02010774(char*, int);
+extern "C" void SetStoryStep_020107a8(char*, int);
+extern "C" void SetStorySubStep_020107dc(char*, int);
 struct LocalWireless_0202b2f0;
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0*, int);
 struct LocalWireless_0202c1a4;
@@ -195,7 +195,7 @@ extern "C" int IsQuestersRestZone_020981e4(int, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(Struct_ov017_0219d250_5* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void func_ov017_021907dc(int, int, int, int, int);
+extern "C" void LinkPartyFollowers_ov017_021907dc(int, int, int, int, int);
 
 extern char gMusicManager_02109bf4;
 
@@ -262,9 +262,9 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
     var0 = arg0->unknown_3734_;
 
     if (var0->unknown_2_ != 0 && var0->unknown_178_0_ && IsLocalWirelessGuest_0202c540(var12)) {
-        func_02010774((char*)var5, var0->unknown_179_);
-        func_020107a8((char*)var5, var0->unknown_17a_);
-        func_020107dc((char*)var5, var0->unknown_17b_);
+        SetStoryChapter_02010774((char*)var5, var0->unknown_179_);
+        SetStoryStep_020107a8((char*)var5, var0->unknown_17a_);
+        SetStorySubStep_020107dc((char*)var5, var0->unknown_17b_);
     } else {
         var16 = var5->GetTimeOfDay();
         if (IsLocalWirelessGuest_0202c540(var12) && var1->unknown_60_ == 0 && arg0->unknown_3734_->unknown_2_ == 0) {
@@ -427,7 +427,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
                 if (IsNotLocalWirelessGuest_0202c508(var12)) {
                     RebuildFieldPartyOrder_ov017_02191108(arg0, 1, 1, 1, 1);
                 } else {
-                    func_ov017_021907dc((int)arg0, 0, 1, 1, 1);
+                    LinkPartyFollowers_ov017_021907dc((int)arg0, 0, 1, 1, 1);
                 }
             }
         }

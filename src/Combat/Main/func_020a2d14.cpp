@@ -20,7 +20,7 @@ struct Struct_0202e6c0 {
 };
 
 extern "C" void func_0202e784(struct Struct_0202e6a8* arg0, int arg1);
-extern "C" int func_0202e800(void* arg0);
+extern "C" int GetCameraDistance_0202e800(void* camera);
 extern "C" int func_0202e7f8(void* arg0);
 extern "C" void func_0202e6c0(struct Struct_0202e6c0* arg0, int arg1);
 extern "C" void func_0202e9f4(void* arg0, struct Struct_ov009_0218aa28* arg1);
@@ -89,7 +89,7 @@ extern "C" ARM void func_020a2d14(struct Struct_0202e6c0* arg0) {
             func_0202e784((struct Struct_0202e6a8*)arg0, (int)(4096.0f * (0.05f * var11)));
         }
         if (var6) {
-            fix32_t var16 = func_0202e800(arg0);
+            fix32_t var16 = GetCameraDistance_0202e800(arg0);
             fix32_t var17 = func_0202e7f8(arg0);
             fix32_t var18 = inline_02061c04_5(var17, var17);
             fix32_t var19 = inline_02061c04_5(var16, var16);
@@ -100,7 +100,7 @@ extern "C" ARM void func_020a2d14(struct Struct_0202e6c0* arg0) {
             func_0202e6c0(arg0, var21.y);
         }
         if (var7) {
-            fix32_t var23 = func_0202e800(arg0);
+            fix32_t var23 = GetCameraDistance_0202e800(arg0);
             fix32_t var24 = func_0202e7f8(arg0);
             fix32_t var25 = inline_02061c04_5(var24, var24);
             fix32_t var26 = inline_02061c04_5(var23, var23);
@@ -112,7 +112,7 @@ extern "C" ARM void func_020a2d14(struct Struct_0202e6c0* arg0) {
         }
     }
 
-    var12 = (float)func_0202e800(arg0) / 10.0f / 4096.0f;
+    var12 = (float)GetCameraDistance_0202e800(arg0) / 10.0f / 4096.0f;
     var13 = 0;
 
     if ((arg0->unknown_218_ == 1 && var5) || (arg0->unknown_218_ == 2 && var3)) {

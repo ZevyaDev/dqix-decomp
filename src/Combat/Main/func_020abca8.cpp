@@ -16,7 +16,7 @@ extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigne
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern AllocatorUnion gMainHeap_02114e20;
 
-extern "C" int func_02075910(int arg0, void* arg1, unsigned int arg2, int arg3);
+extern "C" int ReadSaveMemory_02075910(int offset, void* destination, unsigned int length, int isAsync);
 extern "C" int func_02075acc(int arg0, void* arg1, unsigned int arg2, int arg3);
 
 // USA: func_020abca8
@@ -27,7 +27,7 @@ extern "C" ARM int func_020abca8() {
 
     void* var2 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x6fe4);
     if (var2 != NULL) {
-        var1 = func_02075910(0x10, var2, 0x6fe4, var1);
+        var1 = ReadSaveMemory_02075910(0x10, var2, 0x6fe4, var1);
         if (var1 != 0) {
             func_02075acc(0x8010, var2, 0x6fe4, 0);
         }

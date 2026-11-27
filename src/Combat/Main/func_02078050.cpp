@@ -16,7 +16,7 @@ struct Struct_ov009_0218aa28 { int unknown_0_; int unknown_4_; int unknown_8_; }
 extern "C" void* func_0202ae18(void* arg0);
 
 struct Struct_02033f44;
-extern "C" int* func_02033f44(struct Struct_02033f44* arg0);
+extern "C" int* GetCollidedWallTriangle_02033f44(struct Struct_02033f44* object);
 
 extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 
@@ -64,7 +64,7 @@ struct Struct_02078050 {
 extern "C" ARM void func_02078050(struct Struct_02078050* arg0) {
     void* var0 = func_0202ae18(arg0);
 
-    if (func_02033f44((struct Struct_02033f44*)arg0) != 0) {
+    if (GetCollidedWallTriangle_02033f44((struct Struct_02033f44*)arg0) != 0) {
         SetFieldMonsterState_02076ccc(arg0, 1);
         arg0->unknown_154_ = 0;
         if (IsLocalWirelessOn_0202b7d8((int*)var0) == 0) {

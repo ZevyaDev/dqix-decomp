@@ -145,7 +145,7 @@ struct Struct_021142e0_3
     Struct_02114330 unknown_50_;
 };
 
-extern Struct_021142e0_3 data_021142e0;
+extern Struct_021142e0_3 gWirelessIPC_021142e0;
 extern Struct_02114330 data_02114330;
 extern unsigned char data_02114344[6];
 extern unsigned char data_02114354[24];
@@ -154,7 +154,7 @@ extern unsigned char data_02114354[24];
 extern "C" ARM void func_020d42e0(unsigned int arg0, unsigned int arg1, unsigned int arg2)
 {
     Struct_020d42e0* const var0 = (Struct_020d42e0*)arg1;
-    Struct_020d424c_2* const var1 = data_021142e0.unknown_4_;
+    Struct_020d424c_2* const var1 = gWirelessIPC_021142e0.unknown_4_;
     if (arg2)
         return;
     InvalidateDataCacheRange(var1->unknown_10_, 0x100);
@@ -209,7 +209,7 @@ extern "C" ARM void func_020d42e0(unsigned int arg0, unsigned int arg1, unsigned
         if (var1->unknown_18_[var0->unknown_0_] != NULL)
         {
             var1->unknown_18_[var0->unknown_0_](var0);
-            if (!data_021142e0.unknown_0_)
+            if (!gWirelessIPC_021142e0.unknown_0_)
                 return;
         }
         if (var0->unknown_0_ == 8 || var0->unknown_0_ == 0xc)
@@ -254,30 +254,30 @@ extern "C" ARM void func_020d42e0(unsigned int arg0, unsigned int arg1, unsigned
                     var1->unknown_14c_ &= ~(1 << var7);
                 var1->unknown_150_ = var8;
                 VectorizedMemset(&data_02114330, 0, sizeof(Struct_02114330));
-                data_021142e0.unknown_50_.unknown_0_ = 0x82;
-                data_021142e0.unknown_50_.unknown_2_ = 0;
-                data_021142e0.unknown_50_.unknown_4_ = var6;
-                data_021142e0.unknown_50_.unknown_8_ = NULL;
-                data_021142e0.unknown_50_.unknown_c_ = NULL;
-                data_021142e0.unknown_50_.unknown_10_ = 0;
-                data_021142e0.unknown_50_.unknown_12_ = var7;
-                data_021142e0.unknown_50_.unknown_20_ = var8;
-                data_021142e0.unknown_50_.unknown_22_ = var1->unknown_14c_;
-                data_021142e0.unknown_50_.unknown_1a_ = 0xffff;
-                data_021142e0.unknown_50_.unknown_3c_ = var9;
+                gWirelessIPC_021142e0.unknown_50_.unknown_0_ = 0x82;
+                gWirelessIPC_021142e0.unknown_50_.unknown_2_ = 0;
+                gWirelessIPC_021142e0.unknown_50_.unknown_4_ = var6;
+                gWirelessIPC_021142e0.unknown_50_.unknown_8_ = NULL;
+                gWirelessIPC_021142e0.unknown_50_.unknown_c_ = NULL;
+                gWirelessIPC_021142e0.unknown_50_.unknown_10_ = 0;
+                gWirelessIPC_021142e0.unknown_50_.unknown_12_ = var7;
+                gWirelessIPC_021142e0.unknown_50_.unknown_20_ = var8;
+                gWirelessIPC_021142e0.unknown_50_.unknown_22_ = var1->unknown_14c_;
+                gWirelessIPC_021142e0.unknown_50_.unknown_1a_ = 0xffff;
+                gWirelessIPC_021142e0.unknown_50_.unknown_3c_ = var9;
                 VectorizedInvertedMemcpy(var10, data_02114344, sizeof(data_02114344));
                 if (var11 != NULL)
                     Memcpy16Bit_020ca3b8(var11, data_02114354, sizeof(data_02114354));
                 else
                     func_020ca390(0, data_02114354, sizeof(data_02114354));
-                data_021142e0.unknown_50_.unknown_40_ = var8 == 0 ? var12 : var13;
-                data_021142e0.unknown_50_.unknown_42_ = var8 == 0 ? var13 : var12;
+                gWirelessIPC_021142e0.unknown_50_.unknown_40_ = var8 == 0 ? var12 : var13;
+                gWirelessIPC_021142e0.unknown_50_.unknown_42_ = var8 == 0 ? var13 : var12;
                 for (unsigned short var16 = 0; var16 < 16; var16++)
                 {
-                    data_021142e0.unknown_50_.unknown_6_ = var16;
+                    gWirelessIPC_021142e0.unknown_50_.unknown_6_ = var16;
                     if (var1->unknown_cc_[var16] != NULL)
                     {
-                        data_021142e0.unknown_50_.unknown_1c_ = var1->unknown_10c_[var16];
+                        gWirelessIPC_021142e0.unknown_50_.unknown_1c_ = var1->unknown_10c_[var16];
                         var1->unknown_cc_[var16](&data_02114330);
                     }
                 }

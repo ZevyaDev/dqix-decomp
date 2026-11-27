@@ -375,7 +375,7 @@ extern "C" void func_0202f404(void* arg0, int arg1, int arg2);
 extern "C" bool func_02067a9c(void* arg0, void* arg1);
 extern "C" void func_0206b6b8(unsigned char* arg0);
 extern "C" int GetFontDefaultWidth_02042648(int font);
-extern "C" bool func_02044494(void* arg0, void* arg1);
+extern "C" bool IsControlCode_02044494(void* arg0, void* arg1);
 extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 extern "C" int GetMessageWindow_020421a0();
 struct Struct_020416cc_2;
@@ -581,7 +581,7 @@ extern "C" ARM void func_02066cf0(Struct_02066cf0_3* arg0, int arg1) {
     for (; var39 < var55; var39++) {
         var51 = arg0->unknown_4c_[var39];
 
-        if (func_02044494(arg0, &var51)) {
+        if (IsControlCode_02044494(arg0, &var51)) {
             if (func_02067a9c(arg0, &var51)) {
                 break;
             }

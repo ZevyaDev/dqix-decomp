@@ -71,7 +71,7 @@ unsigned int data_ov031_0224c9d0;
 static void (*dhcp_callback)(void);
 static unsigned int cps_mode;
 static int calm_down;
-void (*data_ov031_0224c9c0)(void*);
+void (*gIPStackFreeFunction_ov031_0224c9c0)(void*);
 static void (*scavenger)(void);
 unsigned int data_ov031_0224c9ac;
 static unsigned int requested_ip;
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov031_02200160(int arg0) {
     Struct_ov031_0224cca8* var4 = data_ov031_0224cca8;
     do {
         if (var4->unknown_4_ != 0) {
-            data_ov031_0224c9c0(var4->unknown_34_);
+            gIPStackFreeFunction_ov031_0224c9c0(var4->unknown_34_);
             var4->unknown_4_ = 0;
         }
         var3++;
@@ -228,10 +228,10 @@ extern "C" ARM void func_ov031_02200298(Struct_ov031_02200298* arg0) {
     }
     if (arg0->unknown_4_ && arg0->unknown_8_) {
         data_ov031_0224c994 = arg0->unknown_4_;
-        data_ov031_0224c9c0 = arg0->unknown_8_;
+        gIPStackFreeFunction_ov031_0224c9c0 = arg0->unknown_8_;
     } else {
         data_ov031_0224c994 = (void* (*)(Type_020b11c8))func_ov031_0220028c;
-        data_ov031_0224c9c0 = (void (*)(void*))func_ov031_0220028c;
+        gIPStackFreeFunction_ov031_0224c9c0 = (void (*)(void*))func_ov031_0220028c;
     }
     cps_mode = arg0->unknown_0_;
     if (arg0->unknown_28_) data_ov031_0224c982 = arg0->unknown_28_;

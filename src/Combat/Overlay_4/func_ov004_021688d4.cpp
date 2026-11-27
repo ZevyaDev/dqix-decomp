@@ -15,7 +15,7 @@ extern "C" void GetNPCPosition_020406f8(struct Struct_0203de84* outPosition, str
 
 struct Struct_ov004_021688d4 { unsigned int unknown_0_[3]; };
 
-extern "C" int func_0203dfdc(void* arg0, int arg1);
+extern "C" int FindNPCIndexById_0203dfdc(void* npcManager, int id);
 struct Struct_02040a90;
 extern "C" int func_02040a90(struct Struct_02040a90* arg0);
 
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov004_021688d4(void) {
         var4 = var6;
         var5 = *(struct Struct_ov004_021688d4*)((char*)var3 + 0x44);
 
-        int var7 = func_0203dfdc(var1, 6);
+        int var7 = FindNPCIndexById_0203dfdc(var1, 6);
 #if defined(jpn)
         *(int*)(var0 + 0x1708) = var7;
 #else

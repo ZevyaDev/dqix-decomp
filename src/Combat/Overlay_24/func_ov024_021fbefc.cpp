@@ -5,11 +5,11 @@ struct Struct_ov024_021fbefc {
     int unknown_c_;
 };
 
-extern "C" void func_ov024_021fd954(struct Struct_ov024_021fbefc* arg0, int arg1);
+extern "C" void EvaluatePartyStatusAction_ov024_021fd954(struct Struct_ov024_021fbefc* tacticAI, int statusEffect);
 
 // USA: func_ov024_021fbefc
 extern "C" ARM void func_ov024_021fbefc(struct Struct_ov024_021fbefc* arg0) {
     if (arg0->unknown_c_ >= 3) {
-        func_ov024_021fd954(arg0, 4);
+        EvaluatePartyStatusAction_ov024_021fd954(arg0, 4);
     }
 }

@@ -35,7 +35,7 @@ struct Struct_ov015_02190acc
 };
 
 extern "C" int func_ov015_02191284(Struct_02029988_2* arg0);
-extern "C" void* func_0202a9ac(Struct_02029634* arg0, int arg1);
+extern "C" void* GetTextMenuEntry_0202a9ac(Struct_02029634* menu, int index);
 extern "C" void func_020294cc(void* arg0, const char* arg1);
 
 extern char data_ov015_0219432e[];
@@ -56,7 +56,7 @@ extern char data_ov015_02194ec3[];
 extern "C" ARM void func_ov015_02191f04(Struct_ov015_02190acc* arg0)
 {
     int var0 = func_ov015_02191284(&arg0->unknown_2c4_);
-    void* var1 = func_0202a9ac((Struct_02029634*)&arg0->unknown_2c4_, arg0->unknown_2c4_.unknown_60_);
+    void* var1 = GetTextMenuEntry_0202a9ac((Struct_02029634*)&arg0->unknown_2c4_, arg0->unknown_2c4_.unknown_60_);
     switch (var0)
     {
     case 0:

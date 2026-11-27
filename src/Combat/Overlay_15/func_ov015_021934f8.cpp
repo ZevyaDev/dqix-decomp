@@ -115,7 +115,7 @@ extern "C" void ResetGameSpeedAndDeltaTime_02010124(GameState_0200f3a4_9*);
 extern "C" void func_020c3a0c(int);
 unsigned long long GetCurrentTimestamp();
 extern "C" void* GetMessageWindow_020421a0();
-extern "C" void func_02042b30(void*, void*);
+extern "C" void SetMessageWindowTextureArena_02042b30(void*, void*);
 extern "C" void InitMessageGlyphs_020432c4(void*);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void*, const void*, int);
@@ -134,7 +134,7 @@ extern "C" void func_ov015_02191668(void*);
 extern "C" void func_ov015_02190d7c(void*);
 extern "C" void func_ov015_021901c8(void*);
 extern "C" void CleanInvalidateOAMBuffers_0203bd88(void* arg0);
-extern "C" void func_0203aa08(void*);
+extern "C" void PlayPendingSound_0203aa08(void*);
 extern "C" void UpdateSound_020bbd9c();
 extern "C" unsigned long long _ll_udiv(unsigned long long, unsigned long long);
 extern "C" float func_0200c76c(unsigned long long);
@@ -272,7 +272,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     func_020c3a0c(0);
     GetCurrentTimestamp();
     Struct_ov015_021934f8_2* var7 = (Struct_ov015_021934f8_2*)GetMessageWindow_020421a0();
-    func_02042b30(var7, arg0->unknown_124_);
+    SetMessageWindowTextureArena_02042b30(var7, arg0->unknown_124_);
     ((TextureArena*)((struct TextureVRAMArea_0203d028*)arg0->unknown_124_))->Reset();
     ((TextureArena*)(arg0->unknown_124_))->Restore();
     InitMessageGlyphs_020432c4(var7);
@@ -327,7 +327,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
         func_ov015_02190d7c(arg0);
         func_ov015_021901c8(arg0);
         CleanInvalidateOAMBuffers_0203bd88(var3);
-        func_0203aa08(&gSoundEffectManager_02108760);
+        PlayPendingSound_0203aa08(&gSoundEffectManager_02108760);
         UpdateSound_020bbd9c();
 
         unsigned long long var11 = arg0->unknown_240_;

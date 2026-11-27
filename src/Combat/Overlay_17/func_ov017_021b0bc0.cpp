@@ -33,7 +33,7 @@ extern "C" void func_02039880(unsigned char*, int);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, int, int);
-extern "C" void func_ov017_021907dc(int, int, int, int, int);
+extern "C" void LinkPartyFollowers_ov017_021907dc(int, int, int, int, int);
 extern "C" signed char GetPartyLeaderObjectIndex_02039888(void*);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void func_020120d4(unsigned char*, unsigned char);
@@ -63,7 +63,7 @@ struct Struct_0207cf30_4;
 extern "C" void func_020a095c(Struct_0207cf30_4*, int, int);
 extern "C" void func_020dbc5c(char*, int);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
-extern "C" void func_ov017_021cee78(int, unsigned char);
+extern "C" void SendObjectPosition_ov017_021cee78(int, unsigned char);
 extern "C" void RebuildPartyOrders_ov017_02191234(GameResources*);
 
 extern const char* data_020f2a18;
@@ -192,7 +192,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
             }
             RebuildFieldPartyOrder_ov017_02191108(var6, 1, var10, 1, 1);
         } else {
-            func_ov017_021907dc((int)var6, var15, 1, var10, 1);
+            LinkPartyFollowers_ov017_021907dc((int)var6, var15, 1, var10, 1);
         }
     }
 
@@ -285,7 +285,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         for (int var25 = 0; var25 < 4; var25++, var24++) {
             unsigned char var26 = *var24;
             if (var26 != GetOwnPartyLeaderObjectIndex_020100b0(var5)) {
-                func_ov017_021cee78(var26, 0);
+                SendObjectPosition_ov017_021cee78(var26, 0);
             }
         }
     }

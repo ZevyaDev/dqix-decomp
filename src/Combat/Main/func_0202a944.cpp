@@ -2,7 +2,7 @@
 
 struct Struct_02029634;
 struct Struct_02029634_2;
-extern "C" struct Struct_02029634_2* func_0202a9ac(struct Struct_02029634* arg0, int arg1);
+extern "C" struct Struct_02029634_2* GetTextMenuEntry_0202a9ac(struct Struct_02029634* menu, int index);
 
 struct Struct_0202a944 {
     int unknown_0_;
@@ -29,7 +29,7 @@ extern "C" ARM void func_0202a944(struct Struct_0202a944_2* arg0, struct Struct_
         arg1->unknown_3c_ = 0;
         arg0->unknown_5a_ = 1;
     } else {
-        struct Struct_0202a944* var0 = (struct Struct_0202a944*)func_0202a9ac((struct Struct_02029634*)arg0, arg0->unknown_5a_ - 1);
+        struct Struct_0202a944* var0 = (struct Struct_0202a944*)GetTextMenuEntry_0202a9ac((struct Struct_02029634*)arg0, arg0->unknown_5a_ - 1);
         if (var0 != 0) {
             var0->unknown_34_ = arg1;
             arg1->unknown_3c_ = (unsigned char)arg0->unknown_5a_;

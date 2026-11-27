@@ -78,7 +78,7 @@ extern "C" ARM void func_02016874(Zone3D* arg0) {
                 var3 = &((Struct_02013490*)arg0->grottoTileMapData_420_)[var2 * 16];
                 var3 = &var3[var8];
                 if (var3->unknown_0_ == 0) continue;
-                Struct_02016874_2* var12 = var3->unknown_0_->unknown_44_;
+                BMDJEntry_02016874_2* var12 = var3->unknown_0_->pEntries_44_;
                 if (var12->unknown_2_ & 4) continue;
                 Model3D* var13;
                 var13 = var12->unknown_24_->unknown1_4_;
@@ -91,7 +91,7 @@ extern "C" ARM void func_02016874(Zone3D* arg0) {
                 Nitro3DRenderConfig::SubmitToFifo();
                 var13->Draw(true);
                 if (var0 == 4) {
-                    var13 = func_020196fc(arg0, 11)->unknown_44_->unknown_24_->unknown1_4_;
+                    var13 = func_020196fc(arg0, 11)->pEntries_44_->unknown_24_->unknown1_4_;
                     Nitro3DModel* var15 = var13->rawInternalModel_;
                     if (var13 != 0 && var15 != 0) {
                         Matrix3x3 var16;
@@ -104,7 +104,7 @@ extern "C" ARM void func_02016874(Zone3D* arg0) {
             }
         }
         if (var0 != 5) return;
-        Model3D* var17 = func_020196fc(arg0, 12)->unknown_44_->unknown_24_->unknown1_4_;
+        Model3D* var17 = func_020196fc(arg0, 12)->pEntries_44_->unknown_24_->unknown1_4_;
         LightingManager* var18 = LightingManager::GetInstance();
         var18->ApplyAmbientColorToModel(var17->rawInternalModel_);
         if (var7 < 4) {
@@ -158,10 +158,10 @@ extern "C" ARM void func_02016874(Zone3D* arg0) {
         if (var29 != (unsigned char)arg0->unk_830[1]) arg0->unk_830[2] = 1;
         else arg0->unk_830[2] = 0;
         arg0->unk_830[1] = var29;
-        Struct_02013454* var30 = (Struct_02013454*)(arg0->firstBMDJStruct_41c_);
+        BMDJStruct_02013454* var30 = (BMDJStruct_02013454*)(arg0->firstBMDJStruct_41c_);
         while (var30 != 0) {
             func_02016db4(arg0, var30);
-            var30 = var30->unknown_54_;
+            var30 = var30->pNext_54_;
         }
         arg0->unk_830[3] = 0;
     }

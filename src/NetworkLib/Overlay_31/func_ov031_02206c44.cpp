@@ -15,7 +15,7 @@ struct Struct_ov031_02206c44 {
 	char unknown_20_[8];
 	int unknown_28_;
 };
-extern Struct_ov031_02206c44* data_ov031_022496a4;
+extern Struct_ov031_02206c44* gIPStackConfig_ov031_022496a4;
 
 struct Struct_ov031_0224e1d0_2 {
 	char unknown_0_[0x1c];
@@ -41,10 +41,10 @@ extern "C" ARM int func_ov031_02206c44(void) {
 	if (var1 >= 0) {
 		func_ov031_02200534();
 		func_ov031_02200524(0);
-		if (data_ov031_022496a4->unknown_28_ == 0) {
-			data_ov031_022496a4->unknown_1c_(data_ov031_0224e1d0.unknown_1c_);
+		if (gIPStackConfig_ov031_022496a4->unknown_28_ == 0) {
+			gIPStackConfig_ov031_022496a4->unknown_1c_(data_ov031_0224e1d0.unknown_1c_);
 		}
-		data_ov031_022496a4 = 0;
+		gIPStackConfig_ov031_022496a4 = 0;
 	}
 
 	return var1;

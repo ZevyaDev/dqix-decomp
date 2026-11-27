@@ -30,7 +30,7 @@ struct Struct_ov001_0215f3fc_4
 {
     char unknown_0_[8];
     void* unknown_8_;
-    Struct_0206bf2c* unknown_c_;
+    NPCPlacement_0206bf2c* unknown_c_;
     char unknown_10_[4];
     Struct_0203d028_14* unknown_14_;
     char unknown_18_[8];
@@ -147,7 +147,7 @@ extern "C" ARM int func_ov001_0215f3fc(Struct_ov001_0215f3fc_3* arg0, int arg1)
         return 0;
     }
     func_020404c0((int*)var13);
-    Struct_0206bf2c* var14 = (Struct_0206bf2c*)var11->Allocate(0x78);
+    NPCPlacement_0206bf2c* var14 = (NPCPlacement_0206bf2c*)var11->Allocate(0x78);
     if (!var14)
     {
         if (var9)
@@ -156,7 +156,7 @@ extern "C" ARM int func_ov001_0215f3fc(Struct_ov001_0215f3fc_3* arg0, int arg1)
         }
         return 0;
     }
-    func_0206bf2c(var14);
+    InitNPCPlacement_0206bf2c(var14);
 #if defined(jpn)
     enum { Enum_ov001_0215f3fc_20 = 0x20 };
 #else

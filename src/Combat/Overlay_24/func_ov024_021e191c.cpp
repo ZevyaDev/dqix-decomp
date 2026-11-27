@@ -5,7 +5,7 @@ struct Struct_ov024_021dd028_5;
 extern "C" int HasSuperHighTension_ov024_021dd260(Struct_ov024_021dd028_5*);
 extern "C" int func_020881c4(unsigned char*);
 extern "C" void func_02088220(void*, int);
-extern "C" void func_02088150(void*);
+extern "C" void SetSuperHighTension_02088150(void*);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
 extern "C" void AppendTargetResult_ov000_0215ffc4(void*,void*,int);
@@ -63,7 +63,7 @@ extern "C" ARM void* func_ov024_021e191c(Struct_ov024_021e191c_4* arg0,int arg1,
   if(arg0->unknown_6c_ || var4>=3){
    void* var8=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
    if(!var8)return 0;
-   func_02088150(var0->currentStats_);
+   SetSuperHighTension_02088150(var0->currentStats_);
    AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_,var8,0x34);
    SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var1,7);
    SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_,var8,var0,4,var1,arg0->unknown_c_->unknown_1c_7_!=0);

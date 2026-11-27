@@ -12,19 +12,19 @@ struct Struct_02029634 {
     unsigned short unknown_5a_;
 };
 
-// USA: func_0202a9ac
-extern "C" ARM struct Struct_02029634_2* func_0202a9ac(struct Struct_02029634* arg0, int arg1) {
-    struct Struct_02029634_2* var0;
-    int var1;
-    if (arg1 < 0 || arg0->unknown_5a_ <= arg1) {
+// USA: GetTextMenuEntry_0202a9ac
+extern "C" ARM struct Struct_02029634_2* GetTextMenuEntry_0202a9ac(struct Struct_02029634* menu, int index) {
+    struct Struct_02029634_2* entry;
+    int i;
+    if (index < 0 || menu->unknown_5a_ <= index) {
         return 0;
     }
-    var0 = arg0->unknown_44_;
-    for (var1 = 0; var1 < arg1; var1++) {
-        if (var0 == 0) {
+    entry = menu->unknown_44_;
+    for (i = 0; i < index; i++) {
+        if (entry == 0) {
             return 0;
         }
-        var0 = var0->unknown_34_;
+        entry = entry->unknown_34_;
     }
-    return var0;
+    return entry;
 }

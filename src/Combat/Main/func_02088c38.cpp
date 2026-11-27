@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-// USA: func_02088c38
-extern "C" ARM void func_02088c38(unsigned char* arg0) {
-    ((int*)arg0)[6] &= ~0x2;
-    arg0[0x6c] = 0;
-    arg0[0x8f] = 0;
+// USA: ClearFireBarrier_02088c38
+extern "C" ARM void ClearFireBarrier_02088c38(unsigned char* stats) {
+    ((int*)stats)[6] &= ~0x2;
+    stats[0x6c] = 0;
+    stats[0x8f] = 0;
 }

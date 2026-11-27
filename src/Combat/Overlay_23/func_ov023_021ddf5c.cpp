@@ -10,7 +10,7 @@ struct Layout_ov023_021e257c;
 extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
-extern "C" void* func_ov023_021db4e4(void* arg0, int arg1);
+extern "C" void* FindLayoutGroup_ov023_021db4e4(void* layout, int groupId);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_ov023_021dbb34(void* arg0, struct Struct_ov023_021dbb34* arg1);
 extern "C" void func_ov023_021dbc58(void*, Struct_ov023_021dbc58_2*, int);
@@ -117,9 +117,9 @@ struct Struct_ov023_021ddf5c_4 {
     signed char unknown_77a_;
 };
 
-#define SetEntryOn(obj, key) do {     struct Struct_ov023_021ddf5c_3* e_ = (struct Struct_ov023_021ddf5c_3*)func_ov023_021db4e4((obj)->unknown_cc_, (key));     if (e_) e_->unknown_16_ |= 1; } while (0)
+#define SetEntryOn(obj, key) do {     struct Struct_ov023_021ddf5c_3* e_ = (struct Struct_ov023_021ddf5c_3*)FindLayoutGroup_ov023_021db4e4((obj)->unknown_cc_, (key));     if (e_) e_->unknown_16_ |= 1; } while (0)
 
-#define SetEntryOff(obj, key) do {     struct Struct_ov023_021ddf5c_3* e_ = (struct Struct_ov023_021ddf5c_3*)func_ov023_021db4e4((obj)->unknown_cc_, (key));     if (e_) e_->unknown_16_ &= ~1; } while (0)
+#define SetEntryOff(obj, key) do {     struct Struct_ov023_021ddf5c_3* e_ = (struct Struct_ov023_021ddf5c_3*)FindLayoutGroup_ov023_021db4e4((obj)->unknown_cc_, (key));     if (e_) e_->unknown_16_ &= ~1; } while (0)
 
 #define FlushList(obj, buf) do {     if (data_ov023_021ff9e0.unknown1_4_) {         (obj)->unknown_d0_ = (buf);         (obj)->unknown_de_ = 1;         DrawLayoutElements_ov023_021e257c((obj)->unknown_cc_);     } } while (0)
 
@@ -518,7 +518,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
 
 #else
         {
-            struct Struct_ov023_021ddf5c_3* var64 = (struct Struct_ov023_021ddf5c_3*)func_ov023_021db4e4(arg0->unknown_cc_, 0x2c);
+            struct Struct_ov023_021ddf5c_3* var64 = (struct Struct_ov023_021ddf5c_3*)FindLayoutGroup_ov023_021db4e4(arg0->unknown_cc_, 0x2c);
             if (var64) var64->unknown_16_ |= 8;
         }
 

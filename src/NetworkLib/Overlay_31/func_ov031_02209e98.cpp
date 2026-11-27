@@ -2,7 +2,7 @@
 #include "NitroSDK/Memory.h"
 
 extern void* (*data_ov031_0224c994)(unsigned int);
-extern int (*data_ov031_0224c9c0)(void*);
+extern int (*gIPStackFreeFunction_ov031_0224c9c0)(void*);
 
 extern "C" void func_ov031_02209158(void* arg0, void* arg1, int arg2);
 extern "C" void func_ov031_02209234(void* arg0, void* arg1, int arg2);
@@ -49,5 +49,5 @@ extern "C" ARM int func_ov031_02209e98(void* arg0) {
 	void* var2 = func_ov031_0220963c(var0, var1 + 0x6);
 	func_ov031_022037a8(var1, (char*)var2 + 0x6, 0, 0, arg0);
 
-	return data_ov031_0224c9c0(var1);
+	return gIPStackFreeFunction_ov031_0224c9c0(var1);
 }

@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void ResetBattleCamera_ov000_0216d370(char* camera, int resetRoll, int resetFieldOfView, int resetTurns);
-extern "C" void func_ov000_0216d530(void*, int);
+extern "C" void SetBattleCameraAnchor_ov000_0216d530(void*, int);
 extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 
 extern Vector3i data_ov000_02183280;
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov000_0216dbf0(char* arg0, int* arg1, int arg2, short a
     if (arg2 == 1) {
         GameObject* var6 = var2->GetGameObjectByIndex(*arg1);
         if (var6 != 0) {
-            func_ov000_0216d530(arg0, *arg1);
+            SetBattleCameraAnchor_ov000_0216d530(arg0, *arg1);
             var4 = var6->obj3D_.GetRadius() >> 1;
             var5 = var6->obj3D_.GetHeight();
         }

@@ -12,7 +12,7 @@ struct Struct_0200fd14_2 {
 struct Struct_ov031_0220a87c { unsigned char unknown_0_[0x8]; unsigned char unknown_8_, unknown_9_; unsigned char unknown_a_[2]; void* unknown_c_; };
 
 extern void* (*data_ov031_0224c994)(unsigned int);
-extern void (*data_ov031_0224c9c0)(void*);
+extern void (*gIPStackFreeFunction_ov031_0224c9c0)(void*);
 extern "C" int func_ov031_0220963c(void* arg0, Struct_0200fd14_2* arg1);
 extern "C" unsigned int func_ov031_022037a8(const void* arg0, unsigned int arg1, const void* arg2, unsigned int arg3, Struct_ov031_0220a87c* arg4);
 
@@ -40,7 +40,7 @@ static inline int inline_ov031_0220a87c(const unsigned char* arg0, unsigned int 
         var5->unknown_4_ = var0;
         unsigned int var6 = func_ov031_0220963c(arg5, var5);
         if (func_ov031_022037a8(var5, var6, 0, 0, arg4) < var6) var0 = 0;
-        data_ov031_0224c9c0(var5);
+        gIPStackFreeFunction_ov031_0224c9c0(var5);
         var4 -= var0;
         var3 += var0;
     } while (var4 != 0 && var0 != 0);

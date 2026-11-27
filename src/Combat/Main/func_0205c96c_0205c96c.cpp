@@ -33,93 +33,93 @@ static inline int inline_0205c96c(unsigned char* arg0) { return *(int*)(arg0 + 0
 static inline int inline_0205c96c_2(unsigned char* arg0) { return *(int*)(arg0 + 0x8c); }
 
 // USA: DrawChoiceList_0205c96c
-extern "C" ARM void DrawChoiceList_0205c96c(unsigned char* arg0, int arg1) {
-    unsigned char* var0;
-    int var1;
-    int var2;
-    int var3;
-    int var4;
-    int var5;
-    int var6;
-    int var7;
-    int var8;
-    int var9;
-    int var10;
-    int var11;
-    void* var12;
-    struct SpriteAnimationList_0205a254* var13;
-    unsigned short var14;
-    struct Struct_0205c96c* var15;
+extern "C" ARM void DrawChoiceList_0205c96c(unsigned char* choiceList, int arg1) {
+    unsigned char* messageWindow;
+    int touchedIndex;
+    int pageEndIndex;
+    int cursorIndex;
+    int textColor;
+    int x;
+    int y;
+    int firstRowY;
+    int i;
+    int rowCount;
+    int cursorColumn;
+    int cursorRow;
+    void* spriteSet;
+    struct SpriteAnimationList_0205a254* spriteList;
+    unsigned short cursorSpriteId;
+    struct Struct_0205c96c* cursorSprite;
 
-    if (arg0[RG(0x233, 0x1c3)] == 0 || arg0[RG(0x232, 0x1c2)] == 0) {
+    if (choiceList[RG(0x233, 0x1c3)] == 0 || choiceList[RG(0x232, 0x1c2)] == 0) {
         return;
     }
 
-    var0 = (unsigned char*)GetMessageWindow_020421a0();
-    var1 = *(int*)(arg0 + 0x50);
-    var3 = func_0205c570((struct Struct_0205c570*)(arg0 + 0x1c));
-    var4 = 0x7fff;
-    if (arg0[RG(0x234, 0x1c4)] == 0) {
-        var4 = 0x3def;
+    messageWindow = (unsigned char*)GetMessageWindow_020421a0();
+    touchedIndex = *(int*)(choiceList + 0x50);
+    cursorIndex = func_0205c570((struct Struct_0205c570*)(choiceList + 0x1c));
+    textColor = 0x7fff;
+    if (choiceList[RG(0x234, 0x1c4)] == 0) {
+        textColor = 0x3def;
     }
 
     if (arg1 == 0) {
-        *(short*)(arg0 + 0xcc) = var4;
-        func_02042b10(var0, arg0 + 0xb4);
-        func_0202f404(var0 + RG(0x19e0, 0x1804), 1, 1);
-        func_02042b1c(var0);
+        *(short*)(choiceList + 0xcc) = textColor;
+        func_02042b10(messageWindow, choiceList + 0xb4);
+        func_0202f404(messageWindow + RG(0x19e0, 0x1804), 1, 1);
+        func_02042b1c(messageWindow);
     }
 
-    if (func_0205cde8(arg0) == 0) {
+    if (func_0205cde8(choiceList) == 0) {
         return;
     }
 
-    var0[RG(0x19b0, 0x17e0)] = 1;
+    messageWindow[RG(0x19b0, 0x17e0)] = 1;
 
-    var9 = *(int*)(arg0 + 0x7c);
-    var8 = var9 * *(int*)(arg0 + 0x84);
-    var5 = *(short*)(arg0 + 0xb4) + 0xc;
-    var6 = *(short*)(arg0 + 0xb6) + 8;
-    var2 = var8 + var9;
-    var7 = var6;
+    rowCount = *(int*)(choiceList + 0x7c);
+    i = rowCount * *(int*)(choiceList + 0x84);
+    x = *(short*)(choiceList + 0xb4) + 0xc;
+    y = *(short*)(choiceList + 0xb6) + 8;
+    pageEndIndex = i + rowCount;
+    firstRowY = y;
 
-    for (; var8 < var2; var8++) {
-        int var16 = var4;
-        if (var8 == var1 && var1 == var3) {
-            var16 = 0xf0a;
+    for (; i < pageEndIndex; i++) {
+        int entryColor = textColor;
+        if (i == touchedIndex && touchedIndex == cursorIndex) {
+            entryColor = 0xf0a;
         }
 #if defined(jpn)
-        func_02046c78(var0, (unsigned short*)(arg0 + 0x120) + *(unsigned short*)(arg0 + 0x1b0 + var8 * 2), var5, var6, var16, 0xc, 0x14, arg1);
+        func_02046c78(messageWindow, (unsigned short*)(choiceList + 0x120) + *(unsigned short*)(choiceList + 0x1b0 + i * 2), x, y, entryColor, 0xc, 0x14, arg1);
 #else
-        func_02045f3c(var0, (unsigned short*)(arg0 + 0x120) + *(unsigned short*)(arg0 + 0x220 + var8 * 2), var5, var6, var16, 0xc, 0x14, arg1, 1, 0x11);
+        func_02045f3c(messageWindow, (unsigned short*)(choiceList + 0x120) + *(unsigned short*)(choiceList + 0x220 + i * 2), x, y, entryColor, 0xc, 0x14, arg1, 1, 0x11);
 #endif
-        var6 += *(int*)(arg0 + 0xd8);
+        y += *(int*)(choiceList + 0xd8);
     }
 
-    if ((arg0[0xb0] | arg0[0xb1]) == 0) {
+    if ((choiceList[0xb0] | choiceList[0xb1]) == 0) {
         return;
     }
 
-    var10 = inline_0205c96c(arg0);
-    var11 = inline_0205c96c_2(arg0);
-    var5 = var10 * *(int*)(arg0 + 0xd4) + (var5 - 0x10);
-    var6 = var11 * *(int*)(arg0 + 0xd8) + (var7 - 2);
-    var12 = *(void**)(var0 + RG(0x2d8, 0x228));
-    var13 = *(struct SpriteAnimationList_0205a254**)(var0 + RG(0x2e0, 0x230));
-    var14 = *(unsigned short*)(var0 + RG(0x2e4, 0x234));
-    if (var12 == NULL || var13 == NULL) {
+    cursorColumn = inline_0205c96c(choiceList);
+    cursorRow = inline_0205c96c_2(choiceList);
+    x = cursorColumn * *(int*)(choiceList + 0xd4) + (x - 0x10);
+    y = cursorRow * *(int*)(choiceList + 0xd8) + (firstRowY - 2);
+    spriteSet = *(void**)(messageWindow + RG(0x2d8, 0x228));
+    spriteList = *(struct SpriteAnimationList_0205a254**)(messageWindow + RG(0x2e0, 0x230));
+    cursorSpriteId = *(unsigned short*)(messageWindow + RG(0x2e4, 0x234));
+    if (spriteSet == NULL || spriteList == NULL) {
         return;
     }
 
-    ((OBJSpriteSet::List*)(var13))->PlaySpriteAnimation(var14);
-    var15 = ((Struct_0205c96c*)((OBJSpriteSet::List*)(var13))->GetSprite(var14));
-    if (var15 != NULL) {
-        var15->flags_15_ |= 8;
+    ((OBJSpriteSet::List*)(spriteList))->PlaySpriteAnimation(cursorSpriteId);
+    cursorSprite = ((Struct_0205c96c*)((OBJSpriteSet::List*)(spriteList))->GetSprite(cursorSpriteId));
+    if (cursorSprite != NULL) {
+        cursorSprite->flags_15_ |= 8;
     }
-    var15 = ((Struct_0205c96c*)((OBJSpriteSet::List*)(var13))->GetSprite(var14));
-    if (var15 != NULL) {
-        var15->drawX_4_ = var5;
-        var15->drawY_6_ = var6;
+    cursorSprite = ((Struct_0205c96c*)((OBJSpriteSet::List*)(spriteList))->GetSprite(cursorSpriteId));
+    if (cursorSprite != NULL) {
+        cursorSprite->drawX_4_ = x;
+        cursorSprite->drawY_6_ = y;
     }
-    ((OBJSpriteSet*)(var12))->DrawAll();
+    ((OBJSpriteSet*)(spriteSet))->DrawAll();
 }

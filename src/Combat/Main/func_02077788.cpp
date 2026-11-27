@@ -35,7 +35,7 @@ struct Struct_02033834_2;
 struct Struct_02033b68;
 struct Struct_02077788_2;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" int func_02033f44(struct Struct_02033f44* arg0);
+extern "C" int GetCollidedWallTriangle_02033f44(struct Struct_02033f44* object);
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
 extern "C" void SetMotionIfDifferent_02033b68(struct Struct_02033b68* object, int motion);
 extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
@@ -62,7 +62,7 @@ extern "C" ARM void func_02077788(struct Struct_02077788* arg0) {
     arg0->unknown_b2_ = 0x1c2;
     SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 1);
 
-    int var6 = func_02033f44((struct Struct_02033f44*)arg0);
+    int var6 = GetCollidedWallTriangle_02033f44((struct Struct_02033f44*)arg0);
     int var7 = 0;
     if (var6 != 0) {
         int var8 = arg0->unknown_ae_;

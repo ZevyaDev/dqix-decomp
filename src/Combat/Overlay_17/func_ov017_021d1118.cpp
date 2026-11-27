@@ -86,8 +86,8 @@ struct Struct_ov017_021d1118_4 {
     Struct_ov017_021d1118_3 unknown_569c_;
     char unknown_5718_[0x74fe - 0x5718];
 #endif
-    PlayerId_ov017_021d1118_8 unknown_74fe_;
-    PlayerId_ov017_021d1118_8 inline_ov017_021d1118() { return unknown_74fe_; }
+    PlayerId_ov017_021d1118_8 playerId_74fe_;
+    PlayerId_ov017_021d1118_8 inline_ov017_021d1118() { return playerId_74fe_; }
 };
 
 struct Struct_ov017_021d1118_5 {

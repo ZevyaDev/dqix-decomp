@@ -27,7 +27,7 @@ struct Struct_ov012_02188640 {
 };
 struct StringList_02072a68_2;
 struct SoundEffectManager_02108760;
-struct Struct_ov012_02186a7c;
+struct ProfileMenu_ov012_02186a7c;
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2*, unsigned char, unsigned char);
@@ -35,14 +35,14 @@ extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void*);
 extern "C" void func_ov012_0218a574(char*);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int func_ov023_021e6448(void*);
-extern "C" int func_ov023_021e7148(void*);
+extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(void*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_0202ae18();
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" void func_ov012_0218bba0(void*, int, int);
 extern "C" void func_ov012_02189be8(void*, int);
-extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c*);
+extern "C" int IsProfileMenuCancelPressed_ov023_021e6e20(ProfileMenu_ov012_02186a7c*);
 extern "C" char gSoundEffectManager_02108760[];
 
 static inline Struct_ov012_02188640* inline_ov012_02188640(GameState* arg0) {
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov012_02188640(char* arg0) {
         *(int*)(arg0 + 0x1444) = GetCursorIndex_0205d794((Struct_0205c570*)(arg0 + 0x90));
         if (func_ov023_021e6448(arg0))
             *(int*)(arg0 + 0x1444) = GetCursorIndex_0205d794((Struct_0205c570*)(arg0 + 0x90));
-        if (func_ov023_021e7148(arg0)) {
+        if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0)) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             Struct_ov012_02188640* var3 = inline_ov012_02188640(GameState::GetInstance());
             GameState* var4 = GameState::GetInstance();
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov012_02188640(char* arg0) {
             func_ov012_02189be8(arg0, 0);
             return;
         }
-        if (func_ov023_021e6e20((Struct_ov012_02186a7c*)arg0))
+        if (IsProfileMenuCancelPressed_ov023_021e6e20((ProfileMenu_ov012_02186a7c*)arg0))
             func_ov012_02189be8(arg0, 1);
         return;
     }
@@ -165,7 +165,7 @@ struct Struct_ov012_02188640_6
 
 struct StringList_02072a68_2;
 struct SoundEffectManager_02108760;
-struct Struct_ov012_02186a7c;
+struct ProfileMenu_ov012_02186a7c;
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
 
@@ -174,14 +174,14 @@ extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(Struct_ov012_02188640
 extern "C" void func_ov012_0218a574(char* arg0);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" int func_ov023_021e6448(Struct_ov012_02188640_6* arg0);
-extern "C" int func_ov023_021e6de4(Struct_ov012_02188640_6* arg0);
+extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(Struct_ov012_02188640_6* menu);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" void func_0202ae18();
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void func_ov012_0218adac(Struct_ov012_02188640_6* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov012_0218930c(Struct_ov012_02188640_6* arg0, int arg1);
-extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c* arg0);
+extern "C" int IsProfileMenuCancelPressed_ov023_021e6e20(ProfileMenu_ov012_02186a7c* menu);
 
 extern "C" char gSoundEffectManager_02108760[];
 
@@ -227,7 +227,7 @@ extern "C" ARM void func_ov012_02188640(Struct_ov012_02188640_6* arg0)
         arg0->unknown_13d8_[5] = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_ac_);
         if (func_ov023_021e6448(arg0))
             arg0->unknown_13d8_[5] = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_ac_);
-        if (func_ov023_021e6de4(arg0))
+        if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0))
         {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             Struct_ov012_02188640_2* var11 = inline_ov012_02188640_2(GameState::GetInstance());
@@ -262,7 +262,7 @@ extern "C" ARM void func_ov012_02188640(Struct_ov012_02188640_6* arg0)
             func_ov012_0218930c(arg0, 0);
             return;
         }
-        if (func_ov023_021e6e20((Struct_ov012_02186a7c*)arg0))
+        if (IsProfileMenuCancelPressed_ov023_021e6e20((ProfileMenu_ov012_02186a7c*)arg0))
             func_ov012_0218930c(arg0, 1);
         return;
     }

@@ -1,5 +1,4 @@
 #if defined(jpn)
-#define func_ov023_021e6de4 func_ov023_021e7148
 #define func_ov012_0218432c func_ov012_021853a0
 #define func_ov012_0218930c func_ov012_02189be8
 #define func_ov012_0218adac func_ov012_0218bba0
@@ -48,7 +47,7 @@ extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void* menu);
 extern "C" void func_ov012_02189c44(char* arg0);
 struct Struct_0205c570;
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
-extern "C" int func_ov023_021e6de4(char* arg0);
+extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(char* menu);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 struct StringList_02072a68_2;
@@ -59,8 +58,8 @@ extern "C" void func_ov012_0218adac(void*, int, int);
 extern "C" void func_ov012_0218adac(void* arg0, int arg1, int arg2, int arg3);
 #endif
 extern "C" void func_ov012_0218930c(void* arg0, int arg1);
-struct Struct_ov012_02186a7c;
-extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
+struct ProfileMenu_ov012_02186a7c;
+extern "C" int IsProfileMenuCancelPressed_ov023_021e6e20(struct ProfileMenu_ov012_02186a7c* menu);
 extern int gSoundEffectManager_02108760;
 
 // USA: func_ov012_02186fd8
@@ -87,7 +86,7 @@ extern "C" ARM void func_ov012_02186fd8(char* arg0) {
     int var2 = GetCursorIndex_0205d794((struct Struct_0205c570*)(arg0 + Enum_ov012_02186fd8_172));
     *(int*)(arg0 + Enum_ov012_02186fd8_5088) = var2;
 
-    if (func_ov023_021e6de4(arg0) != 0) {
+    if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0) != 0) {
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
 
         GameState* var3 = GameState::GetInstance();
@@ -107,7 +106,7 @@ extern "C" ARM void func_ov012_02186fd8(char* arg0) {
 #endif
         func_ov012_0218930c(arg0, 0);
     } else {
-        if (func_ov023_021e6e20((struct Struct_ov012_02186a7c*)arg0) != 0) {
+        if (IsProfileMenuCancelPressed_ov023_021e6e20((struct ProfileMenu_ov012_02186a7c*)arg0) != 0) {
             func_ov012_0218930c(arg0, 1);
         }
     }

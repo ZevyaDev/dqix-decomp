@@ -4,7 +4,7 @@
 
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" int func_0208a03c(void* arg0, int arg1, int arg2, int* arg3, int arg4);
-extern "C" int func_ov000_02154a04(int arg0, int arg1, int arg2, int arg3);
+extern "C" int CollectEnemyActionTargets_ov000_02154a04(int battle, int actorIndex, int actionId, int targetIndices);
 
 struct Struct_0208a700 { char unknown_0_[0x18]; unsigned short unknown_18_[6]; };
 struct Struct_0208a700_2 { char unknown_0_[0x148]; Struct_0208a700* unknown_148_; };
@@ -62,6 +62,6 @@ extern "C" ARM int func_0208a700(int* arg0, int arg1, int* arg2, int arg3) {
         }
     }
     *arg2 = 0;
-    *arg2 = func_ov000_02154a04(*arg0, arg1, var8, arg3);
+    *arg2 = CollectEnemyActionTargets_ov000_02154a04(*arg0, arg1, var8, arg3);
     return var8;
 }

@@ -6,7 +6,7 @@ enum { Enum_02044530_2464 = 0x870, Enum_02044530_6586 = 0x17ea, Enum_02044530_14
 enum { Enum_02044530_2464 = 0x9a0, Enum_02044530_6586 = 0x19ba, Enum_02044530_144 = 0x90 };
 #endif
 
-extern "C" void DrawChoiceList_0205c96c(void* arg0, int arg1);
+extern "C" void DrawChoiceList_0205c96c(void* choiceList, int arg1);
 
 // USA: func_02044530
 extern "C" ARM void func_02044530(char* arg0, int arg1) {

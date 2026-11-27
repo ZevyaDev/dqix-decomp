@@ -40,7 +40,7 @@ extern "C" int func_ov031_022375cc(void);
 extern "C" void func_020c99c8(void*);
 extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 unsigned long long GetCurrentTimestamp(void);
-extern "C" int func_020d4f7c(int, int, int);
+extern "C" int StartWirelessDriver_020d4f7c(int, int, int);
 extern "C" int func_020d4848(void*);
 extern "C" unsigned short func_020d4be8(void);
 extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
@@ -52,7 +52,7 @@ extern "C" ARM int func_ov031_02237448(int arg0) {
     data_ov031_02290d0c->unknown_1370_ = arg0;
     unsigned long long var1 = GetCurrentTimestamp();
     data_ov031_02290d0c->unknown_1b88_ = var1;
-    if (func_020d4f7c((int)data_ov031_02290d0c, (int)func_ov031_022376fc, 3) == 2) {
+    if (StartWirelessDriver_020d4f7c((int)data_ov031_02290d0c, (int)func_ov031_022376fc, 3) == 2) {
         Struct_ov031_02237448* var2;
         do {
             func_020d4848(&data_ov031_02290d0c->unknown_13b8_);

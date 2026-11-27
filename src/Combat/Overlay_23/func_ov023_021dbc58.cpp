@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_020dd7ac(void*);
+extern "C" void InitEquipStatComparison_020dd7ac(void*);
 extern "C" void func_020dd8b4(int, int, int, int);
 
 struct Struct_ov023_021dbc58 {
@@ -46,7 +46,7 @@ struct Struct_ov023_021dbc58_2 {
 // USA: func_ov023_021dbc58
 extern "C" ARM void func_ov023_021dbc58(void* arg0, Struct_ov023_021dbc58_2* arg1, int arg2) {
     Struct_ov023_021dbc58 var0;
-    func_020dd7ac(&var0);
+    InitEquipStatComparison_020dd7ac(&var0);
     func_020dd8b4((int)&var0, (int)arg0, arg2, 1);
 
     arg1->unknown_0_ = var0.unknown_3e_;

@@ -6,7 +6,7 @@ extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int a
 struct Struct_02033fdc;
 struct Struct_02033fcc;
 extern "C" void ResumeMovementUpdate_02033fdc(struct Struct_02033fdc* object);
-extern "C" void func_02033fcc(struct Struct_02033fcc* arg0);
+extern "C" void PauseMovementUpdate_02033fcc(struct Struct_02033fcc* object);
 
 struct Struct_ov025_021e7e34 {
     char unknown_0_[8];
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov025_021e7e34(struct Struct_ov025_021e7e34* arg0, int a
             if (arg0->unknown_c_ != 0) {
                 ResumeMovementUpdate_02033fdc((struct Struct_02033fdc*)var4);
             } else {
-                func_02033fcc((struct Struct_02033fcc*)var4);
+                PauseMovementUpdate_02033fcc((struct Struct_02033fcc*)var4);
             }
         }
     }

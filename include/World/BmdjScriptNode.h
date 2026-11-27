@@ -21,8 +21,8 @@ struct Struct_02016874 {
     };
 };
 
-struct Struct_02016874_2 {
-    unsigned short unknown_0_;
+struct BMDJEntry_02016874_2 {
+    unsigned short id_0_;
     unsigned short unknown_2_;
     signed char unknown_4_0_ : 7;
     signed char unknown_4_7_ : 1;
@@ -31,8 +31,8 @@ struct Struct_02016874_2 {
     Vector3i unknown_8_;
     unsigned char unknown_14_[0x10];
     Struct_02016874* unknown_24_;
-    Struct_02016874_2* unknown_28_;
-    Struct_02016874_2* unknown_2c_;
+    BMDJEntry_02016874_2* unknown_28_;
+    BMDJEntry_02016874_2* unknown_2c_;
     unsigned char unknown_30_[4];
     short unknown_34_;
     short unknown_36_;
@@ -50,33 +50,33 @@ struct Struct_02018b34 {
     int unknown_4_;
     int unknown_8_;
     int unknown_c_;
-    int unknown_10_;
+    int entryCount_10_;
     int unknown_14_;
     unsigned char unknown_18_[0x20];
     unsigned char unknown_38_;
     unsigned char unknown_39_[3];
 };
 
-struct Struct_02013454 {
-    int unknown_0_;
+struct BMDJStruct_02013454 {
+    int id_0_;
     Struct_02018b34 unknown_4_;
     int unknown_40_;
-    Struct_02016874_2* unknown_44_;
+    BMDJEntry_02016874_2* pEntries_44_;
     Vector3i unknown_48_;
-    Struct_02013454* unknown_54_;
+    BMDJStruct_02013454* pNext_54_;
 };
 
 struct Struct_02013490 {
-    Struct_02013454* unknown_0_;
+    BMDJStruct_02013454* unknown_0_;
     TileFeaturePlacementData unknown_4_;
     Matrix3x3 unknown_14_;
     int unknown_38_;
     Vector3i unknown_3c_;
 };
 
-extern "C" Struct_02013454* func_020196fc(Zone3D* arg0, int arg1);
+extern "C" BMDJStruct_02013454* func_020196fc(Zone3D* arg0, int arg1);
 extern "C" void func_02013490(Struct_02013490* arg0);
-extern "C" void func_02013454(Struct_02013454* arg0);
+extern "C" void func_02013454(BMDJStruct_02013454* arg0);
 extern "C" void func_0201f01c(Struct_02018b34* arg0);
 extern "C" void func_0201aedc(Zone3D* arg0);
 extern "C" TileFeaturePlacementData* func_0201e434(Struct_020134e0* arg0, const char* arg1);

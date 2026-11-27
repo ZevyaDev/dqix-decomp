@@ -20,9 +20,9 @@ extern "C" void func_0206e080(char* arg0, int arg1);
 extern "C" void func_0206e0d0(char* arg0, int arg1);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 
-extern "C" void func_02010774(char* arg0, int arg1);
-extern "C" void func_020107a8(char* arg0, int arg1);
-extern "C" void func_020107dc(char* arg0, int arg1);
+extern "C" void SetStoryChapter_02010774(char* gameState, int chapter);
+extern "C" void SetStoryStep_020107a8(char* gameState, int step);
+extern "C" void SetStorySubStep_020107dc(char* gameState, int subStep);
 
 struct Struct_02108d70_5 {
     unsigned char unknown_0_;
@@ -63,9 +63,9 @@ extern "C" ARM int func_020716a4(struct Struct_0201c1c8* arg0, int arg1) {
     }
 
     var7 = GameState::GetInstance();
-    func_02010774((char*)var7, var1);
-    func_020107a8((char*)var7, var2);
-    func_020107dc((char*)var7, var3);
+    SetStoryChapter_02010774((char*)var7, var1);
+    SetStoryStep_020107a8((char*)var7, var2);
+    SetStorySubStep_020107dc((char*)var7, var3);
 
     var5 = func_0205ec34();
     func_0206e080((char*)var5, *(unsigned char*)((char*)var5 + 0x332));

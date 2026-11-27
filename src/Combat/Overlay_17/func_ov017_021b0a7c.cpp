@@ -9,7 +9,7 @@
 struct LocalWireless_0202b2f0;
 extern "C" void SetLocalWirelessPlayerJoined_0202c1e8(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" void* func_0202ae18(void);
-extern "C" void CreatePartyMemberObject_ov017_0218f064(GameResources* gameResources, int memberIndex, int arg2, int requestModelLoad, int arg4);
+extern "C" void CreatePartyMemberObject_ov017_0218f064(GameResources* gameResources, int memberIndex, int kind, int requestModelLoad, int arg4);
 
 // USA: func_ov017_021b0a7c
 extern "C" ARM void func_ov017_021b0a7c(unsigned char* arg0) {

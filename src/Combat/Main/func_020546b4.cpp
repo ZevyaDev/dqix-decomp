@@ -6,7 +6,7 @@ enum { Enum_020546b4_721 = 0x2c5 };
 enum { Enum_020546b4_721 = 0x2d1 };
 #endif
 
-// USA: func_020546b4
-extern "C" ARM void func_020546b4(void* arg0, int arg1) {
-    *(unsigned char*)((char*)arg0 + Enum_020546b4_721) = arg1;
+// USA: SetFollowerIndex_020546b4
+extern "C" ARM void SetFollowerIndex_020546b4(void* companion, int followerIndex) {
+    *(unsigned char*)((char*)companion + Enum_020546b4_721) = followerIndex;
 }

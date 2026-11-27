@@ -82,7 +82,7 @@ extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg
 extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046608(void* arg0, int, const char* arg2, char* arg3, int, int, unsigned char);
-extern "C" Struct_ov023_021df558_5* func_ov023_021db4e4(Struct_ov023_021df558* arg0, int arg1);
+extern "C" Struct_ov023_021df558_5* FindLayoutGroup_ov023_021db4e4(Struct_ov023_021df558* layout, int groupId);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
 extern "C" void DrawLayoutElements_ov023_021e257c(Struct_ov023_021df558* layout);
@@ -94,14 +94,14 @@ extern "C" void func_ov023_021e24b0(void* arg0, int arg1, int arg2, unsigned cha
 
 #define SHOW_ELEMENT(layout, id)                                           \
     {                                                                      \
-        Struct_ov023_021df558_5* element = func_ov023_021db4e4(layout, id); \
+        Struct_ov023_021df558_5* element = FindLayoutGroup_ov023_021db4e4(layout, id); \
         if (element != NULL)                                               \
             element->unknown_16_ |= 1;                                          \
     }
 
 #define HIDE_ELEMENT(layout, id)                                           \
     {                                                                      \
-        Struct_ov023_021df558_5* element = func_ov023_021db4e4(layout, id); \
+        Struct_ov023_021df558_5* element = FindLayoutGroup_ov023_021db4e4(layout, id); \
         if (element != NULL)                                               \
             element->unknown_16_ &= ~1;                                         \
     }

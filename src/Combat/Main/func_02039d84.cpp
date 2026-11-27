@@ -16,9 +16,9 @@ extern "C" ARM void func_02039d84(struct Struct_02039d84* arg0) {
     arg0->unknown_e0_ &= ~1;
     ((Object3D*)((unsigned char*)arg0))->DisableFlag(0x1190);
 #if defined(jpn)
-    func_02038508((struct LadderAction_02037d10*)((char*)arg0 + 0x260));
+    ResetLadderAction_02038508((struct LadderAction_02037d10*)((char*)arg0 + 0x260));
 #else
-    func_02038508((struct LadderAction_02037d10*)((char*)arg0 + 0x26c));
+    ResetLadderAction_02038508((struct LadderAction_02037d10*)((char*)arg0 + 0x26c));
 #endif
     SetMotion_02033b88((struct Struct_02010604*)arg0, 0);
 }

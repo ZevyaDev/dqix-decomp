@@ -10,7 +10,7 @@ extern "C" void func_0201155c(struct Struct_02000c9c_11* arg0);
 extern "C" int func_02075ca0();
 extern "C" void func_02075cb8();
 
-extern "C" int func_02075910(int arg0, void* arg1, unsigned int arg2, int arg3);
+extern "C" int ReadSaveMemory_02075910(int offset, void* destination, unsigned int length, int isAsync);
 extern "C" int func_02075acc(int arg0, void* arg1, unsigned int arg2, int arg3);
 extern "C" int func_01ff85b8(void* arg0, int arg1);
 extern "C" int strcmp(const char* arg0, const char* arg1);
@@ -61,12 +61,12 @@ extern "C" ARM int func_020ab7a8(void* arg0, int arg1) {
 
     if (var0->unknown_1_ == 0) {
         func_0201155c((struct Struct_02000c9c_11*)GameState::GetInstance());
-        if (func_02075910(0, &var1, 1, 0) == 0) {
+        if (ReadSaveMemory_02075910(0, &var1, 1, 0) == 0) {
             return 1;
         }
         BackgroundLoader::FreeAllocationsGlobal();
         var0->unknown_4_ = (struct Struct_020ab7a8_5*)((unsigned char*)&g_fileScratchSpace[0] + 0x2901c);
-        if (func_02075910(arg1 ? 0x8010 : 0x10, var0->unknown_4_, 0x6fe4, 1) == 0) {
+        if (ReadSaveMemory_02075910(arg1 ? 0x8010 : 0x10, var0->unknown_4_, 0x6fe4, 1) == 0) {
             return 1;
         }
         var0->unknown_1_ = 1;
@@ -75,7 +75,7 @@ extern "C" ARM int func_020ab7a8(void* arg0, int arg1) {
             return 0;
         }
         func_02075cb8();
-        if (func_02075910(0, &var2, 1, 0) == 0) {
+        if (ReadSaveMemory_02075910(0, &var2, 1, 0) == 0) {
             return 2;
         }
         if (func_01ff85b8(&var0->unknown_4_->unknown_0_.unknown_4_[0], 0x10) != var0->unknown_4_->unknown_0_.unknown_0_) {

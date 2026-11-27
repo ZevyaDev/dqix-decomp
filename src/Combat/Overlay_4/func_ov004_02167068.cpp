@@ -25,7 +25,7 @@ struct Struct_ov004_02167068_2 {
     unsigned char unknown_50_6_ : 1;
     unsigned char unknown_50_7_ : 1;
 };
-extern void* data_ov004_0217101c[2];
+extern void* gQuestList_ov004_0217101c[2];
 #if defined(jpn)
 enum { Enum_ov004_02167068_0 = 1 };
 extern char data_ov004_02170e60[];
@@ -49,7 +49,7 @@ extern "C" void func_0208becc(Struct_0208becc*, int, unsigned char);
 
 // USA: func_ov004_02167068
 extern "C" ARM int func_ov004_02167068(void* arg0) {
-    Struct_ov004_02167068_2* var0 = (Struct_ov004_02167068_2*)data_ov004_0217101c[Enum_ov004_02167068_0];
+    Struct_ov004_02167068_2* var0 = (Struct_ov004_02167068_2*)gQuestList_ov004_0217101c[Enum_ov004_02167068_0];
     BackgroundLoader* var1 = BackgroundLoader::GetInstance();
     int* var2 = GetQuestManager_02094d6c();
     int var3 = 1;

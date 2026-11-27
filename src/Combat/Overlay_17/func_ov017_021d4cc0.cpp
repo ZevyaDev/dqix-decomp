@@ -6,8 +6,8 @@ struct Struct_ov017_021d4cc0 {
     unsigned int pNatives_8_;
 };
 
-// USA: func_ov017_021d4cc0
-extern "C" ARM void func_ov017_021d4cc0(Struct_ov017_021d4cc0* arg0, unsigned int arg1, unsigned int arg2) {
-    arg0->pNatives_8_ = arg1;
-    arg0->nativeCount_4_ = arg2;
+// USA: SetScriptNatives_ov017_021d4cc0
+extern "C" ARM void SetScriptNatives_ov017_021d4cc0(Struct_ov017_021d4cc0* scriptVM, unsigned int natives, unsigned int nativeCount) {
+    scriptVM->pNatives_8_ = natives;
+    scriptVM->nativeCount_4_ = nativeCount;
 }

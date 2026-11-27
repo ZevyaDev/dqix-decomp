@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-extern "C" void func_02087efc(unsigned char* arg0);
-extern "C" void func_02088c38(unsigned char* arg0);
-extern "C" void func_02088c9c(unsigned char* arg0);
+extern "C" void ClearBreathResistanceBuff_02087efc(unsigned char* stats);
+extern "C" void ClearFireBarrier_02088c38(unsigned char* stats);
+extern "C" void ClearIceBarrier_02088c9c(unsigned char* stats);
 
 struct Struct_02087e6c {
     char unknown_0_[0x14];
@@ -28,7 +28,7 @@ extern "C" ARM int func_02087e6c(struct Struct_02087e6c* arg0, int arg1) {
     }
 
     if (var0 == 0) {
-        func_02087efc((unsigned char*)arg0);
+        ClearBreathResistanceBuff_02087efc((unsigned char*)arg0);
         return 0;
     }
 
@@ -36,7 +36,7 @@ extern "C" ARM int func_02087e6c(struct Struct_02087e6c* arg0, int arg1) {
     arg0->unknown_74_ = 5;
     arg0->unknown_97_ = 0;
     arg0->unknown_14_ |= 0x20000;
-    func_02088c38((unsigned char*)arg0);
-    func_02088c9c((unsigned char*)arg0);
+    ClearFireBarrier_02088c38((unsigned char*)arg0);
+    ClearIceBarrier_02088c9c((unsigned char*)arg0);
     return arg0->unknown_5a_5_;
 }

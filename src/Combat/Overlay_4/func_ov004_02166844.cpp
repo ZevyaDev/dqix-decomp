@@ -32,7 +32,7 @@ extern "C" void func_02095b30(int* arg0, int arg1);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void* func_ov004_02165e70(void* arg0, int arg1);
 
-extern void* data_ov004_0217101c[2];
+extern void* gQuestList_ov004_0217101c[2];
 extern int data_ov004_0217059c;
 
 struct Struct_ov004_02166844 {
@@ -51,7 +51,7 @@ struct Struct_ov004_02166844 {
 // USA: func_ov004_02166844
 extern "C" ARM int func_ov004_02166844(void* arg0) {
     char* var0;
-    data_ov004_0217101c[Enum_ov004_02166844_0] = 0;
+    gQuestList_ov004_0217101c[Enum_ov004_02166844_0] = 0;
     int* var1 = GetQuestManager_02094d6c();
     char* var2 = (char*)func_0205ec34();
     var0 = (char*)func_ov011_021845f8(arg0, 0);
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov004_02166844(void* arg0) {
         return 0;
     }
 
-    data_ov004_0217101c[Enum_ov004_02166844_0] = ((SafeAllocator*)(var0 + 4))->Allocate(sizeof(Struct_ov004_02166844));
+    gQuestList_ov004_0217101c[Enum_ov004_02166844_0] = ((SafeAllocator*)(var0 + 4))->Allocate(sizeof(Struct_ov004_02166844));
     void* var3 = ((SafeAllocator*)(var0 + 4))->Allocate(2);
     if (var3 != 0) {
         *(short*)var3 = 0x7de0;
@@ -68,7 +68,7 @@ extern "C" ARM int func_ov004_02166844(void* arg0) {
         CleanCacheRange(var3, 2);
     }
 
-    Struct_ov004_02166844* var4 = (Struct_ov004_02166844*)data_ov004_0217101c[Enum_ov004_02166844_0];
+    Struct_ov004_02166844* var4 = (Struct_ov004_02166844*)gQuestList_ov004_0217101c[Enum_ov004_02166844_0];
     if (var4 == 0) {
         return 0;
     }
@@ -90,10 +90,10 @@ extern "C" ARM int func_ov004_02166844(void* arg0) {
 
     int var5 = data_ov004_0217059c;
     void* var6 = ((SafeAllocator*)(var0 + 4))->Allocate(var5);
-    ((Struct_ov004_02166844*)data_ov004_0217101c[Enum_ov004_02166844_0])->unknown_1c_[0].CreateTypeA(var6, var5);
+    ((Struct_ov004_02166844*)gQuestList_ov004_0217101c[Enum_ov004_02166844_0])->unknown_1c_[0].CreateTypeA(var6, var5);
     var5 = data_ov004_0217059c;
     var6 = ((SafeAllocator*)(var0 + 4))->Allocate(var5);
-    ((Struct_ov004_02166844*)data_ov004_0217101c[Enum_ov004_02166844_0])->unknown_1c_[1].CreateTypeA(var6, var5);
+    ((Struct_ov004_02166844*)gQuestList_ov004_0217101c[Enum_ov004_02166844_0])->unknown_1c_[1].CreateTypeA(var6, var5);
 
     char* var7 = (char*)func_ov004_02165e70(arg0, 7);
     if (var7 != 0) {
@@ -102,16 +102,16 @@ extern "C" ARM int func_ov004_02166844(void* arg0) {
     }
     var7[0x110] = 0;
 
-    memcpy(((Struct_ov004_02166844*)data_ov004_0217101c[Enum_ov004_02166844_0])->unknown_51_, var2 + 0x2cc, 0x66);
-    ((Struct_ov004_02166844*)data_ov004_0217101c[Enum_ov004_02166844_0])->unknown_b8_ = *(int*)((char*)var1 + 0xa0);
+    memcpy(((Struct_ov004_02166844*)gQuestList_ov004_0217101c[Enum_ov004_02166844_0])->unknown_51_, var2 + 0x2cc, 0x66);
+    ((Struct_ov004_02166844*)gQuestList_ov004_0217101c[Enum_ov004_02166844_0])->unknown_b8_ = *(int*)((char*)var1 + 0xa0);
     func_020956b8((Struct_020956b8*)var1, (SafeAllocator*)(var0 + 4));
     func_02095b30(var1, 1);
 
-    data_ov004_0217101c[Enum_ov004_02166844_1] = 0;
-    data_ov004_0217101c[Enum_ov004_02166844_1] = ((SafeAllocator*)(var0 + 4))->Allocate(0x20);
+    gQuestList_ov004_0217101c[Enum_ov004_02166844_1] = 0;
+    gQuestList_ov004_0217101c[Enum_ov004_02166844_1] = ((SafeAllocator*)(var0 + 4))->Allocate(0x20);
     for (unsigned char var9 = 0; var9 < 8; var9++) {
-        ((void**)data_ov004_0217101c[Enum_ov004_02166844_1])[var9] = 0;
-        ((void**)data_ov004_0217101c[Enum_ov004_02166844_1])[var9] = ((SafeAllocator*)(var0 + 4))->Allocate(0x80);
+        ((void**)gQuestList_ov004_0217101c[Enum_ov004_02166844_1])[var9] = 0;
+        ((void**)gQuestList_ov004_0217101c[Enum_ov004_02166844_1])[var9] = ((SafeAllocator*)(var0 + 4))->Allocate(0x80);
     }
 
     char* var10 = (char*)GetMessageWindow_020421a0();

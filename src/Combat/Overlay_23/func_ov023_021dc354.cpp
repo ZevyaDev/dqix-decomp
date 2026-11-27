@@ -55,50 +55,50 @@ struct Struct_ov023_021dc354 {
     unsigned char unknown_79b_0_ : 1;
 };
 
-// USA: func_ov023_021dc354
-extern "C" ARM void func_ov023_021dc354(struct Struct_ov023_021dc354* arg0) {
-    func_ov023_021db2e4((volatile int*)&arg0->unknown_780_);
-    arg0->unknown_77e_ = -1;
+// USA: ReleaseItemInfoPanel_ov023_021dc354
+extern "C" ARM void ReleaseItemInfoPanel_ov023_021dc354(struct Struct_ov023_021dc354* panel) {
+    func_ov023_021db2e4((volatile int*)&panel->unknown_780_);
+    panel->unknown_77e_ = -1;
 
-    if (!(arg0->unknown_774_ & 0x10)) {
+    if (!(panel->unknown_774_ & 0x10)) {
         CancelFontLoad_02094ab0((void*)GetFontLoader_02094a00());
     }
 
-    func_ov023_021db2e4((volatile int*)&arg0->unknown_734_);
-    for (int var0 = 0; var0 < 7; var0++) {
-        func_ov023_021db2e4((volatile int*)&arg0->unknown_738_[var0]);
+    func_ov023_021db2e4((volatile int*)&panel->unknown_734_);
+    for (int i = 0; i < 7; i++) {
+        func_ov023_021db2e4((volatile int*)&panel->unknown_738_[i]);
     }
 
-    if (arg0->unknown_c8_) {
-        func_02075d58(arg0->unknown_c8_);
+    if (panel->unknown_c8_) {
+        func_02075d58(panel->unknown_c8_);
     }
-    if (arg0->unknown_c4_) {
-        func_02075d58(arg0->unknown_c4_);
-    }
-
-    if (arg0->unknown_77b_ != 1) {
-        func_ov023_021dcd18(arg0);
+    if (panel->unknown_c4_) {
+        func_02075d58(panel->unknown_c4_);
     }
 
-    if (arg0->unknown_44_) {
-        arg0->unknown_44_->Destroy();
+    if (panel->unknown_77b_ != 1) {
+        func_ov023_021dcd18(panel);
     }
-    if (arg0->unknown_40_) {
-        arg0->unknown_40_->Destroy();
+
+    if (panel->unknown_44_) {
+        panel->unknown_44_->Destroy();
     }
-    if (arg0->unknown_3c_) {
-        arg0->unknown_3c_->Destroy();
+    if (panel->unknown_40_) {
+        panel->unknown_40_->Destroy();
     }
-    arg0->unknown_28_.Destroy();
-    arg0->unknown_14_.Destroy();
-    arg0->unknown_0_.Destroy();
+    if (panel->unknown_3c_) {
+        panel->unknown_3c_->Destroy();
+    }
+    panel->unknown_28_.Destroy();
+    panel->unknown_14_.Destroy();
+    panel->unknown_0_.Destroy();
 
     if (data_ov023_021ff9e0.unknown_4_) {
-        if (!arg0->unknown_79b_0_) {
+        if (!panel->unknown_79b_0_) {
             func_02012da4(&gMainHeap_02114e20, data_ov023_021ff9e0.unknown_4_);
         }
         data_ov023_021ff9e0.unknown_4_ = 0;
     }
 
-    InitItemInfoPanel_ov023_021dc134(arg0, -1, arg0->unknown_77b_);
+    InitItemInfoPanel_ov023_021dc134(panel, -1, panel->unknown_77b_);
 }

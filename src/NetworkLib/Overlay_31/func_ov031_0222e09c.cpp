@@ -7,12 +7,12 @@ extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_0222e0f8(void);
 
 struct Struct_ov031_0222e09c { unsigned char unknown_0_[0x15]; unsigned char unknown_15_; };
-extern Struct_ov031_0222e09c* data_ov031_02290c98;
+extern Struct_ov031_0222e09c* gAddressEntryPage_ov031_02290c98;
 
 // USA: func_ov031_0222e09c
 extern "C" ARM void func_ov031_0222e09c(void) {
-    data_ov031_02290c98->unknown_15_ = (unsigned char)GetDialogChoice_ov031_02237e9c();
-    switch (data_ov031_02290c98->unknown_15_) {
+    gAddressEntryPage_ov031_02290c98->unknown_15_ = (unsigned char)GetDialogChoice_ov031_02237e9c();
+    switch (gAddressEntryPage_ov031_02290c98->unknown_15_) {
     case 0:
         PlayWifiSetupSoundEffect_ov031_02236878(7);
         break;

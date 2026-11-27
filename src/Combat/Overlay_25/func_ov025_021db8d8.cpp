@@ -82,7 +82,7 @@ struct Struct_ov025_021db8d8_6 {
 extern "C" struct Struct_ov025_021db8d8_3* GetCurrentBattleAction_ov000_02160f20(void*);
 extern "C" void* func_ov000_02160f60(void*);
 extern "C" unsigned int func_02049444(unsigned char*);
-extern "C" int func_020493ec(unsigned char*);
+extern "C" int GetCombatantReservedCell_020493ec(unsigned char*);
 extern "C" int func_020493c8(unsigned char*);
 extern "C" void func_020493dc(unsigned char*, unsigned char);
 extern "C" void SetCombatantCell_02049390(unsigned char*, unsigned char);
@@ -94,7 +94,7 @@ extern "C" void SetCombatantsOpaque_ov000_02163a7c(struct BattleScene_ov000_0216
 extern "C" int func_ov025_021dfa9c(void* arg0, void* arg1);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
 extern "C" int CollectCombatantIndices_ov000_02153e40(void* battle, short* indices, int maxCount, int filterFlags);
-extern "C" void func_02048cf0(GameObject* arg0, int arg1);
+extern "C" void PlaceCombatantOnCell_02048cf0(GameObject* combatant, int isCurrentCellKept);
 extern "C" void func_ov000_0216e678(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov000_0216d464(void* arg0);
 extern "C" void func_02048e2c(GameObject* arg0);
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Struct_ov025_021db8d8_6* arg0) {
         SetObjectsVisibleBySelector_ov000_021626a0(arg0, 4, 1);
         var7 = 0;
         GameObject* var22 = var2->GetCombatantByIndex(var17);
-        if (var22 && func_020493ec((unsigned char*)var22) != 0xff) {
+        if (var22 && GetCombatantReservedCell_020493ec((unsigned char*)var22) != 0xff) {
             void* var23 = func_ov000_02160f60(arg0);
             if (var23) {
                 struct Struct_ov025_021db8d8* var24 = GetActionActor_ov000_02160094((struct BattleAction_ov000_0215440c_2*)var23, 0);
@@ -219,7 +219,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Struct_ov025_021db8d8_6* arg0) {
             }
             var10 = var11 = 0xff;
             if (var34) {
-                var11 = func_020493ec((unsigned char*)var34);
+                var11 = GetCombatantReservedCell_020493ec((unsigned char*)var34);
                 var10 = func_020493c8((unsigned char*)var34);
             }
             short var36[12];
@@ -227,7 +227,7 @@ extern "C" ARM void func_ov025_021db8d8(struct Struct_ov025_021db8d8_6* arg0) {
             for (var32 = 0; var32 < var9; var32++) {
                 GameObject* var37 = var12->GetCombatantByIndex(var36[var32]);
                 if (var37) {
-                    func_02048cf0(var37, var35 == var36[var32]);
+                    PlaceCombatantOnCell_02048cf0(var37, var35 == var36[var32]);
                 }
             }
             if (var34) {

@@ -18,7 +18,7 @@ extern "C" ARM int func_02044420(void* arg0, void* arg1) {
     unsigned short var0;
     int var1 = 0;
     memcpy(&var0, arg1, 2);
-    if (!func_02044494(arg0, &var0)) {
+    if (!IsControlCode_02044494(arg0, &var0)) {
         return 0;
     }
 #endif

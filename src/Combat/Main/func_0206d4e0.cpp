@@ -89,16 +89,16 @@ extern "C" ARM int func_0206d4e0(void* arg0, int arg1) {
         return 1;
     }
 
-    struct Struct_0206bf2c* var15 = (struct Struct_0206bf2c*)((SafeAllocator*)gNPCPlacementParseState_02108cec.unknown_14_)->Allocate(0x78);
+    struct NPCPlacement_0206bf2c* var15 = (struct NPCPlacement_0206bf2c*)((SafeAllocator*)gNPCPlacementParseState_02108cec.unknown_14_)->Allocate(0x78);
     if (var15 == 0) {
         return 0;
     }
-    func_0206bf2c(var15);
+    InitNPCPlacement_0206bf2c(var15);
     var15->unknown_2_ = (unsigned short)var13;
     int var16 = arg1 - var3 * 2 - var0;
-    var15->unknown_0_ = (unsigned char)var14;
+    var15->npcId_0_ = (unsigned char)var14;
     if (var16 < 4) {
-        func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var15->unknown_0_);
+        func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var15->npcId_0_);
         return 1;
     }
 

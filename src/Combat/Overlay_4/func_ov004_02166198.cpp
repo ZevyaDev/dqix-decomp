@@ -61,7 +61,7 @@ struct Struct_ov004_0217101c_2 {
 #endif
     Struct_ov004_02166198_2* inline_ov004_02166198() { return unknown1_0_; }
 };
-extern Struct_ov004_0217101c_2 data_ov004_0217101c;
+extern Struct_ov004_0217101c_2 gQuestList_ov004_0217101c;
 #if defined(jpn)
 extern char data_ov004_02170e54[];
 #else
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov004_02166198() {
     Struct_ov000_02179cdc_2* var0;
     Struct_ov000_02179cdc_2* var1;
     Struct_ov004_02166198* var2;
-    Struct_ov004_02166198_2* var3 = data_ov004_0217101c.inline_ov004_02166198();
+    Struct_ov004_02166198_2* var3 = gQuestList_ov004_0217101c.inline_ov004_02166198();
     short var4 = var3->unknown_4e_;
     Struct_02065990_3* var5 = (Struct_02065990_3*)(GetQuestManager_02094d6c());
     var2 = var5->unknown_a8_;

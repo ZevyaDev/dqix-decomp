@@ -244,7 +244,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
         if (func_02069430(var0, var1) != 0) {
             int var15 = func_02069444(var0, var1);
 #else
-        if (func_02044494(var0, &var1) != 0) {
+        if (IsControlCode_02044494(var0, &var1) != 0) {
             int var15 = func_02044420(var0, &var1);
 #endif
             if (var15 != 0) {

@@ -6,7 +6,7 @@ extern "C" int func_ov031_02222e54(void);
 extern "C" void func_ov031_0223ba20(int arg0);
 extern "C" void FreeCursorSprites_ov031_022238cc(void);
 extern "C" void CloseSubScreenMessage_ov031_02223440(void);
-extern "C" void func_ov031_0223b710(int arg0);
+extern "C" void FreeLoadedFile_ov031_0223b710(int fileData);
 typedef void (*VRAMLoader_ov031_022234d8)(void*, int, int);
 extern "C" void LoadFileToVRAM_ov031_022234d8(int path, VRAMLoader_ov031_022234d8 loadToVRAM);
 extern "C" extern int LoadToMainObjStandardPalette(int, int, unsigned int);
@@ -36,7 +36,7 @@ struct Struct_ov031_02290cc0_6 {
 	Struct_ov031_02232b44* unknown_4_;
 };
 
-extern Struct_ov031_02290cc0_6 data_ov031_02290cc0;
+extern Struct_ov031_02290cc0_6 gConnectionListPage_ov031_02290cc0;
 extern int data_ov031_0224bcec;
 extern char data_ov031_02290cc4;
 
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov031_02232b44(void) {
 	if (func_ov031_02237388() == 0) return;
 	if (func_ov031_02222e54() == 0) return;
 
-	Struct_ov031_02290cc0_6* var0 = &data_ov031_02290cc0;
+	Struct_ov031_02290cc0_6* var0 = &gConnectionListPage_ov031_02290cc0;
 	unsigned int var1 = 0;
 	do {
 		int var2 = var0->unknown_4_->unknown_4_[var1];
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov031_02232b44(void) {
 		}
 		var1++;
 	} while (var1 < 3);
-	var0 = &data_ov031_02290cc0;
+	var0 = &gConnectionListPage_ov031_02290cc0;
 	var1 = 0;
 	do {
 		int var3 = var0->unknown_4_->unknown_10_[var1];
@@ -68,16 +68,16 @@ extern "C" ARM void func_ov031_02232b44(void) {
 
 	FreeCursorSprites_ov031_022238cc();
 	CloseSubScreenMessage_ov031_02223440();
-	func_ov031_0223b710(data_ov031_02290cc0.unknown_4_->unknown_0_);
+	FreeLoadedFile_ov031_0223b710(gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_0_);
 	LoadFileToVRAM_ov031_022234d8((int)&data_ov031_0224bcec, (VRAMLoader_ov031_022234d8)LoadToMainObjStandardPalette);
 	HideScreenLayers_ov031_0223cbbc(1, 1);
 	HideScreenLayers_ov031_0223cbbc(0, 0x14);
 
-	if (data_ov031_02290cc0.unknown_4_->unknown_1d_ == 2) {
+	if (gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_1d_ == 2) {
 		SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 0);
 		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_02228024);
 	} else {
-		switch (data_ov031_02290cc0.unknown_0_) {
+		switch (gConnectionListPage_ov031_02290cc0.unknown_0_) {
 		case 0:
 		case 1:
 		case 2:

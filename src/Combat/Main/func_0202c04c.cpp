@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_020d4ac8(void);
+extern "C" int GetWirelessSignalStrength_020d4ac8(void);
 
 struct Struct_0202c04c_3 {
     int unknown_0_;
@@ -49,7 +49,7 @@ extern "C" ARM void func_0202c04c(Struct_0202c04c_2* arg0) {
     inline_0202c04c().unknown_0_++;
     arg0->unknown_7c0_.unknown_0_5_ = (unsigned short)arg0->unknown_1004_;
     Struct_0202c04c* var0 = &arg0->unknown_7c0_;
-    arg0->unknown_7c0_.unknown_0_3_ = (unsigned short)func_020d4ac8();
+    arg0->unknown_7c0_.unknown_0_3_ = (unsigned short)GetWirelessSignalStrength_020d4ac8();
 
     int var1 = arg0->unknown_1008_;
     if (var1 != -1) {

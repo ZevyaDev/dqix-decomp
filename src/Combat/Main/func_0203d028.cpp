@@ -78,7 +78,7 @@ extern "C" struct Struct_0203d028_8* GetZone3D_02012fe4(void);
 extern "C" unsigned int* func_020d6c00(void);
 
 extern "C" int IsQuestersRestZone_020981e4(int questersRest, int zoneId);
-extern "C" int func_02098210(int arg0, int arg1);
+extern "C" int IsQuestersRestLobbyZone_02098210(int questersRest, int zoneId);
 
 extern "C" void func_020404c0(int* arg0);
 
@@ -147,7 +147,7 @@ extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int 
 extern "C" int func_020cede0(void);
 extern "C" int func_020cedc0(int arg0);
 
-extern "C" void CreatePartyMemberObject_ov017_0218f064(void* gameResources, int memberIndex, int arg2, int requestModelLoad, int arg4);
+extern "C" void CreatePartyMemberObject_ov017_0218f064(void* gameResources, int memberIndex, int kind, int requestModelLoad, int arg4);
 
 struct Struct_0203d028_3;
 
@@ -180,14 +180,14 @@ extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
 struct GlobalFlags_02038598_4 { unsigned int bits_0_; };
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 
-struct Struct_02040774 { char unknown_0_[4]; int unknown_4_; int unknown_8_; int unknown_c_; };
-struct Struct_0203d028_15 {
+struct NPCSprite_02040774 { char unknown_0_[4]; int positionX_4_; int positionY_8_; int positionZ_c_; };
+struct NPC_0203d028_15 {
     char unknown_0_[0x14];
-    struct Struct_02040774* unknown_14_;
+    struct NPCSprite_02040774* pSprite_14_;
     void* unknown_18_;
     void* unknown_1c_;
 };
-extern "C" void func_02040774(struct Struct_0203d028_15* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNPCPosition_02040774(struct NPC_0203d028_15* npc, int x, int y, int z);
 
 struct Struct_0203cda8;
 struct Struct_0203d028_16 {
@@ -352,7 +352,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
     func_020401fc(&arg0->unknown_0_, 0xc, arg2);
 
     if (IsQuestersRestZone_020981e4((int)GLOBAL_SUB, var6) &&
-        func_02098210((int)GLOBAL_SUB, var6) == 0) {
+        IsQuestersRestLobbyZone_02098210((int)GLOBAL_SUB, var6) == 0) {
         arg0->unknown_0_.unknown_5_ = 1;
     } else {
         arg0->unknown_0_.unknown_5_ = 0;
@@ -581,7 +581,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
         }
 
         if (var11 != 0) {
-            func_02040774((struct Struct_0203d028_15*)var10, var11->unknown_10_, var11->unknown_14_, var11->unknown_18_);
+            SetNPCPosition_02040774((struct NPC_0203d028_15*)var10, var11->unknown_10_, var11->unknown_14_, var11->unknown_18_);
             func_0204085c((struct Struct_0203d028_16*)var10, 0, var11->unknown_1c_, 0);
             func_02040540((struct Struct_0203d028_17*)var10);
 

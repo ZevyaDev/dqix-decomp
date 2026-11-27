@@ -2,7 +2,7 @@
 #include "NitroSDK/Memory.h"
 
 extern "C" void SaveAndDisableVCounterInterrupt_020d8654(void);
-extern "C" int func_0202d6a8(void);
+extern "C" int GetLocalWirelessLinkState_0202d6a8(void);
 extern "C" int func_0202dcd4(int arg0);
 extern "C" int func_0202dcb4(int arg0);
 extern "C" void RestoreVCounterInterrupt_020d8694(void);
@@ -10,7 +10,7 @@ extern "C" void RestoreVCounterInterrupt_020d8694(void);
 // USA: func_0202bf40
 extern "C" ARM void func_0202bf40(void* arg0) {
     SaveAndDisableVCounterInterrupt_020d8654();
-    if (func_0202d6a8() == 5) {
+    if (GetLocalWirelessLinkState_0202d6a8() == 5) {
         if (func_0202dcd4((int)((char*)arg0 + 0x7c0))) {
             char* var0 = (char*)arg0 + 0xbc0;
             for (unsigned short var1 = 0; var1 < 4; var1++) {

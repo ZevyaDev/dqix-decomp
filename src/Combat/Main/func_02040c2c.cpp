@@ -57,7 +57,7 @@ struct Struct_0203c818_2;
 extern "C" void func_0203c818(Struct_0203c818_2*, void*, int, int);
 extern "C" void func_02040f48(struct Struct_0203dd20* arg0, void* arg1);
 extern "C" int rand(void);
-extern "C" int func_0202e800(void* arg0);
+extern "C" int GetCameraDistance_0202e800(void* camera);
 extern "C" void* func_0202ed6c(void* arg0);
 
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
@@ -149,7 +149,7 @@ extern "C" ARM void func_02040c2c(struct Struct_0203dd20* arg0, void* arg1, int 
         if (arg0->unknown_14_ != 0) {
             unsigned char* var9 = (unsigned char*)func_020100bc(GameState::GetInstance());
             func_0202ed6c(var9);
-            float var10 = (float)func_0202e800(var9);
+            float var10 = (float)GetCameraDistance_0202e800(var9);
             var10 *= 3.0f;
             int var11 = (int)var10;
             Vector3fix_Subtract(reinterpret_cast<Vector3i*>(var9 + 0x10), reinterpret_cast<Vector3i*>(&var1), &var3);

@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
 extern "C" void func_0203ac10(void* arg0, void* arg1, int arg2);
-extern "C" void func_0203aa80(void* arg0, int arg1);
+extern "C" void RestoreSoundHeapState_0203aa80(void* manager, int heapState);
 extern "C" int func_0203ab6c(void* arg0, void* arg1);
 extern "C" void func_0209c5e8(void* arg0);
 extern "C" int func_0203aaf8(void* arg0, void* arg1, int* arg2);
-struct Struct_0203aba8;
-extern "C" int func_0203aba8(struct Struct_0203aba8* arg0, void* arg1, void* arg2);
+struct MusicManager_0203aba8;
+extern "C" int PlaySequence_0203aba8(struct MusicManager_0203aba8* manager, void* sequenceIndex, void* handle);
 extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 
 struct Struct_02109bf4_5 {
@@ -33,7 +33,7 @@ extern "C" ARM void func_0209c73c(struct Struct_02109bf4_5* arg0) {
     arg0->unknown_ce_ = -1;
     if (arg0->unknown_b0_ == 1) {
         if (arg0->unknown_b4_ > 0) {
-            func_0203aa80(arg0, arg0->unknown_b4_);
+            RestoreSoundHeapState_0203aa80(arg0, arg0->unknown_b4_);
         }
         func_0203ab6c(arg0, (void*)(int)arg0->unknown_b8_);
         func_0209c5e8(arg0);
@@ -42,9 +42,9 @@ extern "C" ARM void func_0209c73c(struct Struct_02109bf4_5* arg0) {
     }
     if (arg0->unknown_b0_ != 2) return;
     if (arg0->unknown_b4_ > 0) {
-        func_0203aa80(arg0, arg0->unknown_b4_);
+        RestoreSoundHeapState_0203aa80(arg0, arg0->unknown_b4_);
     }
     func_0203aaf8(arg0, (void*)(int)arg0->unknown_ba_, 0);
-    func_0203aba8((struct Struct_0203aba8*)arg0, (void*)(int)arg0->unknown_ba_, &arg0->unknown_c0_);
+    PlaySequence_0203aba8((struct MusicManager_0203aba8*)arg0, (void*)(int)arg0->unknown_ba_, &arg0->unknown_c0_);
     SetMusicVolume_0209c2e0(arg0, arg0->unknown_cd_, 0);
 }

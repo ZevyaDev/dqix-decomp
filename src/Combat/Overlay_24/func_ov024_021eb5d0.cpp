@@ -286,7 +286,7 @@ struct GameObject;
 extern "C" int func_ov024_021eadfc(GameObject*);
 extern "C" int func_ov000_0215a124(void* arg0, int arg1, int arg2);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
-extern "C" unsigned int GetSkillAdjustedMPCost_020dd290(void* member, unsigned int arg1);
+extern "C" unsigned int GetSkillAdjustedMPCost_020dd290(void* member, unsigned int mpCost);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_ov024_021eb47c(Struct_ov024_021ea4d0*, int);
 extern "C" void GetBattleRecords_020ac4c0(void* records);

@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "Resource/StringList.h"
 
-extern "C" int GetSkillAdjustedMPCost_020dd290(void *member, unsigned int arg1);
+extern "C" int GetSkillAdjustedMPCost_020dd290(void *member, unsigned int mpCost);
 extern "C" void *GetMessageWindow_020421a0();
 extern "C" void ClearMessageParams_02046380();
 struct Struct_ov002_02157d40_2;

@@ -75,7 +75,7 @@ extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" Struct_ov004_0216ba70* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" void func_ov023_021f8120(void* arg0);
-extern "C" void func_ov023_021f7eb8(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9);
+extern "C" void DrawMenuWindow_ov023_021f7eb8(void* window, void* menu, int characterDataOffset, int x, int y, int width, int height, int palette, int isTransparent, int isFrameless);
 
 extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3,
     int arg4, int arg5, int arg6, int arg7, unsigned char arg8);
@@ -353,7 +353,7 @@ extern "C" ARM int func_ov004_0216ba70(void* arg0) {
     int var43 = data_ov004_02171034.unknown_c_;
     if (var0 >= 1 && var0 <= 4) {
         Struct_ov004_0217017a* var44 = &data_ov004_0217017a[var0 - 1];
-        func_ov023_021f7eb8(var42, arg0, var43, 6, var44->unknown_0_, 0x1a, var44->unknown_2_, 0, 1, 0);
+        DrawMenuWindow_ov023_021f7eb8(var42, arg0, var43, 6, var44->unknown_0_, 0x1a, var44->unknown_2_, 0, 1, 0);
     }
 
     func_ov011_02184ad8((struct Struct_ov004_0216b7bc*)arg0);

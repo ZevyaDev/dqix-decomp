@@ -9,7 +9,7 @@
 #endif
 
 extern "C" void func_0208beb4(unsigned char* arg0);
-extern "C" void func_0208bb78(void* arg0, int arg1);
+extern "C" void UpdateQuestDisplay_0208bb78(void* display, int ticks);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern AllocatorUnion gMainHeap_02114e20;
 
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov001_02154e40(struct Struct_ov001_02154e40* arg0) {
     if (!(arg0->unknown_50_ & 0x8) && arg0->unknown_138_ != 0 && arg0->unknown_120_ != 0) {
         func_0208beb4((unsigned char*)arg0->unknown_120_);
         unsigned int var1 = var0->GetTickCount();
-        func_0208bb78(arg0->unknown_120_, var1);
+        UpdateQuestDisplay_0208bb78(arg0->unknown_120_, var1);
 
         if (*(short*)((char*)arg0->unknown_120_ + 0xd2) >= 0) {
             return arg0->unknown_a_;

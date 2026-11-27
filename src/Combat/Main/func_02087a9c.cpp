@@ -8,7 +8,7 @@ struct Struct_02087a9c {
     int unknown_59_1_ : 3;
 };
 
-extern "C" void func_02087b14(void* arg0);
+extern "C" void ClearCharmBuff_02087b14(void* stats);
 
 // USA: func_02087a9c
 extern "C" ARM int func_02087a9c(struct Struct_02087a9c* arg0, int arg1) {
@@ -16,7 +16,7 @@ extern "C" ARM int func_02087a9c(struct Struct_02087a9c* arg0, int arg1) {
     if (var0 > 2) var0 = 2;
     if (var0 < -2) var0 = -2;
     if (var0 == 0) {
-        func_02087b14(arg0);
+        ClearCharmBuff_02087b14(arg0);
         return 0;
     }
     arg0->unknown_59_1_ = var0;

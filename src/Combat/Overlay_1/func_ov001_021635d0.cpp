@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
-extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
+extern "C" void StopSoundEffect_0205eabc(void* manager, void* handle, int fadeDuration);
 extern "C" void ClearSoundHandle_020bc078(int* handle);
 extern int data_ov001_02165958[16];
 extern int gSoundEffectManager_02108760;
@@ -20,7 +20,7 @@ extern "C" ARM int func_ov001_021635d0(void* arg0, int arg1) {
 	if (arg1 >= 2) {
 		var2 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 8);
 	}
-	func_0205eabc(&gSoundEffectManager_02108760, var1, var2);
+	StopSoundEffect_0205eabc(&gSoundEffectManager_02108760, var1, var2);
 	ClearSoundHandle_020bc078(var1);
 	return 1;
 }

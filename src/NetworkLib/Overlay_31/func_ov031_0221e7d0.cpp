@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "NitroSDK/Interrupts.h"
 
-struct Struct_ov031_0224e204 {
+struct ValueQueue_ov031_0224e204 {
     char unknown_0_[0x20];
 };
 struct Struct_ov031_0224f4c0 {
@@ -10,18 +10,18 @@ struct Struct_ov031_0224f4c0 {
     void* unknown_8_;
     void (*unknown_c_)(void*);
 };
-extern "C" void func_020c7de4(Struct_ov031_0224e204* arg0, int arg1, int arg2);
+extern "C" void InitValueQueue_020c7de4(ValueQueue_ov031_0224e204* queue, int entries, int capacity);
 extern "C" int func_ov031_0221f26c(int (*arg0)(int), void* arg1, int arg2);
 extern "C" int func_ov031_0221e7a8(int arg0);
-extern "C" int DequeueValue_020c7ea0(Struct_ov031_0224e204* queue, int* value, int flags);
-extern Struct_ov031_0224e204 data_ov031_0224f4e0;
+extern "C" int DequeueValue_020c7ea0(ValueQueue_ov031_0224e204* queue, int* value, int flags);
+extern ValueQueue_ov031_0224e204 data_ov031_0224f4e0;
 extern int data_ov031_0224f4d0[4];
 extern Struct_ov031_0224f4c0 data_ov031_0224f4c0;
 
 // USA: func_ov031_0221e7d0
 extern "C" THUMB int func_ov031_0221e7d0(void* (*arg0)(void*), void (*arg1)(void*)) {
     int var0 = 1;
-    func_020c7de4(&data_ov031_0224f4e0, (int)data_ov031_0224f4d0, 4);
+    InitValueQueue_020c7de4(&data_ov031_0224f4e0, (int)data_ov031_0224f4d0, 4);
     if (arg0 == NULL || arg1 == NULL) return -1;
     int var1 = DisableIRQInterrupts();
     data_ov031_0224f4c0.unknown_0_ = arg0;

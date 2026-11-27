@@ -3,7 +3,6 @@
 #define func_ov012_02185bf0 func_ov012_02186248
 #define func_ov012_0218943c func_ov012_02189d18
 #define func_ov012_0218adac func_ov012_0218bba0
-#define func_ov023_021e6de4 func_ov023_021e7148
 #else
 #define R(j,u) (u)
 #endif
@@ -56,7 +55,7 @@ struct TextWindowManager_0205d6a0;
 struct TextWindowManager_0205de24_2;
 struct SoundEffectManager_02108760;
 struct Struct_0205c570;
-struct Struct_ov012_02186a7c;
+struct ProfileMenu_ov012_02186a7c;
 
 extern "C" Struct_ov012_02187320* GetMessageWindow_020421a0();
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
@@ -71,8 +70,8 @@ extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(Struct_ov012_02187320
 extern "C" void func_ov012_02189f38(char* arg0);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
-extern "C" int func_ov023_021e6de4(Struct_ov012_02187320_3* arg0);
-extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c* arg0);
+extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(Struct_ov012_02187320_3* menu);
+extern "C" int IsProfileMenuCancelPressed_ov023_021e6e20(ProfileMenu_ov012_02186a7c* menu);
 extern "C" void func_ov012_02185bf0(Struct_ov012_02187320_3* arg0, unsigned char arg1, int arg2);
 #if defined(jpn)
 extern "C" void func_ov012_0218adac(Struct_ov012_02187320_3* arg0, int arg1, int arg2);
@@ -131,7 +130,7 @@ extern "C" ARM void func_ov012_02187320(Struct_ov012_02187320_3* arg0)
         arg0->unknown_13a0_ = 1;
         arg0->unknown_13f8_ = GetCursorIndex_0205d794((Struct_0205c570*)arg0->unknown_ac_);
         int var2 = 0;
-        if (func_ov023_021e6de4(arg0) || func_ov023_021e6e20((Struct_ov012_02186a7c*)arg0))
+        if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0) || IsProfileMenuCancelPressed_ov023_021e6e20((ProfileMenu_ov012_02186a7c*)arg0))
         {
             func_ov012_02185bf0(arg0, arg0->unknown_1371_, 1);
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
@@ -145,7 +144,7 @@ extern "C" ARM void func_ov012_02187320(Struct_ov012_02187320_3* arg0)
                     var3->unknown_3_7_ = 0;
                     break;
             }
-            if (func_ov023_021e6e20((Struct_ov012_02186a7c*)arg0))
+            if (IsProfileMenuCancelPressed_ov023_021e6e20((ProfileMenu_ov012_02186a7c*)arg0))
                 var3->unknown_3_7_ = 1;
 #if defined(jpn)
             func_ov012_0218adac(arg0, 0, -1);

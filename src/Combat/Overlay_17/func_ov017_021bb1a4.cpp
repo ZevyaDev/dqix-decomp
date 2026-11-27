@@ -29,7 +29,7 @@ extern Type_02000c9c_19 data_ov017_021d7ccc[20];
 extern unsigned int data_ov017_021d845c;
 extern Type_02000c9c_19 gNullMemberFunctionPointer_020e6d5c;
 
-extern "C" void func_0208bb78(void* arg0, unsigned int arg1);
+extern "C" void UpdateQuestDisplay_0208bb78(void* display, unsigned int ticks);
 extern "C" int func_020a1e54(int isPreviousReloaded);
 extern "C" void LoadFileTables_020a0c0c(void);
 
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov017_021bb1a4(Struct_ov017_021bb1a4* arg0, int arg1) {
     }
 
     if (arg0->unknown_120_ != 0) {
-        func_0208bb78(arg0->unknown_120_, GameState::GetInstance()->GetTickCount());
+        UpdateQuestDisplay_0208bb78(arg0->unknown_120_, GameState::GetInstance()->GetTickCount());
     }
 
     if (data_ov017_021d7ccc[arg0->unknown_a_] != 0) {

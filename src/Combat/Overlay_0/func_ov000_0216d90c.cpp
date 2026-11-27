@@ -5,7 +5,7 @@
 extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
 extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
-extern "C" void func_ov000_0216d530(void* arg0, int arg1);
+extern "C" void SetBattleCameraAnchor_ov000_0216d530(void* camera, int objectIndex);
 
 extern int data_ov000_021832a4[8];
 
@@ -47,6 +47,6 @@ extern "C" ARM void func_ov000_0216d90c(unsigned char* arg0, int arg1) {
     var7[1] = 0x3000;
     var7[2] = 0x8000;
     SetCameraOrbitFromArray_0202e694(arg0, var7);
-    func_ov000_0216d530(arg0, arg1);
+    SetBattleCameraAnchor_ov000_0216d530(arg0, arg1);
     *(int*)(arg0 + 0x23c) = -20;
 }

@@ -27,7 +27,7 @@ extern "C" void SetTextWindowText_0205d5d0(TextWindowManager_0205d5d0*, int, int
 struct TextWindowManager_0205d81c;
 extern "C" unsigned char * FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" void SetTextWindowCharacterDataOffsetAndId_0204f160(unsigned char* textWindow, int characterDataOffset, int windowId);
-extern "C" void func_0204ecb4(unsigned char *arg0, int arg1, int arg2, int arg3, int arg4, signed char *arg5);
+extern "C" void DrawTextWindowFrame_0204ecb4(unsigned char *textWindow, int tileX, int tileY, int width, int height, signed char *margins);
 struct TextWindow_0204fbf8_2;
 extern "C" void LoadTextWindowCharacterData_0204fbf8(TextWindow_0204fbf8_2*);
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov002_0215e44c(unsigned char *arg0) {
                 short var8 = *(short *) (var5 + 0xa8);
                 short var9 = *(short *) (var5 + 0xaa);
                 SetTextWindowCharacterDataOffsetAndId_0204f160(var5, *(int *) (var5 + 0xa0), var4);
-                func_0204ecb4(var5, var6, var7, var8, var9, 0);
+                DrawTextWindowFrame_0204ecb4(var5, var6, var7, var8, var9, 0);
                 LoadTextWindowCharacterData_0204fbf8((TextWindow_0204fbf8_2*)var5);
             }
         }

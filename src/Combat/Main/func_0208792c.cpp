@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_0208792c
-extern "C" ARM void func_0208792c(void* arg0) {
-    unsigned char* var0 = (unsigned char*)arg0;
-    *(int*)(var0 + 0x14) &= ~0x800;
-    *(int*)(var0 + 0x58) &= ~0x38;
-    var0[0x6f] = 0;
-    var0[0x92] = 0;
+// USA: ClearDefenseBuff_0208792c
+extern "C" ARM void ClearDefenseBuff_0208792c(void* stats) {
+    unsigned char* statsBytes = (unsigned char*)stats;
+    *(int*)(statsBytes + 0x14) &= ~0x800;
+    *(int*)(statsBytes + 0x58) &= ~0x38;
+    statsBytes[0x6f] = 0;
+    statsBytes[0x92] = 0;
 }

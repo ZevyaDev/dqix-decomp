@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 #include "std_library_functions.h"
 
-extern "C" void func_ov011_02184a24(void* arg0, void* arg1, int arg2);
+extern "C" void SetMenuCallbacks_ov011_02184a24(void* menu, void* callbacks, int callbackCount);
 
 #if defined(jpn)
 enum { Enum_ov004_021677b4_19 = 18 };
@@ -19,5 +19,5 @@ extern "C" ARM void func_ov004_021677b4(SafeAllocator* arg0, void* arg1) {
 	struct Struct_ov004_0216ffac var0 = data_ov004_0216ffac;
 	void* var1 = arg0->Allocate(sizeof(Struct_ov004_0216ffac));
 	memcpy(var1, &var0, sizeof(Struct_ov004_0216ffac));
-	func_ov011_02184a24(arg1, var1, Enum_ov004_021677b4_19);
+	SetMenuCallbacks_ov011_02184a24(arg1, var1, Enum_ov004_021677b4_19);
 }

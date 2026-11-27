@@ -2,31 +2,31 @@
 #include "GameState/GameState.h"
 
 
-// USA: func_020dcc98
-extern "C" ARM int func_020dcc98(int arg0) {
-    int var0 = 15;
-    GameState* var1 = GameState::GetInstance();
-    GameObject* var2 = var1->GetPartyMemberByIndex(arg0);
-    if (var2 != 0) {
-        float var3;
-        int var4 = var2->baseStats_->primaryStats.maxHP;
-        if ((float)var4 == 0.0f) {
-            var3 = 0.0f;
+// USA: GetPartyMemberHPColor_020dcc98
+extern "C" ARM int GetPartyMemberHPColor_020dcc98(int partyMemberIndex) {
+    int color = 15;
+    GameState* gameState = GameState::GetInstance();
+    GameObject* member = gameState->GetPartyMemberByIndex(partyMemberIndex);
+    if (member != 0) {
+        float hpRatio;
+        int maxHP = member->baseStats_->primaryStats.maxHP;
+        if ((float)maxHP == 0.0f) {
+            hpRatio = 0.0f;
         } else {
-            int* var5 = *(int**)((char*)var2 + 0x130);
-            int var6 = *(unsigned short*)((char*)var5 + 4);
-            var3 = (float)var6 / (float)var4;
+            int* status = *(int**)((char*)member + 0x130);
+            int hp = *(unsigned short*)((char*)status + 4);
+            hpRatio = (float)hp / (float)maxHP;
         }
 
-        if (var3 <= 0.25f) {
-            var0 = 13;
+        if (hpRatio <= 0.25f) {
+            color = 13;
         }
-        if (var3 <= 0.08f) {
-            var0 = 11;
+        if (hpRatio <= 0.08f) {
+            color = 11;
         }
-        if (var3 == 0.0f) {
-            var0 = 9;
+        if (hpRatio == 0.0f) {
+            color = 9;
         }
     }
-    return var0;
+    return color;
 }

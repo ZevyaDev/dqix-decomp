@@ -10,12 +10,12 @@ struct Struct_ov009_0218aa28 {
 
 extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
-extern "C" void func_02049f28(unsigned char* arg0);
+extern "C" void SetCombatantOnBattlefield_02049f28(unsigned char* combatant);
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState* gameState, int index);
 extern "C" void GetCombatantLineupPosition_02049b54(struct Struct_ov009_0218aa28* combatant, struct Combatant_02049b54_2* arg1);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
-extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
+extern "C" void SetCombatantLineupFacing_02049bac(unsigned char* combatant, int* rotation);
 extern "C" void func_ov000_02161c0c(void* arg0, int arg1);
 extern "C" void func_ov000_02167fb0(void* arg0, GameObject* arg1);
 extern "C" void func_ov000_021677fc(void* arg0);
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov025_021e604c(void* arg0, int arg1, int arg2, void* arg
         GameObject* var16 = var12->GetCombatantByIndex(var0[var15]);
         if (var16 != NULL) {
             func_ov000_02161c0c(var13, var0[var15]);
-            func_02049f28((unsigned char*)var16);
+            SetCombatantOnBattlefield_02049f28((unsigned char*)var16);
             func_ov000_02167fb0(var13, var16);
             var16->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef802, 1);
         }
@@ -81,7 +81,7 @@ extern "C" ARM int func_ov025_021e604c(void* arg0, int arg1, int arg2, void* arg
             SetFacingInstantly_02033874((struct Struct_02033834*)var18, var19);
             __clear(&var2, 0xc);
             var2.y = var19;
-            func_02049bac((unsigned char*)var18, (int*)&var2);
+            SetCombatantLineupFacing_02049bac((unsigned char*)var18, (int*)&var2);
         }
     }
     return 1;

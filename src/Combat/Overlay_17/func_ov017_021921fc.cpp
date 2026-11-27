@@ -9,7 +9,7 @@ struct Struct_02010604;
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
-extern "C" void func_02039d48(unsigned char* arg0);
+extern "C" void SetFadeInOnMove_02039d48(unsigned char* object);
 
 // USA: func_ov017_021921fc
 extern "C" ARM void func_ov017_021921fc(int* arg0, int arg1, int arg2) {
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov017_021921fc(int* arg0, int arg1, int arg2) {
                 ResetFollowTrail_02039d24((unsigned char*)var4);
             }
             if (var0[var3] != GetOwnPartyLeaderObjectIndex_020100b0(var1)) {
-                func_02039d48((unsigned char*)var4);
+                SetFadeInOnMove_02039d48((unsigned char*)var4);
             }
         }
     }

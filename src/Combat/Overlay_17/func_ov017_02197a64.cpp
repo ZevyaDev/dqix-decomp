@@ -65,7 +65,7 @@ extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
 extern "C" Struct_020968d0* func_ov017_0218d268(void* arg0);
 extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char* prompt);
-extern "C" int func_02094b9c(void* arg0, void* arg1);
+extern "C" int IsInsideZoneFeature_02094b9c(void* feature, void* position);
 extern "C" int func_ov017_0218da48(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 extern "C" int func_020968d0(Struct_020968d0* arg0, int* arg1);
 extern "C" void __clear(void* arg0, int arg1);
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov017_02197a64(Struct_ov017_02197a64_5* arg0) {
     int var10 = 0;
 
     while (var5 != NULL && var8.unknown_4_ < 2) {
-        if (!(var5->unknown_2e_4_ & 1) && !(var5->unknown_2e_4_ & 4) && func_02094b9c(var5, &var4)) {
+        if (!(var5->unknown_2e_4_ & 1) && !(var5->unknown_2e_4_ & 4) && IsInsideZoneFeature_02094b9c(var5, &var4)) {
             if (!var10) {
                 var10 = func_ov017_0218da48(arg0, var5->unknown_20_, FACING_LIMIT, FACING_LIMIT >> 3, 0);
             }

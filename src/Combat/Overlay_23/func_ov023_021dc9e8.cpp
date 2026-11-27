@@ -4,7 +4,7 @@
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int func_ov023_021ddbb8(void* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021db2e4(volatile int* arg0);
-extern "C" int func_ov023_021dc354(void* arg0);
+extern "C" int ReleaseItemInfoPanel_ov023_021dc354(void* panel);
 extern "C" void InitItemInfoPanel_ov023_021dc134(void* panel, int itemId, int isEmbedded);
 extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(void* panel, void* allocator);
 
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov023_021dc9e8(void* arg0, void* arg1, int arg2, int ar
         func_ov023_021db2e4((volatile int*)((char*)arg0 + FIELD_OFFSET(0x738) + var0 * 4));
     }
 
-    func_ov023_021dc354(arg0);
+    ReleaseItemInfoPanel_ov023_021dc354(arg0);
     signed char var1 = *(signed char*)((char*)arg0 + FIELD_OFFSET(0x77b));
     InitItemInfoPanel_ov023_021dc134(arg0, arg2, var1);
 

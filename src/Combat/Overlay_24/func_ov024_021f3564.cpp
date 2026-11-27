@@ -9,7 +9,7 @@ extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 struct Struct_ov024_021df454_2;
 extern "C" int func_ov024_021df6ec(struct Struct_ov024_021df454_2* arg0);
 struct Struct_ov024_021dced0_2;
-extern "C" int func_ov024_021dd010(struct Struct_ov024_021dced0_2* arg0);
+extern "C" int IsSpellcastingBlocked_ov024_021dd010(struct Struct_ov024_021dced0_2* combatant);
 
 struct Struct_ov024_021f3564 {
     signed int unknown_0_0_ : 3;
@@ -34,7 +34,7 @@ extern "C" ARM int func_ov024_021f3564(struct Struct_ov024_021f3564_2* arg0, int
 	if (IsPoisoned_020885b4((struct Struct_020885b4*)var0->currentStats_)) var1++;
 	if (IsEnvenomated_02088514((struct Struct_02088514*)var0->currentStats_)) var1++;
 	if (func_ov024_021df6ec((struct Struct_ov024_021df454_2*)var0)) var1++;
-	if (func_ov024_021dd010((struct Struct_ov024_021dced0_2*)var0)) var1++;
+	if (IsSpellcastingBlocked_ov024_021dd010((struct Struct_ov024_021dced0_2*)var0)) var1++;
 	struct Struct_ov024_021f3564* var2 = (struct Struct_ov024_021f3564*)((char*)var0->currentStats_ + 0x58);
 	if (var2->unknown_0_0_ < 0) var1++;
 	if (var2->unknown_0_3_ < 0) var1++;

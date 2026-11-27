@@ -49,37 +49,37 @@ struct Struct_0202aec0_3 {
 
 extern "C" int _ZZ15inline_0202c04cvE1s;
 
-// USA: func_0202aec0
-extern "C" ARM void func_0202aec0(Struct_0202aec0_2* arg0) {
-    Struct_0202aec0_3 var0;
+// USA: ResetLocalWireless_0202aec0
+extern "C" ARM void ResetLocalWireless_0202aec0(Struct_0202aec0_2* wireless) {
+    Struct_0202aec0_3 userSettings;
 
-    arg0->unknown_0_ = 0;
-    arg0->unknown_4_ = 0;
-    arg0->unknown_8_ = 0;
-    arg0->unknown_c_ = 0;
-    arg0->unknown_fc0_ = 0;
-    arg0->unknown_1000_.unknown_4_ = 0;
-    arg0->unknown_1000_.unknown_8_ = -1;
-    memset(arg0->unknown_1000_.unknown_14_, 0, 0x24);
-    memset(arg0->unknown_10_, 0, 0x780);
-    memset(arg0->unknown_790_, 0, 0x28);
-    memset(arg0->unknown_7c0_, 0, 0x400);
-    memset(arg0->unknown_bc0_, 0, 0x400);
-    memset(arg0->unknown_fc4_, 0, 0x40);
+    wireless->unknown_0_ = 0;
+    wireless->unknown_4_ = 0;
+    wireless->unknown_8_ = 0;
+    wireless->unknown_c_ = 0;
+    wireless->unknown_fc0_ = 0;
+    wireless->unknown_1000_.unknown_4_ = 0;
+    wireless->unknown_1000_.unknown_8_ = -1;
+    memset(wireless->unknown_1000_.unknown_14_, 0, 0x24);
+    memset(wireless->unknown_10_, 0, 0x780);
+    memset(wireless->unknown_790_, 0, 0x28);
+    memset(wireless->unknown_7c0_, 0, 0x400);
+    memset(wireless->unknown_bc0_, 0, 0x400);
+    memset(wireless->unknown_fc4_, 0, 0x40);
 
-    func_020c99c8(&var0);
-    arg0->unknown_1000_.unknown_28_ = var0.unknown_1a_;
-    func_020328bc(arg0->unknown_1000_.unknown_14_, var0.unknown_4_, arg0->unknown_1000_.unknown_28_);
+    func_020c99c8(&userSettings);
+    wireless->unknown_1000_.unknown_28_ = userSettings.unknown_1a_;
+    func_020328bc(wireless->unknown_1000_.unknown_14_, userSettings.unknown_4_, wireless->unknown_1000_.unknown_28_);
 
-    arg0->unknown_1000_.unknown_29_ = arg0->unknown_1000_.unknown_29_ & ~8;
-    arg0->unknown_1000_.unknown_34_ = 0;
-    arg0->unknown_1000_.unknown_c_ = 1;
-    arg0->unknown_1000_.unknown_d_ = 1;
-    arg0->unknown_1000_.unknown_e_ = 0;
-    arg0->unknown_1000_.unknown_f_ = 0;
-    arg0->unknown_1000_.unknown_10_ = 0;
+    wireless->unknown_1000_.unknown_29_ = wireless->unknown_1000_.unknown_29_ & ~8;
+    wireless->unknown_1000_.unknown_34_ = 0;
+    wireless->unknown_1000_.unknown_c_ = 1;
+    wireless->unknown_1000_.unknown_d_ = 1;
+    wireless->unknown_1000_.unknown_e_ = 0;
+    wireless->unknown_1000_.unknown_f_ = 0;
+    wireless->unknown_1000_.unknown_10_ = 0;
     (&_ZZ15inline_0202c04cvE1s)[1] = 0;
-    memset(arg0->unknown_1000_.unknown_38_, 0, 0x10);
-    memset(arg0->unknown_1000_.unknown_48_, 0, 0x10);
-    arg0->unknown_1000_.unknown_11_ = 1;
+    memset(wireless->unknown_1000_.unknown_38_, 0, 0x10);
+    memset(wireless->unknown_1000_.unknown_48_, 0, 0x10);
+    wireless->unknown_1000_.unknown_11_ = 1;
 }

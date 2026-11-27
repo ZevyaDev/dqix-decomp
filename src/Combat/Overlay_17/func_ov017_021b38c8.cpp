@@ -11,8 +11,8 @@
 struct Struct_02052e2c;
 struct Struct_ov017_021b38c8_2 { char unknown_0_[0x70]; };
 struct Struct_ov017_021b38c8_3 { Struct_ov017_021b38c8_2 unknown_0_[0x15]; Struct_ov017_021b38c8_2 unknown_930_; };
-struct Struct_0206f81c_8 { char unknown_0_[0x18]; short unknown_18_; char unknown_1a_[6]; };
-struct Struct_0206f81c { char unknown_0_[0x194]; Struct_0206f81c_8 unknown_194_[11]; };
+struct ItemData_0206f81c_8 { char unknown_0_[0x18]; short itemId_18_; char unknown_1a_[6]; };
+struct PartyMemberData_0206f81c { char unknown_0_[0x194]; ItemData_0206f81c_8 equipment_194_[11]; };
 struct Struct_ov017_021b38c8_4 {
     unsigned short unknown_0_, unknown_2_; SafeAllocator unknown_4_[11];
     char unknown_e0_[0x52c - 0xe0]; SafeAllocator unknown_52c_, unknown_540_;
@@ -32,12 +32,12 @@ struct Struct_ov017_021b38c8 {
     unsigned char unknown_b_;
     char unknown_c_[4]; int unknown_10_[11]; int unknown_3c_; int unknown_40_; int unknown_44_;
 };
-extern "C" Struct_0206f81c* func_02053c6c(unsigned char*);
+extern "C" PartyMemberData_0206f81c* func_02053c6c(unsigned char*);
 extern "C" Struct_ov017_021b38c8_6* GetAppearance_02052e2c(Struct_02052e2c*);
 extern "C" void func_020543ec(char*, char*);
 extern "C" void func_02072afc(int, int*, short*);
-extern "C" Struct_0206f81c_8* func_02083554(Struct_0206f81c*, int);
-extern "C" int func_02072e94(char*, int, int, Struct_0206f81c_8*, Struct_0206f81c_8*);
+extern "C" ItemData_0206f81c_8* func_02083554(PartyMemberData_0206f81c*, int);
+extern "C" int func_02072e94(char*, int, int, ItemData_0206f81c_8*, ItemData_0206f81c_8*);
 extern "C" void func_02072d58(int, char*, char*);
 #if defined(jpn)
 #define data_ov017_021d7a38 data_ov017_021d8188
@@ -51,14 +51,14 @@ static inline int inline_ov017_021b38c8(int arg0, int arg1) { return (int)(((lon
 // USA: func_ov017_021b38c8
 extern "C" ARM int func_ov017_021b38c8(Struct_ov017_021b38c8* arg0) {
     SafeAllocator* var0;
-    Struct_0206f81c_8* var1;
+    ItemData_0206f81c_8* var1;
     GameState* var2 = GameState::GetInstance();
     BackgroundLoader* var3 = BackgroundLoader::GetInstance();
     GameObject* var4 = GetPartyMemberBaseByIndex_0200ff1c(var2, arg0->unknown_8_);
     if (!var4) return 0;
     Struct_ov017_021b38c8_4* var5 = ((Struct_ov017_021b38c8_5*)var4)->inline_ov017_021b38c8_2();
     if (!var5) return 0;
-    Struct_0206f81c* var6 = func_02053c6c((unsigned char*)var4);
+    PartyMemberData_0206f81c* var6 = func_02053c6c((unsigned char*)var4);
     if (!var6) return 0;
     Struct_ov017_021b38c8_6* var7 = GetAppearance_02052e2c((Struct_02052e2c*)var4);
     if (!var7) return 0;
@@ -104,7 +104,7 @@ extern "C" ARM int func_ov017_021b38c8(Struct_ov017_021b38c8* arg0) {
     int var21 = 0;
     var19 = 1;
     func_02083554(var6, var14[7]);
-    var1 = var6->unknown_194_;
+    var1 = var6->equipment_194_;
     var0 = var5->unknown_4_;
     for (int var22 = 0; var22 < 11; var22++) {
         GameObject* var23 = var2->GetGameObjectByIndex(var13[var22]);
@@ -116,7 +116,7 @@ extern "C" ARM int func_ov017_021b38c8(Struct_ov017_021b38c8* arg0) {
         }
         var23->obj3D_.unknown_2_ = var14[var22];
         if (var14[var22] < 0) continue;
-        Struct_0206f81c_8* var26 = func_02083554(var6, var14[var22]);
+        ItemData_0206f81c_8* var26 = func_02083554(var6, var14[var22]);
         if (!var26) continue;
         char var27[0x80];
         if (!func_02072e94(var27, arg0->unknown_8_, var22, var26, var1)) {

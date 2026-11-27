@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/MessageGlyphSlot.h"
 
-extern "C" bool func_02044494(void* arg0, void* arg1);
+extern "C" bool IsControlCode_02044494(void* arg0, void* arg1);
 extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 
 extern int data_020e7a94[];
@@ -94,7 +94,7 @@ extern "C" ARM int func_02046170(struct Struct_02046170* arg0, unsigned short* a
         } else if (var5 == 0xff19) {
             var3 = 0xff;
             var1 += var0 + 1;
-        } else if (func_02044494(arg0, &var5)) {
+        } else if (IsControlCode_02044494(arg0, &var5)) {
             var3 = 0xff;
         } else {
             Struct_0204166c* var6 = &arg0->unknown_9b8_[var5];

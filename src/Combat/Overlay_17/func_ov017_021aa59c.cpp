@@ -100,7 +100,7 @@ extern "C" void func_ov017_021d1a18(int arg0, int arg1, int arg2, int arg3);
 extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 extern "C" void RemoveFromQueue_02046a8c(struct Queue_02038598_5* queue, void* node);
 extern "C" void func_02010604(GameState* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_0201075c(char* arg0, unsigned char arg1);
+extern "C" void SetPartyWipedOut_0201075c(char* gameState, unsigned char isWipedOut);
 extern "C" void ResetMusic_0209c20c(struct Struct_02109bf4_3* manager);
 
 extern AllocatorUnion gMainHeap_02114e20;
@@ -370,7 +370,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
                 RemoveFromQueue_02046a8c(arg1, var0->unknown_ptr_array_3afc[39]);
             }
             func_02010604(var2, 0, func_02010750((char*)var2), 0);
-            func_0201075c((char*)var2, 0);
+            SetPartyWipedOut_0201075c((char*)var2, 0);
             DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_c_ << 8);
             LoadFileTables_020a0c0c();
             ResetMusic_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);

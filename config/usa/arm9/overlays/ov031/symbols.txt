@@ -316,7 +316,7 @@ func_ov031_0220d214 kind:function(arm,size=0x11c) addr:0x0220d214
 func_ov031_0220d330 kind:function(arm,size=0x210) addr:0x0220d330
 func_ov031_0220d540 kind:function(arm,size=0x30) addr:0x0220d540
 func_ov031_0220d570 kind:function(arm,size=0x9c) addr:0x0220d570
-func_ov031_0220d60c kind:function(arm,size=0x10) addr:0x0220d60c
+GetAccessPointConnection_ov031_0220d60c kind:function(arm,size=0x10) addr:0x0220d60c
 func_ov031_0220d61c kind:function(arm,size=0x120) addr:0x0220d61c
 func_ov031_0220d73c kind:function(arm,size=0x198) addr:0x0220d73c
 func_ov031_0220d8d4 kind:function(arm,size=0x20) addr:0x0220d8d4
@@ -744,7 +744,7 @@ func_ov031_0221e470 kind:function(thumb,size=0x10) addr:0x0221e470
 func_ov031_0221e480 kind:function(thumb,size=0x58) addr:0x0221e480
 func_ov031_0221e4d8 kind:function(thumb,size=0x22) addr:0x0221e4d8
 func_ov031_0221e4fc kind:function(thumb,size=0x20) addr:0x0221e4fc
-func_ov031_0221e51c kind:function(thumb,size=0x10) addr:0x0221e51c
+Memcpy_ov031_0221e51c kind:function(thumb,size=0x10) addr:0x0221e51c
 func_ov031_0221e52c kind:function(thumb,size=0xc) addr:0x0221e52c
 func_ov031_0221e538 kind:function(thumb,size=0x12) addr:0x0221e538
 func_ov031_0221e54c kind:function(thumb,size=0x54) addr:0x0221e54c
@@ -883,7 +883,7 @@ func_ov031_022237dc kind:function(arm,size=0xf0) addr:0x022237dc
 FreeCursorSprites_ov031_022238cc kind:function(arm,size=0x40) addr:0x022238cc
 func_ov031_0222390c kind:function(arm,size=0x78) addr:0x0222390c
 func_ov031_02223984 kind:function(arm,size=0x14) addr:0x02223984
-func_ov031_02223998 kind:function(arm,size=0x5c) addr:0x02223998
+ShowPageTitle_ov031_02223998 kind:function(arm,size=0x5c) addr:0x02223998
 func_ov031_022239f4 kind:function(arm,size=0x18) addr:0x022239f4
 func_ov031_02223a0c kind:function(arm,size=0x18) addr:0x02223a0c
 func_ov031_02223a24 kind:function(arm,size=0x40) addr:0x02223a24
@@ -1691,7 +1691,7 @@ func_ov031_0223b5c4 kind:function(arm,size=0x40) addr:0x0223b5c4
 func_ov031_0223b604 kind:function(arm,size=0x10) addr:0x0223b604
 func_ov031_0223b614 kind:function(arm,size=0x8) addr:0x0223b614
 func_ov031_0223b61c kind:function(arm,size=0xf4) addr:0x0223b61c
-func_ov031_0223b710 kind:function(arm,size=0x34) addr:0x0223b710
+FreeLoadedFile_ov031_0223b710 kind:function(arm,size=0x34) addr:0x0223b710
 func_ov031_0223b744 kind:function(arm,size=0x58) addr:0x0223b744
 func_ov031_0223b79c kind:function(arm,size=0xd4) addr:0x0223b79c
 func_ov031_0223b870 kind:function(arm,size=0x54) addr:0x0223b870
@@ -1706,7 +1706,7 @@ SetSpritePriority_ov031_0223bcc8 kind:function(arm,size=0x60) addr:0x0223bcc8
 GetSpritePosition_ov031_0223bd28 kind:function(arm,size=0x30) addr:0x0223bd28
 func_ov031_0223bd58 kind:function(arm,size=0x30) addr:0x0223bd58
 func_ov031_0223bd88 kind:function(arm,size=0x28) addr:0x0223bd88
-func_ov031_0223bdb0 kind:function(arm,size=0x94) addr:0x0223bdb0
+CopySpriteOAMEntries_ov031_0223bdb0 kind:function(arm,size=0x94) addr:0x0223bdb0
 func_ov031_0223be44 kind:function(arm,size=0x2c) addr:0x0223be44
 func_ov031_0223be70 kind:function(arm,size=0x48) addr:0x0223be70
 func_ov031_0223beb8 kind:function(arm,size=0x34) addr:0x0223beb8
@@ -2175,7 +2175,7 @@ data_ov031_02249680 kind:data(any) addr:0x02249680
 data_ov031_02249684 kind:data(any) addr:0x02249684
 data_ov031_0224968c kind:data(any) addr:0x0224968c
 data_ov031_02249698 kind:data(any) addr:0x02249698
-data_ov031_022496a4 kind:data(any) addr:0x022496a4
+gIPStackConfig_ov031_022496a4 kind:data(any) addr:0x022496a4
 data_ov031_022496a8 kind:data(any) addr:0x022496a8
 data_ov031_022496ac kind:data(any) addr:0x022496ac
 data_ov031_022496c4 kind:data(any) addr:0x022496c4
@@ -2688,7 +2688,7 @@ data_ov031_0224c986 kind:bss(size=0x2) addr:0x0224c986 local
 data_ov031_0224c994 kind:bss addr:0x0224c994
 data_ov031_0224c99c kind:bss addr:0x0224c99c
 data_ov031_0224c9ac kind:bss addr:0x0224c9ac
-data_ov031_0224c9c0 kind:bss addr:0x0224c9c0
+gIPStackFreeFunction_ov031_0224c9c0 kind:bss addr:0x0224c9c0
 data_ov031_0224c9d0 kind:bss addr:0x0224c9d0
 data_ov031_0224c9e0 kind:bss addr:0x0224c9e0
 data_ov031_0224c9e8 kind:bss addr:0x0224c9e8
@@ -2747,7 +2747,7 @@ data_ov031_0224e5c0 kind:bss addr:0x0224e5c0
 data_ov031_0224e5c4 kind:bss addr:0x0224e5c4
 data_ov031_0224e5d8 kind:bss addr:0x0224e5d8
 data_ov031_0224e5dc kind:bss addr:0x0224e5dc
-data_ov031_0224e5e8 kind:bss addr:0x0224e5e8
+gAccountRequest_ov031_0224e5e8 kind:bss addr:0x0224e5e8
 data_ov031_0224e5f0 kind:bss addr:0x0224e5f0
 data_ov031_0224e5f4 kind:bss addr:0x0224e5f4
 data_ov031_0224e608 kind:bss addr:0x0224e608
@@ -2817,7 +2817,7 @@ data_ov031_0224fba4 kind:bss addr:0x0224fba4
 data_ov031_0224fbac kind:bss addr:0x0224fbac
 data_ov031_022503a4 kind:bss addr:0x022503a4
 data_ov031_02250ba4 kind:bss addr:0x02250ba4
-data_ov031_02250ba8 kind:bss addr:0x02250ba8
+gButtonBar_ov031_02250ba8 kind:bss addr:0x02250ba8
 data_ov031_02250bac kind:bss addr:0x02250bac
 data_ov031_02250bb0 kind:bss addr:0x02250bb0
 data_ov031_02250bf0 kind:bss addr:0x02250bf0
@@ -2827,7 +2827,7 @@ gKeyboard_ov031_02250bfc kind:bss addr:0x02250bfc
 gNumericKeypad_ov031_02250c00 kind:bss addr:0x02250c00
 data_ov031_02250c04 kind:bss addr:0x02250c04
 data_ov031_02250c08 kind:bss addr:0x02250c08
-data_ov031_02250c0c kind:bss addr:0x02250c0c
+gWifiSetup_ov031_02250c0c kind:bss addr:0x02250c0c
 data_ov031_02250c40 kind:bss addr:0x02250c40
 data_ov031_02257180 kind:bss addr:0x02257180 ambiguous
 data_ov031_02270227 kind:bss addr:0x02270227 ambiguous
@@ -2851,7 +2851,7 @@ data_ov031_02290c88 kind:bss addr:0x02290c88
 gAccessPointListPage_ov031_02290c8c kind:bss addr:0x02290c8c
 data_ov031_02290c90 kind:bss addr:0x02290c90
 data_ov031_02290c94 kind:bss addr:0x02290c94
-data_ov031_02290c98 kind:bss addr:0x02290c98
+gAddressEntryPage_ov031_02290c98 kind:bss addr:0x02290c98
 data_ov031_02290c9c kind:bss addr:0x02290c9c
 gConnectionSettingsPage_ov031_02290ca0 kind:bss addr:0x02290ca0
 data_ov031_02290ca8 kind:bss addr:0x02290ca8
@@ -2860,7 +2860,7 @@ data_ov031_02290cb0 kind:bss addr:0x02290cb0
 data_ov031_02290cb4 kind:bss addr:0x02290cb4
 data_ov031_02290cb8 kind:bss addr:0x02290cb8
 data_ov031_02290cbc kind:bss addr:0x02290cbc
-data_ov031_02290cc0 kind:bss addr:0x02290cc0
+gConnectionListPage_ov031_02290cc0 kind:bss addr:0x02290cc0
 data_ov031_02290cc4 kind:bss addr:0x02290cc4
 data_ov031_02290cc8 kind:bss addr:0x02290cc8
 data_ov031_02290cd0 kind:bss addr:0x02290cd0
@@ -2869,11 +2869,11 @@ data_ov031_02290cdc kind:bss addr:0x02290cdc
 data_ov031_02290ce0 kind:bss addr:0x02290ce0
 data_ov031_02290ce4 kind:bss addr:0x02290ce4
 data_ov031_02290ce8 kind:bss addr:0x02290ce8
-data_ov031_02290cf4 kind:bss addr:0x02290cf4
+gScrollBar_ov031_02290cf4 kind:bss addr:0x02290cf4
 data_ov031_02290cf8 kind:bss addr:0x02290cf8
 gConnectionSettings_ov031_02290cfc kind:bss addr:0x02290cfc
 data_ov031_02290d00 kind:bss addr:0x02290d00
-data_ov031_02290d04 kind:bss addr:0x02290d04
+gSubBG1ScreenData_ov031_02290d04 kind:bss addr:0x02290d04
 data_ov031_02290d08 kind:bss addr:0x02290d08
 data_ov031_02290d0c kind:bss addr:0x02290d0c
 gDialog_ov031_02290d10 kind:bss addr:0x02290d10
@@ -2888,7 +2888,7 @@ data_ov031_02290d34 kind:bss addr:0x02290d34
 data_ov031_02290d38 kind:bss addr:0x02290d38
 data_ov031_02290d38_dup kind:bss addr:0x02290d38
 data_ov031_02290d3c kind:bss addr:0x02290d3c
-data_ov031_02290d40 kind:bss addr:0x02290d40
+gInput_ov031_02290d40 kind:bss addr:0x02290d40
 data_ov031_02290d44 kind:bss addr:0x02290d44
 data_ov031_02290d48 kind:bss addr:0x02290d48
 data_ov031_02290d58 kind:bss addr:0x02290d58

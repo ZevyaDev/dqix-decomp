@@ -55,7 +55,7 @@ struct Struct_ov026_021d8ba0_8;
 struct Struct_ov026_021d8ba0_9;
 struct BattleSetup_020a36a8;
 struct SkillTable_0200f3a4_8;
-struct Struct_0209a470;
+struct SkillTable_0209a470;
 struct SpellTable_02086f24_6;
 struct Struct_02013fb4;
 struct Struct_0204671c;
@@ -132,7 +132,7 @@ extern "C" unsigned char* func_020e3580();
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" void SetBattleSceneState_ov000_02160d80(void*, int);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
-extern "C" void func_ov000_02160fbc(void*, int);
+extern "C" void ClearBattleSceneFlags_ov000_02160fbc(void*, int);
 extern "C" int func_ov000_02160fd4(void*, int);
 extern "C" void func_ov000_0218173c(void*);
 extern "C" int func_02012060(void*);
@@ -140,7 +140,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsProtagonistBattleOwner_020a36a8(BattleSetup_020a36a8*);
 extern "C" void func_ov000_0215e8e8(void*);
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8*);
-extern "C" void func_0209a470(Struct_0209a470*, SafeAllocator*, Struct_02013fb4*, int);
+extern "C" void BuildSkillTable_0209a470(SkillTable_0209a470*, SafeAllocator*, Struct_02013fb4*, int);
 extern "C" void ClearSpellTable_0209a804(int*);
 extern "C" void BuildSpellTable_0209a8b4(SpellTable_02086f24_6*, SafeAllocator*, Struct_02013fb4*, int);
 extern "C" void UnloadExtraSoundSet_0205eb80(void*);
@@ -577,7 +577,7 @@ state1:
         }
         var23->GetLoadedFileByID(inline_ov026_021d8ba0_2().unknown_18_, &var52, &var53);
         ClearSkillTable_0209a338((SkillTable_0200f3a4_8*)(arg0->unknown_e98_));
-        func_0209a470((Struct_0209a470*)(arg0->unknown_e98_), (SafeAllocator*)(arg0->unknown_30_), (Struct_02013fb4*)var52, var53);
+        BuildSkillTable_0209a470((SkillTable_0209a470*)(arg0->unknown_e98_), (SafeAllocator*)(arg0->unknown_30_), (Struct_02013fb4*)var52, var53);
         var23->RemoveTask(inline_ov026_021d8ba0_2().unknown_18_);
         inline_ov026_021d8ba0_2().unknown_18_ = -1;
         inline_ov026_021d8ba0_2().unknown_18_ = var23->QueueLoadFile(data_ov026_021dedd4, 0);
@@ -791,7 +791,7 @@ state1:
         arg0->unknown_5950_ = 0;
         ((Object3D*)(arg0->unknown_5954_))->MakeHidden();
         ((Object3D*)(arg0->unknown_5a00_))->MakeHidden();
-        func_ov000_02160fbc(arg0, 0x20000);
+        ClearBattleSceneFlags_ov000_02160fbc(arg0, 0x20000);
         for (var56 = 0; var56 < 4; var56++) {
             Struct_ov026_021d8ba0_6* var75 = func_ov026_021dae60((Struct_ov026_021d8ba0_4*)arg0->unknown_3760_, var56);
             if (var75 != 0) {
@@ -1154,7 +1154,7 @@ state1:
                         }
                     }
                 }
-                func_ov000_02160fbc(arg0, 0x40000000);
+                ClearBattleSceneFlags_ov000_02160fbc(arg0, 0x40000000);
                 if (!IsLocalWirelessOn_0202b7d8(var22)) {
                     Random* var118;
                     arg0->unknown_5950_ = func_ov026_021dd3dc(arg0->pBattle_29c_, arg0->unknown_2a0_, arg0->unknown_3760_);
@@ -1286,10 +1286,10 @@ state1:
         SetFlags00(var18, 0x10);
         memset(arg0->unknown_54f4_, 0, 0x10);
         arg0->unknown_2a0_->unknown_30_ = 0;
-        func_ov000_02160fbc(arg0, 0x4000000);
-        func_ov000_02160fbc(arg0, 0x8000000);
-        func_ov000_02160fbc(arg0, 0x10000000);
-        func_ov000_02160fbc(arg0, 0x20000000);
+        ClearBattleSceneFlags_ov000_02160fbc(arg0, 0x4000000);
+        ClearBattleSceneFlags_ov000_02160fbc(arg0, 0x8000000);
+        ClearBattleSceneFlags_ov000_02160fbc(arg0, 0x10000000);
+        ClearBattleSceneFlags_ov000_02160fbc(arg0, 0x20000000);
         {
             Object3D* var129;
             int var130;

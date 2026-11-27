@@ -26,7 +26,7 @@ struct Struct_0204f174 {
 
 extern "C" void FillTextWindowRect_0204f914(Struct_0204f174* textWindow, int colorIndex, short left, short top, short right, short bottom);
 extern "C" void func_0204ea5c(Struct_0204f174* arg0);
-extern "C" void func_0204ecb4(Struct_0204f174* arg0, int arg1, int arg2, short arg3, short arg4, signed char* arg5);
+extern "C" void DrawTextWindowFrame_0204ecb4(Struct_0204f174* textWindow, int tileX, int tileY, short width, short height, signed char* margins);
 
 // USA: func_0204f174
 extern "C" ARM void func_0204f174(Struct_0204f174* arg0, short arg1, short arg2, short arg3, short arg4,
@@ -95,7 +95,7 @@ extern "C" ARM void func_0204f174(Struct_0204f174* arg0, short arg1, short arg2,
     }
     if (!arg7) {
         if (!arg6) func_0204ea5c(arg0);
-        func_0204ecb4(arg0, 0, 0, arg3, arg4, arg8);
+        DrawTextWindowFrame_0204ecb4(arg0, 0, 0, arg3, arg4, arg8);
     } else {
         arg0->unknown_c5_ |= 0x80;
     }

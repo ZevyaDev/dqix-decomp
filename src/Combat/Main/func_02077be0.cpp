@@ -14,7 +14,7 @@ struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
 
 struct Struct_02033f44;
-extern "C" int* func_02033f44(struct Struct_02033f44* arg0);
+extern "C" int* GetCollidedWallTriangle_02033f44(struct Struct_02033f44* object);
 
 extern "C" void SetFieldMonsterState_02076ccc(void* monster, int state);
 extern "C" void func_020794f8(void* arg0, int arg1, int arg2);
@@ -55,7 +55,7 @@ extern "C" ARM void func_02077be0(FieldMonster_02076a8c* arg0) {
     arg0->unknown_0_.unknown_0_.unknown_b2_ = 0x1c2;
     SetMotionIfDifferent_02033b68((struct Struct_02033b68*)arg0, 1);
 
-    int* var8 = func_02033f44((struct Struct_02033f44*)arg0);
+    int* var8 = GetCollidedWallTriangle_02033f44((struct Struct_02033f44*)arg0);
     if (var8 != NULL) {
         int var9 = (short)arg0->unknown_0_.unknown_0_.unknown_ae_;
         if (func_020322c0(var8, &var9) < 0x199) {

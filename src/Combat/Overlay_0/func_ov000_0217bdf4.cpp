@@ -25,7 +25,7 @@ extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_ov000_0217ab48(void* arg0);
 extern "C" void func_ov000_021718a4(void* arg0);
 extern "C" void func_ov000_0217629c(void* arg0);
-extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int arg1, int enemyTargetCount);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int panelCount, int enemyTargetCount);
 extern "C" void func_ov000_02176e3c(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
 
 struct Struct_ov000_0217bdf4_4 {

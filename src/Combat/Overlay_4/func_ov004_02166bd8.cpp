@@ -83,7 +83,7 @@ extern "C" void func_ov023_021f6600(void*, int, int);
 extern "C" void func_ov023_021f9d14(MenuGrid_ov004_02153e20*, void*);
 extern "C" void func_ov023_021f6630(int, int, short, short);
 
-extern Struct_ov004_0217101c_3 data_ov004_0217101c;
+extern Struct_ov004_0217101c_3 gQuestList_ov004_0217101c;
 
 #if defined(jpn)
 struct Struct_ov004_0215de9c;
@@ -122,14 +122,14 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
     }
     Struct_ov004_02166bd8_2* var3;
 #if defined(jpn)
-    Struct_ov004_02166bd8_4* var8 = data_ov004_0217101c.unknown_4_;
+    Struct_ov004_02166bd8_4* var8 = gQuestList_ov004_0217101c.unknown_4_;
 #endif
     int var4 = 0xbe;
     int var5 = 0xc8;
     int var6 = 0xd2;
     int var7 = 0xdc;
 #if !defined(jpn)
-    Struct_ov004_02166bd8_4* var8 = data_ov004_0217101c.unknown_0_;
+    Struct_ov004_02166bd8_4* var8 = gQuestList_ov004_0217101c.unknown_0_;
 #endif
     var3 = var8->unknown_8_;
     short var9 = var0 * 8;
@@ -230,9 +230,9 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
                 }
 #endif
 #if defined(jpn)
-                char* var23 = data_ov004_0217101c.unknown_0_[var12];
+                char* var23 = gQuestList_ov004_0217101c.unknown_0_[var12];
 #else
-                char* var23 = data_ov004_0217101c.unknown_4_[var12];
+                char* var23 = gQuestList_ov004_0217101c.unknown_4_[var12];
 #endif
                 memset(var23, 0, 0x80);
 #if defined(jpn)

@@ -18,8 +18,8 @@ extern "C" int DisableSubBGVRAMBanks(void);
 extern "C" void MapVRAMBanksToSubBG(int);
 extern "C" void MapVRAMBanksToSubObj(int value);
 struct BGLayer_02020cb8_3;
-struct Struct_0204c754;
-extern "C" void func_0204c754(struct Struct_0204c754* arg0);
+struct TextWindow_0204c754;
+extern "C" void ResetTextWindow_0204c754(struct TextWindow_0204c754* textWindow);
 
 // USA: func_ov003_02167370
 extern "C" ARM void func_ov003_02167370(char* arg0) {
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov003_02167370(char* arg0) {
         *(int*)(arg0 + 8) = 0;
     }
     if (*(void**)(arg0 + 0xc) != 0) {
-        func_0204c754(*(struct Struct_0204c754**)(arg0 + 0xc));
+        ResetTextWindow_0204c754(*(struct TextWindow_0204c754**)(arg0 + 0xc));
         *(int*)(arg0 + 0xc) = 0;
     }
     if (*(void**)(arg0 + 0x10) != 0) {

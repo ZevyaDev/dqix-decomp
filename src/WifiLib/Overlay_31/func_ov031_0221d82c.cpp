@@ -21,7 +21,7 @@ extern Struct_ov031_0224e6e0_6 gAOSSSession_ov031_0224e6e0;
 extern "C" unsigned short func_ov031_0221e638(unsigned short);
 extern "C" unsigned int func_ov031_0221e610(unsigned int);
 extern "C" unsigned int func_ov031_0221d8e8(unsigned char*, int);
-extern "C" void func_ov031_0221e51c(void*, const void*, unsigned int);
+extern "C" void Memcpy_ov031_0221e51c(void*, const void*, unsigned int);
 extern "C" void func_ov031_0221e52c(void*, int, unsigned int);
 
 // USA: func_ov031_0221d82c
@@ -33,13 +33,13 @@ extern "C" THUMB int func_ov031_0221d82c(unsigned char* arg0, Struct_ov031_0224e
         if (var1 <= 0) return -1;
         switch (var0->unknown_0_) {
         case 0:
-            func_ov031_0221e51c(arg1->unknown_0_, var0->unknown_6_, var1);
+            Memcpy_ov031_0221e51c(arg1->unknown_0_, var0->unknown_6_, var1);
             break;
         case 1:
-            func_ov031_0221e51c(arg1->unknown_80_, var0->unknown_6_, var1);
+            Memcpy_ov031_0221e51c(arg1->unknown_80_, var0->unknown_6_, var1);
             break;
         case 2:
-            func_ov031_0221e51c(arg1->unknown_100_, var0->unknown_6_, var1);
+            Memcpy_ov031_0221e51c(arg1->unknown_100_, var0->unknown_6_, var1);
             break;
         case 3:
         case 4:

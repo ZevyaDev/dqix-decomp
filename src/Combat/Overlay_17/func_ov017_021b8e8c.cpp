@@ -109,7 +109,7 @@ extern "C" int IsQuestersRestZone_020981e4(int questersRest, int zoneId);
 extern "C" int func_02098268(int arg0, int arg1);
 extern "C" Struct_ov017_021b8e8c GetNPCPosition_020406f8(struct NPC_0203de84_2* outPosition);
 extern "C" void SetFacing_02033834(struct Struct_02033834_2* object, int angle);
-extern "C" int func_0203dfdc(void* arg0, int arg1);
+extern "C" int FindNPCIndexById_0203dfdc(void* npcManager, int id);
 extern "C" int func_02040a90(struct Struct_02040a90* arg0);
 extern "C" int GetNPCData_02040528(int* npc);
 extern "C" void func_0203cedc(struct Struct_0203ca24* arg0, int arg1, int arg2);
@@ -138,7 +138,7 @@ extern "C" void StartMessage_0204500c(void* window, char* text, int arg2);
 #else
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2, int arg3);
 #endif
-extern "C" void func_0208bb78(void* arg0, unsigned int arg1);
+extern "C" void UpdateQuestDisplay_0208bb78(void* display, unsigned int ticks);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 extern "C" void func_ov008_02184a3c(char* arg0, unsigned char arg1);
@@ -209,7 +209,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
         }
         Struct_ov017_021b8e8c var13 = GetNPCPosition_020406f8((NPC_0203de84_2*)var12);
         SetFacing_02033834((Struct_02033834_2*)var6, fix32ReduceAngle0To2Pi(fix32_Atan2(var13.unknown_0_ - var11.unknown_0_, var13.unknown_8_ - var11.unknown_8_)));
-        *(int*)(var4 + Enum_ov017_021b8e8c_6200) = func_0203dfdc(var5, arg0->unknown_114_->unknown_0_);
+        *(int*)(var4 + Enum_ov017_021b8e8c_6200) = FindNPCIndexById_0203dfdc(var5, arg0->unknown_114_->unknown_0_);
         *(int*)(var4 + Enum_ov017_021b8e8c_6200 + 4) = func_02040a90((Struct_02040a90*)var12);
         char* var14 = (char*)GetNPCData_02040528((int*)var12);
         if (var14 != NULL && strstr(var14 + Enum_ov017_021b8e8c_4, &data_ov017_021d7c90) != NULL && !(var12->unknown_0_ & 0x4000) &&
@@ -384,7 +384,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
         *(void**)(var4 + Enum_ov017_021b8e8c_140) = arg0->unknown_30_;
         *(int*)(var4 + Enum_ov017_021b8e8c_2460) = arg0->unknown_114_->unknown_3_;
         arg0->unknown_11c_ = 5;
-        func_0208bb78(arg0->unknown_30_, var0->GetTickCount());
+        UpdateQuestDisplay_0208bb78(arg0->unknown_30_, var0->GetTickCount());
         if (IsTypeInQueue_02046b60((Queue_02038598_5*)var1->unknown_ptr_array_36fc[0], 0x17) == 0) {
             break;
         }
@@ -408,7 +408,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
         if (arg0->unknown_130_ != 0) {
             break;
         }
-        func_0208bb78(arg0->unknown_30_, var0->GetTickCount());
+        UpdateQuestDisplay_0208bb78(arg0->unknown_30_, var0->GetTickCount());
         if (arg0->unknown_128_ != 0) {
             func_ov008_02184754(arg0->unknown_118_);
         }
@@ -471,7 +471,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
         break;
     }
     case 7:
-        func_0208bb78(arg0->unknown_30_, var0->GetTickCount());
+        UpdateQuestDisplay_0208bb78(arg0->unknown_30_, var0->GetTickCount());
         if (*(short*)(arg0->unknown_30_ + 0xd2) >= 0) {
             if (arg0->unknown_138_ == 0) {
                 func_0208beb4(arg0->unknown_30_);

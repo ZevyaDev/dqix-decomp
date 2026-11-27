@@ -81,7 +81,7 @@ extern "C" struct StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(
 extern "C" Struct_ov004_0216cb34* GetMessageWindow_020421a0();
 extern "C" void StartMessage_0204500c(Struct_ov004_0216cb34* window, void* text, int arg2);
 extern "C" void func_ov023_021f8120(void* arg0);
-extern "C" void func_ov023_021f7eb8(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9);
+extern "C" void DrawMenuWindow_ov023_021f7eb8(void* window, void* menu, int characterDataOffset, int x, int y, int width, int height, int palette, int isTransparent, int isFrameless);
 extern "C" void func_ov004_0216bb1c(void* arg0);
 
 extern char gMusicManager_02109bf4[];
@@ -317,31 +317,31 @@ extern "C" ARM int func_ov004_0216cb34(void* arg0) {
     var17 = 0x60;
     switch (var2) {
     case 0:
-        func_ov023_021f7eb8(var18, arg0, var17, 1, 1, 0x12, 5, 0, 1, 0);
+        DrawMenuWindow_ov023_021f7eb8(var18, arg0, var17, 1, 1, 0x12, 5, 0, 1, 0);
         var17 += 0xb40;
         break;
     case 1:
         switch (var3) {
         case 0:
-            func_ov023_021f7eb8(var18, arg0, var17, 1, 1, 0x14, 6, 0, 1, 0);
+            DrawMenuWindow_ov023_021f7eb8(var18, arg0, var17, 1, 1, 0x14, 6, 0, 1, 0);
             var17 += 0xf00;
             break;
         case 1:
-            func_ov023_021f7eb8(var18, arg0, var17, 1, 1, 0x1d, 8, 0, 1, 0);
+            DrawMenuWindow_ov023_021f7eb8(var18, arg0, var17, 1, 1, 0x1d, 8, 0, 1, 0);
             var17 += 0x1d00;
             break;
         case 2:
-            func_ov023_021f7eb8(var18, arg0, var17, 1, 1, 0x1d, 0xa, 0, 1, 0);
+            DrawMenuWindow_ov023_021f7eb8(var18, arg0, var17, 1, 1, 0x1d, 0xa, 0, 1, 0);
             var17 += 0x2440;
             break;
         }
         break;
     case 2:
-        func_ov023_021f7eb8(var18, arg0, var17, 1, 1, 0x14, 5, 0, 1, 0);
+        DrawMenuWindow_ov023_021f7eb8(var18, arg0, var17, 1, 1, 0x14, 5, 0, 1, 0);
         var17 += 0xc80;
         break;
     case 3:
-        func_ov023_021f7eb8(var18, arg0, var17, 1, 1, 0xc, 3, 0, 1, 0);
+        DrawMenuWindow_ov023_021f7eb8(var18, arg0, var17, 1, 1, 0xc, 3, 0, 1, 0);
         var17 += 0xb40;
         break;
     }

@@ -12,13 +12,13 @@ struct ObjectArchiveLoadInfo_0203d028_11;
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
 
-struct Struct_0204a120;
-extern "C" void func_0204a120(struct Struct_0204a120* arg0);
-struct Struct_0204a3f0_2;
+struct BoneCamera_0204a120;
+extern "C" void InitBoneCamera_0204a120(struct BoneCamera_0204a120* camera);
+struct BoneCamera_0204a3f0_2;
 struct Struct_0204a3f0;
-extern "C" void func_0204a3f0(struct Struct_0204a3f0_2* arg0, struct Struct_0204a3f0* arg1);
-extern "C" void func_0204a440(char* arg0, const char* arg1);
-extern "C" void func_0204a464(char* arg0, const char* arg1);
+extern "C" void SetBoneCameraObject_0204a3f0(struct BoneCamera_0204a3f0_2* camera, struct Struct_0204a3f0* trackedObject);
+extern "C" void SetBoneCameraEyeBone_0204a440(char* camera, const char* boneName);
+extern "C" void SetBoneCameraTargetBone_0204a464(char* camera, const char* boneName);
 
 struct Struct_ov025_021e267c_3 {
     unsigned char unknown_0_;
@@ -114,10 +114,10 @@ extern "C" ARM int func_ov025_021e4be4(struct Struct_ov025_021e4be4* arg0) {
         return 1;
     }
 
-    func_0204a120((struct Struct_0204a120*)var13);
-    func_0204a3f0((struct Struct_0204a3f0_2*)var13, (struct Struct_0204a3f0*)var10);
-    func_0204a440(var13, data_ov025_021ef7f7);
-    func_0204a464(var13, data_ov025_021ef7fb);
+    InitBoneCamera_0204a120((struct BoneCamera_0204a120*)var13);
+    SetBoneCameraObject_0204a3f0((struct BoneCamera_0204a3f0_2*)var13, (struct Struct_0204a3f0*)var10);
+    SetBoneCameraEyeBone_0204a440(var13, data_ov025_021ef7f7);
+    SetBoneCameraTargetBone_0204a464(var13, data_ov025_021ef7fb);
     SetCamera_020100c4(var0, (int)var13);
     var11->unknown_0_ = 3;
     func_ov025_021e8bac((struct Struct_ov025_021e267c_2*)data_ov025_021ef988.unknown_c_, var11);

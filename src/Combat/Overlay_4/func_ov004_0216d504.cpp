@@ -8,8 +8,8 @@ enum { Enum_ov004_0216d504_3953 = 0xf71 };
 #endif
 
 extern "C" void func_020aaf84(void*, int, int, int);
-extern "C" unsigned char func_0209ca98(char* arg0);
-extern "C" unsigned char func_0205ea18(unsigned char* arg0);
+extern "C" unsigned char GetMusicVolumeLevel_0209ca98(char* manager);
+extern "C" unsigned char GetSoundEffectVolumeLevel_0205ea18(unsigned char* manager);
 extern "C" void SetMusicVolumeLevel_0209ca70(void* manager, int volumeLevel);
 struct Struct_02108760_2;
 extern "C" void SetSoundEffectVolumeLevel_0205e9f4(struct Struct_02108760_2* manager, int volumeLevel);
@@ -37,8 +37,8 @@ extern unsigned char gSoundEffectManager_02108760;
 // USA: func_ov004_0216d504
 extern "C" ARM int func_ov004_0216d504(void* arg0) {
     func_020aaf84(data_ov004_02171034.unknown_10_, 0, 0, 0);
-    data_ov004_02171034.unknown_4_ = func_0209ca98(&gMusicManager_02109bf4);
-    data_ov004_02171034.unknown_1_ = func_0205ea18(&gSoundEffectManager_02108760);
+    data_ov004_02171034.unknown_4_ = GetMusicVolumeLevel_0209ca98(&gMusicManager_02109bf4);
+    data_ov004_02171034.unknown_1_ = GetSoundEffectVolumeLevel_0205ea18(&gSoundEffectManager_02108760);
     SetMusicVolumeLevel_0209ca70(&gMusicManager_02109bf4, 3);
     SetSoundEffectVolumeLevel_0205e9f4((struct Struct_02108760_2*)&gSoundEffectManager_02108760, 3);
 

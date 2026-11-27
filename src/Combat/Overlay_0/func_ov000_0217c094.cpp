@@ -16,7 +16,7 @@ extern Struct_ov000_02184294_9 data_ov000_02184294;
 
 extern "C" void func_ov000_02175628(void* arg0);
 extern "C" void func_ov000_021756b8(void* arg0);
-extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int arg1, int enemyTargetCount);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int panelCount, int enemyTargetCount);
 extern "C" void func_ov000_02176e3c(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
 // USA: func_ov000_0217c094

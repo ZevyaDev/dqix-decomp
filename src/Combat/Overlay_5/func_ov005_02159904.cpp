@@ -61,7 +61,7 @@ struct Struct_ov005_02153954 {
     Struct_ov005_02158ed0* inline_ov005_02158e04() { return &unknown_ee4_; }
 };
 
-extern "C" void func_0205c53c(Struct_0205c53c* arg0);
+extern "C" void InitMenuCursors_0205c53c(Struct_0205c53c* cursors);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc* cursor, int index);
@@ -77,7 +77,7 @@ extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg
 // USA: func_ov005_02159904
 extern "C" ARM void func_ov005_02159904(Struct_ov005_02153954* arg0) {
     Struct_ov005_02158ed0* var0 = arg0->inline_ov005_02158e04();
-    func_0205c53c((Struct_0205c53c*)var0);
+    InitMenuCursors_0205c53c((Struct_0205c53c*)var0);
 #if defined(jpn)
     if (arg0->unknown_3dbb_ >= 0 && arg0->unknown_3dbb_ < 8) {
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&var0->unknown_4_, 1, 3, 0);

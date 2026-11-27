@@ -27,7 +27,7 @@ struct Struct_ov017_021bd704_2 {
 extern "C" void* func_0202ae18();
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
-extern "C" void func_02039d48(unsigned char*);
+extern "C" void SetFadeInOnMove_02039d48(unsigned char*);
 int fix32sin(int);
 int fix32cos(int);
 extern "C" unsigned char IsOnLadder_02039d7c(char*);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov017_021bd704(Struct_ov017_021bd704* arg0) {
                 int var10 = var9->obj3D_.unknown_4_;
                 if (var10 != GetOwnPartyLeaderObjectIndex_020100b0(var0) && var2) {
                     var9->obj3D_.SetInheritedAlpha(0);
-                    func_02039d48((unsigned char*)var9);
+                    SetFadeInOnMove_02039d48((unsigned char*)var9);
                 }
             } else if (arg0->unknown_5_ && !var3) {
                 if (var8 == 1) {

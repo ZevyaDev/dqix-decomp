@@ -31,7 +31,7 @@ extern struct Struct_02108cec_2 gNPCPlacementParseState_02108cec;
 
 // USA: func_0206c0f8
 extern "C" ARM int func_0206c0f8(void* arg0, int arg1) {
-    struct Struct_0206bf2c* var0;
+    struct NPCPlacement_0206bf2c* var0;
     struct Struct_0201d530* var1;
     int var2;
     int var3;
@@ -67,17 +67,17 @@ extern "C" ARM int func_0206c0f8(void* arg0, int arg1) {
         return 1;
     }
 
-    var0 = (struct Struct_0206bf2c*)((SafeAllocator*)gNPCPlacementParseState_02108cec.unknown_14_)->Allocate(0x78);
+    var0 = (struct NPCPlacement_0206bf2c*)((SafeAllocator*)gNPCPlacementParseState_02108cec.unknown_14_)->Allocate(0x78);
     if (var0 == 0) return 0;
 
-    func_0206bf2c(var0);
+    InitNPCPlacement_0206bf2c(var0);
 
     var0->unknown_4_ = var2;
     var0->unknown_5_ = var3;
     var0->unknown_6_ = var4;
     var0->unknown_a_0_ = (unsigned char)var5;
     var0->unknown_2_ = var6;
-    var0->unknown_0_ = var7;
+    var0->npcId_0_ = var7;
 
     if (arg1 < 7) {
         func_0206dd68(gNPCPlacementParseState_02108cec.unknown_10_, var7);

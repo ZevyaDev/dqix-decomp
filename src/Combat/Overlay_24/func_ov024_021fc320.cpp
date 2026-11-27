@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int TrySelectTacticOption_ov024_021fe698(void* tacticAI, int option);
-extern "C" void func_ov024_021fd954(void* arg0, int arg1);
+extern "C" void EvaluatePartyStatusAction_ov024_021fd954(void* tacticAI, int statusEffect);
 
 // USA: func_ov024_021fc320
 extern "C" ARM void func_ov024_021fc320(void* arg0) {
@@ -14,5 +14,5 @@ extern "C" ARM void func_ov024_021fc320(void* arg0) {
 	if (!TrySelectTacticOption_ov024_021fe698(arg0, 0xb)) {
 		return;
 	}
-	func_ov024_021fd954(arg0, 0x17);
+	EvaluatePartyStatusAction_ov024_021fd954(arg0, 0x17);
 }

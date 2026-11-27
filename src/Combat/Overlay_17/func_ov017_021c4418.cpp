@@ -29,7 +29,7 @@ extern "C" void func_ov017_021ce524(short arg0);
 extern "C" void func_ov017_021ccdac(int arg0);
 extern "C" void func_ov017_021ccfd0(int arg0);
 extern "C" ARM void func_ov017_021ce32c(int arg0);
-extern "C" ARM void func_ov017_021cee78(int arg0, unsigned char arg1);
+extern "C" ARM void SendObjectPosition_ov017_021cee78(int objectIndex, unsigned char isFacingInstant);
 extern "C" void func_ov017_021cff8c(int arg0, int arg1);
 extern "C" ARM void func_ov017_021cfed0(unsigned char arg0, unsigned char arg1);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
@@ -88,7 +88,7 @@ extern "C" ARM void func_ov017_021cc4f8(signed char arg0, struct Struct_ov017_02
         func_ov017_021ce32c(var0);
     }
     if (var3 & 0x100) {
-        func_ov017_021cee78(var0, 0);
+        SendObjectPosition_ov017_021cee78(var0, 0);
     }
     if (var3 & 0x800) {
         func_ov017_021cff8c(var0, 0);

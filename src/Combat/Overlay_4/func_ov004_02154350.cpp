@@ -11,7 +11,7 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" void func_ov004_02153b6c(void*, int, int, int, short*, short*);
 extern "C" void func_ov004_021545f0(Struct_ov004_02154350_2*, int, short, short, unsigned char, unsigned char);
-extern "C" void func_ov023_021e1518(void*);
+extern "C" void ResetItemSortOrder_ov023_021e1518(void*);
 extern "C" void func_ov023_021e1474(Struct_ov002_0215b2c8*, ItemTable_0201099c_10*);
 extern Struct_ov004_02154350_2* data_ov004_021707c0;
 
@@ -78,7 +78,7 @@ extern "C" ARM int func_ov004_02154350(void* arg0) {
     if (var10 && var11) {
         Struct_ov002_0215b2c8* var12 = var11->inline_ov004_02154350_59();
         if (var12) {
-            func_ov023_021e1518(var12);
+            ResetItemSortOrder_ov023_021e1518(var12);
             func_ov023_021e1474(var12, var10->inline_ov004_02154350_58());
         }
     }

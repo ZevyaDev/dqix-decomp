@@ -1,19 +1,19 @@
 #include <globaldefs.h>
 extern "C" unsigned short* GetNPCData_02040528(int*);
 
-struct Struct_0203dfdc { char unknown_0_[0xc]; void* unknown_c_[0x20]; };
+struct NPCManager_0203dfdc { char unknown_0_[0xc]; void* npcs_c_[0x20]; };
 
-// USA: func_0203dfdc
-extern "C" ARM int func_0203dfdc(void* arg0, int arg1) {
-    int var0;
-    for (var0 = 0; var0 < 0x20; var0++) {
-        void* var1 = ((struct Struct_0203dfdc*)arg0)->unknown_c_[var0];
-        if (var1 == NULL) continue;
-        if (*(int*)var1 & 0x8000) continue;
+// USA: FindNPCIndexById_0203dfdc
+extern "C" ARM int FindNPCIndexById_0203dfdc(void* npcManager, int id) {
+    int i;
+    for (i = 0; i < 0x20; i++) {
+        void* npc = ((struct NPCManager_0203dfdc*)npcManager)->npcs_c_[i];
+        if (npc == NULL) continue;
+        if (*(int*)npc & 0x8000) continue;
         {
-            unsigned short* var2 = GetNPCData_02040528((int*)(var1));
-            if (var2 == NULL) continue;
-            if (*var2 == arg1) return var0;
+            unsigned short* npcData = GetNPCData_02040528((int*)(npc));
+            if (npcData == NULL) continue;
+            if (*npcData == id) return i;
         }
     }
     return -1;

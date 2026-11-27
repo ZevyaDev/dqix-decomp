@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-// USA: func_02049f28
-extern "C" ARM void func_02049f28(unsigned char* arg0) {
-    unsigned char* var0 = *(unsigned char**)(arg0 + 0x13c);
-    if (var0 != 0) {
-        var0[0x56] = 1;
+// USA: SetCombatantOnBattlefield_02049f28
+extern "C" ARM void SetCombatantOnBattlefield_02049f28(unsigned char* combatant) {
+    unsigned char* battleState = *(unsigned char**)(combatant + 0x13c);
+    if (battleState != 0) {
+        battleState[0x56] = 1;
     }
 }

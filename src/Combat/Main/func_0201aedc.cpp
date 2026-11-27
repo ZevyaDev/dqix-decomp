@@ -28,9 +28,9 @@ extern "C" ARM void func_0201aedc(Zone3D* arg0) {
 
     char* var0 = (char*)arg0 + Enum_0201aedc_9652;
 
-    Struct_02013454* var1 = func_020196fc(arg0, 5);
+    BMDJStruct_02013454* var1 = func_020196fc(arg0, 5);
     if (var1 != 0) {
-        Struct_02016874_2* var2 = var1->unknown_44_;
+        BMDJEntry_02016874_2* var2 = var1->pEntries_44_;
         unsigned short var3 = var2->unknown_2_;
         if (!(var3 & 4)) {
             Struct_02016874* var4 = var2->unknown_24_;
@@ -47,9 +47,9 @@ extern "C" ARM void func_0201aedc(Zone3D* arg0) {
         }
     }
 
-    Struct_02013454* var8 = func_020196fc(arg0, 4);
+    BMDJStruct_02013454* var8 = func_020196fc(arg0, 4);
     if (var8 == 0) return;
-    Struct_02016874_2* var9 = var8->unknown_44_;
+    BMDJEntry_02016874_2* var9 = var8->pEntries_44_;
     unsigned short var10 = var9->unknown_2_;
     if (var10 & 4) return;
     Struct_02016874* var11 = var9->unknown_24_;

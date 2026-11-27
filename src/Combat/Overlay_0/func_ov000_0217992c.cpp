@@ -10,7 +10,7 @@
 
 #include "std_library_functions.h"
 
-extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int arg1, int enemyTargetCount);
+extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(void* panel, int panelCount, int enemyTargetCount);
 extern "C" void func_ov000_02179a70(void* arg0, void* arg1, int arg2, void* arg3);
 extern "C" int GetMessageWindow_020421a0(void);
 #if defined(jpn)

@@ -92,7 +92,7 @@ extern "C" void func_ov017_021a1178(GameResources*, int);
 extern "C" void func_0203983c(unsigned char*, int);
 extern "C" void ResetMessageWindow_02043204(char*);
 extern "C" void func_0203d008(unsigned char*);
-extern "C" void func_0203e0a0(NPCManager_0203dce4_2*, unsigned short);
+extern "C" void SaveNPCStates_0203e0a0(NPCManager_0203dce4_2*, unsigned short);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void LoadFileTables_020a0c0c();
@@ -117,7 +117,7 @@ extern "C" void func_0203de2c(Struct_0203de2c_3*);
 extern "C" void func_ov017_0218f79c(void*);
 extern "C" void func_ov017_021a2840(GameResources*);
 extern "C" void func_02058564(Struct_02058564_2*);
-extern "C" void func_02042b30(void*, void*);
+extern "C" void SetMessageWindowTextureArena_02042b30(void*, void*);
 extern "C" void InitMessageGlyphs_020432c4(void*);
 extern "C" int QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -170,7 +170,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
 #endif
         ResetMessageWindow_02043204((char*)var8);
         func_0203d008((unsigned char*)var3);
-        func_0203e0a0(var3, var2->currentZoneID_);
+        SaveNPCStates_0203e0a0(var3, var2->currentZoneID_);
         SetFlags00(var7, 0x10);
         ReleaseFileTablesForSpace_020a0cc4(Enum_ov017_021a1284_95744);
         void* var10 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, Enum_ov017_021a1284_95744);
@@ -241,7 +241,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         func_ov017_0218f79c(var7);
         func_ov017_021a2840(var7);
         func_02058564(var4);
-        func_02042b30(var8, ((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
+        SetMessageWindowTextureArena_02042b30(var8, ((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
         ((TextureArena*)((TextureVRAMArea_0203d028*)((Struct_ov017_021a1284_3*)var7)->unknown_87c_))->Reset();
         ((TextureArena*)(((Struct_ov017_021a1284_3*)var7)->unknown_87c_))->Restore();
         InitMessageGlyphs_020432c4(var8);

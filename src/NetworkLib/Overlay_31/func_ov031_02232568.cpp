@@ -21,7 +21,7 @@ extern unsigned char data_ov031_0224bcc0[1];
 extern unsigned char data_ov031_0224bcd8[1];
 
 struct Struct_ov031_02290cc0_2 { void* unknown_0_; void* unknown_4_; };
-extern Struct_ov031_02290cc0_2 data_ov031_02290cc0;
+extern Struct_ov031_02290cc0_2 gConnectionListPage_ov031_02290cc0;
 
 // USA: func_ov031_02232568
 extern "C" ARM void func_ov031_02232568(void) {
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov031_02232568(void) {
 	int var1 = func_ov031_02223478(var0.unknown_0_);
 
 	int var2 = func_ov031_0223b61c(var1, 0, 4);
-	*(int*)data_ov031_02290cc0.unknown_4_ = var2;
+	*(int*)gConnectionListPage_ov031_02290cc0.unknown_4_ = var2;
 	ShowScreenLayers_ov031_0223cb68(1, 0x10);
 
 	unsigned short* var3 = (unsigned short*)0x4001008;

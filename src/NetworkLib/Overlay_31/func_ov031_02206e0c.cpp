@@ -10,14 +10,14 @@ struct Struct_ov031_02206e0c {
 	void* (*unknown_18_)(int size);
 	void (*unknown_1c_)(void* p);
 };
-extern Struct_ov031_02206e0c* data_ov031_022496a4;
+extern Struct_ov031_02206e0c* gIPStackConfig_ov031_022496a4;
 
 // USA: func_ov031_02206e0c
 extern "C" ARM int func_ov031_02206e0c(int arg0) {
 	char var0[0x64];
 	if (arg0 == 0) return 0;
 
-	void* var1 = data_ov031_022496a4->unknown_18_(0xfd0);
+	void* var1 = gIPStackConfig_ov031_022496a4->unknown_18_(0xfd0);
 	if (var1 == 0) return 0;
 
 	VectorizedMemset(var0, 0, 0x64);
@@ -31,6 +31,6 @@ extern "C" ARM int func_ov031_02206e0c(int arg0) {
 
 	int var4 = func_ov031_02204c84(arg0);
 	func_ov031_02203178();
-	data_ov031_022496a4->unknown_1c_(var1);
+	gIPStackConfig_ov031_022496a4->unknown_1c_(var1);
 	return var4;
 }

@@ -10,7 +10,7 @@ extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c
 extern "C" void* GetBattleJoinTable_0207d78c(void);
 
 struct BattleJoinRecord_0207d7f4 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned int unknown_4_; unsigned int unknown_8_; };
-extern "C" BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(BattleJoinRecord_0207d7f4* arg0, unsigned short monsterId);
+extern "C" BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
 extern "C" int func_0207d978(BattleJoinRecord_0207d7f4* arg0, unsigned short arg1);
 extern "C" int func_0207da30(unsigned char* arg0, int arg1, int arg2);
 

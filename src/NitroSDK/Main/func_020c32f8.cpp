@@ -1,15 +1,15 @@
 extern "C" long long func_020c30ac(long long);
 extern "C" long long func_020c3194(long long);
-// USA: func_020c32f8
-extern "C" long long func_020c32f8(int arg0) {
- if(arg0<0) return func_020c32f8(-arg0);
- long long var0=arg0; var0*=0x145f306ddLL; var0>>=12;
- int var1=(int)(var0>>32);
- long long var2=var0 & 0xffffffffLL;
- if(var1&1) var2=0x100000000LL-var2;
- long long var3;
- if((var1+1)&2) var3=func_020c30ac(var2);
- else var3=func_020c3194(var2);
- if(((var1+2) & 7)>3) return -var3;
- return var3;
+// USA: ComputeFixedPointCosine_020c32f8
+extern "C" long long ComputeFixedPointCosine_020c32f8(int angle) {
+ if(angle<0) return ComputeFixedPointCosine_020c32f8(-angle);
+ long long octants=angle; octants*=0x145f306ddLL; octants>>=12;
+ int octant=(int)(octants>>32);
+ long long octantFraction=octants & 0xffffffffLL;
+ if(octant&1) octantFraction=0x100000000LL-octantFraction;
+ long long magnitude;
+ if((octant+1)&2) magnitude=func_020c30ac(octantFraction);
+ else magnitude=func_020c3194(octantFraction);
+ if(((octant+2) & 7)>3) return -magnitude;
+ return magnitude;
 }

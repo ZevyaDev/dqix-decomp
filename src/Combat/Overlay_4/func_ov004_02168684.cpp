@@ -5,7 +5,7 @@
 
 struct Struct_ov004_02170038 { unsigned int unknown_0_[0x88 / 4]; };
 extern struct Struct_ov004_02170038 data_ov004_02170038;
-extern "C" void func_ov011_02184a24(void* arg0, void* arg1, int arg2);
+extern "C" void SetMenuCallbacks_ov011_02184a24(void* menu, void* callbacks, int callbackCount);
 
 extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov004_02168684(SafeAllocator* arg0, void* arg1) {
     struct Struct_ov004_02170038 var0 = data_ov004_02170038;
     void* var1 = arg0->Allocate(0x88);
     memcpy(var1, &var0, 0x88);
-    func_ov011_02184a24(arg1, var1, 0x22);
+    SetMenuCallbacks_ov011_02184a24(arg1, var1, 0x22);
 
     GameState* var2 = GameState::GetInstance();
     void* var3 = FindNPCById_0203df78(GetNPCManager_0203cf4c(), 0x67);

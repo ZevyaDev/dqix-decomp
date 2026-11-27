@@ -21,8 +21,8 @@ extern "C" void func_02012fa4(char* arg0);
 extern "C" void func_020982b4(void* arg0);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" int GetTitleState_0201201c(void* gameState);
-struct Struct_02000c9c_12;
-extern "C" unsigned char func_020115a8(Struct_02000c9c_12*);
+struct GameState_02000c9c_12;
+extern "C" unsigned char GetRequestedMovie_020115a8(GameState_02000c9c_12*);
 
 // USA: func_020134e0
 extern "C" ARM void func_020134e0(char* arg0) {
@@ -94,7 +94,7 @@ extern "C" ARM void func_020134e0(char* arg0) {
     }
     *(char*)(arg0 + 0x281d + Enum_020134e0_0_2) = 0;
     *(char*)(arg0 + 0x281e + Enum_020134e0_0_2) = 0;
-    if (func_020115a8((Struct_02000c9c_12*)var0) != 0) {
+    if (GetRequestedMovie_020115a8((GameState_02000c9c_12*)var0) != 0) {
         return;
     }
 

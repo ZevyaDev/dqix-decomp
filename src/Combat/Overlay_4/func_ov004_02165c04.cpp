@@ -7,7 +7,7 @@ extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov024_021f6f10(void* arg0);
 struct Struct_02000c9c_8;
 extern "C" unsigned char func_0200fb08(struct Struct_02000c9c_8* gameState);
-extern "C" void* func_ov023_021f79e4(void* arg0);
+extern "C" void* GetMenuObjectBGLayer_ov023_021f79e4(void* object);
 
 struct BGLayer_0204b988;
 
@@ -35,7 +35,7 @@ extern "C" ARM int func_ov004_02165c04(void* arg0) {
     if (func_ov024_021f6f10(var3) != 2) return 0;
 
     *(unsigned char*)((char*)var3 + 0xc) |= 1;
-    void* var4 = func_ov023_021f79e4(var3);
+    void* var4 = GetMenuObjectBGLayer_ov023_021f79e4(var3);
     ((BGLayer*)((struct BGLayer_0204b988*)var4))->BlitSpriteByIndex(0, 0, 0, 0xffff);
     if (var2 != 0) {
         ((BGLayer*)((struct BGLayer_0204b8d0*)var4))->BlitSpriteByIndex(var2, 0, 0, 0x16, 2, 9, 3, 0xffff);

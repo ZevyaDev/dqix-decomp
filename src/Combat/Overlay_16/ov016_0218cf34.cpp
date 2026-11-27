@@ -62,8 +62,8 @@ extern "C" void func_020c9778(int arg0, int arg1);
 extern "C" void UpdateSound_020bbd9c(void);
 extern "C" int func_020ce89c(int arg0, int arg1, int arg2);
 extern "C" int func_020c7dcc(void);
-extern "C" void func_0203ad14(void*, int, void*, int);
-extern "C" void func_0203aba8(void* arg0, int arg1, void* arg2);
+extern "C" void PlayStream_0203ad14(void*, int, void*, int);
+extern "C" void PlaySequence_0203aba8(void* manager, int sequenceIndex, void* handle);
 extern "C" void func_0203ae4c(void* arg0, int arg1, void* arg2);
 extern "C" void StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
 extern "C" void func_0203ac10(void* arg0, void* arg1, int arg2);
@@ -410,12 +410,12 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 				unsigned long long var31 = (GetCurrentTimestamp() << 6) / 0x82ea;
 				if (data_ov016_0219d180 + var30->unknown_14_ <= var31) {
 #if defined(jpn)
-					func_0203ad14(&gMusicManager_02109bf4, var30->unknown_10_, 0, 0);
+					PlayStream_0203ad14(&gMusicManager_02109bf4, var30->unknown_10_, 0, 0);
 #else
 					if (var30->unknown_10_ != 0) {
-						func_0203ad14(&gMusicManager_02109bf4, var30->unknown_12_, 0, 0);
+						PlayStream_0203ad14(&gMusicManager_02109bf4, var30->unknown_12_, 0, 0);
 					} else {
-						func_0203aba8(&gMusicManager_02109bf4, var30->unknown_12_, &data_ov016_0219d14c);
+						PlaySequence_0203aba8(&gMusicManager_02109bf4, var30->unknown_12_, &data_ov016_0219d14c);
 					}
 #endif
 					UpdateSound_020bbd9c();

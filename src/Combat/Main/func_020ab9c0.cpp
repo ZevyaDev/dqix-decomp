@@ -1,33 +1,33 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern "C" int func_02075910(int arg0, void* arg1, int arg2, int arg3);
+extern "C" int ReadSaveMemory_02075910(int offset, void* destination, int length, int isAsync);
 extern "C" int func_01ff85b8(void* arg0, int arg1);
 
-struct Struct_020ab9c0 {
-    int unknown_0_;
-    unsigned char unknown_4_;
-    unsigned char unknown_5_;
+struct SaveHeader_020ab9c0 {
+    int checksum_0_;
+    unsigned char isQuickSave_4_;
+    unsigned char hasSave_5_;
     char unknown_6_[14];
 };
 
-// USA: func_020ab9c0
-extern "C" ARM int func_020ab9c0(int arg0) {
-    int var0 = arg0 ? 0x8010 : 0x10;
+// USA: GetSaveHeaderStatus_020ab9c0
+extern "C" ARM int GetSaveHeaderStatus_020ab9c0(int isSecondCopy) {
+    int headerOffset = isSecondCopy ? 0x8010 : 0x10;
     if (g_keyManager.TestKeysHeld(0x2000)) {
         return 2;
     }
 
-    struct Struct_020ab9c0 var1;
-    if (!func_02075910(var0, &var1, 0x14, 0)) {
+    struct SaveHeader_020ab9c0 header;
+    if (!ReadSaveMemory_02075910(headerOffset, &header, 0x14, 0)) {
         return 1;
     }
-    void* var2 = &var1;
-    if (func_01ff85b8((char*)var2 + 4, 0x10) != var1.unknown_0_) {
+    void* headerBytes = &header;
+    if (func_01ff85b8((char*)headerBytes + 4, 0x10) != header.checksum_0_) {
         return 2;
     }
-    if (var1.unknown_5_ == 0) {
+    if (header.hasSave_5_ == 0) {
         return 3;
     }
-    return (var1.unknown_4_ == 1) ? 4 : 0;
+    return (header.isQuickSave_4_ == 1) ? 4 : 0;
 }

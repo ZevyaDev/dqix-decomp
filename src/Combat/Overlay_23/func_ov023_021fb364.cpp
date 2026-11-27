@@ -2,7 +2,7 @@
 #include "Graphics/OBJSpriteSet.h"
 
 extern "C" void* FindMenuObjectById_ov023_021f6880(void** objectList, int id);
-extern "C" void* func_ov023_021fad18(void* arg0);
+extern "C" void* GetMenuObjectSpriteSet_ov023_021fad18(void* object);
 extern "C" void func_ov023_021f6c3c(void*, unsigned int, unsigned int, unsigned int);
 
 struct SpriteAnimation_0205a254_2;
@@ -12,7 +12,7 @@ struct SpriteAnimationList_0205a254;
 extern "C" ARM void func_ov023_021fb364(void* arg0, void** arg1) {
     void* var0 = FindMenuObjectById_ov023_021f6880(arg1, *(unsigned short*)((char*)arg0 + 0x20));
     if (var0 == 0) return;
-    void* var1 = func_ov023_021fad18(var0);
+    void* var1 = GetMenuObjectSpriteSet_ov023_021fad18(var0);
     func_ov023_021f6c3c((void*)arg1, *(unsigned char*)((char*)var1 + 0x50), *(unsigned short*)((char*)arg0 + 0x24), 1);
     struct SpriteAnimationList_0205a254* var2 = *(struct SpriteAnimationList_0205a254**)((char*)var1 + 0x3c);
     if (var2 == 0) return;

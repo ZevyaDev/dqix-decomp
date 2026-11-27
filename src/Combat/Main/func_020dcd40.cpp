@@ -17,16 +17,16 @@ extern "C" unsigned short* GetZone3D_02012fe4(void* arg0);
 extern "C" int func_02086e9c(Struct_02086e9c* arg0);
 extern "C" Struct_02086e50* func_02086e50(Struct_02086e50* arg0, int arg1);
 extern "C" void* func_020108f0(void* arg0, int arg1);
-extern "C" char* func_02010954(char* arg0);
+extern "C" char* FindFreePartyMemberData_02010954(char* gameState);
 extern "C" void func_02086380(unsigned char* arg0);
 extern "C" void func_02082d6c(void* arg0, void* arg1);
-extern "C" void CreatePartyMemberObject_ov017_0218f064(void* gameResources, int memberIndex, int arg2, int requestModelLoad, int arg4);
+extern "C" void CreatePartyMemberObject_ov017_0218f064(void* gameResources, int memberIndex, int kind, int requestModelLoad, int arg4);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" void func_020875c4(Struct_02087574* arg0, int arg1, int arg2);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void SetLeaderObjectIndex_020546a0(void* companion, int leaderObjectIndex);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
-extern "C" void func_020546b4(void*, int);
+extern "C" void SetFollowerIndex_020546b4(void*, int);
 extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
@@ -63,7 +63,7 @@ extern "C" ARM int func_020dcd40() {
         }
         void* var9 = func_020108f0(var2, var7);
         if (var9 == NULL) {
-            var9 = func_02010954((char*)var2);
+            var9 = FindFreePartyMemberData_02010954((char*)var2);
         }
         *(short*)((char*)var9 + 0x568) = var7;
         func_02086380((unsigned char*)var9);
@@ -86,7 +86,7 @@ extern "C" ARM int func_020dcd40() {
                 var13++;
             }
         }
-        func_020546b4(var10, var13);
+        SetFollowerIndex_020546b4(var10, var13);
         GetParty_02010828(var2);
         unsigned char* var16 = func_02053c6c((unsigned char*)var10);
 #if defined(jpn)

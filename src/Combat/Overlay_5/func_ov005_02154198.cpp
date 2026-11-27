@@ -15,7 +15,7 @@ struct BGControlSave_02074bd0;
 struct BGLayer_0204b010;
 struct BGLayer_02020cb8_3;
 
-extern "C" void func_ov023_021dc354(void* arg0);
+extern "C" void ReleaseItemInfoPanel_ov023_021dc354(void* panel);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
 extern "C" unsigned int* GetResources_0200fb8c(int* gameState);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov005_02154198(Struct_ov005_02153954* arg0) {
         var0->RemoveTask(arg0->unknown_3dc8_);
         arg0->unknown_3dc8_ = -1;
     }
-    func_ov023_021dc354(arg0->unknown_1244_);
+    ReleaseItemInfoPanel_ov023_021dc354(arg0->unknown_1244_);
     Set3DClearColorAndDepth_020c5588(arg0->unknown_3dc2_, 0x10, 0x7fff, 0, 0);
     GameState* var1 = GameState::GetInstance();
     ClearFlags04((GameResources*)(GetResources_0200fb8c((int*)var1)), 0x800);

@@ -11,7 +11,7 @@ enum { Enum_ov001_02156108_140 = 0x8c };
 
 extern "C" char* GetMessageWindow_020421a0(void);
 extern "C" void func_0208beb4(unsigned char* arg0);
-extern "C" void func_0208bb78(void* arg0, int arg1);
+extern "C" void UpdateQuestDisplay_0208bb78(void* display, int ticks);
 struct QuestDisplay_0208ba54;
 extern "C" void ReleaseQuestDisplay_0208ba54(struct QuestDisplay_0208ba54*);
 extern "C" int func_ov001_02153948(unsigned short arg0);
@@ -44,7 +44,7 @@ extern "C" ARM int func_ov001_02156108(struct Struct_ov001_02156108* arg0) {
             if (*(short*)((char*)var3 + 0xd2) >= 0) {
                 func_0208beb4((unsigned char*)var3);
                 unsigned int var4 = var0->GetTickCount();
-                func_0208bb78(arg0->unknown_120_, var4);
+                UpdateQuestDisplay_0208bb78(arg0->unknown_120_, var4);
                 return arg0->unknown_a_;
             }
             ReleaseQuestDisplay_0208ba54((struct QuestDisplay_0208ba54*)var3);

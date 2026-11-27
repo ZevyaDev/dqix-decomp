@@ -20,7 +20,7 @@ void InitItemTable_020de824(void*);
 void ResetItemContext_0207cbe8(void*);
 void AddItem_0207d300(void*, short, signed char, int);
 void DestroyItemContext_0207cc0c(void*);
-void func_02086d88(void*, short);
+void RemoveItemFromBagsOrHeldItems_02086d88(void*, short);
 }
 extern "C" ARM void func_ov006_0215759c(Struct_ov006_0215759c* arg0, Struct_ov006_02153a78* arg1, unsigned int arg2)
 {
@@ -33,8 +33,8 @@ extern "C" ARM void func_ov006_0215759c(Struct_ov006_0215759c* arg0, Struct_ov00
     AddItem_0207d300(&var2, arg0->unknown_18_, (signed char)arg2, 0);
     DestroyItemContext_0207cc0c(&var2);
     for (unsigned char var3 = 0; var3 < arg2; var3++) {
-        for (unsigned char var4 = 0; var4 < arg1->unknown_a_0_; var4++) func_02086d88(var1, arg1->unknown_4_);
-        for (unsigned char var5 = 0; var5 < arg1->unknown_a_4_; var5++) func_02086d88(var1, arg1->unknown_6_);
-        for (unsigned char var6 = 0; var6 < arg1->unknown_b_0_; var6++) func_02086d88(var1, arg1->unknown_8_);
+        for (unsigned char var4 = 0; var4 < arg1->unknown_a_0_; var4++) RemoveItemFromBagsOrHeldItems_02086d88(var1, arg1->unknown_4_);
+        for (unsigned char var5 = 0; var5 < arg1->unknown_a_4_; var5++) RemoveItemFromBagsOrHeldItems_02086d88(var1, arg1->unknown_6_);
+        for (unsigned char var6 = 0; var6 < arg1->unknown_b_0_; var6++) RemoveItemFromBagsOrHeldItems_02086d88(var1, arg1->unknown_8_);
     }
 }

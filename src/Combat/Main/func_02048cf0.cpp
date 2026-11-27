@@ -1,26 +1,26 @@
 #include <globaldefs.h>
 #include "World/Object3D.h"
 
-struct Struct_02048cf0_3;
+struct Combatant_02048cf0_3;
 
 struct CellPosition_02048cf0 { int x_0_; int z_4_; };
 struct Struct_020e7b48 { int unknown_0_[3]; };
 
-struct Struct_02048cf0_2 {
+struct CombatantBattleState_02048cf0_2 {
     char unknown_0_[0x20];
     unsigned int unknown_20_;
 };
 
-struct Struct_02048cf0_3 {
+struct Combatant_02048cf0_3 {
     char unknown_0_[0x44];
-    int unknown_44_[3];
+    int position_44_[3];
     char unknown_50_[0x6e];
-    unsigned char unknown_be_;
+    unsigned char motion_be_;
     char unknown_bf_[0x7d];
-    Struct_02048cf0_2* unknown_13c_;
+    CombatantBattleState_02048cf0_2* pBattleState_13c_;
 };
 
-extern "C" int func_020493ec(unsigned char*);
+extern "C" int GetCombatantReservedCell_020493ec(unsigned char*);
 extern "C" int func_020493c8(unsigned char*);
 extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" void SetCombatantCell_02049390(unsigned char*, unsigned char);
@@ -36,41 +36,41 @@ struct Vector3i;
 
 extern Struct_020e7b48 data_020e7b48;
 
-// USA: func_02048cf0
-extern "C" ARM void func_02048cf0(struct Struct_02048cf0_3* arg0, int arg1) {
-    int var0 = func_020493ec((unsigned char*)arg0);
-    if (var0 == 0xff) {
-        var0 = func_020493c8((unsigned char*)arg0);
+// USA: PlaceCombatantOnCell_02048cf0
+extern "C" ARM void PlaceCombatantOnCell_02048cf0(struct Combatant_02048cf0_3* combatant, int isCurrentCellKept) {
+    int cell = GetCombatantReservedCell_020493ec((unsigned char*)combatant);
+    if (cell == 0xff) {
+        cell = func_020493c8((unsigned char*)combatant);
     }
-    if (var0 == 0xff) {
-        var0 = GetCombatantCell_020493a4((unsigned char*)arg0);
+    if (cell == 0xff) {
+        cell = GetCombatantCell_020493a4((unsigned char*)combatant);
     }
-    if (arg1 != 0) {
-        var0 = GetCombatantCell_020493a4((unsigned char*)arg0);
+    if (isCurrentCellKept != 0) {
+        cell = GetCombatantCell_020493a4((unsigned char*)combatant);
     }
-    if (var0 != 0xff) {
-        struct CellPosition_02048cf0 var1 = GetCellPosition_ov000_0216f74c(&var0);
-        struct Struct_020e7b48 var2 = data_020e7b48;
-        var2.unknown_0_[0] = var1.x_0_;
-        var2.unknown_0_[2] = var1.z_4_;
-        unsigned int var3 = arg0->unknown_13c_->unknown_20_;
-        SetCombatantCellPosition_02049bd4((unsigned char*)arg0, var2.unknown_0_);
-        arg0->unknown_13c_->unknown_20_ = var3;
-        if (var3 & 0x21) {
-            *(Vector3i*)arg0->unknown_44_ = *(Vector3i const*)var2.unknown_0_;
+    if (cell != 0xff) {
+        struct CellPosition_02048cf0 cellPosition = GetCellPosition_ov000_0216f74c(&cell);
+        struct Struct_020e7b48 position = data_020e7b48;
+        position.unknown_0_[0] = cellPosition.x_0_;
+        position.unknown_0_[2] = cellPosition.z_4_;
+        unsigned int flags = combatant->pBattleState_13c_->unknown_20_;
+        SetCombatantCellPosition_02049bd4((unsigned char*)combatant, position.unknown_0_);
+        combatant->pBattleState_13c_->unknown_20_ = flags;
+        if (flags & 0x21) {
+            *(Vector3i*)combatant->position_44_ = *(Vector3i const*)position.unknown_0_;
         }
     }
-    SetCombatantCell_02049390((unsigned char*)arg0, var0 & 0xff);
-    func_020493b8((unsigned char*)arg0, 0xff);
-    if (arg1 == 0) {
-        func_020493dc((unsigned char*)arg0, 0xff);
+    SetCombatantCell_02049390((unsigned char*)combatant, cell & 0xff);
+    func_020493b8((unsigned char*)combatant, 0xff);
+    if (isCurrentCellKept == 0) {
+        func_020493dc((unsigned char*)combatant, 0xff);
     }
-    if (arg0->unknown_be_ == 0) {
-        SetMotion_02033b88((Struct_02010604*)arg0, 0);
-        ((Object3D*)arg0)->IsTransitioningAnimations();
+    if (combatant->motion_be_ == 0) {
+        SetMotion_02033b88((Struct_02010604*)combatant, 0);
+        ((Object3D*)combatant)->IsTransitioningAnimations();
     }
-    ((Object3D*)arg0)->SetAnimationPlaybackSpeed(0x1000, 0);
-    ClearCombatantPath_02048c90((Combatant_02048c90*)arg0);
+    ((Object3D*)combatant)->SetAnimationPlaybackSpeed(0x1000, 0);
+    ClearCombatantPath_02048c90((Combatant_02048c90*)combatant);
 }
 
 void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)

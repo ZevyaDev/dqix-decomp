@@ -23,7 +23,7 @@ extern "C" void* func_0205ec34(void* arg0);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 struct Struct_02000c9c_59;
-extern "C" void func_ov017_021b8d1c(void* arg0);
+extern "C" void ResetTalkTask_ov017_021b8d1c(void* talkTask);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov017_021a4cf0(char* arg0) {
         RunDeferredTriggerActions_0206f81c(&var10);
         return;
     }
-    func_ov017_021b8d1c(*(void**)(arg0 + 0x3000 + Enum_ov017_021a4cf0_1808));
+    ResetTalkTask_ov017_021b8d1c(*(void**)(arg0 + 0x3000 + Enum_ov017_021a4cf0_1808));
     *(int*)((char*)(*(void**)(arg0 + 0x3000 + Enum_ov017_021a4cf0_1808)) + 0x114) = (int)var3;
     *(int*)((char*)(*(void**)(arg0 + 0x3000 + Enum_ov017_021a4cf0_1808)) + 0x124) = *(unsigned short*)&data_ov017_021d83a8;
     AppendToQueue_020469b4((struct Queue_0201bdac_2*)(*(void**)(arg0 + 0x3000 + Enum_ov017_021a4cf0_1788)),

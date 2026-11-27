@@ -112,7 +112,7 @@ extern "C" void* func_0202ae18(void);
 extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" void* func_0203bd08(void);
 extern "C" void InitPartyMemberData_02082828(int memberData);
-extern "C" void func_020542b4(void* arg0, void* arg1, void* arg2);
+extern "C" void InitPartyMemberSlotAllocators_020542b4(void* slot, void* sourceAllocator, void* textureArena);
 extern "C" void func_02048b0c(void* arg0, int arg1);
 extern "C" void SetCombatantBattleState_02049c88(void* combatant, void* battleState);
 extern "C" void RemoveFromQueue_02046a8c(void* queue, void* node);
@@ -171,8 +171,8 @@ extern "C" void SetPartyMemberBattleId_02053f7c(PartyMember_02053f7c_3* member, 
 struct Struct_02049f50;
 extern "C" void func_02049f50(struct Struct_02049f50* arg0, int arg1, int arg2);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
-extern "C" void func_0203400c(Struct_02032e58* arg0);
-extern "C" void func_02039d48(unsigned char* arg0);
+extern "C" void ResumeAnimation_0203400c(Struct_02032e58* object);
+extern "C" void SetFadeInOnMove_02039d48(unsigned char* object);
 extern "C" void func_02039d58(unsigned char* arg0);
 extern "C" void func_020398a4(unsigned char* arg0);
 struct Struct_02033834;
@@ -213,7 +213,7 @@ extern "C" void func_ov017_02195530(unsigned char* arg0);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" int func_ov000_0215fc60(char* arg0);
-extern "C" void func_ov017_021907dc(int arg0, int arg1, int arg2, int arg3, int arg4);
+extern "C" void LinkPartyFollowers_ov017_021907dc(int gameResources, int leaderIndex, int resumeFollowing, int updatePlayerControl, int clearFollowTrails);
 
 extern "C" void* func_020e3580(void);
 extern "C" int func_020e37e8(unsigned char* arg0);
@@ -328,7 +328,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
 
         SafeAllocator* var29 = inline_ov000_02164fac((GameResources*)var10, 3);
         Struct_ov000_02164fac_2* var30 = inline_ov000_021688dc((GameResources*)var10, 3);
-        func_020542b4(func_ov017_021a11f4((GameResources*)var10, 2), var29, var30);
+        InitPartyMemberSlotAllocators_020542b4(func_ov017_021a11f4((GameResources*)var10, 2), var29, var30);
         *(int*)((char*)LightingManager::GetInstance() + 0x98) = 2;
     }
 
@@ -366,12 +366,12 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
 
                 if (func_ov000_02160fd4(arg0, 1) && arg0[Enum_ov000_021688dc_30674] != 0) {
                     func_02048b0c(var36, HasLearnedSkillEntry_02083b00(*(unsigned char**)((char*)var36 + Enum_ov000_021688dc_336), 0x99) ? 1 : 0);
-                    func_0203400c((Struct_02032e58*)var36);
+                    ResumeAnimation_0203400c((Struct_02032e58*)var36);
                 }
 
                 if (IsInParty_02086ef0(var14, inline_ov000_021688dc_2(var36))) {
                     if (var32 != var36->obj3D_.unknown_4_) {
-                        func_02039d48((unsigned char*)var36);
+                        SetFadeInOnMove_02039d48((unsigned char*)var36);
                     }
                     if (func_ov000_02160fd4(arg0, 1)) {
                         var36->obj3D_.position_ = *(Vector3i*)(arg0 + Enum_ov000_021688dc_22800 + var32 * 16);
@@ -659,7 +659,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     ClearFlags04((GameResources*)var10, 0x400);
 
     if (IsLocalWirelessGuest_0202c540(var11)) {
-        func_ov017_021907dc(var10, 0, 1, 1, 1);
+        LinkPartyFollowers_ov017_021907dc(var10, 0, 1, 1, 1);
         RebuildPartyOrders_ov017_02191234(var10);
     }
     *(unsigned short*)((char*)GetZoneEntry_0200fd0c(var9) + 0x1e) = *(int*)(*(unsigned char**)(arg0 + Enum_ov000_021688dc_672) + 0xc);

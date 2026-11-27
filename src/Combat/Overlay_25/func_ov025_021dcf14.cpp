@@ -103,7 +103,7 @@ struct Struct_ov025_021dcf14_7;
 struct Struct_ov025_021dcf14_8;
 extern "C" void func_ov025_021eee48(Struct_ov025_021dcf14_7*, Struct_ov025_021dcf14_8*);
 struct Struct_02033fcc;
-extern "C" void func_02033fcc(Struct_02033fcc*);
+extern "C" void PauseMovementUpdate_02033fcc(Struct_02033fcc*);
 struct Struct_02033fdc;
 extern "C" void ResumeMovementUpdate_02033fdc(Struct_02033fdc*);
 struct Struct_02010604;
@@ -285,7 +285,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                 var26.unknown_c_ = var20;
                 func_ov025_021eee48((Struct_ov025_021dcf14_7*)(arg0 + Enum_ov025_021dcf14_2864), (Struct_ov025_021dcf14_8*)&var26);
                 var2[var15]->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef460, 0);
-                func_02033fcc((Struct_02033fcc*)var2[var15]);
+                PauseMovementUpdate_02033fcc((Struct_02033fcc*)var2[var15]);
             }
         }
 
@@ -561,7 +561,7 @@ extern "C" ARM int func_ov025_021dcf14(unsigned char* arg0) {
                         var78.unknown_c_ = var77;
                         func_ov025_021eee48((Struct_ov025_021dcf14_7*)(arg0 + Enum_ov025_021dcf14_2864), (Struct_ov025_021dcf14_8*)&var78);
                         var2[var70]->obj3D_.MaybeSetRegularAnimation(data_ov025_021ef460, 0);
-                        func_02033fcc((Struct_02033fcc*)var2[var70]);
+                        PauseMovementUpdate_02033fcc((Struct_02033fcc*)var2[var70]);
                     }
                 }
                 arg0[Enum_ov025_021dcf14_28238] = 0;

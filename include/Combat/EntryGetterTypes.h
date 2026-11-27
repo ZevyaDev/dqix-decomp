@@ -13,7 +13,7 @@ struct NPC_0203e0a0 {
 struct NPC_0203dce4 {
     int flags_0_;
     unsigned char unknown_4_[0x10];
-    void* unknown_14_;
+    void* pSprite_14_;
     void* unknown_18_;
     void* unknown_1c_;
 };

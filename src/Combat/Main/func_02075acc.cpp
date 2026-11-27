@@ -12,7 +12,7 @@ extern "C" void func_020d05ec(const void* arg0, int arg1, unsigned int arg2, voi
 struct Struct_02108dfc {
     unsigned char unknown_0_;
     unsigned char unknown_1_;
-    unsigned short unknown_2_;
+    unsigned short lockOwnerID_2_;
     void* unknown_4_;
 };
 
@@ -40,7 +40,7 @@ extern "C" ARM int func_02075acc(int arg0, void* arg1, unsigned int arg2, int ar
 
     data_02108dfc.unknown_0_ = 0;
     var0 = 1;
-    func_020d0040((int)data_02108dfc.unknown_2_);
+    func_020d0040((int)data_02108dfc.lockOwnerID_2_);
 
     var1 = (func_020d06d4() & 0xff) == 1;
     if (var1) {
@@ -66,7 +66,7 @@ extern "C" ARM int func_02075acc(int arg0, void* arg1, unsigned int arg2, int ar
         if (GetCardReadManagerSharedStatus() != 0) {
             var0 = 0;
         }
-        func_020d0050((int)data_02108dfc.unknown_2_);
+        func_020d0050((int)data_02108dfc.lockOwnerID_2_);
         data_02108dfc.unknown_0_ = 1;
     }
 

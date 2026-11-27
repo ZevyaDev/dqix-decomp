@@ -15,7 +15,7 @@ struct FontGlyph_0204254c {
 };
 
 extern "C" int GetFontDefaultWidth_02042648(int);
-extern "C" bool func_02044494(void*, void*);
+extern "C" bool IsControlCode_02044494(void*, void*);
 extern "C" int func_02044420(void*, void*);
 extern "C" int GetFontKerning_020425e4(int, int, int);
 extern "C" FontGlyph_0204254c* FindFontGlyph_0204254c(int, int);
@@ -35,7 +35,7 @@ extern "C" ARM int func_0206b37c(Struct_0206b37c* arg0, char* arg1) {
     short var7;
     while (!func_02067ad8((int)arg0, arg1)) {
         memcpy(&var6, arg1, 2);
-        if (func_02044494(arg0, &var6)) {
+        if (IsControlCode_02044494(arg0, &var6)) {
             var3 = func_02044420(arg0, &var6);
             switch (var6) {
             case 0xff19:

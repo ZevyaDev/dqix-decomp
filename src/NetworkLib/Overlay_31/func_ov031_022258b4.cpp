@@ -84,7 +84,7 @@ extern "C" void func_ov031_0223ca54(Struct_ov031_022266b0* arg0, int arg1, int a
 extern "C" void SetSpritePosition_ov031_0223bbd8(void* sprite, int entryIndex, int x, int y);
 extern "C" void func_ov031_0223bb58(void* arg0, int arg1, int arg2, int arg3);
 extern "C" Struct_020b0a1c_2* func_ov031_0223baa0(Struct_ov031_022269d8* arg0, int arg1);
-extern "C" int func_ov031_0223bdb0(int arg0, int arg1, int arg2);
+extern "C" int CopySpriteOAMEntries_ov031_0223bdb0(int isSubScreen, int spriteId, int oamEntries);
 extern "C" void func_ov031_0223c534(Struct_ov031_02226d48*);
 extern "C" void func_ov031_0223da58(void*);
 extern "C" void FreeAndClearPointer_ov031_0223cf70(void*);
@@ -642,7 +642,7 @@ extern "C" ARM void func_ov031_022269d8(void) {
     int var1 = (var0 <= 0xb) ? 0x44 : 0x45;
     void* var2 = gNumericKeypad_ov031_02250c00->unknown_58_;
     void* var3 = func_ov031_0223baa0((Struct_ov031_022269d8*)var2, 0);
-    func_ov031_0223bdb0(0, var1, (int)var3);
+    CopySpriteOAMEntries_ov031_0223bdb0(0, var1, (int)var3);
 
     SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)gNumericKeypad_ov031_02250c00->unknown_58_, -1, 2);
 

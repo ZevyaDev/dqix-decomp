@@ -91,7 +91,7 @@ struct PartyMemberData_02083e28_3 {
 #else
     char unknown1_454_[0x850 - 0x454];
 #endif
-    struct Struct_02083e28_2 unknown_850_[17];
+    struct Struct_02083e28_2 seedBonuses_850_[17];
     struct Struct_02083e28_10 levelStats_91c_[3];
     char unknown_928_[0xc];
     unsigned char unknown_934_[0x16];
@@ -164,16 +164,16 @@ extern "C" ARM void CalculatePartyMemberStats_02083e28(struct PartyMemberData_02
     float var11;
     float var12;
     var12 = var11 = blockChance = var9 = 0.0f;
-    struct Struct_02083e28_2* var13 = &memberData->unknown_850_[memberData->vocation_950_];
-    strength += var13->unknown_0_[0].unknown_0_0_;
-    agility += var13->unknown_0_[0].unknown_1_2_;
-    resilience += var13->unknown_0_[0].unknown_2_4_;
-    deftness += var13->unknown_0_[1].unknown_0_0_;
-    charm += var13->unknown_0_[1].unknown_1_2_;
-    magicalMending += var13->unknown_0_[1].unknown_2_4_;
-    magicalMight += var13->unknown_0_[2].unknown_0_0_;
-    maxHP += var13->unknown_0_[2].unknown_1_2_;
-    maxMP += var13->unknown_0_[2].unknown_2_4_;
+    struct Struct_02083e28_2* seedBonus = &memberData->seedBonuses_850_[memberData->vocation_950_];
+    strength += seedBonus->unknown_0_[0].unknown_0_0_;
+    agility += seedBonus->unknown_0_[0].unknown_1_2_;
+    resilience += seedBonus->unknown_0_[0].unknown_2_4_;
+    deftness += seedBonus->unknown_0_[1].unknown_0_0_;
+    charm += seedBonus->unknown_0_[1].unknown_1_2_;
+    magicalMending += seedBonus->unknown_0_[1].unknown_2_4_;
+    magicalMight += seedBonus->unknown_0_[2].unknown_0_0_;
+    maxHP += seedBonus->unknown_0_[2].unknown_1_2_;
+    maxMP += seedBonus->unknown_0_[2].unknown_2_4_;
     if (strength > 999) strength = 999;
     if (resilience > 999) resilience = 999;
     if (charm > 999) charm = 999;

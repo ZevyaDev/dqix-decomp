@@ -33,7 +33,7 @@ struct Struct_ov000_021675a0_2 {
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(char* battle, short* indices, int maxCount, int filterFlags);
 extern "C" int func_ov000_0215fc60(char* arg0);
 extern "C" void func_02049b20(unsigned char* arg0, int* arg1);
-extern "C" void func_02049bac(unsigned char* arg0, int* arg1);
+extern "C" void SetCombatantLineupFacing_02049bac(unsigned char* combatant, int* rotation);
 extern "C" void func_ov000_0216f708(void* arg0, int arg1);
 extern "C" void func_ov000_0216f710(void* arg0, int arg1);
 
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov000_021675a0(struct Struct_ov000_021675a0_2* arg0) {
             var9.unknown_0_ = var3;
             var10.unknown_4_ = data_ov000_02183158[var2 - 1][var4];
             func_02049b20((unsigned char*)var8, (int*)&var9);
-            func_02049bac((unsigned char*)var8, (int*)&var10);
+            SetCombatantLineupFacing_02049bac((unsigned char*)var8, (int*)&var10);
         }
         var3 -= 0x1800;
     }

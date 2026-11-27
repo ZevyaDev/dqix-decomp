@@ -70,7 +70,7 @@ public:
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_02031188(Struct_020312bc* arg0, short* arg1);
-extern "C" long long func_020c32f8(int);
+extern "C" long long ComputeFixedPointCosine_020c32f8(int);
 extern "C" long long ComputeFixedPointSine_020c3260(int);
 extern "C" float ConvertInt64ToFloat_0200c700(long long);
 extern "C" int func_020312bc(Struct_020312bc* arg0, int arg1, Vector3fix* arg2, Vector3fix* arg3, Vector3fix* arg4);
@@ -118,7 +118,7 @@ extern "C" ARM int func_ov017_02193dc4(Struct_ov017_02193dc4_2* arg0) {
             Vector3i var13;
             Vector3fix_Subtract(&var9, &var0.unknown_908_, &var9);
             int var14 = -(var0.unknown_918_ - 25735);
-            int var15 = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(func_020c32f8(var14)) / 4294967296.0f));
+            int var15 = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(ComputeFixedPointCosine_020c32f8(var14)) / 4294967296.0f));
             int var16 = (int)(4096.0f * (ConvertInt64ToFloat_0200c700(ComputeFixedPointSine_020c3260(var14)) / 4294967296.0f));
             Mat3x3_WriteRotationY(&var10, var16, var15);
             Mat3x3_ApplyToVector(&var9, &var10, &var9);

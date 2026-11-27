@@ -65,7 +65,7 @@ func_ov004_02156dc8 kind:function(arm,size=0x60) addr:0x02156dc8
 func_ov004_02156e28 kind:function(arm,size=0x4) addr:0x02156e28
 GetMenuGridCursorIndex_ov004_02156e2c kind:function(arm,size=0x3c) addr:0x02156e2c
 func_ov004_02156e68 kind:function(arm,size=0x68) addr:0x02156e68
-func_ov004_02156ed0 kind:function(arm,size=0x34) addr:0x02156ed0
+FindMenuGrid_ov004_02156ed0 kind:function(arm,size=0x34) addr:0x02156ed0
 func_ov004_02156f04 kind:function(arm,size=0x34) addr:0x02156f04
 FindMenuNumber_ov004_02156f38 kind:function(arm,size=0x34) addr:0x02156f38
 FindMenuWindow_ov004_02156f6c kind:function(arm,size=0x34) addr:0x02156f6c
@@ -647,7 +647,7 @@ data_ov004_02170b90 kind:bss addr:0x02170b90
 data_ov004_02170dd0 kind:bss addr:0x02170dd0
 data_ov004_02171002 kind:bss addr:0x02171002
 gTreasureMapScreen_ov004_02171010 kind:bss addr:0x02171010
-data_ov004_0217101c kind:bss addr:0x0217101c
+gQuestList_ov004_0217101c kind:bss addr:0x0217101c
 data_ov004_02171024 kind:bss addr:0x02171024
 data_ov004_02171030 kind:bss addr:0x02171030
 data_ov004_02171034 kind:bss addr:0x02171034

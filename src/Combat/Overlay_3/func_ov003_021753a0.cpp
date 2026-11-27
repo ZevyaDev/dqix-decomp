@@ -18,7 +18,7 @@ extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_02
 extern "C" GameObject* GetGameObjectByIndex_0200ff94(GameState* gameState, int index);
 
 extern "C" int GetEquipRestrictions_020dd4c4(void* memberIndex, void* item);
-extern "C" void func_020dd7ac(void* arg0);
+extern "C" void InitEquipStatComparison_020dd7ac(void* comparison);
 extern "C" void func_020dd8b4(int arg0, int arg1, int arg2, int arg3);
 
 extern unsigned char data_ov003_0217fac8[];
@@ -44,8 +44,8 @@ extern "C" ARM int func_ov003_021753a0(char* arg0, int arg1, int arg2, int arg3)
 
     GetEquipRestrictions_020dd4c4((void*)arg1, var4);
 
-    Struct_020dd7ac var5;
-    func_020dd7ac(&var5);
+    EquipStatComparison_020dd7ac var5;
+    InitEquipStatComparison_020dd7ac(&var5);
     func_020dd8b4((int)&var5, arg1, (int)var4, 0);
 
     int var6 = ((struct Struct_ov003_021753a0*)var4)->unknown_c_7_;

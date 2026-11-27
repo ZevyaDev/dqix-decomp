@@ -14,7 +14,7 @@ struct Struct_02088514;
 extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 struct Struct_02088644;
 extern "C" void func_02088644(struct Struct_02088644* arg0);
-extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
+extern "C" short HealCombatant_ov000_0215a16c(void* battle, int combatantIndex, int amount, short* healedAmount);
 extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021e2784_4* flags, int flagIndex);
@@ -46,7 +46,7 @@ extern "C" ARM struct ActionResult_ov000_021584e8* func_ov024_021e2784(struct St
     short var4 = 0;
     unsigned short var5 = inline_ov024_021dc700(var0);
     if (var0->currentStats_->primaryStats.currHP < var5) {
-        var3 = func_ov000_0215a16c(arg0->unknown_10_, arg2, arg4, &var4);
+        var3 = HealCombatant_ov000_0215a16c(arg0->unknown_10_, arg2, arg4, &var4);
         SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x25);
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, 0x16);
         arg0->unknown_14_++;

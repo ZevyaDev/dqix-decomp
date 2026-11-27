@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-extern unsigned char* data_ov031_02290c98;
+extern unsigned char* gAddressEntryPage_ov031_02290c98;
 extern "C" void* VectorizedInvertedMemcpy(void* dst, void* src, int n);
 extern "C" int ParseDecimal_02005a94(signed char* string);
 
 // USA: func_ov031_0222dd70
 extern "C" ARM int func_ov031_0222dd70(int arg0) {
-    unsigned char var0 = data_ov031_02290c98[0x14];
-    unsigned char* var1 = data_ov031_02290c98 + 8 + var0 * 3;
+    unsigned char var0 = gAddressEntryPage_ov031_02290c98[0x14];
+    unsigned char* var1 = gAddressEntryPage_ov031_02290c98 + 8 + var0 * 3;
     unsigned char var2 = *var1;
     if (var2 != 0 && var2 != 0x20) return 1;
 

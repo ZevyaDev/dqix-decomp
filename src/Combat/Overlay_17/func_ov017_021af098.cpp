@@ -31,7 +31,7 @@ extern "C" void func_ov017_02195748(unsigned char* arg0);
 extern "C" void func_ov017_02192594(unsigned char* arg0);
 extern "C" void* func_0205e854(Struct_0205e854* arg0);
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
-extern "C" int func_0202d6a8(void);
+extern "C" int GetLocalWirelessLinkState_0202d6a8(void);
 extern "C" void* func_020d6c00(void);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" int* GetNoticeQueue_020936f8(void);
@@ -72,7 +72,7 @@ extern "C" ARM unsigned char func_ov017_021af098(Struct_ov017_021af098* arg0) {
             func_0205e854(var3);
             ClearFlags00((GameResources*)var1, 0x40);
             arg0->unknown_1_ = 1;
-        } else if (IsLocalWirelessPlayerDisconnected_0202c578(var2, 0) != 0 || func_0202d6a8() == 8) {
+        } else if (IsLocalWirelessPlayerDisconnected_0202c578(var2, 0) != 0 || GetLocalWirelessLinkState_0202d6a8() == 8) {
             ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)func_020d6c00(), 0x8020);
             int* var4 = GetNoticeQueue_020936f8();
             func_020939dc(var4);

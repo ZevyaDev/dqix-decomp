@@ -1,5 +1,4 @@
 #if defined(jpn)
-#define func_ov023_021e6de4 func_ov023_021e7148
 #define func_ov012_0218adac func_ov012_0218bba0
 #define func_ov012_0218930c func_ov012_02189be8
 enum {
@@ -36,15 +35,15 @@ struct Struct_ov012_02188aec {
 };
 struct TextWindowManager_0205de24_2;
 struct Struct_0205c570;
-struct Struct_ov012_02186a7c;
+struct ProfileMenu_ov012_02186a7c;
 struct SoundEffectManager_02108760;
 extern "C" void SetNextTextWindowBGLayer_0205de24(TextWindowManager_0205de24_2*, unsigned char, unsigned char);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
-extern "C" int func_ov023_021e6e20(Struct_ov012_02186a7c*);
+extern "C" int IsProfileMenuCancelPressed_ov023_021e6e20(ProfileMenu_ov012_02186a7c*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" void func_ov012_0218a974(char*);
 extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(char*);
-extern "C" int func_ov023_021e6de4(char*);
+extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(char*);
 #if defined(jpn)
 extern "C" void func_ov012_0218adac(char*, int, int);
 #else
@@ -87,13 +86,13 @@ extern "C" ARM void func_ov012_02188aec(char* arg0) {
 #endif
         }
         int var2 = 0;
-        if (func_ov023_021e6de4(arg0)) {
+        if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0)) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             Struct_ov012_02188aec* var3 = inline_ov012_02188aec(GameState::GetInstance());
             var3->unknown_2_5_ = ((*(unsigned int*)(arg0 + Enum_ov012_02188aec_5108)) << 1) + var3->unknown_3_1_;
             var3->unknown_3_3_ = 1;
             var2 = 1;
-        } else if (func_ov023_021e6e20((Struct_ov012_02186a7c*)arg0)) {
+        } else if (IsProfileMenuCancelPressed_ov023_021e6e20((ProfileMenu_ov012_02186a7c*)arg0)) {
             (*(unsigned int*)(arg0 + Enum_ov012_02188aec_5108)) = (var0->unknown_2_5_ - var0->unknown_3_1_) / 2;
             var2 = 1;
 #if defined(jpn)

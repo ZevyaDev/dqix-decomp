@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int TrySelectTacticOption_ov024_021fe698(void* tacticAI, int option);
-extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* arg1, int targetGroup, int targetIndex);
+extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* effects, int targetGroup, int targetIndex);
 struct Struct_ov024_021fc37c;
 extern "C" int func_ov024_021fc498(struct Struct_ov024_021fc37c* arg0);
 

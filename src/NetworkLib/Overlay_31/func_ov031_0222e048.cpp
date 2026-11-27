@@ -7,12 +7,12 @@ struct Struct_ov031_0222e048 {
     unsigned char unknown_14_;
     unsigned char unknown_15_;
 };
-extern Struct_ov031_0222e048* data_ov031_02290c98;
+extern Struct_ov031_0222e048* gAddressEntryPage_ov031_02290c98;
 extern unsigned char data_ov031_02248f20[];
 
 // USA: func_ov031_0222e048
 extern "C" ARM void func_ov031_0222e048() {
-    Struct_ov031_0222e048* var0 = data_ov031_02290c98;
+    Struct_ov031_0222e048* var0 = gAddressEntryPage_ov031_02290c98;
     int var1 = var0->unknown_14_;
     if (var1 > 3) var1 = 3;
     unsigned int* var2 = var0->unknown_4_;

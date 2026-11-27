@@ -76,7 +76,7 @@ extern "C" void SetOrthographicProjection_020c5770(int, int, int, int, int, int,
 extern "C" MessageWindow_02021b84* GetMessageWindow_020421a0();
 extern "C" void InitMessageWindow_02042c68(MessageWindow_02021b84* window);
 extern "C" void CloseMessageWindow_02043124(MessageWindow_02021b84* window);
-extern "C" void func_02042b30(void* arg0, void* arg1);
+extern "C" void SetMessageWindowTextureArena_02042b30(void* window, void* textureArena);
 extern "C" void InitMessageGlyphs_020432c4(MessageWindow_02021b84* window);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_020440b8(char* arg0, void* arg1, void* arg2);
@@ -99,7 +99,7 @@ extern "C" int func_020ab7a8(void* arg0, int arg1);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void PlayJingle_0209c6d8(void* manager, int jingleIndex);
 extern "C" int func_ov019_0218c240(void* arg0);
-extern "C" int func_020aba5c(int arg0);
+extern "C" int ClearSaveHeader_020aba5c(int isSecondCopy);
 extern "C" void func_02043368(MessageWindow_02021b84* arg0);
 extern "C" void UpdateSound_020bbd9c();
 extern "C" void ResetGeometryEngine_020c52e8();
@@ -287,7 +287,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
     MessageWindow_02021b84* var7 = GetMessageWindow_020421a0();
     InitMessageWindow_02042c68(var7);
     CloseMessageWindow_02043124(var7);
-    func_02042b30(var7, var5);
+    SetMessageWindowTextureArena_02042b30(var7, var5);
     ((TextureArena*)((TextureVRAMArea_0203d028*)var5))->Reset();
     ((TextureArena*)(var5))->Restore();
     InitMessageGlyphs_020432c4(var7);
@@ -488,7 +488,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         case 8:
             arg0->unknown_4c_ &= ~1;
             if (var7->unknown_9a0_ == 3 && func_ov019_0218c240(arg0) != 0) {
-                if (func_020aba5c(1) == 0) {
+                if (ClearSaveHeader_020aba5c(1) == 0) {
                     inline_ov019_0218b5a8(var7, arg0, 1);
                     var13 = 0;
                 } else {

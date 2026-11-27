@@ -4,7 +4,7 @@ struct Struct_02032e58;
 
 struct Struct_02010604;
 extern "C" void func_02048c50(unsigned char*);
-extern "C" void func_0203400c(Struct_02032e58*);
+extern "C" void ResumeAnimation_0203400c(Struct_02032e58*);
 extern "C" void func_020d76d8(unsigned char* arg0, int arg1);
 extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, unsigned int arg2);
 extern "C" void SetMotion_02033b88(Struct_02010604* object, int motion);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov000_02162dc4(Struct_ov000_02162dc4* arg0, Struct_ov00
     if (arg2 == NULL || (var2 = arg0->unknown_ea4_) == NULL) return;
     var3 = arg2->unknown_4_;
     func_02048c50((unsigned char*)arg2);
-    func_0203400c((Struct_02032e58*)arg2);
+    ResumeAnimation_0203400c((Struct_02032e58*)arg2);
     if (arg3 & 1) {
         func_020d76d8(var2, var3);
         return;

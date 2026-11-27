@@ -59,7 +59,7 @@ extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 extern "C" int GetNPCData_02040528(int* npc);
 
 extern "C" void func_ov017_021b8d80(void*);
-extern "C" void func_ov017_021b8d1c(void* arg0);
+extern "C" void ResetTalkTask_ov017_021b8d1c(void* talkTask);
 
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
@@ -69,7 +69,7 @@ struct Vector3i;
 extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
 extern "C" void func_ov017_021b6e70(void* arg0, unsigned short arg1);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-extern "C" void func_ov017_021b7104(void* arg0, void* arg1);
+extern "C" void ApplyBattleRequest_ov017_021b7104(void* battleManager, void* request);
 
 struct GameState;
 extern "C" void* InitItemTable_020de824(void* itemTable);
@@ -80,12 +80,12 @@ extern "C" int LoadItemTableById_020de980(void* itemTable, void* allocator, void
 extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 extern "C" void AddItem_0207d300(void* itemContext, short itemId, int count, int isAliveRequired);
 
-extern "C" int func_02086d88(unsigned char* arg0, int arg1);
+extern "C" int RemoveItemFromBagsOrHeldItems_02086d88(unsigned char* party, int itemId);
 extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
 struct Struct_0203d028_3;
 extern "C" int func_02053c6c(unsigned char* gameObject);
-struct Struct_0206f81c;
-extern "C" void* func_02083554(struct Struct_0206f81c* arg0, int arg1);
+struct PartyMemberData_0206f81c;
+extern "C" void* func_02083554(struct PartyMemberData_0206f81c* arg0, int arg1);
 extern "C" void UnequipCategory_02083738(void* memberData, int category);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int memberIndex, int requestModelLoad);
@@ -98,7 +98,7 @@ struct QueueNode_02015438;
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void func_0206461c(void* arg0, int arg1);
+extern "C" void LoadZoneTriggers_0206461c(void* flagManager, int currentMap);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 
 extern "C" void func_ov017_021c16a8(unsigned char* arg0);
@@ -140,7 +140,7 @@ struct ItemContext_0206f81c_7 {
     char unknown_30_[8];
 };
 
-struct Struct_0206f81c_8 {
+struct ItemData_0206f81c_8 {
     int unknown_0_;
     int unknown_4_;
     unsigned int unknown_8_0_ : 4;
@@ -263,7 +263,7 @@ extern "C" ARM void RunDeferredTriggerActions_0206f81c(void* triggerResult) {
                     }
                     unsigned char* var24 = *(unsigned char**)((char*)gameResources + 0x3000 + REGION_VALUE(0x50c, 0x71c));
                     var22 |= (*(unsigned char*)(var24 + 3) != 0 && *(unsigned char*)(var24 + 0x20) != 0);
-                    func_ov017_021b8d1c(var23);
+                    ResetTalkTask_ov017_021b8d1c(var23);
                     *(int*)(var23 + 0x114) = npcData;
                     *(int*)(var23 + 0x124) = *(unsigned short*)(action + 4);
                     *(unsigned char*)(var23 + 0x139) = (var22 != 0) ? 1 : 0;
@@ -333,7 +333,7 @@ extern "C" ARM void RunDeferredTriggerActions_0206f81c(void* triggerResult) {
                         var30.unknown_14_ = 1;
                     }
                 }
-                func_ov017_021b7104(var28, &var30);
+                ApplyBattleRequest_ov017_021b7104(var28, &var30);
                 AppendToQueue_020469b4(var27, (struct QueueNode_0201bdac*)var28);
                 break;
             }
@@ -382,7 +382,7 @@ extern "C" ARM void RunDeferredTriggerActions_0206f81c(void* triggerResult) {
                 if (party != NULL) {
                     int removedCount = 0;
                     for (int i = 0; i < *(unsigned short*)(action + 4); i++) {
-                        if (func_02086d88((unsigned char*)party, *(short*)(action + 2)) != 0) removedCount++;
+                        if (RemoveItemFromBagsOrHeldItems_02086d88((unsigned char*)party, *(short*)(action + 2)) != 0) removedCount++;
                     }
                     if (removedCount < *(unsigned short*)(action + 4)) {
                         var7 = (Struct_0203d028_2*)GameState::GetInstance();
@@ -395,7 +395,7 @@ extern "C" ARM void RunDeferredTriggerActions_0206f81c(void* triggerResult) {
                             if (partyMemberBase != NULL) {
                                 int memberData = func_02053c6c((unsigned char*)partyMemberBase);
                                 if (memberData != 0) {
-                                    struct Struct_0206f81c_8* equippedItem = (struct Struct_0206f81c_8*)func_02083554((struct Struct_0206f81c*)memberData, *(unsigned short*)(action + 2));
+                                    struct ItemData_0206f81c_8* equippedItem = (struct ItemData_0206f81c_8*)func_02083554((struct PartyMemberData_0206f81c*)memberData, *(unsigned short*)(action + 2));
                                     if (equippedItem != NULL) {
                                         UnequipCategory_02083738((void*)memberData, equippedItem->unknown_8_0_);
                                         unequippedMembers[unequippedCount] = ownPartyOrder[i];
@@ -436,7 +436,7 @@ extern "C" ARM void RunDeferredTriggerActions_0206f81c(void* triggerResult) {
                     void* party = GetParty_02010828((GameState*)gameState);
                     if (party == NULL) break;
                     int isRemoved = 0;
-                    if (func_02086d88((unsigned char*)party, *(short*)(action + 4)) != 0) isRemoved = 1;
+                    if (RemoveItemFromBagsOrHeldItems_02086d88((unsigned char*)party, *(short*)(action + 4)) != 0) isRemoved = 1;
                     if (isRemoved == 0) {
                         unsigned char ownPartyOrder[4];
                         unsigned char memberCount = GetOwnPartyOrder_02011494((char*)gameState, ownPartyOrder);
@@ -446,7 +446,7 @@ extern "C" ARM void RunDeferredTriggerActions_0206f81c(void* triggerResult) {
                             if (partyMemberBase != NULL) {
                                 int memberData = func_02053c6c((unsigned char*)partyMemberBase);
                                 if (memberData != 0) {
-                                    struct Struct_0206f81c_8* equippedItem = (struct Struct_0206f81c_8*)func_02083554((struct Struct_0206f81c*)memberData, *(short*)(action + 4));
+                                    struct ItemData_0206f81c_8* equippedItem = (struct ItemData_0206f81c_8*)func_02083554((struct PartyMemberData_0206f81c*)memberData, *(short*)(action + 4));
                                     if (equippedItem != NULL) {
                                         UnequipCategory_02083738((void*)memberData, equippedItem->unknown_8_0_);
                                         if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18())) {
@@ -568,7 +568,7 @@ extern "C" ARM void RunDeferredTriggerActions_0206f81c(void* triggerResult) {
         if (isTriggerReloadNeeded != 0 && var82->GetNumQueuedTasks() <= 0) {
             void* var83 = func_0205ec34();
             void* zone3D = GetZone3D_02012fe4();
-            func_0206461c(var83, *(int*)((char*)zone3D + 8));
+            LoadZoneTriggers_0206461c(var83, *(int*)((char*)zone3D + 8));
         }
         if (var3 != 0) {
             unsigned char* var85 = *(unsigned char**)((char*)gameResources + 0x3000 + REGION_VALUE(0x938, 0xb58));

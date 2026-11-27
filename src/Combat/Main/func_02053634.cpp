@@ -25,7 +25,7 @@ extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
-extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
+extern "C" void StopSoundEffect_0205eabc(void* manager, void* handle, int fadeDuration);
 extern "C" int func_02064a9c(void* arg0, void* arg1);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_ov017_021cc2f0(int);
@@ -210,7 +210,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                 if (var0[OBJECT_OFFSET(0x17c)] > 1) {
                     var25 = 1;
                     if (func_02053604((signed char*)var0) == 0x19) {
-                        func_0205eabc((void*)&gSoundEffectManager_02108760, var0 + OBJECT_OFFSET(0x198), 0);
+                        StopSoundEffect_0205eabc((void*)&gSoundEffectManager_02108760, var0 + OBJECT_OFFSET(0x198), 0);
                     }
                 }
                 if (((Object3D*)var0)->MaybeSetRegularAnimation(&data_020f0481, var25) != 0) {
@@ -272,7 +272,7 @@ extern "C" ARM void func_02053634(void* arg0) {
                 return;
             }
             if (func_02053604((signed char*)var0) == 0x19) {
-                func_0205eabc((void*)&gSoundEffectManager_02108760, var0 + OBJECT_OFFSET(0x198), 0);
+                StopSoundEffect_0205eabc((void*)&gSoundEffectManager_02108760, var0 + OBJECT_OFFSET(0x198), 0);
             }
             var0[OBJECT_OFFSET(0x17d)] = var0[OBJECT_OFFSET(0x17d)] + 1;
             if (var0[OBJECT_OFFSET(0x17d)] < var0[OBJECT_OFFSET(0x17c)]) {

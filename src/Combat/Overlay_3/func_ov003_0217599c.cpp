@@ -94,7 +94,7 @@ extern "C" int GetEquipRestrictions_020dd4c4(int, void *);
 extern "C" int GetEquippedItem_02052df8(Struct_02052df8 *, int);
 extern "C" void SetEquippedItem_02052d7c(Struct_ov003_0217599c *, int, short);
 extern "C" void *func_02053c6c(unsigned char *);
-extern "C" void func_0208358c(void *, Struct_ov003_0217599c_4 *, int);
+extern "C" void SetEquipment_0208358c(void *, Struct_ov003_0217599c_4 *, int);
 extern "C" void AddEquipmentToBag_0207c378(char *, int, int, int);
 static inline int inline_ov003_0217599c(unsigned int arg0) {
     return arg0 <= 7;
@@ -144,7 +144,7 @@ extern "C" ARM int func_ov003_0217599c(Struct_ov003_0217599c_2 *arg0) {
     int var9       = arg0->unknown_103a_ == var8;
     if (!var9) {
         SetEquippedItem_02052d7c(var2, var6, arg0->unknown_103a_);
-        func_0208358c(func_02053c6c((unsigned char *) var2), var3, -1);
+        SetEquipment_0208358c(func_02053c6c((unsigned char *) var2), var3, -1);
     }
     if (FindItemData_020dedd0(&arg0->unknown_874_, var8)) {
         AddEquipmentToBag_0207c378(var7 + 0x1d4, var8, 1, var4);

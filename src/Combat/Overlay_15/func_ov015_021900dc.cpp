@@ -2,7 +2,7 @@
 
 struct Struct_02029634_2;
 struct Struct_02029634;
-extern "C" struct Struct_02029634_2* func_0202a9ac(struct Struct_02029634* arg0, int arg1);
+extern "C" struct Struct_02029634_2* GetTextMenuEntry_0202a9ac(struct Struct_02029634* menu, int index);
 extern "C" void* func_02029560(void* arg0);
 extern "C" void* func_ov015_0218f39c(void* arg0, void* arg1);
 
@@ -17,7 +17,7 @@ struct Struct_ov015_021900dc {
 // USA: func_ov015_021900dc
 extern "C" ARM void func_ov015_021900dc(struct Struct_ov015_021900dc* arg0) {
 	struct Struct_02029634* var0 = (struct Struct_02029634*)((char*)arg0->unknown_0_ + 0x2c4);
-	struct Struct_02029634_2* var1 = func_0202a9ac(var0, arg0->unknown_38_);
+	struct Struct_02029634_2* var1 = GetTextMenuEntry_0202a9ac(var0, arg0->unknown_38_);
 	void* var2;
 	void* var3;
 	if (var1 == 0) {

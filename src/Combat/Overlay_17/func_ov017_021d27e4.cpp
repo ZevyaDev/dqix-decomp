@@ -21,8 +21,8 @@ extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" int ClearStatusFlags_02048418(unsigned char*, unsigned short);
 extern "C" void func_ov017_021d27a0(int, int, int);
 extern "C" void* FindActionData_02079e2c(char*, int);
-struct Struct_02048350_2;
-extern "C" int func_02048350(struct Struct_02048350_2*, int);
+struct PartyMember_02048350_2;
+extern "C" int SpendMP_02048350(struct PartyMember_02048350_2*, int);
 
 extern "C" void func_ov017_021a5a68();
 typedef void (*Type_ov017_021d27e4)(int tag, int first, int second);
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov017_021d27e4(void* arg0, Struct_ov017_021d27e4_2* arg
         if (var17 != NULL) {
             GameObject* var18 = GetPartyMemberBaseByIndex_0200ff1c(arg2, var1);
             if (var18 != NULL) {
-                func_02048350((struct Struct_02048350_2*)var18, var17->unknown_8_0_);
+                SpendMP_02048350((struct PartyMember_02048350_2*)var18, var17->unknown_8_0_);
                 func_ov017_021c9e00(var1, 0, 0, 1);
             }
         }

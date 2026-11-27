@@ -5,12 +5,12 @@ enum { Enum_02010954_2404 = 0x8cc };
 enum { Enum_02010954_2404 = 0x964 };
 #endif
 
-// USA: func_02010954
-extern "C" ARM void* func_02010954(char* arg0) {
-    int var0;
-    for (var0 = 0; var0 < 4; var0++) {
-        if (*(short*)(arg0 + var0 * Enum_02010954_2404 + 0x9dc) < 0) {
-            return arg0 + 0x474 + var0 * Enum_02010954_2404;
+// USA: FindFreePartyMemberData_02010954
+extern "C" ARM void* FindFreePartyMemberData_02010954(char* gameState) {
+    int i;
+    for (i = 0; i < 4; i++) {
+        if (*(short*)(gameState + i * Enum_02010954_2404 + 0x9dc) < 0) {
+            return gameState + 0x474 + i * Enum_02010954_2404;
         }
     }
     return NULL;

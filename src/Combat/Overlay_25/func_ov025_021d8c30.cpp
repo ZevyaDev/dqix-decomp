@@ -218,7 +218,7 @@ extern "C" void* func_ov025_021dafd0(char* arg0, int arg1);
 extern "C" void SendPartyMemberPanelStats_ov000_0217616c(void* panel);
 extern "C" void func_0204a00c(unsigned char* arg0, int arg1);
 extern "C" void func_0203a48c(Struct_0203a48c_3*, int, Struct_0203a48c_2*, int, int, int);
-extern "C" void func_02049f28(unsigned char* arg0);
+extern "C" void SetCombatantOnBattlefield_02049f28(unsigned char* combatant);
 extern "C" void func_02048588(unsigned char* arg0, unsigned char* arg1);
 extern "C" void func_ov000_02166784(struct Struct_ov000_02161c0c_3* arg0, unsigned char* arg1, unsigned char* arg2);
 extern "C" void func_ov000_021677fc(void* arg0);
@@ -775,7 +775,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
     }
 
     if (HasActionResultFlag_ov000_0215fd90(var49, 3)) {
-        func_02049f28((unsigned char*)var59);
+        SetCombatantOnBattlefield_02049f28((unsigned char*)var59);
         var59->obj3D_.MakeVisible();
         var59->obj3D_.SetInheritedAlpha(0x1f);
         if (var59->obj3D_.unknown_0_ & 0x100) {

@@ -84,10 +84,10 @@ extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* FindNPCById_0203df78(void* npcManager, int id);
 struct NPC_0203e0a0;
 extern "C" void* GetNPCPlacement_02040538(struct NPC_0203e0a0* npc);
-extern "C" int func_02010804(char* arg0);
+extern "C" int GetStorySubStep_02010804(char* gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 struct GameState_02010834;
-extern "C" void func_02010834(struct GameState_02010834* arg0, int arg1, int* arg2, int* arg3);
+extern "C" void GetOwnPartyMemberObjectIndices_02010834(struct GameState_02010834* arg0, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
 
 struct Struct_0205faf4_5 {
     int unknown_0_;
@@ -345,7 +345,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return 0;
     }
     case 35:
-        return CU16(2) == func_02010804((char*)(void*)GameState::GetInstance());
+        return CU16(2) == GetStorySubStep_02010804((char*)(void*)GameState::GetInstance());
     case 36: {
         struct Struct_0203d028_3* var31 = (Struct_0203d028_3*)((GameState*)((struct Struct_0203d028_2*)(void*)GameState::GetInstance()))->GetGameObjectByIndex(0);
         unsigned short var32 = CU16(2);
@@ -395,7 +395,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         struct Struct_0203d028_2* var40 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
         int var41[4];
         int var42;
-        func_02010834((struct GameState_02010834*)var40, GetProtagonistObjectIndex_020100a8((GameState*)var40), var41, &var42);
+        GetOwnPartyMemberObjectIndices_02010834((struct GameState_02010834*)var40, GetProtagonistObjectIndex_020100a8((GameState*)var40), var41, &var42);
         int var43;
         for (var43 = 0; var43 < var42; var43++) {
             struct Struct_0203d028_3* var44 = (Struct_0203d028_3*)((GameState*)var40)->GetGameObjectByIndex(var41[var43]);
@@ -474,7 +474,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         struct Struct_0203d028_2* var61 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
         int var62[4];
         int var63;
-        func_02010834((struct GameState_02010834*)var61, GetProtagonistObjectIndex_020100a8((GameState*)var61), var62, &var63);
+        GetOwnPartyMemberObjectIndices_02010834((struct GameState_02010834*)var61, GetProtagonistObjectIndex_020100a8((GameState*)var61), var62, &var63);
         int var64;
         for (var64 = 0; var64 < var63; var64++) {
             struct Struct_0203d028_3* var65 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var61, var62[var64]);
@@ -721,7 +721,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         struct Struct_0203d028_2* var102 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
         int var103[4];
         int var104;
-        func_02010834((struct GameState_02010834*)var102, GetProtagonistObjectIndex_020100a8((GameState*)var102), var103, &var104);
+        GetOwnPartyMemberObjectIndices_02010834((struct GameState_02010834*)var102, GetProtagonistObjectIndex_020100a8((GameState*)var102), var103, &var104);
         int var105;
         for (var105 = 0; var105 < var104; var105++) {
             struct Struct_0203d028_3* var106 = (Struct_0203d028_3*)((GameState*)var102)->GetPartyMemberByIndex(var103[var105]);
@@ -862,7 +862,7 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         struct Struct_0203d028_2* var136 = (struct Struct_0203d028_2*)(void*)GameState::GetInstance();
         int var137[4];
         int var138;
-        func_02010834((struct GameState_02010834*)var136, GetProtagonistObjectIndex_020100a8((GameState*)var136), var137, &var138);
+        GetOwnPartyMemberObjectIndices_02010834((struct GameState_02010834*)var136, GetProtagonistObjectIndex_020100a8((GameState*)var136), var137, &var138);
         int var139;
         for (var139 = 0; var139 < var138; var139++) {
             struct Struct_0203d028_3* var140 = (Struct_0203d028_3*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var136, var137[var139]);

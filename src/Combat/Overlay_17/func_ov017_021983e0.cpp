@@ -16,7 +16,7 @@ extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures, unsigned int type);
-extern "C" int func_02094b9c(void* arg0, void* arg1);
+extern "C" int IsInsideZoneFeature_02094b9c(void* feature, void* position);
 int fix32ReduceAngle0To2Pi(int angle);
 extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char* prompt);
 extern "C" void func_ov017_0218da48(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov017_021983e0(unsigned char* arg0) {
             struct Struct_ov017_021983e0_2 var3 = *(struct Struct_ov017_021983e0_2*)((char*)var2 + 0x44);
             struct Struct_ov017_021983e0_3* var4 = (struct Struct_ov017_021983e0_3*)GetFirstZoneFeatureOfType_0201e838((unsigned char*)var1 + Enum_ov017_021983e0_108, 5);
             while (var4 != NULL) {
-                if (func_02094b9c(var4, &var3) != 0) {
+                if (IsInsideZoneFeature_02094b9c(var4, &var3) != 0) {
                     int var5 = (short)fix32ReduceAngle0To2Pi(var4->unknown_20_ + 0x3244);
                     func_ov017_0218da48(arg0, var5, 0xccc, 0x800 - 0xccc, 0);
                     struct Struct_ov017_021983e0 var6;

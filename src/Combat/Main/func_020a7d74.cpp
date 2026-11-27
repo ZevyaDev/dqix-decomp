@@ -5,7 +5,7 @@ extern "C" int func_02033f5c(unsigned char* arg0);
 extern "C" void* func_02033fc4(void* arg0);
 extern "C" int func_0204be78(unsigned short* arg0);
 struct Struct_02033f44;
-extern "C" void* func_02033f44(Struct_02033f44*);
+extern "C" void* GetCollidedWallTriangle_02033f44(Struct_02033f44*);
 extern "C" int func_0204bea0(unsigned short* arg0);
 extern "C" int func_0204be90(unsigned short* arg0);
 
@@ -54,7 +54,7 @@ extern "C" ARM int func_020a7d74(struct Struct_020a7d74_2* arg0, int* arg1, int*
     var3.z = var7;
     Vector3fix_Normalize(&var3, &var3);
 
-    struct Struct_020a7d74* var8 = (struct Struct_020a7d74*)func_02033f44((Struct_02033f44*)arg0);
+    struct Struct_020a7d74* var8 = (struct Struct_020a7d74*)GetCollidedWallTriangle_02033f44((Struct_02033f44*)arg0);
     int var9 = var8->unknown_24_.z;
     int var10 = var8->unknown_24_.x;
     var4.y = 0;

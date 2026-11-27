@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_020493ec(unsigned char* arg0);
+extern "C" int GetCombatantReservedCell_020493ec(unsigned char* combatant);
 extern "C" int GetCombatantCell_020493a4(unsigned char* combatant);
 extern "C" void func_020493dc(unsigned char* arg0, unsigned char arg1);
 
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov025_021e1ff4(unsigned char* arg0, int arg1, unsigned 
             if (var3 == arg3->unknown_4_ || var3 == arg4->unknown_4_) {
                 continue;
             }
-            int var4 = func_020493ec(var2);
+            int var4 = GetCombatantReservedCell_020493ec(var2);
             if (var4 >= 0x51) {
                 var4 = GetCombatantCell_020493a4(var2);
             }

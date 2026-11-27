@@ -66,7 +66,7 @@ extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void func_0202ae18();
 extern "C" void func_020545b8(Struct_020545b8*);
-extern "C" void func_020542b4(Struct_020545b8*, SafeAllocator*, Struct_ov017_0218f064_8*);
+extern "C" void InitPartyMemberSlotAllocators_020542b4(Struct_020545b8*, SafeAllocator*, Struct_ov017_0218f064_8*);
 extern "C" int func_ov017_021925e0();
 extern "C" void* func_ov017_021a11b4(Struct_ov017_0218f064_6*);
 extern "C" void func_02054464(Struct_020545b8*, SafeAllocator*, Struct_ov017_0218f064_8*);
@@ -92,7 +92,7 @@ static inline Struct_ov017_0218f064_8* inline_ov017_0218f064_2(GameResources* ar
 
 // USA: CreatePartyMemberObject_ov017_0218f064
 // JPN: func_ov017_0218fc44
-extern "C" ARM void CreatePartyMemberObject_ov017_0218f064(GameResources* gameResources, int memberIndex, int arg2, int requestModelLoad, int arg4) {
+extern "C" ARM void CreatePartyMemberObject_ov017_0218f064(GameResources* gameResources, int memberIndex, int kind, int requestModelLoad, int arg4) {
     GameState* gameState = GameState::GetInstance();
 #if !defined(jpn)
     Zone3D* zone;
@@ -107,7 +107,7 @@ extern "C" ARM void CreatePartyMemberObject_ov017_0218f064(GameResources* gameRe
     int hasPartObjects = 1;
     SafeAllocator* allocator;
     Struct_020545b8* var6;
-    if (arg2 == 0x4000) {
+    if (kind == 0x4000) {
 #if defined(jpn)
         var6 = var3->unknown_1b58_;
 #else
@@ -122,7 +122,7 @@ extern "C" ARM void CreatePartyMemberObject_ov017_0218f064(GameResources* gameRe
         Struct_ov017_0218f064_8* var10 = &var9[21];
         ((TextureArena*)((TextureVRAMArea_0203d028*)var10))->Reset();
         func_020545b8(var6);
-        func_020542b4(var6, var8, var10);
+        InitPartyMemberSlotAllocators_020542b4(var6, var8, var10);
     } else {
         if (func_ov017_021925e0()) {
             for (int i = 0; i < 4; ++i) {
@@ -136,8 +136,8 @@ extern "C" ARM void CreatePartyMemberObject_ov017_0218f064(GameResources* gameRe
         SafeAllocator* var13 = &gameResources->allocator_array_38[var12];
         Struct_ov017_0218f064_8* var14 = &((Struct_ov017_0218f064_9*)gameResources)->unknown_2cc_[var12];
         func_020545b8(var6);
-        if (arg2 == 4) func_02054464(var6, var13, var14);
-        else func_020542b4(var6, var13, var14);
+        if (kind == 4) func_02054464(var6, var13, var14);
+        else InitPartyMemberSlotAllocators_020542b4(var6, var13, var14);
     }
     Struct_ov017_0218f064* var15 = (Struct_ov017_0218f064*)gameResources;
     if (var15->unknown_4334_) { var15->unknown_4334_->Destroy(); var15->unknown_4334_ = 0; }
@@ -146,20 +146,20 @@ extern "C" ARM void CreatePartyMemberObject_ov017_0218f064(GameResources* gameRe
     if (var15->unknown_4340_) { var15->unknown_4340_->Destroy(); var15->unknown_4340_ = 0; }
     allocator->Reset();
     Struct_ov017_0218f064_5* partyMember = 0;
-    if (arg2 == 0x800) {
+    if (kind == 0x800) {
         partyMember = (Struct_ov017_0218f064_5*)allocator->Allocate(Enum_ov017_0218f064_720);
         func_02037d10(partyMember);
-    } else if (arg2 == 0x200) {
+    } else if (kind == 0x200) {
         partyMember = (Struct_ov017_0218f064_5*)allocator->Allocate(Enum_ov017_0218f064_720);
         func_02048104((Struct_02048104*)partyMember);
-    } else if (arg2 == 0x1000) {
+    } else if (kind == 0x1000) {
         partyMember = (Struct_ov017_0218f064_5*)allocator->Allocate(Enum_ov017_0218f064_724);
         func_02054664((Struct_02054664*)partyMember);
         if (partyMember) partyMember->unknown_2d2_ = func_ov017_02192548();
-    } else if (arg2 == 0x4000) {
+    } else if (kind == 0x4000) {
         partyMember = (Struct_ov017_0218f064_5*)allocator->Allocate(Enum_ov017_0218f064_760);
         func_020415d8((Struct_020415d8*)partyMember);
-    } else if (arg2 == 4) {
+    } else if (kind == 4) {
         partyMember = (Struct_ov017_0218f064_5*)allocator->Allocate(Enum_ov017_0218f064_724);
         func_02054664((Struct_02054664*)partyMember);
         if (partyMember) partyMember->unknown_2d2_ = func_ov017_02192548();
@@ -171,33 +171,33 @@ extern "C" ARM void CreatePartyMemberObject_ov017_0218f064(GameResources* gameRe
     var6->unknown_0_ = (short)memberIndex;
     SetGameObjectByIndex_0200fd38(gameState, memberIndex, (GameObject*)partyMember);
     if (hasPartObjects) {
-        Struct_ov017_0218f064_7* var17 = (Struct_ov017_0218f064_7*)allocator->Allocate(0x764);
-        if (!var17) func_020c9be0();
-        var17->unknown_0_[0].Initialize();
-        var17->unknown_0_[2].Initialize();
-        var17->unknown_0_[1].Initialize();
-        var17->unknown_0_[3].Initialize();
-        var17->unknown_0_[4].Initialize();
-        var17->unknown_0_[5].Initialize();
-        Object3D* var18 = &var17->unknown_0_[6];
+        Struct_ov017_0218f064_7* partObjects = (Struct_ov017_0218f064_7*)allocator->Allocate(0x764);
+        if (!partObjects) func_020c9be0();
+        partObjects->unknown_0_[0].Initialize();
+        partObjects->unknown_0_[2].Initialize();
+        partObjects->unknown_0_[1].Initialize();
+        partObjects->unknown_0_[3].Initialize();
+        partObjects->unknown_0_[4].Initialize();
+        partObjects->unknown_0_[5].Initialize();
+        Object3D* var18 = &partObjects->unknown_0_[6];
         var18->Initialize();
-        Object3D* var19 = &var17->unknown_0_[7];
+        Object3D* var19 = &partObjects->unknown_0_[7];
         var19->Initialize();
-        var17->unknown_0_[8].Initialize();
-        Object3D* var20 = &var17->unknown_0_[9];
+        partObjects->unknown_0_[8].Initialize();
+        Object3D* var20 = &partObjects->unknown_0_[9];
         var20->Initialize();
-        Object3D* var21 = &var17->unknown_0_[10];
+        Object3D* var21 = &partObjects->unknown_0_[10];
         var21->Initialize();
         int partIndexBase = memberIndex * 12;
-        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x13, (GameObject*)&var17->unknown_0_[0]);
-        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x14, (GameObject*)&var17->unknown_0_[1]);
-        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x15, (GameObject*)&var17->unknown_0_[2]);
-        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x16, (GameObject*)&var17->unknown_0_[3]);
-        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x17, (GameObject*)&var17->unknown_0_[5]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x13, (GameObject*)&partObjects->unknown_0_[0]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x14, (GameObject*)&partObjects->unknown_0_[1]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x15, (GameObject*)&partObjects->unknown_0_[2]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x16, (GameObject*)&partObjects->unknown_0_[3]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x17, (GameObject*)&partObjects->unknown_0_[5]);
         SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x18, (GameObject*)var18);
         SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x19, (GameObject*)var19);
-        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x1a, (GameObject*)&var17->unknown_0_[8]);
-        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x1b, (GameObject*)&var17->unknown_0_[4]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x1a, (GameObject*)&partObjects->unknown_0_[8]);
+        SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x1b, (GameObject*)&partObjects->unknown_0_[4]);
         SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x1c, (GameObject*)var20);
         SetGameObjectByIndex_0200fd38(gameState, partIndexBase + 0x1d, (GameObject*)var21);
     }
@@ -209,7 +209,7 @@ extern "C" ARM void CreatePartyMemberObject_ov017_0218f064(GameResources* gameRe
     partyMember->unknown_0_.position_ = zoneEntry->unknown_10_;
     SetObject3DRotation_0203db34((unsigned char*)partyMember, partyMember->unknown_0_.rotation_.x, zoneEntry->unknown_1c_, partyMember->unknown_0_.rotation_.z);
     SetMotion_02033b88((Struct_02010604*)partyMember, 0);
-    if (arg2 == 0x4000) {
+    if (kind == 0x4000) {
 #if defined(jpn)
         char* var23 = var3->unknown_1b5c_;
 #else

@@ -16,11 +16,11 @@ struct Struct_ov031_0220eea0_2 {
     Struct_ov031_0220eea0* unknown_2270_;
     unsigned int unknown_2274_;
 };
-extern "C" Struct_ov031_0220eea0_2* func_ov031_0220d60c();
+extern "C" Struct_ov031_0220eea0_2* GetAccessPointConnection_ov031_0220d60c();
 
 // USA: func_ov031_0220eea0
 extern "C" ARM void func_ov031_0220eea0(Struct_ov031_0220eea0_3* arg0) {
-    Struct_ov031_0220eea0_2* var0 = func_ov031_0220d60c();
+    Struct_ov031_0220eea0_2* var0 = GetAccessPointConnection_ov031_0220d60c();
     Struct_ov031_0220eea0* var1 = var0->unknown_2270_;
     if (!arg0 || !var1) return;
     if (var0->unknown_2274_ <= 12) return;

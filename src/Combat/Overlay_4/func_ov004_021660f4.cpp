@@ -14,11 +14,11 @@ struct Struct_ov004_021660f4_2 {
 };
 #if defined(jpn)
 struct Struct_ov004_0217101c { unsigned int unknown_0_; struct Struct_ov004_021660f4_2* unknown_4_; };
-extern Struct_ov004_0217101c data_ov004_0217101c;
-#define CONTEXT_VALUE data_ov004_0217101c.unknown_4_
+extern Struct_ov004_0217101c gQuestList_ov004_0217101c;
+#define CONTEXT_VALUE gQuestList_ov004_0217101c.unknown_4_
 #else
-extern struct Struct_ov004_021660f4_2* data_ov004_0217101c;
-#define CONTEXT_VALUE data_ov004_0217101c
+extern struct Struct_ov004_021660f4_2* gQuestList_ov004_0217101c;
+#define CONTEXT_VALUE gQuestList_ov004_0217101c
 #endif
 
 // USA: func_ov004_021660f4

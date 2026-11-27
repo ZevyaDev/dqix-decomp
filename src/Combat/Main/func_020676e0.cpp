@@ -50,7 +50,7 @@ extern "C" int GetResources_0200fb8c(int*);
 extern "C" int func_020a27c4(Struct_020676e0*);
 extern "C" int func_ov017_021a4e70(unsigned char*);
 extern "C" int func_0205cecc(void*);
-extern "C" int func_0205cb64(void*);
+extern "C" int GetChoiceListCursorIndex_0205cb64(void*);
 
 // USA: func_020676e0
 extern "C" ARM void func_020676e0(Struct_020676e0_4* arg0, int arg1) {
@@ -92,7 +92,7 @@ extern "C" ARM void func_020676e0(Struct_020676e0_4* arg0, int arg1) {
     }
     int var8 = -1;
     if (var0) var8 = func_0205cecc(arg0->unknown_90_);
-    if (var1) var8 = func_0205cb64(arg0->unknown_90_);
+    if (var1) var8 = GetChoiceListCursorIndex_0205cb64(arg0->unknown_90_);
     else if (var2) var8 = -2;
     arg0->unknown_954_ = var8;
     (arg0->*data_020f08b8[var5])(var8);

@@ -8,7 +8,7 @@ struct Struct_ov031_0223c40c {
 struct Struct_ov031_0223bf2c;
 extern Struct_ov031_0223c40c* data_ov031_02290d38;
 extern Struct_ov031_0223c40c* data_ov031_02290d38_dup;
-extern "C" void func_ov031_0223b710(int);
+extern "C" void FreeLoadedFile_ov031_0223b710(int);
 extern "C" void FreeAndClearPointer_ov031_0223cf70(void*);
 extern "C" void func_ov031_0223bf2c(Struct_ov031_0223bf2c);
 typedef void (*Type_ov031_0223c40c)(int);
@@ -17,7 +17,7 @@ typedef void (*Type_ov031_0223c40c)(int);
 extern "C" ARM void func_ov031_0223c40c() {
     int var0 = 0;
     do {
-        func_ov031_0223b710(data_ov031_02290d38->unknown_674_[var0]);
+        FreeLoadedFile_ov031_0223b710(data_ov031_02290d38->unknown_674_[var0]);
         var0++;
     } while (var0 < 2);
     ((Type_ov031_0223c40c)func_ov031_0223bf2c)(data_ov031_02290d38->unknown_670_);

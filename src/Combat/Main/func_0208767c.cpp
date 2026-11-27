@@ -3,7 +3,7 @@
 #include "Util/Random.h"
 
 extern "C" int func_0208810c(unsigned char* arg0);
-extern "C" void func_02088150(void* arg0);
+extern "C" void SetSuperHighTension_02088150(void* stats);
 
 // USA: func_0208767c
 extern "C" ARM int func_0208767c(unsigned char* arg0, struct Random* arg1) {
@@ -16,7 +16,7 @@ extern "C" ARM int func_0208767c(unsigned char* arg0, struct Random* arg1) {
     if (++arg0[0x24] >= 4) {
         if (func_0208810c(arg0)) {
             arg0[0x24] = 4;
-            func_02088150(arg0);
+            SetSuperHighTension_02088150(arg0);
         }
     }
     return arg0[0x24];

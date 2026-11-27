@@ -10,25 +10,25 @@ enum { Enum_0203e2c4_32376 = 0x7e78 };
 #include "GameState/GameState.h"
 #include "NitroSDK/Matrix.h"
 
-struct Struct_0203e0a0_2 {
-    short unknown_0_;
-    short unknown_2_;
-    short unknown_4_;
-    short unknown_6_;
-    unsigned short unknown_8_0_ : 9;
+struct SavedNPCState_0203e0a0_2 {
+    short x_0_;
+    short y_2_;
+    short z_4_;
+    short angle_6_;
+    unsigned short npcId_8_0_ : 9;
     unsigned short unknown_9_1_ : 1;
     unsigned short unknown_9_2_ : 5;
     unsigned short unknown_9_7_ : 1;
 };
 
-struct Struct_0203e0a0_3 {
+struct NPCManager_0203e0a0_3 {
     unsigned char unknown_0_[0xc];
-    NPC_0203dce4 *unknown_c_[32];
-    unsigned int unknown_8c_;
+    NPC_0203dce4 *npcs_c_[32];
+    unsigned int npcCount_8c_;
     unsigned char unknown_90_[0xe];
-    Struct_0203e0a0_2 unknown_9e_[32];
+    SavedNPCState_0203e0a0_2 savedStates_9e_[32];
     unsigned short unknown_1de_;
-    unsigned short unknown_1e0_;
+    unsigned short savedNPCCount_1e0_;
     unsigned short unknown_1e2_;
     unsigned int unknown_1e4_;
 };
@@ -57,37 +57,37 @@ struct Struct_0203e2c4 {
 
 struct Struct_02033834;
 struct NPC_0203e2c4_2;
-struct Struct_0203d028_15;
+struct NPC_0203d028_15;
 
 extern "C" void *FindNPCById_0203df78(void *npcManager, int id);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834 *object, int angle);
 extern "C" void SetNPCFacingInstantly_02040b2c(struct NPC_0203e2c4_2 *npc, int angle);
-extern "C" void func_02040774(struct Struct_0203d028_15 *arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNPCPosition_02040774(struct NPC_0203d028_15 *npc, int x, int y, int z);
 
 // USA: func_0203e2c4
 extern "C" ARM void func_0203e2c4(void *arg0, unsigned short arg1) {
-    Struct_0203e0a0_3 *var0 = static_cast<Struct_0203e0a0_3 *>(arg0);
+    NPCManager_0203e0a0_3 *var0 = static_cast<NPCManager_0203e0a0_3 *>(arg0);
     if (var0->unknown_1de_ == arg1) {
-        Struct_0203e0a0_2 *var1 = var0->unknown_9e_;
-        for (int var2 = 0; var2 < var0->unknown_1e0_; ++var1, ++var2) {
-            NPC_0203dce4 **var3 = var0->unknown_c_;
-            for (unsigned int var4 = 0; var4 < var0->unknown_8c_; ++var3, ++var4) {
+        SavedNPCState_0203e0a0_2 *var1 = var0->savedStates_9e_;
+        for (int var2 = 0; var2 < var0->savedNPCCount_1e0_; ++var1, ++var2) {
+            NPC_0203dce4 **var3 = var0->npcs_c_;
+            for (unsigned int var4 = 0; var4 < var0->npcCount_8c_; ++var3, ++var4) {
                 NPC_0203dce4 *var5 = *var3;
                 unsigned short *var6 = (unsigned short *) GetNPCData_02040528(&var5->flags_0_);
                 void *var7 = GetNPCPlacement_02040538((NPC_0203e0a0 *) var5);
                 if (var6 == NULL || var7 == NULL) {
                     continue;
                 }
-                if (*var6 != var1->unknown_8_0_) {
+                if (*var6 != var1->npcId_8_0_) {
                     continue;
                 }
                 Vector3i var8;
-                var8.x = var1->unknown_0_ << 4;
-                var8.y = var1->unknown_2_ << 4;
-                var8.z = var1->unknown_4_ << 4;
-                short var9 = var1->unknown_6_;
-                if (var5->unknown_14_ != NULL) {
-                    *(Vector3i *) ((char*)var5->unknown_14_ + 4) = var8;
+                var8.x = var1->x_0_ << 4;
+                var8.y = var1->y_2_ << 4;
+                var8.z = var1->z_4_ << 4;
+                short var9 = var1->angle_6_;
+                if (var5->pSprite_14_ != NULL) {
+                    *(Vector3i *) ((char*)var5->pSprite_14_ + 4) = var8;
                 } else if (var5->unknown_18_ != NULL) {
                     *(Vector3i *) ((char*)var5->unknown_18_ + 0x44) = var8;
                 } else if (var5->unknown_1c_ != NULL) {
@@ -130,9 +130,9 @@ extern "C" ARM void func_0203e2c4(void *arg0, unsigned short arg1) {
     GameState *var12 = GameState::GetInstance();
     Struct_0203e2c4 *var13 = (Struct_0203e2c4 *) ((char *) var12 + Enum_0203e2c4_32376);
     if (var13->unknown_6_ != 0xff) {
-        struct Struct_0203d028_15 *var14 = (struct Struct_0203d028_15 *) FindNPCById_0203df78(var0, var13->unknown_6_);
+        struct NPC_0203d028_15 *var14 = (struct NPC_0203d028_15 *) FindNPCById_0203df78(var0, var13->unknown_6_);
         if (var14 != NULL) {
-            func_02040774(var14, var13->unknown_0_ << 4, var13->unknown_2_ << 4, var13->unknown_4_ << 4);
+            SetNPCPosition_02040774(var14, var13->unknown_0_ << 4, var13->unknown_2_ << 4, var13->unknown_4_ << 4);
         }
         var13->unknown_6_ = 0xff;
     }

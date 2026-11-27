@@ -19,7 +19,7 @@ extern signed char data_ov031_0224910c[];
 
 struct Struct_ov031_02232950 { unsigned char unknown_0_[0x1d]; unsigned char unknown_1d_; };
 struct Struct_ov031_02290cc0_3 { unsigned char unknown_0_; unsigned char unknown_1_[3]; Struct_ov031_02232950 *unknown_4_; };
-extern Struct_ov031_02290cc0_3 data_ov031_02290cc0;
+extern Struct_ov031_02290cc0_3 gConnectionListPage_ov031_02290cc0;
 
 // USA: func_ov031_02232950
 extern "C" ARM void func_ov031_02232950(void) {
@@ -40,7 +40,7 @@ handleZero:
 
 setField1dAndFinal:
     PlayWifiSetupSoundEffect_ov031_02236878(7);
-    data_ov031_02290cc0.unknown_4_->unknown_1d_ = 2;
+    gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_1d_ = 2;
     goto final;
 
 handleF8One:
@@ -50,8 +50,8 @@ handleF8One:
 
 handleOne:
     {
-        data_ov031_02290cc0.unknown_4_->unknown_1d_ = 1;
-        unsigned char var2 = data_ov031_02290cc0.unknown_0_;
+        gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_1d_ = 1;
+        unsigned char var2 = gConnectionListPage_ov031_02290cc0.unknown_0_;
         if (var2 < 4) goto lowField0;
 
         int var3 = var2 - 4;
@@ -73,7 +73,7 @@ handleOne:
 
 lowField0:
     {
-        unsigned char var7 = data_ov031_02290cc0.unknown_0_;
+        unsigned char var7 = gConnectionListPage_ov031_02290cc0.unknown_0_;
         if (var7 <= 2) {
             func_ov031_02236094();
         }

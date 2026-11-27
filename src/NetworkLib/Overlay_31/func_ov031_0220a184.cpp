@@ -30,7 +30,7 @@ extern "C" void func_ov031_02207d3c(unsigned int);
 extern "C" void func_ov031_022098ac(void*, int, int);
 extern unsigned char data_ov031_02245fa8[8];
 extern void* (*data_ov031_0224c994)(unsigned int);
-extern int (*data_ov031_0224c9c0)(void*);
+extern int (*gIPStackFreeFunction_ov031_0224c9c0)(void*);
 
 // USA: func_ov031_0220a184
 extern "C" ARM int func_ov031_0220a184(Struct_ov031_0220a184* arg0) {
@@ -59,7 +59,7 @@ extern "C" ARM int func_ov031_0220a184(Struct_ov031_0220a184* arg0) {
     VectorizedInvertedMemcpy(var0, var4 + var5 - 0x30, 0x30);
     var1 = (unsigned short*)data_ov031_0224c994(var3 * 8);
     if (var1 == 0) {
-        data_ov031_0224c9c0(var4);
+        gIPStackFreeFunction_ov031_0224c9c0(var4);
         var0->unknown_455_ = 9;
         return 9;
     }
@@ -74,8 +74,8 @@ extern "C" ARM int func_ov031_0220a184(Struct_ov031_0220a184* arg0) {
     func_ov031_02207d3c(var8);
     unsigned char* var9 = (unsigned char*)data_ov031_0224c994(var5 + 0x49);
     if (var9 == 0) {
-        data_ov031_0224c9c0(var4);
-        data_ov031_0224c9c0(var1);
+        gIPStackFreeFunction_ov031_0224c9c0(var4);
+        gIPStackFreeFunction_ov031_0224c9c0(var1);
         var0->unknown_455_ = 9;
         return 9;
     }
@@ -102,7 +102,7 @@ extern "C" ARM int func_ov031_0220a184(Struct_ov031_0220a184* arg0) {
     }
     func_ov031_022037a8(var9, var5 + 9, 0, 0, arg0);
     func_ov031_022098ac(var0, (int)(var9 + 5), var5 + 4);
-    data_ov031_0224c9c0(var9);
-    data_ov031_0224c9c0(var1);
-    return data_ov031_0224c9c0(var4);
+    gIPStackFreeFunction_ov031_0224c9c0(var9);
+    gIPStackFreeFunction_ov031_0224c9c0(var1);
+    return gIPStackFreeFunction_ov031_0224c9c0(var4);
 }

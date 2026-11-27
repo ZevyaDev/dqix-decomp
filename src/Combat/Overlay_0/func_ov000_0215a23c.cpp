@@ -56,7 +56,7 @@ extern "C" int func_02085230(unsigned char* arg0);
 extern "C" int func_ov000_02158324(GameObject* arg0);
 extern "C" int func_ov000_0215830c(GameObject* arg0);
 extern "C" int GetLevel_0202053c(void* gameObject);
-extern "C" short func_ov000_0215a16c(void* arg0, int arg1, int arg2, short* arg3);
+extern "C" short HealCombatant_ov000_0215a16c(void* battle, int combatantIndex, int amount, short* healedAmount);
 extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" int IsEnvenomated_02088514(Struct_02088514* stats);
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
                 var15 += var16;
             }
             if (var15 > 0) {
-                var5[var9] = func_ov000_0215a16c(arg0, var11[var13], var15, &var3[var9]);
+                var5[var9] = HealCombatant_ov000_0215a16c(arg0, var11[var13], var15, &var3[var9]);
                 var6[var9] = var11[var13];
                 var4[var9] = 0;
                 var4[var9] |= 0x4000000000ULL;

@@ -43,14 +43,14 @@ struct GlobalFlags_02012de8;
 extern "C" unsigned short func_0202df58();
 extern "C" void* func_020d6c00();
 extern "C" int func_02046708(GlobalFlags_02012de8*, unsigned int);
-extern "C" int func_0202d6a8();
+extern "C" int GetLocalWirelessLinkState_0202d6a8();
 extern "C" int func_0202d8e8();
 extern "C" void func_0202db64(int, int, int);
 extern "C" void func_0202bc00(LocalWireless_0202b2f0*, int);
 extern "C" void func_0202bf40(LocalWireless_0202b2f0*);
 extern "C" void func_0202c04c(LocalWireless_0202b2f0*);
 extern "C" int IsNotLocalWirelessGuest_0202c508(LocalWireless_0202b2f0*);
-extern "C" unsigned short func_0202bc8c(LocalWireless_0202b2f0*);
+extern "C" unsigned short GetConnectedConsoleMask_0202bc8c(LocalWireless_0202b2f0*);
 extern "C" signed char FindConsoleByProtagonistObjectIndex_0202bcbc(LocalWireless_0202b2f0*, int);
 extern "C" int func_0202bd34(LocalWireless_0202b2f0*, int);
 extern "C" void RemoveLocalWirelessPlayer_0202c21c(LocalWireless_0202b2f0*, int);
@@ -85,7 +85,7 @@ extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
         arg0->unknown_0_ = -1;
         return;
     }
-    switch (func_0202d6a8()) {
+    switch (GetLocalWirelessLinkState_0202d6a8()) {
     case 7: {
         int var7 = func_0202d8e8();
         arg0->unknown_4_++;
@@ -127,7 +127,7 @@ extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
         }
     } else if (IsNotLocalWirelessGuest_0202c508(arg0)) {
         if (arg0->unknown_1011_) {
-            unsigned int var10 = func_0202bc8c(arg0);
+            unsigned int var10 = GetConnectedConsoleMask_0202bc8c(arg0);
             var0 = &arg0->unknown_7c0_;
             unsigned int var11 = var0->unknown_2_1_;
             for (int var12 = 1; var12 < 4; var12++) {

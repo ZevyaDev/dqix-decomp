@@ -37,7 +37,7 @@ extern "C" int func_0204a0f8(unsigned char* arg0);
 extern "C" void func_0204a0e0(unsigned char* arg0);
 extern "C" int func_0204a040(unsigned char* arg0);
 extern "C" void func_0204a030(unsigned char* arg0, int arg1);
-extern "C" void func_02033920(GameObject* arg0, int arg1, int arg2);
+extern "C" void FaceGameObject_02033920(GameObject* object, int targetObjectIndex, int isTurnAnimated);
 
 // USA: func_ov025_021eb8e8
 extern "C" ARM void func_ov025_021eb8e8(Struct_ov025_021eb8e8_2* arg0) {
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov025_021eb8e8(Struct_ov025_021eb8e8_2* arg0) {
             func_0204a0e0((unsigned char*)var7);
         }
         if (func_0204a040((unsigned char*)var7) != 0xff) {
-            func_02033920(var7, func_0204a040((unsigned char*)var7), 1);
+            FaceGameObject_02033920(var7, func_0204a040((unsigned char*)var7), 1);
             func_0204a030((unsigned char*)var7, 0xff);
         }
     }

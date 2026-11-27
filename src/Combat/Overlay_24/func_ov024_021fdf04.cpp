@@ -113,7 +113,7 @@ extern "C" int IsAsleep_020882f8(unsigned char*);
 struct Struct_ov024_021da670_7;
 extern "C" int IsParalysed_ov024_021da9b0(Struct_ov024_021da670_7*);
 struct Struct_ov024_021dced0_2;
-extern "C" int func_ov024_021dd010(Struct_ov024_021dced0_2*);
+extern "C" int IsSpellcastingBlocked_ov024_021dd010(Struct_ov024_021dced0_2*);
 struct Struct_ov024_021de124;
 extern "C" int IsConfused_ov024_021de25c(Struct_ov024_021de124*);
 struct Struct_ov024_021da670_8;
@@ -223,7 +223,7 @@ extern "C" ARM void func_ov024_021fdf04(Struct_ov024_021fdf04_5* arg0, int arg1)
                 if (IsParalysed_ov024_021da9b0((Struct_ov024_021da670_7*)var22) == 0) var24 = 1;
                 var25 = 1;
             } else if (arg1 == 6) {
-                if (func_ov024_021dd010((Struct_ov024_021dced0_2*)var22) == 0) var24 = 1;
+                if (IsSpellcastingBlocked_ov024_021dd010((Struct_ov024_021dced0_2*)var22) == 0) var24 = 1;
                 var25 = 1;
             } else if (arg1 == 7) {
                 if (IsConfused_ov024_021de25c((Struct_ov024_021de124*)var22) == 0) var24 = 1;

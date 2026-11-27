@@ -72,7 +72,7 @@ extern "C" const short data_ov023_021fd5a8[2] __attribute__((aligned(4)));
 extern "C" void InitTextWindow_0204c684(Struct_ov023_021e0f44_2* textWindow);
 extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void __clear(void* arg0, unsigned long arg1);
-extern "C" Struct_ov023_021e0f44_4* func_ov023_021db4e4(Struct_ov023_021e0f44* arg0, int arg1);
+extern "C" Struct_ov023_021e0f44_4* FindLayoutGroup_ov023_021db4e4(Struct_ov023_021e0f44* layout, int groupId);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4);
 extern "C" void CopyCapitalizedText_0206819c(const char* text, char* outText, int font);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
@@ -82,14 +82,14 @@ extern "C" unsigned int func_ov023_021ddc98(Struct_ov023_021e0f44_2* arg0, unsig
 
 #define SHOW_ELEMENT(layout, id)                                         \
     {                                                                    \
-        Struct_ov023_021e0f44_4* element = func_ov023_021db4e4(layout, id); \
+        Struct_ov023_021e0f44_4* element = FindLayoutGroup_ov023_021db4e4(layout, id); \
         if (element != NULL)                                             \
             element->unknown_16_ |= 1;                                        \
     }
 
 #define HIDE_ELEMENT(layout, id)                                         \
     {                                                                    \
-        Struct_ov023_021e0f44_4* element = func_ov023_021db4e4(layout, id); \
+        Struct_ov023_021e0f44_4* element = FindLayoutGroup_ov023_021db4e4(layout, id); \
         if (element != NULL)                                             \
             element->unknown_16_ &= ~1;                                       \
     }

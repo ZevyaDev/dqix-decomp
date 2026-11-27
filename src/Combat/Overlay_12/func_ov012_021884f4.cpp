@@ -1,5 +1,4 @@
 #if defined(jpn)
-#define func_ov023_021e6de4 func_ov023_021e7148
 #define func_ov012_02184384 func_ov012_021853f8
 #define func_ov012_0218930c func_ov012_02189be8
 enum {
@@ -37,11 +36,11 @@ extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(void* menu);
 extern "C" void func_ov012_0218a438(char* arg0);
 struct Struct_0205c570;
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570* windowManager);
-extern "C" int func_ov023_021e6de4(char* arg0);
+extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(char* menu);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-struct Struct_ov012_02186a7c;
-extern "C" int func_ov023_021e6e20(struct Struct_ov012_02186a7c* arg0);
+struct ProfileMenu_ov012_02186a7c;
+extern "C" int IsProfileMenuCancelPressed_ov023_021e6e20(struct ProfileMenu_ov012_02186a7c* menu);
 extern "C" void func_ov012_0218930c(void* arg0, int arg1);
 extern int gSoundEffectManager_02108760;
 
@@ -71,7 +70,7 @@ extern "C" ARM void func_ov012_021884f4(char* arg0) {
     int var3 = GetCursorIndex_0205d794((struct Struct_0205c570*)(arg0 + Enum_ov012_021884f4_172));
     *(int*)(arg0 + Enum_ov012_021884f4_5096) = var3;
 
-    if (func_ov023_021e6de4(arg0) != 0) {
+    if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0) != 0) {
         int var4 = *(int*)(arg0 + Enum_ov012_021884f4_5096);
         int var5 = 1;
         switch (var4) {
@@ -94,7 +93,7 @@ extern "C" ARM void func_ov012_021884f4(char* arg0) {
             PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
         }
     } else {
-        if (func_ov023_021e6e20((struct Struct_ov012_02186a7c*)arg0) != 0) {
+        if (IsProfileMenuCancelPressed_ov023_021e6e20((struct ProfileMenu_ov012_02186a7c*)arg0) != 0) {
             func_ov012_0218930c(arg0, 1);
         }
     }

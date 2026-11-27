@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-extern "C" void func_0205d904(unsigned char*);
+extern "C" void SetTouchMenuCursorEntryRects_0205d904(unsigned char*);
 
 struct KeyMenuCursor_0205bf3c;
 
@@ -22,5 +22,5 @@ extern "C" ARM void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0*
     if (isAll) count = windowManager->textWindowCapacity_b3_;
     func_0205d6e4(windowManager, count);
     func_0205bf3c((struct KeyMenuCursor_0205bf3c*)((char*)windowManager + 0x54));
-    func_0205d904((unsigned char*)(windowManager));
+    SetTouchMenuCursorEntryRects_0205d904((unsigned char*)(windowManager));
 }

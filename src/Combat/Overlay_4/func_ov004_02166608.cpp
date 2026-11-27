@@ -9,7 +9,7 @@ struct Struct_ov004_02166608 {
 	unsigned char unknown_50_6_ : 1;
 	unsigned char unknown_50_7_ : 1;
 };
-extern struct Struct_ov004_02166608* data_ov004_0217101c;
+extern struct Struct_ov004_02166608* gQuestList_ov004_0217101c;
 
 #if defined(jpn)
 enum { Enum_ov004_02166608_0 = 1 };
@@ -19,7 +19,7 @@ enum { Enum_ov004_02166608_0 = 0 };
 
 // USA: func_ov004_02166608
 extern "C" ARM void func_ov004_02166608(void* arg0) {
-	struct Struct_ov004_02166608* var0 = (&data_ov004_0217101c)[Enum_ov004_02166608_0];
+	struct Struct_ov004_02166608* var0 = (&gQuestList_ov004_0217101c)[Enum_ov004_02166608_0];
 	func_ov023_021f645c(arg0, 0xaa, var0->unknown_50_6_ + 1, 0xf);
 	func_ov023_021f6680(arg0, 0x15);
 	func_ov023_021f645c(arg0, 0xa0, var0->unknown_50_7_ + 3, 0xf);

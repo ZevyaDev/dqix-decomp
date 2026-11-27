@@ -3,7 +3,7 @@
 struct Struct_02032e58;
 
 extern "C" void func_02033fec(Struct_02032e58* arg0);
-extern "C" void func_0203400c(Struct_02032e58* arg0);
+extern "C" void ResumeAnimation_0203400c(Struct_02032e58* object);
 extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 
 struct Struct_ov025_021e7520 {
@@ -24,7 +24,7 @@ extern "C" ARM int func_ov025_021e7520(struct Struct_ov025_021e7520* arg0, int a
             if (arg0->unknown_c_ != 0) {
                 func_02033fec((Struct_02032e58*)var4);
             } else {
-                func_0203400c((Struct_02032e58*)var4);
+                ResumeAnimation_0203400c((Struct_02032e58*)var4);
             }
         }
     }

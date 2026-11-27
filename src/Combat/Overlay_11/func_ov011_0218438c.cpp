@@ -26,7 +26,7 @@ struct Struct_ov011_0218438c_2 {
     int unknown_114_;
     char unknown_118_[0x72];
     char unknown_18a_[2];
-    int unknown_18c_;
+    int archiveLoadTaskId_18c_;
     int unknown_190_;
     char unknown_194_[0x10];
     unsigned char unknown_1a4_;
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov011_0218438c(struct Struct_ov011_0218438c_2* arg0) {
     arg0->pendingScriptEntry_10c_ = 0;
     arg0->unknown_114_ = 0;
     func_ov023_021f672c((struct Struct_ov011_0218438c*)((char*)arg0 + 0x118));
-    arg0->unknown_18c_ = -1;
+    arg0->archiveLoadTaskId_18c_ = -1;
     SetFlags04(GetGameResources(), 0xc0);
     arg0->unknown_190_ = (*(unsigned short*)0x4000304 & 0x8000) >> 15;
     arg0->unknown_1a4_ = 0;

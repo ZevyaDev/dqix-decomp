@@ -5,8 +5,8 @@
 #define func_020ca458 func_020cbf24
 #endif
 
-struct Struct_ov031_0224e204;
-extern "C" void func_020c7de4(Struct_ov031_0224e204* arg0, int arg1, int arg2);
+struct ValueQueue_ov031_0224e204;
+extern "C" void InitValueQueue_020c7de4(ValueQueue_ov031_0224e204* queue, int entries, int capacity);
 bool IsContextInactive(ProcessorContext* context);
 extern "C" void func_020ca458(unsigned int value, void* dest, int count);
 extern "C" void func_ov031_0224599c(void);
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov031_0224587c(void* arg0) {
         }
     }
     *(int*)((char*)&data_ov031_0224c954 + 4) = (int)arg0;
-    func_020c7de4((Struct_ov031_0224e204*)&data_ov031_02291f60, (int)&data_ov031_02291f44, 3);
+    InitValueQueue_020c7de4((ValueQueue_ov031_0224e204*)&data_ov031_02291f60, (int)&data_ov031_02291f44, 3);
     *(int*)((char*)&data_ov031_02291f24 + 0x1c) = 0;
     *(int*)((char*)&data_ov031_02291f24 + 0x18) = 0;
     func_020ca458(0, &data_ov031_02292040, 0xc0);

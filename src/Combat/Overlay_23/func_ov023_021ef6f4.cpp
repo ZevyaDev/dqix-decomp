@@ -50,7 +50,7 @@ extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" int IsJinglePlaying_0209ca2c(void*);
 extern "C" void func_ov023_021f00f4(int*, int, int, int);
 extern "C" Vector3fix GetCombatantLineupPosition_02049b54(Combatant_02049b54_2*);
-extern "C" void func_02049f28(unsigned char*);
+extern "C" void SetCombatantOnBattlefield_02049f28(unsigned char*);
 extern "C" void func_0202ea4c(Struct_0202ea4c*);
 extern "C" void func_ov000_0216d50c(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
@@ -132,7 +132,7 @@ extern "C" ARM int func_ov023_021ef6f4(Struct_ov023_021ef6f4_3* arg0) {
             var16->MaybeSetRegularAnimation(data_ov023_021fe258, 8);
             var16->TransitionInheritedAlpha(31, 200);
             var16->MakeVisible();
-            func_02049f28((unsigned char*)var16);
+            SetCombatantOnBattlefield_02049f28((unsigned char*)var16);
         }
         var14.x = fix32_Divide(var14.x, arg0->unknown_6e2e_ << 12);
         var14.y = fix32_Divide(var14.y, arg0->unknown_6e2e_ << 12);

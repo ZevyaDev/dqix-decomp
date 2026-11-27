@@ -50,7 +50,7 @@ extern "C" int GetEquippedItem_02052df8(Struct_02052df8* gameObject, int slot);
 extern "C" Struct_ov005_021556e4* FindItemData_020dedd0(ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" Struct_ov005_0215840c_2* func_02053c6c(unsigned char* gameObject);
 extern "C" void SetEquippedItem_02052d7c(Struct_02052df8* gameObject, int slot, short itemId);
-extern "C" void func_0208358c(Struct_ov005_0215840c_2* arg0, Struct_ov005_021556e4* arg1, int arg2);
+extern "C" void SetEquipment_0208358c(Struct_ov005_0215840c_2* memberData, Struct_ov005_021556e4* item, int explicitRecordIndex);
 extern "C" void UnequipCategory_02083738(Struct_ov005_0215840c_2* memberData, int category);
 extern "C" int AddEquipmentToBag_0207c378(void* bag, int itemId, int count, int category);
 
@@ -83,7 +83,7 @@ extern "C" ARM int func_ov005_0215840c(Struct_ov005_02153954* arg0, int arg1) {
         Struct_ov005_0215840c_2* var11 = func_02053c6c((unsigned char*)var1);
         Struct_ov005_021556e4* var12 = FindItemData_020dedd0(arg0->unknown_df4_, var9);
         if (var12 != NULL)
-            func_0208358c(var11, var12, var10);
+            SetEquipment_0208358c(var11, var12, var10);
         else
             UnequipCategory_02083738(var11, var7->unknown_8_0_);
         AddEquipmentToBag_0207c378((char*)GetParty_02010828(var0) + 0x1d4, var6, 1, var7->unknown_8_0_);

@@ -2,18 +2,18 @@
 
 extern "C" int ParseDecimal_02005a94(char* string);
 
-// USA: func_020696bc
-extern "C" ARM int func_020696bc(char* arg0, int* arg1, int arg2) {
-    int var0;
-    for (var0 = 0; var0 < arg2; var0++) {
-        char var1 = *arg0;
-        if (var1 != 0 && ((var1 >= '0' && var1 <= '9') || var1 == '-')) {
-            arg1[var0] = ParseDecimal_02005a94(arg0);
+// USA: ParseTagNumbers_020696bc
+extern "C" ARM int ParseTagNumbers_020696bc(char* text, int* values, int count) {
+    int i;
+    for (i = 0; i < count; i++) {
+        char firstCharacter = *text;
+        if (firstCharacter != 0 && ((firstCharacter >= '0' && firstCharacter <= '9') || firstCharacter == '-')) {
+            values[i] = ParseDecimal_02005a94(text);
             for (;;) {
-                char var2 = *arg0;
-                if (var2 == 0) break;
-                if (var2 == ',' || var2 == '>') { arg0++; break; }
-                arg0++;
+                char character = *text;
+                if (character == 0) break;
+                if (character == ',' || character == '>') { text++; break; }
+                text++;
             }
         }
     }

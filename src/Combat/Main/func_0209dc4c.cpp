@@ -13,7 +13,7 @@ struct Struct_020f1758 {
 extern int data_02109cc4[49];
 extern struct Struct_020f1758 data_020f1758;
 
-extern "C" void func_ov017_021d4cc0(void*, int*, int);
+extern "C" void SetScriptNatives_ov017_021d4cc0(void*, int*, int);
 
 // USA: func_0209dc4c
 extern "C" ARM void func_0209dc4c(void* arg0) {
@@ -32,5 +32,5 @@ extern "C" ARM void func_0209dc4c(void* arg0) {
         }
     }
 
-    func_ov017_021d4cc0(arg0, data_02109cc4, 49);
+    SetScriptNatives_ov017_021d4cc0(arg0, data_02109cc4, 49);
 }

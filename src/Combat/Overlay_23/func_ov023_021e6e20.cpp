@@ -8,17 +8,17 @@ struct TextWindowManager_0205d81c {
 
 extern "C" int HitTestCursorWindowTouch_0205d97c(TextWindowManager_0205d81c* windowManager);
 
-struct Struct_ov012_02186a7c {
+struct ProfileMenu_ov012_02186a7c {
 #if defined(jpn)
     char unknown_0_[0x90];
 #else
     char unknown1_0_[0xac];
 #endif
-    TextWindowManager_0205d81c unknown_ac_;
+    TextWindowManager_0205d81c windowManager_ac_;
 };
 
-extern "C" ARM int func_ov023_021e6e20(Struct_ov012_02186a7c* arg0) {
-    int var0 = g_keyManager.TestKeysPressed(2);
-    int var1 = HitTestCursorWindowTouch_0205d97c(&arg0->unknown_ac_) == 2;
-    return (var0 | var1) != 0;
+extern "C" ARM int IsProfileMenuCancelPressed_ov023_021e6e20(ProfileMenu_ov012_02186a7c* menu) {
+    int isCancelKeyPressed = g_keyManager.TestKeysPressed(2);
+    int isTouchedOutside = HitTestCursorWindowTouch_0205d97c(&menu->windowManager_ac_) == 2;
+    return (isCancelKeyPressed | isTouchedOutside) != 0;
 }

@@ -7,11 +7,11 @@ struct Struct_0209c5e8_2 {
     unsigned char unknown_0_3_ : 5;
 };
 
-struct Struct_0209c5e8 {
+struct MusicManager_0209c5e8 {
     char unknown_0_[0xb0];
-    int unknown_b0_;
+    int musicState_b0_;
     char unknown_b4_[0xb8 - 0xb4];
-    short unknown_b8_;
+    short musicIndex_b8_;
     short unknown_ba_;
     void* unknown_bc_;
     void* unknown_c0_;
@@ -20,26 +20,26 @@ struct Struct_0209c5e8 {
 };
 
 struct MusicManager_02109bf4_4;
-struct Struct_0203aba8;
+struct MusicManager_0203aba8;
 
 extern "C" int func_0209c140();
 extern "C" void StopMusic_0209c678(struct MusicManager_02109bf4_4* manager, int fadeDuration);
 extern "C" void func_0203ac10(void* arg0, void* arg1, int arg2);
-extern "C" int func_0203aba8(struct Struct_0203aba8* arg0, void* arg1, void* arg2);
+extern "C" int PlaySequence_0203aba8(struct MusicManager_0203aba8* manager, void* sequenceIndex, void* handle);
 
 // USA: func_0209c5e8
-extern "C" ARM void func_0209c5e8(struct Struct_0209c5e8* arg0) {
+extern "C" ARM void func_0209c5e8(struct MusicManager_0209c5e8* arg0) {
     if (arg0->unknown_c8_.unknown_0_2_) return;
     if (func_0209c140() != 0) {
         StopMusic_0209c678((struct MusicManager_02109bf4_4*)arg0, 0);
         return;
     }
-    if (arg0->unknown_b0_ == 1) {
+    if (arg0->musicState_b0_ == 1) {
         func_0203ac10(arg0, &arg0->unknown_bc_, 0);
-        func_0203aba8((struct Struct_0203aba8*)arg0, (void*)(int)arg0->unknown_b8_, &arg0->unknown_bc_);
+        PlaySequence_0203aba8((struct MusicManager_0203aba8*)arg0, (void*)(int)arg0->musicIndex_b8_, &arg0->unknown_bc_);
         return;
     }
-    if (arg0->unknown_b0_ != 2) return;
+    if (arg0->musicState_b0_ != 2) return;
     func_0203ac10(arg0, &arg0->unknown_c0_, 0);
-    func_0203aba8((struct Struct_0203aba8*)arg0, (void*)(int)arg0->unknown_ba_, &arg0->unknown_c0_);
+    PlaySequence_0203aba8((struct MusicManager_0203aba8*)arg0, (void*)(int)arg0->unknown_ba_, &arg0->unknown_c0_);
 }

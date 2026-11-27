@@ -103,10 +103,10 @@ extern "C" void func_02048850(Struct_02048850*, Struct_02048850_2*);
 extern "C" void func_02048588(unsigned char* arg0, unsigned char* arg1);
 struct Struct_02010604;
 extern "C" int SetMotion_02033b88(Struct_02010604*, int);
-extern "C" void func_02049f28(unsigned char* arg0);
+extern "C" void SetCombatantOnBattlefield_02049f28(unsigned char* combatant);
 extern "C" void* GetBattleCamera_ov000_02160f14(void* battleScene);
 extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, int resetFieldOfView, int resetTurns);
-extern "C" void func_ov000_0216d530(void* arg0, int arg1);
+extern "C" void SetBattleCameraAnchor_ov000_0216d530(void* camera, int objectIndex);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char*, int, int, int);
 extern "C" void SetCameraOrbit_0202e5d8(void* camera, int angle, int height, int distance);
 extern "C" void func_ov000_02163b90(void* arg0, int arg1);
@@ -439,10 +439,10 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                             var57[0xc2] |= 0x20;
                             ((Object3D*)var57)->SetInheritedAlpha(0x1f);
                             ((Object3D*)var57)->MakeVisible();
-                            func_02049f28(var57);
+                            SetCombatantOnBattlefield_02049f28(var57);
                             void* var61 = GetBattleCamera_ov000_02160f14(arg0);
                             ResetBattleCamera_ov000_0216d370(var61, 1, 1, 1);
-                            func_ov000_0216d530(var61, var54);
+                            SetBattleCameraAnchor_ov000_0216d530(var61, var54);
                             int var62 = ((Object3D*)var57)->GetHeight();
                             int var63 = (int)(((long long)var62 * 0x4cc + 0x800) >> 12);
                             if (var63 < 0) {

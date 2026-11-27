@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
 
-extern "C" int func_02075910(int arg0, void* arg1, int arg2, int arg3);
+extern "C" int ReadSaveMemory_02075910(int offset, void* destination, int length, int isAsync);
 extern "C" int func_01ff85b8(void* arg0, int arg1);
 
 struct Struct_020a94f8 {
@@ -18,7 +18,7 @@ extern char data_020f1be8;
 // USA: func_020a94f8
 extern "C" ARM int func_020a94f8(struct Struct_020a94f8_2* arg0, int arg1) {
     int var0 = arg1 ? 0x8010 : 0x10;
-    if (!func_02075910(var0, arg0, sizeof(*arg0), 0)) {
+    if (!ReadSaveMemory_02075910(var0, arg0, sizeof(*arg0), 0)) {
         return 0;
     }
     GameState* var1 = GameState::GetInstance();

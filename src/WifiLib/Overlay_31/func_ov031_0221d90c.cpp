@@ -11,7 +11,7 @@ struct Struct_ov031_0221d90c_2 {
     unsigned char unknown_8_[40];
     unsigned char unknown_30_[4][64];
 };
-extern "C" void func_ov031_0221e51c(void*, const void*, unsigned int);
+extern "C" void Memcpy_ov031_0221e51c(void*, const void*, unsigned int);
 // USA: func_ov031_0221d90c
 extern "C" THUMB int func_ov031_0221d90c(Struct_ov031_0221d90c* arg0, Struct_ov031_0221d90c_2* arg1) {
     Struct_ov031_0221d90c_3* var0 = &arg0->unknown_6_;
@@ -38,24 +38,24 @@ extern "C" THUMB int func_ov031_0221d90c(Struct_ov031_0221d90c* arg0, Struct_ov0
         }
         switch (var0->unknown_0_) {
         case 0x10: case 0x20:
-            func_ov031_0221e51c(var6, var0->unknown_6_, var7);
+            Memcpy_ov031_0221e51c(var6, var0->unknown_6_, var7);
             arg1->unknown_4_ = var7;
             break;
         case 0x11: case 0x21:
-            func_ov031_0221e51c(var5, var0->unknown_6_, var7);
+            Memcpy_ov031_0221e51c(var5, var0->unknown_6_, var7);
             arg1->unknown_4_ = var7;
             break;
         case 0x12: case 0x22:
-            func_ov031_0221e51c(var4, var0->unknown_6_, var7);
+            Memcpy_ov031_0221e51c(var4, var0->unknown_6_, var7);
             arg1->unknown_4_ = var7;
             break;
         case 0x13: case 0x23:
-            func_ov031_0221e51c(var3, var0->unknown_6_, var7);
+            Memcpy_ov031_0221e51c(var3, var0->unknown_6_, var7);
             arg1->unknown_4_ = var7;
             break;
         case 0x15: case 0x25:
             if (var7 != 0 && var0->unknown_6_[var7 - 1] != 0) return -1;
-            func_ov031_0221e51c(var2, var0->unknown_6_, var7);
+            Memcpy_ov031_0221e51c(var2, var0->unknown_6_, var7);
             break;
         default: return -1;
         }

@@ -18,7 +18,7 @@ struct Struct_0203c108_3 {
 extern "C" void SetSpriteText_0203c108(struct Struct_0203c108_3* spriteText, char* text);
 
 extern "C" int func_ov000_02153a8c(GameObject* arg0);
-extern "C" int GetSkillAdjustedMPCost_020dd290(void* member, unsigned int arg1);
+extern "C" int GetSkillAdjustedMPCost_020dd290(void* member, unsigned int mpCost);
 
 struct Struct_ov000_02171458_3 {
     int unknown_0_;

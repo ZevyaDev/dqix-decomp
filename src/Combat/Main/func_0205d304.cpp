@@ -21,7 +21,7 @@ extern "C" void func_0204d790(void* arg0, const char* arg1, unsigned int arg2, i
 extern "C" void func_0204c980(void* arg0, const char* arg1, unsigned int arg2, int arg3, unsigned char arg4, unsigned char arg5, unsigned char arg6);
 #endif
 extern "C" void func_0205bf3c(struct KeyMenuCursor_0205bf3c*);
-extern "C" void func_0205d904(unsigned char*);
+extern "C" void SetTouchMenuCursorEntryRects_0205d904(unsigned char*);
 
 struct TextWindow_0205d304_4 {
     char unknown_0_[0x4];
@@ -142,5 +142,5 @@ extern "C" ARM void OpenTextWindow_0205d304(struct TextWindowManager_0205d304* w
     windowManager->textWindowCount_b4_++;
     func_0205bf3c((struct KeyMenuCursor_0205bf3c*)windowManager->unknown_54_);
     windowManager->cursorWindowId_b0_ = windowManager->nextWindowId_b1_;
-    func_0205d904((unsigned char*)windowManager);
+    SetTouchMenuCursorEntryRects_0205d904((unsigned char*)windowManager);
 }

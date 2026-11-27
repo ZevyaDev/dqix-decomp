@@ -21,9 +21,9 @@ struct ProfileMenu_ov023_021e6e60 {
 #endif
 
 #if defined(jpn)
-    char unknown_134_[0x1341 - 0x134]; unsigned char unknown_1371_;
+    char unknown_134_[0x1341 - 0x134]; unsigned char activeWindowId_1371_;
 #else
-    char unknown_150_[0x1371 - 0x150]; unsigned char unknown_1371_;
+    char unknown_150_[0x1371 - 0x150]; unsigned char activeWindowId_1371_;
 #endif
 
 #if defined(jpn)
@@ -50,7 +50,7 @@ struct ProfileMenu_ov023_021e6e60 {
 };
 extern "C" void DisableTouchMenuCursor_0205cf10(void*);
 extern "C" void DisableKeyMenuCursor_0205cf1c(TextWindowManager_0205cf1c*);
-extern "C" void func_0205c53c(Struct_0205c53c*);
+extern "C" void InitMenuCursors_0205c53c(Struct_0205c53c*);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68*, int, int, int);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc*, int);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc*, int);
@@ -65,7 +65,7 @@ extern "C" ARM void ConfigureProfileMenuCursors_ov023_021e6e60(ProfileMenu_ov023
     int isRowMajor = 0;
     unsigned int itemCount;
     int cursorIndex;
-    switch (menu->unknown_1371_) {
+    switch (menu->activeWindowId_1371_) {
     case 1: pageCount = 1; itemCount = 6; columnCount = 1; rowCount = 6; cursorIndex = menu->unknown_13d4_; break;
     case 2: pageCount = 1; itemCount = 4; columnCount = 1; rowCount = 4; cursorIndex = menu->unknown_13d8_; break;
 #if defined(jpn)
@@ -95,7 +95,7 @@ extern "C" ARM void ConfigureProfileMenuCursors_ov023_021e6e60(ProfileMenu_ov023
         DisableKeyMenuCursor_0205cf1c((TextWindowManager_0205cf1c*)&menu->windowManager_ac_);
         return;
     }
-    func_0205c53c(&menu->windowManager_ac_);
+    InitMenuCursors_0205c53c(&menu->windowManager_ac_);
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&menu->windowManager_ac_.unknown_4_, columnCount, rowCount, isRowMajor);
     SetMenuCursorGrid_0205ba68((MenuCursor_0205ba68*)&menu->windowManager_ac_.unknown_54_, columnCount, rowCount, isRowMajor);
     SetMenuCursorItemCount_0205bacc((MenuCursor_0205bacc*)&menu->windowManager_ac_.unknown_4_, itemCount);

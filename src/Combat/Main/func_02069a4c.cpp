@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" int func_020696bc(int arg0, int* arg1, int arg2);
+extern "C" int ParseTagNumbers_020696bc(int text, int* values, int count);
 extern "C" int GetMessageWindow_020421a0(void);
 
 struct Struct_02069a4c { void* unknown_0_; };
@@ -19,7 +19,7 @@ extern "C" ARM int func_02069a4c(struct Struct_02069a4c* arg0, int arg1) {
     struct Struct_02069a4c_2* var1;
     int var2, var3;
 
-    func_020696bc(arg1, &var0[1], 2);
+    ParseTagNumbers_020696bc(arg1, &var0[1], 2);
 
     var1 = (struct Struct_02069a4c_2*)GetMessageWindow_020421a0();
     var3 = var0[2];

@@ -42,7 +42,7 @@ extern "C" void func_ov000_02163710(void* arg0, int arg1);
 extern "C" void func_ov025_021eb8e8(struct Struct_ov025_021eb7fc* arg0);
 extern "C" struct Struct_ov025_021eb7fc_4* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
 extern "C" struct Struct_ov025_021eb7fc_5* GetActionTarget_ov000_021600f8(struct BattleAction_ov000_0215440c* action, int index);
-extern "C" void func_02033920(struct Struct_ov025_021eb7fc_3* arg0, int arg1, int arg2);
+extern "C" void FaceGameObject_02033920(struct Struct_ov025_021eb7fc_3* object, int targetObjectIndex, int isTurnAnimated);
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
 
 // USA: func_ov025_021eb7fc
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov025_021eb7fc(struct Struct_ov025_021eb7fc* arg0) {
             if (var5 != 0 && var6 != 0) {
                 struct Struct_ov025_021eb7fc_3* var7 = (Struct_ov025_021eb7fc_3*)var0->GetCombatantByIndex(var5->unknown_20_);
                 if (var7 != 0) {
-                    func_02033920(var7, var6->unknown_e_, 0);
+                    FaceGameObject_02033920(var7, var6->unknown_e_, 0);
                     SetFacingInstantly_02033874((struct Struct_02033834*)var7, var7->unknown_ae_);
                 }
             }

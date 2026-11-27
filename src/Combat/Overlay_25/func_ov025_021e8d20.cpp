@@ -13,7 +13,7 @@ extern "C" void* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, in
 struct GameState;
 extern "C" void* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" void LoadExtraSoundSet_0205ebc0(void* manager, int soundSetToLoad, int soundSet);
-extern "C" void func_0205eabc(void* arg0, void* arg1, int arg2);
+extern "C" void StopSoundEffect_0205eabc(void* manager, void* handle, int fadeDuration);
 extern "C" void* FindActionData_02079e2c(char*, int);
 extern "C" int func_ov025_021eb42c(void* arg0, short arg1, short arg2);
 extern "C" int func_ov025_021eb148(void*, short, int, unsigned char);
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov025_021e8d20(char* arg0, char* arg1) {
                     if (HasActionResultFlag_ov000_0215fd90(var28, 0xc)) {
                         func_ov025_021eb148(arg0, 0x19, 0x38e, 2);
                     } else if (HasActionResultFlag_ov000_0215fd90(var28, 6) == 0) {
-                        func_0205eabc(&gSoundEffectManager_02108760, 0, 0);
+                        StopSoundEffect_0205eabc(&gSoundEffectManager_02108760, 0, 0);
                         if (((unsigned char*)var28)[0x1c] != 0 && var7 != 0) {
                             unsigned int var29 = var6->unknown_0_;
                             if (var29 == 0xf4 || var29 == 0xf5 || var29 == 0x48 || var29 == 0x70) {

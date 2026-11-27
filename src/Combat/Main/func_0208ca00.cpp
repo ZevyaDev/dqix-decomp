@@ -2,21 +2,21 @@
 
 extern "C" double ComputeSine_02009424(double angle);
 
-struct Struct_0208bb78 {
+struct QuestDisplay_0208bb78 {
     char unknown_0_[0xc8];
     float unknown_c8_;
     char unknown_cc_[0xd7 - 0xcc];
     unsigned char unknown_d7_;
     char unknown_d8_[0xda - 0xd8];
-    unsigned short unknown_da_;
+    unsigned short displayFlags_da_;
 };
 
 // USA: func_0208ca00
-extern "C" ARM int func_0208ca00(struct Struct_0208bb78* arg0, int arg1) {
-    unsigned short var0 = arg0->unknown_da_;
+extern "C" ARM int func_0208ca00(struct QuestDisplay_0208bb78* arg0, int arg1) {
+    unsigned short var0 = arg0->displayFlags_da_;
     if (!(var0 & 0x80)) goto ret_zero;
     if (arg0->unknown_d7_ > 10) {
-        arg0->unknown_da_ = var0 & ~0x80;
+        arg0->displayFlags_da_ = var0 & ~0x80;
         *(volatile int*)0x4001010 = 0;
         arg0->unknown_d7_ = 0;
         goto ret_zero;

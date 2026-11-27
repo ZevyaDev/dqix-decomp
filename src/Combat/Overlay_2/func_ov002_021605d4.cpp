@@ -23,7 +23,7 @@ extern "C" void ClearMessageParams_02046380(void *window);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0 *window, int index, int number);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char *window, int index, unsigned char alignment);
-extern "C" void func_02041b00(char *arg0, int arg1);
+extern "C" void AppendYOffsetTag_02041b00(char *buffer, int yOffset);
 extern "C" void func_02046608(void *arg0, int arg1, const char *arg2, char *arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void AppendText_02042058(char *buffer, const char *text);
 
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov002_021605d4(char *arg0, char *arg1) {
     SetMessageNumberWidth_020465f0((unsigned char *) var20, 0, 4);
     SetMessageNumberAlignment_020465d8((unsigned char *) var20, 0, 1);
     __clear(var11, sizeof(var11));
-    func_02041b00(arg1, -1);
+    AppendYOffsetTag_02041b00(arg1, -1);
     func_02046608(var20, 8, ((StringList*)((Struct_0201099c_3 *) (arg0 + 0x20)))->GetString(0x1006), var11,
                   0x100, 0, 0);
     AppendText_02042058(arg1, var11);

@@ -24,7 +24,7 @@ extern "C" unsigned int func_ov031_02207cf0();
 extern "C" void func_ov031_02207d3c(unsigned int);
 extern "C" void func_ov031_0220c2bc(unsigned short*, unsigned short*, unsigned short*, int, unsigned short*);
 extern void* (*data_ov031_0224c994)(unsigned int);
-extern int (*data_ov031_0224c9c0)(void*);
+extern int (*gIPStackFreeFunction_ov031_0224c9c0)(void*);
 
 // USA: func_ov031_02208400
 extern "C" ARM int func_ov031_02208400(Struct_ov031_02208400* arg0, Struct_ov031_02208400_2* arg1) {
@@ -72,6 +72,6 @@ extern "C" ARM int func_ov031_02208400(Struct_ov031_02208400* arg0, Struct_ov031
 		    memcmp(arg0->unknown_468_, var8 + var7 - arg0->unknown_47c_, arg0->unknown_47c_) != 0)
 			var5 = 2;
 	}
-	data_ov031_0224c9c0(var0);
+	gIPStackFreeFunction_ov031_0224c9c0(var0);
 	return var5;
 }

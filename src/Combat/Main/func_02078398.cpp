@@ -11,7 +11,7 @@ struct Struct_02033f44 {
     char unknown_e1_[3];
     int unknown_e4_;
 };
-extern "C" int* func_02033f44(struct Struct_02033f44* arg0);
+extern "C" int* GetCollidedWallTriangle_02033f44(struct Struct_02033f44* object);
 
 extern "C" void* GetEffectManager_02057924(void);
 
@@ -60,7 +60,7 @@ extern "C" ARM void func_02078398(struct Struct_02078398* arg0) {
     }
 
     if (arg0->GetInheritedAlpha() == 0x1f) {
-        int* var0 = func_02033f44((struct Struct_02033f44*)arg0);
+        int* var0 = GetCollidedWallTriangle_02033f44((struct Struct_02033f44*)arg0);
         Vector3fix var1 = arg0->position_;
         var1.y = 0;
         if (Vector3fix_Distance(&var1, &arg0->unknown_158_) < 0x2000 || var0 != 0) {

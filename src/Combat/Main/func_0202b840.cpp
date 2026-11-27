@@ -3,7 +3,7 @@
 
 extern char data_020feffc[];
 
-extern "C" int func_0202d6a8(void);
+extern "C" int GetLocalWirelessLinkState_0202d6a8(void);
 extern "C" int func_0202d0b4(void);
 void SleepCurrentContext(unsigned int);
 extern "C" int func_0202dc40(int arg0, void* arg1);
@@ -19,7 +19,7 @@ extern "C" ARM int func_0202b840(int* arg0, int arg1) {
     }
 
     var0 = 0;
-    while (func_0202d6a8() == 2) {
+    while (GetLocalWirelessLinkState_0202d6a8() == 2) {
         func_0202d0b4();
         var0++;
         if (var0 > 0x1388) {
@@ -29,7 +29,7 @@ extern "C" ARM int func_0202b840(int* arg0, int arg1) {
     }
 
     var0 = 0;
-    while (func_0202d6a8() != 1) {
+    while (GetLocalWirelessLinkState_0202d6a8() != 1) {
         var0++;
         if (var0 > 0x1388) {
             return 0;

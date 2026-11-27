@@ -2,7 +2,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_ov017_021b9bcc;
-extern "C" int func_02010804(char* arg0);
+extern "C" int GetStorySubStep_02010804(char* gameState);
 
 struct Struct_ov017_021d8438 {
     unsigned char unknown_0_;
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov017_021b9bcc(int arg0, void* arg1) {
             return 0;
         }
     } else if (var2 == 4) {
-        int var6 = func_02010804((char*)var0);
+        int var6 = GetStorySubStep_02010804((char*)var0);
         if (var3 <= var6 && var3 >= data_ov017_021d8438.unknown_c_) {
             data_ov017_021d8438.unknown_14_ = arg1;
             data_ov017_021d8438.unknown_c_ = var3;

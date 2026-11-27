@@ -9,8 +9,8 @@
 extern "C" void *GetZone3D_02012fe4(void);
 extern "C" int func_0201b588(int arg0);
 extern "C" int func_020d2ff0(const char *string);
-extern "C" void func_0202756c(void *arg0, int arg1, int arg2, int arg3, unsigned char arg4, unsigned char arg5,
-                              unsigned short arg6, unsigned char arg7, int arg8, int arg9);
+extern "C" void DrawMetatileAt_0202756c(void *subScreenDisplay, int positionX, int positionY, int metatileIndex, unsigned char destinationObjIndex, unsigned char priority,
+                              unsigned short palette, unsigned char rotScaleDataIndex, int scaleX, int scaleY);
 
 static inline int inline_0202427c(int arg0) {
     return arg0 << 12;
@@ -40,8 +40,8 @@ extern "C" ARM void func_0202427c(void *arg0) {
 #endif
 
     var3 -= 8;
-    func_0202756c(arg0, inline_0202427c(var3), 0, 26, 0x53, 0, 8, 0xff, 4096, 4096);
+    DrawMetatileAt_0202756c(arg0, inline_0202427c(var3), 0, 26, 0x53, 0, 8, 0xff, 4096, 4096);
     var3 -= var6;
-    func_0202756c(arg0, inline_0202427c(var3), 0, 25, 0x41, 0, 8, 0xff, 4096, 4096);
-    func_0202756c(arg0, inline_0202427c(var3 - 8), 0, 24, 0x40, 0, 8, 0xff, 4096, 4096);
+    DrawMetatileAt_0202756c(arg0, inline_0202427c(var3), 0, 25, 0x41, 0, 8, 0xff, 4096, 4096);
+    DrawMetatileAt_0202756c(arg0, inline_0202427c(var3 - 8), 0, 24, 0x40, 0, 8, 0xff, 4096, 4096);
 }

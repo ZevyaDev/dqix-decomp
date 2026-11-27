@@ -1,8 +1,8 @@
 #ifndef COMBAT_WORK_RECORD_H
 #define COMBAT_WORK_RECORD_H
 
-struct Struct_0206bf2c {
-    unsigned char unknown_0_;
+struct NPCPlacement_0206bf2c {
+    unsigned char npcId_0_;
     unsigned char unknown_1_;
     unsigned short unknown_2_;
     unsigned char unknown_4_;
@@ -39,13 +39,13 @@ struct Struct_0206bf2c {
     unsigned int unknown_58_;
     unsigned int unknown_5c_;
     unsigned int unknown_60_;
-    Struct_0206bf2c *unknown_64_;
-    Struct_0206bf2c *unknown_68_;
-    Struct_0206bf2c *unknown_6c_;
-    Struct_0206bf2c *unknown_70_;
+    NPCPlacement_0206bf2c *pPrevious_64_;
+    NPCPlacement_0206bf2c *pNext_68_;
+    NPCPlacement_0206bf2c *unknown_6c_;
+    NPCPlacement_0206bf2c *unknown_70_;
 };
 
-extern "C" void func_0206bf2c(Struct_0206bf2c *arg0);
-extern "C" void func_0206db48(void *arg0, Struct_0206bf2c *arg1);
+extern "C" void InitNPCPlacement_0206bf2c(NPCPlacement_0206bf2c *placement);
+extern "C" void func_0206db48(void *arg0, NPCPlacement_0206bf2c *arg1);
 
 #endif

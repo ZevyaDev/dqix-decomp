@@ -58,7 +58,7 @@ extern "C" ARM void func_020399b0(GameObject* arg0, unsigned short arg1, const V
     Zone3D* var1 = static_cast<Zone3D*>(GetZone3D_02012fe4());
     ResetFollowTrail_02039d24(reinterpret_cast<unsigned char*>(arg0));
     if (var0[0x66]) {
-        func_02038508((LadderAction_02037d10*)((char*)arg0 + 0x26c - Enum_020399b0_0));
+        ResetLadderAction_02038508((LadderAction_02037d10*)((char*)arg0 + 0x26c - Enum_020399b0_0));
         ((Struct_02038598*)((char*)arg0 + 0xe0))->unknown_0_0_ = 0;
         arg0->obj3D_.DisableFlag(0x1180);
         SetMotion_02033b88(reinterpret_cast<Struct_02010604*>(arg0), 0);
@@ -75,7 +75,7 @@ extern "C" ARM void func_020399b0(GameObject* arg0, unsigned short arg1, const V
         return;
     }
     LadderAction_02037d10 var2;
-    func_02038508(&var2);
+    ResetLadderAction_02038508(&var2);
     Struct_020134e0::Struct_02018300* var3 = func_0201e6d4((Struct_020134e0*)(&var1->substruct_6c_), *reinterpret_cast<short*>(var0 + 0x6c));
     if (!var3) return;
     int var4 = fix32cos(var3->unknown_20_);

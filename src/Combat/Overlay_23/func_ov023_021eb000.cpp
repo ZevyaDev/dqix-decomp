@@ -4,7 +4,7 @@
 struct Struct_ov023_021fddb8 { int unknown_0_; int unknown_4_; };
 extern struct Struct_ov023_021fddb8 data_ov023_021fddb8[];
 extern int data_ov023_021ffa4c[];
-extern "C" void func_ov017_021d4cc0(void* arg0, void* arg1, int arg2);
+extern "C" void SetScriptNatives_ov017_021d4cc0(void* scriptVM, void* natives, int nativeCount);
 
 // USA: func_ov023_021eb000
 extern "C" ARM void func_ov023_021eb000(void* arg0) {
@@ -19,5 +19,5 @@ extern "C" ARM void func_ov023_021eb000(void* arg0) {
             data_ov023_021ffa4c[var0->unknown_4_] = var0->unknown_0_;
         }
     }
-    func_ov017_021d4cc0(arg0, data_ov023_021ffa4c, 0x12c);
+    SetScriptNatives_ov017_021d4cc0(arg0, data_ov023_021ffa4c, 0x12c);
 }

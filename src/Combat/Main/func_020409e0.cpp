@@ -10,8 +10,8 @@ extern "C" int func_0203cdf8(struct Struct_0203cdf8*);
 
 // USA: func_020409e0
 extern "C" ARM int func_020409e0(NPC_0203dce4* arg0) {
-    if (arg0->unknown_14_) {
-        return func_0203cdf8((struct Struct_0203cdf8*)(arg0->unknown_14_));
+    if (arg0->pSprite_14_) {
+        return func_0203cdf8((struct Struct_0203cdf8*)(arg0->pSprite_14_));
     }
     if (arg0->unknown_18_) {
         return *(int*)((char*)arg0->unknown_18_ + 0xb0);

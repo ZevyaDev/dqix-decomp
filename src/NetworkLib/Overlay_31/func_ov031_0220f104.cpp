@@ -10,7 +10,7 @@ struct Struct_ov031_0220f104 {
     unsigned char unknown_226b_;
 };
 struct Struct_ov031_0224e540_4 { char unknown_0_[0x24]; int unknown_24_; };
-extern "C" Struct_ov031_0220f104* func_ov031_0220d60c();
+extern "C" Struct_ov031_0220f104* GetAccessPointConnection_ov031_0220d60c();
 extern "C" int func_020d5bfc(int, void*, void*, unsigned int);
 extern Mutex data_ov031_0224e54c;
 extern BlockedContextList data_ov031_0224e544;
@@ -19,13 +19,13 @@ extern "C" void func_ov031_0220f28c();
 // USA: func_ov031_0220f104
 extern "C" ARM int func_ov031_0220f104(void* arg0, void* arg1, unsigned int arg2, void* arg3, int arg4) {
     int var0 = DisableIRQInterrupts();
-    if (!func_ov031_0220d60c()) {
+    if (!GetAccessPointConnection_ov031_0220d60c()) {
         SetIRQInterruptState(var0);
         return -1;
     }
     int var1;
     LockMutex(&data_ov031_0224e54c);
-    Struct_ov031_0220f104* var2 = func_ov031_0220d60c();
+    Struct_ov031_0220f104* var2 = GetAccessPointConnection_ov031_0220d60c();
     if (!var2) {
         UnlockMutex(&data_ov031_0224e54c);
         SetIRQInterruptState(var0);

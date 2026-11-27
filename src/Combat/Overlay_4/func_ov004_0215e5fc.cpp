@@ -29,7 +29,7 @@ extern "C" void* func_ov004_0215e4c0(void*, int);
 extern "C" void func_ov023_021f8960(char*, short, unsigned short);
 extern "C" struct Struct_ov004_0215e5fc_5* FindItemData_020dedd0(struct Struct_ov002_02157634_5*, int);
 extern "C" void UnequipCategory_02083738(void*, int);
-extern "C" void func_0208358c(void*, void*, int);
+extern "C" void SetEquipment_0208358c(void*, void*, int);
 extern "C" int func_02046608(int, int, void*, void*, int, int, unsigned char);
 extern "C" void CalculatePartyMemberStats_02083e28(void*, int);
 extern "C" int GetMessageWindow_020421a0(void);
@@ -178,11 +178,11 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
                         }
                         void* var14 = FindItemData_020dedd0((struct Struct_ov002_02157634_5*)var6, var10);
                         if (var14 != 0) {
-                            func_0208358c(var8, var14, var11);
+                            SetEquipment_0208358c(var8, var14, var11);
                         }
                         data_ov004_02171090[arg1] = 0;
                     } else {
-                        func_0208358c(var8, var0, -1);
+                        SetEquipment_0208358c(var8, var0, -1);
                         data_ov004_02171118[var4][arg1] = ((struct Struct_ov004_0215e5fc_3*)var0)->unknown_18_;
                         data_ov004_02170d60[var4][arg1] = ((struct Struct_ov004_0215e5fc_3*)var0)->unknown_4_;
                         if (var4 == 0) {
@@ -262,14 +262,14 @@ extern "C" ARM void func_ov004_0215e5fc(void* arg0, int arg1) {
                         }
                         void* var33 = FindItemData_020dedd0((struct Struct_ov002_02157634_5*)var30, var28);
                         if (var33 != 0) {
-                            func_0208358c(var26, var33, var29);
+                            SetEquipment_0208358c(var26, var33, var29);
                         }
                         data_ov004_02170814[arg1] = 0;
                     } else {
                         char* var34 = *(char**)(data_ov004_021707e8 + 0x18) + (var23 + arg1 * 8) * 0x80;
                         memset(var34, 0, 0x80);
                         func_02046608(GetMessageWindow_020421a0(), 0, ((struct Struct_ov004_0215e5fc_3*)var19)->unknown_4_, var34, 0x60, 0, 0);
-                        func_0208358c(var26, var19, -1);
+                        SetEquipment_0208358c(var26, var19, -1);
                         data_ov004_02170888[var23][arg1] = ((struct Struct_ov004_0215e5fc_3*)var19)->unknown_18_;
                         data_ov004_021704a4[var23][arg1] = var34;
                         if (var23 == 0) {

@@ -107,7 +107,7 @@ extern "C" void func_ov017_021d079c(unsigned char, unsigned char, unsigned short
 extern "C" void func_020ae990(int arg0);
 extern "C" void func_020aea40(int arg0, int arg1);
 extern "C" void func_ov017_02191484(void *arg0);
-extern "C" void func_020d3c08(char*);
+extern "C" void ClearNPCCompanionTable_020d3c08(char*);
 struct Struct_02061c04_12;
 extern "C" void func_020d3c28(Struct_02061c04_12*);
 extern "C" void * func_020d3d78(unsigned char*, int);
@@ -130,7 +130,7 @@ extern "C" void func_020d9fb4(Struct_02061c04_16*, int);
 extern "C" void * GetParty_02010828(GameState*);
 extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int GetStoryStep_020107d0(char*);
-extern "C" int func_02010804(char*);
+extern "C" int GetStorySubStep_02010804(char*);
 extern "C" void func_0206e080(char*, int);
 extern "C" void func_0206e0d0(char*, int);
 extern "C" void func_0206e348(unsigned char*, int, int);
@@ -213,8 +213,8 @@ extern "C" void * func_ov017_021beba4(char*);
 struct Zone3D_02019508_3;
 extern "C" void * FindBMDJEntry_02019508(Zone3D_02019508_3*, int, int);
 extern "C" void func_0206ea8c(void *arg0, unsigned char arg1, short arg2, int arg3);
-struct Struct_02013380;
-extern "C" void func_02013380(Struct_02013380*, int, int);
+struct BMDJEntry_02013380;
+extern "C" void SetBMDJEntryVisible_02013380(BMDJEntry_02013380*, int, int);
 extern "C" void DisableInputForDuration_020e1154(void *durationMs);
 extern "C" void func_ov017_021a9bc4(void *arg0, unsigned char arg1);
 extern "C" void func_ov017_021a9a9c(void *arg0, unsigned char arg1, unsigned char arg2, unsigned short arg3, unsigned char arg4);
@@ -522,7 +522,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         GameState *var52 = GameState::GetInstance();
         var17.unknown_14_.unknown_a_ = GetStoryChapter_0201079c((char*)var52);
         var17.unknown_14_.unknown_c_ = GetStoryStep_020107d0((char*)var52);
-        var17.unknown_14_.unknown_e_ = func_02010804((char*)var52);
+        var17.unknown_14_.unknown_e_ = GetStorySubStep_02010804((char*)var52);
         func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         if (var17.unknown_14_.unknown_a_ != arg1->unknown_4_)
             func_0206e080((char*)arg0, *((unsigned char *)arg0 + 0x332));
@@ -718,7 +718,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         GameState *var84 = GameState::GetInstance();
         var17.unknown_14_.unknown_4_ = GetStoryChapter_0201079c((char*)var84);
         var17.unknown_14_.unknown_6_ = GetStoryStep_020107d0((char*)var84);
-        var17.unknown_14_.unknown_8_ = func_02010804((char*)var84);
+        var17.unknown_14_.unknown_8_ = GetStorySubStep_02010804((char*)var84);
         arg1->unknown_2_ = 5;
         func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
@@ -733,7 +733,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             func_0206ea8c(arg0, (unsigned char)arg1->unknown_2_, (short)arg1->unknown_4_, 0);
             return 1;
         }
-        func_02013380((Struct_02013380*)var86, arg1->unknown_2_, 0);
+        SetBMDJEntryVisible_02013380((BMDJEntry_02013380*)var86, arg1->unknown_2_, 0);
         return 1;
     }
     case 0x96: {
@@ -746,7 +746,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             func_0206ea8c(arg0, (unsigned char)arg1->unknown_2_, (short)arg1->unknown_4_, 1);
             return 1;
         }
-        func_02013380((Struct_02013380*)var88, arg1->unknown_2_, 1);
+        SetBMDJEntryVisible_02013380((BMDJEntry_02013380*)var88, arg1->unknown_2_, 1);
         return 1;
     }
     case 0x97: {
@@ -1178,7 +1178,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         return 1;
     case 0xcd: {
         void *var158 = GetGameResources();
-        func_020d3c08((char*)var0);
+        ClearNPCCompanionTable_020d3c08((char*)var0);
         func_020d3c28((Struct_02061c04_12*)var0);
         void *var159 = func_020d3d78((unsigned char*)var0, arg1->unknown_2_);
         if (var159) {
@@ -1299,7 +1299,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         GameState *var187 = GameState::GetInstance();
         var17.unknown_8_ = GetStoryChapter_0201079c((char*)var187);
         var17.unknown_a_ = GetStoryStep_020107d0((char*)var187);
-        var17.unknown_c_ = func_02010804((char*)var187);
+        var17.unknown_c_ = GetStorySubStep_02010804((char*)var187);
         func_0206445c((int)arg0, (Struct_02061c04_25 *)arg1, (Struct_02061c04_26 *)arg2);
         return 1;
     }

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_020bd8ac(unsigned int arg0);
+extern "C" int GetLoadedSoundFile_020bd8ac(unsigned int fileId);
 
 struct Struct_020c0044;
 extern "C" int func_020c0044(struct Struct_020c0044 *arg0, unsigned int arg1);
@@ -15,7 +15,7 @@ extern "C" void func_020c0158(void);
 
 // USA: func_020bffc4
 extern "C" ARM void func_020bffc4(void *arg0, unsigned int arg1) {
-    int var0 = func_020bd8ac(arg1);
+    int var0 = GetLoadedSoundFile_020bd8ac(arg1);
     if (var0 == 0) {
         *(void **)((char *)arg0 + 0x164) = (void *)func_020c0044;
         *(void **)((char *)arg0 + 0x168) = (void *)func_020c00b8;

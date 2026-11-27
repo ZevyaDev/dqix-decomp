@@ -18,7 +18,7 @@ struct Struct_ov031_02290ca0_11 {
 extern Struct_ov031_02290ca0_11 gConnectionSettingsPage_ov031_02290ca0;
 extern unsigned char data_ov031_02248f86[];
 extern "C" int func_ov031_022305e8(int);
-extern "C" void func_ov031_0223bdb0(int, int, void*);
+extern "C" void CopySpriteOAMEntries_ov031_0223bdb0(int, int, void*);
 
 static inline void inline_ov031_0222fe30(Struct_ov031_0222fe30_2* arg0, int arg1, int arg2) {
     arg0->unknown_0_ = (arg0->unknown_0_ & ~(0xffu | 0x1ff0000u)) |
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov031_0222fe30(int arg0, int arg1, int arg2) {
     unsigned char* var2 = data_ov031_02248f86 + arg0 * 3;
     int var3 = var2[arg1];
     if (var3) {
-        func_ov031_0223bdb0(0, var3, *var1);
+        CopySpriteOAMEntries_ov031_0223bdb0(0, var3, *var1);
         inline_ov031_0222fe30(*var1, var0[arg0], 0);
         (*var1)->unknown_4_ = ((*var1)->unknown_4_ & ~0xc00) | 0xc00;
         return;

@@ -9,29 +9,29 @@ extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 struct Vector3i;
 
-struct Struct_ov017_021cee78 {
-	unsigned char unknown_0_;
+struct ObjectPositionPacket_ov017_021cee78 {
+	unsigned char kind_0_;
 	unsigned char unknown_1_[3];
-	int unknown_4_[3];
-	unsigned short unknown_10_;
-	unsigned char unknown_12_;
-	unsigned char unknown_13_;
+	int position_4_[3];
+	unsigned short facing_10_;
+	unsigned char objectIndex_12_;
+	unsigned char isFacingInstant_13_;
 };
 
-// USA: func_ov017_021cee78
-extern "C" ARM void func_ov017_021cee78(int arg0, unsigned char arg1) {
-	GameObject* var0 = GameState::GetInstance()->GetGameObjectByIndex(arg0);
-	if (var0 == NULL) {
+// USA: SendObjectPosition_ov017_021cee78
+extern "C" ARM void SendObjectPosition_ov017_021cee78(int objectIndex, unsigned char isFacingInstant) {
+	GameObject* object = GameState::GetInstance()->GetGameObjectByIndex(objectIndex);
+	if (object == NULL) {
 		return;
 	}
-	void* var1 = func_0202ae24();
-	Struct_ov017_021cee78 var2;
-	var2.unknown_0_ = 0x14;
-	var2.unknown_12_ = arg0;
-	*(Vector3i*)var2.unknown_4_ = *(Vector3i const*)(&var0->obj3D_.position_.x);
-	var2.unknown_10_ = var0->obj3D_.rotation_.y;
-	var2.unknown_13_ = arg1;
-	QueueOutgoingPacket_0205e330(var1, &var2, 0);
+	void* packetQueue = func_0202ae24();
+	ObjectPositionPacket_ov017_021cee78 packet;
+	packet.kind_0_ = 0x14;
+	packet.objectIndex_12_ = objectIndex;
+	*(Vector3i*)packet.position_4_ = *(Vector3i const*)(&object->obj3D_.position_.x);
+	packet.facing_10_ = object->obj3D_.rotation_.y;
+	packet.isFacingInstant_13_ = isFacingInstant;
+	QueueOutgoingPacket_0205e330(packetQueue, &packet, 0);
 }
 
 void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)

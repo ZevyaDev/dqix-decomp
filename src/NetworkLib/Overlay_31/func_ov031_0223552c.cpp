@@ -10,7 +10,7 @@ struct Struct_ov031_0223552c {
 	unsigned char unknown_1c_[0x1d - 0x1c];
 	unsigned char unknown_1d_;
 };
-extern Struct_ov031_0223552c* data_ov031_02290cf4;
+extern Struct_ov031_0223552c* gScrollBar_ov031_02290cf4;
 extern unsigned char data_ov031_022491f4[];
 
 struct Struct_ov031_0223552c_2 { unsigned short unknown_0_; unsigned short unknown_2_; };
@@ -21,7 +21,7 @@ extern "C" ARM void func_ov031_02235744(int);
 extern "C" ARM void func_ov031_0223552c(void) {
 	struct Struct_ov031_0223552c_2 var0;
 	func_ov031_0223d69c(&var0);
-	Struct_ov031_0223552c* var1 = data_ov031_02290cf4;
+	Struct_ov031_0223552c* var1 = gScrollBar_ov031_02290cf4;
 	unsigned int var2 = data_ov031_022491f4[var1->unknown_1b_];
 	int var3 = var0.unknown_2_ - var1->unknown_12_;
 	var3 -= var2 >> 1;
@@ -32,5 +32,5 @@ extern "C" ARM void func_ov031_0223552c(void) {
 		if (var3 >= var4) var3 = var4;
 	}
 	func_ov031_02235744(var3);
-	data_ov031_02290cf4->unknown_1d_ = 3;
+	gScrollBar_ov031_02290cf4->unknown_1d_ = 3;
 }

@@ -11,8 +11,8 @@
 #define func_02012da4 func_02012b6c
 #endif
 
-struct Struct_020979c0;
-extern "C" void func_020979f4(struct Struct_020979c0* arg0);
+struct VRAMBankSwitch_020979c0;
+extern "C" void func_020979f4(struct VRAMBankSwitch_020979c0* arg0);
 extern "C" void func_020a1e54(int isPreviousReloaded);
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
@@ -25,7 +25,7 @@ extern int data_ov017_021d83ec;
 struct Struct_ov017_021b14ec {
     char unknown_0_[0x8];
     SafeAllocator unknown_8_;
-    struct Struct_020979c0* unknown_1c_;
+    struct VRAMBankSwitch_020979c0* unknown_1c_;
 };
 
 // USA: func_ov017_021b14ec

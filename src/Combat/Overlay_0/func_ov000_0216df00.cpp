@@ -4,7 +4,7 @@ extern "C" int func_ov000_0216352c(int,float,float);
 extern "C" void GetCameraOrbit_0202e7d4(unsigned char*,int*,int*,int*);
 int fix32abs(int);
 int Vector3fixSquaredDistance(const Vector3i*,const Vector3i*);
-extern "C" void func_ov000_0216d530(void*,int);
+extern "C" void SetBattleCameraAnchor_ov000_0216d530(void*,int);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char*,int,int,int);
 extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" { void ResetBattleCamera_ov000_0216d370(void*,int,int,int); void SetCameraOrbit_0202e5d8(void*,int,int,int); void func_ov000_02167f10(void*); }
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov000_0216df00(Struct_ov000_0216df00* arg0,int arg1,int
     }
     ResetBattleCamera_ov000_0216d370(arg0,1,1,1);
     arg0->unknown_220_=1;
-    func_ov000_0216d530(arg0,arg1);
+    SetBattleCameraAnchor_ov000_0216d530(arg0,arg1);
     if(var2) { int var13=inline_ov000_0216df00_2(var4,arg3); SetCameraTarget_0202e5c8((unsigned char*)arg0,0,var13,0); }
     else SetCameraTarget_0202e5c8((unsigned char*)arg0,0,var4,0);
     int var14=var4-0x1800;
