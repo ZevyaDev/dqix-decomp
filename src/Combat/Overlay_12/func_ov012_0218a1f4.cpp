@@ -30,7 +30,7 @@ extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" int AppendPositionTag_02041a90(char* buffer, int x, int y);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 #if defined(jpn)
-extern "C" void func_02042428(char* arg0, int arg1);
+extern "C" int func_02042428(char* arg0, int arg1);
 #endif
 
 // USA: func_ov012_0218a1f4
