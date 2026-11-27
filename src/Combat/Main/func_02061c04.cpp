@@ -46,7 +46,7 @@ extern "C" void *GetZone3D_02012fe4(void);
 extern "C" void *GetFirstZoneFeatureOfType_0201e838(unsigned char *zoneFeatures, unsigned type);
 struct Struct_02061c04_25;
 struct Struct_02061c04_26;
-extern "C" void func_0206445c(int arg0, Struct_02061c04_25 *arg1, Struct_02061c04_26 *arg2);
+extern "C" void DeferTriggerAction_0206445c(int flagManager, Struct_02061c04_25 *action, Struct_02061c04_26 *triggerResult);
 extern "C" void SendDayTimer_ov017_021cdaa0();
 extern "C" void *GetQuestManager_02094d6c(void);
 extern "C" int func_020961b0(void *arg0, int arg1);
@@ -405,38 +405,38 @@ extern "C" ARM int RunTriggerAction_02061c04(void *flagManager, Struct_02061c04_
     }
     case 0x72:
         action->unknown_4_ = 1;
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x73:
         action->unknown_4_ = 1;
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x74:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x75:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x76:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x77:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x78:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x79: case 0x89: case 0xe1:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x7a:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x7b:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x7c:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x7d: {
         if (func_020961b0(GetQuestManager_02094d6c(), action->unknown_2_) == 0)
@@ -479,7 +479,7 @@ extern "C" ARM int RunTriggerAction_02061c04(void *flagManager, Struct_02061c04_
         return 1;
     }
     case 0x80:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x81:
         func_0206e164(flagManager, action->unknown_2_, 1);
@@ -523,7 +523,7 @@ extern "C" ARM int RunTriggerAction_02061c04(void *flagManager, Struct_02061c04_
         var17.unknown_14_.unknown_a_ = GetStoryChapter_0201079c((char*)var52);
         var17.unknown_14_.unknown_c_ = GetStoryStep_020107d0((char*)var52);
         var17.unknown_14_.unknown_e_ = GetStorySubStep_02010804((char*)var52);
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         if (var17.unknown_14_.unknown_a_ != action->unknown_4_)
             func_0206e080((char*)flagManager, *((unsigned char *)flagManager + 0x332));
         if (var17.unknown_14_.unknown_c_ != action->unknown_6_)
@@ -531,7 +531,7 @@ extern "C" ARM int RunTriggerAction_02061c04(void *flagManager, Struct_02061c04_
         return 1;
     }
     case 0x85: case 0x8a: case 0xe2:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x86: {
         void *var53 = func_0202ae18();
@@ -633,7 +633,7 @@ extern "C" ARM int RunTriggerAction_02061c04(void *flagManager, Struct_02061c04_
         return 1;
     }
     case 0x8d:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x8e:
         func_0206e348((unsigned char*)flagManager, action->unknown_2_, 1);
@@ -706,7 +706,7 @@ extern "C" ARM int RunTriggerAction_02061c04(void *flagManager, Struct_02061c04_
         return 1;
     }
     case 0x91:
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     case 0x92:
         SetFlag_0206df6c(flagManager, (unsigned char *)flagManager + 0x8c, action->unknown_2_ + 0x776, 1);
@@ -720,7 +720,7 @@ extern "C" ARM int RunTriggerAction_02061c04(void *flagManager, Struct_02061c04_
         var17.unknown_14_.unknown_6_ = GetStoryStep_020107d0((char*)var84);
         var17.unknown_14_.unknown_8_ = GetStorySubStep_02010804((char*)var84);
         action->unknown_2_ = 5;
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     }
     case 0x95: {
@@ -762,14 +762,14 @@ extern "C" ARM int RunTriggerAction_02061c04(void *flagManager, Struct_02061c04_
         var4.unknown_0_ = 0x68;
         var4.unknown_2_ = action->unknown_4_;
         RunTriggerAction_02061c04(flagManager, &var4, triggerResult);
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     }
     case 0x9c: {
         var5.unknown_0_ = 0x7f;
         var5.unknown_2_ = action->unknown_2_;
         RunTriggerAction_02061c04(flagManager, &var5, triggerResult);
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     }
     case 0x9d: {
@@ -781,7 +781,7 @@ extern "C" ARM int RunTriggerAction_02061c04(void *flagManager, Struct_02061c04_
         }
         var6.unknown_2_ = action->unknown_2_;
         RunTriggerAction_02061c04(flagManager, &var6, triggerResult);
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     }
     case 0x9e: {
@@ -1300,7 +1300,7 @@ extern "C" ARM int RunTriggerAction_02061c04(void *flagManager, Struct_02061c04_
         var17.unknown_8_ = GetStoryChapter_0201079c((char*)var187);
         var17.unknown_a_ = GetStoryStep_020107d0((char*)var187);
         var17.unknown_c_ = GetStorySubStep_02010804((char*)var187);
-        func_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
+        DeferTriggerAction_0206445c((int)flagManager, (Struct_02061c04_25 *)action, (Struct_02061c04_26 *)triggerResult);
         return 1;
     }
     case 0xd7: {
