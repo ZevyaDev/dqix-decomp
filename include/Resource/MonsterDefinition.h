@@ -48,7 +48,6 @@ typedef int (*Type_0206f470)(void*);
 #define func_0206f0f8 func_02070248
 #define func_0206f110 func_02070260
 #define func_0206f170 func_020702c0
-#define func_0206f470 func_02070530
 #define func_0206ef48 func_020700ac
 #define func_0206ef94 func_020700e4
 #endif
@@ -56,7 +55,7 @@ extern "C" {
 int func_0206f0f8(Struct_0206f01c*);
 int func_0206f110(Struct_0206ef48*, Type_0206f110);
 int func_0206f170(Struct_0206ef48*, Struct_0206efd8*, unsigned char*, Type_0206f110);
-void* func_0206f470(Struct_0206f01c_2*, int, Type_0206f470);
+void* BinarySearchMonsterTable_0206f470(Struct_0206f01c_2*, int, Type_0206f470);
 int func_0206ef48(Struct_0206ef48*, Struct_0206ef40*);
 }
 
@@ -65,4 +64,4 @@ int func_0206ef48(Struct_0206ef48*, Struct_0206ef40*);
 
 extern "C" char* func_0206ef94(Struct_0206ef48*, char*, char*);
 extern "C" void func_0206f01c(Struct_0206ef48*, SafeAllocator*, Struct_0206efd8*, unsigned int);
-extern "C" int func_0206ef40(void*);
+extern "C" int GetMonsterDataId_0206ef40(void*);

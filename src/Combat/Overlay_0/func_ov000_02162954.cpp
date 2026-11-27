@@ -10,7 +10,7 @@
 
 extern "C" void* GetEffectManager_02057924(void* arg0);
 extern "C" int func_ov000_02162908(void* arg0, int arg1, int* arg2);
-extern "C" int func_02058680(char* arg0, int arg1, void** arg2, int arg3);
+extern "C" int CollectEffectSlotsByEffectId_02058680(char* effectManager, int effectId, void** outSlots, int maxCount);
 
 // USA: func_ov000_02162954
 extern "C" ARM int func_ov000_02162954(void* arg0) {
@@ -29,5 +29,5 @@ extern "C" ARM int func_ov000_02162954(void* arg0) {
         }
         var5++;
     }
-    return func_02058680((char*)var1, 2, NULL, 0) > 0;
+    return CollectEffectSlotsByEffectId_02058680((char*)var1, 2, NULL, 0) > 0;
 }
