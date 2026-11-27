@@ -9,7 +9,7 @@ extern "C" void* func_ov000_02174da4(int arg0, void* arg1);
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" void EnableKeyMenuCursor_0205cf04(void* windowManager);
 extern "C" void EnableTouchMenuCursor_0205cef8(void* windowManager);
-extern "C" void func_0205cf28(unsigned char* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetMenuCursorsGrid_0205cf28(unsigned char* cursors, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 extern "C" void SetCursorIndex_0205d7a0(unsigned char* windowManager, int index);
 extern "C" int GetMessageWindow_020421a0(void);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov000_02177184(struct Struct_ov000_02177184_2* arg0, in
     CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)var0, 1);
     EnableKeyMenuCursor_0205cf04(var0);
     EnableTouchMenuCursor_0205cef8(var0);
-    func_0205cf28((unsigned char*)var0, 1, var3, 0);
+    SetMenuCursorsGrid_0205cf28((unsigned char*)var0, 1, var3, 0);
     var0->unknown_58_ = 1;
     SetMenuCursorIndex_0205bb04(var0->unknown_54_, 0);
     if (var3 == 3) {

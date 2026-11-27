@@ -73,7 +73,7 @@ extern "C" Struct_ov004_02166bd8* func_ov004_02165ea4(void*, int, int);
 struct Struct_02000c9c_8;
 extern "C" int func_0200fb08(Struct_02000c9c_8*);
 extern "C" unsigned int func_020965ac(Struct_02065990_3*, unsigned char);
-extern "C" int func_02096100(int, unsigned char*, int);
+extern "C" int IsQuestBitSet_02096100(int, unsigned char*, int);
 extern "C" const char* func_ov023_021f63ac(void*, int, int);
 extern "C" void* memset(void*, int, unsigned int);
 extern "C" void AppendXPositionTag_02041a28(char*, int);
@@ -190,7 +190,7 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
                 unsigned short var21 = 5;
                 unsigned short var24 = 0xf;
                 unsigned int var19 = func_020965ac(var10, (unsigned char)var3->unknown_0_);
-                int var20 = func_02096100((int)var10, var10->unknown_a8_ + 0x400, var19);
+                int var20 = IsQuestBitSet_02096100((int)var10, var10->unknown_a8_ + 0x400, var19);
                 if (var3->unknown_2_2_ && !var20)
                     var21 = 10;
                 const char* var22 = var14->unknown_4_;
@@ -212,7 +212,7 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
                 }
 #else
                 unsigned int var19 = func_020965ac(var10, (unsigned char)var3->unknown_0_);
-                int var20 = func_02096100((int)var10, var11 + 0x400, var19);
+                int var20 = IsQuestBitSet_02096100((int)var10, var11 + 0x400, var19);
                 int var21 = 10;
                 const char* var22 = var14->unknown_4_;
                 switch (var3->unknown_2_0_) {

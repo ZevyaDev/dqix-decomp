@@ -11,11 +11,11 @@ struct Struct_0209caa0 {
 
 extern "C" void SetMusicVolume_0209c2e0(struct Struct_0209caa0* manager, int volume, int fadeDuration);
 
-// USA: func_0209caa0
-extern "C" ARM void func_0209caa0(struct Struct_0209caa0* arg0, int arg1) {
-    if (arg0->unknown_c8_1_ == arg1) {
+// USA: SetMusicVolumeHalved_0209caa0
+extern "C" ARM void SetMusicVolumeHalved_0209caa0(struct Struct_0209caa0* manager, int isHalved) {
+    if (manager->unknown_c8_1_ == isHalved) {
         return;
     }
-    arg0->unknown_c8_1_ = (arg1 != 0);
-    SetMusicVolume_0209c2e0(arg0, arg0->unknown_cd_, 0x1e);
+    manager->unknown_c8_1_ = (isHalved != 0);
+    SetMusicVolume_0209c2e0(manager, manager->unknown_cd_, 0x1e);
 }
