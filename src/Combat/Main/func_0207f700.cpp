@@ -1,12 +1,12 @@
 #include <globaldefs.h>
 
-// USA: func_0207f700
-extern "C" ARM void* func_0207f700(unsigned char* arg0, short arg1) {
-    if (arg1 < 0) {
+// USA: GetMenuLayoutTextEntryByIndex_0207f700
+extern "C" ARM void* GetMenuLayoutTextEntryByIndex_0207f700(unsigned char* textEntries, short index) {
+    if (index < 0) {
         return NULL;
     }
-    if (*(short*)(arg0 + 4) <= arg1) {
+    if (*(short*)(textEntries + 4) <= index) {
         return NULL;
     }
-    return *(unsigned char**)arg0 + arg1 * 0x30;
+    return *(unsigned char**)textEntries + index * 0x30;
 }

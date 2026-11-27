@@ -12,10 +12,10 @@ struct Struct_02049efc_2 {
     struct Struct_02049efc* unknown_13c_;
 };
 
-// USA: func_02049efc
-extern "C" ARM void func_02049efc(struct Struct_02049efc_2* arg0) {
-    if (arg0->unknown_13c_ == NULL) return;
-    if (IsDead_02010088((struct Struct_02010088*)arg0)) {
-        arg0->unknown_13c_->unknown_56_ = 0;
+// USA: SetCombatantOffBattlefieldIfDead_02049efc
+extern "C" ARM void SetCombatantOffBattlefieldIfDead_02049efc(struct Struct_02049efc_2* combatant) {
+    if (combatant->unknown_13c_ == NULL) return;
+    if (IsDead_02010088((struct Struct_02010088*)combatant)) {
+        combatant->unknown_13c_->unknown_56_ = 0;
     }
 }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-// USA: func_020100a0
-extern "C" ARM void func_020100a0(GameState* arg0, int arg1) {
-    arg0->protagonistObjectIndex_ = arg1;
+// USA: SetProtagonistObjectIndex_020100a0
+extern "C" ARM void SetProtagonistObjectIndex_020100a0(GameState* gameState, int protagonistObjectIndex) {
+    gameState->protagonistObjectIndex_ = protagonistObjectIndex;
 }

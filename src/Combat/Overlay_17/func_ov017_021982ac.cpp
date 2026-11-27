@@ -17,7 +17,7 @@ extern "C" void func_020a2cd8(unsigned char* arg0, int arg1);
 extern "C" void func_020a2908(unsigned char* arg0, struct Struct_020a2908* arg1);
 extern "C" void func_020a296c(unsigned char* arg0, struct Struct_020a2908* arg1);
 extern "C" void func_020a28d0(unsigned char* arg0);
-extern "C" void func_020a28c4(unsigned char* arg0);
+extern "C" void EnableZoneCameraTurning_020a28c4(unsigned char* camera);
 extern "C" void func_020a28e0(struct Struct_020a28e0* arg0);
 extern "C" void func_020a298c(unsigned char* arg0);
 
@@ -81,7 +81,7 @@ extern "C" ARM void func_ov017_021982ac(void) {
     }
 
     if (var4 == 0) {
-        func_020a28c4(var5);
+        EnableZoneCameraTurning_020a28c4(var5);
         func_020a28e0((struct Struct_020a28e0*)var5);
     }
     if (!var6) {

@@ -60,7 +60,7 @@ struct Struct_0205faf4_20 {
 };
 
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" void func_02010890(GameState*, int*, int*);
+extern "C" void GetPartyMemberObjectIndices_02010890(GameState*, int*, int*);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" int GetMessageChoice_020457e0(int);
 struct Struct_0205faf4;
@@ -208,17 +208,17 @@ extern "C" ARM int func_0205faf4(struct Struct_0203d028_2* arg0, void* arg1, str
         return CU16(2) == EW(0x18);
     case 13: {
         int var5[4]; int var6;
-        func_02010890((GameState*)(void*)GameState::GetInstance(), var5, &var6);
+        GetPartyMemberObjectIndices_02010890((GameState*)(void*)GameState::GetInstance(), var5, &var6);
         return CU16(2) <= var6;
     }
     case 14: {
         int var7[4]; int var8;
-        func_02010890((GameState*)(void*)GameState::GetInstance(), var7, &var8);
+        GetPartyMemberObjectIndices_02010890((GameState*)(void*)GameState::GetInstance(), var7, &var8);
         return CU16(2) >= var8;
     }
     case 15: {
         int var9[4]; int var10;
-        func_02010890((GameState*)(void*)GameState::GetInstance(), var9, &var10);
+        GetPartyMemberObjectIndices_02010890((GameState*)(void*)GameState::GetInstance(), var9, &var10);
         return CU16(2) == var10;
     }
     case 16:

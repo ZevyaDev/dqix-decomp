@@ -5,7 +5,7 @@ struct Struct_0204a438 {
     void* unknown_21c_;
 };
 
-// USA: func_0204a438
-extern "C" ARM void* func_0204a438(struct Struct_0204a438* arg0) {
-    return arg0->unknown_21c_;
+// USA: GetBoneCameraObject_0204a438
+extern "C" ARM void* GetBoneCameraObject_0204a438(struct Struct_0204a438* camera) {
+    return camera->unknown_21c_;
 }

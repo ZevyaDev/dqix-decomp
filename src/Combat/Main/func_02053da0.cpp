@@ -15,12 +15,12 @@ struct Struct_02053da0 {
     int unknown_8_;
 };
 
-// USA: func_02053da0
-extern "C" ARM void func_02053da0(char* arg0, struct Struct_02053da0* arg1) {
-    *(struct Struct_02053da0**)(arg0 + Enum_02053da0_412) = arg1;
-    arg1->unknown_0_ = 0;
-    arg1->unknown_2_ = 0;
-    arg1->unknown_3_ = 0;
-    arg1->unknown_4_ = 0;
-    arg1->unknown_8_ = 0;
+// USA: SetBattleCommand_02053da0
+extern "C" ARM void SetBattleCommand_02053da0(char* partyMember, struct Struct_02053da0* command) {
+    *(struct Struct_02053da0**)(partyMember + Enum_02053da0_412) = command;
+    command->unknown_0_ = 0;
+    command->unknown_2_ = 0;
+    command->unknown_3_ = 0;
+    command->unknown_4_ = 0;
+    command->unknown_8_ = 0;
 }

@@ -29,7 +29,7 @@ struct Struct_ov026_021dc040 {
     unsigned int unknown_3f_7_ : 1;
     unsigned short inline_ov026_021dc040() { return unknown_3f_6_; }
 };
-extern "C" Object3D* func_0204a438(Struct_0204a438*);
+extern "C" Object3D* GetBoneCameraObject_0204a438(Struct_0204a438*);
 extern "C" int func_ov000_0215fc60(char*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov026_021dc040(SafeAllocator* arg0, BattleScene_ov000_02
     GameState* var0 = GameState::GetInstance();
     Struct_0204a438* var1 = (Struct_0204a438*)func_020100bc(var0);
     if (!var1) return 1;
-    Object3D* var2 = func_0204a438(var1);
+    Object3D* var2 = GetBoneCameraObject_0204a438(var1);
     if (!var2) return 1;
     GameObject* var3 = var0->GetGameObjectByIndex(0xcf);
     if (!var3) return 1;

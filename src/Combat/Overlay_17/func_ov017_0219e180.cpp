@@ -17,7 +17,7 @@ extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 struct LocalWireless_0202c1a4;
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless);
-extern "C" GameObject* func_ov017_021a2738(void* arg0, int arg1);
+extern "C" GameObject* FindMonsterModelTemplate_ov017_021a2738(void* gameResources, int monsterId);
 
 // USA: func_ov017_0219e180
 extern "C" ARM void func_ov017_0219e180(void* arg0, int arg1) {
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov017_0219e180(void* arg0, int arg1) {
         if (var6 == NULL) {
             continue;
         }
-        GameObject* var7 = func_ov017_021a2738(arg0, var6->obj3D_.unknown_2_);
+        GameObject* var7 = FindMonsterModelTemplate_ov017_021a2738(arg0, var6->obj3D_.unknown_2_);
         if (var7 == NULL) {
             continue;
         }

@@ -23,7 +23,7 @@ struct SPRSprite_0203a46c {
 extern "C" int func_020100bc(GameState*);
 extern "C" void func_0202ec84(void*, struct Struct_02015ef4*, int*, int*);
 extern "C" void SetSPRSpritePosition_0203a46c(struct SPRSprite_0203a46c*, int, int, int);
-extern "C" void func_0203a47c(unsigned int*, unsigned int, unsigned int, unsigned int);
+extern "C" void SetSPRSpriteScale_0203a47c(unsigned int*, unsigned int, unsigned int, unsigned int);
 
 extern const int data_020e7830[5];
 
@@ -105,7 +105,7 @@ extern "C" ARM void func_0203a0b4(struct Struct_0203a0b4* arg0) {
                 if (var13) {
                     SetSPRSpritePosition_0203a46c(&arg0->unknown_0_[var8].unknown_0_, var14 + (var0 << 12), var15 + ((var11 - 8) << 12), var16 + (var5 << 12));
                     arg0->unknown_0_[var8].unknown_82_ = var1;
-                    func_0203a47c((unsigned int*)&arg0->unknown_0_[var8], var17, var17, 0x1000);
+                    SetSPRSpriteScale_0203a47c((unsigned int*)&arg0->unknown_0_[var8], var17, var17, 0x1000);
                     GXFIFO_MATRIX_PUSH = 0;
                     ((SPRSprite*)(&arg0->unknown_0_[var8]))->DrawTextureScaleTranslate(var9 % 10, 1);
                     GXFIFO_MATRIX_POP = 1;
@@ -121,7 +121,7 @@ extern "C" ARM void func_0203a0b4(struct Struct_0203a0b4* arg0) {
                 var4 -= (int)(16.0f * var20);
                 int var21 = var12 - (int)(8.0f * var20) - 8;
                 SetSPRSpritePosition_0203a46c(&arg0->unknown_2a8_[var8].unknown_0_, var4 << 12, var21 << 12, 0);
-                func_0203a47c((unsigned int*)&arg0->unknown_2a8_[var8], arg0->unknown_550_[var2].unknown_a_, arg0->unknown_550_[var2].unknown_a_, 0x1000);
+                SetSPRSpriteScale_0203a47c((unsigned int*)&arg0->unknown_2a8_[var8], arg0->unknown_550_[var2].unknown_a_, arg0->unknown_550_[var2].unknown_a_, 0x1000);
                 arg0->unknown_2a8_[var8].unknown_82_ = var1;
                 GXFIFO_MATRIX_PUSH = 0;
                 ((SPRSprite*)(&arg0->unknown_2a8_[var8]))->DrawTextureScaleTranslate(0, 1);

@@ -2,10 +2,10 @@
 
 struct Struct_ov009_02188454 { unsigned int unknown_0_, unknown_4_, unknown_8_; };
 
-// USA: func_ov023_021e60c4
-extern "C" ARM void func_ov023_021e60c4(void* arg0, struct Struct_ov009_02188454* arg1) {
-	struct Struct_ov009_02188454* var0 = (struct Struct_ov009_02188454*)((char*)arg0 + 0x50);
-	var0->unknown_0_ = arg1->unknown_0_;
-	var0->unknown_4_ = arg1->unknown_4_;
-	var0->unknown_8_ = arg1->unknown_8_;
+// USA: SetObject3DRotationFromVector_ov023_021e60c4
+extern "C" ARM void SetObject3DRotationFromVector_ov023_021e60c4(void* object, struct Struct_ov009_02188454* rotation) {
+	struct Struct_ov009_02188454* objectRotation = (struct Struct_ov009_02188454*)((char*)object + 0x50);
+	objectRotation->unknown_0_ = rotation->unknown_0_;
+	objectRotation->unknown_4_ = rotation->unknown_4_;
+	objectRotation->unknown_8_ = rotation->unknown_8_;
 }

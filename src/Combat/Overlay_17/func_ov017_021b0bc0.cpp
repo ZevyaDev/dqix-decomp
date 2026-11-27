@@ -29,7 +29,7 @@ struct ItemData_02083508_2 { char unknown_0_[0x20]; };
 extern "C" void* func_0202ae18(void);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void*);
-extern "C" void func_02039880(unsigned char*, int);
+extern "C" void SetPartyLeaderObjectIndex_02039880(unsigned char*, int);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
 extern "C" signed char GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(GameResources*, int, int, int, int);
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
     }
     GameObject* var11 = var5->GetPartyMemberByIndex(arg0->unknown_c_);
     if (var11 != NULL) {
-        func_02039880((unsigned char*)var11, var11->obj3D_.unknown_4_);
+        SetPartyLeaderObjectIndex_02039880((unsigned char*)var11, var11->obj3D_.unknown_4_);
     }
     short* var12 = var3;
     for (int var13 = 0; var13 < 4; var13++, var12++) {

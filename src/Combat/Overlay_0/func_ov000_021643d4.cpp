@@ -217,7 +217,7 @@ extern "C" void func_ov017_021a1114(char*);
 extern "C" void func_ov017_021a07f4(int arg0);
 extern "C" void func_ov017_0219dffc(void*, int);
 struct Struct_02053da0;
-extern "C" void func_02053da0(char*, Struct_02053da0*);
+extern "C" void SetBattleCommand_02053da0(char*, Struct_02053da0*);
 extern "C" void func_ov000_02161300(Struct_ov000_021643d4_7* arg0, int arg1);
 extern "C" void func_02039894(unsigned char*);
 extern "C" int IsLocalWirelessGuest_0202c540(int wireless);
@@ -412,7 +412,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         var39->unknown_160_ = var39->unknown_44_;
         var39->unknown_16c_ = var39->unknown_50_;
         var39->unknown_15c_ = ((Object3D*)var39)->GetField06();
-        func_02053da0((char*)var39, (Struct_02053da0*)&arg0->unknown_5728_[var38]);
+        SetBattleCommand_02053da0((char*)var39, (Struct_02053da0*)&arg0->unknown_5728_[var38]);
         func_ov000_02161300(arg0, var38);
         func_02039894((unsigned char*)var39);
         if (var39->unknown_0_ & 0x1000) {

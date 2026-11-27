@@ -97,7 +97,7 @@ extern "C" void func_ov000_02171640(Struct_ov000_02171640*, int, int);
 extern "C" void func_ov000_02171968(Struct_ov000_02171968*, int, int);
 extern "C" int CountHeldItems_02083960(PartyMemberData_0207d300*);
 extern "C" void func_ov000_02171b3c(Struct_ov000_02171b3c*);
-extern "C" void func_ov000_02171b68(void*, int, void*);
+extern "C" void SetPanelItem_ov000_02171b68(void*, int, void*);
 extern "C" ItemData_0206f81c_8* FindEquippedItem_02083554(PartyMemberData_0206f81c*, int);
 extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" int func_ov026_021dce1c(Struct_ov026_021dc8fc_4*);
@@ -192,7 +192,7 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
             if (var32 < var27) {
                 ItemData_0201099c_9* var33 = FindItemData_020dedd0(&arg3->unknown_d0_, (short)var7[var32]);
                 if (var33) {
-                    func_ov000_02171b68(var3, var30, var33);
+                    SetPanelItem_ov000_02171b68(var3, var30, var33);
                     ++var30;
                 }
             }
@@ -207,7 +207,7 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
             if (var35 && var35->itemId_18_ > 0) {
                 int var36 = var35->unknown_8_0_ <= 7 ? 1 : 0;
                 if (var36) {
-                    func_ov000_02171b68(var3, var30, var35);
+                    SetPanelItem_ov000_02171b68(var3, var30, var35);
                     ++var30;
                 }
             }

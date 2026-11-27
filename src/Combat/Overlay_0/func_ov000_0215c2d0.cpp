@@ -47,8 +47,8 @@ struct Struct_ov000_0215767c_2 {
 struct BattleAction_ov000_0215440c_2;
 extern "C" Struct_ov000_0215767c_8* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 extern "C" Struct_ov000_0215767c_10* GetNextBattleAction_ov000_0215e9d8(void* battle);
-extern "C" Struct_ov000_0215767c_8* func_ov000_0215e918(void* arg0);
-extern "C" Struct_ov000_0215767c_9* func_ov000_0215e938(void* arg0);
+extern "C" Struct_ov000_0215767c_8* GetNextActionActor_ov000_0215e918(void* battle);
+extern "C" Struct_ov000_0215767c_9* GetNextActionTarget_ov000_0215e938(void* battle);
 extern "C" void InitBattleAction_ov000_02160030(void* action);
 extern "C" void InitActionTarget_ov000_02157cdc(void* target);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
@@ -92,14 +92,14 @@ extern "C" ARM void func_ov000_0215c2d0(Struct_ov000_0215767c_2* arg0, Struct_ov
             continue;
         }
         InitBattleAction_ov000_02160030(var4);
-        Struct_ov000_0215767c_8* var5 = func_ov000_0215e918(arg0);
+        Struct_ov000_0215767c_8* var5 = GetNextActionActor_ov000_0215e918(arg0);
         if (var5 == 0) {
             continue;
         }
         memset(var5, 0, 0x30);
         var5->unknown_1c_ = -1;
         var5->unknown_30_ = 0;
-        Struct_ov000_0215767c_9* var6 = func_ov000_0215e938(arg0);
+        Struct_ov000_0215767c_9* var6 = GetNextActionTarget_ov000_0215e938(arg0);
         if (var6 == 0) {
             continue;
         }

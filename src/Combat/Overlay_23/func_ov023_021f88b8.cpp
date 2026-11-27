@@ -3,7 +3,7 @@
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 
 struct Struct_ov023_021f68b8 { void* unknown_0_; };
-extern "C" void* func_ov023_021f68b8(struct Struct_ov023_021f68b8* arg0, int arg1);
+extern "C" void* GetMenuObjectByIndex_ov023_021f68b8(struct Struct_ov023_021f68b8* objectList, int index);
 
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 
@@ -19,7 +19,7 @@ extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 // USA: func_ov023_021f88b8
 extern "C" ARM void func_ov023_021f88b8(void* arg0, void* arg1, int arg2) {
     void* var0 = GetMenuObjectList_ov011_021849c8(arg1);
-    void* var1 = func_ov023_021f68b8((struct Struct_ov023_021f68b8*)var0, 0);
+    void* var1 = GetMenuObjectByIndex_ov023_021f68b8((struct Struct_ov023_021f68b8*)var0, 0);
     while (var1 != NULL) {
         unsigned int var2 = func_ov023_021f6f10(var1);
         if (var2 == 8 && *(unsigned short*)((char*)var1 + 0x34) == *(unsigned short*)((char*)arg0 + 0x6)) {

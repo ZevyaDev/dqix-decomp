@@ -59,7 +59,7 @@ extern "C" int func_ov017_021a20c0(int, int, int);
 extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" int* func_0202ae18();
 extern "C" void InitFieldMonster_02076a8c(void*);
-extern "C" Struct_02072adc* func_ov017_021a2738(void*, int);
+extern "C" Struct_02072adc* FindMonsterModelTemplate_ov017_021a2738(void*, int);
 extern "C" void func_02072adc(Struct_02072adc*, Struct_02072adc*);
 struct Struct_ov017_021a2128_2 { short unknown_0_; short unknown_2_; };
 extern "C" Struct_ov017_021a2128_2* func_0209be84(Struct_02073ec4_2*, unsigned int, int);
@@ -89,7 +89,7 @@ extern "C" ARM int func_ov017_021a2128(Struct_ov017_021a2128* arg0, unsigned sho
     Struct_ov017_021a2128_5* var7 = (Struct_ov017_021a2128_5*)var3->GetMaybeFieldMonsterByIndex(var6);
     if (!var7) return 0;
     InitFieldMonster_02076a8c(var7);
-    Struct_02072adc* var8 = func_ov017_021a2738(arg0, arg2);
+    Struct_02072adc* var8 = FindMonsterModelTemplate_ov017_021a2738(arg0, arg2);
     if (arg1 == *var4 && var8) func_02072adc(var8, (Struct_02072adc*)var7);
     int var9 = 0x1000;
     Struct_ov017_021a2128_2* var10 = func_0209be84((Struct_02073ec4_2*)var0->unknown_60_, arg2, arg3);

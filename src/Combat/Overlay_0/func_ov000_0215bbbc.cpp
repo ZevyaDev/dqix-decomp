@@ -11,8 +11,8 @@ struct Struct_ov000_0215b278_3 { char unknown_0_[0x20]; int unknown_20_; };
 extern "C" Struct_ov000_0215b278* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*,int);
 extern "C" void* GetNextBattleAction_ov000_0215e9d8(void*);
 extern "C" void InitBattleAction_ov000_02160030(void*);
-extern "C" void* func_ov000_0215e918(void*);
-extern "C" void* func_ov000_0215e938(void*);
+extern "C" void* GetNextActionActor_ov000_0215e918(void*);
+extern "C" void* GetNextActionTarget_ov000_0215e938(void*);
 extern "C" void InitActionTarget_ov000_02157cdc(void*);
 extern "C" void AppendTargetResult_ov000_0215ffc4(void*,void*,int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
@@ -37,9 +37,9 @@ extern "C" ARM void func_ov000_0215bbbc(unsigned char* arg0,BattleAction_ov000_0
 #define ALLOCATE() \
         var2=(Struct_ov000_021537b8*)GetNextBattleAction_ov000_0215e9d8(arg0); \
         if(!var2) continue; InitBattleAction_ov000_02160030(var2); \
-        var3=(Struct_ov000_0215b278*)func_ov000_0215e918(arg0); \
+        var3=(Struct_ov000_0215b278*)GetNextActionActor_ov000_0215e918(arg0); \
         if(!var3) continue; memset(var3,0,0x30); var3->unknown_1c_=-1; var3->unknown_30_=0; \
-        var4=(Struct_ov000_0215b278_2*)func_ov000_0215e938(arg0); \
+        var4=(Struct_ov000_0215b278_2*)GetNextActionTarget_ov000_0215e938(arg0); \
         if(!var4) continue; InitActionTarget_ov000_02157cdc(var4); \
         var5=GetNextActionResult_ov000_0215e958(arg0); \
         if(!var5) continue; memset(var5,0,0x20); var5->unknown_20_=0;

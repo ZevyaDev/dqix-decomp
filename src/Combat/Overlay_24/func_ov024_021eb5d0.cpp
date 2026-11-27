@@ -309,7 +309,7 @@ extern "C" int func_ov000_02156cc4(void* arg0, int arg1, struct Struct_ov024_021
 struct Struct_02010088;
 extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int func_ov024_021e6798(GameObject*);
-extern "C" struct Struct_ov024_021eb5d0_5* func_ov000_0215e938(void* arg0);
+extern "C" struct Struct_ov024_021eb5d0_5* GetNextActionTarget_ov000_0215e938(void* battle);
 struct Struct_ov000_0215fef0;
 extern "C" void func_ov000_0215fef0(Struct_ov000_0215fef0*);
 extern "C" short func_ov000_02154c68(void* arg0, int arg1, struct Struct_ov024_021eaa50_2* arg2);
@@ -593,7 +593,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
         if (IsDead_02010088((Struct_02010088*)var19) != 0) break;
         if (func_ov024_021e6798((GameObject*)var19) != 0) break;
         if (var16 == 0x21 && var18 == var7.unknown_0_[var38]) continue;
-        arg0->unknown_c_ = func_ov000_0215e938(arg0->unknown_10_);
+        arg0->unknown_c_ = GetNextActionTarget_ov000_0215e938(arg0->unknown_10_);
         struct Struct_ov024_021eb5d0_5* var41 = arg0->unknown_c_;
         if (var41 == 0) return;
         func_ov000_0215fef0((Struct_ov000_0215fef0*)var41);

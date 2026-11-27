@@ -8,7 +8,7 @@
 #endif
 
 struct Struct_0204a438;
-extern "C" void* func_0204a438(struct Struct_0204a438* arg0);
+extern "C" void* GetBoneCameraObject_0204a438(struct Struct_0204a438* camera);
 extern "C" int GetCameraClassFlags_0202e09c(int camera);
 extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void* battle, int action, int selector, int indices);
 struct Struct_02059cfc_4;
@@ -45,7 +45,7 @@ extern "C" ARM int func_ov025_021e4868(struct Struct_ov025_021e4868* arg0, int a
     if (arg0->unknown_8_ == 0x19) {
         void* var4 = func_020100bc(var3);
         if (GetCameraClassFlags_0202e09c((int)var4) & 0x10) {
-            var1 = func_0204a438((struct Struct_0204a438*)var4);
+            var1 = GetBoneCameraObject_0204a438((struct Struct_0204a438*)var4);
         } else {
             return 1;
         }

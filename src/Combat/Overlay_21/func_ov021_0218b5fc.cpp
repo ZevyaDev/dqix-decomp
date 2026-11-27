@@ -89,7 +89,7 @@ extern "C" void InitMessageWindow_02042c68(void* window);
 extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void func_020440a4(void* arg0);
 extern "C" void InitMessageGlyphs_020432c4(void* window);
-extern "C" void func_020100a0(GameState* arg0, int arg1);
+extern "C" void SetProtagonistObjectIndex_020100a0(GameState* gameState, int protagonistObjectIndex);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_ov009_0218454c(void* arg0, int arg1, int arg2);
@@ -218,7 +218,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     ((TextureArena*)(arg0->unknown_44_))->Restore();
     InitMessageGlyphs_020432c4(var5);
     ((TextureArena*)(arg0->unknown_44_))->Save();
-    func_020100a0(var0, 0);
+    SetProtagonistObjectIndex_020100a0(var0, 0);
     arg0->unknown_2c_.CreateTypeA(AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, Enum_ov021_0218b5fc_307768), Enum_ov021_0218b5fc_307768);
     arg0->unknown_2c_.Reset();
     arg0->unknown_40_ = arg0->unknown_2c_.Allocate(Enum_ov021_0218b5fc_3512);

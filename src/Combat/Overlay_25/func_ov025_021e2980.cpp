@@ -53,7 +53,7 @@ extern char data_ov025_021ef7df[];
 extern char data_ov025_021ef7e6[];
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" int GetCameraClassFlags_0202e09c(int);
-extern "C" Object3D* func_0204a438(Struct_0204a438*);
+extern "C" Object3D* GetBoneCameraObject_0204a438(Struct_0204a438*);
 extern "C" void SetCameraFieldOfView_0202e9a4(Struct_0202df68*, int);
 extern "C" void func_0204a170(int);
 extern "C" int CollectObjectIndicesBySelector_ov000_021820bc(void*, int, int, int);
@@ -69,7 +69,7 @@ extern "C" ARM int func_ov025_021e2980(Struct_ov025_021e2980* arg0, Struct_ov025
     if (arg0->unknown_e_ == 0x19) {
         void* var1 = func_020100bc(var0);
         if (GetCameraClassFlags_0202e09c((int)var1) & 0x10) {
-            Object3D* var2 = func_0204a438((Struct_0204a438*)var1);
+            Object3D* var2 = GetBoneCameraObject_0204a438((Struct_0204a438*)var1);
             if (var2) {
                 SetCameraFieldOfView_0202e9a4((Struct_0202df68*)var1, 0xf000);
                 var2->MaybeSetRegularAnimation(arg0->unknown_8_, arg0->unknown_c_);

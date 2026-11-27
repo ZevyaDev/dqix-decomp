@@ -6,7 +6,7 @@ enum { Enum_02039880_458 = 0x1be };
 enum { Enum_02039880_458 = 0x1ca };
 #endif
 
-// USA: func_02039880
-extern "C" ARM void func_02039880(unsigned char* arg0, int arg1) {
-    arg0[Enum_02039880_458] = arg1;
+// USA: SetPartyLeaderObjectIndex_02039880
+extern "C" ARM void SetPartyLeaderObjectIndex_02039880(unsigned char* object, int leaderObjectIndex) {
+    object[Enum_02039880_458] = leaderObjectIndex;
 }

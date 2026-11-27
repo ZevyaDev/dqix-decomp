@@ -128,7 +128,7 @@ extern "C" unsigned char GetGameMode_0200fb9c(char*);
 extern "C" void SetGameMode_0200fb94(char*, unsigned char);
 extern "C" void func_0205facc(void* arg0);
 extern "C" void func_02095518(char*);
-extern "C" void func_020ac0dc();
+extern "C" void ClearAlchemyRecipeEntries_020ac0dc();
 extern "C" void func_02096524(void* arg0);
 extern "C" void* GetColorFade_020704fc();
 struct Struct_02108d5c;
@@ -161,7 +161,7 @@ extern "C" void func_0202ac74();
 extern "C" void SetPrintMode_02028d68(int mode);
 extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void* wireless);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
-extern "C" void func_020100a0(GameState* arg0, int arg1);
+extern "C" void SetProtagonistObjectIndex_020100a0(GameState* gameState, int protagonistObjectIndex);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
 struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
@@ -347,7 +347,7 @@ extern "C" void func_ov017_021a0f40(char*);
 extern "C" void func_ov017_021a1114(char*);
 extern "C" void func_ov017_021a0d6c(char*);
 extern "C" void func_ov017_021a0470(void* arg0);
-extern "C" void func_0200fd58(GameState* arg0);
+extern "C" void ClearGameObjects_0200fd58(GameState* gameState);
 extern "C" void func_020a1edc();
 extern "C" void func_020a1de4();
 extern "C" void func_ov004_0216e9cc();
@@ -524,7 +524,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         if (GetTitleState_0201201c(var5) == 5 || GetGameMode_0200fb9c((char*)var5) == 4) {
             func_0205facc(var18);
             func_02095518((char*)var19);
-            func_020ac0dc();
+            ClearAlchemyRecipeEntries_020ac0dc();
         }
         func_02096524(var19);
     }
@@ -583,10 +583,10 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
 
     UpdateLocalWirelessPlayerCount_0202c288(var15);
     if (IsLocalWirelessOn_0202b7d8((int*)var15) == 0) {
-        func_020100a0(GameState::GetInstance(), 0);
+        SetProtagonistObjectIndex_020100a0(GameState::GetInstance(), 0);
     } else {
         GameState* var22 = GameState::GetInstance();
-        func_020100a0(var22, GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var15));
+        SetProtagonistObjectIndex_020100a0(var22, GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var15));
     }
     func_020c555c((int)&data_ov017_021d615c);
     func_ov017_021a02f0(arg0);
@@ -1049,7 +1049,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         func_ov017_021a0d6c((char*)arg0);
     }
     func_ov017_021a0470(arg0);
-    func_0200fd58(var5);
+    ClearGameObjects_0200fd58(var5);
     func_020a1edc();
     func_020a1de4();
     *(volatile unsigned int*)0x4000000 &= ~0xe000;

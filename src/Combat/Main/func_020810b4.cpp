@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-extern "C" void* func_0207f100(unsigned char* arg0, short arg1);
+extern "C" void* GetMenuLayoutWindowEntryByIndex_0207f100(unsigned char* windowEntries, short index);
 
 // USA: func_020810b4
 extern "C" ARM void* func_020810b4(unsigned char* arg0, short arg1) {
     short var0 = *(short*)(arg0 + 0x10);
     short var1;
     for (var1 = 0; var1 < var0; var1++) {
-        unsigned char* var2 = (unsigned char*)func_0207f100(arg0 + 0xc, var1);
+        unsigned char* var2 = (unsigned char*)GetMenuLayoutWindowEntryByIndex_0207f100(arg0 + 0xc, var1);
         if (var2 == NULL) {
             continue;
         }

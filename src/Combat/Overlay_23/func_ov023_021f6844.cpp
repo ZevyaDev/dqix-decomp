@@ -11,7 +11,7 @@ struct Struct_ov023_021f6844 {
     struct Struct_ov023_021f6844_2* unknown_0_;
 };
 
-extern "C" void func_ov023_021f67ec(struct Struct_ov023_021f6844* arg0, struct Struct_ov023_021f6844_2* arg1);
+extern "C" void RemoveMenuObject_ov023_021f67ec(struct Struct_ov023_021f6844* objectList, struct Struct_ov023_021f6844_2* object);
 
 // USA: func_ov023_021f6844
 extern "C" ARM void func_ov023_021f6844(struct Struct_ov023_021f6844* arg0, unsigned short arg1) {
@@ -19,7 +19,7 @@ extern "C" ARM void func_ov023_021f6844(struct Struct_ov023_021f6844* arg0, unsi
     while (var0 != 0) {
         struct Struct_ov023_021f6844_2* var1 = var0->unknown_18_;
         if (var0->unknown_8_ == arg1) {
-            func_ov023_021f67ec(arg0, var0);
+            RemoveMenuObject_ov023_021f67ec(arg0, var0);
         }
         var0 = var1;
     }

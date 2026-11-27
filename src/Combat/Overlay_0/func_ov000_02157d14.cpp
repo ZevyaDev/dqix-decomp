@@ -8,9 +8,9 @@ struct Struct_ov000_02157d14 {
     int unknown_30_;
 };
 
-// USA: func_ov000_02157d14
-extern "C" ARM void func_ov000_02157d14(struct Struct_ov000_02157d14* arg0) {
-    memset(arg0, 0, 0x30);
-    arg0->unknown_1c_ = -1;
-    arg0->unknown_30_ = 0;
+// USA: InitActionActor_ov000_02157d14
+extern "C" ARM void InitActionActor_ov000_02157d14(struct Struct_ov000_02157d14* actor) {
+    memset(actor, 0, 0x30);
+    actor->unknown_1c_ = -1;
+    actor->unknown_30_ = 0;
 }

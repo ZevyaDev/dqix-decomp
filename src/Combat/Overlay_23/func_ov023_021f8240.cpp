@@ -172,7 +172,7 @@ struct StringList_02072a68_2;
 struct Struct_ov023_021f8240_7;
 
 extern "C" Struct_ov023_021f68b8* GetMenuObjectList_ov011_021849c8(void* menu);
-extern "C" Struct_ov023_021f8240* func_ov023_021f68b8(Struct_ov023_021f68b8* arg0, int arg1);
+extern "C" Struct_ov023_021f8240* GetMenuObjectByIndex_ov023_021f68b8(Struct_ov023_021f68b8* objectList, int index);
 extern "C" unsigned short func_ov023_021f6f10(Struct_ov023_021f8240* arg0);
 extern "C" Struct_ov023_021f8240* FindMenuObjectById_ov023_021f6880(Struct_ov023_021f68b8* objectList, int id);
 extern "C" StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(Struct_ov023_021f8240* object);
@@ -209,7 +209,7 @@ extern "C" ARM void func_ov023_021f8240(Struct_ov023_021f8240_6* arg0, void* arg
     short var0 = *(short*)((char*)arg0 + 0xc8) * 8;
 #endif
     Struct_ov023_021f68b8* var1 = GetMenuObjectList_ov011_021849c8(arg1);
-    for (Struct_ov023_021f8240* var2 = func_ov023_021f68b8(var1, 0); var2 != NULL;
+    for (Struct_ov023_021f8240* var2 = GetMenuObjectByIndex_ov023_021f68b8(var1, 0); var2 != NULL;
          var2 = func_ov023_021f6f18(var2))
     {
         int var3 = 0;

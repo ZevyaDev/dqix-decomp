@@ -7,17 +7,17 @@
 #endif
 
 
-// USA: func_ov000_02171bc0
-extern "C" ARM int func_ov000_02171bc0(char* arg0) {
-    signed char var0 = 0;
-    for (int var1 = 0; var1 < 0x10; var1++) {
-        void* var2 = *(void**)(arg0 + var1 * 4 + REGION_OFFSET_0);
-        if (var2 != 0) {
-            short var3 = *(short*)((char*)var2 + 0x18);
+// USA: CountPanelItems_ov000_02171bc0
+extern "C" ARM int CountPanelItems_ov000_02171bc0(char* panel) {
+    signed char count = 0;
+    for (int i = 0; i < 0x10; i++) {
+        void* item = *(void**)(panel + i * 4 + REGION_OFFSET_0);
+        if (item != 0) {
+            short var3 = *(short*)((char*)item + 0x18);
             if (var3 > 0) {
-                var0 = (signed char)(var0 + 1);
+                count = (signed char)(count + 1);
             }
         }
     }
-    return var0;
+    return count;
 }

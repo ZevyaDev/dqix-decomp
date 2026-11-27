@@ -32,7 +32,7 @@ struct Struct_ov000_02162cbc_2 {
 };
 
 extern "C" int CollectCombatantIndices_ov000_02153e40(void* battle, short* indices, int maxCount, int filterFlags);
-extern "C" void func_02049efc(struct Struct_02049efc_2* arg0);
+extern "C" void SetCombatantOffBattlefieldIfDead_02049efc(struct Struct_02049efc_2* combatant);
 extern "C" void func_ov000_02162dc4(Struct_ov000_02162cbc_2* arg0, GameObject* arg1, Struct_ov000_02162cbc* arg2, unsigned int arg3,
                                     int arg4, int arg5, unsigned long long arg6, int arg7);
 
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov000_02162cbc(Struct_ov000_02162cbc_2* arg0) {
     for (int var3 = 0; var3 < var2; var3++) {
         Struct_ov000_02162cbc* var4 = (Struct_ov000_02162cbc*)var0->GetCombatantByIndex(var1[var3]);
         if (!var4) continue;
-        func_02049efc((struct Struct_02049efc_2*)var4);
+        SetCombatantOffBattlefieldIfDead_02049efc((struct Struct_02049efc_2*)var4);
         if (var4->unknown_138_->unknown_14_ & 1) continue;
         var4->unknown_c1_ &= ~0xf0;
         func_ov000_02162dc4(arg0, NULL, var4, var4->unknown_138_->inline_ov000_02162cbc(), var4->unknown_138_->inline_ov000_02162cbc_2(), var4->unknown_138_->inline_ov000_02162cbc_3(), 0, 0);

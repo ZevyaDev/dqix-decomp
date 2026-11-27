@@ -9,7 +9,7 @@ struct TextureVRAMArea_0203d028;
 struct Struct_ov009_02188454;
 struct ItemTable_0201099c_10;
 
-extern "C" void func_ov023_021e60c4(void* arg0, struct Struct_ov009_02188454* arg1);
+extern "C" void SetObject3DRotationFromVector_ov023_021e60c4(void* object, struct Struct_ov009_02188454* rotation);
 extern "C" void func_ov023_021e5fdc(void* arg0, short* arg1, short* arg2);
 extern "C" void __clear(void* arg0, unsigned long arg1);
 
@@ -189,10 +189,10 @@ extern "C" ARM void func_ov023_021e5020(Struct_ov023_021e5020_3* arg0)
                 }
                 Struct_ov023_021e5020_2 var6 = {0};
                 var6.unknown_4_ = arg0->unknown_c1c_;
-                func_ov023_021e60c4(&arg0->unknown_0_[0], (Struct_ov009_02188454*)&var6);
-                func_ov023_021e60c4(&arg0->unknown_0_[6], (Struct_ov009_02188454*)&var6);
-                func_ov023_021e60c4(&arg0->unknown_0_[1], (Struct_ov009_02188454*)&var6);
-                func_ov023_021e60c4(&arg0->unknown_0_[5], (Struct_ov009_02188454*)&var6);
+                SetObject3DRotationFromVector_ov023_021e60c4(&arg0->unknown_0_[0], (Struct_ov009_02188454*)&var6);
+                SetObject3DRotationFromVector_ov023_021e60c4(&arg0->unknown_0_[6], (Struct_ov009_02188454*)&var6);
+                SetObject3DRotationFromVector_ov023_021e60c4(&arg0->unknown_0_[1], (Struct_ov009_02188454*)&var6);
+                SetObject3DRotationFromVector_ov023_021e60c4(&arg0->unknown_0_[5], (Struct_ov009_02188454*)&var6);
                 func_ov023_021e5e68(arg0, var5->unknown_18_, var5->unknown_1a_);
             }
 

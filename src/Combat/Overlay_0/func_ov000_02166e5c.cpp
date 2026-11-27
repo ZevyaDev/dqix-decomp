@@ -115,7 +115,7 @@ struct TextureVRAMArea_0203d028;
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11*);
 struct Struct_02054664;
 extern "C" void func_02054664(Struct_02054664*);
-extern "C" void func_02053da0(char*, Struct_02053da0*);
+extern "C" void SetBattleCommand_02053da0(char*, Struct_02053da0*);
 extern "C" void SetCombatantBattleState_02049c88(Struct_ov000_02166e5c_7*, Struct_02000c9c_34*);
 extern "C" void func_ov000_0216d1c4(int, Struct_02013fb4*, int, int*);
 extern "C" void func_ov000_02165480(void*, int);
@@ -185,7 +185,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
         return;
     }
     var6->unknown_0_.SetScale(0x10a, 0x10a, 0x10a);
-    func_02053da0((char*)var6, &arg0->unknown_5734_);
+    SetBattleCommand_02053da0((char*)var6, &arg0->unknown_5734_);
     SetCombatantBattleState_02049c88(var6, &arg0->unknown_5cac_);
     const void* var8;
     unsigned int var9;

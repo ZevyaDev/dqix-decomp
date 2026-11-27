@@ -2,7 +2,7 @@
 
 struct Struct_0204a120_2;
 extern "C" void InitKeyControlledCamera_020a2cf0(struct Struct_0204a120_2*);
-extern "C" ARM void func_0202e08c(unsigned int* arg0, unsigned int arg1);
+extern "C" ARM void SetCameraClassFlags_0202e08c(unsigned int* camera, unsigned int flags);
 
 struct BoneCamera_0204a120 {
     char unknown_0_[0x21c];
@@ -25,7 +25,7 @@ struct BoneCamera_0204a120 {
 // USA: InitBoneCamera_0204a120
 extern "C" ARM void InitBoneCamera_0204a120(struct BoneCamera_0204a120* camera) {
     InitKeyControlledCamera_020a2cf0((struct Struct_0204a120_2*)camera);
-    func_0202e08c((unsigned int*)camera, 0x10);
+    SetCameraClassFlags_0202e08c((unsigned int*)camera, 0x10);
     camera->pTrackedObject_21c_ = 0;
     camera->unknown_220_ = 0;
     camera->eyeBoneName_224_ = 0;
