@@ -12,8 +12,8 @@ struct Struct_020de5b0_2 {
 
 typedef int (*Type_020de5fc)(struct ItemData_0201099c_9*);
 
-extern "C" int func_020de56c(void*);
-extern "C" struct ItemData_0201099c_9* func_020de650(struct Struct_020de5b0_2* arg0, int arg1, Type_020de5fc arg2);
+extern "C" int GetItemDataId_020de56c(void*);
+extern "C" struct ItemData_0201099c_9* BinarySearchItemTable_020de650(struct Struct_020de5b0_2* itemTable, int key, Type_020de5fc getKey);
 
 struct ItemTable_0201099c_10 {
     unsigned short unknown_0_;
@@ -32,10 +32,10 @@ extern "C" ARM struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTabl
         return NULL;
     }
     if (itemTable->isSorted_14_ != 0) {
-        return func_020de650((struct Struct_020de5b0_2*)itemTable, itemId, (Type_020de5fc)func_020de56c);
+        return BinarySearchItemTable_020de650((struct Struct_020de5b0_2*)itemTable, itemId, (Type_020de5fc)GetItemDataId_020de56c);
     }
     item = itemTable->pItems_c_;
-    if (item == NULL || (Type_020de5fc)func_020de56c == NULL) {
+    if (item == NULL || (Type_020de5fc)GetItemDataId_020de56c == NULL) {
         item = NULL;
         goto done;
     }
@@ -45,7 +45,7 @@ extern "C" ARM struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTabl
         goto done;
     }
     for (i = 0; i < count; i++, item++) {
-        if (itemId == func_020de56c(item)) {
+        if (itemId == GetItemDataId_020de56c(item)) {
             goto done;
         }
     }
