@@ -66,8 +66,8 @@ extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 extern "C" void TurnOnMainDisplay_020c38d4();
-extern "C" void func_ov020_0218d7ac(Struct_ov020_0218b710* arg0, int arg1, int arg2);
-extern "C" void func_ov020_0218d800(Struct_ov020_0218b710_2* arg0, int arg1, int arg2);
+extern "C" void SetSceneMainBrightnessWithDurationMs_ov020_0218d7ac(Struct_ov020_0218b710* scene, int brightness, int durationMs);
+extern "C" void SetSceneSubBrightnessWithDurationMs_ov020_0218d800(Struct_ov020_0218b710_2* scene, int brightness, int durationMs);
 extern "C" void Swap3DBuffers_020d86d0(int keepTranslucentOrder, int useWDepth);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
@@ -228,8 +228,8 @@ static inline int inline_ov020_0218b710(Struct_ov020_0218b710_5* arg0) { return 
 static inline int inline_ov020_0218b710_2(Struct_ov020_0218b710_5* arg0) { return arg0->unknown_4fc_ > 0; }
 
 #define START_FADE(self, target, frames)                                               \
-    func_ov020_0218d7ac((Struct_ov020_0218b710*)(self), (target), (frames)); \
-    func_ov020_0218d800((Struct_ov020_0218b710_2*)(self), (target), (frames))
+    SetSceneMainBrightnessWithDurationMs_ov020_0218d7ac((Struct_ov020_0218b710*)(self), (target), (frames)); \
+    SetSceneSubBrightnessWithDurationMs_ov020_0218d800((Struct_ov020_0218b710_2*)(self), (target), (frames))
 
 #define WAIT_FADE(self)                          \
     for (;;) {                                   \
@@ -498,7 +498,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
             func_ov020_0218d32c(arg0, 0);
             TurnOnMainDisplay_020c38d4();
             *(volatile unsigned int*)0x4001000 |= 0x10000;
-            func_ov020_0218d800((Struct_ov020_0218b710_2*)(arg0), 0, 1500);
+            SetSceneSubBrightnessWithDurationMs_ov020_0218d800((Struct_ov020_0218b710_2*)(arg0), 0, 1500);
             arg0->unknown_4e4_ = 6000;
             for (;;) {
                 if (!inline_ov020_0218b710_2(arg0)) {
@@ -511,7 +511,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
                 WaitForVBlank_020c9820();
                 Swap3DBuffers_020d86d0(0, 1);
             }
-            func_ov020_0218d800((Struct_ov020_0218b710_2*)(arg0), -16, 1000);
+            SetSceneSubBrightnessWithDurationMs_ov020_0218d800((Struct_ov020_0218b710_2*)(arg0), -16, 1000);
             WAIT_FADE(arg0)
             arg0->unknown_4e4_ = 1000;
             WAIT_TIMER(arg0)

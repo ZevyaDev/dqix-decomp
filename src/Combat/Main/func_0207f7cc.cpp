@@ -9,10 +9,10 @@ struct Struct_0207f7cc {
 
 extern "C" struct Struct_0207f7cc* FindMenuLayoutTextEntry_0207f6ac(struct MenuLayoutTextEntryList_0207f524* textEntries, int textId);
 
-// USA: func_0207f7cc
-extern "C" ARM void func_0207f7cc(struct MenuLayoutTextEntryList_0207f524* arg0, int arg1, int arg2) {
-    struct Struct_0207f7cc* var0 = FindMenuLayoutTextEntry_0207f6ac(arg0, arg1);
-    if (var0 != NULL) {
-        var0->unknown_2a_ &= ~arg2;
+// USA: ClearMenuLayoutTextEntryFlags_0207f7cc
+extern "C" ARM void ClearMenuLayoutTextEntryFlags_0207f7cc(struct MenuLayoutTextEntryList_0207f524* textEntries, int textId, int flags) {
+    struct Struct_0207f7cc* entry = FindMenuLayoutTextEntry_0207f6ac(textEntries, textId);
+    if (entry != NULL) {
+        entry->unknown_2a_ &= ~flags;
     }
 }

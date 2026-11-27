@@ -6,10 +6,10 @@ struct MenuLayout_020806b0 {
     void* unknown_0_;
     MenuLayoutTextEntryList_0207f524 textEntries_4_;
 };
-extern "C" void func_0207f7ac(struct MenuLayoutTextEntryList_0207f524* arg0, int arg1, int arg2);
+extern "C" void SetMenuLayoutTextEntryFlags_0207f7ac(struct MenuLayoutTextEntryList_0207f524* textEntries, int textId, int flags);
 
 // USA: SetMenuLayoutTextUnselectable_020806b0
 extern "C" ARM void SetMenuLayoutTextUnselectable_020806b0(void* layout, int textId) {
     MenuLayout_020806b0* menuLayout = (MenuLayout_020806b0*)layout;
-    func_0207f7ac(&menuLayout->textEntries_4_, textId, 2);
+    SetMenuLayoutTextEntryFlags_0207f7ac(&menuLayout->textEntries_4_, textId, 2);
 }
