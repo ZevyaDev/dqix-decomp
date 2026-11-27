@@ -116,7 +116,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int)
 extern "C" int GetEquipRestrictions_020dd4c4(signed char memberIndex, Struct_ov005_02157b74_5* item);
 struct Struct_020deda4;
 extern "C" Struct_ov005_02157b74_6* func_020deda4(int, int, Struct_020deda4*);
-extern "C" void func_020483f0(unsigned char*, unsigned short);
+extern "C" void SetStatusFlags_020483f0(unsigned char*, unsigned short);
 extern "C" int GetEquipmentBagItemCount_0207c7a0(char* bag, short itemId, int category);
 extern "C" int func_0207caa4(char* arg0, short arg1, int arg2);
 extern "C" void RemoveEquipmentFromBag_0207c484(char* bag, short itemId, int count, int category);
@@ -300,7 +300,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         }
         arg0->unknown_3dd1_ = 0xd;
         arg0->unknown_3dcc_ |= 0x8000;
-        func_020483f0((unsigned char*)var5, 4);
+        SetStatusFlags_020483f0((unsigned char*)var5, 4);
         func_ov017_021c9e00(var4, 0, 0, 1);
     }
 

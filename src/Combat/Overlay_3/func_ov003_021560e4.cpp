@@ -51,7 +51,7 @@ void FlushMenuLayoutBGScreenData_0207fd44(void*);
 void CopyMenuLayoutBGScreenDataToVRAM_0207fd88(void*);
 void CloseMenuLayoutWindows_0207fe44(void*);
 int func_ov003_0215570c(void*);
-int func_02081010(void*, int);
+int FindMenuLayoutTextStringIdString_02081010(void*, int);
 void ClearTimedMessageQueue_020d7aa0(void*);
 void InitPartyMemberNoun_020e4bf4(void*, int);
 void func_020807c4(void*, int, short*, short*);
@@ -302,7 +302,7 @@ extern "C" ARM void func_ov003_021560e4(Struct_ov003_021560e4* arg0) {
         func_02080878(var39, 2, &var42, &var43);
         int var44 = 0;
         for (int var45 = 0; var45 < 2; var45++) {
-            int var46 = func_020420e8(func_02081010(var39, data_ov003_0217f2a0[var45]), 0);
+            int var46 = func_020420e8(FindMenuLayoutTextStringIdString_02081010(var39, data_ov003_0217f2a0[var45]), 0);
             if (var44 < var46) var44 = var46;
         }
         var42 = (var44 + 0x1b) & ~7;

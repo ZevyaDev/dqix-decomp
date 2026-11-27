@@ -20,7 +20,7 @@ enum { Enum_ov003_02161344_912 = 0x390 };
 
 struct Struct_020676e0;
 extern "C" int GetFollowCamera_020100f8(char* gameState);
-extern "C" int func_020a27c4(struct Struct_020676e0* arg0);
+extern "C" int IsCameraTurningEnabled_020a27c4(struct Struct_020676e0* camera);
 extern "C" int func_ov003_02160854(void* arg0);
 
 struct Struct_ov003_02160a68;
@@ -48,7 +48,7 @@ extern "C" ARM int func_ov003_02161344(char* arg0) {
 
     GameState* var2 = GameState::GetInstance();
     struct Struct_020676e0* var3 = (struct Struct_020676e0*)GetFollowCamera_020100f8((char*)var2);
-    if (var3 != 0 && ((*((unsigned char*)var3 + 0x244) & 2) != 0 || func_020a27c4(var3) == 0)) {
+    if (var3 != 0 && ((*((unsigned char*)var3 + 0x244) & 2) != 0 || IsCameraTurningEnabled_020a27c4(var3) == 0)) {
         var1 = (g_keyManager.TestKeysPressed(0x200) != 0) ? 1 : 0;
     }
 

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0202e9ec
-extern "C" ARM int func_0202e9ec(void* arg0) {
-    return *(int*)((char*)arg0 + 0x58);
+// USA: GetCameraFieldOfView_0202e9ec
+extern "C" ARM int GetCameraFieldOfView_0202e9ec(void* camera) {
+    return *(int*)((char*)camera + 0x58);
 }

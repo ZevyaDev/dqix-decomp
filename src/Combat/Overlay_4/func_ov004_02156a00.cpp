@@ -27,7 +27,7 @@ extern "C" void func_ov004_021561b0(void* arg0);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" ARM int GetEarnedAccoladeBits_020ac460(void* earnedBits);
 struct Struct_ov004_021549e4_5;
-extern "C" void func_ov023_021f9bdc(struct Struct_ov004_021549e4_5*, int);
+extern "C" void SetMenuGridCursorIndex_ov023_021f9bdc(struct Struct_ov004_021549e4_5*, int);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760*, int, int);
 struct StringList_02072a68_2;
@@ -91,7 +91,7 @@ extern "C" ARM int func_ov004_02156a00(void* arg0) {
 
     var3->unknown_5c_ = (short)(var11 / Enum_ov004_02156a00_12);
     var3->unknown_5e_ = var2;
-    func_ov023_021f9bdc((struct Struct_ov004_021549e4_5*)var3, (unsigned short)(var11 % Enum_ov004_02156a00_12));
+    SetMenuGridCursorIndex_ov023_021f9bdc((struct Struct_ov004_021549e4_5*)var3, (unsigned short)(var11 % Enum_ov004_02156a00_12));
 
     PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
 

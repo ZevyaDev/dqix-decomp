@@ -6,17 +6,17 @@ struct Struct_020a095c {
     short unknown_8_;
 };
 
-// USA: func_020a0af4
-extern "C" ARM int func_020a0af4(struct Struct_020a095c* arg0, int arg1) {
-    short* var0 = arg0->unknown_0_;
-    short var1 = arg0->unknown_8_;
-    short var2;
-    if (arg1 < 0) {
+// USA: FindBagItemSlot_020a0af4
+extern "C" ARM int FindBagItemSlot_020a0af4(struct Struct_020a095c* bag, int itemId) {
+    short* itemIds = bag->unknown_0_;
+    short slotCount = bag->unknown_8_;
+    short i;
+    if (itemId < 0) {
         return -1;
     }
-    for (var2 = 0; var2 < var1; var2++) {
-        if (arg1 == var0[var2]) {
-            return var2;
+    for (i = 0; i < slotCount; i++) {
+        if (itemId == itemIds[i]) {
+            return i;
         }
     }
     return -1;

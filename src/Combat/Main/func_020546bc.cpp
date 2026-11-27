@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_020546bc
-extern "C" ARM int func_020546bc(void* arg0) {
+// USA: GetFollowerIndex_020546bc
+extern "C" ARM int GetFollowerIndex_020546bc(void* companion) {
 #if defined(jpn)
-    return *(signed char*)((char*)arg0 + 0x2c5);
+    return *(signed char*)((char*)companion + 0x2c5);
 #else
-    return *(signed char*)((char*)arg0 + 0x2d1);
+    return *(signed char*)((char*)companion + 0x2d1);
 #endif
 }

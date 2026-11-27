@@ -26,7 +26,7 @@ extern "C" unsigned char func_020493c8(unsigned char*);
 extern "C" unsigned char GetCombatantReservedCell_020493ec(unsigned char*);
 extern "C" void SetCombatantCell_02049390(unsigned char*, unsigned char);
 extern "C" void func_020493b8(unsigned char*, unsigned char);
-extern "C" void func_020493dc(unsigned char*, unsigned char);
+extern "C" void SetCombatantReservedCell_020493dc(unsigned char*, unsigned char);
 extern "C" void func_02049400(unsigned char*, unsigned char);
 extern "C" int func_ov025_021e1540(int);
 extern "C" Struct_ov025_021dffac_7* func_ov025_021e1010(unsigned char*, int, int);
@@ -171,7 +171,7 @@ extern "C" ARM int func_ov025_021dffac(Struct_ov025_021dffac_5* arg0) {
             if (var48 < 81 && (!inline_ov025_021dffac_2(var18[var48]) || var18[var48] == func_ov025_021dfbd4(var47->obj3D_.unknown_4_)))
                 func_020493b8((unsigned char*)var47, var48);
             else func_ov025_021e1d54(var29, var18);
-            func_020493dc((unsigned char*)var47, 0xff);
+            SetCombatantReservedCell_020493dc((unsigned char*)var47, 0xff);
             int var49 = func_ov025_021e1f08((unsigned char*)var47, (unsigned char*)var27);
             GameObject* var50 = var0->GetCombatantByIndex(var49);
             if (var50) func_02049400((unsigned char*)var47, func_020493c8((unsigned char*)var50));

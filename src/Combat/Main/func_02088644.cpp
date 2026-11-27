@@ -8,8 +8,8 @@ struct Struct_02088644 {
     unsigned short unknown_22_0_ : 2;
 };
 
-// USA: func_02088644
-extern "C" ARM void func_02088644(struct Struct_02088644* arg0) {
-    arg0->unknown_14_ &= ~0x2;
-    arg0->unknown_22_0_ = 0;
+// USA: ClearPoison_02088644
+extern "C" ARM void ClearPoison_02088644(struct Struct_02088644* stats) {
+    stats->unknown_14_ &= ~0x2;
+    stats->unknown_22_0_ = 0;
 }

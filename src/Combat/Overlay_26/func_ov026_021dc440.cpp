@@ -36,7 +36,7 @@ extern "C" void SetBoneCameraTargetBone_0204a464(char* camera, const char* boneN
 extern "C" void SetCamera_020100c4(GameState*, int);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
-extern "C" int func_020a35f8(unsigned char*);
+extern "C" int CountPartyMembersInBattle_020a35f8(unsigned char*);
 extern "C" void FormatPartyMemberAnimationName_02072c9c(int, char*);
 struct Struct_02040774_2;
 extern "C" void SetObject3DPosition_020407b4(struct Struct_02040774_2*, int, int, int);
@@ -140,7 +140,7 @@ extern "C" ARM void func_ov026_021dc440(SafeAllocator* arg0, BattleScene_ov000_0
                     var9->MaybeSetRegularAnimation(arg4, 1);
                     Struct_ov026_021de6e8 var13 = data_ov026_021de6e8;
                     int var14 = 0x10a;
-                    int var15 = var13.unknown_0_[func_020a35f8(arg3) - 1];
+                    int var15 = var13.unknown_0_[CountPartyMembersInBattle_020a35f8(arg3) - 1];
                     int var16 = FIX32_MULTIPLY(var14, var15);
                     var9->SetScale(var16, var14, var16);
                     int var17 = FIX32_MULTIPLY(var15, var15);

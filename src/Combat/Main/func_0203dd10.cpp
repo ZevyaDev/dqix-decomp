@@ -2,10 +2,10 @@
 
 struct Struct_0203dd10 {
     unsigned char unknown_0_[0xc];
-    int unknown_c_[0x20];
+    int npcs_c_[0x20];
 };
 
-// USA: func_0203dd10
-extern "C" ARM void func_0203dd10(Struct_0203dd10* arg0, unsigned int arg1, int arg2) {
-    if (arg1 < 0x20) arg0->unknown_c_[arg1] = arg2;
+// USA: SetNPCByIndex_0203dd10
+extern "C" ARM void SetNPCByIndex_0203dd10(Struct_0203dd10* npcManager, unsigned int index, int npc) {
+    if (index < 0x20) npcManager->npcs_c_[index] = npc;
 }

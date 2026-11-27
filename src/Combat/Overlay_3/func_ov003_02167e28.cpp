@@ -16,7 +16,7 @@ extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* men
 extern "C" void SetMenuLayoutTextAlignment_02080798(void* menuLayout, int textId, int alignment);
 extern "C" void SetMenuLayoutTextStringId_0208103c(void* menuLayout, int textId, int stringId);
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
-extern "C" char* func_02081010(void* arg0, int arg1);
+extern "C" char* FindMenuLayoutTextStringIdString_02081010(void* menuLayout, int textId);
 extern "C" int func_020420e8(const char* arg0, int arg1);
 extern "C" void func_02080828(void* arg0, int arg1, short* arg2, short* arg3);
 extern "C" void func_02080854(void* arg0, int arg1, int arg2, int arg3);
@@ -46,9 +46,9 @@ extern "C" ARM void func_ov003_02167e28(struct Struct_ov003_02167e28* arg0, char
     SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, 6, arg6);
     SetMenuLayoutTextStringId_0208103c(var0, 2, (short)(arg3 + 2));
 #if defined(jpn)
-    int var1 = (func_020d2ff0(func_02081010(var0, 2)) >> 1) * 10;
+    int var1 = (func_020d2ff0(FindMenuLayoutTextStringIdString_02081010(var0, 2)) >> 1) * 10;
 #else
-    int var1 = func_020420e8(func_02081010(var0, 2), 0);
+    int var1 = func_020420e8(FindMenuLayoutTextStringIdString_02081010(var0, 2), 0);
 #endif
     short var2;
     short var3;

@@ -33,8 +33,8 @@ extern "C" int func_020852a4(unsigned char*);
 extern "C" int func_02085318(unsigned char*);
 extern "C" void QueueWirelessLockRequest_020e3368(unsigned char*, unsigned char);
 extern "C" void func_02026f08(unsigned char*, int, int);
-extern "C" int func_02048228(Struct_02048228*, int);
-extern "C" int func_02048284(Struct_02048284*, int);
+extern "C" int RestoreHP_02048228(Struct_02048228*, int);
+extern "C" int RestoreMP_02048284(Struct_02048284*, int);
 extern "C" void ReleaseWirelessLock_020e3428(void*, int);
 extern "C" void func_020e3468(WirelessLock_0208ab34_2*, int);
 
@@ -131,7 +131,7 @@ extern "C" ARM void func_0208b0f8(void* arg0) {
                 if (var14 != 2 && var14 != 1) QueueWirelessLockRequest_020e3368((unsigned char*)var9, 1);
                 if (var14 == 1) {
                     func_02026f08(var5, (unsigned char)var18[var13], 0);
-                    if (!(var15->unknown_130_[0] & 1)) func_02048228((Struct_02048228*)var15, var16);
+                    if (!(var15->unknown_130_[0] & 1)) RestoreHP_02048228((Struct_02048228*)var15, var16);
                     var11[var13] = 0x28;
                     if (IsLocalWirelessOn_0202b7d8(var4)) func_ov017_021c9e00(var18[var13], 1, 0, 0);
                     var7 = 1;
@@ -144,7 +144,7 @@ extern "C" ARM void func_0208b0f8(void* arg0) {
                 if (var14 != 2 && var14 != 1) QueueWirelessLockRequest_020e3368((unsigned char*)var9, 1);
                 if (var14 == 1) {
                     func_02026f08(var5, (unsigned char)var18[var13], 0);
-                    if (!(var15->unknown_130_[0] & 1)) func_02048284((Struct_02048284*)var15, var17);
+                    if (!(var15->unknown_130_[0] & 1)) RestoreMP_02048284((Struct_02048284*)var15, var17);
                     var10[var13] = 0x28;
                     if (IsLocalWirelessOn_0202b7d8(var4)) func_ov017_021c9e00(var18[var13], 1, 1, 0);
                     var7 = 1;

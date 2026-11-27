@@ -17,7 +17,7 @@ extern "C" unsigned char GetCombatantCell_020493a4(unsigned char*);
 extern "C" unsigned int func_020493c8(unsigned char*);
 extern "C" unsigned int GetCombatantReservedCell_020493ec(unsigned char*);
 extern "C" void func_020493b8(unsigned char*, unsigned char);
-extern "C" void func_020493dc(unsigned char*, unsigned char);
+extern "C" void SetCombatantReservedCell_020493dc(unsigned char*, unsigned char);
 extern "C" void func_02049458(unsigned char*, unsigned char);
 extern "C" int func_ov025_021e1540(int);
 extern "C" void func_ov000_0216f82c(Struct_ov025_021e16c8_7*, const int*);
@@ -105,7 +105,7 @@ extern "C" ARM void func_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0, Struct_ov
         if (var7) {
             unsigned int var22 = func_ov025_021e161c(GetCombatantCell_020493a4((unsigned char*)arg0->unknown_8_), var9, var0, var12);
             if (var22 != 255) {
-                func_020493dc((unsigned char*)arg0->unknown_8_, var22);
+                SetCombatantReservedCell_020493dc((unsigned char*)arg0->unknown_8_, var22);
                 inline_ov025_021e120c_2(arg2, (unsigned char)var22, arg0->unknown_1_);
             }
             func_ov025_021e1c20(GetCombatantCell_020493a4((unsigned char*)arg0->unknown_8_), arg2, var1, var12, arg5, arg6, arg0);
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov025_021e16c8(Struct_ov025_021e16c8_3* arg0, Struct_ov
     if (var7) {
         unsigned int var29 = func_ov025_021e161c(var26, var9, var0, var12);
         if (var29 != 255) {
-            func_020493dc((unsigned char*)arg0->unknown_8_, var29);
+            SetCombatantReservedCell_020493dc((unsigned char*)arg0->unknown_8_, var29);
             inline_ov025_021e120c_2(arg2, (unsigned char)var29, arg0->unknown_1_);
         }
     }

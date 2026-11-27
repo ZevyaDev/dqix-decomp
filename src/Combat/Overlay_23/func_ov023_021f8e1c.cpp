@@ -90,7 +90,7 @@ struct Struct_02047a5c;
 struct Struct_02047a3c;
 struct SoundEffectManager_02108760;
 
-extern "C" unsigned short func_ov011_02184a00(struct Struct_ov011_02184a00* arg0);
+extern "C" unsigned short GetActiveMenuGrid_ov011_02184a00(struct Struct_ov011_02184a00* menu);
 extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
 extern "C" void* GetMenuObjectSprite_ov023_021f7318(void* object);
 extern "C" unsigned short func_ov023_021f8c50(unsigned char* arg0);
@@ -122,7 +122,7 @@ static inline int inline_ov023_021f8e1c_42() { return ReadBrightnessRegister_020
 
 // USA: func_ov023_021f8e1c
 extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg1) {
-    if (arg0->unknown_6_ != func_ov011_02184a00((struct Struct_ov011_02184a00*)arg1)) {
+    if (arg0->unknown_6_ != GetActiveMenuGrid_ov011_02184a00((struct Struct_ov011_02184a00*)arg1)) {
         return;
     }
     if (arg0->unknown_c_ & 0x10) {

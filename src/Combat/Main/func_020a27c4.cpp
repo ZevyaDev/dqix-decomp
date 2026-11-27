@@ -5,7 +5,7 @@ struct Struct_020676e0 {
     int unknown_23c_;
 };
 
-// USA: func_020a27c4
-extern "C" ARM int func_020a27c4(struct Struct_020676e0* arg0) {
-    return arg0->unknown_23c_;
+// USA: IsCameraTurningEnabled_020a27c4
+extern "C" ARM int IsCameraTurningEnabled_020a27c4(struct Struct_020676e0* camera) {
+    return camera->unknown_23c_;
 }

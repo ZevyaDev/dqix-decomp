@@ -77,7 +77,7 @@ extern "C" void* GetEffectManager_02057924(void);
 extern "C" void InitEffectParams_02078484(struct EffectParams_02078398_2* params);
 extern "C" void PlayEffect_02057fb4(void* effectManager, int effectId, void* params);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_ov000_02176150(struct Struct_ov000_021537b8_6* arg0, unsigned short arg1);
+extern "C" void SetPartyMemberPanelMP_ov000_02176150(struct Struct_ov000_021537b8_6* panel, unsigned short mp);
 
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov025_021e9d14(void) {
             var8 = var2->GetCombatantByIndex(var4->unknown_1c_);
         }
         if (var7 != NULL && var8 != NULL) {
-            func_ov000_02176150((struct Struct_ov000_021537b8_6*)var7, var6);
+            SetPartyMemberPanelMP_ov000_02176150((struct Struct_ov000_021537b8_6*)var7, var6);
             var7->unknown_e_ = var6;
             ((struct Struct_ov025_021e9d14_2*)var8)->unknown_130_->unknown_6_ = var6;
         }

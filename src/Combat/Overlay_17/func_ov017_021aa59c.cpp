@@ -95,7 +95,7 @@ extern "C" void CloseMenuLayoutWindows_0207fe44(struct MenuLayout_0207fe44* menu
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" int func_ov017_021ab1a4(struct Struct_ov017_021aa59c_6* arg0);
 extern "C" void ClearGlobalFlags_020466f4(struct GlobalFlags_02038598_4* globalFlags, unsigned int mask);
-extern "C" unsigned char func_02010750(char* arg0);
+extern "C" unsigned char IsPartyWipedOut_02010750(char* gameState);
 extern "C" void func_ov017_021d1a18(int arg0, int arg1, int arg2, int arg3);
 extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 extern "C" void RemoveFromQueue_02046a8c(struct Queue_02038598_5* queue, void* node);
@@ -344,7 +344,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
                 ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var4, 0x200);
             }
         }
-        if (func_02010750((char*)var2) != 0 || var22) {
+        if (IsPartyWipedOut_02010750((char*)var2) != 0 || var22) {
             arg0->unknown_14_ = 6;
             var23 = true;
             arg0->unknown_64_ = true;
@@ -369,7 +369,7 @@ extern "C" ARM void func_ov017_021aa59c(Struct_ov017_021aa59c_3* arg0, Queue_020
             if (IsTypeInQueue_02046b60(arg1, 0x40) != 0) {
                 RemoveFromQueue_02046a8c(arg1, var0->unknown_ptr_array_3afc[39]);
             }
-            func_02010604(var2, 0, func_02010750((char*)var2), 0);
+            func_02010604(var2, 0, IsPartyWipedOut_02010750((char*)var2), 0);
             SetPartyWipedOut_0201075c((char*)var2, 0);
             DISPCNT = (DISPCNT & ~0x1f00) | (arg0->unknown_c_ << 8);
             LoadFileTables_020a0c0c();

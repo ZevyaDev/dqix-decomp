@@ -16,7 +16,7 @@ struct Struct_020dcd40 { unsigned char unknown_0_[0x30]; };
 extern "C" unsigned short* GetZone3D_02012fe4(void* arg0);
 extern "C" int func_02086e9c(Struct_02086e9c* arg0);
 extern "C" Struct_02086e50* func_02086e50(Struct_02086e50* arg0, int arg1);
-extern "C" void* func_020108f0(void* arg0, int arg1);
+extern "C" void* FindPartyMemberDataByIndex_020108f0(void* gameState, int memberIndex);
 extern "C" char* FindFreePartyMemberData_02010954(char* gameState);
 extern "C" void func_02086380(unsigned char* arg0);
 extern "C" void func_02082d6c(void* arg0, void* arg1);
@@ -61,7 +61,7 @@ extern "C" ARM int func_020dcd40() {
         if (var7 < 0) {
             break;
         }
-        void* var9 = func_020108f0(var2, var7);
+        void* var9 = FindPartyMemberDataByIndex_020108f0(var2, var7);
         if (var9 == NULL) {
             var9 = FindFreePartyMemberData_02010954((char*)var2);
         }

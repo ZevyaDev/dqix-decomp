@@ -33,7 +33,7 @@ extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsign
 extern "C" Struct_ov000_0216258c_3* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
 extern "C" void ClearPanelCommand_ov000_0217f518(Struct_ov000_0216258c_3* panel);
 extern "C" void func_ov000_02176134(Struct_ov000_0216258c_3* arg0, unsigned short arg1);
-extern "C" void func_ov000_02176150(Struct_ov000_0216258c_3* arg0, unsigned short arg1);
+extern "C" void SetPartyMemberPanelMP_ov000_02176150(Struct_ov000_0216258c_3* panel, unsigned short mp);
 
 // USA: func_ov000_0216258c
 extern "C" ARM void func_ov000_0216258c(Struct_ov000_0216258c_2* arg0) {
@@ -51,7 +51,7 @@ extern "C" ARM void func_ov000_0216258c(Struct_ov000_0216258c_2* arg0) {
         func_ov000_02176134(var3, var4);
         var3->unknown_c_ = var4;
         unsigned short var5 = var2->currentStats_->primaryStats.currMP;
-        func_ov000_02176150(var3, var5);
+        SetPartyMemberPanelMP_ov000_02176150(var3, var5);
         var3->unknown_e_ = var5;
         var3->unknown_8_ = var2->baseStats_->primaryStats.maxHP;
         var3->unknown_a_ = var2->baseStats_->primaryStats.maxMP;

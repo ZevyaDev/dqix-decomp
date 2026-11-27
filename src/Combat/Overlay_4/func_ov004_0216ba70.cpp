@@ -74,7 +74,7 @@ extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" Struct_ov004_0216ba70* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
-extern "C" void func_ov023_021f8120(void* arg0);
+extern "C" void CloseMenuWindow_ov023_021f8120(void* window);
 extern "C" void DrawMenuWindow_ov023_021f7eb8(void* window, void* menu, int characterDataOffset, int x, int y, int width, int height, int palette, int isTransparent, int isFrameless);
 
 extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3,
@@ -348,7 +348,7 @@ extern "C" ARM int func_ov004_0216ba70(void* arg0) {
     if (var41) var41->inline_ov004_0216ba70_18(var36);
 
     void* var42 = func_ov004_0216ae9c(arg0, 0xd3);
-    func_ov023_021f8120(var42);
+    CloseMenuWindow_ov023_021f8120(var42);
 
     int var43 = data_ov004_02171034.unknown_c_;
     if (var0 >= 1 && var0 <= 4) {

@@ -16,7 +16,7 @@ enum { Enum_ov000_02160b54_22004 = 0x55f4, Enum_ov000_02160b54_3784 = 0xec8, Enu
 extern "C" void DrawZone_02016874(void* zone);
 extern "C" void func_ov000_02161020(void* arg0);
 struct Vector3i;
-extern "C" int func_020a1fa8(void);
+extern "C" int GetCurrentSubOverlay_020a1fa8(void);
 extern "C" void func_ov025_021df864(void* arg0);
 
 // USA: func_ov000_02160b54
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov000_02160b54(unsigned char* arg0) {
     if (*(int*)(arg0 + Enum_ov000_02160b54_3752) != 8) {
         return;
     }
-    if (func_020a1fa8() != 4) {
+    if (GetCurrentSubOverlay_020a1fa8() != 4) {
         return;
     }
     func_ov025_021df864(arg0 + Enum_ov000_02160b54_23216);

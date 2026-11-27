@@ -9,7 +9,7 @@ struct ScriptValue_ov011_02184c30 {
 extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
 extern "C" ARM void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f4(void);
-extern "C" ARM void* func_ov011_021842c8(unsigned char* arg0, unsigned int arg1);
+extern "C" ARM void* FindHeapById_ov011_021842c8(unsigned char* heap, unsigned int id);
 extern "C" ARM void func_ov011_021842a0(void* arg0);
 
 struct Struct_ov011_02184354;
@@ -32,10 +32,10 @@ extern "C" ARM int func_ov011_02184ed0(struct ScriptValue_ov011_02184c30* arg0, 
     var1 = func_ov011_02184c30(&arg0[1]);
     GetCurrentMenu_ov017_021b2164();
     var2 = (unsigned char*)func_ov011_021845f4();
-    var3 = (Struct_ov011_02184ed0*)func_ov011_021842c8(var2, var0);
+    var3 = (Struct_ov011_02184ed0*)FindHeapById_ov011_021842c8(var2, var0);
     if (var3 == 0)
         return 0;
-    if (func_ov011_021842c8(var2, var1) != 0)
+    if (FindHeapById_ov011_021842c8(var2, var1) != 0)
         return 0;
 
     arg2 = (Struct_ov011_02184ed0*)var3->unknown_4_.Allocate(0x20);

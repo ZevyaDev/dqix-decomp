@@ -11,7 +11,7 @@ struct ItemTable_0201099c_10;
 struct TextWindowManager_0205d81c;
 extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 extern "C" void func_020a0bcc(struct Struct_020a0bcc *arg0);
-extern "C" int func_020a0af4(struct Struct_020a095c *arg0, int arg1);
+extern "C" int FindBagItemSlot_020a0af4(struct Struct_020a095c *bag, int itemId);
 extern "C" void AddItemToBag_020a095c(struct ItemBag_0207cf30_4 *bag, int itemId, int count);
 extern "C" void ResetItemSortOrder_ov023_021e1518(void *sortList);
 extern "C" void func_ov023_021e1474(struct Struct_ov002_0215b2c8 *arg0,
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov002_0215b458(char *arg0, int arg1) {
     }
 
     if (var2 >= 0 && arg1) {
-        int var11 = func_020a0af4((struct Struct_020a095c *) var4, var2);
+        int var11 = FindBagItemSlot_020a0af4((struct Struct_020a095c *) var4, var2);
         if (var11 >= 0) {
             *(short *) (arg0 + 0x1b00 + 0xe8) = var11;
             SetCursorIndex_0205d7a0(arg0 + 0x2c8 + 0xc00, var11);

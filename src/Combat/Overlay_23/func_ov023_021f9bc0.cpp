@@ -7,7 +7,7 @@ struct Struct_ov004_021549e4_4 {
     unsigned short unknown_2a_;
 };
 
-// USA: func_ov023_021f9bc0
-extern "C" ARM unsigned short func_ov023_021f9bc0(struct Struct_ov004_021549e4_4* arg0) {
-    return arg0->unknown_2a_;
+// USA: GetMenuGridCursorColumn_ov023_021f9bc0
+extern "C" ARM unsigned short GetMenuGridCursorColumn_ov023_021f9bc0(struct Struct_ov004_021549e4_4* grid) {
+    return grid->unknown_2a_;
 }

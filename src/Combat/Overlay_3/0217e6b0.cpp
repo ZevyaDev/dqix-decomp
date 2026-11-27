@@ -149,7 +149,7 @@ extern "C" void func_ov017_021b66b8(char* arg0);
 extern "C" void func_ov017_021b66f0(unsigned char* arg0);
 extern "C" void func_ov003_0217e67c(void* arg0);
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
-extern "C" void func_ov017_0218f758(void* arg0);
+extern "C" void QueueAllPartyMemberModelLoads_ov017_0218f758(void* gameResources);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 
@@ -339,7 +339,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
             return;
         }
         ClearFlags04(var1, 2);
-        func_ov017_0218f758(var1);
+        QueueAllPartyMemberModelLoads_ov017_0218f758(var1);
         SetMainBrightness(var1, 0, 0xf);
         arg0->unknown_20_++;
     } else {

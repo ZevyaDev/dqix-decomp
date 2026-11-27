@@ -100,7 +100,7 @@ extern "C" void func_ov017_021c178c(unsigned char* arg0);
 extern "C" void func_ov017_021b8bb0(unsigned short arg0);
 extern "C" void InitZoneEntry_02070378(char*);
 extern "C" void func_02017d68(void* arg0);
-extern "C" int func_020a1eb0();
+extern "C" int GetCurrentOverlay_020a1eb0();
 #if defined(jpn)
 extern "C" void func_ov001_02156b20(void*);
 #else
@@ -490,7 +490,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
         SetBrightness(var1, -16, 0);
         func_02017d68(GetZone3D_02012fe4());
     } else {
-        if (func_020a1eb0() == 1) {
+        if (GetCurrentOverlay_020a1eb0() == 1) {
 #if defined(jpn)
             func_ov001_02156b20(arg0);
 #else

@@ -348,8 +348,8 @@ extern "C" void func_ov017_021a1114(char*);
 extern "C" void func_ov017_021a0d6c(char*);
 extern "C" void func_ov017_021a0470(void* arg0);
 extern "C" void func_0200fd58(GameState* arg0);
-extern "C" void func_020a1edc();
-extern "C" void func_020a1de4();
+extern "C" void ClearSubOverlayStack_020a1edc();
+extern "C" void ClearOverlayStack_020a1de4();
 extern "C" void func_ov004_0216e9cc();
 extern "C" void func_ov004_0216f854();
 
@@ -1050,8 +1050,8 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     }
     func_ov017_021a0470(arg0);
     func_0200fd58(var5);
-    func_020a1edc();
-    func_020a1de4();
+    ClearSubOverlayStack_020a1edc();
+    ClearOverlayStack_020a1de4();
     *(volatile unsigned int*)0x4000000 &= ~0xe000;
     data_ov017_021d82e0.unknown_4_ = 0;
 #if !defined(jpn)

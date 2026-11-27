@@ -96,11 +96,11 @@ extern "C" int func_0208824c(unsigned char*);
 extern "C" void func_02088854(unsigned char*);
 extern "C" void func_02088338(unsigned char*);
 extern "C" void func_02088b34(unsigned char*);
-extern "C" void func_020883cc(unsigned char*);
+extern "C" void SetConfusion_020883cc(unsigned char*);
 extern "C" void func_020888a4(unsigned char*);
 extern "C" int func_02088418(Struct_02088418*, int, int);
 extern "C" void func_02088474(void*, int, int);
-extern "C" void func_02088560(unsigned char*);
+extern "C" void SetEnvenomated_02088560(unsigned char*);
 extern "C" void func_0208826c(unsigned char*);
 extern "C" int func_0208776c(void*, int);
 extern "C" int func_02087860(Struct_02087860*, unsigned char);
@@ -229,7 +229,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
                 int var14 = func_ov024_021e9320((Struct_ov024_021dd828*)arg0, arg2, 1);
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var14);
                 var6 = 1;
-                func_020883cc((unsigned char*)var1->currentStats_);
+                SetConfusion_020883cc((unsigned char*)var1->currentStats_);
             }
         }
 
@@ -265,7 +265,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
                 int var17 = func_ov024_021e939c((Struct_ov024_021dbaf4_4*)arg0, arg2, 1, 1);
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var17);
                 var6 = 1;
-                func_02088560((unsigned char*)var1->currentStats_);
+                SetEnvenomated_02088560((unsigned char*)var1->currentStats_);
             }
         }
 

@@ -6,7 +6,7 @@
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
 extern "C" void SetTitleState_02012010(void* gameState, int state);
-extern "C" unsigned char func_02012034(void* arg0);
+extern "C" unsigned char IsTitleIdleTimeoutEnabled_02012034(void* gameState);
 extern "C" void SetTitleIdleTimeoutEnabled_02012028(void* gameState, unsigned char isEnabled);
 extern "C" void func_ov017_0218d258(void* arg0);
 extern "C" void SetMusicVolumeLevel_0209ca70(void* manager, int volumeLevel);
@@ -52,7 +52,7 @@ extern "C" ARM int func_ov004_0216d920() {
         SetGameMode_0200fb94((char*)var0, 6);
         SetTitleState_02012010(var0, 2);
     }
-    if (func_02012034(var0) == 1) {
+    if (IsTitleIdleTimeoutEnabled_02012034(var0) == 1) {
         SetGameMode_0200fb94((char*)var0, 6);
         SetTitleState_02012010(var0, 0);
         SetTitleIdleTimeoutEnabled_02012028(var0, 0);

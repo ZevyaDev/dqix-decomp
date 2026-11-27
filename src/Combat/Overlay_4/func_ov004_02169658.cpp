@@ -79,7 +79,7 @@ extern "C" void func_ov004_02168ed8(void* arg0, int arg1, int arg2);
 #else
 extern "C" void func_ov023_021f6600(void* arg0, int arg1, int arg2);
 #endif
-extern "C" void func_ov023_021f9ba8(void* arg0, int arg1);
+extern "C" void SetMenuGridCursorRow_ov023_021f9ba8(void* grid, int row);
 #if defined(jpn)
 extern "C" void* func_ov004_02168fa4(void*, int);
 extern "C" void RedrawMenuWindow_ov023_021f809c(void*, void*);
@@ -116,7 +116,7 @@ extern "C" ARM int func_ov004_02169658(struct Struct_ov004_02169658_2* arg0) {
         var6->unknown_c_ |= 8;
     }
     func_ov023_021f6600(arg0, 2, 8);
-    func_ov023_021f9ba8(var1, 0);
+    SetMenuGridCursorRow_ov023_021f9ba8(var1, 0);
     func_ov023_021f6600(arg0, 0x14, 4);
 #if defined(jpn)
     void* var7 = func_ov004_02168fa4(arg0, 0x14);

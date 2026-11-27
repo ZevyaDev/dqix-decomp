@@ -60,7 +60,7 @@ extern "C" void func_ov000_021735d0(void*, unsigned int);
 extern "C" Struct_02039fec_2* GetBattleNumberPopups_02039e70();
 extern "C" void func_02039fec(Struct_02039fec_2*);
 extern "C" void func_ov000_021824d8(void*);
-extern "C" int func_020a1fa8();
+extern "C" int GetCurrentSubOverlay_020a1fa8();
 extern "C" void func_ov025_021df794(void*);
 extern "C" int IsLocalWirelessGuest_0202c540(LocalWireless_0202b2f0*);
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0*, int);
@@ -87,7 +87,7 @@ extern "C" void func_ov000_02160de4(void*);
 extern "C" void func_ov000_02160e94(void*);
 extern "C" void func_ov000_02160fe4(void*);
 extern "C" void func_ov025_021e9558(void*);
-extern "C" void func_020a1edc();
+extern "C" void ClearSubOverlayStack_020a1edc();
 extern "C" void PushSubOverlay_020a1ef0(int);
 extern "C" void UnloadExtraSoundSet_0205eb80(void*);
 extern int data_ov000_02184220;
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
             func_ov000_021735d0(arg0->unknown_3760_, var0->GetTickCount());
         func_02039fec(GetBattleNumberPopups_02039e70());
         func_ov000_021824d8(arg0->unknown_6ffc_);
-        if (arg0->unknown_ea8_ == 8 && func_020a1fa8() == 4)
+        if (arg0->unknown_ea8_ == 8 && GetCurrentSubOverlay_020a1fa8() == 4)
             func_ov025_021df794(arg0->unknown_5ab0_);
         GameObject* var3 = var0->GetGameObjectByIndex(0xc8);
         if (var3)
@@ -133,23 +133,23 @@ extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
     case 4: func_ov000_0216873c(arg0); break;
     case 6: func_ov000_021688dc(arg0); break;
     case 7:
-        if (func_020a1fa8() == 3)
+        if (GetCurrentSubOverlay_020a1fa8() == 3)
             func_ov026_021d8ba0(arg0);
         break;
     case 17: func_ov000_02169770((unsigned char*)arg0); break;
     case 8: func_ov025_021db038(arg0); break;
     case 9:
-        if (func_020a1fa8() == 1) {
+        if (GetCurrentSubOverlay_020a1fa8() == 1) {
             func_ov023_021ed9f8(arg0);
             break;
         }
     case 10:
-        if (func_020a1fa8() == 1) {
+        if (GetCurrentSubOverlay_020a1fa8() == 1) {
             func_ov023_021f4c04(arg0);
             break;
         }
     case 11:
-        if (func_020a1fa8() == 3)
+        if (GetCurrentSubOverlay_020a1fa8() == 3)
             func_ov026_021db090(arg0);
         break;
     case 18: func_ov000_02160de4(arg0); break;
@@ -168,10 +168,10 @@ extern "C" ARM void func_ov000_02160620(Struct_ov000_02160620_2* arg0) {
     }
     if (data_ov000_02184220) {
         if (arg0->unknown_ea8_ == 7 || arg0->unknown_ea8_ == 11) {
-            func_020a1edc();
+            ClearSubOverlayStack_020a1edc();
             PushSubOverlay_020a1ef0(3);
         } else if (arg0->unknown_ea8_ == 9 || arg0->unknown_ea8_ == 10) {
-            func_020a1edc();
+            ClearSubOverlayStack_020a1edc();
             PushSubOverlay_020a1ef0(1);
         }
         data_ov000_02184220 = 0;

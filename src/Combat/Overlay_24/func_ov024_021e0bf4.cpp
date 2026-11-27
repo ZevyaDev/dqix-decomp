@@ -5,7 +5,7 @@
 struct ActionResult_ov000_021584e8;
 struct Struct_ov024_021e0bf4 { int unknown_0_; int unknown_4_; };
 
-extern "C" short func_ov000_0215a124(void* arg0, int arg1, int arg2);
+extern "C" short ReduceCombatantMP_ov000_0215a124(void* battle, int combatantIndex, int amount);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, struct Struct_ov024_021e0bf4* flags, int flagIndex);
 extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void SetActionResult_ov000_0215ccbc(
@@ -25,7 +25,7 @@ extern "C" ARM struct ActionResult_ov000_021584e8* func_ov024_021e0bf4(struct St
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
     if (var0->currentStats_->primaryStats.currMP < arg4) arg4 = var0->currentStats_->primaryStats.currMP;
-    short var1 = func_ov000_0215a124(arg0->unknown_10_, arg2, arg4);
+    short var1 = ReduceCombatantMP_ov000_0215a124(arg0->unknown_10_, arg2, arg4);
     struct Struct_ov024_021e0bf4 var2;
     var2.unknown_0_ = 0;
     var2.unknown_4_ = 0;

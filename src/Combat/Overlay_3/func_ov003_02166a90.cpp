@@ -73,7 +73,7 @@ extern Vector3i data_ov003_0217f4b8[3];
 extern "C" Struct_ov003_02166a90_6* func_ov003_02160bf8(Struct_ov003_02166a90_5*, int);
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" void* GetZone3D_02012fe4(void);
-extern "C" void* func_020108f0(void*, int);
+extern "C" void* FindPartyMemberDataByIndex_020108f0(void*, int);
 extern "C" void* FindFreePartyMemberData_02010954(char*);
 extern "C" void func_02086380(unsigned char*);
 extern "C" void func_02082d6c(Struct_02082d6c*, Struct_02082d6c_2*);
@@ -145,7 +145,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
         if (IsSubBrightnessTransitionActive(var3) != 0) {
             return 0;
         }
-        Struct_ov003_02166a90_7* var7 = (Struct_ov003_02166a90_7*)func_020108f0(var2, arg0->unknown_4a2_);
+        Struct_ov003_02166a90_7* var7 = (Struct_ov003_02166a90_7*)FindPartyMemberDataByIndex_020108f0(var2, arg0->unknown_4a2_);
         if (var7 == 0) {
             var7 = (Struct_ov003_02166a90_7*)FindFreePartyMemberData_02010954((char*)var2);
         }

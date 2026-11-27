@@ -139,7 +139,7 @@ extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 struct Struct_02018300_3;
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3*, int);
 extern "C" void func_0208936c(char*, char*, char*);
-extern "C" void func_020114c0(char*, int, void*);
+extern "C" void SetPartyOrder_020114c0(char*, int, void*);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 extern const char data_ov000_02183aa5[], data_ov000_021839e2[], data_ov000_02183abe[];
 extern const char gStringFormat_020ef078[];
@@ -255,7 +255,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
     if (var17) var17->unknown_56b_0_ = (unsigned char)var16;
     int var18 = 2;
     Struct_ov000_02183014 var19 = data_ov000_02183014;
-    func_020114c0((char*)var1, var18, &var19);
+    SetPartyOrder_020114c0((char*)var1, var18, &var19);
     SetBattleSceneFlags_ov000_02160fa8(arg0, 0x400000);
     BackgroundLoader::RemoveLockGlobal();
 #undef blocks_3

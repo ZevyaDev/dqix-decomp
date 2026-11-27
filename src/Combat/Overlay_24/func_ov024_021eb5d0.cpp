@@ -284,7 +284,7 @@ float NextRandomFloatScaled(Random*, float, float, int);
 int NextRandomMax(Random*, int);
 struct GameObject;
 extern "C" int func_ov024_021eadfc(GameObject*);
-extern "C" int func_ov000_0215a124(void* arg0, int arg1, int arg2);
+extern "C" int ReduceCombatantMP_ov000_0215a124(void* battle, int combatantIndex, int amount);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" unsigned int GetSkillAdjustedMPCost_020dd290(void* member, unsigned int mpCost);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
@@ -538,13 +538,13 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
             unsigned int var29 = var15->unknown_8_.unknown_0_0_;
             if (var29 >= 0xff) {
                 var29 = var19->unknown_138_->unknown_2_;
-                func_ov000_0215a124(arg0->unknown_10_, var18, var29);
+                ReduceCombatantMP_ov000_0215a124(arg0->unknown_10_, var18, var29);
             } else {
                 if (IN_RANGE_021eb5d0(var18)) {
                     struct Struct_ov024_021eb5d0_12* var30 = (struct Struct_ov024_021eb5d0_12*)(void*)GetPartyMemberBaseByIndex_0200ff1c((GameState*)var13, var18);
                     if (var30 != 0 && HasLearnedSkillEntry_02083b00(var30->unknown_150_, 0x106) != 0) var29 = GetSkillAdjustedMPCost_020dd290(var30, var29);
                 }
-                func_ov000_0215a124(arg0->unknown_10_, var18, var29);
+                ReduceCombatantMP_ov000_0215a124(arg0->unknown_10_, var18, var29);
             }
         }
     }
@@ -822,9 +822,9 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                     int var69 = 0;
                     if (var68 != 0) {
                         if (!IN_RANGE_021eb5d0(var4)) {
-                            if (var68->unknown_138_->unknown_2_ < 0xff) var69 = func_ov000_0215a124(arg0->unknown_10_, var4, var67);
+                            if (var68->unknown_138_->unknown_2_ < 0xff) var69 = ReduceCombatantMP_ov000_0215a124(arg0->unknown_10_, var4, var67);
                         } else {
-                            var69 = func_ov000_0215a124(arg0->unknown_10_, var4, var67);
+                            var69 = ReduceCombatantMP_ov000_0215a124(arg0->unknown_10_, var4, var67);
                         }
                     }
                     struct Struct_ov024_021eb5d0_6* var70 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);

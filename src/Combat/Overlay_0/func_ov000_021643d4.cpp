@@ -178,10 +178,10 @@ extern "C" Struct_ov000_0215f7a8* FindFieldMonsterById_ov017_021a278c(void*, int
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" int IsOnLadder_02039d7c(char*);
 struct Struct_02039d84;
-extern "C" void func_02039d84(Struct_02039d84*);
+extern "C" void StopLadderAction_02039d84(Struct_02039d84*);
 extern "C" void func_ov017_021d440c(int arg0);
 extern "C" void func_0203409c(unsigned char*);
-extern "C" void func_02039d58(unsigned char*);
+extern "C" void ClearFadeInOnMove_02039d58(unsigned char*);
 extern "C" int GetPartyLeaderObjectIndex_02039888(void*);
 void Vector3fixMultiplyScalar(const Vector3i* v, int s, Vector3i* out);
 extern "C" void FacePositionInstantly_020338d4(Struct_020338d4*, Struct_ov009_0218aa28*);
@@ -264,7 +264,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         Struct_ov000_0215f7a8* var13 = (Struct_ov000_0215f7a8*)var0->GetPartyMemberByIndex(var12);
         if (!var13) continue;
         if (IsOnLadder_02039d7c((char*)var13)) {
-            func_02039d84((Struct_02039d84*)var13);
+            StopLadderAction_02039d84((Struct_02039d84*)var13);
             func_ov017_021d440c(var12);
             if (var9) {
                 var13->unknown_44_ = var9->unknown_44_;
@@ -274,7 +274,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         arg0->unknown_5910_[var12].unknown_c_ = var13->unknown_50_.y;
         func_0203409c((unsigned char*)var13);
         ((Object3D*)var13)->SetInheritedAlpha(0x1f);
-        func_02039d58((unsigned char*)var13);
+        ClearFadeInOnMove_02039d58((unsigned char*)var13);
         if (arg0->unknown_2a0_->unknown_c_ == 0x1b) {
             Struct_ov000_0215f7a8* var14 = (Struct_ov000_0215f7a8*)var0->GetPartyMemberByIndex(0);
             if (!var14) continue;

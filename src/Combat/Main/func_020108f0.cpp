@@ -6,16 +6,16 @@ enum { Enum_020108f0_2404 = 0x964 };
 #endif
 
 
-// USA: func_020108f0
-extern "C" ARM void* func_020108f0(void* arg0, int arg1) {
-    if (arg1 < 0 || arg1 >= 4) {
+// USA: FindPartyMemberDataByIndex_020108f0
+extern "C" ARM void* FindPartyMemberDataByIndex_020108f0(void* gameState, int memberIndex) {
+    if (memberIndex < 0 || memberIndex >= 4) {
         return NULL;
     }
-    for (int var0 = 0; var0 < 4; var0++) {
-        int var1 = var0 * Enum_020108f0_2404;
-        short var2 = *(short*)((char*)arg0 + var1 + 0x9dc);
-        if (arg1 == var2) {
-            return (char*)arg0 + 0x74 + 0x400 + var1;
+    for (int i = 0; i < 4; i++) {
+        int blockOffset = i * Enum_020108f0_2404;
+        short ownerIndex = *(short*)((char*)gameState + blockOffset + 0x9dc);
+        if (memberIndex == ownerIndex) {
+            return (char*)gameState + 0x74 + 0x400 + blockOffset;
         }
     }
     return NULL;

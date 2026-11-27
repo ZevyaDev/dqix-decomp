@@ -10,7 +10,7 @@
 #include "GameState/GameState.h"
 
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
-extern "C" unsigned char func_02012034(void* arg0);
+extern "C" unsigned char IsTitleIdleTimeoutEnabled_02012034(void* gameState);
 extern "C" int _s32_div_f(int a, int b);
 extern "C" int func_ov017_021d4df8(void* arg0, int arg1);
 extern "C" void StartScriptEntry_ov017_021d4ce4(void* scriptVM, int entryId);
@@ -20,7 +20,7 @@ extern "C" void ResumeScript_ov017_021d4ccc(void* scriptVM);
 extern "C" ARM void func_ov011_021848a8(void* arg0) {
     GameState* var0 = GameState::GetInstance();
     if (GetGameMode_0200fb9c((char*)var0) == 6) {
-        if (func_02012034(var0) == 1) {
+        if (IsTitleIdleTimeoutEnabled_02012034(var0) == 1) {
             unsigned int var1 = *(unsigned int*)((char*)arg0 + 0x1d0) + var0->GetTickCount();
             *(unsigned int*)((char*)arg0 + 0x1d0) = var1;
             if (var1 > 0xe10) {

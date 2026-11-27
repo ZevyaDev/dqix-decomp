@@ -17,7 +17,7 @@ extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char flags);
 extern "C" void EnableCameraTurning_020a27ac(void* camera);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
-extern "C" void func_ov017_0218f758(void* arg0);
+extern "C" void QueueAllPartyMemberModelLoads_ov017_0218f758(void* gameResources);
 
 struct Struct_ov011_021849bc;
 extern "C" int func_ov011_021849bc(struct Struct_ov011_021849bc* arg0, int arg1);
@@ -115,6 +115,6 @@ extern "C" ARM int func_ov017_021b2758(Struct_ov017_021b2758_3* arg0) {
         var9 = *(unsigned short*)(var8 + var7 * 2 + 0x126);
     }
     Set3DClearColorAndDepth_020c5588(var9, 0x10, 0x7fff, 0, 0);
-    func_ov017_0218f758(var1);
+    QueueAllPartyMemberModelLoads_ov017_0218f758(var1);
     return 4;
 }

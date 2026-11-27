@@ -35,7 +35,7 @@ extern "C" int func_ov002_021573f8(void *arg0, int arg1);
 extern "C" int func_ov002_02157108(void *arg0, int arg1);
 extern "C" unsigned char *func_02053c6c(unsigned char *gameObject);
 extern "C" void *GetParty_02010828(GameState *gameState);
-extern "C" int func_020a0af4(struct Struct_020a095c *arg0, int arg1);
+extern "C" int FindBagItemSlot_020a0af4(struct Struct_020a095c *bag, int itemId);
 extern "C" int IsCancelPressed_ov002_02161b48(char *menu, int isTouchCancelAllowed);
 extern "C" void func_ov002_0215b428(unsigned char *arg0);
 extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void *menu);
@@ -169,7 +169,7 @@ extern "C" ARM void func_ov002_02162964(char *arg0) {
             }
             unsigned char *var11 = func_02053c6c((unsigned char *) var10);
             *(short *) (arg0 + RG(0x1be8, 0x1ab0)) =
-                func_020a0af4((struct Struct_020a095c *) GetParty_02010828(var9), *(short *) (var11 + RG(0x958, 0x8c0)));
+                FindBagItemSlot_020a0af4((struct Struct_020a095c *) GetParty_02010828(var9), *(short *) (var11 + RG(0x958, 0x8c0)));
             if (*(short *) (arg0 + RG(0x1be8, 0x1ab0)) == -1) {
                 *(short *) (arg0 + RG(0x1be8, 0x1ab0)) = 0;
             }

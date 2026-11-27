@@ -59,7 +59,7 @@ struct Struct_ov000_0217df08_9 {
 
 extern "C" Struct_ov000_0217df08_8* GetMessageWindow_020421a0();
 extern "C" Struct_ov000_0217df08_7* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
-extern "C" int func_ov000_02171a60(void*);
+extern "C" int IsPanelMemberDead_ov000_02171a60(void*);
 extern "C" void InitNoun_020e46c4(void*);
 struct Struct_0201099c_3;
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
@@ -271,7 +271,7 @@ extern "C" ARM void func_ov000_0217df08(Struct_ov000_0217df08_9* arg0, int arg1,
                     Struct_ov000_0217df08_7* var30 = FindPartyMemberPanel_ov000_02161318(arg0, var29);
                     if (var30 != 0) {
                         var27++;
-                        if (!func_ov000_02171a60(var30)) {
+                        if (!IsPanelMemberDead_ov000_02171a60(var30)) {
                             if (var30->unknown_c_ != 0) {
                                 var28++;
                             }

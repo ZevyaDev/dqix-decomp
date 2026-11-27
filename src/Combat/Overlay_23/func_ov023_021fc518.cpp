@@ -119,7 +119,7 @@ extern "C" void func_ov023_021fc71c(void* arg0, int arg1, int arg2);
 extern "C" char* GetFollowCamera_020100f8(char* gameState);
 extern "C" void SetCameraEye_0202e5c0(Camera_0202e5c0* camera, int x, int y, int z);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char* camera, int x, int y, int z);
-extern "C" int func_0202e9ec(void* arg0);
+extern "C" int GetCameraFieldOfView_0202e9ec(void* camera);
 extern "C" void SetCameraFieldOfView_0202e9a4(Struct_0202df68* camera, int halfAngle);
 extern "C" void DisableCameraFollow_020a27a0(void* camera);
 
@@ -167,7 +167,7 @@ extern "C" ARM int func_ov023_021fc518(Struct_ov023_021fc518* arg0, void* arg1, 
     char* var5 = GetFollowCamera_020100f8((char*)GameState::GetInstance());
     SetCameraEye_0202e5c0((Camera_0202e5c0*)var5, 0xb666, 0xb800, 0x42ccc);
     SetCameraTarget_0202e5c8((unsigned char*)var5, 0xb666, 0xb800, 0);
-    arg0->unknown_1860_ = func_0202e9ec(var5);
+    arg0->unknown_1860_ = GetCameraFieldOfView_0202e9ec(var5);
     SetCameraFieldOfView_0202e9a4((Struct_0202df68*)var5, 0xf000);
     DisableCameraFollow_020a27a0(var5);
     return 1;

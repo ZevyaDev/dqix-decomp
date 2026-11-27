@@ -10,7 +10,7 @@ enum { Enum_ov004_0216ecd0_108 = 0x6c, Enum_ov004_0216ecd0_3954 = 0xf72, Enum_ov
 
 extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_0201e828;
-extern "C" void func_0201e828(Struct_0201e828*, unsigned short);
+extern "C" void SetZoneClearColor_0201e828(Struct_0201e828*, unsigned short);
 extern "C" void SetTitleState_02012010(void* gameState, int state);
 extern "C" void func_ov017_0218d258(void* arg0);
 
@@ -31,7 +31,7 @@ extern "C" ARM int func_ov004_0216ecd0(void) {
     if (!var2) return 0;
     struct Struct_0201e828* var3 = (struct Struct_0201e828*)((char*)var2 + Enum_ov004_0216ecd0_108);
     if (!var3) return 0;
-    func_0201e828(var3, *(unsigned short*)(data_ov004_02171048.unknown_4_ + 0xc));
+    SetZoneClearColor_0201e828(var3, *(unsigned short*)(data_ov004_02171048.unknown_4_ + 0xc));
     SetTitleState_02012010(var0, 5);
     *(char*)((char*)var0 + 0x7000 + Enum_ov004_0216ecd0_3954) = 1;
     *(char*)((char*)var0 + 0x7000 + Enum_ov004_0216ecd0_3955) = 1;

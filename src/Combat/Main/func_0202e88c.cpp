@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0202e88c
-extern "C" ARM short func_0202e88c(void* arg0) {
-    return *(short*)((char*)arg0 + 0x7c);
+// USA: GetCameraRoll_0202e88c
+extern "C" ARM short GetCameraRoll_0202e88c(void* camera) {
+    return *(short*)((char*)camera + 0x7c);
 }

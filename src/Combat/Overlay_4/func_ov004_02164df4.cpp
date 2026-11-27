@@ -14,15 +14,15 @@ extern "C" int func_ov024_021f6f10(void* arg0);
 #else
 extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
-extern "C" void func_ov023_021f9ba8(void*, int);
-extern "C" void func_ov023_021f9bb8(void*, int);
+extern "C" void SetMenuGridCursorRow_ov023_021f9ba8(void*, int);
+extern "C" void SetMenuGridCursorColumn_ov023_021f9bb8(void*, int);
 
 // USA: func_ov004_02164df4
 extern "C" ARM int func_ov004_02164df4(void* arg0) {
     void* var0 = FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0xb);
     if (!var0) return 0;
     if (func_ov024_021f6f10(var0) != 7) return 0;
-    func_ov023_021f9ba8(var0, 0);
-    func_ov023_021f9bb8(var0, 0);
+    SetMenuGridCursorRow_ov023_021f9ba8(var0, 0);
+    SetMenuGridCursorColumn_ov023_021f9bb8(var0, 0);
     return 0;
 }

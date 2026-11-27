@@ -22,7 +22,7 @@ extern "C" void RebuildFieldPartyOrder_ov017_02191108(void*, int, int, int, int)
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" int GetLeaderObjectIndex_020546a8(void*);
 extern "C" void LinkPartyFollowers_ov017_021907dc(int, int, int, int, int);
-extern "C" void func_02039d58(unsigned char*);
+extern "C" void ClearFadeInOnMove_02039d58(unsigned char*);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" void* GetParty_02010828(GameState*);
 
@@ -67,7 +67,7 @@ extern "C" ARM void func_ov017_0219cdc0(unsigned short arg0, int arg1, signed ch
                     GameObject* var11 = (GameObject*)var0->GetPartyMemberByIndex(var8);
                     if (var11) {
                         var11->obj3D_.SetInheritedAlpha(31);
-                        func_02039d58((unsigned char*)var11);
+                        ClearFadeInOnMove_02039d58((unsigned char*)var11);
                     }
                 }
             }

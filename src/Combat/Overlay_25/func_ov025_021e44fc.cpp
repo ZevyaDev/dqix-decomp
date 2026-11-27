@@ -11,7 +11,7 @@ struct BattleAction_ov000_0215440c_2;
 
 struct Struct_ov000_021537b8_6 {
     char unknown_0_[0xe];
-    short unknown_e_;
+    short currMP_e_;
 };
 
 struct Struct_ov025_021e44fc {
@@ -43,7 +43,7 @@ struct Struct_ov025_021e44fc_4 {
 extern "C" struct ActionActor_ov000_02160094* GetActionActor_ov000_02160094(struct BattleAction_ov000_0215440c_2* action, int index);
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
-extern "C" void func_ov000_02176150(struct Struct_ov000_021537b8_6* arg0, unsigned short arg1);
+extern "C" void SetPartyMemberPanelMP_ov000_02176150(struct Struct_ov000_021537b8_6* panel, unsigned short mp);
 
 static inline int inline_ov000_02156cc4_2(int arg0) {
     return arg0 >= 0 && arg0 <= 3;
@@ -68,8 +68,8 @@ found:
     struct Struct_ov025_021e44fc_4* var5 = (struct Struct_ov025_021e44fc_4*)var1->GetCombatantByIndex(var0->unknown_20_);
     if (var3 != 0) {
         unsigned short var6 = var0->unknown_24_;
-        func_ov000_02176150(&var3->unknown_0_, var6);
-        var3->unknown_0_.unknown_e_ = var6;
+        SetPartyMemberPanelMP_ov000_02176150(&var3->unknown_0_, var6);
+        var3->unknown_0_.currMP_e_ = var6;
     }
     if (var5 != 0) {
         var5->unknown_130_->unknown_6_ = var0->unknown_24_;

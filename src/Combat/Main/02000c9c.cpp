@@ -58,7 +58,7 @@ extern "C" void func_02012dbc(AllocatorUnion* arg0, void* arg1, int arg2);
 extern "C" void func_0208660c(char* arg0);
 extern "C" void func_02099cb8(char* arg0);
 extern "C" int GetRequestedMovie_020115a8(GameState_02000c9c_12* gameState);
-extern "C" void func_020115b4(Struct_02000c9c_13* arg0, unsigned char arg1);
+extern "C" void SetRequestedMovie_020115b4(Struct_02000c9c_13* gameState, unsigned char movie);
 extern "C" void func_020115c0(Struct_02000c9c_14* arg0);
 extern "C" void func_020d6cb4();
 extern "C" void CloseSoundEffectArchive_0205e8d4(void* manager);
@@ -281,7 +281,7 @@ extern "C" ARM void main() {
             } else if (GetGameMode_0200fb9c((char*)var0) == 6) {
                 RUNOV20();
                 if (*(unsigned char*)&var0->unk_6fc0[SCENE_SKIP_MEMBER_INDEX] == 0) {
-                    func_020115b4((Struct_02000c9c_13*)var0, 1);
+                    SetRequestedMovie_020115b4((Struct_02000c9c_13*)var0, 1);
                     LoadOverlay_020a1940(&OVERLAY_16_ID);
                     int var6 = 1;
                     while (var6) {

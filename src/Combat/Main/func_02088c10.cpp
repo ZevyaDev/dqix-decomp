@@ -2,10 +2,10 @@
 
 extern "C" void ClearIceBarrier_02088c9c(unsigned char* stats);
 
-// USA: func_02088c10
-extern "C" ARM void func_02088c10(unsigned char* arg0) {
-    arg0[0x6c] = 5;
-    arg0[0x8f] = 0;
-    *(int*)(arg0 + 0x18) |= 0x2;
-    ClearIceBarrier_02088c9c(arg0);
+// USA: SetFireBarrier_02088c10
+extern "C" ARM void SetFireBarrier_02088c10(unsigned char* stats) {
+    stats[0x6c] = 5;
+    stats[0x8f] = 0;
+    *(int*)(stats + 0x18) |= 0x2;
+    ClearIceBarrier_02088c9c(stats);
 }

@@ -151,7 +151,7 @@ extern "C" void StopLocalWireless_0202b0f4(void* wireless);
 extern "C" void ResetLocalWirelessPacketQueue_0205e22c(void* packetQueue);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int IsOnLadder_02039d7c(char* object);
-extern "C" void func_02039d84(Struct_02039d84* arg0);
+extern "C" void StopLadderAction_02039d84(Struct_02039d84* object);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" void func_ov017_02190264(void* arg0, int arg1);
@@ -163,14 +163,14 @@ extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberI
 extern "C" void RebuildPartyOrders_ov017_02191234(void* gameResources);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void SetLeaderObjectIndex_020546a0(void* companion, int leaderObjectIndex);
-extern "C" void func_02039858(unsigned char* arg0, int arg1);
+extern "C" void SetFollowedObjectIndex_02039858(unsigned char* object, int index);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" void* GetFollowCamera_020100f8(char* gameState);
 extern "C" void func_020a2770(void* arg0, short arg1);
 extern "C" void* func_0205ec34(void);
 extern "C" int IsQuestUnlocked_0206e2dc(FlagManager_0205faf4_13* flagManager, int questId);
 extern "C" void func_020abd20(int arg0);
-extern "C" void func_0206e2a0(Struct_0206e2a0* arg0, int arg1);
+extern "C" void UnlockQuest_0206e2a0(Struct_0206e2a0* flagManager, int questId);
 extern "C" void func_020d9ae8(Struct_02061c04_7* arg0, int arg1);
 extern "C" void func_020d9dc4(char* arg0, char* arg1);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
@@ -255,7 +255,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         if (var18 == GetProtagonistObjectIndex_020100a8(var0)) {
             GameObject* var19 = var0->GetPartyMemberByIndex(var18);
             if (var9 && var19 && IsOnLadder_02039d7c((char*)var19)) {
-                func_02039d84((Struct_02039d84*)var19);
+                StopLadderAction_02039d84((Struct_02039d84*)var19);
             }
         } else {
             GameObject* var20 = GetCompanionByIndex_0200ff58(var0, var18);
@@ -306,7 +306,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
         GameObject* var26 = GetCompanionByIndex_0200ff58(var0, var25);
         if (var26) {
             SetLeaderObjectIndex_020546a0(var26, GetProtagonistObjectIndex_020100a8(var0));
-            func_02039858((unsigned char*)var26, GetProtagonistObjectIndex_020100a8(var0));
+            SetFollowedObjectIndex_02039858((unsigned char*)var26, GetProtagonistObjectIndex_020100a8(var0));
             ResetFollowTrail_02039d24((unsigned char*)var26);
         }
     }
@@ -346,7 +346,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
                 if (!IsQuestUnlocked_0206e2dc((FlagManager_0205faf4_13*)var29, var34)) {
                     var33 = true;
                 }
-                func_0206e2a0((Struct_0206e2a0*)var29, var34);
+                UnlockQuest_0206e2a0((Struct_0206e2a0*)var29, var34);
             }
             var31++;
             if (var31 == 8) {

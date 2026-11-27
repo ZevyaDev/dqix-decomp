@@ -14,7 +14,7 @@ enum { Enum_ov017_021ca1a4_14104 = 0x3718, Enum_ov017_021ca1a4_21748 = 0x54f4 };
 #define func_ov017_021b8468 func_ov017_021b8978
 #endif
 
-extern "C" int func_020a1eb0(void);
+extern "C" int GetCurrentOverlay_020a1eb0(void);
 extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" void* func_ov017_021b8468(void* battleManager);
 
@@ -44,7 +44,7 @@ struct Struct_ov017_021ca1a4_2 { char unknown_0_[8]; unsigned short unknown_8_; 
 
 // USA: func_ov017_021ca1a4
 extern "C" ARM void func_ov017_021ca1a4(int arg0, struct Struct_ov017_021ca1a4* arg1, void* arg2, char* arg3) {
-    if (func_020a1eb0() != 0) return;
+    if (GetCurrentOverlay_020a1eb0() != 0) return;
 
     void* var0 = *(void**)(arg3 + Enum_ov017_021ca1a4_14104);
     void* var1 = func_ov017_021b8478(var0);

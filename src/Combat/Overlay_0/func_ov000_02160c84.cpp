@@ -53,7 +53,7 @@ extern "C" void func_ov000_02175480(void* arg0);
 extern "C" void func_ov013_02184a58(void* arg0);
 extern "C" void func_ov023_021d8c60(struct Struct_ov023_021d8c60* arg0);
 extern "C" struct Struct_0203a588_2* GetBattleNumberPopups_02039e70(void);
-extern "C" int func_020a1fa8(void);
+extern "C" int GetCurrentSubOverlay_020a1fa8(void);
 extern "C" struct MessageWindow_020444e0* GetMessageWindow_020421a0();
 extern "C" void DrawMessageWindow_020444e0(struct MessageWindow_020444e0* window);
 extern "C" void func_ov013_02187784(void* arg0);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov000_02160c84(struct Struct_ov000_02160c84* arg0) {
         }
         func_0203a0b4(GetBattleNumberPopups_02039e70());
         func_ov000_0218251c(arg0->unknown_6ffc_);
-        if (arg0->unknown_ea8_ == 7 && func_020a1fa8() == 3) {
+        if (arg0->unknown_ea8_ == 7 && GetCurrentSubOverlay_020a1fa8() == 3) {
             func_ov026_021dddcc(arg0);
         }
     }

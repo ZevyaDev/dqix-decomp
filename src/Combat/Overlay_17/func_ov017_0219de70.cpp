@@ -18,8 +18,8 @@ extern "C" void func_ov017_021a0c0c(char* arg0);
 extern "C" void func_ov017_021a0dd0(char* arg0);
 extern "C" void func_ov017_021a0fa4(char* arg0);
 
-extern "C" void func_020a1de4();
-extern "C" void func_020a1edc();
+extern "C" void ClearOverlayStack_020a1de4();
+extern "C" void ClearSubOverlayStack_020a1edc();
 extern "C" void func_020a1df8(int overlayEntry);
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 
@@ -74,8 +74,8 @@ extern "C" ARM void func_ov017_0219de70(char* arg0, void* arg1, Struct_ov017_021
 	case 5: func_ov017_021a0c0c(arg0); break;
 	}
 
-	func_020a1de4();
-	func_020a1edc();
+	ClearOverlayStack_020a1de4();
+	ClearSubOverlayStack_020a1edc();
 
 #if defined(jpn)
 	int var2 = *(int*)(arg0 + 0x2000 + 0x8f8);
