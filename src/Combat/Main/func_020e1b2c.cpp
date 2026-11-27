@@ -44,7 +44,7 @@ struct Struct_020e1288;
 extern "C" unsigned int func_020e1438(struct Struct_020e1b2c* arg0, unsigned int arg1,
                                       unsigned int arg2, unsigned int arg3,
                                       unsigned int arg4, unsigned int arg5);
-extern "C" unsigned int func_0209378c(int arg0);
+extern "C" unsigned int GetOBJCharBoundaryShift_0209378c(int isSubScreen);
 extern "C" int func_020937f0(int arg0);
 extern "C" int func_020e1288(struct Struct_020e1288* arg0);
 extern "C" void func_020e1384(struct Struct_020e1384* arg0);
@@ -94,7 +94,7 @@ extern "C" ARM int func_020e1b2c(struct Struct_020e1b2c_3* arg0, int arg1) {
         struct Struct_020e1b2c* var15 = &var13[var5];
         var15->unknown_4_ = var10;
         var12 = var15->unknown_a_ * var15->unknown_b_;
-        unsigned int var16 = 1 << func_0209378c(var11);
+        unsigned int var16 = 1 << GetOBJCharBoundaryShift_0209378c(var11);
         if (var16 != 0) var16--;
         var10 += (~var16) & (var16 + (var12 >> 1));
     }

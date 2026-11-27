@@ -18,7 +18,7 @@ struct Struct_02094654_2 { unsigned int unknown_0_; unsigned short unknown_4_; }
 extern "C" double ComputeSine_02009424(double);
 extern "C" void LoadToMainObjStandardPalette(const void*, unsigned int, unsigned int);
 extern "C" void LoadToSubObjStandardPalette(const void*, unsigned int, unsigned int);
-extern "C" int func_0209378c(int);
+extern "C" int GetOBJCharBoundaryShift_0209378c(int);
 extern "C" unsigned int func_020937f0(int);
 extern "C" Struct_02094654_2* func_02093704(int);
 extern "C" void func_020946f8(Struct_02094654_2*, int, int, int, int, int, int, int, int, int, int, int);
@@ -35,7 +35,7 @@ extern "C" ARM void func_020947f0(Struct_020947f0* arg0) {
     CleanInvalidateCacheRange((const void*)(&var2), 2);
     if (arg0->unknown_3c8_7_ == 0) LoadToMainObjStandardPalette(&var2, 0x1fe, 2);
     else LoadToSubObjStandardPalette(&var2, 0x1fe, 2);
-    int var3 = func_0209378c(arg0->unknown_3c8_7_);
+    int var3 = GetOBJCharBoundaryShift_0209378c(arg0->unknown_3c8_7_);
     unsigned int var4 = func_020937f0(arg0->unknown_3c8_7_);
     if (var4) {
         unsigned int var5 = (var4 - 0x800) >> var3;

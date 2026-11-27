@@ -66,7 +66,7 @@ extern "C" void SaveSubBGControl_02074b64(BGControlSave_02074b64*);
 extern "C" void SuspendMapDisplay_020dc2bc();
 void SetSubBrightness(GameResources*, int, int);
 int IsSubBrightnessTransitionActive(GameResources*);
-extern "C" void func_0208c9cc(int, int, int, int, int);
+extern "C" void SetBG0SubControl_0208c9cc(int, int, int, int, int);
 extern "C" void func_0208bf78(Struct_0208cb08_5*);
 extern char data_020f11a2[], data_020f11b3[], data_020f11c0[], data_020f11da[];
 
@@ -112,7 +112,7 @@ extern "C" ARM void func_0208cb08(Struct_0208cb08_5* arg0) {
         ((BGLayer*)((BGLayer_0204b12c*)&arg0->unknown_40_))->AllocateIndexBuffer((SafeAllocator*)(&var5->unknown_14_));
         ((BGLayer*)((BGLayer_0204af38*)&arg0->unknown_40_))->AllocateSprites(1, (SafeAllocator*)(&var5->unknown_14_));
         ((BGLayer*)((BGLayer_02020cb8_5*)&arg0->unknown_40_))->SetOffset(0, 0);
-        func_0208c9cc(0, 0, 15, 0, 0);
+        SetBG0SubControl_0208c9cc(0, 0, 15, 0, 0);
         arg0->unknown_b0_ = 1;
         arg0->unknown_a0_ = arg0->unknown_b4_;
         arg0->unknown_ac_ = 3;

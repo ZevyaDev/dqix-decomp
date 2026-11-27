@@ -12,7 +12,7 @@ struct Struct_02094654 {
     unsigned char unknown_3c8_7_ : 1;
 };
 struct Struct_02094654_2 { unsigned int unknown_0_; unsigned short unknown_4_; };
-extern "C" int func_0209378c(int);
+extern "C" int GetOBJCharBoundaryShift_0209378c(int);
 extern "C" unsigned int func_020937f0(int);
 extern "C" int GetWirelessSignalStrength_020d4ac8(void);
 extern "C" Struct_02094654_2* func_02093704(int);
@@ -20,7 +20,7 @@ extern "C" void func_020946f8(Struct_02094654_2*, int, int, int, int, int, int, 
 
 // USA: func_02094654
 extern "C" ARM void func_02094654(Struct_02094654* arg0) {
-    int var0 = func_0209378c(arg0->unknown_3c8_7_);
+    int var0 = GetOBJCharBoundaryShift_0209378c(arg0->unknown_3c8_7_);
     unsigned int var1 = func_020937f0(arg0->unknown_3c8_7_);
     if (var1) {
         unsigned int var2 = (var1 - 0xa00) >> var0;

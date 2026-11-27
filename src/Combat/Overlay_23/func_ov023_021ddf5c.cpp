@@ -24,7 +24,7 @@ extern "C" void func_ov023_021db3c0(void* arg0, int arg1, short arg2, float arg3
 extern "C" void SetLayoutGroupNumber_ov023_021e24b0(void* layout, int groupId, int number, unsigned char fontSize, unsigned char colorIndex, unsigned char isRightAligned, unsigned char digitCount, unsigned char hasPlusSign, unsigned char isZeroPadded);
 extern "C" void DrawLayoutElements_ov023_021e257c(void* layout);
 extern "C" void* func_ov023_021db544(void* arg0, void* arg1, int arg2, int arg3);
-extern "C" int func_020dd718(int arg0, int arg1);
+extern "C" int IsItemEquippedByPartyMember_020dd718(int memberIndex, int itemId);
 extern "C" int GetEquipRestrictions_020dd4c4(int memberIndex, void* item);
 extern "C" int func_ov023_021ddc98(void* arg0, int arg1, unsigned short arg2, int arg3);
 extern "C" long labs(long);
@@ -237,7 +237,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
         FlushList(arg0, var0);
         func_ov023_021db544(arg0->unknown_cc_, (void*)0xb, var15, var14);
         SetEntryOff(arg0, 0xb);
-    } else if (func_020dd718(arg0->unknown_77a_, arg0->unknown_4c_->unknown_16_)) {
+    } else if (IsItemEquippedByPartyMember_020dd718(arg0->unknown_77a_, arg0->unknown_4c_->unknown_16_)) {
         short var19;
         int var20;
         float var21;
