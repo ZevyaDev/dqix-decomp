@@ -9,14 +9,14 @@ extern "C" unsigned int GetMaxPossibleAllocation_02012dd0(AllocatorTypeB_02114e2
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
 extern AllocatorUnion gMainHeap_02114e20;
 
-// USA: func_020a36cc
-extern "C" ARM int func_020a36cc(void** arg0, unsigned int arg1) {
-    GameResources* var0 = GetGameResources();
-    unsigned int var1 = GetMaxPossibleAllocation_02012dd0((AllocatorTypeB_02114e20*)&gMainHeap_02114e20);
-    if (var1 < arg1) {
-        ReleaseFileTablesForSpace_020a0cc4(arg1);
-        var0->unknown_4490_[0] = 1;
+// USA: AllocateFromMainHeapFreeingFileTables_020a36cc
+extern "C" ARM int AllocateFromMainHeapFreeingFileTables_020a36cc(void** outBlock, unsigned int size) {
+    GameResources* gameResources = GetGameResources();
+    unsigned int maxAllocation = GetMaxPossibleAllocation_02012dd0((AllocatorTypeB_02114e20*)&gMainHeap_02114e20);
+    if (maxAllocation < size) {
+        ReleaseFileTablesForSpace_020a0cc4(size);
+        gameResources->unknown_4490_[0] = 1;
     }
-    *arg0 = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, arg1);
+    *outBlock = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, size);
     return 1;
 }

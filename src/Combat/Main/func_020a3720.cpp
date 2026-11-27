@@ -12,7 +12,7 @@
 
 
 extern "C" void func_020a395c(void);
-extern "C" int func_020a36cc(void** arg0, unsigned int arg1);
+extern "C" int AllocateFromMainHeapFreeingFileTables_020a36cc(void** outBlock, unsigned int size);
 extern "C" void func_020c9be0(void);
 
 #if defined(jpn)
@@ -36,8 +36,8 @@ extern "C" ARM int func_020a3720(void) {
         func_020a395c();
     }
 
-    if (!func_020a36cc((void**)&var2, 0x2000)) return 0;
-    if (!func_020a36cc((void**)(var1 + 0x4000 + (
+    if (!AllocateFromMainHeapFreeingFileTables_020a36cc((void**)&var2, 0x2000)) return 0;
+    if (!AllocateFromMainHeapFreeingFileTables_020a36cc((void**)(var1 + 0x4000 + (
 #if defined(jpn)
 0x1dc
 #else

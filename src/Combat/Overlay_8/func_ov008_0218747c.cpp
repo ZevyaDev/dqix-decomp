@@ -68,7 +68,7 @@ extern "C" ARM void func_ov008_0218747c(Struct_ov008_0218747c_2* arg0, int arg1)
     }
     if (!var1 || !var3) return;
     unsigned char var12 = var1->minutes_2_;
-    func_ov008_02184598(var1);
+    ClearPlayTime_ov008_02184598(var1);
     AddPlayTimeHours_020ac614(var1, (unsigned short)(var3->hours_0_ + var4));
     AddPlayTimeMinutes_020ac644(var1, (unsigned char)(var3->minutes_2_ + var5));
     var1->seconds_3_ += (unsigned char)(var3->seconds_3_ + var6);

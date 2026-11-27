@@ -5,11 +5,11 @@ struct MenuCursor_0205bacc;
 extern "C" void SetMenuCursorGrid_0205ba68(struct MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(struct MenuCursor_0205bacc* cursor, int itemCount);
 
-// USA: func_0205cf28
-extern "C" ARM void func_0205cf28(unsigned char* arg0, int arg1, int arg2, int arg3) {
-    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + 4), arg1, arg2, arg3);
-    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(arg0 + 0x54), arg1, arg2, arg3);
-    int var0 = arg1 * arg2;
-    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 4), var0);
-    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(arg0 + 0x54), var0);
+// USA: SetMenuCursorsGrid_0205cf28
+extern "C" ARM void SetMenuCursorsGrid_0205cf28(unsigned char* cursors, int columnCount, int rowCount, int isRowMajor) {
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(cursors + 4), columnCount, rowCount, isRowMajor);
+    SetMenuCursorGrid_0205ba68((struct MenuCursor_0205ba68*)(cursors + 0x54), columnCount, rowCount, isRowMajor);
+    int itemCount = columnCount * rowCount;
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(cursors + 4), itemCount);
+    SetMenuCursorItemCount_0205bacc((struct MenuCursor_0205bacc*)(cursors + 0x54), itemCount);
 }

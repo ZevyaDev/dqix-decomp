@@ -223,8 +223,8 @@ extern "C" void func_0201206c(void* arg0, int arg1);
 extern "C" void func_0206dfe8(void* arg0, int arg1, int arg2);
 extern "C" void* GetEffectManager_02057924();
 struct Struct_02057930;
-extern "C" void func_02057930(Struct_02057930*);
-extern "C" void func_02057978(Struct_02057930*);
+extern "C" void ResetEffectManager_02057930(Struct_02057930*);
+extern "C" void ClearEffectManager_02057978(Struct_02057930*);
 extern "C" void* GetActiveZones_02027ca4();
 #if defined(jpn)
 extern "C" void func_02028894(void* arg0, void* arg1);
@@ -782,7 +782,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         }
     }
     void* var48 = GetEffectManager_02057924();
-    func_02057930((Struct_02057930*)var48);
+    ResetEffectManager_02057930((Struct_02057930*)var48);
     void* var49 = GetActiveZones_02027ca4();
 #if defined(jpn)
     func_02028894(var49, arg0->unknown_d8_);
@@ -1016,7 +1016,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     DestroyMessageWindow_02043000((char*)var51);
     func_020939ac(var52);
     ReleaseBattleNumberPopupSprites_0203a54c((BattleNumberPopups_0203a54c*)var50);
-    func_02057978((Struct_02057930*)var48);
+    ClearEffectManager_02057978((Struct_02057930*)var48);
     func_020287b4(var49);
     func_ov017_02190238(arg0);
     func_02013750(var9, 1);

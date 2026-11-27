@@ -6,7 +6,7 @@ extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char* combatant);
 extern "C" int func_ov000_021681f8(int arg0, int arg1);
 extern "C" int func_ov000_02167b5c(int arg0, int arg1);
 extern "C" void func_ov000_02167b54(int* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_02049b20(unsigned char* arg0, int* arg1);
+extern "C" void SetCombatantLineupPosition_02049b20(unsigned char* combatant, int* position);
 extern "C" void SetCombatantLineupFacing_02049bac(unsigned char* combatant, int* rotation);
 extern "C" void func_ov000_0216f718(void* arg0, int arg1);
 extern "C" void func_ov000_0216f720(void* arg0, int arg1);
@@ -136,7 +136,7 @@ done:
             int var31[3];
             var23 += var29;
             func_ov000_02167b54(var30, var23, 0xcc, -0x2800);
-            func_02049b20((unsigned char*)var25, var30);
+            SetCombatantLineupPosition_02049b20((unsigned char*)var25, var30);
             func_ov000_02167b54(var31, 0, 0, 0);
             SetCombatantLineupFacing_02049bac((unsigned char*)var25, var31);
             var23 += var29;

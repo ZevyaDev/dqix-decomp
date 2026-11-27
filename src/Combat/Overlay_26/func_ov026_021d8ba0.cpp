@@ -233,7 +233,7 @@ int IsLocalWirelessGuest_0202c540(int*);
 void func_ov017_021c6814(unsigned short, unsigned short, Struct_ov026_021d8ba0*, unsigned char, int, int);
 int func_ov026_021ddd84(GameResources*, BattleScene_ov000_02160da0*, Struct_ov000_02161e30*, Struct_ov000_0217e870_2*, void*, void*, int);
 void func_ov017_021c847c();
-void func_020dd0b0(int, void*);
+void GetBattleString_020dd0b0(int, void*);
 #if defined(jpn)
 void StartMessage_0204500c(Struct_ov023_021f4c04*, void*, int);
 #else
@@ -931,7 +931,7 @@ state1:
 #else
                 void* var90 = GetMessageWindow_020421a0()->unknown_5c_;
                 memset(var90, 0, 0x960);
-                func_020dd0b0(0, var90);
+                GetBattleString_020dd0b0(0, var90);
                 StartMessage_0204500c(var21, var90, 0, 0xe3);
                 var21->unknown_998_ = 1;
 #endif

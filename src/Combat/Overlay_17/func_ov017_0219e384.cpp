@@ -350,7 +350,7 @@ extern "C" void PlayMusic_0209c3b4(Struct_0209c3b4_2*, int);
 struct Struct_0201bdac_4;
 extern "C" int func_02086b98(Struct_0201bdac_4*);
 struct Struct_0209caa0;
-extern "C" void func_0209caa0(Struct_0209caa0*, int);
+extern "C" void SetMusicVolumeHalved_0209caa0(Struct_0209caa0*, int);
 extern "C" void func_02064b98(unsigned char*, int);
 struct GlobalFlags_02038598_4;
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4*, unsigned int);
@@ -829,7 +829,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 				StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
 			}
 		}
-		func_0209caa0((Struct_0209caa0*)&gMusicManager_02109bf4, ((unsigned int)var60[0xd] << 24) >> 31);
+		SetMusicVolumeHalved_0209caa0((Struct_0209caa0*)&gMusicManager_02109bf4, ((unsigned int)var60[0xd] << 24) >> 31);
 		func_02064b98((unsigned char*)var11, *(unsigned short*)var60);
 		ClearGlobalFlags_020466f4((GlobalFlags_02038598_4*)var15, 0x200000);
 		if (var4->unknown_a_ == 0) {

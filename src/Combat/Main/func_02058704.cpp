@@ -2,7 +2,7 @@
 
 struct Struct_02057930;
 extern "C" unsigned char* func_02059cb4(unsigned char* arg0);
-extern "C" void func_02057930(struct Struct_02057930* arg0);
+extern "C" void ResetEffectManager_02057930(struct Struct_02057930* effectManager);
 
 struct Struct_02058704_2 { unsigned char unknown_0_[0xd4]; };
 struct Struct_02058704 {
@@ -18,6 +18,6 @@ extern "C" ARM struct Struct_02058704* func_02058704(struct Struct_02058704* arg
         func_02059cb4((unsigned char*)var0);
         var0++;
     } while (var0 < &arg0->unknown_8_[16]);
-    func_02057930((struct Struct_02057930*)arg0);
+    ResetEffectManager_02057930((struct Struct_02057930*)arg0);
     return arg0;
 }

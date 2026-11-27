@@ -44,8 +44,8 @@ extern "C" ARM void func_0206f230(struct Struct_0206f01c_2* arg0, SafeAllocator*
     var7 = 0;
     for (var0 = arg4, var1 = 0; var1 < arg5; var1++, var0++) {
         var11 = *var0;
-        if (func_0206f470(&var5.unknown_0_, var11,
-                                     func_0206ef40) != NULL) {
+        if (BinarySearchMonsterTable_0206f470(&var5.unknown_0_, var11,
+                                     GetMonsterDataId_0206ef40) != NULL) {
             var12 = var6;
             var2 = true;
             for (var8 = 0; var8 < var7; var8++, var12++) {
@@ -81,8 +81,8 @@ extern "C" ARM void func_0206f230(struct Struct_0206f01c_2* arg0, SafeAllocator*
     var3 = 0;
     var9 = arg0->unknown_4_;
     for (var10 = var6, var13 = 0; var13 < var7; var13++, var10++) {
-        var14 = (struct Struct_0206ef40*)func_0206f470(
-            &var5.unknown_0_, *var10, func_0206ef40);
+        var14 = (struct Struct_0206ef40*)BinarySearchMonsterTable_0206f470(
+            &var5.unknown_0_, *var10, GetMonsterDataId_0206ef40);
         if (var14 == NULL) {
             continue;
         }

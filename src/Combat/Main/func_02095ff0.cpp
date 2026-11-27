@@ -16,7 +16,7 @@ extern "C" void func_020a0364(struct Struct_02095ff0* arg0, unsigned int arg1);
 extern "C" ARM int GetBattleRecords_020ac4c0(void* records);
 extern "C" ARM int SetBattleRecords_020ac494(void* records);
 extern "C" ARM void func_0209609c(int arg0, unsigned char* arg1, int arg2);
-extern "C" ARM int func_02096100(int arg0, unsigned char* arg1, int arg2);
+extern "C" ARM int IsQuestBitSet_02096100(int questManager, unsigned char* questBits, int questId);
 
 // USA: func_02095ff0
 extern "C" ARM void func_02095ff0(void* arg0, int arg1) {
@@ -29,7 +29,7 @@ extern "C" ARM void func_02095ff0(void* arg0, int arg1) {
         *var2 = *var2 + 1;
     }
 
-    if (!func_02096100((int)arg0, (unsigned char*)arg0 + 0x84, arg1)) {
+    if (!IsQuestBitSet_02096100((int)arg0, (unsigned char*)arg0 + 0x84, arg1)) {
         GetBattleRecords_020ac4c0(var0);
         func_020a0364((struct Struct_02095ff0*)var0, 1);
         SetBattleRecords_020ac494(var0);

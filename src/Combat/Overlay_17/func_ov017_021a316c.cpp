@@ -13,7 +13,7 @@ extern "C" void func_020da244(void* arg0);
 extern "C" void* GetZone3D_02012fe4(void);
 extern int data_ov017_021d82fc;
 
-extern "C" void func_ov017_021a27e8(void* arg0);
+extern "C" void ClearEffectResourcesAndMonsterModelTemplates_ov017_021a27e8(void* gameResources);
 
 extern "C" void* GetNPCManager_0203cf4c(void);
 struct NPCManager_0203cfb4;
@@ -60,7 +60,7 @@ extern "C" ARM void UnloadFieldObjects_ov017_021a316c(unsigned char* gameResourc
     }
 
     func_020da244(&data_ov017_021d82fc);
-    func_ov017_021a27e8(gameResources);
+    ClearEffectResourcesAndMonsterModelTemplates_ov017_021a27e8(gameResources);
 
     for (firstPassIndex = 0; firstPassIndex < 0x30; firstPassIndex++) {
         GameObject* monster = gameState->GetMaybeFieldMonsterByIndex(firstPassIndex + 0x70);

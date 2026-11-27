@@ -53,7 +53,7 @@ extern "C" void func_02047198(Struct_02046f84*);
 extern "C" void func_02046f84(Struct_02046f84*);
 extern "C" void func_ov017_0218d274(void* arg0);
 extern "C" void func_ov017_0218f79c(void*);
-extern "C" void func_ov017_021a2840(GameResources*);
+extern "C" void StageMonsterModelTemplateTextures_ov017_021a2840(GameResources*);
 extern char data_ov017_021d7c10[];
 extern MusicManager_02109bf4_4 gMusicManager_02109bf4;
 extern char gSoundEffectManager_02108760[];
@@ -125,7 +125,7 @@ extern "C" ARM void func_ov017_021b6290(Struct_ov017_021b6290* arg0) {
             func_02046f84(&arg0->unknown_c_);
             func_ov017_0218d274(var1);
             func_ov017_0218f79c(var1);
-            func_ov017_021a2840(var1);
+            StageMonsterModelTemplateTextures_ov017_021a2840(var1);
             func_0203e5d8(GetNPCManager_0203cf4c(), 1);
             arg0->unknown_1_ = 1;
         }

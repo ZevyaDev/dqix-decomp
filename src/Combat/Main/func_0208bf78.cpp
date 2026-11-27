@@ -125,7 +125,7 @@ extern "C" unsigned char func_020965ac(Struct_02065990_3*, unsigned char);
 extern "C" int func_02095870(void*, Struct_02013fb4*, int, int, unsigned char*);
 extern "C" int func_0208d9e8(QuestMessageList_0208bf78_5*, int);
 extern "C" int func_02096088(void*, int);
-extern "C" int func_02096100(int, unsigned char*, int);
+extern "C" int IsQuestBitSet_02096100(int, unsigned char*, int);
 extern "C" int GetQuestState_0206e120(FlagManager_0205faf4_3*, int);
 extern "C" unsigned char func_0209618c(QuestManager_0205faf4_7*, int);
 extern "C" int func_0208da18(QuestMessageList_0208bf78_5*, int, int);
@@ -276,7 +276,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
             int var22 = func_0208d9e8((QuestMessageList_0208bf78_5*)&arg0->unknown_1c_, var20);
             bool var23 = 0;
             if (arg0->unknown_dd_ && !func_02096088(var19, inline_0208bf78_2(var19, var20))) {
-                if (!func_02096100((int)var19, var19->unknown_4a8_, inline_0208bf78_2(var19, var20))) var23 = 1;
+                if (!IsQuestBitSet_02096100((int)var19, var19->unknown_4a8_, inline_0208bf78_2(var19, var20))) var23 = 1;
             }
             if (var23) var22 = ((int)((StringList*)(&arg0->unknown_4_))->GetString(3));
 #if defined(jpn)

@@ -11,15 +11,15 @@ struct Struct_02057930 {
     int unknown_d50_;                     // 0xd50
 };
 
-// USA: func_02057930
-extern "C" ARM void func_02057930(Struct_02057930* arg0) {
-    int var0;
-    arg0->unknown_0_ = 0;
-    arg0->unknown_4_ = 0;
-    arg0->unknown_d4c_ = 0;
-    arg0->unknown_d50_ = 0;
-    for (var0 = 0; var0 < 16; var0++) {
-        ResetEffectSlot_02059cc8(arg0->unknown_8_[var0]);
+// USA: ResetEffectManager_02057930
+extern "C" ARM void ResetEffectManager_02057930(Struct_02057930* effectManager) {
+    int i;
+    effectManager->unknown_0_ = 0;
+    effectManager->unknown_4_ = 0;
+    effectManager->unknown_d4c_ = 0;
+    effectManager->unknown_d50_ = 0;
+    for (i = 0; i < 16; i++) {
+        ResetEffectSlot_02059cc8(effectManager->unknown_8_[i]);
     }
-    arg0->unknown_d48_ = 0;
+    effectManager->unknown_d48_ = 0;
 }

@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-// USA: func_02096100
-extern "C" ARM int func_02096100(int arg0, unsigned char *arg1, int arg2) {
-    unsigned char var0;
-    if (arg2 > 0xcc || arg2 < 0) {
+// USA: IsQuestBitSet_02096100
+extern "C" ARM int IsQuestBitSet_02096100(int questManager, unsigned char *questBits, int questId) {
+    unsigned char mask;
+    if (questId > 0xcc || questId < 0) {
         return 0;
     }
-    var0 = 1 << (arg2 & 7);
-    return var0 & arg1[arg2 >> 3];
+    mask = 1 << (questId & 7);
+    return mask & questBits[questId >> 3];
 }

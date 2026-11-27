@@ -10,11 +10,11 @@ struct Struct_ov017_021a4e48 {
     signed char unknown_4354_;
 };
 
-// USA: func_ov017_021a4e48
-extern "C" ARM void func_ov017_021a4e48(unsigned char* arg0) {
-    Struct_ov017_021a4e48* var0 = (Struct_ov017_021a4e48*)arg0;
-    var0->unknown_4354_--;
-    if (var0->unknown_4354_ < 0) {
-        var0->unknown_4354_ = 0;
+// USA: DecrementInputCooldown_ov017_021a4e48
+extern "C" ARM void DecrementInputCooldown_ov017_021a4e48(unsigned char* gameResources) {
+    Struct_ov017_021a4e48* resources = (Struct_ov017_021a4e48*)gameResources;
+    resources->unknown_4354_--;
+    if (resources->unknown_4354_ < 0) {
+        resources->unknown_4354_ = 0;
     }
 }

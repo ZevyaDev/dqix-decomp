@@ -15,7 +15,7 @@ struct EffectManager_02057de0_2 {
 };
 
 extern "C" int LoadEffectResource_02057de0(EffectManager_02057de0_2* effectManager, int effectId, SafeAllocator* allocator, int fileData, int fileSize);
-extern "C" int func_02058680(char* arg0, int arg1, void** arg2, int arg3);
+extern "C" int CollectEffectSlotsByEffectId_02058680(char* effectManager, int effectId, void** outSlots, int maxCount);
 
 struct Struct_020dbdc0;
 extern "C" void func_020dbf70(struct Struct_020dbdc0* arg0);
@@ -56,7 +56,7 @@ extern "C" ARM void func_020dbdc0(EffectLoader_020dbd9c* arg0) {
     if (arg0->unknown_14_ != 0) {
         char* var5 = (char*)GetEffectManager_02057924();
         if (var5 != NULL) {
-            int var6 = func_02058680(var5, arg0->unknown_8_, NULL, 0);
+            int var6 = CollectEffectSlotsByEffectId_02058680(var5, arg0->unknown_8_, NULL, 0);
             if (var6 <= 0) {
                 arg0->unknown_14_ = 0;
             }

@@ -2,14 +2,14 @@
 
 struct Struct_02079e2c;
 typedef int (*Type_02079e2c)(void*);
-extern "C" void* func_02079e60(struct Struct_02079e2c* arg0, int arg1, Type_02079e2c arg2);
+extern "C" void* BinarySearchActionTable_02079e60(struct Struct_02079e2c* actionTable, int key, Type_02079e2c getKey);
 
 struct Struct_020797e8;
-extern "C" int func_020797e8(struct Struct_020797e8* arg0);
+extern "C" int GetActionDataId_020797e8(struct Struct_020797e8* actionData);
 
 // USA: FindActionData_02079e2c
 extern "C" ARM void* FindActionData_02079e2c(char* actionTables, int actionId) {
-    void* action = func_02079e60((struct Struct_02079e2c*)actionTables, actionId, (Type_02079e2c)func_020797e8);
+    void* action = BinarySearchActionTable_02079e60((struct Struct_02079e2c*)actionTables, actionId, (Type_02079e2c)GetActionDataId_020797e8);
     if (action != 0) return action;
-    return func_02079e60((struct Struct_02079e2c*)(actionTables + 0xc), actionId, (Type_02079e2c)func_020797e8);
+    return BinarySearchActionTable_02079e60((struct Struct_02079e2c*)(actionTables + 0xc), actionId, (Type_02079e2c)GetActionDataId_020797e8);
 }

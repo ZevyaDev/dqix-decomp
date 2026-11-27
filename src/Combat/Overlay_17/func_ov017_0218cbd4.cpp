@@ -87,7 +87,7 @@ extern "C" void func_ov017_02199f08(GameResources*);
 extern "C" void func_ov017_0219aa7c(GameResources*);
 extern "C" int* GetNoticeQueue_020936f8();
 extern "C" void func_02093b90(int*, unsigned int);
-extern "C" void func_ov017_021a4e48(unsigned char*);
+extern "C" void DecrementInputCooldown_ov017_021a4e48(unsigned char*);
 void UpdateBrightnessTransitions(GameResources*);
 extern "C" void func_020e30f0(void*);
 extern "C" void func_ov017_0218d818(unsigned char*);
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     }
     int* var16 = GetNoticeQueue_020936f8();
     func_02093b90(var16, var0->GetTickCount());
-    func_ov017_021a4e48((unsigned char*)arg0);
+    DecrementInputCooldown_ov017_021a4e48((unsigned char*)arg0);
     UpdateBrightnessTransitions(arg0);
     if (var12) SleepOrCycleCurrentContext_020d9834(0);
     func_020e30f0(var10);
