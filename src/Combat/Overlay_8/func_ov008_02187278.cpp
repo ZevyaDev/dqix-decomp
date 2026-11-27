@@ -130,7 +130,7 @@ extern "C" ARM void func_ov008_02187278(Struct_ov008_021842a0_2* arg0, char* arg
         return;
     PlayTime_020ac4f8* var0 = NULL;
     PlayTime_020ac4f8 var1;
-    func_ov008_02184598(&var1);
+    ClearPlayTime_ov008_02184598(&var1);
     if (arg2 == 0)
     {
         Struct_ov008_02187278* var2 = arg0->unknown_b34_;

@@ -94,7 +94,7 @@ extern "C" void ClearMessageParams_02046380(Struct_ov023_021f4c04*);
 extern "C" void InitEnemyNoun_020e4ce8(Struct_ov026_021db090_3*, GameObject*, int);
 extern "C" Struct_ov026_021d8ba0_8* func_ov017_021b8478(void*);
 extern "C" void* func_ov017_021b8468(void*);
-extern "C" void func_020dd0b0(int, char*);
+extern "C" void GetBattleString_020dd0b0(int, char*);
 extern "C" void StartMessage_0204500c(Struct_ov023_021f4c04*, char*, int, int);
 extern "C" void SetMessageWindowRect_02042b98(Struct_ov023_021f4c04*, int, int, int, int);
 extern "C" Struct_ov023_021f4c04* GetMessageWindow_020421a0();
@@ -259,7 +259,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
 
     var24 = GetMessageWindow_020421a0()->unknown_5c_;
     memset(var24, 0, 0x960);
-    func_020dd0b0(var26, var24);
+    GetBattleString_020dd0b0(var26, var24);
     strcpy(var0, var24);
     if (arg0->unknown_8e49_ == 1) {
         Struct_ov026_021dd8a8* var32 = (Struct_ov026_021dd8a8*)GetBattleUI_ov000_02160f08(func_ov017_021b8468(var7));
@@ -274,7 +274,7 @@ extern "C" ARM void func_ov026_021dd8a8(Struct_ov000_02161e30* arg0, Struct_ov00
         }
         var24 = GetMessageWindow_020421a0()->unknown_5c_;
         memset(var24, 0, 0x960);
-        func_020dd0b0(var26, var24);
+        GetBattleString_020dd0b0(var26, var24);
         strcat(var0, var24);
     } else if (arg0->unknown_8e49_ == 2) {
         strcat(var0, data_ov026_021deebd);

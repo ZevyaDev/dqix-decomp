@@ -138,7 +138,7 @@ extern "C" void RestoreMainBGControl_02074bd0(BGControlSave_02074bd0* save);
 extern "C" void RestoreSubBGControl_02074bf4(BGControlSave_02074bf4* save);
 extern "C" void func_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov017_0218f79c(void* arg0);
-extern "C" void func_ov017_021a2840(GameResources* arg0);
+extern "C" void StageMonsterModelTemplateTextures_ov017_021a2840(GameResources* arg0);
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void func_02058564(Struct_02058564_2* arg0);
 extern "C" void LoadFieldIcons_ov017_0219b624(GameResources* gameResources);
@@ -312,7 +312,7 @@ extern "C" ARM void func_ov003_0217e6b0(Struct_ov003_0217e6b0_2* arg0) {
         SetFlags04(var1, 2);
         func_02053c6c((unsigned char*)var0->GetProtagonist());
         func_ov017_0218f79c(var1);
-        func_ov017_021a2840(var1);
+        StageMonsterModelTemplateTextures_ov017_021a2840(var1);
         func_02058564((Struct_02058564_2*)GetEffectManager_02057924());
         SetCamera_020100c4(var0, (int)arg0->unknown_b0_);
         LoadFieldIcons_ov017_0219b624(var1);

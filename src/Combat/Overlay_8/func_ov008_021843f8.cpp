@@ -180,8 +180,8 @@ extern "C" ARM void func_ov008_021843f8(Struct_ov008_021842a0_2* arg0)
 #if !defined(jpn)
     arg0->unknown_b3c_ = NULL;
 #endif
-    func_ov008_02184598(&arg0->unknown_b40_[0]);
-    func_ov008_02184598(&arg0->unknown_b40_[1]);
+    ClearPlayTime_ov008_02184598(&arg0->unknown_b40_[0]);
+    ClearPlayTime_ov008_02184598(&arg0->unknown_b40_[1]);
     Struct_ov008_021843f8* var1 = inline_ov008_021843f8(GameState::GetInstance());
     if (var1->unknown_3c_.unknown_10_0_ != 0)
         arg0->unknown_b18_ |= 0x2000;

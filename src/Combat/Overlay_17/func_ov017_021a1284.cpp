@@ -115,7 +115,7 @@ extern "C" void LoadFieldIcons_ov017_0219b624(GameResources*);
 extern "C" void func_0203d018(unsigned char*);
 extern "C" void func_0203de2c(Struct_0203de2c_3*);
 extern "C" void func_ov017_0218f79c(void*);
-extern "C" void func_ov017_021a2840(GameResources*);
+extern "C" void StageMonsterModelTemplateTextures_ov017_021a2840(GameResources*);
 extern "C" void func_02058564(Struct_02058564_2*);
 extern "C" void SetMessageWindowTextureArena_02042b30(void*, void*);
 extern "C" void InitMessageGlyphs_020432c4(void*);
@@ -239,7 +239,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         func_0203d018((unsigned char*)var3);
         func_0203de2c((Struct_0203de2c_3*)var3);
         func_ov017_0218f79c(var7);
-        func_ov017_021a2840(var7);
+        StageMonsterModelTemplateTextures_ov017_021a2840(var7);
         func_02058564(var4);
         SetMessageWindowTextureArena_02042b30(var8, ((Struct_ov017_021a1284_3*)var7)->unknown_87c_);
         ((TextureArena*)((TextureVRAMArea_0203d028*)((Struct_ov017_021a1284_3*)var7)->unknown_87c_))->Reset();

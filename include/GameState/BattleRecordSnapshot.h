@@ -9,7 +9,7 @@ struct PlayTime_020ac4f8 {
     unsigned char seconds_3_;
 };
 
-extern "C" void func_ov008_02184598(PlayTime_020ac4f8*);
+extern "C" void ClearPlayTime_ov008_02184598(PlayTime_020ac4f8*);
 
 struct PlayTimes_02061c04_2 {
     PlayTime_020ac4f8 playTime_0_;

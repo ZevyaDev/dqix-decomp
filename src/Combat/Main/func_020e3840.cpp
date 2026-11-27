@@ -7,10 +7,10 @@ struct EventSyncEntry_020e3814 {
     unsigned char unknown_6_;
 };
 
-// USA: func_020e3840
-extern "C" ARM void func_020e3840(struct EventSyncEntry_020e3814* arg0) {
-    arg0->eventId_0_ = -1;
-    arg0->type_4_ = 0;
-    arg0->unknown_5_ = 0;
-    arg0->unknown_6_ = 0;
+// USA: ResetEventSyncEntry_020e3840
+extern "C" ARM void ResetEventSyncEntry_020e3840(struct EventSyncEntry_020e3814* entry) {
+    entry->eventId_0_ = -1;
+    entry->type_4_ = 0;
+    entry->unknown_5_ = 0;
+    entry->unknown_6_ = 0;
 }
