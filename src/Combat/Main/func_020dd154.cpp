@@ -5,7 +5,7 @@ enum { Enum_020dd154_2384 = 0x8b8 };
 #else
 enum { Enum_020dd154_2384 = 0x950 };
 #endif
-extern "C" int func_020dd19c(unsigned int, int);
+extern "C" int HasVocationSkillForEquipmentType_020dd19c(unsigned int, int);
 #include "GameState/GameState.h"
 
 #if defined(jpn)
@@ -14,9 +14,9 @@ extern "C" int func_020dd19c(unsigned int, int);
 
 extern "C" void* func_02053c6c(unsigned char*);
 
-// USA: func_020dd154
-extern "C" ARM int func_020dd154(int arg0, int arg1) {
-    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0);
+// USA: HasPartyMemberVocationSkillForEquipmentType_020dd154
+extern "C" ARM int HasPartyMemberVocationSkillForEquipmentType_020dd154(int memberIndex, int equipmentType) {
+    GameObject* var0 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), memberIndex);
     if (var0 == NULL) {
         return 0;
     }
@@ -25,5 +25,5 @@ extern "C" ARM int func_020dd154(int arg0, int arg1) {
         return 0;
     }
     int var2 = *(int*)((char*)var1 + Enum_020dd154_2384);
-    return func_020dd19c((unsigned int)(var2 & 0xff), (int)(arg1));
+    return HasVocationSkillForEquipmentType_020dd19c((unsigned int)(var2 & 0xff), (int)(equipmentType));
 }

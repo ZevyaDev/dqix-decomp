@@ -18,7 +18,7 @@ extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void* func_0205ec34();
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" int func_020dd19c(unsigned int arg0, int arg1);
+extern "C" int HasVocationSkillForEquipmentType_020dd19c(unsigned int vocation, int equipmentType);
 extern "C" void func_ov023_021e23d0(void* arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
 extern "C" void DrawLayoutElements_ov023_021e257c(void* layout);
@@ -113,7 +113,7 @@ extern "C" ARM void func_ov023_021df218(Struct_ov023_021df218_4* arg0)
                     var13 = 0xe;
                     if (var15->unknown_0_7_ != 0)
                     {
-                        if (func_020dd19c(var11, var15->unknown_0_7_ & 0xff) != 0)
+                        if (HasVocationSkillForEquipmentType_020dd19c(var11, var15->unknown_0_7_ & 0xff) != 0)
                             var13 = 0xf;
                     }
                     else
@@ -154,7 +154,7 @@ extern "C" int func_ov023_021ddc34(void* arg0, short arg1, short arg2, short arg
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" void* func_0205ec34();
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" int func_020dd19c(unsigned int arg0, int arg1);
+extern "C" int HasVocationSkillForEquipmentType_020dd19c(unsigned int vocation, int equipmentType);
 extern "C" void func_ov023_021e29b8(void* arg0, int arg1, unsigned char arg2);
 extern "C" void* func_ov023_021e2550(void* arg0, int arg1, int arg2);
 extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* arg1, int arg2, short* arg3, short* arg4);
@@ -263,7 +263,7 @@ extern "C" ARM void func_ov023_021df218(Struct_ov023_021df218_4* arg0)
                     var13 = 0xe;
                     if (var15->unknown_0_7_ != 0)
                     {
-                        if (func_020dd19c(var11, var15->unknown_0_7_ & 0xff) != 0)
+                        if (HasVocationSkillForEquipmentType_020dd19c(var11, var15->unknown_0_7_ & 0xff) != 0)
                             var13 = 0xf;
                     }
                     else

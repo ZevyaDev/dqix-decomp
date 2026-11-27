@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-extern "C" long long func_020c30ac(unsigned int, unsigned int);
-extern "C" long long func_020c3194(unsigned int, unsigned int);
+extern "C" long long ComputeFixedPointOctantSine_020c30ac(unsigned int, unsigned int);
+extern "C" long long ComputeFixedPointOctantCosine_020c3194(unsigned int, unsigned int);
 
 // USA: ComputeFixedPointSine_020c3260
 extern "C" ARM long long ComputeFixedPointSine_020c3260(int angle) {
@@ -17,9 +17,9 @@ extern "C" ARM long long ComputeFixedPointSine_020c3260(int angle) {
     }
     long long magnitude;
     if ((octant + 1) & 2) {
-        magnitude = func_020c3194((unsigned int)octantFraction, (unsigned int)(octantFraction >> 32));
+        magnitude = ComputeFixedPointOctantCosine_020c3194((unsigned int)octantFraction, (unsigned int)(octantFraction >> 32));
     } else {
-        magnitude = func_020c30ac((unsigned int)octantFraction, (unsigned int)(octantFraction >> 32));
+        magnitude = ComputeFixedPointOctantSine_020c30ac((unsigned int)octantFraction, (unsigned int)(octantFraction >> 32));
     }
     if ((octant & 7) <= 3) {
         return magnitude;
