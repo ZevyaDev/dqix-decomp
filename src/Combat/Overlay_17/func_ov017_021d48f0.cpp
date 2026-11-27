@@ -16,7 +16,7 @@ extern "C" void* func_0202ae24(void);
 extern "C" void* func_0202ae18(void);
 
 struct Struct_ov017_021d48f0 { unsigned char unknown_0_; };
-extern "C" Struct_ov017_021d48f0* PopReceivedPacket_0205e41c(void* packetQueue, int* senderIndex);
+extern "C" Struct_ov017_021d48f0* PopReceivedPacket_0205e41c(void* packetQueue, int* outSenderIndex);
 
 typedef void (*Type_01ff91ac_3)(int, Struct_ov017_021d48f0*, GameState*, GameResources*, void*);
 extern Type_01ff91ac_3 data_ov017_021d7f98[];

@@ -34,7 +34,7 @@ struct Struct_0205e18c {
 extern "C" void AppendPacketNode_0205e18c(struct Struct_0205e18c* list, struct Struct_0205e18c_2* node);
 
 // USA: PopReceivedPacket_0205e41c
-extern "C" ARM struct Struct_0205e1e4_2* PopReceivedPacket_0205e41c(void* packetQueue, int* senderIndex) {
+extern "C" ARM struct Struct_0205e1e4_2* PopReceivedPacket_0205e41c(void* packetQueue, int* outSenderIndex) {
     struct Struct_0205e1e4_2* var0;
     SaveAndDisableVCounterInterrupt_020d8654();
     func_020d84e4();
@@ -42,11 +42,11 @@ extern "C" ARM struct Struct_0205e1e4_2* PopReceivedPacket_0205e41c(void* packet
     if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18())) {
         var0 = PopPacketNode_0205e1e4((struct Struct_0205e1e4*)((char*)packetQueue + 0x1518));
         if (var0 == NULL) {
-            *senderIndex = -1;
+            *outSenderIndex = -1;
             var0 = NULL;
         } else {
             AppendPacketNode_0205e18c((struct Struct_0205e18c*)((char*)packetQueue + 0x1500), (struct Struct_0205e18c_2*)var0);
-            *senderIndex = *(short*)((char*)var0 + 0x14);
+            *outSenderIndex = *(short*)((char*)var0 + 0x14);
         }
     }
     func_020d84e8();
