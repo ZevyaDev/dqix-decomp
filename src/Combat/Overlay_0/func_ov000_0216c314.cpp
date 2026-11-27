@@ -21,14 +21,14 @@ struct Struct_ov000_0216c314 {
 
 extern "C" void AppendBACTCommand_ov000_02169b78(struct Struct_ov000_0216c314*);
 
-// USA: func_ov000_0216c314
-extern "C" ARM int func_ov000_0216c314(struct Struct_0201d530* arg0) {
-    struct Struct_ov000_0216c314* var0 = (struct Struct_ov000_0216c314*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(0xc);
-    var0->unknown_0_ = 0;
-    var0->unknown_4_ = 0;
-    var0->unknown_0_ = 0x60;
-    var0->unknown_8_ = (unsigned short)(int)(((Script::Parameter*)arg0)->ToFloat() * 4096.0f);
-    var0->unknown_a_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)((char*)arg0 + 8)))->ToInt();
-    AppendBACTCommand_ov000_02169b78(var0);
+// USA: AppendBACTBeginLightingFadeCommand_ov000_0216c314
+extern "C" ARM int AppendBACTBeginLightingFadeCommand_ov000_0216c314(struct Struct_0201d530* params) {
+    struct Struct_ov000_0216c314* command = (struct Struct_ov000_0216c314*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(0xc);
+    command->unknown_0_ = 0;
+    command->unknown_4_ = 0;
+    command->unknown_0_ = 0x60;
+    command->unknown_8_ = (unsigned short)(int)(((Script::Parameter*)params)->ToFloat() * 4096.0f);
+    command->unknown_a_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)((char*)params + 8)))->ToInt();
+    AppendBACTCommand_ov000_02169b78(command);
     return 1;
 }

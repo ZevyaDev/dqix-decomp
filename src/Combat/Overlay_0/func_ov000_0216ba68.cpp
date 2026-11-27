@@ -19,15 +19,15 @@ struct Struct_ov000_0216ba68 {
 
 extern "C" void AppendBACTCommand_ov000_02169b78(struct Struct_ov000_0216ba68*);
 
-// USA: func_ov000_0216ba68
-extern "C" ARM int func_ov000_0216ba68(struct Struct_0201c1c8* arg0) {
-    struct Struct_ov000_0216ba68* var0 = (struct Struct_ov000_0216ba68*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(0xc);
-    if (var0 == 0) return 0;
-    var0->unknown_0_ = 0;
-    var0->unknown_4_ = 0;
-    var0->unknown_0_ = 0x45;
-    var0->unknown_8_ = (unsigned short)((Script::Parameter*)arg0)->ToInt();
-    var0->unknown_a_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)((char*)arg0 + 8)))->ToInt();
-    AppendBACTCommand_ov000_02169b78(var0);
+// USA: AppendBACTLoadExtraSoundSetCommand_ov000_0216ba68
+extern "C" ARM int AppendBACTLoadExtraSoundSetCommand_ov000_0216ba68(struct Struct_0201c1c8* params) {
+    struct Struct_ov000_0216ba68* command = (struct Struct_ov000_0216ba68*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(0xc);
+    if (command == 0) return 0;
+    command->unknown_0_ = 0;
+    command->unknown_4_ = 0;
+    command->unknown_0_ = 0x45;
+    command->unknown_8_ = (unsigned short)((Script::Parameter*)params)->ToInt();
+    command->unknown_a_ = (unsigned short)((Script::Parameter*)((struct Struct_0201c1c8*)((char*)params + 8)))->ToInt();
+    AppendBACTCommand_ov000_02169b78(command);
     return 1;
 }

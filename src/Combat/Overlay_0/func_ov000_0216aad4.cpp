@@ -18,13 +18,13 @@ struct Struct_ov000_0216aad4 {
     short unknown_8_;
 };
 
-// USA: func_ov000_0216aad4
-extern "C" ARM int func_ov000_0216aad4(struct Struct_0201c1c8* arg0) {
-    struct Struct_ov000_0216aad4* var0 = (struct Struct_ov000_0216aad4*)gBACTParseState_ov000_02184264.pAllocator_8_->Allocate(sizeof(struct Struct_ov000_0216aad4));
-    var0->unknown_0_ = 0;
-    var0->unknown_4_ = 0;
-    var0->unknown_0_ = 0x1b;
-    var0->unknown_8_ = (short)((Script::Parameter*)arg0)->ToInt();
-    AppendBACTCommand_ov000_02169b78(var0);
+// USA: AppendBACTPlaySoundEffectCommand_ov000_0216aad4
+extern "C" ARM int AppendBACTPlaySoundEffectCommand_ov000_0216aad4(struct Struct_0201c1c8* params) {
+    struct Struct_ov000_0216aad4* command = (struct Struct_ov000_0216aad4*)gBACTParseState_ov000_02184264.pAllocator_8_->Allocate(sizeof(struct Struct_ov000_0216aad4));
+    command->unknown_0_ = 0;
+    command->unknown_4_ = 0;
+    command->unknown_0_ = 0x1b;
+    command->unknown_8_ = (short)((Script::Parameter*)params)->ToInt();
+    AppendBACTCommand_ov000_02169b78(command);
     return 1;
 }
