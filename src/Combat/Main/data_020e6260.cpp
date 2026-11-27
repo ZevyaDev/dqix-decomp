@@ -2,14 +2,14 @@
 
 #pragma define_section initcode ".init" RX
 
-struct func_0207d7c0;
+struct ResetBattleJoinRecord_0207d7c0;
 struct Struct_0207d798;
 extern "C" ARM void* func_0207ddf0(Struct_0207d798*);
 extern "C" ARM void* func_0207de1c(Struct_0207d798*);
 
 extern "C" void __register_global_object(int arg0, int arg1, void* arg2);
 
-extern func_0207d7c0 gBattleJoinTable_02108ea8;
+extern ResetBattleJoinRecord_0207d7c0 gBattleJoinTable_02108ea8;
 extern int data_02108e9c;
 
 // USA: func_020e6260

@@ -12,14 +12,14 @@ struct Struct_0207d798 {
     char unknown_b_;
 };
 
-// USA: func_0207d7c0
-extern "C" ARM void func_0207d7c0(struct Struct_0207d798* arg0) {
-    arg0->unknown_0_ = 0;
-    arg0->unknown_4_ = -1;
-    arg0->unknown_8_ = -1;
-    arg0->unknown_9_ = -1;
-    arg0->unknown_a_ = -1;
-    arg0->unknown_b_ = -1;
-    arg0->unknown_2_ = 0x75a4;
-    arg0->unknown_5_ = 0;
+// USA: ResetBattleJoinRecord_0207d7c0
+extern "C" ARM void ResetBattleJoinRecord_0207d7c0(struct Struct_0207d798* record) {
+    record->unknown_0_ = 0;
+    record->unknown_4_ = -1;
+    record->unknown_8_ = -1;
+    record->unknown_9_ = -1;
+    record->unknown_a_ = -1;
+    record->unknown_b_ = -1;
+    record->unknown_2_ = 0x75a4;
+    record->unknown_5_ = 0;
 }

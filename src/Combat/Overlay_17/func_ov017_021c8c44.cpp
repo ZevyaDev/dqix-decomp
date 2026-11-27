@@ -38,7 +38,7 @@ extern "C" void func_02027304(void* arg0, int arg1);
 extern "C" void func_ov017_021b86f8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" BattleJoinRecord_0207d7f4* GetBattleJoinTable_0207d78c(void);
-extern "C" void func_0207da7c(BattleJoinRecord_0207d7f4* arg0, unsigned short arg1);
+extern "C" void RemoveBattleJoinRecord_0207da7c(BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
 extern "C" void func_ov017_021a33e0(void* arg0, int arg1);
 extern "C" void SetPartyMemberBattleId_02053f7c(PartyMember_02053f7c_3* member, unsigned short battleId, int isForced);
 extern "C" void LinkPartyFollowers_ov017_021907dc(int gameResources, int leaderIndex, int resumeFollowing, int updatePlayerControl, int clearFollowTrails);
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov017_021c8c44(int arg0, Struct_ov017_021c8c44* arg1, G
 #endif
 
     if (IsNotLocalWirelessGuest_0202c508(arg4)) {
-        func_0207da7c(GetBattleJoinTable_0207d78c(), var1);
+        RemoveBattleJoinRecord_0207da7c(GetBattleJoinTable_0207d78c(), var1);
         if (var3 != -1) {
             Struct_ov017_021d6d18 var8 = data_ov017_021d6d18;
             int var9 = 0;

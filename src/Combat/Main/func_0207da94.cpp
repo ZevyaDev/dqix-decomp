@@ -5,7 +5,7 @@ extern "C" void func_0207dcf0(int arg0);
 extern "C" void func_ov017_021c9c64(int arg0, int arg1);
 
 struct Struct_0207d798;
-extern "C" void func_0207d7c0(struct Struct_0207d798* arg0);
+extern "C" void ResetBattleJoinRecord_0207d7c0(struct Struct_0207d798* record);
 
 extern int data_020e8a4c;
 
@@ -43,7 +43,7 @@ extern "C" ARM void func_0207da94(struct Struct_0207da94* arg0, int arg1) {
             int var7 = (memcmp(arg0->unknown_8_, &data_020e8a4c, 4) == 0);
             if (var7) {
                 func_ov017_021c9c64(arg0->unknown_0_, 0);
-                func_0207d7c0((struct Struct_0207d798*)arg0);
+                ResetBattleJoinRecord_0207d7c0((struct Struct_0207d798*)arg0);
             }
         }
     }

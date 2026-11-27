@@ -15,7 +15,7 @@ extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, in
 extern "C" void* GetBattleJoinTable_0207d78c(void);
 
 struct BattleJoinRecord_0207d7f4 { unsigned short unknown_0_; unsigned short unknown_2_; unsigned int unknown_4_; unsigned int unknown_8_; };
-extern "C" void func_0207da7c(BattleJoinRecord_0207d7f4* arg0, unsigned short arg1);
+extern "C" void RemoveBattleJoinRecord_0207da7c(BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
 
 struct Struct_ov017_021c5e28 {
 	unsigned char unknown_0_;
@@ -37,6 +37,6 @@ extern "C" ARM void func_ov017_021c5e28(int arg0, int arg1) {
 		var1.unknown_6_ = arg1;
 		QueueOutgoingPacket_0205e330(var0, &var1, 0);
 		BattleJoinRecord_0207d7f4* var2 = (BattleJoinRecord_0207d7f4*)GetBattleJoinTable_0207d78c();
-		func_0207da7c(var2, (unsigned short)arg1);
+		RemoveBattleJoinRecord_0207da7c(var2, (unsigned short)arg1);
 	}
 }

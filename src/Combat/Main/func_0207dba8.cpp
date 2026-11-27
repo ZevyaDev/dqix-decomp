@@ -23,7 +23,7 @@ struct Struct_0207d798 {
     unsigned short unknown_6_;
     signed char unknown_8_[4];
 };
-extern "C" void func_0207d7c0(struct Struct_0207d798* arg0);
+extern "C" void ResetBattleJoinRecord_0207d7c0(struct Struct_0207d798* record);
 
 extern int data_020e8a4c;
 
@@ -45,7 +45,7 @@ extern "C" ARM void func_0207dba8(struct Struct_0207d798* arg0) {
                 int var8 = (memcmp(var1->unknown_8_, &data_020e8a4c, 4) == 0);
                 if (var8) {
                     func_ov017_021c9c64(var7, 0);
-                    func_0207d7c0(var1);
+                    ResetBattleJoinRecord_0207d7c0(var1);
                 }
             }
         } else {

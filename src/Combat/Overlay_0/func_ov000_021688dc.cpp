@@ -153,7 +153,7 @@ struct Party_02048150 {
 extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
 
 struct BattleJoinRecord_0207d7f4;
-extern "C" void func_0207da7c(struct BattleJoinRecord_0207d7f4* arg0, unsigned short arg1);
+extern "C" void RemoveBattleJoinRecord_0207da7c(struct BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
 extern "C" int func_ov000_02160fd4(void* battleScene, int flags);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" int func_02053c6c(unsigned char* gameObject);
@@ -307,7 +307,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
 
     func_ov017_0218d274((void*)var10);
     ClearFlags04((GameResources*)var10, 0x200000);
-    func_0207da7c((struct BattleJoinRecord_0207d7f4*)var18, *(unsigned short*)(*(unsigned char**)(arg0 + Enum_ov000_021688dc_672) + 8));
+    RemoveBattleJoinRecord_0207da7c((struct BattleJoinRecord_0207d7f4*)var18, *(unsigned short*)(*(unsigned char**)(arg0 + Enum_ov000_021688dc_672) + 8));
     *(unsigned char*)(var17 + Enum_ov000_021688dc_6590) = 0;
 
     if (func_ov000_02160fd4(arg0, 0x400000)) {

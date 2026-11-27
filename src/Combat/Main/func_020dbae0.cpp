@@ -9,7 +9,7 @@ struct Struct_020db5ec_2;
 struct Struct_020db3f4;
 
 extern "C" void func_020db964(Struct_020db894* arg0);
-extern "C" int func_020a18f4(unsigned int arg0);
+extern "C" int IsOverlayLoaded_020a18f4(unsigned int overlayId);
 extern "C" void func_020db894(void* arg0);
 extern "C" int func_020db9a8(Struct_020db264* arg0);
 extern "C" void func_020db3f4(Struct_020db3f4* arg0);
@@ -24,7 +24,7 @@ extern "C" void func_020db814(void*);
 extern "C" ARM void func_020dbae0(void* arg0) {
     char* var0 = (char*)arg0;
     func_020db964((Struct_020db894*)arg0);
-    if (!func_020a18f4(OVERLAY_ID(17))) {
+    if (!IsOverlayLoaded_020a18f4(OVERLAY_ID(17))) {
         return;
     }
     void* var1 = GetGameResources();
