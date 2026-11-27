@@ -10,9 +10,9 @@ struct Struct_ov011_021880f0 {
     void* unknown_1d8_;
 };
 
-// USA: func_ov011_021880f0
-extern "C" ARM int func_ov011_021880f0(void) {
-    Struct_ov011_021880f0* var0 = (Struct_ov011_021880f0*)GetCurrentMenu_ov017_021b2164();
-    MapVRAMBanksToSubBG(var0->unknown_1d8_);
+// USA: RestoreSavedSubBGVRAMBanks_ov011_021880f0
+extern "C" ARM int RestoreSavedSubBGVRAMBanks_ov011_021880f0(void) {
+    Struct_ov011_021880f0* menu = (Struct_ov011_021880f0*)GetCurrentMenu_ov017_021b2164();
+    MapVRAMBanksToSubBG(menu->unknown_1d8_);
     return 1;
 }

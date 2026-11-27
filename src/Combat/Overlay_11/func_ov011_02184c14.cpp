@@ -7,7 +7,7 @@ struct Struct_ov011_02184c14 {
     unsigned int unknown_1d8_;
 };
 
-// USA: func_ov011_02184c14
-extern "C" ARM void func_ov011_02184c14(Struct_ov011_02184c14* arg0) {
-    arg0->unknown_1d8_ = GetSubBGVRAMBanks();
+// USA: SaveSubBGVRAMBanks_ov011_02184c14
+extern "C" ARM void SaveSubBGVRAMBanks_ov011_02184c14(Struct_ov011_02184c14* menu) {
+    menu->unknown_1d8_ = GetSubBGVRAMBanks();
 }
