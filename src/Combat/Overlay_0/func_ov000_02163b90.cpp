@@ -14,20 +14,20 @@ extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsign
 extern "C" void SetCombatantOnBattlefield_02049f28(unsigned char* combatant);
 extern "C" void SetCombatantOffBattlefield_02049f3c(unsigned char* combatant);
 
-// USA: func_ov000_02163b90
-extern "C" ARM void func_ov000_02163b90(struct Struct_ov000_02163b90* arg0, int arg1) {
-    GameState* var0 = GameState::GetInstance();
-    int var1;
-    for (var1 = 0; var1 <= 3; var1++) {
-        GameObject* var2 = GetPartyMemberBaseByIndex_0200ff1c(var0, var1);
-        if (!var2) continue;
-        if (!IsPartyMemberInBattle_020a35e0(arg0->unknown_2a0_, var1 & 0xff)) continue;
-        if (arg1) {
-            ((Object3D*)((unsigned char*)var2))->MakeVisible();
-            SetCombatantOnBattlefield_02049f28((unsigned char*)var2);
+// USA: SetBattlingPartyMembersVisible_ov000_02163b90
+extern "C" ARM void SetBattlingPartyMembersVisible_ov000_02163b90(struct Struct_ov000_02163b90* arg0, int isVisible) {
+    GameState* gameState = GameState::GetInstance();
+    int memberIndex;
+    for (memberIndex = 0; memberIndex <= 3; memberIndex++) {
+        GameObject* member = GetPartyMemberBaseByIndex_0200ff1c(gameState, memberIndex);
+        if (!member) continue;
+        if (!IsPartyMemberInBattle_020a35e0(arg0->unknown_2a0_, memberIndex & 0xff)) continue;
+        if (isVisible) {
+            ((Object3D*)((unsigned char*)member))->MakeVisible();
+            SetCombatantOnBattlefield_02049f28((unsigned char*)member);
         } else {
-            ((Object3D*)((unsigned char*)var2))->MakeHidden();
-            SetCombatantOffBattlefield_02049f3c((unsigned char*)var2);
+            ((Object3D*)((unsigned char*)member))->MakeHidden();
+            SetCombatantOffBattlefield_02049f3c((unsigned char*)member);
         }
     }
 }

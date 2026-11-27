@@ -102,7 +102,7 @@ void __clear(void*, unsigned int);
 void StartMessage_0204500c(MessageWindow_020465c0*, const char*, int);
 int func_ov023_021f4fc8();
 void ResetBattleCamera_ov000_0216d370(void*, int, int, int);
-void func_ov000_02163b90(Struct_ov023_021ef524_3*, int);
+void SetBattlingPartyMembersVisible_ov000_02163b90(Struct_ov023_021ef524_3*, int);
 int GetMessageChoice_020457e0(MessageWindow_020465c0*);
 void func_02011744(GameState*);
 }
@@ -171,7 +171,7 @@ extern "C" ARM int func_ov023_021ef524(Struct_ov023_021ef524_3* arg0) {
         var14.x = fix32_Divide(var14.x, arg0->unknown_701e_ << 12);
         var14.y = fix32_Divide(var14.y, arg0->unknown_701e_ << 12);
         var14.z = fix32_Divide(var14.z, arg0->unknown_701e_ << 12);
-        func_ov000_02163b90(arg0, 0);
+        SetBattlingPartyMembersVisible_ov000_02163b90(arg0, 0);
         Vector3fix var18;
         func_ov023_021f00f4(&var18.x, var14.x, var14.y + fix32_Divide(var13, 0x2000), var14.z);
         int var19 = inline_ov023_021ef524(var12, var11);

@@ -96,7 +96,7 @@ extern "C" Struct_02092e0c* GetMessageWindow_020421a0();
 extern "C" void* func_0202ae18();
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void func_ov023_021ed988(char*, int);
-extern "C" void func_ov000_02163b90(BattleScene_ov000_02160da0*, int);
+extern "C" void SetBattlingPartyMembersVisible_ov000_02163b90(BattleScene_ov000_02160da0*, int);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(BattleScene_ov000_02160da0*, int, int);
 extern "C" void SetCombatantsOpaque_ov000_02163a7c(BattleScene_ov000_02163a7c*);
 extern "C" void func_ov000_021639b4(BattleScene_ov000_02160da0*);
@@ -156,7 +156,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleScene_ov000_02160da0* arg0) {
     IsInParty_02086ef0((Party_02048150*)GetParty_02010828(var5), var6->unknown_18_);
     if (var6->unknown_0_ == 0) {
         if (arg0->unknown_576c_) func_ov023_021ed988((char*)arg0, 0);
-        func_ov000_02163b90(arg0, 1);
+        SetBattlingPartyMembersVisible_ov000_02163b90(arg0, 1);
         SetObjectsVisibleBySelector_ov000_021626a0(arg0, 4, 0);
         SetCombatantsOpaque_ov000_02163a7c((BattleScene_ov000_02163a7c*)arg0);
         func_ov000_021639b4(arg0);
