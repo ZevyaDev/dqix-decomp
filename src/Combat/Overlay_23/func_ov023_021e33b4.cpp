@@ -162,12 +162,12 @@ extern "C" void func_020de848(void* itemTable);
 extern "C" void func_020dea40(void* arg0, void* arg1, void* arg2, int arg3, int arg4);
 extern "C" int func_020deb08(Struct_020deb08* arg0);
 extern "C" void func_020deb24(Struct_0205faf4_9* arg0, int arg1);
-extern "C" void func_ov023_021e4e8c(void* arg0);
+extern "C" void InitCharacterModel_ov023_021e4e8c(void* model);
 extern "C" void func_ov023_021e4f64(void* arg0, SafeAllocator* arg1);
 extern "C" void func_ov023_021e4fd8(void* arg0);
 extern "C" void func_ov023_021e6198(void* arg0, int arg1);
 extern "C" void func_ov023_021e6150(void* arg0, unsigned char arg1);
-extern "C" void func_ov023_021e60e0(void* arg0, unsigned int arg1);
+extern "C" void SetCharacterModelFacing_ov023_021e60e0(void* model, unsigned int angle);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void SetMessageWindowTextureArena_02042b30(void* window, void* textureArena);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
@@ -291,14 +291,14 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
             arg0->unknown_90_.CreateTypeA(arg0->unknown_4_->Allocate(0x200), 0x200);
 
             arg0->unknown_120_[0] = (Struct_ov023_021e33b4_2*)arg0->unknown_4_->Allocate(0xc20);
-            func_ov023_021e4e8c(arg0->unknown_120_[0]);
+            InitCharacterModel_ov023_021e4e8c(arg0->unknown_120_[0]);
             func_ov023_021e4f64(arg0->unknown_120_[0], arg0->unknown_4_);
             func_ov023_021e4fd8(arg0->unknown_120_[0]);
             func_ov023_021e6198(arg0->unknown_120_[0], (int)arg0->unknown_a4_);
             func_ov023_021e6150(arg0->unknown_120_[0], 1);
 
             arg0->unknown_120_[1] = (Struct_ov023_021e33b4_2*)arg0->unknown_4_->Allocate(0xc20);
-            func_ov023_021e4e8c(arg0->unknown_120_[1]);
+            InitCharacterModel_ov023_021e4e8c(arg0->unknown_120_[1]);
             func_ov023_021e4f64(arg0->unknown_120_[1], arg0->unknown_4_);
             func_ov023_021e4fd8(arg0->unknown_120_[1]);
             func_ov023_021e6198(arg0->unknown_120_[1], (int)arg0->unknown_a4_);
@@ -445,7 +445,7 @@ extern "C" ARM void func_ov023_021e33b4(Struct_ov023_021e33b4* arg0)
         void* var25 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), arg0->unknown_4fc_);
         if (var25 != NULL)
         {
-            func_ov023_021e60e0(arg0->unknown_120_[0], 0x1eb);
+            SetCharacterModelFacing_ov023_021e60e0(arg0->unknown_120_[0], 0x1eb);
             func_ov023_021e5974(arg0->unknown_120_[0], func_02053c6c((unsigned char*)var25), arg0->unknown_4fc_, 0, 0);
         }
         arg0->unknown_128_[0] = arg0->unknown_120_[0];

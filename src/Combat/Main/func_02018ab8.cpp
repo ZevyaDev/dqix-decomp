@@ -14,8 +14,8 @@ extern "C" ARM void func_02018ab8(Zone3D* arg0) {
         var1 = FindDoorEntry_02018b34(arg0, var0);
         var2 = (var0->unknown_2c_.unknown1_0_.unknown_2_4_ & 0x80) != 0;
         if (var1 != NULL) {
-            var1->unknown_2_ |= 0x8;
-            if (var2) var1->unknown_2_ |= 0x10;
+            var1->flags_2_ |= 0x8;
+            if (var2) var1->flags_2_ |= 0x10;
         }
         var0 = var0->unknown_70_;
     }

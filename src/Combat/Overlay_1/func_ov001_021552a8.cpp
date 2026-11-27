@@ -35,8 +35,8 @@
 
 struct Sprite_02043368_2;
 struct SpriteAnimationList_02043368;
-struct Struct_0208b8c4;
-struct Struct_0203d028_6;
+struct QuestDisplay_0208b8c4;
+struct NPCSpriteCache_0203d028_6;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct TextureVRAMArea_0203d028;
@@ -102,10 +102,10 @@ extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDurat
 extern "C" void EndEventTask_ov017_021bb27c(void* eventTask);
 extern "C" void ResetQuestDisplay_0208b9a0(void* display, unsigned char arg1);
 extern "C" char* GetMessageWindow_020421a0(void);
-extern "C" void func_0208b8c4(Struct_0208b8c4* arg0, SafeAllocator* arg1);
+extern "C" void AllocateQuestDisplay_0208b8c4(QuestDisplay_0208b8c4* display, SafeAllocator* allocator);
 extern "C" void* GetNPCManager_0203cf4c(void);
 extern "C" void* func_0203d004(void* arg0);
-extern "C" void func_020401fc(Struct_0203d028_6* arg0, unsigned int arg1, SafeAllocator* arg2);
+extern "C" void InitNPCSpriteCache_020401fc(NPCSpriteCache_0203d028_6* spriteCache, unsigned int slotCount, SafeAllocator* allocator);
 extern "C" void func_ov001_0215a850(SafeAllocator* arg0);
 extern "C" void func_ov001_0215a8dc(void);
 extern "C" void func_ov001_021538d4(int arg0, void* arg1, SafeAllocator* arg2);
@@ -198,7 +198,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         char* var11 = GetMessageWindow_020421a0();
         arg0->unknown_124_.CreateTypeA(arg0->unknown_7c_.Allocate(0xa000), 0xa000);
         arg0->unknown_124_.Reset();
-        func_0208b8c4((Struct_0208b8c4*)arg0->unknown_120_, &arg0->unknown_124_);
+        AllocateQuestDisplay_0208b8c4((QuestDisplay_0208b8c4*)arg0->unknown_120_, &arg0->unknown_124_);
 #if defined(jpn)
         *(void**)(var11 + 0x4c) = arg0->unknown_120_;
 #else
@@ -206,7 +206,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
 #endif
     }
     if ((arg0->unknown_c_.unknown_44_ & 1) || (arg0->unknown_c_.unknown_44_ & 4)) {
-        func_020401fc((Struct_0203d028_6*)func_0203d004(GetNPCManager_0203cf4c()), 0xc, &arg0->unknown_7c_);
+        InitNPCSpriteCache_020401fc((NPCSpriteCache_0203d028_6*)func_0203d004(GetNPCManager_0203cf4c()), 0xc, &arg0->unknown_7c_);
     }
     if (arg0->unknown_c_.unknown_44_ & 0x200) {
         arg0->unknown_7c_.GetMaxPossibleAllocation();
@@ -294,7 +294,7 @@ extern "C" ARM int func_ov001_021552a8(Struct_ov001_021552a8* arg0) {
         memset(var26->unknown_45b_, 0, sizeof(var26->unknown_45b_));
         for (var23 = 0; var23 < var24; var23++) {
             BMDJEntry_02016874_2* var27 = &var25->pEntries_44_[var23];
-            if (var27 != NULL && !(var27->unknown_2_ & 4)) {
+            if (var27 != NULL && !(var27->flags_2_ & 4)) {
                 SetFlag_0206df6c(var26, var26->unknown_45b_, (unsigned char)var23, 1);
             }
         }

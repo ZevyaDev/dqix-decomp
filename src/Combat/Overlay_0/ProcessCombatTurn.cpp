@@ -95,7 +95,7 @@ struct Struct_ov000_0215767c_2 {
 struct Struct_ov000_02182c74 { short unknown_0_[16]; };
 struct Struct_ov000_02182b04 { short unknown_0_[8]; };
 struct Struct_ov000_02182a60 { signed char unknown_0_[4]; };
-struct Struct_020749ac { int unknown_0_; float unknown_4_; };
+struct SortEntry_020749ac { int id_0_; float key_4_; };
 struct Struct_ov000_0215d63c_3 { char unknown_0_[0x7c]; };
 struct Struct_ov000_0215767c_3 { char unknown_0_[0x678]; };
 
@@ -112,7 +112,7 @@ struct Random;
 int NextRandomMax(Random*, int);
 extern "C" int func_ov000_0215fc60(char*);
 float NextRandomFloatBetween(Random*, float, float);
-extern "C" void func_020749ac(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void QuickSortByKey_020749ac(void* entries, int first, int last, int isDescending);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" Struct_ov000_0215ab88* GetEnemyByIndex_0200fea4(GameState*, int);
 struct Struct_02053dc0;
@@ -136,9 +136,9 @@ extern "C" void func_0204887c(Struct_0204887c*, char*);
 struct ActionTarget_ov000_0215767c_4;
 struct BattleAction_ov000_0215767c_5;
 extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*, ActionTarget_ov000_0215767c_4*);
-struct Struct_ov000_0215767c_6;
-struct Struct_ov000_0215767c_7;
-extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
+struct ActionActor_ov000_0215767c_6;
+struct BattleAction_ov000_0215767c_7;
+extern "C" void AppendActionActor_ov000_02160068(BattleAction_ov000_0215767c_7*, ActionActor_ov000_0215767c_6*);
 extern "C" int func_ov000_0215f57c(void* arg0, int arg1);
 extern "C" void func_ov000_0215f110(char*);
 extern "C" void func_ov000_0215f1ac(void* arg0);
@@ -147,7 +147,7 @@ extern "C" int IsDead_02010088(Struct_02010088*);
 struct GameObject;
 extern "C" int HasLeftBattle_ov000_02153c0c(GameObject*);
 extern "C" int func_ov000_021599dc(GameObject*);
-extern "C" Struct_ov000_0215767c_10* func_ov000_0215e9d8(void* arg0);
+extern "C" Struct_ov000_0215767c_10* GetNextBattleAction_ov000_0215e9d8(void* battle);
 extern "C" Struct_ov000_0215767c_8* func_ov000_0215e918(void* arg0);
 struct BattleAction_ov000_0215440c;
 extern "C" Struct_ov000_0215767c_9* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
@@ -202,7 +202,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
 
     func_ov024_021f67f8();
 
-    Struct_020749ac var7[16];
+    SortEntry_020749ac var7[16];
     __clear(var7, sizeof(var7));
     unsigned char var8 = 0;
     for (long var9 = 0; var9 < var4; var9++) {
@@ -243,17 +243,17 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                 continue;
             }
         }
-        var7[var8].unknown_0_ = var3.unknown_0_[var9];
+        var7[var8].id_0_ = var3.unknown_0_[var9];
         unsigned int var16 = var11->unknown_138_->unknown_c_;
-        var7[var8].unknown_4_ = (float)var16 * NextRandomFloatBetween((Random*)arg0, 0.51f, 1.0f);
+        var7[var8].key_4_ = (float)var16 * NextRandomFloatBetween((Random*)arg0, 0.51f, 1.0f);
         var8++;
     }
 
     var4 = var8;
-    func_020749ac(var7, 0, var8 - 1, 1);
+    QuickSortByKey_020749ac(var7, 0, var8 - 1, 1);
     memset(&var3, 0, sizeof(var3));
     for (var0 = 0; var0 < var4; var0++) {
-        var3.unknown_0_[var0] = var7[var0].unknown_0_;
+        var3.unknown_0_[var0] = var7[var0].id_0_;
     }
 
     arg0->unknown_8e70_ = (Struct_ov000_0215767c_8*)arg1->Allocate(0x48 * sizeof(Struct_ov000_0215767c_8));
@@ -487,7 +487,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
         }
 
         int var66 = func_ov000_021599dc((GameObject*)var63);
-        Struct_ov000_0215767c_10* var67 = func_ov000_0215e9d8(arg0);
+        Struct_ov000_0215767c_10* var67 = GetNextBattleAction_ov000_0215e9d8(arg0);
         if (var67 == 0) {
             break;
         }
@@ -530,7 +530,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
         int var70 = 1;
         if (var69 != 0 && (var69->unknown_10_ & 0x400) && var69->unknown_4_0_ != 0x1c) {
             Struct_ov000_0215767c_10* var71 = &arg0->unknown_8e78_[0x47];
-            Struct_ov000_0215767c_10* var72 = func_ov000_0215e9d8(arg0);
+            Struct_ov000_0215767c_10* var72 = GetNextBattleAction_ov000_0215e9d8(arg0);
             if (var72 != 0) {
                 InitBattleAction_ov000_02160030(var72);
                 InitBattleAction_ov000_02160030(var71);
@@ -576,14 +576,14 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                     var82->unknown_1c_ = -1;
                     var82->unknown_30_ = 0;
                     var82->unknown_20_ = var79->unknown_20_;
-                    func_ov000_02160068((Struct_ov000_0215767c_7*)var72, (Struct_ov000_0215767c_6*)var82);
+                    AppendActionActor_ov000_02160068((BattleAction_ov000_0215767c_7*)var72, (ActionActor_ov000_0215767c_6*)var82);
                     arg0->unknown_8e00_++;
                     var82 = &arg0->unknown_8e70_[arg0->unknown_8e80_];
                     memset(var82, 0, 0x30);
                     var82->unknown_1c_ = -1;
                     var82->unknown_30_ = 0;
                     var82->unknown_20_ = var79->unknown_20_;
-                    func_ov000_02160068((Struct_ov000_0215767c_7*)var71, (Struct_ov000_0215767c_6*)var82);
+                    AppendActionActor_ov000_02160068((BattleAction_ov000_0215767c_7*)var71, (ActionActor_ov000_0215767c_6*)var82);
                     arg0->unknown_8e80_++;
                 }
                 if (var71->unknown_9_ != 0 && var67->unknown_8_ == var72->unknown_8_) {

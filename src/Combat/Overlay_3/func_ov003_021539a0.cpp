@@ -105,7 +105,7 @@ extern "C" int GetSkillMagicalMendingBonus_020861d0(unsigned char*);
 extern "C" int GetSkillMagicalMightBonus_0208623c(unsigned char*);
 extern "C" int GetSkillMaxHPBonus_020862a8(unsigned char*);
 extern "C" int GetSkillMaxMPBonus_02086314(unsigned char*);
-extern "C" void func_ov023_021e24b0(void*, int, int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
+extern "C" void SetLayoutGroupNumber_ov023_021e24b0(void*, int, int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
 extern "C" void DrawLayoutElements_ov023_021e257c(void*);
 extern "C" void* GetResources_0200fb8c(int*);
 struct GameResources;
@@ -234,7 +234,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 var4[7] = CAP999(GetSkillMaxHPBonus_020862a8(var11) + var14->unknown_8_[2].unknown_1_2_ + var26[2].unknown_1_2_);
                 var4[8] = CAP999(GetSkillMaxMPBonus_02086314(var11) + var14->unknown_8_[2].unknown_2_4_ + var26[2].unknown_2_4_);
                 for (unsigned char var27 = 0; data_ov003_0217f288[var27] >= 0; var27++) {
-                    func_ov023_021e24b0(var13, data_ov003_0217f288[var27], var4[var27], 8, 0xf, 1, 3, 0, 0);
+                    SetLayoutGroupNumber_ov023_021e24b0(var13, data_ov003_0217f288[var27], var4[var27], 8, 0xf, 1, 3, 0, 0);
                 }
                 var13->unknown_4_ = &var2;
                 var13->unknown_12_ = 1;
@@ -376,7 +376,7 @@ extern "C" ARM void func_ov003_021539a0(struct Struct_ov003_021539a0* arg0) {
                 var35[7] = CAP999(GetSkillMaxHPBonus_020862a8(var42) + var45->unknown_8_[2].unknown_1_2_ + var60[2].unknown_1_2_);
                 var35[8] = CAP999(GetSkillMaxMPBonus_02086314(var42) + var45->unknown_8_[2].unknown_2_4_ + var60[2].unknown_2_4_);
                 for (unsigned char var61 = 0; data_ov003_0217f288[var61] >= 0; var61++) {
-                    func_ov023_021e24b0(var44, data_ov003_0217f288[var61], var35[var61], 8, 0xf, 1, 3, 0, 0);
+                    SetLayoutGroupNumber_ov023_021e24b0(var44, data_ov003_0217f288[var61], var35[var61], 8, 0xf, 1, 3, 0, 0);
                 }
                 var44->unknown_4_ = &var31;
                 var44->unknown_12_ = 1;

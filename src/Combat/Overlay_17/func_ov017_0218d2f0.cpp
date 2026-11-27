@@ -6,7 +6,7 @@ struct Struct_ov000_02175808_4 { char unknown_0_[0xf78]; signed char unknown_f78
 struct Struct_ov017_021d82e0 { int unknown_0_; void* unknown_4_; };
 extern Struct_ov017_021d82e0 data_ov017_021d82e0;
 extern "C" void func_02039830(void*);
-extern "C" unsigned char func_02039820(void*);
+extern "C" unsigned char IsControllable_02039820(void*);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" void ClearStatusFlags_02048418(unsigned char*, unsigned short);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
@@ -24,7 +24,7 @@ extern "C" ARM void func_ov017_0218d2f0(unsigned char arg0, unsigned char arg1, 
     GameObject* var4 = var0->GetUnknownGameObject();
     if (var4) {
         func_02039830(var4);
-        var2 = func_02039820(var4) != 0;
+        var2 = IsControllable_02039820(var4) != 0;
     }
     for (unsigned char var5 = 0; var5 < var3; ++var5) {
         short var6 = var1->unknown_f78_[var5];

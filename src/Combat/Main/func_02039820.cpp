@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_02039820
-extern "C" ARM unsigned char func_02039820(void* arg0) {
+// USA: IsControllable_02039820
+extern "C" ARM unsigned char IsControllable_02039820(void* object) {
 #if defined(jpn)
-    return *((unsigned char*)arg0 + 0x246);
+    return *((unsigned char*)object + 0x246);
 #else
-    return *((unsigned char*)arg0 + 0x252);
+    return *((unsigned char*)object + 0x252);
 #endif
 }

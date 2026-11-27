@@ -37,7 +37,7 @@ extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void**);
 extern "C" void func_ov031_022376fc(void);
 extern "C" void func_ov031_022379f0(void);
 extern "C" int func_ov031_022375cc(void);
-extern "C" void func_020c99c8(void*);
+extern "C" void GetUserSettings_020c99c8(void*);
 extern "C" void VectorizedInvertedMemcpy(const void*, void*, unsigned int);
 unsigned long long GetCurrentTimestamp(void);
 extern "C" int StartWirelessDriver_020d4f7c(int, int, int);
@@ -60,7 +60,7 @@ extern "C" ARM int func_ov031_02237448(int arg0) {
         var2->unknown1_1374_ = data_ov031_02249294;
         var2->unknown_1374_.unknown_0_ = var2->unknown_f00_;
         data_ov031_02290d0c->unknown_1374_.unknown_8_ = func_020d4be8();
-        func_020c99c8(&var0);
+        GetUserSettings_020c99c8(&var0);
         VectorizedInvertedMemcpy(data_ov031_02249288, data_ov031_02290d0c->unknown_1374_.unknown_14_, 8);
         data_ov031_02290d0c->unknown_1374_.unknown_1d_ = 1;
         VectorizedInvertedMemcpy(var0.unknown_4_, data_ov031_02290d0c->unknown_1374_.unknown_20_, var0.unknown_1a_ << 1);

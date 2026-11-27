@@ -12,7 +12,7 @@ extern "C" int *func_0202ae18();
 extern "C" int IsInParty_02086ef0(Party_02048150 *party, int objectIndex);
 extern "C" int func_ov002_02154b94(void *arg0, int arg1);
 extern "C" int func_ov002_02154a34(void *arg0, int arg1);
-extern "C" void *func_02079ee0(void *arg0, int arg1);
+extern "C" void *FindActionDamageData_02079ee0(void *actionTables, int damageId);
 extern "C" int IsLocalWirelessOn_0202b7d8(int *wireless);
 extern "C" void func_ov002_02153e90(char *arg0);
 extern "C" int func_ov002_02154a6c(char *arg0, int arg1, int arg2);
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov002_021544f4(char *arg0, char *arg1, char *arg2, int a
         if (*(short *) arg1 == 411) {
             var8 = 999;
         } else {
-            void *var9 = func_02079ee0(*(void **) arg0, (*(unsigned int *) (arg2 + 8) << 10) >> 24);
+            void *var9 = FindActionDamageData_02079ee0(*(void **) arg0, (*(unsigned int *) (arg2 + 8) << 10) >> 24);
             if (var9 == 0) continue;
             var8 = func_ov002_021538e4(arg0, arg2, var9, *(signed char *) (arg1 + 2));
         }

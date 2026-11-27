@@ -43,7 +43,7 @@ extern "C" int func_ov005_02157190(void* arg0);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
 extern "C" int func_ov005_02158560(Struct_ov005_02153954* arg0, unsigned char arg1, int arg2);
-extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
+extern "C" void FillEquipMenuItemGrid_ov005_021555c0(Struct_ov005_02153954* equipMenuUI);
 
 // USA: func_ov005_0215742c
 extern "C" ARM void func_ov005_0215742c(Struct_ov005_02153954* arg0) {
@@ -61,5 +61,5 @@ extern "C" ARM void func_ov005_0215742c(Struct_ov005_02153954* arg0) {
         return;
     arg0->unknown_3dcc_ |= 0x100;
     func_ov005_021579ec(arg0, arg0->unknown_3db8_, arg0->unknown_3dbc_);
-    func_ov005_021555c0(arg0);
+    FillEquipMenuItemGrid_ov005_021555c0(arg0);
 }

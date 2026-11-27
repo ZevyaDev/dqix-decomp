@@ -14,7 +14,7 @@ enum { Enum_ov017_021960b8_2456 = 0x998, Enum_ov017_021960b8_6603 = 0x19cb, Enum
 #include "Input/Input.h"
 
 struct QueueNode_02015438;
-struct Struct_020444e0;
+struct MessageWindow_020444e0;
 
 struct Struct_020707c8 {
     unsigned char unknown_0_;
@@ -46,11 +46,11 @@ extern "C" void SetOrthographicProjection_020c5770(int, int, int, int, int, int,
 extern "C" void func_ov017_021a3b30(int);
 extern "C" void func_020707c8(Struct_020707c8*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
-extern "C" void func_020444e0(Struct_020444e0*);
+extern "C" void DrawMessageWindow_020444e0(MessageWindow_020444e0*);
 extern "C" void func_ov017_0219ad84(Struct_ov017_021960b8*);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState*, int);
 extern "C" void func_0205337c(GameObject*);
-extern "C" unsigned char func_02039820(void*);
+extern "C" unsigned char IsControllable_02039820(void*);
 extern "C" int IsOnLadder_02039d7c(char*);
 extern "C" void func_02096824(unsigned char*);
 extern "C" int* GetNoticeQueue_020936f8();
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
         GetQueueHeadType_02046b24(arg0->unknown_36fc_) != 10) {
         if ((var1->unknown_998_ != 0 || var1->unknown_19cb_ != 0) &&
             TestFlags04((GameResources*)(arg0->unknown_0_), 0x8000) == 0) {
-            func_020444e0((Struct_020444e0*)var1);
+            DrawMessageWindow_020444e0((MessageWindow_020444e0*)var1);
         }
         func_ov017_0219ad84(arg0);
         if (TestFlags04((GameResources*)(arg0->unknown_0_), 4) == 0) {
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
     }
 
     if (TestFlags04((GameResources*)(arg0->unknown_0_), 0x80) == 0 && arg0->unknown_3658_ == 0 && var3 != NULL &&
-        (func_02039820(var3) != 0 || IsOnLadder_02039d7c((char*)var3) != 0)) {
+        (IsControllable_02039820(var3) != 0 || IsOnLadder_02039d7c((char*)var3) != 0)) {
         if (g_touchInput.isRepeatValid_ != 0 && g_touchInput.currentReading_.isHeld != 0) {
             if (data_ov017_021d8340 == 0) {
                 data_ov017_021d8340 = 1;

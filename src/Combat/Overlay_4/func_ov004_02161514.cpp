@@ -9,8 +9,8 @@ extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 struct GameState;
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void ClearSpellTable_0209a804(int* table);
-struct Struct_0201099c_18 { void* unknown_0_; };
-extern "C" void func_0209a810(Struct_0201099c_18* arg0, void* arg1);
+struct SpellTable_0201099c_18 { void* unknown_0_; };
+extern "C" void LoadSpellTable_0209a810(SpellTable_0201099c_18* table, void* block);
 extern "C" void func_ov004_0215e49c(void*, int, int);
 extern "C" int func_ov004_0215e460(void);
 extern "C" void func_ov004_0215e574(void* arg0, int arg1, int arg2, int arg3, int arg4);
@@ -90,7 +90,7 @@ extern unsigned char data_ov004_02170820[];
 // JPN: func_ov004_02161514 (02161ea4)
 // USA: func_ov004_02161514
 extern "C" ARM int func_ov004_02161514(void* arg0) {
-    Struct_0201099c_18 var0;
+    SpellTable_0201099c_18 var0;
     Struct_ov004_02161514_2 var1;
     void* var2;
     int var3;
@@ -131,7 +131,7 @@ extern "C" ARM int func_ov004_02161514(void* arg0) {
         if (!var6) return 0;
         var7 = *(unsigned short*)(var6 + data_ov004_02170854[data_ov004_021707e8.unknown_8_] * 2 + 0x16c);
         ClearSpellTable_0209a804((int*)&var0);
-        func_0209a810(&var0, &var1);
+        LoadSpellTable_0209a810(&var0, &var1);
         var8 = var1.unknown_51c_[data_ov004_02170854[data_ov004_021707e8.unknown_8_]];
         var9 = var1.unknown_10c_[data_ov004_02170854[data_ov004_021707e8.unknown_8_]];
         var10 = 0;

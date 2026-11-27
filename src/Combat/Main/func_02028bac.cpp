@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_02028bac {
+struct ActiveZone_02028bac {
 #if defined(jpn)
     unsigned char unknown1_0_[0x314];
 #else
@@ -8,10 +8,10 @@ struct Struct_02028bac {
 #endif
 };
 
-// USA: func_02028bac
-extern "C" ARM struct Struct_02028bac* func_02028bac(struct Struct_02028bac* arg0, int arg1) {
-    if (arg1 < 0 || arg1 >= 4) {
+// USA: GetActiveZoneByIndex_02028bac
+extern "C" ARM struct ActiveZone_02028bac* GetActiveZoneByIndex_02028bac(struct ActiveZone_02028bac* zones, int index) {
+    if (index < 0 || index >= 4) {
         return NULL;
     }
-    return &arg0[arg1];
+    return &zones[index];
 }

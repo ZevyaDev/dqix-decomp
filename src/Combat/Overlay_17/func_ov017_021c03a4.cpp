@@ -9,7 +9,7 @@ struct VRAMBankSwitch_020979c0;
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_020979c0(VRAMBankSwitch_020979c0* arg0, unsigned char arg1);
+extern "C" void InitVRAMBankSwitch_020979c0(VRAMBankSwitch_020979c0* bankSwitch, unsigned char layoutId);
 extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 extern "C" void PopSubOverlay_020a1f4c(int isPreviousReloaded);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021c03a4(Struct_ov017_021c03a4* arg0) {
             arg0->unknown_1_ = 1;
             return;
         }
-        func_020979c0((VRAMBankSwitch_020979c0*)arg0->unknown_1c_, 1);
+        InitVRAMBankSwitch_020979c0((VRAMBankSwitch_020979c0*)arg0->unknown_1c_, 1);
         LoadOverlay_020a1940(OVERLAY_ID(14));
         PushSubOverlay_020a1ef0(1);
         func_ov014_02186a70(arg0->unknown_20_);

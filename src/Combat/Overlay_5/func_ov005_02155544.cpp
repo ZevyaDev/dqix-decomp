@@ -26,7 +26,7 @@ struct Struct_ov005_02153ba4_2 {
 };
 
 struct Struct_ov005_02153ba4 {
-    short unknown_0_;
+    short itemId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
     void* unknown_4_;
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov005_02155544(Struct_ov005_02153954* arg0) {
     short* var3 = GetEquippedItems_02052e14((PartyMember_02052e14*)var2);
     for (int var4 = 0; var4 < 8; var4++) {
         Struct_ov005_02153ba4* var5 = &arg0->unknown_2d90_[var4];
-        var5->unknown_0_ = var3[data_ov005_0215cbd4[var4]];
+        var5->itemId_0_ = var3[data_ov005_0215cbd4[var4]];
         var5->unknown_2_ = 1;
     }
 }

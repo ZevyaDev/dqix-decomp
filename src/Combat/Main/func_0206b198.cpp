@@ -24,7 +24,7 @@ extern "C" ARM void func_0206cb14(void* arg0, int arg1, unsigned short arg2) {
 struct Struct_0204166c;
 extern "C" void func_020416c0(struct Struct_0204166c* arg0);
 
-extern "C" ARM bool IsControlCode_02044494(void* arg0, void* arg1);
+extern "C" ARM bool IsControlCode_02044494(void* window, void* text);
 
 struct Struct_0206b198 {
     char unknown_0_[8];

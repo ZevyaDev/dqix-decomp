@@ -55,10 +55,10 @@ extern "C" int GetTitleState_0201201c(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" int func_020321e0(const Vector3fix*, Struct_02000c9c_56*, int, const Vector3fix*, int);
 extern "C" void* func_ov017_0219c6f4(void*);
-extern "C" unsigned char func_02039820(void*);
+extern "C" unsigned char IsControllable_02039820(void*);
 extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char*);
 extern "C" short func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
-extern "C" void func_ov017_0219b33c(GameResources*, Struct_ov017_0219ca88_3*);
+extern "C" void SubmitInteractionPrompt_ov017_0219b33c(GameResources*, Struct_ov017_0219ca88_3*);
 extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char*, int);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2*, QueueNode_0201bdac*);
 extern "C" int RunTrigger_020649b0(void*, int, void*);
@@ -104,13 +104,13 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
                 }
                 if (var5 && var10->unknown_0_ == 1) {
                     var5 = 0;
-                    if (!func_02039820(var1)) continue;
+                    if (!IsControllable_02039820(var1)) continue;
                     Struct_ov017_0219ca88_3 var11;
                     ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var11);
                     var11.unknown_0_ = 8;
                     var11.unknown_8_ = var10;
                     var11.unknown_10_ = func_ov017_021a4754(var4, (short)var1->obj3D_.rotation_.y, &var10->unknown_58_);
-                    func_ov017_0219b33c(arg0, &var11);
+                    SubmitInteractionPrompt_ov017_0219b33c(arg0, &var11);
                 }
                 if (var5) {
                     if (!static_cast<unsigned char*>(arg0->unknown_ptr_array_36fc[5])[3]) break;

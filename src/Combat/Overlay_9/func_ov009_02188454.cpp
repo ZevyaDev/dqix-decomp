@@ -44,7 +44,7 @@ struct Struct_ov009_021842a0_2 {
     unsigned char unknown_da4_[2];
 };
 
-extern "C" void func_ov023_021e60e0(void*, unsigned int);
+extern "C" void SetCharacterModelFacing_ov023_021e60e0(void*, unsigned int);
 extern "C" Vector3i func_ov023_021e613c(Struct_ov009_021863d0* arg0);
 struct Struct_ov009_02188454;
 extern "C" void func_ov023_021e6088(void*, Struct_ov009_02188454*);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov009_02188454(Struct_ov009_021842a0_2* arg0) {
             return;
 
         if (arg0->unknown_d9c_ & 0x40000) {
-            func_ov023_021e60e0(arg0->unknown_7f8_, 0x1eb);
+            SetCharacterModelFacing_ov023_021e60e0(arg0->unknown_7f8_, 0x1eb);
             arg0->unknown_d9c_ &= ~0x40000;
         }
         const Vector3i& var1 = func_ov023_021e613c(arg0->unknown_7f8_);

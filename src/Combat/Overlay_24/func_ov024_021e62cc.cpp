@@ -45,7 +45,7 @@ extern "C" int func_02085400(unsigned char* arg0);
 extern "C" int HasEnemyTrait_ov000_02156068(void* battle, int combatantIndex, int kind, int traitType);
 extern "C" short ApplyDamage_ov000_0215a004(void* battle, int attackerIndex, int targetIndex, int damage, unsigned long long* resultFlags, struct Struct_ov024_021e62cc_5* action, int isCriticalHit, int defeatFlags);
 extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
-extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
+extern "C" int IsActionResultFlagSet_ov000_02159f18(void* battle, unsigned long long flags, int flagIndex);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResult_ov000_0215ccbc(int battle, struct ActionResult_ov000_021584e8* result, GameObject* combatant,
@@ -137,7 +137,7 @@ extern "C" ARM void func_ov024_021e62cc(struct Struct_ov024_021e62cc_6* arg0, in
         SetActionResult_ov000_0215ccbc((int)arg0->unknown_10_, var25, var1, var22, var24, inline_ov024_021e57e0(var1->currentStats_), var23, 0);
         AppendActorResult_ov000_0215fe84(arg0->unknown_8_, var25, 4);
         ((unsigned char*)arg0->unknown_10_)[0x8e02]++;
-        if (func_ov000_02159f18(arg0->unknown_10_, var23, 2)) {
+        if (IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var23, 2)) {
             var25 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
             if (!var25) return;
             AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var25, SelectPartyOrEnemyMessage_ov024_021da644(arg1, 0x1b3, 0x22a));
@@ -145,6 +145,6 @@ extern "C" ARM void func_ov024_021e62cc(struct Struct_ov024_021e62cc_6* arg0, in
             AppendActorResult_ov000_0215fe84(arg0->unknown_8_, var25, 4);
             ((unsigned char*)arg0->unknown_10_)[0x8e02]++;
         }
-        if (func_ov000_02159f18(arg0->unknown_10_, var23, 2)) return;
+        if (IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var23, 2)) return;
     }
 }

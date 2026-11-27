@@ -20,9 +20,9 @@
 extern "C" int GetMessageWindow_020421a0(void);
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
-struct Struct_0209a9dc_2;
-struct Struct_0209a9dc_3 { unsigned short unknown_0_; unsigned short unknown_2_; };
-extern "C" struct Struct_0209a9dc_3* func_0209a9dc(struct Struct_0209a9dc_2* arg0, int arg1);
+struct SpellTable_0209a9dc_2;
+struct SpellEntry_0209a9dc_3 { unsigned short spellId_0_; unsigned short unknown_2_; };
+extern "C" struct SpellEntry_0209a9dc_3* FindSpellEntry_0209a9dc(struct SpellTable_0209a9dc_2* table, int spellId);
 extern "C" void* FindActionData_02079e2c(char* actionTables, int actionId);
 struct StringList_02072a68_2;
 extern "C" void* FindStringInList_02072a68(struct StringList_02072a68_2* stringList, int stringId);
@@ -80,7 +80,7 @@ extern "C" ARM int func_ov023_021f2368(unsigned char* arg0) {
     int var5 = IsInParty_02086ef0((struct Party_02048150*)GetParty_02010828(var0), var4);
 
     if (var1->unknown_0_ == 0) {
-        struct Struct_0209a9dc_3* var6 = func_0209a9dc((struct Struct_0209a9dc_2*)((char*)var1 + 0xf0),
+        struct SpellEntry_0209a9dc_3* var6 = FindSpellEntry_0209a9dc((struct SpellTable_0209a9dc_2*)((char*)var1 + 0xf0),
             var1->unknown_1c_[var4].unknown_0_[var1->unknown_70_]);
         if (var6 != NULL) {
             short var7 = *(short*)((char*)var6 + 2);

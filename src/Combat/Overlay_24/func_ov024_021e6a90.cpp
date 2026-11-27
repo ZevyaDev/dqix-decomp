@@ -148,8 +148,8 @@ struct Struct_02088788;
 extern "C" int func_02088788(Struct_02088788*);
 struct Struct_020887d0;
 extern "C" int func_020887d0(Struct_020887d0*);
-struct Struct_02088660;
-extern "C" int func_02088660(Struct_02088660*);
+struct ModifiableCombatStats_02088660;
+extern "C" int HasFource_02088660(ModifiableCombatStats_02088660*);
 extern "C" float func_02085968(char*);
 extern "C" float func_02085818(unsigned char* arg0);
 extern "C" float func_02085a10(char*);
@@ -338,7 +338,7 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
             var21 = 1.1f * var4;
             var21 = var21 * (var2->unknown_138_->unknown_44_ / 100.0f);
         }
-        if (func_02088660((Struct_02088660*)var1->unknown_138_)) {
+        if (HasFource_02088660((ModifiableCombatStats_02088660*)var1->unknown_138_)) {
             var19 = 1;
         }
     }

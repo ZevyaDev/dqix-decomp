@@ -12,7 +12,7 @@
 #define func_020100bc func_0200ff18
 #endif
 
-extern "C" void func_020a20d8(void* arg0);
+extern "C" void UpdateFollowCamera_020a20d8(void* camera);
 
 struct Struct_ov015_02190d7c;
 extern "C" void func_ov015_021931b4(struct Struct_ov015_02190d7c* arg0, int arg1);
@@ -47,7 +47,7 @@ extern "C" ARM void func_ov015_02190d7c(struct Struct_ov015_02190d7c_4* arg0) {
     }
     void* var1 = func_020100bc(var0);
     if (var1 != 0) {
-        func_020a20d8(var1);
+        UpdateFollowCamera_020a20d8(var1);
     }
 
     struct Struct_ov015_02190d7c_3* var2 = arg0->unknown_2c_;

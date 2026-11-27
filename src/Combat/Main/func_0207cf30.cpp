@@ -15,7 +15,7 @@
 struct ItemTable_0201099c_10;
 struct ItemData_0201099c_9;
 struct ItemBag_0207cf30_3;
-struct Struct_0207cf30_4;
+struct ItemBag_0207cf30_4;
 struct PartyMember_0205faf4_11;
 struct PartyMemberData_0207cf30;
 
@@ -23,7 +23,7 @@ extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_02
 extern "C" void* func_0207d6dc(SafeAllocator* arg0, int arg1, int arg2);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3* bag, int itemId);
-extern "C" int func_020a095c(struct Struct_0207cf30_4* arg0, int arg1, int arg2);
+extern "C" int AddItemToBag_020a095c(struct ItemBag_0207cf30_4* bag, int itemId, int count);
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
 extern "C" struct PartyMemberData_0207cf30* func_02053c6c(unsigned char* gameObject);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
@@ -46,65 +46,65 @@ struct ItemContext_0207cf30_2 {
     void* unknown_34_;
 };
 
-// USA: func_0207cf30
-extern "C" ARM int func_0207cf30(struct ItemContext_0207cf30_2* arg0, short arg1, int arg2, int arg3) {
-    int var0 = 0;
-    if (arg0->pItemTable_2c_ == NULL) {
-        func_0207d6dc((SafeAllocator*)arg0, (int)&arg1, 1);
-        var0 = 1;
+// USA: AddItemToBagThenHeldItems_0207cf30
+extern "C" ARM int AddItemToBagThenHeldItems_0207cf30(struct ItemContext_0207cf30_2* itemContext, short itemId, int count, int isOverflowToHeldItems) {
+    int hasLoadedItemTable = 0;
+    if (itemContext->pItemTable_2c_ == NULL) {
+        func_0207d6dc((SafeAllocator*)itemContext, (int)&itemId, 1);
+        hasLoadedItemTable = 1;
     }
-    int var1 = 0;
-    struct ItemData_0201099c_9* var2 = FindItemData_020dedd0(arg0->pItemTable_2c_, arg1);
-    if (var2 != NULL) {
-        GameState* var3 = GameState::GetInstance();
-        char* var4 = (char*)GetParty_02010828(var3);
-        int var5 = arg2;
-        short var6 = 0;
-        if (arg3) {
-            int var7 = GetBagItemCount_020a0b3c((struct ItemBag_0207cf30_3*)GetParty_02010828(var3), arg1);
+    int result = 0;
+    struct ItemData_0201099c_9* item = FindItemData_020dedd0(itemContext->pItemTable_2c_, itemId);
+    if (item != NULL) {
+        GameState* gameState = GameState::GetInstance();
+        char* bag = (char*)GetParty_02010828(gameState);
+        int countToBag = count;
+        short placedCount = 0;
+        if (isOverflowToHeldItems) {
+            int var7 = GetBagItemCount_020a0b3c((struct ItemBag_0207cf30_3*)GetParty_02010828(gameState), itemId);
             var7 = 99 - var7;
-            if (var7 > arg2)
-                var7 = arg2;
-            var5 = (short)var7;
+            if (var7 > count)
+                var7 = count;
+            countToBag = (short)var7;
         }
-        var1 = func_020a095c((struct Struct_0207cf30_4*)var4, arg1, (signed char)var5);
-        var6 += var5;
-        if (var1) {
-            func_0207cc18(arg0, var2);
-            arg0->unknown_30_ = *(void**)((char*)var2 + 4);
-            arg0->unknown_34_ = var3->GetProtagonist()->baseStats_;
+        result = AddItemToBag_020a095c((struct ItemBag_0207cf30_4*)bag, itemId, (signed char)countToBag);
+        placedCount += countToBag;
+        if (result) {
+            func_0207cc18(itemContext, item);
+            itemContext->unknown_30_ = *(void**)((char*)item + 4);
+            itemContext->unknown_34_ = gameState->GetProtagonist()->baseStats_;
         }
-        if (var6 < arg2 && arg3) {
-            char* var8 = (char*)GetParty_02010828(var3);
-            for (int var9 = 0; var9 < *(unsigned char*)(var8 + 0xf7c); var9++) {
-                GameObject* var10 = GetPartyMemberBaseByIndex_0200ff1c(var3, *(unsigned char*)(var8 + var9 + 0xf78));
-                if (var10 == NULL)
+        if (placedCount < count && isOverflowToHeldItems) {
+            char* party = (char*)GetParty_02010828(gameState);
+            for (int i = 0; i < *(unsigned char*)(party + 0xf7c); i++) {
+                GameObject* partyMemberBase = GetPartyMemberBaseByIndex_0200ff1c(gameState, *(unsigned char*)(party + i + 0xf78));
+                if (partyMemberBase == NULL)
                     continue;
-                if (IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)var10) != 0)
+                if (IsNPCCompanion_02061bd8((struct PartyMember_0205faf4_11*)partyMemberBase) != 0)
                     continue;
-                struct PartyMemberData_0207cf30* var11 = func_02053c6c((unsigned char*)var10);
-                if (var11 == NULL)
+                struct PartyMemberData_0207cf30* memberData = func_02053c6c((unsigned char*)partyMemberBase);
+                if (memberData == NULL)
                     continue;
-                for (int var12 = 0; var12 < 8; var12++) {
-                    if (var11->heldItems_454_[var12] > 0)
+                for (int j = 0; j < 8; j++) {
+                    if (memberData->heldItems_454_[j] > 0)
                         continue;
-                    var11->heldItems_454_[var12] = arg1;
-                    func_0207cc18(arg0, var2);
-                    var6++;
-                    if (var6 == arg2)
+                    memberData->heldItems_454_[j] = itemId;
+                    func_0207cc18(itemContext, item);
+                    placedCount++;
+                    if (placedCount == count)
                         break;
                 }
-                if (var6 == arg2)
+                if (placedCount == count)
                     break;
             }
         }
     }
-    if (var0) {
-        SafeAllocator* var13 = (SafeAllocator*)arg0;
-        SignedAllocatorHeader* var14 = var13->GetSignedAllocator();
-        var13->Destroy();
-        func_02012da4(&gMainHeap_02114e20, var14);
-        arg0->pItemTable_2c_ = NULL;
+    if (hasLoadedItemTable) {
+        SafeAllocator* allocator = (SafeAllocator*)itemContext;
+        SignedAllocatorHeader* block = allocator->GetSignedAllocator();
+        allocator->Destroy();
+        func_02012da4(&gMainHeap_02114e20, block);
+        itemContext->pItemTable_2c_ = NULL;
     }
-    return var1;
+    return result;
 }

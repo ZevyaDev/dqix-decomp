@@ -15,7 +15,7 @@
 #endif
 
 extern "C" int func_ov017_0218d75c(void* arg0);
-extern "C" int func_02039820(void* arg0);
+extern "C" int IsControllable_02039820(void* object);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" int GetFollowCamera_020100f8(char* gameState);
 extern "C" void EnableCameraTurning_020a27ac(void* camera);
@@ -52,7 +52,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
             return 4;
         }
         GameObject* var4 = var0->GetUnknownGameObject();
-        if (var4 != NULL && func_02039820(var4) == 0) {
+        if (var4 != NULL && IsControllable_02039820(var4) == 0) {
             EnablePlayerControl_020397c0(var4);
         }
         int var5 = GetFollowCamera_020100f8((char*)var0);
@@ -106,7 +106,7 @@ extern "C" ARM int func_ov017_021bfc40(struct Struct_ov017_021bfc40* arg0) {
 
     if (arg0->unknown_8_ == 0) {
         GameObject* var16 = var0->GetUnknownGameObject();
-        if (var16 != NULL && func_02039820(var16) == 0) {
+        if (var16 != NULL && IsControllable_02039820(var16) == 0) {
             EnablePlayerControl_020397c0(var16);
         }
         int var17 = GetFollowCamera_020100f8((char*)var0);

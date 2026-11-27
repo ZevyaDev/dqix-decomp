@@ -82,7 +82,7 @@ extern "C" int func_020dd768(Struct_020dd768* arg0);
 extern "C" void func_ov005_02157b74(void* arg0, int arg1, int arg2);
 struct EquipmentBag_0207c484;
 extern "C" void RemoveEquipmentFromBag_0207c484(EquipmentBag_0207c484*, int, int, int);
-extern "C" void func_ov005_021555c0(void* arg0);
+extern "C" void FillEquipMenuItemGrid_ov005_021555c0(void* equipMenuUI);
 
 // USA: func_ov005_02159274
 extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
@@ -144,7 +144,7 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
                     var0 = *(short*)((char*)var1 + 0x18);
                     RemoveEquipmentFromBag_0207c484((EquipmentBag_0207c484*)(var4 + 0x1d4), var0, 1, var5);
                     var2 = 1;
-                    func_ov005_021555c0(arg0);
+                    FillEquipMenuItemGrid_ov005_021555c0(arg0);
                     for (int var6 = 8; var6 < 0x18; var6++) {
                         if (arg0->unknown_2d90_[var6].unknown_0_ == var0) {
                             var2 = 0;
@@ -243,7 +243,7 @@ extern "C" ARM void func_ov005_02159274(Struct_ov005_02159274_3* arg0) {
                 var0 = *(short*)((char*)var7 + 0x18);
                 RemoveEquipmentFromBag_0207c484((EquipmentBag_0207c484*)(var9 + 0x1d4), var0, 1, ((Struct_ov005_02159274*)((char*)var7 + 8))->unknown_0_0_);
                 var8 = 1;
-                func_ov005_021555c0(arg0);
+                FillEquipMenuItemGrid_ov005_021555c0(arg0);
                 for (int var10 = 8; var10 < 0x18; var10++) {
                     if (arg0->unknown_2d90_[var10].unknown_0_ == var0) {
                         var8 = 0;

@@ -21,7 +21,7 @@ struct Struct_ov005_02153ba4_2 {
 };
 
 struct Struct_ov005_02153ba4 {
-    short unknown_0_;
+    short itemId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
     void* unknown_4_;
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov005_021567ac(Struct_ov005_02153954* arg0, int arg1, i
         return;
     arg0->unknown_3d78_ = func_ov005_02155670(arg0, arg1, arg2);
     if (arg0->unknown_3d78_ >= 8 && arg0->unknown_3d78_ < 24) {
-        if (arg0->unknown_2d90_[arg0->unknown_3d78_].unknown_0_ == -1) {
+        if (arg0->unknown_2d90_[arg0->unknown_3d78_].itemId_0_ == -1) {
             arg0->unknown_3d78_ = -1;
             arg0->unknown_3dc0_ = -1;
             return;

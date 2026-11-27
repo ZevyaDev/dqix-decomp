@@ -22,7 +22,7 @@ extern "C" int func_020d1ee4(int arg0, int arg1, int arg2, int arg3);
 extern "C" void WriteBrightnessRegister_020c39a0(short* reg, int brightness);
 extern "C" void ClearSoundHandle_020bc078(int* handle);
 extern "C" void func_0203aa44(void* arg0);
-extern "C" void func_0203aaf8(void* arg0, int arg1, int arg2);
+extern "C" void LoadSequence_0203aaf8(void* manager, int sequenceIndex, int heapState);
 extern "C" void SetVBlankInterruptEnabled_020c3864(int isEnabled);
 extern "C" void MapVRAMBanksToLCDC(int banks);
 extern "C" void func_020ca458(int arg0, void* arg1, unsigned int arg2);
@@ -66,7 +66,7 @@ extern "C" void PlayStream_0203ad14(void*, int, void*, int);
 extern "C" void PlaySequence_0203aba8(void* manager, int sequenceIndex, void* handle);
 extern "C" void func_0203ae4c(void* arg0, int arg1, void* arg2);
 extern "C" void StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
-extern "C" void func_0203ac10(void* arg0, void* arg1, int arg2);
+extern "C" void StopSequence_0203ac10(void* manager, void* handle, int fadeDuration);
 
 struct Struct_020e58dc_2 { int unknown_0_; int unknown_4_; int unknown_8_; int unknown_c_; int unknown_10_; };
 struct Struct_020e58dc { Struct_020e58dc_2* unknown_0_; int unknown_4_; int unknown_8_; };
@@ -277,7 +277,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 	ClearSoundHandle_020bc078(&data_ov016_0219d14c);
 	if (data_ov016_0219d154->unknown_10_ == 0) {
 		func_0203aa44(&gMusicManager_02109bf4);
-		func_0203aaf8(&gMusicManager_02109bf4, data_ov016_0219d154->unknown_12_, 0);
+		LoadSequence_0203aaf8(&gMusicManager_02109bf4, data_ov016_0219d154->unknown_12_, 0);
 	}
 #endif
 
@@ -573,7 +573,7 @@ extern "C" ARM void func_ov016_0218d2f4(const char* arg0, const char* arg1, Safe
 			if (data_ov016_0219d154->unknown_10_ != 0) {
 				StopStream_0203ad88(&gMusicManager_02109bf4, 0, 0);
 			} else {
-				func_0203ac10(&gMusicManager_02109bf4, &data_ov016_0219d14c, 0);
+				StopSequence_0203ac10(&gMusicManager_02109bf4, &data_ov016_0219d14c, 0);
 			}
 			UpdateSound_020bbd9c();
 		}

@@ -4,7 +4,7 @@ struct Struct_0201a300_5;
 struct Struct_020287b4_2;
 struct Struct_020287b4_4;
 
-extern "C" ARM void func_020280b0(struct Struct_0201a300_5* arg0);
+extern "C" ARM void ResetNodeGraph_020280b0(struct Struct_0201a300_5* graph);
 extern "C" ARM void func_0209bffc(void* arg0);
 extern "C" ARM void func_0209bc84(void* arg0);
 extern "C" ARM void func_0209af34(struct Struct_020287b4_2* arg0);
@@ -65,7 +65,7 @@ extern "C" ARM void func_020287b4(struct Struct_020287b4_3* arg0) {
         var1->unknown_2_.unknown_0_4_ = 0;
         var1->unknown_4_ = 0;
         var1->unknown_d_ = -1;
-        func_020280b0((struct Struct_0201a300_5*)var1->unknown_18_);
+        ResetNodeGraph_020280b0((struct Struct_0201a300_5*)var1->unknown_18_);
         func_0209bffc((void*)&var1->unknown_44_);
         func_0209bc84(var1->unknown_60_);
         func_0209af34((struct Struct_020287b4_2*)var1->unknown_124_);

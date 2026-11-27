@@ -2,7 +2,7 @@
 
 extern "C" void LoadFileToVRAM_ov031_022234d8(void* path, void* loadToVRAM);
 extern "C" int func_ov031_02223478(void* arg0);
-extern "C" int func_ov031_0223b61c(int arg0, int arg1, int arg2);
+extern "C" int LoadFile_ov031_0223b61c(int path, int outLength, int alignAndDir);
 
 extern "C" void LoadToMainBG2CharacterData(int, int, unsigned int);
 extern "C" void LoadToMainBGStandardPalette(int, int, unsigned int);
@@ -27,7 +27,7 @@ extern "C" ARM void func_ov031_022280a0(void) {
 	LoadFileToVRAM_ov031_022234d8(data_ov031_0224b85c, (void*)LoadToMainBG2ScreenData);
 
 	int var1 = func_ov031_02223478(var0.unknown_0_);
-	int var2 = func_ov031_0223b61c(var1, 0, 4);
+	int var2 = LoadFile_ov031_0223b61c(var1, 0, 4);
 	*(int*)(data_ov031_02290c50 + 4) = var2;
 
 	unsigned short* var3 = (unsigned short*)0x4001008;

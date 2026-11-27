@@ -22,7 +22,7 @@ extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char* prompt);
 extern "C" void func_ov017_0218da48(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 struct Struct_ov009_0218aa28 { int unknown_0_, unknown_4_, unknown_8_; };
 extern "C" short func_ov017_021a4700(struct Struct_ov009_0218aa28* arg0, int arg1, struct Struct_ov009_0218aa28* arg2);
-extern "C" void func_ov017_0219b33c(void* arg0, void* arg1);
+extern "C" void SubmitInteractionPrompt_ov017_0219b33c(void* gameResources, void* candidate);
 
 struct Struct_ov017_021983e0_2 {
     int unknown_0_, unknown_4_, unknown_8_;
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov017_021983e0(unsigned char* arg0) {
                     var6.unknown_0_ = 7;
                     var6.unknown_8_ = var4;
                     var6.unknown_10_ = func_ov017_021a4700((struct Struct_ov009_0218aa28*)((char*)var2 + 0x44), (short)var2->obj3D_.rotation_.y, (struct Struct_ov009_0218aa28*)((char*)var4 + 8));
-                    func_ov017_0219b33c(arg0, &var6);
+                    SubmitInteractionPrompt_ov017_0219b33c(arg0, &var6);
                     return;
                 }
                 var4 = var4->unknown_70_;

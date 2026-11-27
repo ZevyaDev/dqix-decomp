@@ -27,12 +27,12 @@ extern "C" int func_ov005_02157190(void*);
 extern "C" char* GetEquipMenu_ov017_021a193c(int*);
 extern "C" void func_ov005_021551fc(char*, int, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" void func_ov005_021555c0(void*);
+extern "C" void FillEquipMenuItemGrid_ov005_021555c0(void*);
 extern "C" void SetEquipMenuMode_ov005_0215792c(void*, unsigned char);
 extern "C" unsigned char func_ov005_021586c4(void*, int, int);
 
 struct Struct_ov005_02153ba4 {
-    short unknown_0_;
+    short itemId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
     void* unknown_4_;
@@ -129,7 +129,7 @@ extern "C" ARM void func_ov005_0215b2bc(Struct_ov000_0217ab8c* arg0) {
         func_ov005_021551fc((char*)arg0, var10->unknown_4fc_, 0);
         if (var1 == 0) return;
         PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
-        func_ov005_021555c0(arg0);
+        FillEquipMenuItemGrid_ov005_021555c0(arg0);
         arg0->unknown_3dcc_ |= 0x40;
         arg0->unknown_3daa_ = 0;
         SetEquipMenuMode_ov005_0215792c(arg0, 1);
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov005_0215b2bc(Struct_ov000_0217ab8c* arg0) {
             var11 = arg0->unknown_2d90_;
             Struct_ov005_02153ba4* var13 = &var11[var12];
             if (var12 == arg0->unknown_3d78_) continue;
-            if (var13->unknown_0_ < 0) continue;
+            if (var13->itemId_0_ < 0) continue;
             Struct_ov005_02156ecc_2* var14 = (Struct_ov005_02156ecc_2*)var13->unknown_8_;
             Struct_ov005_0215b2bc var15 = *(Struct_ov005_0215b2bc*)((char*)var14 + 0x1c);
             var15.unknown_4_ = 0x17000;

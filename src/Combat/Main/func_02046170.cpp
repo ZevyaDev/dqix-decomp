@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Resource/MessageGlyphSlot.h"
 
-extern "C" bool IsControlCode_02044494(void* arg0, void* arg1);
+extern "C" bool IsControlCode_02044494(void* window, void* text);
 extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 
 extern int data_020e7a94[];

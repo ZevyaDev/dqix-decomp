@@ -13,9 +13,9 @@ struct VRAMBankSwitch_020979c0 {
     unsigned char unknown_1e_;
 };
 
-extern "C" void func_020979c0(struct VRAMBankSwitch_020979c0* arg0, unsigned char arg1);
+extern "C" void InitVRAMBankSwitch_020979c0(struct VRAMBankSwitch_020979c0* bankSwitch, unsigned char layoutId);
 
 // USA: func_020979f4
 extern "C" ARM void func_020979f4(struct VRAMBankSwitch_020979c0* arg0) {
-    func_020979c0(arg0, 0);
+    InitVRAMBankSwitch_020979c0(arg0, 0);
 }

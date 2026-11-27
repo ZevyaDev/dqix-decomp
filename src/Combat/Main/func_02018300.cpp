@@ -88,7 +88,7 @@ extern "C" ARM void OpenDoor_02018300(Zone3D* zone, Struct_020134e0::Struct_0201
         int swingAngle = (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 64) ? 0x1922 : 0x141b;
         if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 256) {
             if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 128) {
-                doorEntry->unknown_2_ |= 16;
+                doorEntry->flags_2_ |= 16;
                 if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 2) {
                     doorEntry->unknown_34_ = doorEntry->unknown_6_ - swingAngle;
                     doorEntry->unknown_38_ = doorEntry->unknown_34_;
@@ -96,9 +96,9 @@ extern "C" ARM void OpenDoor_02018300(Zone3D* zone, Struct_020134e0::Struct_0201
                     doorEntry->unknown_34_ = doorEntry->unknown_6_ + swingAngle;
                     doorEntry->unknown_38_ = doorEntry->unknown_34_;
                 }
-            } else doorEntry->unknown_2_ |= 4;
+            } else doorEntry->flags_2_ |= 4;
         } else {
-            if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 128) doorEntry->unknown_2_ |= 16;
+            if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 128) doorEntry->flags_2_ |= 16;
             if (door->unknown_2c_.unknown1_0_.unknown_2_4_ & 2) {
                 doorEntry->unknown_34_ = doorEntry->unknown_6_ - swingAngle;
             } else {
@@ -108,11 +108,11 @@ extern "C" ARM void OpenDoor_02018300(Zone3D* zone, Struct_020134e0::Struct_0201
         doorEntry->unknown_36_ = 0x199;
     }
     door->unknown_2c_.unknown1_0_.unknown_2_4_ = (unsigned short)(door->unknown_2c_.unknown1_0_.unknown_2_4_ | 1);
-    doorEntry->unknown_2_ |= 1;
+    doorEntry->flags_2_ |= 1;
     for (int i = 0; i < zone->unknown_82c_; i++) {
         BMDJEntry_02016874_2* collisionEntry = (*(BMDJEntry_02016874_2***)(zone->unk_5f0 + 0x234))[i];
         if (collisionEntry->unknown_28_ == doorEntry) {
-            collisionEntry->unknown_2_ |= 1;
+            collisionEntry->flags_2_ |= 1;
             break;
         }
     }

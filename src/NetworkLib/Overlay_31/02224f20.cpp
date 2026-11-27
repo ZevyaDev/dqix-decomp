@@ -13,7 +13,7 @@ extern const Struct_ov031_02248a0c data_ov031_02248a0c[];
 static inline const Struct_ov031_02248a0c* inline_ov031_02224f20(int arg0) {
     return &data_ov031_02248a0c[arg0];
 }
-extern "C" void func_ov031_02224ca4(int, int, int);
+extern "C" void SetKeyboardRowY_ov031_02224ca4(int, int, int);
 extern "C" void func_ov031_02224fa4(int, int);
 
 // USA: func_ov031_02224f20
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov031_02224f20(int arg0) {
     int var3 = 0;
     gKeyboard_ov031_02250bfc->unknown_11d_ = arg0;
     do {
-        func_ov031_02224ca4(arg0, var0, inline_ov031_02224f20(var3)->unknown_2_);
+        SetKeyboardRowY_ov031_02224ca4(arg0, var0, inline_ov031_02224f20(var3)->unknown_2_);
         ++var0;
         var3 += 12;
     } while (var0 < 4);

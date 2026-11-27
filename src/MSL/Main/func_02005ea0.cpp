@@ -12,7 +12,7 @@ extern const double data_020e6acc[];
 extern const double data_020e6abc[];
 extern const double data_020e6adc[];
 extern float data_020eecc8;
-extern int data_020f3390;
+extern int gErrorNumber_020f3390;
 
 static const double zero = 0.0, one = 1.0, two = 2.0, two53 = 9007199254740992.0,
                     big = 1.0e300, tiny = 1.0e-300,
@@ -128,7 +128,7 @@ extern "C" ARM double func_02005ea0(double arg0, double arg1) {
     }
 
     if ((((var20 >> 31) + 1) | var18) == 0) {
-        data_020f3390 = 33;
+        gErrorNumber_020f3390 = 33;
         return data_020eecc8;
     }
 

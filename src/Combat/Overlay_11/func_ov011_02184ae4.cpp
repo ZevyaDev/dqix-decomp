@@ -1,7 +1,6 @@
 #if defined(jpn)
 #define R(j,u) (j)
 #define func_ov024_021f6f10 func_ov024_021f5c80
-#define func_ov023_021e4e8c func_ov023_021e5080
 #define data_ov023_021ff5b4 data_ov023_021fe83c
 #define func_ov023_021fc518 func_ov023_021fb810
 #else
@@ -11,7 +10,7 @@
 
 extern "C" int GetMessageWindow_020421a0();
 extern "C" int GetMessageChoice_020457e0(char* window);
-extern "C" void* func_ov011_02184a40(void* arg0, unsigned int arg1);
+extern "C" void* StartMenuCallback_ov011_02184a40(void* menu, unsigned int callbackIndex);
 
 struct Struct_ov011_02184ae4 {
     char unknown_0_[0xc0];
@@ -40,7 +39,7 @@ extern "C" ARM void func_ov011_02184ae4(void* arg0) {
             SUB(arg0)->unknown_c6_ = 0;
         }
         if (SUB(arg0)->unknown_c0_ == 0) return;
-        func_ov011_02184a40(arg0, SUB(arg0)->unknown_c0_);
+        StartMenuCallback_ov011_02184a40(arg0, SUB(arg0)->unknown_c0_);
         SUB(arg0)->unknown_c0_ = 0;
         SUB(arg0)->unknown_c2_ = 0;
         return;
@@ -53,7 +52,7 @@ extern "C" ARM void func_ov011_02184ae4(void* arg0) {
             SUB(arg0)->unknown_c6_ = 0;
         }
         if (SUB(arg0)->unknown_c2_ == 0) return;
-        func_ov011_02184a40(arg0, SUB(arg0)->unknown_c2_);
+        StartMenuCallback_ov011_02184a40(arg0, SUB(arg0)->unknown_c2_);
         SUB(arg0)->unknown_c0_ = 0;
         SUB(arg0)->unknown_c2_ = 0;
         return;

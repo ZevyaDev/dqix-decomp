@@ -43,7 +43,7 @@ extern "C" void* GetZone3D_02012fe4(void);
 extern "C" GlobalFlags_02012de8* func_020d6c00();
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
-extern "C" int func_02039820(void* arg0);
+extern "C" int IsControllable_02039820(void* object);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" int func_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
 extern "C" int func_0203402c(Struct_0203402c* arg0);
@@ -55,7 +55,7 @@ extern "C" void func_ov017_021befe4(Struct_ov017_021befe4* arg0);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
-extern "C" void func_ov017_021a5568(void* arg0);
+extern "C" void ResetFieldMenuTask_ov017_021a5568(void* fieldMenuTask);
 extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" void ResetMenuTask_ov017_021b2174(unsigned char* node);
 extern "C" void SetMenuTaskFileName_ov017_021b2ba0(MenuTask_0206f81c_2* menuTask, char* fileName);
@@ -136,7 +136,7 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
     if (!IsQueueEmpty_02046b08((void**)arg0->unknown_36fc_)) {
         return;
     }
-    if (!func_02039820(var1)) {
+    if (!IsControllable_02039820(var1)) {
         return;
     }
     if (IsPerformingGesture_020535c8((signed char*)var1)) {
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov017_021a51a4(Struct_ov017_021a51a4_4* arg0) {
         var1->unknown_b2_ = 0;
         arg0->unknown_42e4_ = 0;
         PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
-        func_ov017_021a5568(arg0->unknown_371c_);
+        ResetFieldMenuTask_ov017_021a5568(arg0->unknown_371c_);
         Struct_ov017_021a51a4_2* var14 = arg0->unknown_371c_;
         var14->unknown_24_ = 0;
         var14->unknown_28_ = 0;

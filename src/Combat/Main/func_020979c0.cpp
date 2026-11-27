@@ -13,16 +13,16 @@ struct VRAMBankSwitch_020979c0 {
     unsigned char unknown_1e_;
 };
 
-// USA: func_020979c0
-extern "C" ARM void func_020979c0(struct VRAMBankSwitch_020979c0* arg0, unsigned char arg1) {
-    arg0->unknown_0_ = 0;
-    arg0->unknown_4_ = 0;
-    arg0->unknown_8_ = 0;
-    arg0->unknown_c_ = 0;
-    arg0->unknown_10_ = 0;
-    arg0->unknown_14_ = 0;
-    arg0->unknown_18_ = -1;
-    arg0->unknown_1c_ = 0;
-    arg0->unknown_1d_ = arg1;
-    arg0->unknown_1e_ = 0;
+// USA: InitVRAMBankSwitch_020979c0
+extern "C" ARM void InitVRAMBankSwitch_020979c0(struct VRAMBankSwitch_020979c0* bankSwitch, unsigned char layoutId) {
+    bankSwitch->unknown_0_ = 0;
+    bankSwitch->unknown_4_ = 0;
+    bankSwitch->unknown_8_ = 0;
+    bankSwitch->unknown_c_ = 0;
+    bankSwitch->unknown_10_ = 0;
+    bankSwitch->unknown_14_ = 0;
+    bankSwitch->unknown_18_ = -1;
+    bankSwitch->unknown_1c_ = 0;
+    bankSwitch->unknown_1d_ = layoutId;
+    bankSwitch->unknown_1e_ = 0;
 }

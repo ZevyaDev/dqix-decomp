@@ -89,10 +89,10 @@ extern Struct_ov008_0218b340 data_ov008_0218b340;
 extern Type_02000c9c_12 gNullMemberFunctionPointer_020e6d5c;
 
 struct Struct_ov008_02184754;
-struct Struct_0209ff6c;
+struct SelectionScript_0209ff6c;
 
 extern "C" void func_ov008_021870e4(Struct_ov008_02184754* arg0, unsigned int arg1);
-extern "C" void func_0209ff6c(Struct_0209ff6c* arg0);
+extern "C" void UpdateSelectionScript_0209ff6c(SelectionScript_0209ff6c* script);
 
 extern "C" {
 void func_ov008_02188ef0(Struct_ov008_021842a0_2* arg0);
@@ -121,7 +121,7 @@ extern "C" ARM int func_ov008_02184754(Struct_ov008_021842a0_2* arg0)
         return 0;
     (arg0->*var1.unknown_0_[arg0->unknown_b10_])(var0);
     if (arg0->unknown_b04_ != NULL)
-        func_0209ff6c((Struct_0209ff6c*)arg0->unknown_b04_);
+        UpdateSelectionScript_0209ff6c((SelectionScript_0209ff6c*)arg0->unknown_b04_);
     if (arg0->unknown_b08_ != NULL)
         UpdateAccoladeDisplay_ov023_021eb43c(arg0->unknown_b08_);
     if (arg0->unknown_b10_ == 14)

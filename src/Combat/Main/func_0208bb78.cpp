@@ -62,8 +62,8 @@ extern "C" ARM int UpdateQuestDisplay_0208bb78(QuestDisplay_0208bb78* display, i
         if (!stateHandlers.unknown_0_[display->unknown_d4_]) return 1;
         (display->*stateHandlers.unknown_0_[display->unknown_d4_])();
     }
-    GameState* var2 = GameState::GetInstance();
-    GameResources* gameResources = (GameResources*)GetResources_0200fb8c((int*)var2);
+    GameState* gameState = GameState::GetInstance();
+    GameResources* gameResources = (GameResources*)GetResources_0200fb8c((int*)gameState);
     float scale;
     unsigned char metatileIndex;
     QueueNode_02015438** queue = (QueueNode_02015438**)gameResources->unknown_ptr_array_36fc[0];
@@ -86,7 +86,7 @@ extern "C" ARM int UpdateQuestDisplay_0208bb78(QuestDisplay_0208bb78* display, i
             memcpy(&secondPlacement, &placement, sizeof(secondPlacement));
             secondPlacement.unknown_4_ += 0x38;
 #if !defined(jpn)
-            if (func_0200fb08((Struct_02000c9c_8*)var2) == 5) secondPlacement.unknown_4_ += 16;
+            if (func_0200fb08((Struct_02000c9c_8*)gameState) == 5) secondPlacement.unknown_4_ += 16;
 #endif
 #if defined(jpn)
             func_0208baec((int)&display->unknown_60_, &display->unknown_b4_[(unsigned char)(metatileIndex + 1)], &secondPlacement, 0x60, scale, shakeOffset, 1);

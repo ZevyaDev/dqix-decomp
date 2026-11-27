@@ -18,8 +18,8 @@ struct Struct_ov000_02171614;
 struct Struct_ov000_02171b3c;
 struct Struct_ov000_02171640;
 struct Struct_ov000_02171968;
-struct Struct_0209a9dc_2;
-struct Struct_020839dc;
+struct SpellTable_0209a9dc_2;
+struct PartyMemberData_020839dc;
 struct PartyMemberData_0207d300;
 struct PartyMemberData_0206f81c;
 struct Struct_ov026_021dc8fc_4;
@@ -73,7 +73,7 @@ struct Struct_ov026_021dc8fc {
 };
 struct Struct_ov017_021af66c_5 { char unknown_0_[Enum_02000c9c_F_336]; Struct_ov026_021dc8fc* unknown_150_; };
 struct Struct_ov026_021dc8fc_2 { unsigned short unknown_0_, unknown_2_; char unknown_4_[6]; unsigned short unknown_a_; };
-struct Struct_0209a9dc_3 { unsigned short unknown_0_, unknown_2_; };
+struct SpellEntry_0209a9dc_3 { unsigned short spellId_0_, unknown_2_; };
 struct Struct_0208ab34_3 { char unknown_0_[0xf78]; unsigned char unknown_f78_[4]; unsigned char unknown_f7c_; };
 struct Struct_ov026_021dc8fc_3 {
     char unknown_0_[0x22];
@@ -90,23 +90,23 @@ extern "C" ItemData_0201099c_9* FindItemData_020dedd0(ItemTable_0201099c_10*, in
 extern "C" void LearnSkillEntry_02083acc(unsigned char*, int);
 extern "C" void func_02083b28(unsigned char*, int);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char*, int);
-extern "C" int func_020839dc(Struct_020839dc*, unsigned char*, int);
-extern "C" Struct_0209a9dc_3* func_0209a9dc(Struct_0209a9dc_2*, int);
+extern "C" int CollectLearnedSpellIds_020839dc(PartyMemberData_020839dc*, unsigned char*, int);
+extern "C" SpellEntry_0209a9dc_3* FindSpellEntry_0209a9dc(SpellTable_0209a9dc_2*, int);
 extern "C" Struct_ov026_021dc8fc_5* FindActionData_02079e2c(char*, int);
 extern "C" void func_ov000_02171640(Struct_ov000_02171640*, int, int);
 extern "C" void func_ov000_02171968(Struct_ov000_02171968*, int, int);
 extern "C" int CountHeldItems_02083960(PartyMemberData_0207d300*);
 extern "C" void func_ov000_02171b3c(Struct_ov000_02171b3c*);
 extern "C" void func_ov000_02171b68(void*, int, void*);
-extern "C" ItemData_0206f81c_8* func_02083554(PartyMemberData_0206f81c*, int);
+extern "C" ItemData_0206f81c_8* FindEquippedItem_02083554(PartyMemberData_0206f81c*, int);
 extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" int func_ov026_021dce1c(Struct_ov026_021dc8fc_4*);
 extern "C" Struct_ov026_021dc8fc_2* FindSkillEntry_0209a594(void*, int);
-extern "C" int func_0209ab7c(Struct_0209a9dc_2*, GameObject*, unsigned char*);
+extern "C" int func_0209ab7c(SpellTable_0209a9dc_2*, GameObject*, unsigned char*);
 
 // USA: func_ov026_021dc8fc
 extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8ba0_4* arg3,
-                                        void* arg4, Struct_0209a9dc_2* arg5, int arg6) {
+                                        void* arg4, SpellTable_0209a9dc_2* arg5, int arg6) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg6);
     if (!var1) return;
@@ -156,10 +156,10 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
     }
     int var18;
     if (((Struct_ov017_021af66c_5*)var1)->unknown_150_->unknown_950_ == 0)
-        var18 = func_020839dc((Struct_020839dc*)var2, var5, 0x80);
+        var18 = CollectLearnedSpellIds_020839dc((PartyMemberData_020839dc*)var2, var5, 0x80);
     else var18 = func_0209ab7c(arg5, var1, var5);
     for (int var19 = 0; var19 < var18; ++var19) {
-        Struct_0209a9dc_3* var20 = func_0209a9dc(arg5, var5[var19]);
+        SpellEntry_0209a9dc_3* var20 = FindSpellEntry_0209a9dc(arg5, var5[var19]);
         if (var20 && var20->unknown_2_) var4[var8++] = var20->unknown_2_;
     }
     ActionTables_02108e10* var21 = GetActionTables_020797dc();
@@ -203,7 +203,7 @@ extern "C" ARM void func_ov026_021dc8fc(void*, void*, void*, Struct_ov026_021d8b
             }
             unsigned char var34 = var31[var32 - 8];
             if (var34 == 0xff) continue;
-            ItemData_0206f81c_8* var35 = func_02083554((PartyMemberData_0206f81c*)var2, var29[var34]);
+            ItemData_0206f81c_8* var35 = FindEquippedItem_02083554((PartyMemberData_0206f81c*)var2, var29[var34]);
             if (var35 && var35->itemId_18_ > 0) {
                 int var36 = var35->unknown_8_0_ <= 7 ? 1 : 0;
                 if (var36) {

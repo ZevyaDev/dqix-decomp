@@ -56,7 +56,7 @@ struct Struct_ov000_02176e3c {
 
 extern "C" Struct_ov000_0217964c* GetMessageWindow_020421a0();
 extern "C" void* func_02053c6c(unsigned char* gameObject);
-extern "C" Struct_ov000_02171ffc_5* func_ov000_02171b9c(void* arg0, int arg1);
+extern "C" Struct_ov000_02171ffc_5* GetPanelItem_ov000_02171b9c(void* panel, int itemIndex);
 extern "C" void func_02046608(Struct_ov000_0217964c* arg0, int arg1, char* arg2, char* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 #if defined(jpn)
@@ -86,7 +86,7 @@ extern "C" ARM void func_ov000_0217964c(Struct_ov000_02176e3c* arg0, Struct_ov00
         return;
     }
     func_02053c6c((unsigned char*)var4);
-    Struct_ov000_02171ffc_5* var5 = func_ov000_02171b9c(arg1, arg1->unknown_22_);
+    Struct_ov000_02171ffc_5* var5 = GetPanelItem_ov000_02171b9c(arg1, arg1->unknown_22_);
     if (var5 == NULL) {
         return;
     }

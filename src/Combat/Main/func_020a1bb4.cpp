@@ -3,7 +3,7 @@
 #include "Resource/ResourceMutex.h"
 #include "NitroSDK/Filesystem/OverlayFSManagement.h"
 
-extern "C" void func_020d9834(int arg0);
+extern "C" void SleepOrCycleCurrentContext_020d9834(int milliseconds);
 extern "C" void func_020cd584(OverlayMetadata* arg0);
 
 extern volatile int data_01ffd348;
@@ -42,7 +42,7 @@ extern "C" ARM int func_020a1bb4(unsigned int arg0) {
     }
 
     while (data_01ffd340) {
-        func_020d9834(0);
+        SleepOrCycleCurrentContext_020d9834(0);
     }
 
     data_01ffd340 = 1;

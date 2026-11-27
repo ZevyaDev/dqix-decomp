@@ -17,8 +17,8 @@ struct BattleRequest_ov017_021b7104 {
     unsigned short battleId_4_;
     unsigned char unknown_6_[2];
     unsigned int scriptedBattleId_8_;
-    unsigned char unknown_c_;
-    unsigned char unknown_d_;
+    unsigned char isRegularMapBoss_c_;
+    unsigned char isLegacyMapBoss_d_;
     unsigned char unknown_e_;
     unsigned char unknown_f_;
     short unknown_10_;
@@ -36,8 +36,8 @@ struct BattleManager_ov017_021b7104_2 {
     unsigned short unknown_26_;
     unsigned int scriptedBattleId_28_;
     unsigned char unknown_2c_[0x40 - 0x2c];
-    unsigned char unknown_40_;
-    unsigned char unknown_41_;
+    unsigned char isRegularMapBoss_40_;
+    unsigned char isLegacyMapBoss_41_;
     unsigned char unknown_42_;
     unsigned char unknown_43_[1];
     unsigned short unknown_44_;
@@ -65,8 +65,8 @@ extern "C" ARM void ApplyBattleRequest_ov017_021b7104(BattleManager_ov017_021b71
     }
     battleManager->unknown_46_ = (unsigned char)protagonistIndex;
     battleManager->scriptedBattleId_28_ = request->scriptedBattleId_8_;
-    battleManager->unknown_41_ = request->unknown_d_;
-    battleManager->unknown_40_ = request->unknown_c_;
+    battleManager->isLegacyMapBoss_41_ = request->isLegacyMapBoss_d_;
+    battleManager->isRegularMapBoss_40_ = request->isRegularMapBoss_c_;
     battleManager->unknown_42_ = request->unknown_e_;
     battleManager->unknown_44_ = (unsigned short)request->unknown_10_;
     battleManager->unknown_51_ = request->unknown_f_;

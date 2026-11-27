@@ -102,7 +102,7 @@ struct Struct_ov023_021f2a48_2 {
 extern "C" int IsProtagonistBattleOwner_020a36a8(BattleSetup_020a36a8*);
 extern "C" int func_ov000_02160fd4(void*, int);
 extern "C" void ClearBattleSceneFlags_ov000_02160fbc(void*, int);
-extern "C" void func_020a35cc(unsigned char*, unsigned char);
+extern "C" void AddPartyMemberToBattle_020a35cc(unsigned char*, unsigned char);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
 extern "C" void func_02053da0(char*, Struct_02053da0*);
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, BattleScene_ov000_02160da0* ar
     int var6 = func_ov000_0215fad4(arg2);
     CollectPartyCombatantIndices_ov000_0215e9fc(arg2, var1, 4, 0);
     while (var6 >= 0) {
-        func_020a35cc((unsigned char*)arg3, var6);
+        AddPartyMemberToBattle_020a35cc((unsigned char*)arg3, var6);
         func_ov000_02174738(arg4, var6);
         Struct_ov026_021d8ba0_6* var7 = func_ov026_021dae60((Struct_ov026_021d8ba0_4*)arg4, var6);
         if (var7) {

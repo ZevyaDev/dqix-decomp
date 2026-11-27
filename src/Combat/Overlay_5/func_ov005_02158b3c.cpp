@@ -56,7 +56,7 @@ struct Struct_ov005_02158b3c_4 {
 };
 
 struct Struct_ov005_02153ba4 {
-    short unknown_0_;
+    short itemId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
     void* unknown_4_;
@@ -135,7 +135,7 @@ extern "C" ARM int func_ov005_02158b3c(void* arg0, void* arg1) {
         var8->unknown_3dcc_ &= ~0x8000;
     } else {
         signed char var12 = var8->unknown_3dbb_;
-        short var13 = var8->unknown_2d90_[var12].unknown_0_;
+        short var13 = var8->unknown_2d90_[var12].itemId_0_;
 #if defined(jpn)
         char var14[0x40];
         __clear(var14, 0x40);

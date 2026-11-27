@@ -18,28 +18,28 @@ struct Struct_ov031_0224e5c4_8 {
 	Struct_ov031_02213504* unknown_c_;
 };
 
-extern Struct_ov031_0224e5c4_8 data_ov031_0224e5c4;
+extern Struct_ov031_0224e5c4_8 gWifiConnectionBuffers_ov031_0224e5c4;
 
 // USA: func_ov031_02213504
 extern "C" ARM void func_ov031_02213504(unsigned int arg0) {
-	Struct_ov031_02213504* var0 = data_ov031_0224e5c4.unknown_c_;
+	Struct_ov031_02213504* var0 = gWifiConnectionBuffers_ov031_0224e5c4.unknown_c_;
 	unsigned int var1 = var0->unknown_22_;
 	if (var1 == 0) {
 		var1 = func_ov031_022135ac(arg0);
 	}
 
-	var0 = data_ov031_0224e5c4.unknown_c_;
+	var0 = gWifiConnectionBuffers_ov031_0224e5c4.unknown_c_;
 	var0->unknown_17_ = var1;
 	void* var2 = func_ov031_0220f084(0);
 	if (var2 != NULL) {
 		InvalidateDataCacheRange(var2, 0x20);
-		var0 = data_ov031_0224e5c4.unknown_c_;
+		var0 = gWifiConnectionBuffers_ov031_0224e5c4.unknown_c_;
 		func_ov031_02215778((int)var2, var0->unknown_18_);
 	}
 
 	int var3 = 0;
-	char* var4 = (char*)data_ov031_0224e5c4.unknown_c_;
-	Struct_ov031_02213504* var5 = data_ov031_0224e5c4.unknown_c_;
+	char* var4 = (char*)gWifiConnectionBuffers_ov031_0224e5c4.unknown_c_;
+	Struct_ov031_02213504* var5 = gWifiConnectionBuffers_ov031_0224e5c4.unknown_c_;
 	do {
 		signed char var6 = *(var4 + 0x18);
 		if (var6 < 0x20 || var6 > 0x7e) {

@@ -22,7 +22,7 @@ extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" Struct_02057a10* GetEffectManager_02057924();
 extern "C" void* func_02010768(void* arg0);
 extern "C" void func_ov017_021a3dcc(int arg0);
-extern "C" void func_02016874(Zone3D* arg0);
+extern "C" void DrawZone_02016874(Zone3D* zone);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" int GetTitleState_0201201c(void* gameState);
 extern "C" void func_0202343c(void* arg0);
@@ -94,7 +94,7 @@ extern "C" ARM void func_ov017_02195bbc(Struct_ov017_02195bbc* arg0) {
     if (IsBrightnessWithinValidRange((GameResources*)arg0, false)) {
         func_ov017_021a3dcc(arg0->unknown_36fc_);
         if (TestFlags04((GameResources*)(arg0->unknown_0_), 2) == 0) {
-            func_02016874(var1);
+            DrawZone_02016874(var1);
         }
     }
     if (GetGameMode_0200fb9c((char*)var3) != 6 && GetTitleState_0201201c(var3) != 5) {
@@ -118,7 +118,7 @@ extern "C" ARM void func_ov017_02195bbc(Struct_ov017_02195bbc* arg0) {
     }
 
     if (*var4 != NULL) {
-        func_02016874(*var4);
+        DrawZone_02016874(*var4);
     }
 
     if (TestFlags04((GameResources*)(arg0->unknown_0_), 0x100) == 0) {

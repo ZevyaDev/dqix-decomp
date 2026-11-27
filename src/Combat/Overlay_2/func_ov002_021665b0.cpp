@@ -135,7 +135,7 @@ struct Struct_02048448_2;
 extern "C" int func_02048448(Struct_02048448_2*, int);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_ov002_021536e0(char** arg0);
-extern "C" void* func_02079ee0(void*, int);
+extern "C" void* FindActionDamageData_02079ee0(void*, int);
 extern "C" short func_ov002_021538e4(char** arg0, Struct_ov002_021665b0_10* arg1, void* arg2, int arg3);
 extern "C" void func_ov002_021594e8(Struct_ov002_021665b0_2* arg0, int arg1, int arg2, int arg3);
 extern "C" char* GetMessageWindow_020421a0(void);
@@ -432,7 +432,7 @@ extern "C" ARM void func_ov002_021665b0(Struct_ov002_021665b0_2* arg0) {
             }
             var1.unknown_0_ = var47 + 0x1e;
             Struct_ov002_021665b0_10* var48 = FindActionData_02079e2c((char*)var4, (short)var1.unknown_0_);
-            void* var49 = func_02079ee0((char*)var4, var48->unknown_9_6_);
+            void* var49 = FindActionDamageData_02079ee0((char*)var4, var48->unknown_9_6_);
             arg0->unknown_1c96_[var47].unknown_0_ = func_ov002_021538e4(&var45, var48, var49, var1.unknown_2_);
             arg0->unknown_1c96_[var47].unknown_2_ = var1.unknown_0_;
         }

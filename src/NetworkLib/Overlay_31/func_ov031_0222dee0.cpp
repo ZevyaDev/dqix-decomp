@@ -6,7 +6,7 @@ extern "C" void* CloseScreenTextLayer_ov031_0223c7c4(int);
 extern "C" void HideScreenLayers_ov031_0223cbbc(int, int);
 extern "C" void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int, int);
 extern "C" void GetWifiSetupPageArguments_ov031_02227520(int*, int*);
-extern "C" void func_ov031_0222750c(int, int);
+extern "C" void SetWifiSetupPageArguments_ov031_0222750c(int, int);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
 extern "C" void func_ov031_0222ea24(void);
 extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void** pointer);
@@ -40,7 +40,7 @@ extern "C" ARM void func_ov031_0222dee0(void) {
 	if (var0 >= 3) var0 += 1;
 
 	SetStepIndicatorAndButtonBarModes_ov031_022274d0(2, 1);
-	func_ov031_0222750c(0, var0 + 3);
+	SetWifiSetupPageArguments_ov031_0222750c(0, var0 + 3);
 	SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222ea24);
 #if defined(jpn)
 	void** var1 = &DuplicatePool::gAddressEntryPage_ov031_02290c98;

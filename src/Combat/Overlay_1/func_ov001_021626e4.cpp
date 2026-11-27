@@ -27,7 +27,7 @@ struct BGLayer_02020cb8_6;
 struct BGLayer_02020cb8_2;
 struct BGLayer_02020cb8_3;
 
-extern char data_ov001_02165745[];
+extern char gDataPathFormat_ov001_02165745[];
 
 // USA: func_ov001_021626e4
 extern "C" ARM int func_ov001_021626e4(void* arg0) {
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov001_021626e4(void* arg0) {
     var7 = BackgroundLoader::GetInstance();
     var8 = GetScriptValueAsString_ov017_021d612c(arg0);
     var11 = GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 8);
-    sprintf(var0, data_ov001_02165745, var8);
+    sprintf(var0, gDataPathFormat_ov001_02165745, var8);
 
     var9 = 0;
     var4 = NULL;

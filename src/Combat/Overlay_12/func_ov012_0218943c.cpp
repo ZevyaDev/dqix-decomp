@@ -5,7 +5,7 @@
 #endif
 #include "std_library_functions.h"
 
-extern "C" void func_ov012_021893b4(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void SetNextTextWindow_ov012_021893b4(void* profileMenu, int windowId, int x, int y);
 extern "C" void func_ov012_021894b4(void* arg0, void* arg1, int arg2);
 #if defined(jpn)
 extern "C" void OpenTextWindow_0205d304(void* windowManager, void* text, int arg2, int isVerticallyCentered, int hasPageArrows, int isSizedToText, int margins);
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov012_0218943c(char* arg0) {
 #else
     unsigned char var0 = *(unsigned char*)(arg0 + 0x1000 + 0x371);
 #endif
-    func_ov012_021893b4(arg0, var0, 2, 1);
+    SetNextTextWindow_ov012_021893b4(arg0, var0, 2, 1);
 
 #if defined(jpn)
     memset(((struct Struct_ov012_0218943c*)(arg0 + 0x1000))->unknown_374_, 0, 0x800);

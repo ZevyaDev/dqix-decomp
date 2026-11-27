@@ -12,15 +12,15 @@ struct Struct_ov031_022489c0 {
 struct Struct_ov031_022489cc {
     unsigned char unknown_0_[5];
 };
-struct Struct_ov031_02224ca4 {
+struct Keyboard_ov031_02224ca4 {
     void* unknown_0_[3][4];
-    Struct_020b0a1c* unknown_30_[47];
-    Struct_020b0a1c* unknown_ec_[4];
-    void* unknown_fc_[2];
+    Struct_020b0a1c* keySprites_30_[47];
+    Struct_020b0a1c* specialKeySprites_ec_[4];
+    void* buttonSprites_fc_[2];
     void* unknown_104_[4];
 };
 
-extern Struct_ov031_02224ca4* gKeyboard_ov031_02250bfc;
+extern Keyboard_ov031_02224ca4* gKeyboard_ov031_02250bfc;
 extern const Struct_ov031_022489c0 data_ov031_022489c0 = {0x1c, 2};
 extern const Struct_ov031_022489c0 data_ov031_022489c4 = {0x78, 0x12};
 extern const Struct_ov031_022489c0 data_ov031_022489c8 = {0x11, 0x12};
@@ -44,57 +44,57 @@ static inline void inline_ov031_02224ca4(Struct_020b0a1c* arg0, unsigned int arg
     arg0->unknown_0_ = (arg0->unknown_0_ & 0xfe00ff00) | arg2 | arg1;
 }
 
-// USA: func_ov031_02224ca4
-extern "C" ARM void func_ov031_02224ca4(int arg0, int arg1, int arg2) {
-    Struct_ov031_022489cc var0 = data_ov031_022489d1;
-    Struct_ov031_022489cc var1 = data_ov031_022489d6;
-    Struct_ov031_022489cc var2 = data_ov031_022489cc;
-    int var3 = arg1 * 12;
-    int var4;
-    int var5;
-    int var6;
-    int var7;
+// USA: SetKeyboardRowY_ov031_02224ca4
+extern "C" ARM void SetKeyboardRowY_ov031_02224ca4(int characterSet, int row, int y) {
+    Struct_ov031_022489cc keyCounts = data_ov031_022489d1;
+    Struct_ov031_022489cc specialKeyCounts = data_ov031_022489d6;
+    Struct_ov031_022489cc buttonCounts = data_ov031_022489cc;
+    int firstKey = row * 12;
+    int specialKey;
+    int key;
+    int i;
+    int button;
 
     {
-        const unsigned char* var8 = &var0.unknown_0_[arg1];
-        var5 = var3;
-        var6 = 0;
-        if (var6 < *var8) {
-            unsigned char var9 = arg2;
+        const unsigned char* rowKeyCount = &keyCounts.unknown_0_[row];
+        key = firstKey;
+        i = 0;
+        if (i < *rowKeyCount) {
+            unsigned char keyY = y;
             do {
-                inline_020b0a1c(gKeyboard_ov031_02250bfc->unknown_30_[var5]);
-                inline_ov031_02224ca4(gKeyboard_ov031_02250bfc->unknown_30_[var5], (unsigned int)data_ov031_02248a0c[var5].unknown_0_ << 23 >> 7, var9);
-                var6++;
-                var5++;
-            } while (var6 < *var8);
+                inline_020b0a1c(gKeyboard_ov031_02250bfc->keySprites_30_[key]);
+                inline_ov031_02224ca4(gKeyboard_ov031_02250bfc->keySprites_30_[key], (unsigned int)data_ov031_02248a0c[key].unknown_0_ << 23 >> 7, keyY);
+                i++;
+                key++;
+            } while (i < *rowKeyCount);
         }
     }
-    if (arg1 < 4) {
-        Struct_ov031_02224ca4* var10 = gKeyboard_ov031_02250bfc;
-        func_ov031_0223ca54(var10->unknown_0_[arg0][arg1], data_ov031_02248a0c[var3].unknown_0_, arg2, var10->unknown_104_[arg1], 2);
+    if (row < 4) {
+        Keyboard_ov031_02224ca4* keyboard = gKeyboard_ov031_02250bfc;
+        func_ov031_0223ca54(keyboard->unknown_0_[characterSet][row], data_ov031_02248a0c[firstKey].unknown_0_, y, keyboard->unknown_104_[row], 2);
     }
-    var4 = FastIntModulus(arg1 + 3, 4);
+    specialKey = FastIntModulus(row + 3, 4);
     {
-        const unsigned char* var11 = &var1.unknown_0_[arg1];
-        var6 = 0;
-        if (var6 < *var11) {
-            unsigned char var12 = arg2;
+        const unsigned char* rowSpecialKeyCount = &specialKeyCounts.unknown_0_[row];
+        i = 0;
+        if (i < *rowSpecialKeyCount) {
+            unsigned char specialKeyY = y;
             do {
-                inline_020b0a1c(gKeyboard_ov031_02250bfc->unknown_ec_[var4]);
-                inline_ov031_02224ca4(gKeyboard_ov031_02250bfc->unknown_ec_[var4], (unsigned int)data_ov031_022489e4[var4].unknown_0_ << 23 >> 7, var12);
-                var6++;
-            } while (var6 < *var11);
+                inline_020b0a1c(gKeyboard_ov031_02250bfc->specialKeySprites_ec_[specialKey]);
+                inline_ov031_02224ca4(gKeyboard_ov031_02250bfc->specialKeySprites_ec_[specialKey], (unsigned int)data_ov031_022489e4[specialKey].unknown_0_ << 23 >> 7, specialKeyY);
+                i++;
+            } while (i < *rowSpecialKeyCount);
         }
     }
     {
-        const unsigned char* var13 = &var2.unknown_0_[arg1];
-        var7 = 0;
-        if (var7 < *var13) {
+        const unsigned char* rowButtonCount = &buttonCounts.unknown_0_[row];
+        button = 0;
+        if (button < *rowButtonCount) {
             do {
-                func_ov031_0223bab4(gKeyboard_ov031_02250bfc->unknown_fc_[var7], -1, 0, 0);
-                SetSpritePosition_ov031_0223bbd8(gKeyboard_ov031_02250bfc->unknown_fc_[var7], -1, data_ov031_022489dc[var7].unknown_0_, arg2);
-                var7++;
-            } while (var7 < *var13);
+                func_ov031_0223bab4(gKeyboard_ov031_02250bfc->buttonSprites_fc_[button], -1, 0, 0);
+                SetSpritePosition_ov031_0223bbd8(gKeyboard_ov031_02250bfc->buttonSprites_fc_[button], -1, data_ov031_022489dc[button].unknown_0_, y);
+                button++;
+            } while (button < *rowButtonCount);
         }
     }
 }

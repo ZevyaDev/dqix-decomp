@@ -15,9 +15,9 @@ struct Struct_02013fb4;
 struct StringList_020727d8;
 struct Struct_02046574_2;
 struct MessageWindow_020465c0;
-struct Struct_0209fee4;
-struct Struct_0209ff64;
-struct Struct_0209ff6c;
+struct SelectionScript_0209fee4;
+struct SelectionScript_0209ff64;
+struct SelectionScript_0209ff6c;
 struct Struct_ov023_021f1868_10;
 struct Struct_020a13c4;
 struct AccoladeTable_020a15bc;
@@ -187,10 +187,10 @@ extern "C" void BuildSkillTable_0209a470(SkillTable_0209a470* table, SafeAllocat
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2* stringList, int stringId);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void InitNounTable_020e526c(void* nounTable);
-extern "C" void func_0209fe9c(char* arg0);
-extern "C" void func_0209fee4(Struct_0209fee4* arg0, SafeAllocator* arg1, int arg2, int arg3);
-extern "C" void func_0209ff64(Struct_0209ff64* arg0, int arg1);
-extern "C" void func_0209ff6c(Struct_0209ff6c* arg0);
+extern "C" void ResetSelectionScript_0209fe9c(char* script);
+extern "C" void LoadSelectionScript_0209fee4(SelectionScript_0209fee4* script, SafeAllocator* allocator, int scriptData, int scriptSize);
+extern "C" void QueueSelectionScriptEntry_0209ff64(SelectionScript_0209ff64* script, int entryId);
+extern "C" void UpdateSelectionScript_0209ff6c(SelectionScript_0209ff6c* script);
 extern "C" int func_ov023_021f21f4(Struct_ov023_021f1868_10* arg0);
 extern "C" Struct_ov023_021f1868* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
@@ -262,12 +262,12 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             void* var5;
             var1->GetLoadedFileByID(var20->unknown_4_, &var5, &var4);
             arg0->unknown_57b4_ = (Struct_ov023_021f1868_4*)arg0->unknown_30_.Allocate(0xd0);
-            func_0209fe9c((char*)arg0->unknown_57b4_);
-            func_0209fee4((Struct_0209fee4*)arg0->unknown_57b4_, &arg0->unknown_30_, (int)var5, var4);
-            func_0209ff64((Struct_0209ff64*)arg0->unknown_57b4_, 100);
+            ResetSelectionScript_0209fe9c((char*)arg0->unknown_57b4_);
+            LoadSelectionScript_0209fee4((SelectionScript_0209fee4*)arg0->unknown_57b4_, &arg0->unknown_30_, (int)var5, var4);
+            QueueSelectionScriptEntry_0209ff64((SelectionScript_0209ff64*)arg0->unknown_57b4_, 100);
             do
             {
-                func_0209ff6c((Struct_0209ff6c*)arg0->unknown_57b4_);
+                UpdateSelectionScript_0209ff6c((SelectionScript_0209ff6c*)arg0->unknown_57b4_);
             } while (!func_ov023_021f21f4((Struct_ov023_021f1868_10*)arg0->unknown_57b4_));
             var1->RemoveTask(var20->unknown_4_);
             var20->unknown_4_ = -1;
@@ -416,12 +416,12 @@ extern "C" ARM int func_ov023_021f1868(Struct_ov023_021f1868_9* arg0)
             void* var28;
             var22->GetLoadedFileByID(var20->unknown_4_, &var28, &var27);
             arg0->unknown_55c4_ = (Struct_ov023_021f1868_4*)arg0->unknown_30_.Allocate(0xd0);
-            func_0209fe9c((char*)arg0->unknown_55c4_);
-            func_0209fee4((Struct_0209fee4*)arg0->unknown_55c4_, &arg0->unknown_30_, (int)var28, var27);
-            func_0209ff64((Struct_0209ff64*)arg0->unknown_55c4_, 100);
+            ResetSelectionScript_0209fe9c((char*)arg0->unknown_55c4_);
+            LoadSelectionScript_0209fee4((SelectionScript_0209fee4*)arg0->unknown_55c4_, &arg0->unknown_30_, (int)var28, var27);
+            QueueSelectionScriptEntry_0209ff64((SelectionScript_0209ff64*)arg0->unknown_55c4_, 100);
             do
             {
-                func_0209ff6c((Struct_0209ff6c*)arg0->unknown_55c4_);
+                UpdateSelectionScript_0209ff6c((SelectionScript_0209ff6c*)arg0->unknown_55c4_);
             } while (!func_ov023_021f21f4((Struct_ov023_021f1868_10*)arg0->unknown_55c4_));
             var22->RemoveTask(var20->unknown_4_);
             var20->unknown_4_ = -1;

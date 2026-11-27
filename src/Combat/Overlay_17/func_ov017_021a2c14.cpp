@@ -11,7 +11,7 @@ extern "C" char* strcpy(char*, const char*);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" char* strstr(const char*, const char*);
 
-struct Struct_0203d028_6;
+struct NPCSpriteCache_0203d028_6;
 struct NPCManager_0203cfb4;
 struct Struct_02013fb4;
 struct NPCManager_0203dce4_2;
@@ -33,8 +33,8 @@ extern "C" int GetStoryChapter_0201079c(char*);
 extern "C" int GetStoryStep_020107d0(char*);
 extern "C" int GetStorySubStep_02010804(char*);
 extern "C" void ResetNPCManager_0203cfb4(NPCManager_0203cfb4*);
-extern "C" Struct_0203d028_6* func_0203d004(void*);
-extern "C" void func_020401fc(Struct_0203d028_6*, unsigned int, SafeAllocator*);
+extern "C" NPCSpriteCache_0203d028_6* func_0203d004(void*);
+extern "C" void InitNPCSpriteCache_020401fc(NPCSpriteCache_0203d028_6*, unsigned int, SafeAllocator*);
 extern "C" void* func_0203cffc(void*);
 extern "C" void* func_0203cff4(void*);
 extern "C" void func_0206da74(int*);
@@ -80,7 +80,7 @@ extern "C" ARM int func_ov017_021a2c14(GameResources* arg0, Zone3D_StructPtr_8* 
     BackgroundLoader::AddLockGlobal();
     sprintf(var9, data_ov017_021d76a6, var14);
     if (!LoadFileIntoMemory(var9, g_fileScratchSpace, &var15)) {
-        func_020401fc(func_0203d004(var2), 12, var3);
+        InitNPCSpriteCache_020401fc(func_0203d004(var2), 12, var3);
         BackgroundLoader::RemoveLockGlobal();
         return 0;
     }

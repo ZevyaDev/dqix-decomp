@@ -25,8 +25,8 @@ extern "C" int func_020a9a50(void* arg0, char* arg1, int arg2);
 extern "C" void func_02042764(unsigned char* arg0, char* arg1, int arg2);
 extern "C" void __clear(void* arg0, int arg1);
 
-struct Struct_0201099c_16;
-extern "C" int func_020865b0(struct Struct_0201099c_16* arg0);
+struct PattyMember_0201099c_16;
+extern "C" int GetPattyMemberVocation_020865b0(struct PattyMember_0201099c_16* pattyMember);
 
 extern "C" void* func_020d6c00();
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
@@ -90,7 +90,7 @@ extern "C" ARM int func_020ab5d4(void* arg0, int arg1, int arg2, void* arg3) {
         unsigned char* var5 = var2 + (var2[0x1d0c] + var4) * 0x23c;
         if (var5 != 0) {
             struct Struct_020ab5d4_3* var6 = &var3.unknown_0_[var4];
-            int var7 = func_020865b0((struct Struct_0201099c_16*)var5);
+            int var7 = GetPattyMemberVocation_020865b0((struct PattyMember_0201099c_16*)var5);
             var6->unknown_c_ = var7;
             unsigned char* var8 = var5 + var7;
             var6->unknown_d_ = var8[0xf];
@@ -135,7 +135,7 @@ extern "C" ARM int func_020ab5d4(void* arg0, int arg1, int arg2, void* arg3) {
         unsigned char* var18 = var14 + (var14[0x1d0c] + var17) * 0x23c;
         if (var18 != 0) {
             struct Struct_020ab5d4_5* var19 = &var16.unknown_0_[var17];
-            int var20 = func_020865b0((struct Struct_0201099c_16*)var18);
+            int var20 = GetPattyMemberVocation_020865b0((struct PattyMember_0201099c_16*)var18);
             var19->unknown_30_ = var20;
             unsigned char* var21 = var18 + var20;
             var19->unknown_31_ = var21[0xf];

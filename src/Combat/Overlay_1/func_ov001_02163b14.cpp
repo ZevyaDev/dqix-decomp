@@ -14,8 +14,8 @@ extern "C" void* func_02010768(void* arg0);
 extern "C" void* func_02011584(void* gameState);
 struct MapList_0201cb60_2;
 struct MapListEntry_0201cb60;
-extern "C" MapListEntry_0201cb60* func_0209998c(MapList_0201cb60_2* arg0, const char* arg1);
-extern "C" void func_02013718(char* arg0, int arg1, int arg2);
+extern "C" MapListEntry_0201cb60* FindMapListEntryByShortName_0209998c(MapList_0201cb60_2* mapList, const char* mapShortName);
+extern "C" void InitZone_02013718(char* zone, int allocator, int textureArena);
 
 struct Struct_ov001_02163b14 {
 #if defined(jpn)
@@ -40,7 +40,7 @@ extern "C" ARM int func_ov001_02163b14(void* arg0) {
         var4 = (int)GetScriptValueAsString_ov017_021d612c(arg0);
         if (var4 == 0) return 0;
         void* var5 = func_02011584(var0);
-        struct MapListEntry_0201cb60* var6 = func_0209998c((struct MapList_0201cb60_2*)var5, (const char*)var4);
+        struct MapListEntry_0201cb60* var6 = FindMapListEntryByShortName_0209998c((struct MapList_0201cb60_2*)var5, (const char*)var4);
         if (var6 == 0) return 0;
         var4 = *(unsigned short*)var6;
     }
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov001_02163b14(void* arg0) {
     void* var12 = var7->Allocate(var11);
     var10->CreateTypeA(var12, var11);
 
-    func_02013718((char*)var9, (int)var10, var8);
+    InitZone_02013718((char*)var9, (int)var10, var8);
     ((Zone3D*)var9)->SwitchZone(var4, 0);
 
     *(void**)var2 = var9;

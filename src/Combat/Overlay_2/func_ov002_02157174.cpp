@@ -6,8 +6,8 @@
 #define func_02053c6c func_02054fe4
 #endif
 
-struct Struct_020839dc;
-struct Struct_0209a9dc_2;
+struct PartyMemberData_020839dc;
+struct SpellTable_0209a9dc_2;
 
 struct Struct_ov002_02157174 {
     int unknown_0_;
@@ -29,9 +29,9 @@ struct Struct_ov002_02157174_2 {
     unsigned short unknown_8_;
 };
 
-extern "C" int func_020839dc(struct Struct_020839dc *arg0, unsigned char *arg1, int arg2);
+extern "C" int CollectLearnedSpellIds_020839dc(struct PartyMemberData_020839dc *memberData, unsigned char *spellIds, int maxCount);
 extern "C" void *__clear(void *arg0, int arg1);
-extern "C" int func_0209acdc(Struct_0209a9dc_2 *arg0, unsigned char *arg1, unsigned int arg2, unsigned short *arg3);
+extern "C" int func_0209acdc(SpellTable_0209a9dc_2 *arg0, unsigned char *arg1, unsigned int arg2, unsigned short *arg3);
 extern "C" Struct_ov002_02157174 *FindActionData_02079e2c(char *actionTables, int actionId);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 extern "C" int func_0209ab7c(void *arg0, void *arg1, unsigned char *arg2);
@@ -71,9 +71,9 @@ extern "C" ARM void func_ov002_02157174(char *arg0, int arg1) {
     if (var5 == 0) {
         return;
     }
-    var6 = func_020839dc((struct Struct_020839dc *) var5, var0, 0x42);
+    var6 = CollectLearnedSpellIds_020839dc((struct PartyMemberData_020839dc *) var5, var0, 0x42);
     __clear(var1, 0x84);
-    var6     = func_0209acdc((Struct_0209a9dc_2 *) (arg0 + Enum_ov002_02157174_68 + Enum_ov002_02157174_9216), var0, var6, (unsigned short *) var1);
+    var6     = func_0209acdc((SpellTable_0209a9dc_2 *) (arg0 + Enum_ov002_02157174_68 + Enum_ov002_02157174_9216), var0, var6, (unsigned short *) var1);
     var7 = 0;
     var8 = GetActionTables_020797dc();
     for (var9 = 0; var9 < var6; var9++) {
@@ -87,13 +87,13 @@ extern "C" ARM void func_ov002_02157174(char *arg0, int arg1) {
     }
     if (*(int *) (*(char **) (var4 + Enum_ov002_02157174_336) + Enum_ov002_02157174_2384) == 0) {
         memset(var0, 0, 0x42);
-        var6 = func_020839dc((struct Struct_020839dc *) var5, var0, 0x42);
+        var6 = CollectLearnedSpellIds_020839dc((struct PartyMemberData_020839dc *) var5, var0, 0x42);
     } else {
         memset(var0, 0, 0x42);
         var6 = func_0209ab7c(arg0 + Enum_ov002_02157174_68 + Enum_ov002_02157174_9216, var4, var0);
     }
     memset(var1, 0, 0x84);
-    var6 = func_0209acdc((Struct_0209a9dc_2 *) (arg0 + Enum_ov002_02157174_68 + Enum_ov002_02157174_9216), var0, var6, (unsigned short *) var1);
+    var6 = func_0209acdc((SpellTable_0209a9dc_2 *) (arg0 + Enum_ov002_02157174_68 + Enum_ov002_02157174_9216), var0, var6, (unsigned short *) var1);
     for (var10 = 0; var10 < var6; var10++) {
         Struct_ov002_02157174 *var13 = FindActionData_02079e2c((char*)var8, var1[var10]);
         if (var13 != 0 && var0[var10] != 0x3c) {

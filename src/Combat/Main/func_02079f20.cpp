@@ -1,26 +1,26 @@
 #include <globaldefs.h>
 
-struct Struct_02079ee0 {
+struct ActionDamageData_02079ee0 {
     int unknown_0_;
     int unknown_4_;
 };
 
-struct Struct_02079ee0_2 {
+struct ActionDamageTable_02079ee0_2 {
     unsigned int unknown_0_0_ : 12;
     unsigned int unknown_1_4_ : 20;
-    struct Struct_02079ee0* unknown_4_;
+    struct ActionDamageData_02079ee0* unknown_4_;
 };
 
-typedef int (*Type_02079ee0)(struct Struct_02079ee0*);
+typedef int (*Type_02079ee0)(struct ActionDamageData_02079ee0*);
 
 // USA: func_02079f20
-extern "C" ARM struct Struct_02079ee0* func_02079f20(struct Struct_02079ee0_2* arg0, int arg1, Type_02079ee0 arg2) {
-    struct Struct_02079ee0* var0;
+extern "C" ARM struct ActionDamageData_02079ee0* func_02079f20(struct ActionDamageTable_02079ee0_2* arg0, int arg1, Type_02079ee0 arg2) {
+    struct ActionDamageData_02079ee0* var0;
     int var1;
     int var2;
     int var3;
     int var4;
-    struct Struct_02079ee0* var5;
+    struct ActionDamageData_02079ee0* var5;
     int var6;
 
     var0 = arg0->unknown_4_;

@@ -48,8 +48,8 @@ extern "C" void func_0205cd94(unsigned char*);
 extern "C" int GetFollowCamera_020100f8(char*);
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" int func_020a27c4(Struct_020676e0*);
-extern "C" int func_ov017_021a4e70(unsigned char*);
-extern "C" int func_0205cecc(void*);
+extern "C" int IsInputCooldownOver_ov017_021a4e70(unsigned char*);
+extern "C" int GetChoiceListEntryTouchedAgain_0205cecc(void*);
 extern "C" int GetChoiceListCursorIndex_0205cb64(void*);
 
 // USA: func_020676e0
@@ -80,7 +80,7 @@ extern "C" ARM void func_020676e0(Struct_020676e0_4* arg0, int arg1) {
     }
     int var7 = 0;
     if (((Struct_020676e0_3*)var3)->unknown_5cc8_ == 2) var7 = 1;
-    if (!var7 && var4 && !func_ov017_021a4e70(var4)) {
+    if (!var7 && var4 && !IsInputCooldownOver_ov017_021a4e70(var4)) {
         var1 = 0;
         var2 = 0;
         var0 = 0;
@@ -91,7 +91,7 @@ extern "C" ARM void func_020676e0(Struct_020676e0_4* arg0, int arg1) {
         var0 = 0;
     }
     int var8 = -1;
-    if (var0) var8 = func_0205cecc(arg0->unknown_90_);
+    if (var0) var8 = GetChoiceListEntryTouchedAgain_0205cecc(arg0->unknown_90_);
     if (var1) var8 = GetChoiceListCursorIndex_0205cb64(arg0->unknown_90_);
     else if (var2) var8 = -2;
     arg0->unknown_954_ = var8;

@@ -24,7 +24,7 @@ extern "C" THUMB int func_ov031_0221d90c(Struct_ov031_0221d90c* arg0, Struct_ov0
     var1 = var0;
     unsigned long var7;
     do {
-        var7 = func_ov031_0221e638(var0->unknown_2_);
+        var7 = SwapBytes16_ov031_0221e638(var0->unknown_2_);
         switch (var0->unknown_0_) {
         case 0x10: case 0x11: case 0x12: case 0x13:
             if (var7 > 5) return -1;
@@ -60,7 +60,7 @@ extern "C" THUMB int func_ov031_0221d90c(Struct_ov031_0221d90c* arg0, Struct_ov0
         default: return -1;
         }
         if (var0->unknown_4_ == 0) break;
-        var0 = (Struct_ov031_0221d90c_3*)((unsigned char*)var1 + func_ov031_0221e638(var0->unknown_4_));
+        var0 = (Struct_ov031_0221d90c_3*)((unsigned char*)var1 + SwapBytes16_ov031_0221e638(var0->unknown_4_));
     } while (1);
     return 0;
 }

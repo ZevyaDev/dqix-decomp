@@ -84,7 +84,7 @@ struct ProfileMenu_ov012_02186a7c;
 extern "C" int func_ov023_021e63bc(Struct_ov012_02187adc* arg0);
 extern "C" void func_ov023_021e61f4(Struct_ov012_02187adc* arg0);
 extern "C" void func_ov012_02185bf0(Struct_ov012_02187adc* arg0, unsigned char arg1, int arg2);
-extern "C" int func_0205df38(void* arg0, int arg1);
+extern "C" int IsTextWindowTouched_0205df38(void* windowManager, int windowId);
 extern "C" void func_ov023_021e6378(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern "C" int IsProfileMenuConfirmPressed_ov023_021e6de4(Struct_ov012_02187adc* menu);
@@ -188,11 +188,11 @@ extern "C" ARM void func_ov012_02187adc(Struct_ov012_02187adc* arg0)
             arg0->unknown_13a9_ = 0;
         }
 #if defined(jpn)
-        else if (g_keyManager.TestKeysPressed(0x10) || func_0205df38(arg0->unknown_ac_, 9))
+        else if (g_keyManager.TestKeysPressed(0x10) || IsTextWindowTouched_0205df38(arg0->unknown_ac_, 9))
         {
             func_ov023_021e65e8(arg0);
 #else
-        else if (g_keyManager.TestKeysPressed(0x20) || func_0205df38(arg0->unknown_ac_, 9))
+        else if (g_keyManager.TestKeysPressed(0x20) || IsTextWindowTouched_0205df38(arg0->unknown_ac_, 9))
         {
             func_ov023_021e6378(arg0, 9, 1, 1, 0);
 #endif
@@ -201,12 +201,12 @@ extern "C" ARM void func_ov012_02187adc(Struct_ov012_02187adc* arg0)
             func_ov012_02185bf0(arg0, 8, 1);
         }
 #if defined(jpn)
-        else if (g_keyManager.TestKeysPressed(0x20) || func_0205df38(arg0->unknown_ac_, 7))
+        else if (g_keyManager.TestKeysPressed(0x20) || IsTextWindowTouched_0205df38(arg0->unknown_ac_, 7))
         {
             GameState::GetInstance();
             func_ov023_021e655c(arg0);
 #else
-        else if (g_keyManager.TestKeysPressed(0x10) || func_0205df38(arg0->unknown_ac_, 7))
+        else if (g_keyManager.TestKeysPressed(0x10) || IsTextWindowTouched_0205df38(arg0->unknown_ac_, 7))
         {
             GameState::GetInstance();
             func_ov023_021e6378(arg0, 7, 0, 1, 1);
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov012_02187adc(Struct_ov012_02187adc* arg0)
             var1 = 0;
             func_ov012_02185bf0(arg0, 8, 1);
         }
-        else if (func_0205df38(arg0->unknown_ac_, 8))
+        else if (IsTextWindowTouched_0205df38(arg0->unknown_ac_, 8))
         {
             var1 = 0;
         }
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov012_02187adc(Struct_ov012_02187adc* arg0)
         }
 
         int var6 = 0;
-        if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0) || func_0205df38(arg0->unknown_ac_, 0x10))
+        if (IsProfileMenuConfirmPressed_ov023_021e6de4(arg0) || IsTextWindowTouched_0205df38(arg0->unknown_ac_, 0x10))
         {
             GameState* var7 = GameState::GetInstance();
             Struct_ov012_02187adc_2* var8 = inline_ov012_02187adc(var7);

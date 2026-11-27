@@ -79,7 +79,7 @@ extern "C" void func_ov000_0218142c(void* arg0, int arg1);
 extern "C" void func_ov000_0216f1e4(void* arg0, int* arg1, int arg2, int arg3);
 extern "C" void* GetMessageWindow_020421a0(void);
 extern "C" void CloseMessageWindow_02043124(void* window);
-extern "C" void func_0209c7fc(void* arg0);
+extern "C" void StopJingle_0209c7fc(void* manager);
 extern "C" void func_0209c73c(Struct_02109bf4_5* arg0);
 extern "C" void func_02048994(void);
 
@@ -188,7 +188,7 @@ extern "C" ARM int func_ov025_021dc940(Struct_ov025_021dc940_5* arg0) {
 
     Struct_ov025_021dc940* var16 = arg0->unknown_29c_;
     if (((Struct_ov025_021dc940_2*)((int)arg0 + 0x5000))->unknown_5d8_ == var16->unknown_8e24_ - 1 && var16->unknown_8e14_ != 0) {
-        func_0209c7fc(&gMusicManager_02109bf4);
+        StopJingle_0209c7fc(&gMusicManager_02109bf4);
     } else {
         func_0209c73c((Struct_02109bf4_5*)&gMusicManager_02109bf4);
     }

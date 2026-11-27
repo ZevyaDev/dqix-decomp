@@ -13,7 +13,7 @@ enum { Enum_ov000_02160b54_22004 = 0x55f4, Enum_ov000_02160b54_3784 = 0xec8, Enu
 #define func_020100bc func_0200ff18
 #endif
 
-extern "C" void func_02016874(void* arg0);
+extern "C" void DrawZone_02016874(void* zone);
 extern "C" void func_ov000_02161020(void* arg0);
 struct Vector3i;
 extern "C" int func_020a1fa8(void);
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov000_02160b54(unsigned char* arg0) {
         return;
     }
     if (TestFlags04((GameResources*)var1, 0x100000) == 0) {
-        func_02016874(arg0 + Enum_ov000_02160b54_3784);
+        DrawZone_02016874(arg0 + Enum_ov000_02160b54_3784);
     }
     func_ov000_02161020(arg0);
     if (TestFlags04((GameResources*)var1, 4) == 0) {

@@ -17,7 +17,7 @@ extern "C" void OpenChoiceList_0205cd28(unsigned char* choiceList);
 extern "C" void UpdateChoiceList_0205c904(unsigned char* choiceList, int ticks);
 struct SpriteAnimationList_0205a330;
 extern "C" int func_0205cde8(unsigned char* arg0);
-extern "C" int func_0205cecc(void* arg0);
+extern "C" int GetChoiceListEntryTouchedAgain_0205cecc(void* choiceList);
 extern "C" int GetChoiceListCursorIndex_0205cb64(void* choiceList);
 extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" void SetGameMode_0200fb94(char* gameState, unsigned char mode);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov020_0218c840(struct Struct_ov020_0218c840* arg0) {
         }
 
         int var4 = g_keyManager.TestKeysPressed(0x401);
-        int var5 = func_0205cecc((unsigned char*)arg0 + 0xc) >= 0;
+        int var5 = GetChoiceListEntryTouchedAgain_0205cecc((unsigned char*)arg0 + 0xc) >= 0;
         if ((var4 | var5) != 0) {
             int var6 = GetChoiceListCursorIndex_0205cb64((unsigned char*)arg0 + 0xc);
             if (GetGameMode_0200fb9c((char*)var0) == 6) return;

@@ -7,7 +7,7 @@
 #define func_020a1ccc func_020a3a44
 #endif
 
-extern "C" void func_020d9834(int arg0);
+extern "C" void SleepOrCycleCurrentContext_020d9834(int milliseconds);
 extern "C" void func_020cd584(OverlayMetadata* arg0);
 
 extern volatile int data_01ffd348;
@@ -46,7 +46,7 @@ extern "C" ARM int func_020a1ccc(unsigned int arg0) {
     }
 
     while (data_01ffd340) {
-        func_020d9834(0);
+        SleepOrCycleCurrentContext_020d9834(0);
     }
 
     data_01ffd340 = 1;

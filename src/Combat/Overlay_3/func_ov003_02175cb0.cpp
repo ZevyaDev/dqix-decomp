@@ -28,7 +28,7 @@ extern "C" void InitItemTable_020de824(void* itemTable);
 extern "C" void ResetItemContext_0207cbe8(char* itemContext);
 extern "C" void DestroyItemContext_0207cc0c(char* itemContext);
 extern "C" void AddItemToEquipmentBag_0207d134(void* itemContext, int itemId, int count);
-extern "C" void func_0207cf30(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void AddItemToBagThenHeldItems_0207cf30(void* itemContext, int itemId, int count, int isOverflowToHeldItems);
 
 // USA: func_ov003_02175cb0
 extern "C" ARM int func_ov003_02175cb0(char* arg0, int arg1) {
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov003_02175cb0(char* arg0, int arg1) {
     if (var2) {
         AddItemToEquipmentBag_0207d134(var1, var0->unknown_16_, *(signed char*)(arg0 + Enum_ov003_02175cb0_4156));
     } else {
-        func_0207cf30(var1, var0->unknown_16_, *(unsigned char*)(arg0 + Enum_ov003_02175cb0_4156), arg1);
+        AddItemToBagThenHeldItems_0207cf30(var1, var0->unknown_16_, *(unsigned char*)(arg0 + Enum_ov003_02175cb0_4156), arg1);
     }
     DestroyItemContext_0207cc0c(var1);
     return 0;

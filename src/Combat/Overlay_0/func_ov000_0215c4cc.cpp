@@ -2,9 +2,9 @@
 #include <GameState/GameState.h>
 #include <std_library_functions.h>
 
-struct Struct_ov000_0215767c_7 { short unknown_0_; char unknown_2_[0x26]; };
+struct BattleAction_ov000_0215767c_7 { short unknown_0_; char unknown_2_[0x26]; };
 struct BattleAction_ov000_0215767c_5;
-struct Struct_ov000_0215767c_6 { char unknown_0_[0x1c]; short unknown_1c_; char unknown_1e_[2]; short unknown_20_; unsigned short unknown_22_; unsigned short unknown_24_; char unknown_26_[0xa]; Struct_ov000_0215767c_6* unknown_30_; };
+struct ActionActor_ov000_0215767c_6 { char unknown_0_[0x1c]; short unknown_1c_; char unknown_1e_[2]; short unknown_20_; unsigned short unknown_22_; unsigned short unknown_24_; char unknown_26_[0xa]; ActionActor_ov000_0215767c_6* pNext_30_; };
 struct ActionTarget_ov000_0215767c_4 { char unknown_0_[0xe]; short unknown_e_; char unknown_10_[7]; unsigned char unknown_17_; char unknown_18_[8]; ActionTarget_ov000_0215767c_4* pNext_20_; };
 struct ActionResult_ov000_021584e8 { char unknown_0_[0x20]; ActionResult_ov000_021584e8* unknown_20_; };
 struct Struct_ov000_0215a908 { char unknown_0_[0x8e00]; unsigned char unknown_8e00_; unsigned char unknown_8e01_; unsigned char unknown_8e02_; char unknown_8e03_[0x21]; int unknown_8e24_; };
@@ -17,7 +17,7 @@ extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" int HasLeftBattle_ov000_02153c0c(GameObject*);
 extern "C" void func_020488cc(unsigned char*, int);
 extern "C" void ClearRage_02088e64(unsigned char*);
-extern "C" void* func_ov000_0215e9d8(void*);
+extern "C" void* GetNextBattleAction_ov000_0215e9d8(void*);
 extern "C" void InitBattleAction_ov000_02160030(void*);
 extern "C" void* func_ov000_0215e918(void*);
 extern "C" void* func_ov000_0215e938(void*);
@@ -26,7 +26,7 @@ extern "C" ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(Struc
 extern "C" void SetActionResult_ov000_0215ccbc(int, ActionResult_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
 extern "C" void AppendTargetResult_ov000_0215ffc4(void*, void*, int);
-extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
+extern "C" void AppendActionActor_ov000_02160068(BattleAction_ov000_0215767c_7*, ActionActor_ov000_0215767c_6*);
 extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*, ActionTarget_ov000_0215767c_4*);
 extern short data_ov000_02182c24[8];
 static inline short inline_ov000_0215a908(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return ((Struct_ov000_0215a908_2*)arg0->currentStats_)->unknown_2e_; }
@@ -51,14 +51,14 @@ extern "C" ARM void func_ov000_0215c4cc(Struct_ov000_0215a908* arg0) {
         if (var9 && !IsDead_02010088((Struct_02010088*)var9) && !HasLeftBattle_ov000_02153c0c(var9)) continue;
         func_020488cc((unsigned char*)var7, 1);
         ClearRage_02088e64((unsigned char*)var7->currentStats_);
-        Struct_ov000_0215767c_7* var10 = (Struct_ov000_0215767c_7*)func_ov000_0215e9d8(arg0);
+        BattleAction_ov000_0215767c_7* var10 = (BattleAction_ov000_0215767c_7*)GetNextBattleAction_ov000_0215e9d8(arg0);
         if (!var10) continue;
         InitBattleAction_ov000_02160030(var10);
-        Struct_ov000_0215767c_6* var11 = (Struct_ov000_0215767c_6*)func_ov000_0215e918(arg0);
+        ActionActor_ov000_0215767c_6* var11 = (ActionActor_ov000_0215767c_6*)func_ov000_0215e918(arg0);
         if (!var11) continue;
         memset(var11, 0, 0x30);
         var11->unknown_1c_ = -1;
-        var11->unknown_30_ = 0;
+        var11->pNext_30_ = 0;
         ActionTarget_ov000_0215767c_4* var12 = (ActionTarget_ov000_0215767c_4*)func_ov000_0215e938(arg0);
         if (!var12) continue;
         InitActionTarget_ov000_02157cdc(var12);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov000_0215c4cc(Struct_ov000_0215a908* arg0) {
         var12->unknown_17_ = 1;
         AppendTargetResult_ov000_0215ffc4(var12, var13, 0);
         arg0->unknown_8e02_++;
-        func_ov000_02160068(var10, var11);
+        AppendActionActor_ov000_02160068(var10, var11);
         AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)var10, var12);
         arg0->unknown_8e24_++;
         arg0->unknown_8e00_++;

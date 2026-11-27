@@ -76,7 +76,7 @@ extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int sta
 extern "C" void func_02053ec8(void*, int);
 extern "C" void func_02053ed8(void* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" void GetOwnPartyMemberObjectIndices_02010834(GameState_02010834* arg0, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
+extern "C" void GetOwnPartyMemberObjectIndices_02010834(GameState_02010834* gameState, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
 extern "C" void PauseMovementUpdate_02033fcc(Struct_02033fcc*);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 struct Struct_ov017_021baedc;

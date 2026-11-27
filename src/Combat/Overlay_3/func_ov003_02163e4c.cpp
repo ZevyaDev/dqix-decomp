@@ -28,7 +28,7 @@ enum { Enum_ov003_02163e4c_1124 = 0x464 };
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void func_ov017_021b6bb8(int arg0);
 extern "C" int func_ov017_021b6d60(int arg0, void* arg1);
-extern "C" void func_02086778(void* arg0, void* arg1, int arg2, int arg3);
+extern "C" void AddPattyMember_02086778(void* party, void* pattyMember, int arg2, int arg3);
 
 // USA: func_ov003_02163e4c
 extern "C" ARM void func_ov003_02163e4c(char* arg0) {
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov003_02163e4c(char* arg0) {
         }
         func_ov017_021b6bb8(*(short*)(arg0 + Enum_ov003_02163e4c_1024 + Enum_ov003_02163e4c_130));
         func_ov017_021b6d60(*(short*)(arg0 + Enum_ov003_02163e4c_1024 + Enum_ov003_02163e4c_130), var1);
-        func_02086778(var3, var1, 0, 0);
+        AddPattyMember_02086778(var3, var1, 0, 0);
         short var8 = (var1[0] << 26) >> 26;
         *(short*)(arg0 + Enum_ov003_02163e4c_1024 + Enum_ov003_02163e4c_128) = var8;
         arg0[Enum_ov003_02163e4c_1188] = (unsigned char)arg0[Enum_ov003_02163e4c_1188] + 1;

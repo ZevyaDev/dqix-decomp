@@ -31,7 +31,7 @@ extern "C" void* func_020d6c00(void);
 extern "C" void* func_0205ec34(void);
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
-extern "C" int func_02039820(void* arg0);
+extern "C" int IsControllable_02039820(void* object);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 struct Struct_0203402c;
 extern "C" int func_0203402c(Struct_0203402c* arg0);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov017_021c05f4(void* arg0, unsigned char arg1, unsigned
         void* var3 = func_0205ec34();
         if (func_0206dfb0((int)var3, (unsigned char*)var3 + 0x8c, 0x119a) == 0) return;
         if (IsQueueEmpty_02046b08((void**)*(void**)((char*)arg0 + 0x3000 + Enum_ov017_021c05f4_1788)) == 0) return;
-        if (func_02039820(var1) == 0) return;
+        if (IsControllable_02039820(var1) == 0) return;
         if (IsPerformingGesture_020535c8((signed char*)var1) != 0) return;
         if (*(int*)((char*)var1 + Enum_ov017_021c05f4_396) & 1) return;
         if (func_0203402c((Struct_0203402c*)var1) != 0 ||

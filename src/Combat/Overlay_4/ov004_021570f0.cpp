@@ -1061,7 +1061,7 @@ enum { Enum_ov004_0215883c_1788 = 0x4ec, Enum_ov004_0215883c_2888 = 0x928, Enum_
 enum { Enum_ov004_0215883c_1788 = 0x6fc, Enum_ov004_0215883c_2888 = 0xb48, Enum_ov004_0215883c_1172 = 0x494 };
 #endif
 
-extern "C" int func_ov017_021b1d44(unsigned char*, int, int);
+extern "C" int ResetWirelessTask_ov017_021b1d44(unsigned char*, int, int);
 struct Struct_ov004_0215883c_4;
 extern "C" unsigned char func_ov017_021b2060(Struct_ov004_0215883c_4* arg0);
 struct Struct_ov004_0215883c_3;
@@ -1088,7 +1088,7 @@ extern "C" ARM int func_ov004_0215883c(void* arg0) {
             data_ov004_021707e0[0x13] = 0;
             return 0;
         }
-        if (!((void*)func_ov017_021b1d44((unsigned char*)var3, 1, 1))) {
+        if (!((void*)ResetWirelessTask_ov017_021b1d44((unsigned char*)var3, 1, 1))) {
             QueueMenuScriptEntry_ov011_021848a0(arg0, 0x3ac);
             data_ov004_021707e0[0x13] = 0;
             return 0;
@@ -1393,7 +1393,7 @@ struct Struct_ov004_02158dcc_7 {
     char unknown_0_[0x2c];
     Vector3i unknown_2c_;
 };
-struct Struct_ov004_02158dcc;
+struct Menu_ov004_02158dcc;
 #if defined(jpn)
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
@@ -1402,7 +1402,7 @@ extern "C" void* FindNounInTable_020e5294(void*, int);
 #endif
 
 extern "C" int func_ov004_0215799c(void*, int, unsigned int, int);
-extern "C" void func_ov011_021849e0(struct Struct_ov004_02158dcc* arg0, unsigned short arg1);
+extern "C" void SetActiveMenuGrid_ov011_021849e0(struct Menu_ov004_02158dcc* menu, unsigned short gridId);
 extern "C" int func_ov004_0215d6f8(void*);
 extern "C" void* FindMenuGrid_ov004_02156ed0(void*, int);
 extern "C" void* __clear(void*, int);
@@ -1427,12 +1427,12 @@ extern "C" ARM int func_ov004_02158dcc(void* arg0) {
 
     Struct_ov004_02158dcc_5* var5 = (Struct_ov004_02158dcc_5*)GetParty_02010828(GameState::GetInstance());
     if (func_ov004_0215799c(var5, var1->unknown_0_, var2->unknown_8_0_, ((Struct_ov004_02158dcc_2*)data_ov004_021707e0)->unknown_3a_) == 0) {
-        func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, 0);
+        SetActiveMenuGrid_ov011_021849e0((struct Menu_ov004_02158dcc*)arg0, 0);
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0x236b);
         return 0;
     }
     if (var5->unknown_f6c_ < var1->unknown_4_7_) {
-        func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, 0);
+        SetActiveMenuGrid_ov011_021849e0((struct Menu_ov004_02158dcc*)arg0, 0);
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2365);
         return 0;
     }
@@ -1443,7 +1443,7 @@ extern "C" ARM int func_ov004_02158dcc(void* arg0) {
     ((Struct_ov004_02158dcc_2*)data_ov004_021707e0)->unknown_12_ = -1;
     ((Struct_ov004_02158dcc_2*)data_ov004_021707e0)->unknown_47_ = 0;
     if (var1->unknown_4_0_ == 1 || (var1->unknown_4_7_ <= var5->unknown_f6c_ && var5->unknown_f6c_ < var1->unknown_4_7_ * 2)) {
-        func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, 0);
+        SetActiveMenuGrid_ov011_021849e0((struct Menu_ov004_02158dcc*)arg0, 0);
         func_ov004_0215d6f8(arg0);
     }
     func_ov023_021f65d4(arg0, 0x35, 0x18);
@@ -2603,7 +2603,7 @@ struct Struct_ov004_0215aaf0 { char unknown_0_[0x5c]; short unknown_5c_; };
 struct Struct_ov004_0215aaf0_2 { unsigned int unknown_0_0_ : 12; unsigned int unknown_1_4_ : 2; unsigned int unknown_1_6_ : 18; };
 struct Struct_ov004_0215aaf0_3 { char unknown_0_[8]; Struct_ov004_0215aaf0_2 unknown_8_; };
 
-extern "C" int func_020de194(void* arg0);
+extern "C" int GetItemBuyPrice_020de194(void* item);
 
 // USA: func_ov004_0215aaf0
 extern "C" ARM int func_ov004_0215aaf0(void* arg0) {
@@ -2656,7 +2656,7 @@ extern "C" ARM int func_ov004_0215aaf0(void* arg0) {
         data_ov004_021707e0[0x70] = (unsigned char)var9;
     }
 
-    int var13 = func_020de194(var6);
+    int var13 = GetItemBuyPrice_020de194(var6);
     int var14 = (int)((float)(unsigned int)var13 * 0.75f);
     *(int*)(data_ov004_021707e0 + 0x78) = var14;
     data_ov004_021707e0[0x6e] = 1;
@@ -3431,7 +3431,7 @@ extern "C" ARM int func_ov004_0215bb54(void* arg0) {
             data_ov004_021707e0[0x13] = 0;
             return 0;
         }
-        func_ov017_021b1d44((unsigned char*)var0, 4, 1);
+        ResetWirelessTask_ov017_021b1d44((unsigned char*)var0, 4, 1);
         *(void**)((char*)var0 + 8) = (char*)var2 + 4;
         int var3 = func_ov011_02184548((struct Struct_ov004_0215883c_2*)arg0);
         int var4 = func_ov011_02184540((struct Struct_ov004_0215883c*)arg0);
@@ -3615,7 +3615,7 @@ struct Struct_0209c3b4_2;
 extern "C" void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int musicIndex);
 extern "C" void SetMusicVolumeLevel_0209ca70(void* manager, int volumeLevel);
 extern "C" void SuspendMapDisplay_020dc2bc(void);
-extern "C" int func_020e56fc(void* arg0, int arg1, int arg2);
+extern "C" int LoadNounTableInPlace_020e56fc(void* nounTable, int fileData, int fileSize);
 
 #if defined(jpn)
 // USA: func_ov004_0215bf94
@@ -3654,7 +3654,7 @@ extern "C" ARM int func_ov004_0215bf94() {
     void* var6 = ExtractFileFromGP2((const char*)("data/prm/itemname.gp2"), (const char*)("itemname_<LG>.nat"), (unsigned int*)(&var5));
     if (var5 <= 0x10800) {
         memcpy(((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_98_, var6, var5);
-        func_020e56fc(&((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_8c_, (int)((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_98_, (int)var5);
+        LoadNounTableInPlace_020e56fc(&((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_8c_, (int)((Struct_ov004_0215bf94*)data_ov004_021707e0)->unknown_98_, (int)var5);
     }
     BackgroundLoader::RemoveLockGlobal();
 #endif
@@ -3815,7 +3815,7 @@ extern unsigned char g_fileScratchSpace[0x30000] __attribute__((aligned(4)));
 extern "C" void* func_ov004_0215c448(void* arg0);
 extern "C" void* func_ov004_0215c474(void* arg0);
 extern "C" ARM int func_ov023_021f6f20(void* arg0, int arg1, int arg2, int arg3, int arg4, unsigned int arg5);
-extern "C" ARM void* func_ov023_021f7318(void* arg0);
+extern "C" ARM void* GetMenuObjectSprite_ov023_021f7318(void* object);
 extern "C" ARM void func_ov023_021f7320(void* arg0);
 
 struct TextureVRAMArea_0203d028;
@@ -3853,7 +3853,7 @@ extern "C" ARM int func_ov004_0215c30c(void* arg0) {
     unsigned int var4;
     void* var5 = LoadFileIntoMemory("data/menu/dqa_rox.spr", g_fileScratchSpace, &var4);
     char* var6 = inline_ov004_0215c30c(GetGameResources(), 0);
-    void* var7 = func_ov023_021f7318(var1);
+    void* var7 = GetMenuObjectSprite_ov023_021f7318(var1);
     ((TextureArena*)((struct TextureVRAMArea_0203d028*)var6))->Reset();
     ((TextureArena*)(var6))->Restore();
     ((SPRSprite*)(var7))->Reset();
@@ -4031,7 +4031,7 @@ struct Struct_ov004_0215c774_4 {
 extern "C" void* func_ov004_0215c448(void*);
 extern "C" void* func_ov004_0215c474(void*);
 extern "C" int func_ov023_021f6f20(void*, int, int, int, int, unsigned int);
-extern "C" void* func_ov023_021f7318(void*);
+extern "C" void* GetMenuObjectSprite_ov023_021f7318(void*);
 extern "C" Struct_ov004_0215c774_3* func_ov011_0218466c(void*, unsigned short);
 extern "C" void func_ov023_021f7320(void*);
 extern "C" void AppendMenuObject_ov023_021f67ac(MenuObjectList_ov004_0215c30c*, MenuObject_ov004_0215c30c_2*);
@@ -4074,7 +4074,7 @@ extern "C" ARM int func_ov004_0215c774(void* arg0) {
     unsigned int var7;
     void* var8 = ExtractFileFromGP2((const char*)(var5), (const char*)(var6), (unsigned int*)(&var7));
 #endif
-    void* var9 = func_ov023_021f7318(var1);
+    void* var9 = GetMenuObjectSprite_ov023_021f7318(var1);
     Struct_ov004_0215c774_3* var10 = func_ov011_0218466c(arg0, 0);
     char* var11 = var10->unknown_4_;
     ((TextureArena*)(var11))->Restore();
@@ -4648,7 +4648,7 @@ extern "C" int GetMenuGridCursorIndex_ov004_02156e2c(void* menu, int id);
 extern "C" int func_ov004_0215c0c0(void* arg0);
 extern "C" void func_ov017_021d3bbc(int arg0, int arg1, int arg2, int arg3);
 extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
-extern "C" void func_ov011_02184a40(void* arg0, int arg1);
+extern "C" void StartMenuCallback_ov011_02184a40(void* menu, int callbackIndex);
 
 // USA: func_ov004_0215d534
 extern "C" ARM int func_ov004_0215d534(void* arg0) {
@@ -4678,7 +4678,7 @@ extern "C" ARM int func_ov004_0215d534(void* arg0) {
             char* var4 = (char*)GameState::GetInstance() + Enum_ov004_0215d534_620;
             *(unsigned short*)(var4 + 0x5d00 + 0xc) &= ~0xe000;
             func_ov017_021d3bbc(var2, ((Struct_ov004_0215d534_3*)data_ov004_021707e0)->unknown_11_, 3, 0);
-            func_ov011_02184a40(arg0, 0x5c);
+            StartMenuCallback_ov011_02184a40(arg0, 0x5c);
         } else {
             QueueMenuScriptEntry_ov011_021848a0(arg0, 0x2369);
         }
@@ -4816,7 +4816,7 @@ extern "C" ARM int func_ov004_0215d738(void* arg0) {
     if (var17) RedrawMenuWindow_ov023_021f809c(var17, arg0);
     return 0;
 }
-extern "C" void func_0207cf30(void*, int, int, int);
+extern "C" void AddItemToBagThenHeldItems_0207cf30(void*, int, int, int);
 
 // USA: func_ov004_0215da0c
 extern "C" ARM int func_ov004_0215da0c(void* arg0) {
@@ -4837,7 +4837,7 @@ extern "C" ARM int func_ov004_0215da0c(void* arg0) {
         ResetItemContext_0207cbe8((char*)var4);
 
         *(int*)(var4 + 0x2c) = var3;
-        func_0207cf30(var4, *(short*)(data_ov004_021707e0 + 0xe), data_ov004_021707e0[0x11], 1);
+        AddItemToBagThenHeldItems_0207cf30(var4, *(short*)(data_ov004_021707e0 + 0xe), data_ov004_021707e0[0x11], 1);
 
         DestroyItemContext_0207cc0c((char*)var4);
 #if defined(jpn)
@@ -5069,7 +5069,7 @@ extern "C" ARM int func_ov004_0215de9c(void* arg0) {
 #endif
 
 struct Struct_ov004_0215e148 { char unknown_0_[8]; unsigned int unknown_8_0_ : 4; };
-extern "C" void func_0207cf30(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void AddItemToBagThenHeldItems_0207cf30(void* itemContext, int itemId, int count, int isOverflowToHeldItems);
 
 #if defined(jpn)
 #define MESSAGE_FLAG_OFFSET 0xa9
@@ -5100,7 +5100,7 @@ extern "C" ARM int func_ov004_0215e148(void* arg0) {
         if (var5) {
             AddItemToEquipmentBag_0207d134((ItemContext_0207d134*)var4, (int)(*(short*)(((char*)data_ov004_021707e0) + 0xe)), *(signed char*)(((char*)data_ov004_021707e0) + 0x11));
         } else {
-            func_0207cf30(var4, *(short*)(((char*)data_ov004_021707e0) + 0xe), *(unsigned char*)(((char*)data_ov004_021707e0) + 0x11), 1);
+            AddItemToBagThenHeldItems_0207cf30(var4, *(short*)(((char*)data_ov004_021707e0) + 0xe), *(unsigned char*)(((char*)data_ov004_021707e0) + 0x11), 1);
         }
         DestroyItemContext_0207cc0c(var4);
     }

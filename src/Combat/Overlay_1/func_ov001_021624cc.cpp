@@ -7,7 +7,7 @@
 #include "Resource/PAC.h"
 
 extern "C" int GetScriptValueAsString_ov017_021d612c(void* value);
-extern char data_ov001_02165745[];
+extern char gDataPathFormat_ov001_02165745[];
 
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
 extern "C" void func_ov001_02162678(int arg0, int arg1, int arg2, int arg3);
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov001_021624cc(void* arg0) {
     void* var6;
     char var7[0x50];
 
-    sprintf(var7, data_ov001_02165745, GetScriptValueAsString_ov017_021d612c(arg0));
+    sprintf(var7, gDataPathFormat_ov001_02165745, GetScriptValueAsString_ov017_021d612c(arg0));
     int var8 = 0;
     var4 = NULL;
     var5 = 0;

@@ -137,7 +137,7 @@ extern "C" ARM void func_02021b84(Struct_02020554* arg0) {
         if (IsBrightnessWithinValidRange((GameResources*)var5, true) != 0) return;
         if (var4->GetTaskStatus(arg0->unknown_9fc_) == 0) return;
         if (var4->GetTaskStatus(arg0->unknown_a00_) == 0) return;
-        func_02020720(arg0);
+        ResetSubScreenDisplay_02020720(arg0);
         func_020209d0(arg0);
         var8->Reset();
         func_0203b66c(var7);

@@ -55,9 +55,9 @@ extern "C" void* func_0201b754(void* arg0, int arg1);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
 
 struct Struct_02017a94;
-struct Struct_0201b600;
+struct BMDJEntry_0201b600;
 struct BMDJEntry_02013380;
-extern "C" struct Struct_0201b600* func_0201b600(Struct_02017a94*, int, unsigned short);
+extern "C" struct BMDJEntry_0201b600* FindFirstBMDJEntry_0201b600(Struct_02017a94*, int, unsigned short);
 extern "C" void SetBMDJEntryVisible_02013380(struct BMDJEntry_02013380* entry, int bmdjId, int isVisible);
 extern "C" void func_0201b8c8(struct Struct_02017a94* arg0, int arg1, int arg2, int arg3);
 
@@ -285,12 +285,12 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
             short var30 = var0->GetUnknownGameObject()->obj3D_.unknown_4_;
             func_020a2770(var3, var30);
             ClearFlags04((GameResources*)arg0, 0x10004);
-            struct Struct_0201b600* var31 = func_0201b600((struct Struct_02017a94*)var26, 0, 4);
+            struct BMDJEntry_0201b600* var31 = FindFirstBMDJEntry_0201b600((struct Struct_02017a94*)var26, 0, 4);
             if (var31 != 0)
             {
                 SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var31, 0, 1);
             }
-            struct Struct_0201b600* var32 = func_0201b600((struct Struct_02017a94*)var26, 0, 0x28);
+            struct BMDJEntry_0201b600* var32 = FindFirstBMDJEntry_0201b600((struct Struct_02017a94*)var26, 0, 0x28);
             if (var32 != 0)
             {
                 SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var32, 0, 1);
@@ -298,23 +298,23 @@ extern "C" ARM void func_020a6aac(unsigned int* arg0, int arg1, int arg2)
         } else {
             unsigned short var33 = (*(Struct_020236dc_3*)(var26->unk_276c + 8)).unknown_12_;
             if (var33 == 0x76c) {
-                struct Struct_0201b600* var34 = func_0201b600((struct Struct_02017a94*)var26, 0, 4);
+                struct BMDJEntry_0201b600* var34 = FindFirstBMDJEntry_0201b600((struct Struct_02017a94*)var26, 0, 4);
                 if (var34 != 0)
                 {
                     SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var34, 0, 1);
                 }
-                struct Struct_0201b600* var35 = func_0201b600((struct Struct_02017a94*)var26, 0, 0x28);
+                struct BMDJEntry_0201b600* var35 = FindFirstBMDJEntry_0201b600((struct Struct_02017a94*)var26, 0, 0x28);
                 if (var35 != 0)
                 {
                     SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var35, 0, 1);
                 }
             } else {
-                struct Struct_0201b600* var36 = func_0201b600((struct Struct_02017a94*)var26, 0, 4);
+                struct BMDJEntry_0201b600* var36 = FindFirstBMDJEntry_0201b600((struct Struct_02017a94*)var26, 0, 4);
                 if (var36 != 0)
                 {
                     SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var36, 0, 0);
                 }
-                struct Struct_0201b600* var37 = func_0201b600((struct Struct_02017a94*)var26, 0, 0x28);
+                struct BMDJEntry_0201b600* var37 = FindFirstBMDJEntry_0201b600((struct Struct_02017a94*)var26, 0, 0x28);
                 if (var37 != 0)
                 {
                     SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var37, 0, 0);

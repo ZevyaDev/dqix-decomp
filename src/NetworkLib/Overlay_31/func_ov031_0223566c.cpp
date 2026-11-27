@@ -2,7 +2,7 @@
 
 extern "C" ARM void func_ov031_0223566c(int arg0, void *arg1);
 extern "C" ARM int func_ov031_0223d524(void *arg0);
-extern "C" ARM int func_ov031_0223d49c(void *arg0);
+extern "C" ARM int IsTouchPressInRect_ov031_0223d49c(void *rect);
 
 // USA: func_ov031_02235594
 extern "C" ARM int func_ov031_02235594() {
@@ -18,7 +18,7 @@ extern "C" ARM int func_ov031_02235594() {
         var1++;
     } while (var1 <= 3);
     func_ov031_0223566c(4, var0);
-    if (func_ov031_0223d49c(var0) != 0)
+    if (IsTouchPressInRect_ov031_0223d49c(var0) != 0)
         return 4;
     return 0;
 }

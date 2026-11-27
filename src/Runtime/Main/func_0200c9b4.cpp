@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern int data_020f3390;
+extern int gErrorNumber_020f3390;
 
 // KEEP-NAME
 // USA: func_0200c9b4
@@ -63,7 +63,7 @@ _La4:
 _Lc0:
     ldr r2, =0x7fc00000
     orr r0, r0, r2
-    ldr r3, =data_020f3390
+    ldr r3, =gErrorNumber_020f3390
     mov r4, #0x21
     str r4, [r3]
     ldmia sp!, {lr}

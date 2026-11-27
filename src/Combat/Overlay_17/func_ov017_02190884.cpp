@@ -65,7 +65,7 @@ extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int in
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" int func_ov017_02190818(int arg0);
 extern "C" int GetPartyLeaderObjectIndex_02039888(void* object);
-extern "C" int func_02039820(void* arg0);
+extern "C" int IsControllable_02039820(void* object);
 extern "C" int func_02039828(void* arg0);
 extern "C" int func_02010038(GameState* arg0, unsigned char* arg1);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
@@ -204,7 +204,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
     int var33 = 1;
     GameObject* var34 = var0->GetPartyMemberByIndex(GetPartyLeaderObjectIndex_02039888(var10));
     if (var34 != NULL) {
-        if (func_02039820(var34) == 0) {
+        if (IsControllable_02039820(var34) == 0) {
             var33 = 0;
         } else {
             var33 = 1;

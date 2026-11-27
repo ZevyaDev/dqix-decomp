@@ -32,7 +32,7 @@ extern "C" int func_ov017_021925e0();
 extern "C" Struct_0200f3a4_7* func_02053c6c(unsigned char*);
 extern "C" void InitPartyMemberData_02082828(Struct_0200f3a4_7*);
 extern "C" void func_ov017_021bd3d4(void*, int);
-extern "C" Struct_ov000_02161e30_4* func_ov017_021a4658(GameResources*, int);
+extern "C" Struct_ov000_02161e30_4* GetPartyMemberModelLoadTask_ov017_021a4658(GameResources*, int);
 extern "C" void RemoveFromQueue_02046a8c(void*, Struct_ov000_02161e30_4*);
 extern "C" void func_ov017_021b33d8(void*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -73,7 +73,7 @@ extern "C" ARM void func_ov017_02190264(GameResources* arg0, int arg1) {
             return;
         }
     }
-    Struct_ov000_02161e30_4* var7 = func_ov017_021a4658(arg0, arg1);
+    Struct_ov000_02161e30_4* var7 = GetPartyMemberModelLoadTask_ov017_021a4658(arg0, arg1);
     if (var7->unknown_2_) {
         RemoveFromQueue_02046a8c(arg0->unknown_ptr_array_36fc[1], var7);
         func_ov017_021b33d8(var7);

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-struct Struct_020dbd9c {
+struct EffectLoader_020dbd9c {
     int unknown_0_;
     int unknown_4_;
     int unknown_8_;
@@ -9,12 +9,12 @@ struct Struct_020dbd9c {
     unsigned char unknown_14_;
 };
 
-// USA: func_020dbd9c
-extern "C" ARM void func_020dbd9c(struct Struct_020dbd9c* arg0) {
-    arg0->unknown_0_ = 0;
-    arg0->unknown_4_ = 0;
-    arg0->unknown_8_ = 0;
-    arg0->unknown_c_ = -1;
-    arg0->unknown_10_ = 0;
-    arg0->unknown_14_ = 0;
+// USA: InitEffectLoader_020dbd9c
+extern "C" ARM void InitEffectLoader_020dbd9c(struct EffectLoader_020dbd9c* effectLoader) {
+    effectLoader->unknown_0_ = 0;
+    effectLoader->unknown_4_ = 0;
+    effectLoader->unknown_8_ = 0;
+    effectLoader->unknown_c_ = -1;
+    effectLoader->unknown_10_ = 0;
+    effectLoader->unknown_14_ = 0;
 }

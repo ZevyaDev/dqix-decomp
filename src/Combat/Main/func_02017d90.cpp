@@ -26,11 +26,11 @@ extern "C" ARM int func_02017d90(Zone3D* arg0, int arg1, Struct_02017d90* arg2, 
         BMDJEntry_02016874_2* var1;
         int var2, var3, var4;
         if (arg1 < 256) {
-            Struct_02013490* var5 = &((Struct_02013490*)arg0->grottoTileMapData_420_)[arg1];
-            if (var5->unknown_0_) var1 = var5->unknown_0_->pEntries_44_->unknown_2c_;
+            GrottoTile_02013490* var5 = &((GrottoTile_02013490*)arg0->grottoTileMapData_420_)[arg1];
+            if (var5->pBMDJStruct_0_) var1 = var5->pBMDJStruct_0_->pEntries_44_->unknown_2c_;
             else return 0;
-            var2 = var5->unknown_3c_.x;
-            var3 = var5->unknown_3c_.z;
+            var2 = var5->position_3c_.x;
+            var3 = var5->position_3c_.z;
             var4 = var5->unknown_38_;
         } else {
             if (func_020196fc(arg0, 4))
@@ -42,10 +42,10 @@ extern "C" ARM int func_02017d90(Zone3D* arg0, int arg1, Struct_02017d90* arg2, 
         }
         if (!var1) return 0;
         if (!var1->unknown_24_) return 0;
-        if (var1->unknown_2_ & 4) return 0;
+        if (var1->flags_2_ & 4) return 0;
         BMDJEntry_02016874_2* var6 = var1->unknown_28_;
         while (var6) {
-            if (var6->unknown_2_ & 4) return 0;
+            if (var6->flags_2_ & 4) return 0;
             var6 = var6->unknown_28_;
         }
         void* var7 = var1->unknown_24_->unknown_4_;
@@ -75,13 +75,13 @@ extern "C" ARM int func_02017d90(Zone3D* arg0, int arg1, Struct_02017d90* arg2, 
     }
     BMDJEntry_02016874_2* var15 = (*(BMDJEntry_02016874_2***)(arg0->unk_5f0 + 0x234))[arg1];
     if (!var15->unknown_24_) return 0;
-    if (var15->unknown_2_ & 4) return 0;
+    if (var15->flags_2_ & 4) return 0;
     BMDJEntry_02016874_2* var16 = var15->unknown_28_;
     while (var16) {
-        if (var16->unknown_2_ & 4) return 0;
+        if (var16->flags_2_ & 4) return 0;
         var16 = var16->unknown_28_;
     }
-    if (var15->unknown_2_ & 1) return 0;
+    if (var15->flags_2_ & 1) return 0;
     void* var17 = var15->unknown_24_->unknown_4_;
     if (!var17) return 0;
     Vector3i var18 = var15->unknown_8_;

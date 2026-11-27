@@ -97,7 +97,7 @@ struct Struct_0205c77c;
 extern "C" void func_0205c77c(Struct_0205c77c*, int);
 extern "C" void OpenChoiceList_0205cd28(unsigned char* choiceList);
 struct SpriteAnimationList_0205a330;
-extern "C" int func_0205cecc(void* arg0);
+extern "C" int GetChoiceListEntryTouchedAgain_0205cecc(void* choiceList);
 extern "C" int GetChoiceListCursorIndex_0205cb64(void* choiceList);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0205ce50(unsigned char* arg0);
@@ -262,7 +262,7 @@ extern "C" ARM void func_ov017_021a86d0(Struct_ov017_021a86d0* arg0, void* arg1)
         void* var25 = *(void**)(var1 + Enum_ov017_021a86d0_736);
         ((OBJSpriteSet::List*)((SpriteAnimationList_0205a330*)var25))->UpdateAll(var0->GetTickCount());
         var1[Enum_ov017_021a86d0_6574] = 0;
-        int var26 = func_0205cecc(arg0->unknown_2c_);
+        int var26 = GetChoiceListEntryTouchedAgain_0205cecc(arg0->unknown_2c_);
         if (g_keyManager.TestKeysPressed(1)) {
             PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)gSoundEffectManager_02108760, 1, 0);
             var26 = GetChoiceListCursorIndex_0205cb64(arg0->unknown_2c_);

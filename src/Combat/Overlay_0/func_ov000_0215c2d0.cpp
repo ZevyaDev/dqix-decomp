@@ -46,16 +46,16 @@ struct Struct_ov000_0215767c_2 {
 
 struct BattleAction_ov000_0215440c_2;
 extern "C" Struct_ov000_0215767c_8* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
-extern "C" Struct_ov000_0215767c_10* func_ov000_0215e9d8(void* arg0);
+extern "C" Struct_ov000_0215767c_10* GetNextBattleAction_ov000_0215e9d8(void* battle);
 extern "C" Struct_ov000_0215767c_8* func_ov000_0215e918(void* arg0);
 extern "C" Struct_ov000_0215767c_9* func_ov000_0215e938(void* arg0);
 extern "C" void InitBattleAction_ov000_02160030(void* action);
 extern "C" void InitActionTarget_ov000_02157cdc(void* target);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
-struct Struct_ov000_0215767c_6;
-struct Struct_ov000_0215767c_7;
-extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
+struct ActionActor_ov000_0215767c_6;
+struct BattleAction_ov000_0215767c_7;
+extern "C" void AppendActionActor_ov000_02160068(BattleAction_ov000_0215767c_7*, ActionActor_ov000_0215767c_6*);
 struct ActionTarget_ov000_0215767c_4;
 struct BattleAction_ov000_0215767c_5;
 extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*, ActionTarget_ov000_0215767c_4*);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov000_0215c2d0(Struct_ov000_0215767c_2* arg0, Struct_ov
         if (var3 <= 0) {
             continue;
         }
-        Struct_ov000_0215767c_10* var4 = func_ov000_0215e9d8(arg0);
+        Struct_ov000_0215767c_10* var4 = GetNextBattleAction_ov000_0215e9d8(arg0);
         if (var4 == 0) {
             continue;
         }
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov000_0215c2d0(Struct_ov000_0215767c_2* arg0, Struct_ov
         var6->unknown_17_ = 1;
         AppendTargetResult_ov000_0215ffc4(var6, var7, 0);
         var4->unknown_b_ |= 4;
-        func_ov000_02160068((Struct_ov000_0215767c_7*)var4, (Struct_ov000_0215767c_6*)var5);
+        AppendActionActor_ov000_02160068((BattleAction_ov000_0215767c_7*)var4, (ActionActor_ov000_0215767c_6*)var5);
         AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)var4, (ActionTarget_ov000_0215767c_4*)var6);
         arg0->unknown_8e24_++;
         arg0->unknown_8e00_++;

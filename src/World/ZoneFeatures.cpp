@@ -21,7 +21,7 @@ extern "C"
 
     fix32_t _Z22fix32ReduceAngle0To2Pii(fix32_t);
 
-    extern "C" unsigned short* func_0209998c(void*, const char*);
+    extern "C" unsigned short* FindMapListEntryByShortName_0209998c(void*, const char*);
 
 }
 
@@ -373,7 +373,7 @@ extern "C" int func_0201d638(Script::Parameter* arg0, int arg1)
                 {
                     const char* var2 = (arg0++)->ToString();
                     var1++;
-                    unsigned short* var3 = func_0209998c(var0, var2);
+                    unsigned short* var3 = FindMapListEntryByShortName_0209998c(var0, var2);
 
                     if (var3 == NULL)
                         return 0;
@@ -475,7 +475,7 @@ extern "C" int func_0201d638(Script::Parameter* arg0, int arg1)
             if (arg0->type == 0)
             {
                 const char* var12 = (arg0++)->ToString();
-                unsigned short* var13 = func_0209998c(var0, var12);
+                unsigned short* var13 = FindMapListEntryByShortName_0209998c(var0, var12);
 
                 if (var13 == NULL)
                     return 0;

@@ -2,7 +2,7 @@
 
 struct Struct_0204a170;
 struct Struct_0202e6a8;
-struct Struct_0202e71c;
+struct Camera_0202e71c;
 
 extern "C" void func_020a2d14(void* arg0);
 extern "C" int func_020a3570(struct Struct_0204a170* arg0);
@@ -13,7 +13,7 @@ extern "C" int GetCameraYaw_0202e7f0(void* camera);
 int fix32ReduceAngle0To2Pi(int angle);
 extern "C" void func_0202e6a8(struct Struct_0202e6a8* arg0, int arg1);
 extern "C" int GetCameraDistance_0202e800(void* camera);
-extern "C" void func_0202e71c(struct Struct_0202e71c* arg0, int arg1);
+extern "C" void SetCameraDistance_0202e71c(struct Camera_0202e71c* camera, int distance);
 extern "C" void func_ov000_0216f2b8(void* arg0);
 
 struct Struct_ov000_0216d464 {
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov000_0216d464(struct Struct_ov000_0216d464* arg0) {
         if (var4 < 0x3000) {
             var4 = 0x3000;
         }
-        func_0202e71c((struct Struct_0202e71c*)arg0, var4);
+        SetCameraDistance_0202e71c((struct Camera_0202e71c*)arg0, var4);
     }
     func_ov000_0216f2b8(arg0);
     func_ov000_0216f3d4(arg0);

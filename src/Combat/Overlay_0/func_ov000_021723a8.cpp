@@ -16,7 +16,7 @@
 
 struct TextWindowManager_0205cfd4 { char unknown_0_[0xbc]; };
 struct KeyMenuCursor_0205bef8 { char unknown_0_[0x40]; };
-struct Struct_02092aa4 { char unknown_0_[0x3c]; };
+struct CallToArms_02092aa4 { char unknown_0_[0x3c]; };
 #if defined(jpn)
 struct Struct_0203c0cc { char unknown_0_[0x38]; };
 enum { Enum_ov000_021723a8_1096 = 0x488, Enum_ov000_021723a8_9 = 5 };
@@ -29,7 +29,7 @@ extern "C" void func_020de848(void* itemTable);
 extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4* windowManager);
 extern "C" void InitKeyMenuCursor_0205bef8(struct KeyMenuCursor_0205bef8* cursor);
 extern "C" void InitTextWindow_0204c684(void* textWindow);
-extern "C" void ResetCallToArms_02092aa4(Struct_02092aa4* callToArms, int callerIndex);
+extern "C" void ResetCallToArms_02092aa4(CallToArms_02092aa4* callToArms, int callerIndex);
 extern "C" void* func_0202ae18(GameState* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_0203c0cc(struct Struct_0203c0cc* arg0);
@@ -58,7 +58,7 @@ struct Struct_ov000_021723a8 {
     int unknown_68_;
     signed char unknown_6c_[4];
     char unknown_70_[0x7c - 0x70];
-    struct Struct_02092aa4 unknown_7c_;
+    struct CallToArms_02092aa4 unknown_7c_;
     char unknown_b8_[0xd0 - 0xb8];
     char unknown_d0_[0xe8 - 0xd0];
     char unknown_e8_[0x11c - 0xe8];

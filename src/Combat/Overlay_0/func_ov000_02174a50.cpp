@@ -7,9 +7,9 @@ extern "C" void func_ov000_021710ac(void* arg0, int arg1, int arg2);
 extern "C" void PositionPartyMemberPanels_ov000_02174b14(void* battleUI);
 extern int data_ov000_02183ff0;
 
-struct Struct_ov000_02174a50 {
+struct PartyMemberPanel_ov000_02174a50 {
     char unknown_0_[0x4c];
-    int unknown_4c_;
+    int memberIndex_4c_;
 #if defined(jpn)
     char unknown_50_[0x488 - 0x50];
 #else
@@ -23,11 +23,11 @@ extern "C" ARM void func_ov000_02174a50(void* arg0, int arg1) {
     if (!var0) {
         return;
     }
-    struct Struct_ov000_02174a50* var1 = (struct Struct_ov000_02174a50*)((char*)arg0 + 0x958);
+    struct PartyMemberPanel_ov000_02174a50* var1 = (struct PartyMemberPanel_ov000_02174a50*)((char*)arg0 + 0x958);
     for (int var2 = 0; var2 < 4; var2++) {
         signed char var3 = *(signed char*)((char*)arg0 + var2 + 0x6c);
-        struct Struct_ov000_02174a50* var4 = var1 + var3;
-        if (arg1 == var4->unknown_4c_) {
+        struct PartyMemberPanel_ov000_02174a50* var4 = var1 + var3;
+        if (arg1 == var4->memberIndex_4c_) {
             func_0203c0f0((struct Struct_0203c0cc*)((char*)var4 + 0x50));
 #if defined(jpn)
             enum { Enum_ov000_02174a50_104 = 0x88 };

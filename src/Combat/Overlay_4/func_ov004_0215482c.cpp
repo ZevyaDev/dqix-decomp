@@ -15,7 +15,7 @@ struct Struct_ov004_0215482c {
 struct Struct_ov004_0216fa7c {
     unsigned short unknown_0_[2];
 };
-extern Struct_ov004_0215482c* data_ov004_021707c0;
+extern Struct_ov004_0215482c* gWardrobeCompletion_ov004_021707c0;
 extern const Struct_ov004_0216fa7c data_ov004_0216fa7c;
 
 class Struct_ov004_0215482c_2 {
@@ -56,9 +56,9 @@ extern "C" ARM int func_ov004_0215482c(void* arg0) {
     func_ov023_021f645c(arg0, 0x34, var3, 0xf);
 
     Struct_ov004_0216fa7c var4 = data_ov004_0216fa7c;
-    func_ov023_021f645c(arg0, 0x35, var4.unknown_0_[data_ov004_021707c0->unknown_7c_], 0xf);
+    func_ov023_021f645c(arg0, 0x35, var4.unknown_0_[gWardrobeCompletion_ov004_021707c0->unknown_7c_], 0xf);
 
-    int var5 = (data_ov004_021707c0->unknown_7c_ == 0) ? 1 : 0;
+    int var5 = (gWardrobeCompletion_ov004_021707c0->unknown_7c_ == 0) ? 1 : 0;
 
     Struct_ov004_0215482c_2* var6 = (Struct_ov004_0215482c_2*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x39);
     if (var6) {

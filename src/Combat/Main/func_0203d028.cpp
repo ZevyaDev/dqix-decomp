@@ -53,14 +53,14 @@ struct Struct_020652b4 { int unknown_0_; };
 extern "C" int func_020652b4(struct Struct_020652b4* arg0);
 extern "C" int func_0206dda4(int* arg0);
 
-struct Struct_0203d028_6 {
-    unsigned int unknown_0_;
-    unsigned char unknown_4_;
+struct NPCSpriteCache_0203d028_6 {
+    unsigned int slotCount_0_;
+    unsigned char loadCount_4_;
     unsigned char unknown_5_;
     unsigned char unknown_6_[2];
-    void* unknown_8_;
+    void* pSlots_8_;
 };
-extern "C" void func_020401fc(struct Struct_0203d028_6* arg0, unsigned int arg1, SafeAllocator* arg2);
+extern "C" void InitNPCSpriteCache_020401fc(struct NPCSpriteCache_0203d028_6* spriteCache, unsigned int slotCount, SafeAllocator* allocator);
 
 extern "C" int func_020652c8(int* arg0);
 
@@ -154,7 +154,7 @@ struct Struct_0203d028_3;
 struct Struct_0203d028_13 { char unknown_0_[6]; unsigned short unknown_6_; };
 extern "C" void _ZN8Object3D10SetField06Et(struct Struct_0203d028_13* arg0, int arg1);
 
-extern "C" int* func_ov017_021a4658(void* arg0, int arg1);
+extern "C" int* GetPartyMemberModelLoadTask_ov017_021a4658(void* gameResources, int memberIndex);
 
 struct Queue_0203d028_4;
 extern "C" void UpdateTaskQueue_ov017_021a3498(struct Queue_0203d028_4* queue);
@@ -284,7 +284,7 @@ struct Struct_0203d028_24 {
 };
 
 struct Struct_0203d028_25 {
-    struct Struct_0203d028_6 unknown_0_;
+    struct NPCSpriteCache_0203d028_6 unknown_0_;
     struct Struct_0203d028_24* unknown_c_[0x20];
     int unknown_8c_;
     int unknown_90_;
@@ -330,7 +330,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
     if (func_020652b4((struct Struct_020652b4*)&arg0->unknown_90_) ||
         func_0206dda4((int*)&arg0->unknown_94_))
     {
-        func_020401fc(&arg0->unknown_0_, 0xc, arg2);
+        InitNPCSpriteCache_020401fc(&arg0->unknown_0_, 0xc, arg2);
         return;
     }
 
@@ -349,7 +349,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
     void* var7 = 0;
     unsigned int var8 = 0;
     int var9 = 0;
-    func_020401fc(&arg0->unknown_0_, 0xc, arg2);
+    InitNPCSpriteCache_020401fc(&arg0->unknown_0_, 0xc, arg2);
 
     if (IsQuestersRestZone_020981e4((int)GLOBAL_SUB, var6) &&
         IsQuestersRestLobbyZone_02098210((int)GLOBAL_SUB, var6) == 0) {
@@ -432,7 +432,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
                     var10->unknown_1c_ = (Struct_0203d028_3*)((GameState*)var0)->GetGameObjectByIndex(5);
                     _ZN8Object3D10SetField06Et((struct Struct_0203d028_13*)var10->unknown_1c_, var6);
 
-                    int* var30 = func_ov017_021a4658(var1, 5);
+                    int* var30 = GetPartyMemberModelLoadTask_ov017_021a4658(var1, 5);
                     var30[3] = 1;
 
                     char* var31 = (char*)var1 + 0x3000;

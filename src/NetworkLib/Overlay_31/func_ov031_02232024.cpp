@@ -6,7 +6,7 @@ extern Struct_ov031_02290cbc data_ov031_02290cbc;
 extern "C" void func_ov031_0223208c(void);
 extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
 extern "C" void func_ov031_022239f4(void);
-extern "C" void func_ov031_02223518(int);
+extern "C" void ShowStepIndicator_ov031_02223518(int);
 extern "C" void ShowMainScreenMessage_ov031_022235a0(int);
 extern "C" void func_ov031_02222b0c(int);
 extern "C" void func_ov031_02235780(void);
@@ -22,7 +22,7 @@ extern "C" ARM void func_ov031_02232024(void) {
 	func_ov031_0223208c();
 	ShowSubScreenMessage_ov031_0222336c(0x33, -1, 0);
 	func_ov031_022239f4();
-	func_ov031_02223518(2);
+	ShowStepIndicator_ov031_02223518(2);
 	ShowMainScreenMessage_ov031_022235a0(0x33);
 	func_ov031_02222b0c(0);
 	func_ov031_02235780();

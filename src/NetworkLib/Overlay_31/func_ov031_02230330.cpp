@@ -11,7 +11,7 @@ struct Struct_ov031_02290ca0_15 {
 };
 
 extern "C" int FastIntDivide(int arg0, unsigned int arg1);
-extern "C" int func_ov031_0223d49c(Struct_ov031_02248f60* arg0);
+extern "C" int IsTouchPressInRect_ov031_0223d49c(Struct_ov031_02248f60* rect);
 extern "C" int func_ov031_0223d634(Struct_ov031_02248f60* arg0);
 
 extern Struct_ov031_02248f60 data_ov031_022493b8;
@@ -27,7 +27,7 @@ extern Struct_ov031_02248f60 data_ov031_02248fea[3];
 extern "C" ARM int func_ov031_02230330(void) {
 	Struct_ov031_02248f60 var0;
 
-	if (!func_ov031_0223d49c(&data_ov031_022493b8)) return 0xe;
+	if (!IsTouchPressInRect_ov031_0223d49c(&data_ov031_022493b8)) return 0xe;
 
 	{
 		int var1 = FastIntDivide(gConnectionSettingsPage_ov031_02290ca0.unknown_4_, 0x1d);
@@ -82,7 +82,7 @@ extern "C" ARM int func_ov031_02230330(void) {
 		Struct_ov031_02248f60* var9 = data_ov031_02248fea;
 		int var10 = 0;
 		do {
-			if (func_ov031_0223d49c(var9)) return var10 + 0xb;
+			if (IsTouchPressInRect_ov031_0223d49c(var9)) return var10 + 0xb;
 			var10++;
 			var9++;
 		} while (var10 < 3);

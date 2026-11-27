@@ -7,7 +7,7 @@
 
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_02053c6c(unsigned char* gameObject);
-extern "C" void func_ov023_021e60e0(void* arg0, unsigned int arg1);
+extern "C" void SetCharacterModelFacing_ov023_021e60e0(void* model, unsigned int angle);
 extern "C" void func_ov023_021e616c(char* arg0);
 extern "C" int func_ov023_021e5974(int arg0, int arg1, int arg2, int arg3, int arg4);
 
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov023_021fc71c(void* arg0, int arg1, int arg2) {
     int var4 = var3 * 0xc20;
     char* var5 = (char*)arg0 + 0x20;
     if (arg2 != 0) {
-        func_ov023_021e60e0(var5 + var4, 0x1eb);
+        SetCharacterModelFacing_ov023_021e60e0(var5 + var4, 0x1eb);
     }
     func_ov023_021e616c(var5 + var4);
     int var6 = func_02053c6c((unsigned char*)var1);

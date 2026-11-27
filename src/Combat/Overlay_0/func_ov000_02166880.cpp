@@ -34,7 +34,7 @@
 #endif
 
 extern "C" void func_0202ae18(void);
-extern "C" void func_02013718(char* arg0, int arg1, int arg2);
+extern "C" void InitZone_02013718(char* zone, int allocator, int textureArena);
 extern "C" void GetZone3D_02012fe4(void);
 extern "C" int IsScriptedBattle_020a3694(int* battleSetup);
 extern "C" void* func_02011584(void* gameState);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov000_02166880(unsigned char* arg0) {
     struct Struct_ov000_02166880* var1 = (struct Struct_ov000_02166880*)(int)BackgroundLoader::GetInstance();
     var0->GetProtagonist();
     func_0202ae18();
-    func_02013718((char*)(arg0 + REGION_OFFSET_0 + 0xc00), (int)(arg0 + 8), (int)(arg0 + REGION_OFFSET_1 + REGION_OFFSET_2));
+    InitZone_02013718((char*)(arg0 + REGION_OFFSET_0 + 0xc00), (int)(arg0 + 8), (int)(arg0 + REGION_OFFSET_1 + REGION_OFFSET_2));
     GetZone3D_02012fe4();
 
     if (IsScriptedBattle_020a3694(*(int**)(arg0 + REGION_OFFSET_3))) {

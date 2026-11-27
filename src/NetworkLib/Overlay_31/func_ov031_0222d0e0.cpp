@@ -7,7 +7,7 @@ struct Struct_ov031_02248eb4 {
 };
 
 extern struct Struct_ov031_02248eb4 data_ov031_02248eb4;
-extern void* data_ov031_02290c94;
+extern void* gTextEntryPage_ov031_02290c94;
 
 extern "C" int func_ov031_02223fdc(void);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov031_0222d0e0(void) {
 
 	if (func_ov031_02223fdc() != 0) return;
 
-	unsigned char var1 = *((unsigned char*)data_ov031_02290c94 + 0x2a);
+	unsigned char var1 = *((unsigned char*)gTextEntryPage_ov031_02290c94 + 0x2a);
 	if (var1 == 0) {
 		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222d1b8);
 		return;

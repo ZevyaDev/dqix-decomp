@@ -11,7 +11,7 @@ struct Struct_ov031_02224248 {
 };
 extern Struct_ov031_02224248* gKeyboard_ov031_02250bfc;
 
-extern "C" void func_ov031_02224ca4(int arg0, int arg1, int arg2);
+extern "C" void SetKeyboardRowY_ov031_02224ca4(int characterSet, int row, int y);
 extern "C" void func_ov031_0222506c(void);
 extern "C" void SetTaskCallback_ov031_0223e2b8(void* task, int callback);
 extern "C" void func_ov031_022242d4(void);
@@ -23,10 +23,10 @@ extern "C" ARM void func_ov031_02224248(void* arg0) {
 	int var2 = (int)var1 - 0xc;
 	var1 = (unsigned int)var2;
 	if (var2 > 0xaa) {
-		func_ov031_02224ca4(gKeyboard_ov031_02250bfc->unknown_11d_, 4, var2);
+		SetKeyboardRowY_ov031_02224ca4(gKeyboard_ov031_02250bfc->unknown_11d_, 4, var2);
 		return;
 	}
-	func_ov031_02224ca4(gKeyboard_ov031_02250bfc->unknown_11d_, 4, 0xaa);
+	SetKeyboardRowY_ov031_02224ca4(gKeyboard_ov031_02250bfc->unknown_11d_, 4, 0xaa);
 	func_ov031_0222506c();
 	SetTaskCallback_ov031_0223e2b8(arg0, (int)func_ov031_022242d4);
 }

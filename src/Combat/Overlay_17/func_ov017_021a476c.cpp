@@ -139,8 +139,8 @@ extern "C" void GetNPCPosition_020406f8(Struct_0203de84* outPosition, NPC_0203de
 extern "C" short func_ov017_021a4700(Struct_ov009_0218aa28* arg0, int arg1, Struct_ov009_0218aa28* arg2);
 extern "C" int func_ov017_0218daa8(void* arg0, Struct_ov009_0218aa28* arg1, int arg2, int arg3, unsigned char arg4);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
-extern "C" void func_ov017_0219b33c(Struct_ov017_021a476c_9* arg0, Struct_ov017_021a476c_6* arg1);
-extern "C" int func_02039860(void* arg0);
+extern "C" void SubmitInteractionPrompt_ov017_0219b33c(Struct_ov017_021a476c_9* gameResources, Struct_ov017_021a476c_6* candidate);
+extern "C" int GetFollowedObjectIndex_02039860(void* object);
 extern "C" unsigned int func_02039de8(unsigned char* arg0);
 extern "C" Struct_ov017_021a476c_7* func_0205ec34(void);
 extern "C" int func_ov017_0218d4ec(void* arg0, int arg1);
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
                         var0.unknown_2_ = data_ov017_021d76da;
                     }
                     if (!var14) {
-                        func_ov017_0219b33c(arg0, &var0);
+                        SubmitInteractionPrompt_ov017_0219b33c(arg0, &var0);
                     }
                 }
             }
@@ -294,7 +294,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
             if (var22->unknown_18c_ & 1) {
                 continue;
             }
-            if (func_02039860(var22) >= 0) {
+            if (GetFollowedObjectIndex_02039860(var22) >= 0) {
                 continue;
             }
             if (func_02039de8((unsigned char*)var22)) {
@@ -337,7 +337,7 @@ extern "C" ARM void func_ov017_021a476c(Struct_ov017_021a476c_9* arg0) {
                     var1.unknown_10_ = fix32abs(func_ov017_021a4700((Struct_ov009_0218aa28*)&var5->unknown_0_.position_, (short)var5->unknown_0_.rotation_.y, (Struct_ov009_0218aa28*)&var16->unknown_0_.position_));
                     if (var1.unknown_10_ < 0x1922) {
                         var1.unknown_2_ = data_ov017_021d76d8;
-                        func_ov017_0219b33c(arg0, &var1);
+                        SubmitInteractionPrompt_ov017_0219b33c(arg0, &var1);
                     }
                 }
             }

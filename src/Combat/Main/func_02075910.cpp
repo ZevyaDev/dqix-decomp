@@ -37,16 +37,16 @@ extern "C" ARM int ReadSaveMemory_02075910(int offset, int destination, int leng
     int isSuccess = 1;
     func_020d0040((int)data_02108dfc.lockOwnerID_2_);
 
-    int var1 = ((func_020d06d4() & 0xff) == 1);
-    if (var1) {
+    int isKnownSaveMemoryKind = ((func_020d06d4() & 0xff) == 1);
+    if (isKnownSaveMemoryKind) {
         func_020d05ec(offset, destination, length, func_020758a0, 0, 1, 6, 1, 0);
     } else {
-        var1 = ((func_020d06d4() & 0xff) == 2);
-        if (var1) {
+        isKnownSaveMemoryKind = ((func_020d06d4() & 0xff) == 2);
+        if (isKnownSaveMemoryKind) {
             func_020d05ec(offset, destination, length, func_020758a0, 0, 1, 6, 1, 0);
         } else {
-            var1 = ((func_020d06d4() & 0xff) == 3);
-            if (var1) {
+            isKnownSaveMemoryKind = ((func_020d06d4() & 0xff) == 3);
+            if (isKnownSaveMemoryKind) {
                 func_020d05ec(offset, destination, length, func_020758a0, 0, 1, 6, 1, 0);
             }
         }

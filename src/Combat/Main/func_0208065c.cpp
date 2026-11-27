@@ -13,21 +13,21 @@ struct MenuLayoutWindowEntry_0207f0ac_2 {
 struct MenuLayoutTextEntry_0207f6ac;
 struct MenuLayoutWindowEntryList_0207f0ac { MenuLayoutWindowEntry_0207f0ac_2* pEntries_0_; short count_4_; };
 struct MenuLayoutTextEntryList_0207f524 { MenuLayoutTextEntry_0207f6ac* pEntries_0_; short count_4_; };
-struct Struct_0208065c {
+struct MenuLayout_0208065c {
     void* unknown_0_;
-    MenuLayoutTextEntryList_0207f524 unknown_4_;
-    MenuLayoutWindowEntryList_0207f0ac unknown_c_;
+    MenuLayoutTextEntryList_0207f524 textEntries_4_;
+    MenuLayoutWindowEntryList_0207f0ac windowEntries_c_;
 };
 
 extern "C" MenuLayoutWindowEntry_0207f0ac_2* FindMenuLayoutWindowEntry_0207f0ac(MenuLayoutWindowEntryList_0207f0ac* windowEntries, int windowId);
 extern "C" void func_0207f7cc(struct MenuLayoutTextEntryList_0207f524* arg0, int arg1, int arg2);
 
-// USA: func_0208065c
-extern "C" ARM void func_0208065c(void* arg0, int arg1) {
-    Struct_0208065c* var0 = (Struct_0208065c*)arg0;
-    MenuLayoutWindowEntry_0207f0ac_2* var1 = FindMenuLayoutWindowEntry_0207f0ac(&var0->unknown_c_, arg1);
-    if (var1 == NULL) return;
-    for (unsigned char var2 = 0; var2 < var1->unknown_13_; var2++) {
-        func_0207f7cc(&var0->unknown_4_, var1->unknown_0_[var2], 2);
+// USA: SetMenuLayoutWindowTextsSelectable_0208065c
+extern "C" ARM void SetMenuLayoutWindowTextsSelectable_0208065c(void* layout, int windowId) {
+    MenuLayout_0208065c* menuLayout = (MenuLayout_0208065c*)layout;
+    MenuLayoutWindowEntry_0207f0ac_2* windowEntry = FindMenuLayoutWindowEntry_0207f0ac(&menuLayout->windowEntries_c_, windowId);
+    if (windowEntry == NULL) return;
+    for (unsigned char i = 0; i < windowEntry->unknown_13_; i++) {
+        func_0207f7cc(&menuLayout->textEntries_4_, windowEntry->unknown_0_[i], 2);
     }
 }

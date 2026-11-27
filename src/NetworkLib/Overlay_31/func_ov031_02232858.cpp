@@ -2,7 +2,7 @@
 
 struct Struct_ov031_0224909a { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
 
-extern "C" int func_ov031_0223d49c(Struct_ov031_0224909a*);
+extern "C" int IsTouchPressInRect_ov031_0223d49c(Struct_ov031_0224909a*);
 extern "C" void func_ov031_02232ce8(void);
 extern "C" int func_ov031_0223d394(int);
 extern "C" void func_ov031_02232d64(int);
@@ -17,7 +17,7 @@ extern "C" ARM void func_ov031_02232858(void) {
     unsigned int var0 = 0;
     Struct_ov031_0224909a* var1 = data_ov031_0224909a;
     do {
-        if (func_ov031_0223d49c(var1)) {
+        if (IsTouchPressInRect_ov031_0223d49c(var1)) {
             SetButtonBarChoice_ov031_02222e20(1);
             gConnectionListPage_ov031_02290cc0 = var0;
             func_ov031_02232ce8();

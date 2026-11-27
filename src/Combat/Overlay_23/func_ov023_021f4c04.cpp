@@ -199,7 +199,7 @@ extern "C" void PlayJingle_0209c6d8(void* manager, int jingleIndex);
 extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
 extern "C" void func_ov017_021cbfb8(unsigned short arg0, unsigned char arg1);
-extern "C" void func_0209c7fc(void* arg0);
+extern "C" void StopJingle_0209c7fc(void* manager);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void SetBattleSceneState_ov000_02160d80(void* battleScene, int state);
@@ -305,7 +305,7 @@ extern "C" ARM void func_ov023_021f4c04(BattleScene_ov000_02160da0* arg0) {
             func_ov017_021cbfb8(arg0->unknown_2a0_->unknown_8_, 1);
         }
         *(unsigned char*)((char*)var3 + REGION_LAYOUT(0x54c8, 0x5728)) = 0;
-        func_0209c7fc(&gMusicManager_02109bf4);
+        StopJingle_0209c7fc(&gMusicManager_02109bf4);
         ResetMessageWindow_02043204((char*)var4);
         CloseMessageWindow_02043124(var4);
         SetBattleSceneState_ov000_02160d80(arg0, 4);

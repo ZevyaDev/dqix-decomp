@@ -102,7 +102,7 @@ extern "C" void __clear(void*, int);
 extern "C" void CopyCapitalizedText_0206819c(const char*, char*, int);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void func_02046608(void*, int, char*, char*, int, int, unsigned char);
-extern "C" void func_ov023_021e24b0(void*, int, int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
+extern "C" void SetLayoutGroupNumber_ov023_021e24b0(void*, int, int, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char);
 extern "C" void func_ov023_021e23d0(void*, int, int, unsigned char, unsigned char);
 struct Struct_0201099c_3;
 extern "C" struct Struct_ov003_0215d4fc* func_ov014_021842a0(void*, short);
@@ -172,15 +172,15 @@ extern "C" ARM void func_ov014_02185c90(struct Struct_ov000_0217c638_2* arg0) {
                 var19 = arg0->unknown_5c_;
                 var21 = arg0->unknown_48_;
                 if (var18 && var21 && var19 && var20 && var20->unknown_0_0_) {
-                    func_ov023_021e24b0(var18, 2, var21->unknown_1a_, 8, 0xf, 1, 3, 0, 1);
+                    SetLayoutGroupNumber_ov023_021e24b0(var18, 2, var21->unknown_1a_, 8, 0xf, 1, 3, 0, 1);
                     func_ov023_021e23d0(var18, 3, (int)var21->unknown_8_, 0xa, 0xf);
                     func_ov023_021e23d0(var18, 4, (int)(((void*)((StringList*)((Struct_0201099c_3*)var19))->GetString(var21->unknown_12_))), 0xa, 0xf);
                     SetBit4(var18, 4);
                     if (&arg0->unknown_9c_ && arg0->unknown_9c_.unknown_4_ > 0) {
-                        func_ov023_021e24b0(var18, 5, arg0->unknown_9c_.unknown_0_, 8, 0xf, 1, 6, 0, 0);
-                        func_ov023_021e24b0(var18, 6, arg0->unknown_9c_.unknown_6_, 8, 0xf, 1, 6, 0, 0);
+                        SetLayoutGroupNumber_ov023_021e24b0(var18, 5, arg0->unknown_9c_.unknown_0_, 8, 0xf, 1, 6, 0, 0);
+                        SetLayoutGroupNumber_ov023_021e24b0(var18, 6, arg0->unknown_9c_.unknown_6_, 8, 0xf, 1, 6, 0, 0);
                     }
-                    func_ov023_021e24b0(var18, 7, var20->unknown_0_0_, 8, 0xf, 1, 6, 0, 0);
+                    SetLayoutGroupNumber_ov023_021e24b0(var18, 7, var20->unknown_0_0_, 8, 0xf, 1, 6, 0, 0);
                     ClrBit0(var18, 8);
                     ClrBit0(var18, 0xa);
                     ClrBit0(var18, 0xc);
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov014_02185c90(struct Struct_ov000_0217c638_2* arg0) {
                             SetBit0(var18, 0xa);
                             SetBit0(var18, 0xc);
                             func_ov023_021e23d0(var18, 8, (int)var14, 0xa, 0xf);
-                            func_ov023_021e24b0(var18, 0xa, var20->unknown_1_3_, 8, 0xf, 1, 3, 0, 0);
+                            SetLayoutGroupNumber_ov023_021e24b0(var18, 0xa, var20->unknown_1_3_, 8, 0xf, 1, 3, 0, 0);
                             func_ov023_021e23d0(var18, 0xc, (int)(((void*)((StringList*)((Struct_0201099c_3*)var19))->GetString(0xf))), 0xa, 0xf);
                             var25 = 9;
                             var24 = 0xb;
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov014_02185c90(struct Struct_ov000_0217c638_2* arg0) {
                             SetBit0(var18, var24);
                             SetBit0(var18, var23);
                             func_ov023_021e23d0(var18, var25, (int)var15, 0xa, 0xf);
-                            func_ov023_021e24b0(var18, var24, var20->unknown_2_2_, 8, 0xf, 1, 3, 0, 0);
+                            SetLayoutGroupNumber_ov023_021e24b0(var18, var24, var20->unknown_2_2_, 8, 0xf, 1, 3, 0, 0);
                             func_ov023_021e23d0(var18, var23, (int)(((void*)((StringList*)((Struct_0201099c_3*)var19))->GetString(0xf))), 0xa, 0xf);
                         }
                     }
@@ -238,9 +238,9 @@ extern "C" ARM void func_ov014_02185c90(struct Struct_ov000_0217c638_2* arg0) {
                         SetBit0(var18, 0x17);
                         func_ov023_021e23d0(var18, 0x17, (int)(((void*)((StringList*)((Struct_0201099c_3*)var19))->GetString(0x1c))), 8, 0xf);
                         SetBit0(var18, 0x18);
-                        func_ov023_021e24b0(var18, 0x18, var22 + 1, 8, 0xf, 0, 1, 0, 0);
+                        SetLayoutGroupNumber_ov023_021e24b0(var18, 0x18, var22 + 1, 8, 0xf, 0, 1, 0, 0);
                         SetBit0(var18, 0x19);
-                        func_ov023_021e24b0(var18, 0x19, 2, 8, 0xf, 0, 1, 0, 0);
+                        SetLayoutGroupNumber_ov023_021e24b0(var18, 0x19, 2, 8, 0xf, 0, 1, 0, 0);
                     }
                     ClrBit0(var18, 0xe);
                     ClrBit0(var18, 0xf);

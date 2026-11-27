@@ -14,8 +14,8 @@ extern "C" int func_ov024_021f6f10(void* arg0);
 #else
 extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
-struct Struct_ov004_02158dcc;
-extern "C" void func_ov011_021849e0(struct Struct_ov004_02158dcc* arg0, unsigned short arg1);
+struct Menu_ov004_02158dcc;
+extern "C" void SetActiveMenuGrid_ov011_021849e0(struct Menu_ov004_02158dcc* menu, unsigned short gridId);
 struct Struct_ov004_021698f4;
 extern "C" void* func_ov023_021f9c0c(struct Struct_ov004_021698f4* arg0);
 
@@ -25,6 +25,6 @@ extern "C" ARM void* func_ov004_0216b1c4(void* arg0, int arg1) {
     if (!var0) return var0;
     int var1 = func_ov024_021f6f10(var0);
     if (var1 != 7) return (void*)var1;
-    func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, (unsigned short)arg1);
+    SetActiveMenuGrid_ov011_021849e0((struct Menu_ov004_02158dcc*)arg0, (unsigned short)arg1);
     return func_ov023_021f9c0c((struct Struct_ov004_021698f4*)var0);
 }

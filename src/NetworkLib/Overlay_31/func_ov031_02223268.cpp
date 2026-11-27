@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Struct_ov031_022269d8;
-struct Struct_ov031_02223268_2;
+struct OAMAllocation_ov031_022269d8;
+struct OAMEntry_ov031_02223268_2;
 struct OAMAllocation_ov031_02222ce4;
 
 struct Struct_ov031_02223268 {
-	Struct_ov031_022269d8* unknown_0_[4];
+	OAMAllocation_ov031_022269d8* unknown_0_[4];
 	void* unknown_10_;
 	unsigned short unknown_14_;
 	signed char unknown_16_;
@@ -15,7 +15,7 @@ extern Struct_ov031_02223268* gButtonBar_ov031_02250ba8;
 extern unsigned char data_ov031_02248940[];
 extern unsigned char data_ov031_02248924[][2];
 
-extern "C" Struct_ov031_02223268_2* func_ov031_0223baa0(Struct_ov031_022269d8* arg0, int arg1);
+extern "C" OAMEntry_ov031_02223268_2* GetSpriteOAMEntry_ov031_0223baa0(OAMAllocation_ov031_022269d8* sprite, int entryIndex);
 extern "C" void CopySpriteOAMEntries_ov031_0223bdb0(int isSubScreen, int spriteId, void* oamEntries);
 extern "C" ARM void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4* sprite, int entryIndex, int priority);
 extern "C" ARM void func_ov031_02222eb0(void* arg0);
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov031_02223268(int arg0) {
 	if (var0 > 0) {
 		do {
 			unsigned char var2 = data_ov031_02248924[gButtonBar_ov031_02250ba8->unknown_17_][var1];
-			Struct_ov031_02223268_2* var3 = func_ov031_0223baa0(gButtonBar_ov031_02250ba8->unknown_0_[var1], 0);
+			OAMEntry_ov031_02223268_2* var3 = GetSpriteOAMEntry_ov031_0223baa0(gButtonBar_ov031_02250ba8->unknown_0_[var1], 0);
 			CopySpriteOAMEntries_ov031_0223bdb0(0, var2, var3);
 			SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)gButtonBar_ov031_02250ba8->unknown_0_[var1], -1, 1);
 			var1++;

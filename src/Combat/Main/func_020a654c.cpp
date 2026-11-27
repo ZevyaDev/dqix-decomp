@@ -31,8 +31,8 @@ struct Struct_0200ffc0;
 extern "C" void* func_0200ffc0(Struct_0200ffc0*);
 struct QueueNode_02015438;
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
-struct Struct_02046b1c;
-extern "C" void* func_02046b1c(Struct_02046b1c*);
+struct Queue_02046b1c;
+extern "C" void* GetQueueHead_02046b1c(Queue_02046b1c*);
 struct GameResources;
 int IsBrightnessTransitionActive(GameResources*);
 extern "C" void func_020a75ec(void* arg0);
@@ -52,7 +52,7 @@ extern "C" ARM void func_020a654c(struct Struct_020a654c* arg0) {
     void* var3 = func_0200ffc0((Struct_0200ffc0*)var0);
     ((GameState*)var0)->GetUnknownGameObject();
     int var4 = GetQueueHeadType_02046b24((QueueNode_02015438**)var2);
-    void* var5 = func_02046b1c((Struct_02046b1c*)var2);
+    void* var5 = GetQueueHead_02046b1c((Queue_02046b1c*)var2);
     if (var3 == 0) {
         return;
     }

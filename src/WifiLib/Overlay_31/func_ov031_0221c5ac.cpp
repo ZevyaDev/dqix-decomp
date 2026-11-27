@@ -108,7 +108,7 @@ extern "C" void func_ov031_0221e6d4(Struct_ov031_0221c5ac_6* arg0);
 extern "C" void func_ov031_0221e6e0(int arg0, Struct_ov031_0221c5ac_6* arg1);
 extern "C" int func_ov031_0221e54c(int arg0, Struct_ov031_0221c5ac_6* arg1, void* arg2, void* arg3, Struct_ov031_0221c5ac_4* arg4);
 extern "C" int func_ov031_0221e538(int arg0, void* arg1, int arg2, int arg3, Struct_ov031_0221c5ac_3* arg4, int* arg5);
-extern "C" int func_ov031_0221e638(unsigned short arg0);
+extern "C" int SwapBytes16_ov031_0221e638(unsigned short value);
 extern "C" int func_ov031_0221d3b0(int arg0, Struct_ov031_0221c5ac_5* arg1, int* arg2, void* arg3, int arg4);
 extern "C" int func_ov031_0221d06c(void);
 extern "C" int func_ov031_0221d078(Struct_ov031_0221c5ac* arg0);
@@ -437,7 +437,7 @@ extern "C" THUMB int func_ov031_0221c5ac(Struct_ov031_0221c5ac* arg0) {
         var8 = 8;
         var23 = func_ov031_0221e538(data_ov031_0224b070.unknown_0_, var16->unknown_c_, 0x5dc, 0, &var7, &var8);
         var16->unknown_0_ = data_ov031_0224b070.unknown_0_;
-        var16->unknown_4_ = func_ov031_0221e638(var23);
+        var16->unknown_4_ = SwapBytes16_ov031_0221e638(var23);
         var14 = func_ov031_0221d3b0(var13, var16, &var6, var0, data_ov031_0224b070.unknown_0_);
         if (var14 == 100) {
             var20 = 0;

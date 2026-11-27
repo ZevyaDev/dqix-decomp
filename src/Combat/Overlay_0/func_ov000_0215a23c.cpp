@@ -57,7 +57,7 @@ extern "C" int func_ov000_02158324(GameObject* arg0);
 extern "C" int func_ov000_0215830c(GameObject* arg0);
 extern "C" int GetLevel_0202053c(void* gameObject);
 extern "C" short HealCombatant_ov000_0215a16c(void* battle, int combatantIndex, int amount, short* healedAmount);
-extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
+extern "C" short RestoreCombatantMP_ov000_0215a1d4(void* battle, int combatantIndex, int amount, short* restoredAmount);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" int IsEnvenomated_02088514(Struct_02088514* stats);
 float NextRandomFloatBetween(Random* random, float minimum, float maximum);
@@ -146,7 +146,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
             var21 += (int)(1.0f + NextRandomFloatBetween((Random*)arg0, 0.0f, var22));
         }
         if (var21 > 0) {
-            var5[var9] = func_ov000_0215a1d4(arg0, var11[var18], var21, &var3[var9]);
+            var5[var9] = RestoreCombatantMP_ov000_0215a1d4(arg0, var11[var18], var21, &var3[var9]);
             var6[var9] = var11[var18];
             var4[var9] |= 0x800000000ULL;
             if (var3[var9] > 0) {
@@ -194,7 +194,7 @@ extern "C" ARM void func_ov000_0215a23c(void* arg0) {
                     var28 = 3;
                 }
             }
-            func_ov000_0215a1d4(arg0, var11[var26], var28, &var29);
+            RestoreCombatantMP_ov000_0215a1d4(arg0, var11[var26], var28, &var29);
         }
     }
 

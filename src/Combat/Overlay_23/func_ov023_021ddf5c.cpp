@@ -21,7 +21,7 @@ extern "C" void func_0204f41c(void* arg0, short arg1, short arg2, int arg3, int 
 extern "C" void func_02050678(void*,short,short,int,int,int,short*,short*);
 #endif
 extern "C" void func_ov023_021db3c0(void* arg0, int arg1, short arg2, float arg3, unsigned char arg4);
-extern "C" void func_ov023_021e24b0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4, unsigned char arg5, unsigned char arg6, unsigned char arg7, unsigned char arg8);
+extern "C" void SetLayoutGroupNumber_ov023_021e24b0(void* layout, int groupId, int number, unsigned char fontSize, unsigned char colorIndex, unsigned char isRightAligned, unsigned char digitCount, unsigned char hasPlusSign, unsigned char isZeroPadded);
 extern "C" void DrawLayoutElements_ov023_021e257c(void* layout);
 extern "C" void* func_ov023_021db544(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" int func_020dd718(int arg0, int arg1);
@@ -229,7 +229,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
                     func_ov023_021e23d0(arg0->unknown_cc_, var6, ((int)((StringList*)(data_ov023_021ff9e0.unknown_14_))->GetString(0x19)), 8, 0xf);
                 }
                 var7 = labs((int)var4);
-                func_ov023_021e24b0(arg0->unknown_cc_, data_ov023_021fd5d6[var1], var7, 8, 0xf, 1, 3, 0, 0);
+                SetLayoutGroupNumber_ov023_021e24b0(arg0->unknown_cc_, data_ov023_021fd5d6[var1], var7, 8, 0xf, 1, 3, 0, 0);
                 SetEntryOn(arg0, data_ov023_021fd5d6[var1]);
                 break;
             }
@@ -339,7 +339,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
                 break;
             default:
                 var23 = labs((int)var21);
-                func_ov023_021e24b0(arg0->unknown_cc_, data_ov023_021fd5f6[var1], var23, 8, 0xf, 1, 3, 0, 0);
+                SetLayoutGroupNumber_ov023_021e24b0(arg0->unknown_cc_, data_ov023_021fd5f6[var1], var23, 8, 0xf, 1, 3, 0, 0);
                 SetEntryOn(arg0, data_ov023_021fd5f6[var1]);
                 break;
             }
@@ -467,7 +467,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
                 break;
             default:
                 var47 = labs((int)var43);
-                func_ov023_021e24b0(arg0->unknown_cc_, data_ov023_021fd60e[var1], var47, 8, 0xf, 1, 3, 0, 0);
+                SetLayoutGroupNumber_ov023_021e24b0(arg0->unknown_cc_, data_ov023_021fd60e[var1], var47, 8, 0xf, 1, 3, 0, 0);
                 SetEntryOn(arg0, data_ov023_021fd60e[var1]);
                 break;
             }
@@ -501,7 +501,7 @@ extern "C" ARM void func_ov023_021ddf5c(struct Struct_ov023_021ddf5c_4* arg0) {
                 break;
             default:
                 var47 = labs((int)var44);
-                func_ov023_021e24b0(arg0->unknown_cc_, data_ov023_021fd61e[var1], var47, 8, var45, 1, 3, 0, 0);
+                SetLayoutGroupNumber_ov023_021e24b0(arg0->unknown_cc_, data_ov023_021fd61e[var1], var47, 8, var45, 1, 3, 0, 0);
                 SetEntryOn(arg0, data_ov023_021fd61e[var1]);
                 break;
             }

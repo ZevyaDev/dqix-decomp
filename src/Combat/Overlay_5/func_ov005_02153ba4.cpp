@@ -28,7 +28,7 @@ struct Struct_ov005_02155d6c_2 {
 };
 
 struct Struct_ov005_02153ba4 {
-    short unknown_0_;
+    short itemId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
     void* unknown_4_;
@@ -225,7 +225,7 @@ extern "C" ARM void func_ov005_02153ba4(Struct_ov005_02153954* arg0) {
     arg0->unknown_3d90_ = NULL;
     arg0->unknown_3d94_ = NULL;
     for (int var5 = 0; var5 < 24; var5++) {
-        arg0->unknown_2d90_[var5].unknown_0_ = -1;
+        arg0->unknown_2d90_[var5].itemId_0_ = -1;
         arg0->unknown_2d90_[var5].unknown_2_ = 0;
         arg0->unknown_2d90_[var5].unknown_3_ = 0;
         arg0->unknown_2d90_[var5].unknown_4_ = NULL;

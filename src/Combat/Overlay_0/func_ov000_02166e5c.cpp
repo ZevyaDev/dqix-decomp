@@ -133,7 +133,7 @@ extern "C" void CalculatePartyMemberStats_02083e28(Struct_ov000_02166e5c_6*, int
 extern "C" void SetVocation_02083ca0(unsigned char*, int);
 extern "C" void func_02083c18(char*);
 extern "C" void LearnSpell_02083b60(unsigned char*, int);
-extern "C" void func_020a35cc(unsigned char*, unsigned char);
+extern "C" void AddPartyMemberToBattle_020a35cc(unsigned char*, unsigned char);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 struct Struct_02018300_3;
@@ -242,7 +242,7 @@ extern "C" ARM void func_ov000_02166e5c(Struct_ov000_02166e5c* arg0) {
     var11->unknown_16c_[0] = var13->unknown_12_;
     var11->unknown_56a_ = 0xb;
     var11->unknown_94c_ = 3;
-    func_020a35cc(arg0->unknown_2a0_, 1);
+    AddPartyMemberToBattle_020a35cc(arg0->unknown_2a0_, 1);
     Struct_ov000_02166e5c_8* var15 = (Struct_ov000_02166e5c_8*)GetParty_02010828(var1);
     var15->unknown_f78_[var15->unknown_f7c_++] = 1;
     SetMotion_02033b88((Struct_02010604*)var6, 0);

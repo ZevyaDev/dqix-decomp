@@ -7,7 +7,7 @@
 #include <globaldefs.h>
 
 struct Struct_ov005_02153ba4 {
-    short unknown_0_;
+    short itemId_0_;
     char unknown_2_[0x1c - 2];
 };
 
@@ -37,7 +37,7 @@ func_ov005_0215916c
         if (arg0->unknown_3dbb_ >= 0 && arg0->unknown_3dbb_ < 8)
             func_ov005_02157b74(arg0, 0xffff, 0);
         else if (arg0->unknown_3dbb_ >= 8 && arg0->unknown_3dbb_ < 24)
-            func_ov005_02157b74(arg0, arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_, 0);
+            func_ov005_02157b74(arg0, arg0->unknown_2d90_[arg0->unknown_3dbb_].itemId_0_, 0);
         arg0->unknown_3ddc_++;
     } else if (arg0->unknown_3ddc_ == 1) {
         arg0->unknown_3ddf_ = 4;

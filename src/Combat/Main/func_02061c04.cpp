@@ -67,7 +67,7 @@ extern "C" void func_020ae6e8(int arg0);
 extern "C" void func_020ae730(int arg0);
 extern "C" void func_020ae7d4(int arg0);
 extern "C" void func_020ae880(int arg0);
-extern "C" void func_ov017_021d0d58();
+extern "C" void SendReturnZone_ov017_021d0d58();
 struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5*, int);
 extern "C" void *func_ov017_021b8478(void *battleManager);
@@ -79,7 +79,7 @@ struct QueueNode_020469f8_2;
 extern "C" void PrependToQueue_020469f8(Queue_020469f8*, QueueNode_020469f8_2*);
 extern "C" void func_ov017_021a6b9c(void*, int);
 extern "C" void * func_02064904(void*, int, unsigned int);
-extern "C" void func_ov017_021a5568(void *arg0);
+extern "C" void ResetFieldMenuTask_ov017_021a5568(void *fieldMenuTask);
 extern "C" void func_ov017_021a55a4(unsigned char*, unsigned char, unsigned char);
 void *GetBTRandom();
 struct Random;
@@ -231,8 +231,8 @@ extern "C" void RebuildFieldPartyOrder_ov017_02191108(void *gameResources, int r
 struct Struct_02033b58;
 extern "C" void SetMotionKeepingAnimation_02033b58(Struct_02033b58*, unsigned char);
 extern "C" void *GetActiveZones_02027ca4(void);
-struct Struct_02028bac;
-extern "C" void * func_02028bac(Struct_02028bac*, int);
+struct ActiveZone_02028bac;
+extern "C" void * GetActiveZoneByIndex_02028bac(ActiveZone_02028bac*, int);
 extern "C" void DespawnFieldMonster_ov017_021a23b0(void *gameResources, unsigned short fieldMonsterId);
 extern "C" void func_ov017_021c9544(int arg0, int arg1, int arg2, int arg3);
 extern "C" int GetLocalWirelessState_0202ba00(int *wireless);
@@ -921,7 +921,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             *(unsigned int *)((char *)var108 + 0x2c94) = *(unsigned int *)((char *)var107 + REGION_VALUE(0x7c34, 0x7e74));
             void *var109 = func_0202ae18();
             if (IsLocalWirelessOn_0202b7d8((int *)var109) && !GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4 *)var109))
-                func_ov017_021d0d58();
+                SendReturnZone_ov017_021d0d58();
         }
         return 1;
     }
@@ -995,7 +995,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         void *var121 = GetGameResources();
         void *var122 = *(void **)((char *)var121 + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
         void *var123 = *(void **)((char *)var121 + 0x3000 + REGION_VALUE(0x50c, 0x71c));
-        func_ov017_021a5568(var123);
+        ResetFieldMenuTask_ov017_021a5568(var123);
         func_ov017_021a55a4((unsigned char*)var123, 1, ((unsigned char *)arg1)[2]);
         *(unsigned char *)((char *)var123 + 0x24) = 0;
         *(int *)((char *)var123 + 0x28) = 0;
@@ -1196,7 +1196,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             void *var164 = GetGameResources();
             void *var165 = GetActiveZones_02027ca4();
             for (int var166 = 0; var166 < 4; var166++) {
-                void *var167 = func_02028bac((Struct_02028bac*)var165, var166);
+                void *var167 = GetActiveZoneByIndex_02028bac((ActiveZone_02028bac*)var165, var166);
                 if (!((struct Struct_02061c04_33 *)((char *)var167 + 2))->unknown_0_2_)
                     continue;
                 unsigned short var168 = *(unsigned short *)var167;
@@ -1234,7 +1234,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
             void *var179 = GetParty_02010828((GameState*)var178);
             *(unsigned int *)((char *)var179 + 0x2c94) = arg1->unknown_2_;
             *(unsigned int *)((char *)var178 + REGION_VALUE(0x7c34, 0x7e74)) = arg1->unknown_2_;
-            func_ov017_021d0d58();
+            SendReturnZone_ov017_021d0d58();
         }
         return 1;
     }

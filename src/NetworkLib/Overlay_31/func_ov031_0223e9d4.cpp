@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void func_ov031_0223fb60(void*, unsigned int);
-extern "C" void func_ov031_0221ae00(void*);
+extern "C" void UnpackWifiCredentials_ov031_0221ae00(void*);
 extern "C" int func_ov031_0223fba4(void*, int, int, int);
 extern "C" void func_ov031_0223e454(void*, void*, int);
 
@@ -12,7 +12,7 @@ extern "C" ARM int func_ov031_0223e9d4(void* arg0, void* arg1, int arg2, int arg
 	Struct_ov031_0223e9d4 var0;
 	unsigned char var1[0x10];
 	func_ov031_0223fb60(&var0, 0x14);
-	func_ov031_0221ae00(&var0);
+	UnpackWifiCredentials_ov031_0221ae00(&var0);
 	unsigned long long var2 = *(unsigned long long*)&var0;
 	if (var2 == 0) return 0;
 	int var3 = (int)var2;

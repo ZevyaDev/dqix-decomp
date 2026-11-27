@@ -128,7 +128,7 @@ struct MusicManager_02109bf4_4;
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void* GetNPCManager_0203cf4c(void);
-extern "C" void SaveNPCStates_0203e0a0(void* manager, unsigned short arg1);
+extern "C" void SaveNPCStates_0203e0a0(void* manager, unsigned short zoneId);
 void SetBrightness(GameResources* resources, int brightness, int duration);
 void SetMainBrightness(GameResources* resources, int brightness, int duration);
 int IsBrightnessTransitionActive(GameResources* resources);

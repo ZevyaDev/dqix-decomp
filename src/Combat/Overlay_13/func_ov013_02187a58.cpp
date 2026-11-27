@@ -37,7 +37,7 @@ extern "C" void* FindStringInList_02072a68(StringList_02072a68_2*, int);
 extern "C" int func_020d2ff0(const char*);
 extern "C" void __clear(void*, int);
 extern "C" void func_02050678(void*, short, short, const char*, int, unsigned char, short*, short*);
-extern "C" void func_020749ac(void*, int, int, int);
+extern "C" void QuickSortByKey_020749ac(void*, int, int, int);
 extern char data_ov013_02188e2b[];
 extern char data_ov013_02188e56[];
 extern char data_ov013_02188e61[];
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov013_02187a58(void* arg0, void* arg1) {
             var15->unknown_4_ = var16->unknown_2_2_;
         }
     }
-    func_020749ac(var10, 0, 9, 0);
+    QuickSortByKey_020749ac(var10, 0, 9, 0);
     for (unsigned char var17 = 0; var17 < 10; var17++) {
         var2 = 3;
         Struct_ov013_02187a58* var18 = func_0208e06c((Struct_0208e06c*)(var0 + 0xc), (short)var10[var17].unknown_0_);
@@ -131,7 +131,7 @@ extern "C" float _ffltu(unsigned int v);
 extern "C" int func_020420e8(void* arg0, int arg1);
 extern "C" void func_0204f41c(void* arg0, short arg1, short arg2, void* arg3, int arg4,
                               unsigned char arg5, short* arg6, short* arg7, int arg8);
-extern "C" void func_020749ac(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void QuickSortByKey_020749ac(void* entries, int first, int last, int isDescending);
 extern "C" void func_02046608(void* arg0, int arg1, int arg2, void* arg3, int arg4, int arg5, unsigned char arg6);
 extern "C" void ExpandInflectionTags_020e4864(void* text, void* buffer, int isIndefinite, int arg3, int arg4, int grammaticalCase);
 
@@ -186,7 +186,7 @@ extern "C" ARM void func_ov013_02187a58(void* arg0, void* arg1) {
             var38->unknown_4_ = _ffltu(var39->unknown_2_2_);
         }
     }
-    func_020749ac(var34, 0, 9, 0);
+    QuickSortByKey_020749ac(var34, 0, 9, 0);
 
     struct Struct_ov013_02187a58_3* var40 =
         func_0208e06c((struct Struct_0208e06c*)(var23 + 0xc), (short)var34[0].unknown_0_);

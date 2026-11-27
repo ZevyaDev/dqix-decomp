@@ -614,7 +614,7 @@ data_ov004_02171002 kind:data(any) addr:0x02171002
 data_ov004_02170780 kind:data(any) addr:0x02171016
 data_ov004_021707a0 kind:data(any) addr:0x0217102f
 data_ov004_021707b0 kind:data(any) addr:0x02171048
-data_ov004_021707c0 kind:bss addr:0x02171060
+gWardrobeCompletion_ov004_021707c0 kind:bss addr:0x02171060
 data_ov004_021707c4 kind:bss addr:0x02171064
 data_ov004_021707c8 kind:bss addr:0x02171068
 sShown0$1604 kind:bss addr:0x02171074 local

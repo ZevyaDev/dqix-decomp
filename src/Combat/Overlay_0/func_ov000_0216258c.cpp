@@ -31,7 +31,7 @@ struct Struct_ov000_0216258c_2 {
 
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" Struct_ov000_0216258c_3* FindPartyMemberPanel_ov000_02161318(void* battleUI, int memberIndex);
-extern "C" void func_ov000_0217f518(Struct_ov000_0216258c_3* arg0);
+extern "C" void ClearPanelCommand_ov000_0217f518(Struct_ov000_0216258c_3* panel);
 extern "C" void func_ov000_02176134(Struct_ov000_0216258c_3* arg0, unsigned short arg1);
 extern "C" void func_ov000_02176150(Struct_ov000_0216258c_3* arg0, unsigned short arg1);
 
@@ -45,7 +45,7 @@ extern "C" ARM void func_ov000_0216258c(Struct_ov000_0216258c_2* arg0) {
         Struct_ov000_0216258c_3* var3 = FindPartyMemberPanel_ov000_02161318(arg0->unknown_3760_, var1);
         if (!var3) continue;
         if (var3->unknown_c_ == 0 && !(((Struct_ov000_0216258c*)var2->currentStats_)->unknown_14_ & 1)) {
-            func_ov000_0217f518(var3);
+            ClearPanelCommand_ov000_0217f518(var3);
         }
         unsigned short var4 = var2->currentStats_->primaryStats.currHP;
         func_ov000_02176134(var3, var4);

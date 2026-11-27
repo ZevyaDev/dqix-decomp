@@ -22,7 +22,7 @@ extern "C" void func_02088af0(unsigned char* arg0);
 extern "C" void func_02088bd4(unsigned char* arg0);
 struct Struct_02088674;
 extern "C" void func_02088674(struct Struct_02088674* arg0);
-extern "C" void func_02088cf4(unsigned char* arg0);
+extern "C" void ClearHolyImpregnable_02088cf4(unsigned char* stats);
 extern "C" void ClearEerieLight_02088d4c(unsigned char* stats);
 extern "C" void ClearFireBarrier_02088c38(unsigned char* stats);
 extern "C" void ClearIceBarrier_02088c9c(unsigned char* stats);
@@ -74,7 +74,7 @@ extern "C" ARM void* func_ov024_021ea85c(struct Struct_ov024_021ea85c* arg0, int
 	func_02088af0((unsigned char*)var0->currentStats_);
 	func_02088bd4((unsigned char*)var0->currentStats_);
 	func_02088674((struct Struct_02088674*)var0->currentStats_);
-	func_02088cf4((unsigned char*)var0->currentStats_);
+	ClearHolyImpregnable_02088cf4((unsigned char*)var0->currentStats_);
 	ClearEerieLight_02088d4c((unsigned char*)var0->currentStats_);
 	ClearFireBarrier_02088c38((unsigned char*)var0->currentStats_);
 	ClearIceBarrier_02088c9c((unsigned char*)var0->currentStats_);

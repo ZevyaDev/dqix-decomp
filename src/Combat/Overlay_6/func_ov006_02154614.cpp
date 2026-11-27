@@ -9,7 +9,7 @@
 #include "World/Object3D.h"
 #include "Graphics/OBJSpriteSet.h"
 
-struct Struct_020dbd9c {
+struct EffectLoader_020dbd9c {
     char unknown_0_[0x10];
     int unknown_10_;
     unsigned char unknown_14_;
@@ -77,7 +77,7 @@ struct Struct_ov006_02154614 {
     SafeAllocator* unknown_1280_;
     SafeAllocator* unknown_1284_;
     char unknown_1288_[0x18];
-    Struct_020dbd9c unknown_12a0_;
+    EffectLoader_020dbd9c unknown_12a0_;
     short unknown_12b8_;
     signed char unknown_12ba_;
     unsigned char unknown_12bb_;
@@ -87,7 +87,7 @@ struct Struct_ov006_02154614 {
 
 extern "C" void InitItemInfoPanel_ov023_021dc134(Struct_ov006_02154614_2* panel, short itemId, signed char isEmbedded);
 extern "C" void func_ov006_0215479c(Struct_ov006_02156e54* arg0);
-extern "C" void func_020dbd9c(Struct_020dbd9c* arg0);
+extern "C" void InitEffectLoader_020dbd9c(EffectLoader_020dbd9c* effectLoader);
 
 // USA: func_ov006_02154614
 extern "C" ARM void func_ov006_02154614(Struct_ov006_02154614* arg0) {
@@ -141,6 +141,6 @@ extern "C" ARM void func_ov006_02154614(Struct_ov006_02154614* arg0) {
     arg0->unknown_12b8_ = 0;
     arg0->unknown_12ba_ = 0;
     arg0->unknown_12bc_ = 0;
-    func_020dbd9c(&arg0->unknown_12a0_);
+    InitEffectLoader_020dbd9c(&arg0->unknown_12a0_);
     arg0->unknown_12bd_ = 0;
 }

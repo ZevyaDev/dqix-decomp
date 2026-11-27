@@ -29,7 +29,7 @@ struct Struct_02086f24_8 {
     short unknown_1a_;
 };
 
-struct Struct_0201099c_20 {
+struct PattyMember_0201099c_20 {
     signed char unknown_0_0_ : 6;
     unsigned char unknown_0_6_ : 1;
     unsigned char unknown_0_7_ : 1;
@@ -140,11 +140,11 @@ extern "C" void func_02089db4(Struct_0201099c_6* arg0);
 extern "C" void func_02089ddc(Struct_0201099c_6* arg0);
 extern "C" void func_02089de8(void* arg0, void* arg1, const char* arg2);
 extern "C" Struct_02086f24* func_02089fb0(Struct_02086f24_5* arg0, int arg1);
-extern "C" void func_02086404(Struct_0201099c_20* arg0);
+extern "C" void InitPattyMember_02086404(PattyMember_0201099c_20* pattyMember);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" int func_020426bc(const void* text, void* outGlyphIndices, int font);
 extern "C" void InitPartyMemberData_02082828(Struct_02086f24_2* memberData);
-extern "C" void func_02082d6c(Struct_02086f24_2* arg0, Struct_0201099c_20* arg1);
+extern "C" void func_02082d6c(Struct_02086f24_2* arg0, PattyMember_0201099c_20* arg1);
 extern "C" void func_02082fc4(void* arg0, void* arg1);
 extern "C" void InitItemTable_020de824(void* itemTable);
 extern "C" void func_020de848(void* itemTable);
@@ -153,7 +153,7 @@ extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStat
 extern "C" void ClearSpellTable_0209a804(int* table);
 extern "C" void BuildSpellTable_0209a8b4(SpellTable_02086f24_6* table, SafeAllocator* allocator, Struct_02013fb4* scriptData, int scriptSize);
 extern "C" int func_0209ab20(Struct_02086f24_7* arg0, int arg1, int arg2, unsigned char* arg3);
-extern "C" int func_02086778(Struct_02086f24_4* arg0, Struct_0201099c_20* arg1, unsigned char arg2, unsigned char arg3);
+extern "C" int AddPattyMember_02086778(Struct_02086f24_4* party, PattyMember_0201099c_20* pattyMember, unsigned char arg2, unsigned char arg3);
 
 extern const char* gItemDataPath_020f2a38;
 extern const char* data_020f2a30;
@@ -169,7 +169,7 @@ extern const char data_020f1150[];
 
 #define FX_F32_TO_FX16(x) ((short)(((x) > 0) ? (short)((x) * 4096.0f + 0.5f) : (short)((x) * 4096.0f - 0.5f)))
 
-static inline void inline_02086f24(Struct_0201099c_20* arg0, int arg1) {
+static inline void inline_02086f24(PattyMember_0201099c_20* arg0, int arg1) {
     arg0->unknown_54_ |= 1 << arg1;
     arg0->unknown_50_ = arg1;
 }
@@ -190,7 +190,7 @@ static inline unsigned short inline_02086f24_8(const Struct_01ff8b48* arg0) { SD
 
 // USA: func_02086f24
 extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, SafeAllocator* arg2) {
-    Struct_0201099c_20 var0;
+    PattyMember_0201099c_20 var0;
     LevelEntries_0201099c_2 var1;
     Struct_02086f24_2 var2;
     Struct_0201099c_6 var3;
@@ -213,7 +213,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
     func_02089db4(&var3);
     func_02089de8(&var3, &var4, NULL);
     Struct_02086f24* var11 = func_02089fb0((Struct_02086f24_5*)&var3, (short)(arg1 + 7));
-    func_02086404(&var0);
+    InitPattyMember_02086404(&var0);
     int var12 = 0;
     int var13;
     if (var11 != NULL) {
@@ -299,7 +299,7 @@ extern "C" ARM int func_02086f24(Struct_02086f24_4* arg0, unsigned char arg1, Sa
         }
     }
     if (var13) {
-        var13 = func_02086778(arg0, &var0, 1, 0);
+        var13 = AddPattyMember_02086778(arg0, &var0, 1, 0);
         arg0->unknown_f70_++;
         if (arg0->unknown_f70_ > 4) {
             arg0->unknown_f70_ = 4;

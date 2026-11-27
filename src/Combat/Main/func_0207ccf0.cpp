@@ -22,7 +22,7 @@ extern "C" void* func_0207d6dc(SafeAllocator* arg0, int arg1, int arg2);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
 extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
-extern "C" int func_0207cf30(void* arg0, short arg1, int arg2, unsigned char arg3);
+extern "C" int AddItemToBagThenHeldItems_0207cf30(void* itemContext, short itemId, int count, unsigned char isOverflowToHeldItems);
 extern "C" void func_0207cc18(void* arg0, struct ItemData_0201099c_9* arg1);
 extern "C" int AddItemToEquipmentBag_0207d134(void* itemContext, short itemId, int count);
 extern "C" int func_0207d200(struct Struct_0207ccf0_4* arg0, short arg1, int arg2);
@@ -65,7 +65,7 @@ extern "C" ARM int AddItemToPartyMember_0207ccf0(struct ItemContext_0207ccf0* it
         short* heldItems = (short*)(func_02053c6c((unsigned char*)partyMemberBase) + 0x454);
         int placedCount = 0;
         if (isBagAllowed && arg6 && item->unknown_b_1_) {
-            if (func_0207cf30(itemContext, itemId, count, isOverflowToHeldItems)) {
+            if (AddItemToBagThenHeldItems_0207cf30(itemContext, itemId, count, isOverflowToHeldItems)) {
                 placedCount = count;
                 result = 1;
             }
@@ -89,7 +89,7 @@ extern "C" ARM int AddItemToPartyMember_0207ccf0(struct ItemContext_0207ccf0* it
             } else if (item->unknown_8_0_ == 9) {
                 if (func_0207d200((struct Struct_0207ccf0_4*)itemContext, itemId, (signed char)remainingCount)) result = 1;
             } else {
-                if (func_0207cf30(itemContext, itemId, remainingCount, isOverflowToHeldItems)) result = 1;
+                if (AddItemToBagThenHeldItems_0207cf30(itemContext, itemId, remainingCount, isOverflowToHeldItems)) result = 1;
             }
         }
     } else {

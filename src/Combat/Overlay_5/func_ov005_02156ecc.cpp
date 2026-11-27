@@ -30,7 +30,7 @@ struct Struct_ov005_02155d6c_2 {
 };
 
 struct Struct_ov005_02153ba4 {
-    short unknown_0_;
+    short itemId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
     void* unknown_4_;
@@ -75,7 +75,7 @@ extern "C" int func_ov005_02155670(Struct_ov005_02153954* arg0, int arg1, int ar
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" short* GetEquipmentBagItemIds_0207c5f8(unsigned char* bag, unsigned int category);
 extern "C" signed char* GetEquipmentBagCounts_0207c60c(void* bag, unsigned int category);
-extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
+extern "C" void FillEquipMenuItemGrid_ov005_021555c0(Struct_ov005_02153954* equipMenuUI);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
@@ -94,10 +94,10 @@ extern "C" ARM void func_ov005_02156ecc(Struct_ov005_02153954* arg0, int arg1, i
         var2->unknown_82_ = 0x1f;
     if (arg1 < 0x80) {
         if (arg0->unknown_3dc0_ == 0)
-            func_ov005_02157b74(arg0, arg0->unknown_2d90_[arg0->unknown_3d78_].unknown_0_, 0);
+            func_ov005_02157b74(arg0, arg0->unknown_2d90_[arg0->unknown_3d78_].itemId_0_, 0);
     } else if (arg2 > 0x15 && arg2 < 0x2e) {
         if (arg1 > 0x83 && arg0->unknown_3dc0_ == 0)
-            func_ov005_02157b74(arg0, arg0->unknown_2d90_[arg0->unknown_3d78_].unknown_0_, 0);
+            func_ov005_02157b74(arg0, arg0->unknown_2d90_[arg0->unknown_3d78_].itemId_0_, 0);
     } else if (arg2 > 0x30 && arg0->unknown_3dc0_ == 1) {
         func_ov005_02157b74(arg0, 0xffff, 0);
     }
@@ -115,7 +115,7 @@ extern "C" ARM void func_ov005_02156ecc(Struct_ov005_02153954* arg0, int arg1, i
             var7[arg0->unknown_3de0_] = var7[var4];
             var6[var4] = var9;
             var7[var4] = var10;
-            func_ov005_021555c0(arg0);
+            FillEquipMenuItemGrid_ov005_021555c0(arg0);
             arg0->unknown_3dcc_ |= 0x40;
             arg0->unknown_3daa_ = 0;
             arg0->unknown_3de0_ = -1;

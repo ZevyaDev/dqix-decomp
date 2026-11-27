@@ -7,14 +7,14 @@
 struct ItemBag_020a0b8c;
 struct Struct_020a0bcc;
 struct Struct_020a095c;
-struct Struct_0207cf30_4;
+struct ItemBag_0207cf30_4;
 struct Struct_ov002_0215b2c8;
 struct ItemTable_0201099c_10;
 struct TextWindowManager_0205d81c;
 extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 extern "C" void func_020a0bcc(struct Struct_020a0bcc *arg0);
 extern "C" int func_020a0af4(struct Struct_020a095c *arg0, int arg1);
-extern "C" void func_020a095c(struct Struct_0207cf30_4 *arg0, int arg1, int arg2);
+extern "C" void AddItemToBag_020a095c(struct ItemBag_0207cf30_4 *bag, int itemId, int count);
 extern "C" void ClearItemSortList_ov023_021e1318(void *sortList);
 extern "C" void func_ov023_021e1330(void *arg0);
 extern "C" void ResetItemSortOrder_ov023_021e1518(void *sortList);
@@ -97,7 +97,7 @@ extern "C" ARM void func_ov002_0215c618(char *arg0, int arg1) {
         short var13 = var12->unknown_18_;
         for (short var14 = 0; var14 < var5; var14++) {
             if (var13 == ((short *) var10)[var14]) {
-                func_020a095c((struct Struct_0207cf30_4 *) var4, var13, ((signed char *) var11)[var14]);
+                AddItemToBag_020a095c((struct ItemBag_0207cf30_4 *) var4, var13, ((signed char *) var11)[var14]);
                 break;
             }
         }

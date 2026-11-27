@@ -24,7 +24,7 @@ extern "C" void GetWifiSetupPageArguments_ov031_02227520(int*, int*);
 extern "C" void func_ov031_0222d894(void);
 extern "C" void ShowPageTitle_ov031_02223998(int);
 extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
-extern "C" void func_ov031_02223518(int);
+extern "C" void ShowStepIndicator_ov031_02223518(int);
 extern "C" int func_ov031_0223c560(int, int);
 extern "C" int func_ov031_0223be44(int, int);
 extern "C" void func_ov031_0222e048(void);
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov031_0222d720(void) {
     func_ov031_0222d894();
     ShowPageTitle_ov031_02223998(var2 + 0xb);
     ShowSubScreenMessage_ov031_0222336c(var1[var2], -1, 0);
-    func_ov031_02223518(2);
+    ShowStepIndicator_ov031_02223518(2);
     gAddressEntryPage_ov031_02290c98->unknown_0_ = func_ov031_0223c560(0, 0);
     gAddressEntryPage_ov031_02290c98->unknown_4_ = (Struct_ov031_0222d720*)func_ov031_0223be44(0, 0x3f);
     gAddressEntryPage_ov031_02290c98->unknown_4_->unknown_5_2_ = 3;

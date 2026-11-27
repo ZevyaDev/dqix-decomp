@@ -22,8 +22,8 @@ struct Struct_02092b34 {
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
-struct Struct_02092aa4;
-extern "C" void ResetCallToArms_02092aa4(Struct_02092aa4* callToArms, int callerIndex);
+struct CallToArms_02092aa4;
+extern "C" void ResetCallToArms_02092aa4(CallToArms_02092aa4* callToArms, int callerIndex);
 
 // USA: func_02092b34
 extern "C" ARM void func_02092b34(struct Struct_02092b34* arg0) {
@@ -43,5 +43,5 @@ extern "C" ARM void func_02092b34(struct Struct_02092b34* arg0) {
     if (arg0->unknown_0_.GetSignedAllocator() != 0) {
         arg0->unknown_0_.Destroy();
     }
-    ResetCallToArms_02092aa4((struct Struct_02092aa4*)arg0, 0);
+    ResetCallToArms_02092aa4((struct CallToArms_02092aa4*)arg0, 0);
 }

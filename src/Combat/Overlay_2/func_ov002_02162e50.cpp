@@ -33,7 +33,7 @@ extern "C" void ConfigureMenuCursors_ov002_02161cf0(void *menu);
 extern "C" void func_ov002_02161b98(char *arg0);
 extern "C" void RebuildMenuWindowText_ov002_0215b9a4(char *menu, unsigned char windowId, int hasCursorMark);
 extern "C" void func_ov002_0215b458(char *arg0, int arg1);
-extern "C" int func_0205df38(void *arg0, int arg1);
+extern "C" int IsTextWindowTouched_0205df38(void *windowManager, int windowId);
 extern "C" void func_ov023_021dc9e8(char *arg0, SafeAllocator *arg1, int arg2, char *arg3, int arg4);
 extern "C" void InitItemInfoPanel_ov023_021dc134(char *panel, int itemId, int isEmbedded);
 extern "C" void AllocateItemInfoPanelBuffers_ov023_021dbfd0(char *panel, SafeAllocator *allocator);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
         int var3 = *(short *) (arg0 + 0x1ab0);
         *(short *) (arg0 + 0x1ab0) =
             GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + 0xe20));
-        if (g_keyManager.TestKeysPressed(4) || func_0205df38(arg0 + 0xe20, 0x2b)) {
+        if (g_keyManager.TestKeysPressed(4) || IsTextWindowTouched_0205df38(arg0 + 0xe20, 0x2b)) {
             if (*(short *) (arg0 + 0x1aae) == *(signed char *) (arg0 + 0x1b37)) {
                 func_ov002_0215b458(arg0, 1);
                 *(short *) (arg0 + 0x1aea) =
@@ -162,7 +162,7 @@ extern "C" ARM void func_ov002_02162e50(char *arg0) {
         int var11 = *(short *) (arg0 + 0x1b00 + 0xe8);
         *(short *) (arg0 + 0x1b00 + 0xe8) =
             GetCursorIndex_0205d794((struct Struct_0205c570 *) (arg0 + 0x2c8 + 0xc00));
-        if (g_keyManager.TestKeysPressed(4) || func_0205df38(arg0 + 0x2c8 + 0xc00, 0x28)) {
+        if (g_keyManager.TestKeysPressed(4) || IsTextWindowTouched_0205df38(arg0 + 0x2c8 + 0xc00, 0x28)) {
             if (*(short *) (arg0 + 0x1b00 + 0xe6) == *(signed char *) (arg0 + 0x1c00 + 0x73)) {
                 func_ov002_0215b458(arg0, 1);
                 *(short *) (arg0 + 0x1c00 + 0x22) =

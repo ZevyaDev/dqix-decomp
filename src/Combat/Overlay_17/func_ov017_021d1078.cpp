@@ -6,7 +6,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
 extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" void QueueNotice_02094030(int* noticeQueue, short noticeId, short arg2, signed char memberIndex);
-extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);
+extern "C" void SendBattleRecords_ov017_021d1118(int recipientIndex, int sectionMask, int arg2, int arg3);
 
 struct Struct_ov017_021d1078 {
     char unknown_0_[4];
@@ -21,11 +21,11 @@ extern "C" ARM void func_ov017_021d1078(int arg0, Struct_ov017_021d1078* arg1, v
     if (!arg1->unknown_4_7_) {
         if (var0 != arg1->unknown_4_0_) return;
         AddElapsedPlayTime_020ac4f8(IsLocalWirelessOn_0202b7d8((int*)arg4) != 0);
-        func_ov017_021d1118(arg0, 0xff, 0, 0);
+        SendBattleRecords_ov017_021d1118(arg0, 0xff, 0, 0);
         QueueNotice_02094030(GetNoticeQueue_020936f8(), 0x4e20, -1, arg0);
         return;
     }
     unsigned char var1 = 1;
     if (arg1->unknown_5_ == 1) var1 |= 4;
-    func_ov017_021d1118(arg0, var1, 1, arg1->unknown_5_);
+    SendBattleRecords_ov017_021d1118(arg0, var1, 1, arg1->unknown_5_);
 }

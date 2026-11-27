@@ -93,7 +93,7 @@ extern "C" void GetZone3D_02012fe4();
 extern "C" void func_ov017_0219bd1c(int, int, int, int);
 extern "C" void func_ov017_021921fc(void *, int, int);
 extern "C" int IsJinglePlaying_0209ca2c(void *);
-extern "C" void func_0209c7fc(void *);
+extern "C" void StopJingle_0209c7fc(void *);
 struct NPC_0203e2c4_2;
 extern "C" void SetNPCFacingInstantly_02040b2c(NPC_0203e2c4_2*, int);
 struct Struct_02046574_2;
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov003_0215d4fc(Struct_ov003_02154af4_3 *arg0) {
         if (IsJinglePlaying_0209ca2c(&gMusicManager_02109bf4) != 0) {
             return;
         }
-        func_0209c7fc(&gMusicManager_02109bf4);
+        StopJingle_0209c7fc(&gMusicManager_02109bf4);
         SetBrightness((GameResources*)var1, 0, 0x3c);
         SetSoundEffectVolume_0205e944(&gSoundEffectManager_02108760, 0x7f);
         arg0->unknown_3ec_ = 1;

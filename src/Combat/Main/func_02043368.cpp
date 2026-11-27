@@ -15,107 +15,107 @@ struct PacEntry_02020aec;
 extern char data_020f007f;
 extern char data_020f0093;
 
-struct Struct_02043368_3 {
+struct SpriteSet_02043368_3 {
     char unknown_0_[0x3c];
-    struct SpriteAnimationList_02043368* unknown_3c_;
-    void* unknown_40_;
+    struct SpriteAnimationList_02043368* pAnimationList_3c_;
+    void* pSprites_40_;
     char unknown_44_[8];
-    unsigned short unknown_4c_;
+    unsigned short spriteCount_4c_;
     char unknown_4e_[2];
-    unsigned char unknown_50_;
+    unsigned char isSubScreen_50_;
 };
 
-struct Struct_02043368_4 {
+struct MessageWindow_02043368_4 {
 #if defined(jpn)
     char unknown_0_[0x220];
 #else
     char unknown1_0_[0x2d0];
 #endif
-    int unknown_2d0_;
-    SafeAllocator* unknown_2d4_;
-    struct Struct_02043368_3* unknown_2d8_;
-    char* unknown_2dc_;
-    struct SpriteAnimationList_02043368* unknown_2e0_;
+    int spriteLoadTaskId_2d0_;
+    SafeAllocator* pSpriteAllocator_2d4_;
+    struct SpriteSet_02043368_3* pSpriteSet_2d8_;
+    char* pSprites_2dc_;
+    struct SpriteAnimationList_02043368* pAnimationList_2e0_;
     unsigned short unknown_2e4_;
     char unknown_2e6_[1];
-    unsigned char unknown_2e7_;
+    unsigned char spriteLoadState_2e7_;
 };
 
-// USA: func_02043368
-extern "C" ARM void func_02043368(struct Struct_02043368_4* arg0) {
-    if (arg0->unknown_2d4_ == 0) {
+// USA: UpdateMessageWindowSpriteLoad_02043368
+extern "C" ARM void UpdateMessageWindowSpriteLoad_02043368(struct MessageWindow_02043368_4* window) {
+    if (window->pSpriteAllocator_2d4_ == 0) {
         return;
     }
-    BackgroundLoader* var0 = BackgroundLoader::GetInstance();
+    BackgroundLoader* backgroundLoader = BackgroundLoader::GetInstance();
 
-    if (arg0->unknown_2e7_ == 0) {
-        if (arg0->unknown_2d8_ != 0) {
+    if (window->spriteLoadState_2e7_ == 0) {
+        if (window->pSpriteSet_2d8_ != 0) {
             return;
         }
-        GrottoStruct* var1 = GameState::GetInstance()->GetGrottoStruct();
-        if (var1 != 0 && var1->unknown_0[0] != 0 && var1->unknown_0[2] == 0) {
+        GrottoStruct* grotto = GameState::GetInstance()->GetGrottoStruct();
+        if (grotto != 0 && grotto->unknown_0[0] != 0 && grotto->unknown_0[2] == 0) {
             return;
         }
 #if defined(jpn)
-        arg0->unknown_2d0_ = var0->QueueLoadFile(&data_020f0093, 0);
+        window->spriteLoadTaskId_2d0_ = backgroundLoader->QueueLoadFile(&data_020f0093, 0);
 #else
-        arg0->unknown_2d0_ = var0->QueueLoadFileInGP2(&data_020f007f, &data_020f0093, 0);
+        window->spriteLoadTaskId_2d0_ = backgroundLoader->QueueLoadFileInGP2(&data_020f007f, &data_020f0093, 0);
 #endif
-        arg0->unknown_2e7_++;
+        window->spriteLoadState_2e7_++;
         return;
     }
 
-    if (arg0->unknown_2e7_ == 1) {
-        if (var0->GetTaskStatus(arg0->unknown_2d0_) == 0) {
+    if (window->spriteLoadState_2e7_ == 1) {
+        if (backgroundLoader->GetTaskStatus(window->spriteLoadTaskId_2d0_) == 0) {
             return;
         }
-        arg0->unknown_2d4_->Reset();
-        arg0->unknown_2d8_ = (struct Struct_02043368_3*)arg0->unknown_2d4_->Allocate(0x54);
-        arg0->unknown_2dc_ = (char*)arg0->unknown_2d4_->Allocate(0xf0);
-        arg0->unknown_2e0_ = (struct SpriteAnimationList_02043368*)arg0->unknown_2d4_->Allocate(8);
+        window->pSpriteAllocator_2d4_->Reset();
+        window->pSpriteSet_2d8_ = (struct SpriteSet_02043368_3*)window->pSpriteAllocator_2d4_->Allocate(0x54);
+        window->pSprites_2dc_ = (char*)window->pSpriteAllocator_2d4_->Allocate(0xf0);
+        window->pAnimationList_2e0_ = (struct SpriteAnimationList_02043368*)window->pSpriteAllocator_2d4_->Allocate(8);
 
-        if (arg0->unknown_2d8_ != 0 && arg0->unknown_2dc_ != 0 && arg0->unknown_2e0_ != 0) {
-            ((OBJSpriteSet*)((char*)arg0->unknown_2d8_))->Reset();
-            for (unsigned short var2 = 0; var2 < 6; var2++) {
-                ((OBJSpriteSet::Metatile*)((struct Sprite_02043368_2*)(arg0->unknown_2dc_ + var2 * 0x28)))->Reset();
+        if (window->pSpriteSet_2d8_ != 0 && window->pSprites_2dc_ != 0 && window->pAnimationList_2e0_ != 0) {
+            ((OBJSpriteSet*)((char*)window->pSpriteSet_2d8_))->Reset();
+            for (unsigned short i = 0; i < 6; i++) {
+                ((OBJSpriteSet::Metatile*)((struct Sprite_02043368_2*)(window->pSprites_2dc_ + i * 0x28)))->Reset();
             }
-            ((OBJSpriteSet::List*)(arg0->unknown_2e0_))->Reset();
-            arg0->unknown_2d8_->unknown_50_ = 0;
+            ((OBJSpriteSet::List*)(window->pAnimationList_2e0_))->Reset();
+            window->pSpriteSet_2d8_->isSubScreen_50_ = 0;
             {
-                struct Struct_02043368_3* var3 = arg0->unknown_2d8_;
-                var3->unknown_40_ = arg0->unknown_2dc_;
-                var3->unknown_4c_ = 6;
+                struct SpriteSet_02043368_3* spriteSet = window->pSpriteSet_2d8_;
+                spriteSet->pSprites_40_ = window->pSprites_2dc_;
+                spriteSet->spriteCount_4c_ = 6;
             }
-            arg0->unknown_2d8_->unknown_3c_ = arg0->unknown_2e0_;
-            arg0->unknown_2e4_ = 0;
+            window->pSpriteSet_2d8_->pAnimationList_3c_ = window->pAnimationList_2e0_;
+            window->unknown_2e4_ = 0;
 
-            void* var4;
-            void* var5;
-            unsigned int var6;
-            int var7;
-            var0->GetLoadedFileByID(arg0->unknown_2d0_, &var5, &var6);
-            int var8 = GetNumFilesInPAC((const void*)((struct PacEntry_02020cb8_4*)var5));
-            for (int var9 = 0; var9 < var8; var9++) {
-                void* var10 = GetFileInPACByIndex((void*)((struct PacEntry_02020aec*)var5), var9, (const char**)(&var4), (unsigned int*)(&var7));
-                ((OBJSpriteSet*)(arg0->unknown_2d8_))->LoadFromNitroFile((void*)(var10), var7, (SafeAllocator*)(arg0->unknown_2d4_));
+            void* innerName;
+            void* fileData;
+            unsigned int fileSize;
+            int innerLength;
+            backgroundLoader->GetLoadedFileByID(window->spriteLoadTaskId_2d0_, &fileData, &fileSize);
+            int numFiles = GetNumFilesInPAC((const void*)((struct PacEntry_02020cb8_4*)fileData));
+            for (int i = 0; i < numFiles; i++) {
+                void* innerFile = GetFileInPACByIndex((void*)((struct PacEntry_02020aec*)fileData), i, (const char**)(&innerName), (unsigned int*)(&innerLength));
+                ((OBJSpriteSet*)(window->pSpriteSet_2d8_))->LoadFromNitroFile((void*)(innerFile), innerLength, (SafeAllocator*)(window->pSpriteAllocator_2d4_));
             }
         }
 
-        var0->RemoveTask(arg0->unknown_2d0_);
-        arg0->unknown_2d0_ = -1;
-        arg0->unknown_2e7_++;
+        backgroundLoader->RemoveTask(window->spriteLoadTaskId_2d0_);
+        window->spriteLoadTaskId_2d0_ = -1;
+        window->spriteLoadState_2e7_++;
         return;
     }
 
-    if (arg0->unknown_2e7_ == 2) {
-        if (arg0->unknown_2d8_ != 0 && arg0->unknown_2e0_ != 0) {
+    if (window->spriteLoadState_2e7_ == 2) {
+        if (window->pSpriteSet_2d8_ != 0 && window->pAnimationList_2e0_ != 0) {
             return;
         }
-        arg0->unknown_2d8_ = 0;
-        arg0->unknown_2dc_ = 0;
-        arg0->unknown_2e0_ = 0;
-        arg0->unknown_2e4_ = 0;
-        arg0->unknown_2d0_ = -1;
-        arg0->unknown_2e7_ = 0;
+        window->pSpriteSet_2d8_ = 0;
+        window->pSprites_2dc_ = 0;
+        window->pAnimationList_2e0_ = 0;
+        window->unknown_2e4_ = 0;
+        window->spriteLoadTaskId_2d0_ = -1;
+        window->spriteLoadState_2e7_ = 0;
     }
 }

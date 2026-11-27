@@ -11,7 +11,7 @@ extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int scriptObjectId);
 
 struct Struct_ov001_0215e1cc;
 
-extern const char data_ov001_02165745[];
+extern const char gDataPathFormat_ov001_02165745[];
 extern SafeAllocator* data_ov001_021658b8[8];
 
 // USA: func_ov001_0215ef54
@@ -23,7 +23,7 @@ extern "C" ARM int func_ov001_0215ef54(char* arg0, int arg1) {
     if (var2 == 0) return 0;
 
     char var3[0x20];
-    sprintf(var3, data_ov001_02165745, var1);
+    sprintf(var3, gDataPathFormat_ov001_02165745, var1);
 
     SafeAllocator* var4 = data_ov001_021658b8[0];
     void* var5 = var4->Allocate(0xac);

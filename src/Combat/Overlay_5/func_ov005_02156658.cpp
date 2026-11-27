@@ -19,7 +19,7 @@ extern "C" int func_ov005_02158560(Struct_ov005_02153954*, unsigned char, int);
 extern "C" void SetEquipMenuMode_ov005_0215792c(Struct_ov005_02153954*, int);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954*, unsigned char, unsigned char);
 extern "C" int func_ov005_021585fc(Struct_ov005_02153954*, int);
-extern "C" void func_ov005_021555c0(Struct_ov005_02153954*);
+extern "C" void FillEquipMenuItemGrid_ov005_021555c0(Struct_ov005_02153954*);
 
 // USA: func_ov005_02156658
 extern "C" ARM void func_ov005_02156658(Struct_ov005_02153954* arg0, int arg1, int arg2) {
@@ -47,5 +47,5 @@ extern "C" ARM void func_ov005_02156658(Struct_ov005_02153954* arg0, int arg1, i
         if (var5 < 0) arg0->unknown_3dcc_ |= 0x20000;
         else arg0->unknown_3dcc_ |= 0x40000;
     }
-    if (var0) func_ov005_021555c0(arg0);
+    if (var0) FillEquipMenuItemGrid_ov005_021555c0(arg0);
 }

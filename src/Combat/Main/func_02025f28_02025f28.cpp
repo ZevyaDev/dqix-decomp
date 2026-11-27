@@ -17,8 +17,8 @@ extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_02020fc4_3;
 extern "C" void func_0203bcb8(struct Struct_02020fc4_3* arg0, int arg1, int arg2);
 
-struct Struct_0201bb78 { unsigned short unknown_0_; };
-extern "C" int func_0201bb78(struct Struct_0201bb78* arg0, unsigned int arg1);
+struct Zone3D_0201bb78 { unsigned short currentZoneID_0_; };
+extern "C" int HasVisitedZone_0201bb78(struct Zone3D_0201bb78* zone, unsigned int zoneId);
 
 extern "C" void DrawMetatileAt_0202756c(void* subScreenDisplay, int positionX, int positionY, int metatileIndex,
         unsigned char destinationObjIndex, unsigned char priority, unsigned short palette, unsigned char rotScaleDataIndex, int scaleX, int scaleY);
@@ -74,7 +74,7 @@ extern "C" ARM void func_02025f28(unsigned char* arg0) {
 
     var6 = 1;
     for (var5 = 0; var5 < *(unsigned char*)(arg0 + Enum_02025f28_2713); var5++) {
-        if (func_0201bb78((struct Struct_0201bb78*)var2, (unsigned short)((*(struct Struct_02025f28**)(arg0 + Enum_02025f28_2716))[var5].unknown_0_ * 100)) == 0) continue;
+        if (HasVisitedZone_0201bb78((struct Zone3D_0201bb78*)var2, (unsigned short)((*(struct Struct_02025f28**)(arg0 + Enum_02025f28_2716))[var5].unknown_0_ * 100)) == 0) continue;
         struct Struct_02025f28* var9 = &(*(struct Struct_02025f28**)(arg0 + Enum_02025f28_2716))[var5];
         int var10 = var9->unknown_4_;
         int var11 = var9->unknown_8_;

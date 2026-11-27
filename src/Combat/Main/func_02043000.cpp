@@ -18,13 +18,13 @@ extern "C" void func_0202f1dc(char*);
 extern "C" void func_02043224(void* arg0);
 extern "C" void CloseMessageWindow_02043124(void* window);
 
-// USA: func_02043000
-extern "C" ARM void func_02043000(char* arg0) {
-    func_0202f1dc((char*)(arg0 + CONTROLLER_SUBOBJECT_OFFSET));
-    func_02043224(arg0);
-    MessageWindow_02021b84* var0 = (MessageWindow_02021b84*)arg0;
-    func_02043040(var0);
-    CloseMessageWindow_02043124(arg0);
-    func_020430b0(var0);
-    *(int*)(arg0 + CONTROLLER_STATE_OFFSET) = 0;
+// USA: DestroyMessageWindow_02043000
+extern "C" ARM void DestroyMessageWindow_02043000(char* window) {
+    func_0202f1dc((char*)(window + CONTROLLER_SUBOBJECT_OFFSET));
+    func_02043224(window);
+    MessageWindow_02021b84* messageWindow = (MessageWindow_02021b84*)window;
+    func_02043040(messageWindow);
+    CloseMessageWindow_02043124(window);
+    func_020430b0(messageWindow);
+    *(int*)(window + CONTROLLER_STATE_OFFSET) = 0;
 }

@@ -33,7 +33,7 @@ extern "C" void func_ov017_02195bbc(unsigned char* arg0);
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void* wireless);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
-extern "C" void func_020d9834(int arg0);
+extern "C" void SleepOrCycleCurrentContext_020d9834(int milliseconds);
 extern "C" void func_ov017_021960b8(unsigned char* arg0);
 
 // USA: func_ov017_02195a20
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov017_02195a20(unsigned char* arg0) {
             int var3 = VCOUNT;
             if (IsNotLocalWirelessGuest_0202c508(var1) && var3 < 0xd2) break;
             if (IsLocalWirelessGuest_0202c540(var1) && (var3 < 0xbe || var3 > 0xf0)) break;
-            func_020d9834(0);
+            SleepOrCycleCurrentContext_020d9834(0);
         }
     }
     func_ov017_021960b8(arg0);

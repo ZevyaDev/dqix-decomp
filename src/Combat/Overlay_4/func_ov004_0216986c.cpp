@@ -2,8 +2,8 @@
 
 extern "C" void* func_ov004_02168aa0(void* arg0, int arg1);
 extern "C" void func_ov023_021fb274(void* arg0, int arg1);
-struct Struct_ov004_02158dcc;
-extern "C" void func_ov011_021849e0(struct Struct_ov004_02158dcc* arg0, unsigned short arg1);
+struct Menu_ov004_02158dcc;
+extern "C" void SetActiveMenuGrid_ov011_021849e0(struct Menu_ov004_02158dcc* menu, unsigned short gridId);
 extern "C" void func_ov004_0216920c(void* arg0);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov004_0216986c(void* arg0) {
         return 0;
     }
     func_ov023_021fb274(var0, 2);
-    func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, 0x64);
+    SetActiveMenuGrid_ov011_021849e0((struct Menu_ov004_02158dcc*)arg0, 0x64);
     func_ov004_0216920c(arg0);
     QueueMenuScriptEntry_ov011_021848a0(arg0, 0x46);
     if (data_ov004_02171030->unknown_1a0_ == 0) {

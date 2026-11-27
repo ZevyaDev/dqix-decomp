@@ -9,15 +9,15 @@ struct Struct_ov000_021537b8 { unsigned short unknown_0_; char unknown_2_[9]; un
 struct Struct_ov000_0215b278_2 { char unknown_0_[0xe]; unsigned short unknown_e_; char unknown_10_[7]; unsigned char unknown_17_; };
 struct Struct_ov000_0215b278_3 { char unknown_0_[0x20]; int unknown_20_; };
 extern "C" Struct_ov000_0215b278* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*,int);
-extern "C" void* func_ov000_0215e9d8(void*);
+extern "C" void* GetNextBattleAction_ov000_0215e9d8(void*);
 extern "C" void InitBattleAction_ov000_02160030(void*);
 extern "C" void* func_ov000_0215e918(void*);
 extern "C" void* func_ov000_0215e938(void*);
 extern "C" void InitActionTarget_ov000_02157cdc(void*);
 extern "C" void AppendTargetResult_ov000_0215ffc4(void*,void*,int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*,void*,int);
-struct Struct_ov000_0215767c_7; struct Struct_ov000_0215767c_6; struct BattleAction_ov000_0215767c_5; struct ActionTarget_ov000_0215767c_4;
-extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*,Struct_ov000_0215767c_6*);
+struct BattleAction_ov000_0215767c_7; struct ActionActor_ov000_0215767c_6; struct BattleAction_ov000_0215767c_5; struct ActionTarget_ov000_0215767c_4;
+extern "C" void AppendActionActor_ov000_02160068(BattleAction_ov000_0215767c_7*,ActionActor_ov000_0215767c_6*);
 extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*,ActionTarget_ov000_0215767c_4*);
 extern "C" { Struct_ov000_0215b278_3* GetNextActionResult_ov000_0215e958(void*); void SetActionResult_ov000_0215ccbc(void*,Struct_ov000_0215b278_3*,GameObject*,short,short,short,unsigned long long,unsigned char); }
 inline int inline_ov000_021537b8(unsigned short arg0) { int var0=0; if(arg0<=3) var0=1; return var0; }
@@ -35,7 +35,7 @@ extern "C" ARM void func_ov000_0215bbbc(unsigned char* arg0,BattleAction_ov000_0
         for(int var10=0;var10<6;var10++) if(var10!=1) var9+=var1->unknown_26_[var10];
         if(var9<=0) continue;
 #define ALLOCATE() \
-        var2=(Struct_ov000_021537b8*)func_ov000_0215e9d8(arg0); \
+        var2=(Struct_ov000_021537b8*)GetNextBattleAction_ov000_0215e9d8(arg0); \
         if(!var2) continue; InitBattleAction_ov000_02160030(var2); \
         var3=(Struct_ov000_0215b278*)func_ov000_0215e918(arg0); \
         if(!var3) continue; memset(var3,0,0x30); var3->unknown_1c_=-1; var3->unknown_30_=0; \
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov000_0215bbbc(unsigned char* arg0,BattleAction_ov000_0
         var4->unknown_e_=var1->unknown_20_; var4->unknown_17_=1;
         AppendTargetResult_ov000_0215ffc4(var4,var5,0);
         var2->unknown_b_|=4;
-        func_ov000_02160068((Struct_ov000_0215767c_7*)var2,(Struct_ov000_0215767c_6*)var3);
+        AppendActionActor_ov000_02160068((BattleAction_ov000_0215767c_7*)var2,(ActionActor_ov000_0215767c_6*)var3);
         AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)var2,(ActionTarget_ov000_0215767c_4*)var4);
         (*(int*)(arg0+0x8e24))++; arg0[0x8e00]++; arg0[0x8e01]++; arg0[0x8e02]++;
         if(var3->unknown_2d_==1) {
@@ -69,7 +69,7 @@ extern "C" ARM void func_ov000_0215bbbc(unsigned char* arg0,BattleAction_ov000_0
             var4->unknown_e_=var1->unknown_20_; var4->unknown_17_=1;
             AppendTargetResult_ov000_0215ffc4(var4,var5,0);
             arg0[0x8e02]++;
-            func_ov000_02160068((Struct_ov000_0215767c_7*)var2,(Struct_ov000_0215767c_6*)var3);
+            AppendActionActor_ov000_02160068((BattleAction_ov000_0215767c_7*)var2,(ActionActor_ov000_0215767c_6*)var3);
             AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)var2,(ActionTarget_ov000_0215767c_4*)var4);
             (*(int*)(arg0+0x8e24))++; arg0[0x8e00]++; arg0[0x8e01]++; arg0[0x8e02]++;
             var3->unknown_2d_=0;

@@ -21,7 +21,7 @@
 
 
 
-struct Struct_0201099c_16;
+struct PattyMember_0201099c_16;
 struct Struct_02033834;
 struct GlobalFlags_02038598_4;
 struct QueueNode_02015438;
@@ -80,7 +80,7 @@ extern "C" void func_02082d6c(Struct_02082d6c*, Struct_02082d6c_2*);
 extern "C" void CreatePartyMemberObject_ov017_0218f064(GameResources*, int, int, int, int);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState*, int);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
-extern "C" unsigned char* func_ov017_021a4658(unsigned char*, int);
+extern "C" unsigned char* GetPartyMemberModelLoadTask_ov017_021a4658(unsigned char*, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void SetLeaderObjectIndex_020546a0(void*, int);
 extern "C" int GetLeaderObjectIndex_020546a8(void*);
@@ -88,7 +88,7 @@ extern "C" void SetFollowerIndex_020546b4(void*, int);
 typedef void (*Type_ov003_02166a90)(void*, int);
 extern "C" int func_02053c6c(unsigned char*);
 extern "C" void func_02042764(unsigned char*, char*, int);
-extern "C" int func_020865b0(Struct_0201099c_16*);
+extern "C" int GetPattyMemberVocation_020865b0(PattyMember_0201099c_16*);
 extern "C" void SetVocation_02083ca0(unsigned char*, int);
 extern "C" void* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
@@ -161,7 +161,7 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
         var2->GetProtagonist();
         var8->obj3D_.position_ = data_ov003_0217f4b8[arg0->unknown_4a2_ - 1];
         SetFacingInstantly_02033874((Struct_02033834*)var8, 0x323d);
-        Struct_ov003_02166a90_3* var9 = (Struct_ov003_02166a90_3*)func_ov017_021a4658((unsigned char*)var3, arg0->unknown_4a2_);
+        Struct_ov003_02166a90_3* var9 = (Struct_ov003_02166a90_3*)GetPartyMemberModelLoadTask_ov017_021a4658((unsigned char*)var3, arg0->unknown_4a2_);
         if (var1 == 0) {
             var9->unknown_b_ |= 8;
         }
@@ -186,9 +186,9 @@ extern "C" ARM int func_ov003_02166a90(Struct_ov003_02166a90_5* arg0, int arg1) 
         func_02042764(var0->unknown_140_, var15, 1);
         strcpy(((Struct_ov003_02166a90*)var8)->unknown_134_, var15);
 #endif
-        int var16 = func_020865b0((Struct_0201099c_16*)var0);
-        var14->unknown_16c_[var16] = var0->unknown_2_[func_020865b0((Struct_0201099c_16*)var0)];
-        SetVocation_02083ca0((unsigned char*)var14, func_020865b0((Struct_0201099c_16*)var0));
+        int var16 = GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var0);
+        var14->unknown_16c_[var16] = var0->unknown_2_[GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var0)];
+        SetVocation_02083ca0((unsigned char*)var14, GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var0));
         arg0->unknown_4bc_++;
     }
     if (arg0->unknown_4bc_ == 2) {

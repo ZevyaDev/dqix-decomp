@@ -15,7 +15,7 @@ struct Struct_020793c0 {
     Struct_020793c0_4* unknown_130_;
 };
 struct Struct_020793c0_2 { char unknown_0_[0x56c]; unsigned char unknown_56c_; };
-extern "C" int func_02039860(void*);
+extern "C" int GetFollowedObjectIndex_02039860(void*);
 extern "C" int func_020342ac(GameObject*);
 extern "C" Struct_020793c0_2* func_02053c6c(unsigned char*);
 extern "C" int func_02034340(void*);
@@ -31,7 +31,7 @@ extern "C" ARM short func_020793c0(Object3D* arg0, int arg1) {
             if (var1 == 0) return -1;
             continue;
         }
-        if (func_02039860(var2) != -1) continue;
+        if (GetFollowedObjectIndex_02039860(var2) != -1) continue;
         if (!func_020342ac(var2)) continue;
         if (arg0->GetField06() != var2->obj3D_.GetField06()) continue;
         Struct_020793c0* var3 = (Struct_020793c0*)var2;

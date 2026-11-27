@@ -11,7 +11,7 @@ struct Struct_ov024_021eda78_5;
 struct Struct_ov024_021eda78_8;
 struct Struct_ov024_021eda78_7;
 struct Struct_ov024_021eda78_9;
-struct Struct_02088660;
+struct ModifiableCombatStats_02088660;
 struct Struct_ov024_021f26fc;
 struct Struct_ov024_021e2bd0_4 {
     char unknown_0_[0x18];
@@ -37,7 +37,7 @@ extern "C" int func_ov024_021edc08(Struct_ov024_021eda78_5*);
 extern "C" int func_ov024_021edc50(Struct_ov024_021eda78_8*);
 extern "C" int func_ov024_021edc38(Struct_ov024_021eda78_7*);
 extern "C" int func_ov024_021edc68(Struct_ov024_021eda78_9*);
-extern "C" int func_02088660(Struct_02088660*);
+extern "C" int HasFource_02088660(ModifiableCombatStats_02088660*);
 extern "C" int func_ov024_021f273c(Struct_ov024_021f26fc*);
 
 // USA: func_ov024_021f3e64
@@ -70,7 +70,7 @@ extern "C" ARM int func_ov024_021f3e64(int* arg0, int arg1, int arg2, int* arg3,
             || func_ov024_021edc08((Struct_ov024_021eda78_5*)var8)
             || func_ov024_021edc38((Struct_ov024_021eda78_7*)var8)
             || func_ov024_021edc68((Struct_ov024_021eda78_9*)var8)
-            || func_02088660((Struct_02088660*)var8->currentStats_)
+            || HasFource_02088660((ModifiableCombatStats_02088660*)var8->currentStats_)
             || func_ov024_021f273c((Struct_ov024_021f26fc*)var8)
             || (((Struct_ov024_021e2bd0_4*)var8->currentStats_)->unknown_18_ & 2)
             || (((Struct_ov024_021e2bd0_4*)var8->currentStats_)->unknown_18_ & 4)

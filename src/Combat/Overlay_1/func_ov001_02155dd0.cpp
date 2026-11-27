@@ -183,11 +183,11 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
             var23 = &var22->pEntries_44_[var25];
             if (func_0206dfb0((int)var21, (unsigned char*)((char*)var21 + 0x45b), var25 & 0xff) != 0) {
                 if (var23 != 0) {
-                    var23->unknown_2_ &= ~4;
+                    var23->flags_2_ &= ~4;
                 }
             } else {
                 if (var23 != 0) {
-                    var23->unknown_2_ |= 4;
+                    var23->flags_2_ |= 4;
                 }
             }
         }

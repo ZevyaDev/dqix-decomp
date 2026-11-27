@@ -35,7 +35,7 @@ extern "C" void SetSPRSpritePosition_0203a46c(SPRSprite_0203a46c* sprite, int x,
 extern "C" void func_ov005_02155d38(Struct_ov005_021556e4_2* arg0);
 
 struct Struct_ov005_02153ba4 {
-    short unknown_0_;
+    short itemId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
     Struct_ov005_02155d6c* unknown_4_;
@@ -108,7 +108,7 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
                 ((TextureArena*)((char*)var3))->Restore();
                 arg0->unknown_28_[arg0->unknown_3dac_].Reset();
                 ((SPRSprite*)(var4))->LoadFromSPR((const void*)(arg0->unknown_3d94_), (SafeAllocator*)(&arg0->unknown_28_[arg0->unknown_3dac_]));
-                var2->unknown_18_ = var2->unknown_0_;
+                var2->unknown_18_ = var2->itemId_0_;
                 ((TextureArena*)((char*)var3))->Save();
             }
             var4->unknown_82_ = 0x1f;
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
                     ((TextureArena*)((char*)var9))->Restore();
                     arg0->unknown_28_[var7].Reset();
                     ((SPRSprite*)(var11))->LoadFromSPR((const void*)(arg0->unknown_3d90_ + var10), (SafeAllocator*)(&arg0->unknown_28_[var7]));
-                    var8->unknown_18_ = var8->unknown_0_;
+                    var8->unknown_18_ = var8->itemId_0_;
                     ((TextureArena*)((char*)var9))->Save();
                 }
                 var11->unknown_82_ = 0x1f;
@@ -178,7 +178,7 @@ extern "C" ARM void func_ov005_02155d6c(Struct_ov005_02153954* arg0) {
                     ((TextureArena*)((char*)var16))->Restore();
                     arg0->unknown_c8_[var14 - 8].Reset();
                     ((SPRSprite*)(var17))->LoadFromSPR((const void*)(arg0->unknown_3d88_ + var18), (SafeAllocator*)(&arg0->unknown_c8_[var14 - 8]));
-                    var15->unknown_18_ = var15->unknown_0_;
+                    var15->unknown_18_ = var15->itemId_0_;
                     ((TextureArena*)((char*)var16))->Save();
                 }
                 var17->unknown_82_ = 0x1f;

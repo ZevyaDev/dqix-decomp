@@ -2,9 +2,9 @@
 #include "Combat/Main/CopyRecord0200fbb4.h"
 #include "GameState/GameState.h"
 
-struct Struct_02046b1c;
+struct Queue_02046b1c;
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-extern "C" int func_02046b1c(struct Struct_02046b1c* arg0);
+extern "C" int GetQueueHead_02046b1c(struct Queue_02046b1c* queue);
 extern "C" void InitZoneEntry_02070378(char*);
 struct Struct_02011b24;
 extern "C" void func_02011b24(struct Struct_02011b24* arg0);
@@ -33,8 +33,8 @@ extern "C" ARM void func_ov017_021cf5d4(void* arg0, struct Struct_ov017_021cf5d4
     if (arg1->unknown_6_ != var0) {
         return;
     }
-    struct Struct_02046b1c* var1 = *(struct Struct_02046b1c**)(arg3 + 0x3000 + Enum_ov017_021cf5d4_1788);
-    if (func_02046b1c(var1) != 0) {
+    struct Queue_02046b1c* var1 = *(struct Queue_02046b1c**)(arg3 + 0x3000 + Enum_ov017_021cf5d4_1788);
+    if (GetQueueHead_02046b1c(var1) != 0) {
         return;
     }
     struct Struct_ov017_021cf5d4_2 var2;

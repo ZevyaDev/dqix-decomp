@@ -71,7 +71,7 @@ extern "C" void InitTextWindow_0204c684(void* textWindow);
 extern "C" void func_020426bc(const char* text, char* outGlyphIndices, int);
 extern "C" void func_ov008_021843f8(void* arg0);
 extern "C" void func_ov017_021d1014(signed char arg0, int, int);
-extern "C" void func_ov017_021d1118(signed char arg0, int, int, int);
+extern "C" void SendBattleRecords_ov017_021d1118(signed char recipientIndex, int, int, int);
 extern "C" void InitTextWindowManager_0205cfd4(TextWindowManager_0205cfd4* windowManager);
 extern "C" void ResetStringList_020727d8(StringList_020727d8* stringList);
 extern "C" void func_ov008_02189228(void* arg0);
@@ -234,7 +234,7 @@ extern "C" ARM void func_ov008_02188f5c(Struct_ov008_02188f5c_3* arg0, signed ch
                 if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18()))
                 {
                     func_ov017_021d1014(arg1, 0, 0);
-                    func_ov017_021d1118(arg1, 1, 1, 0);
+                    SendBattleRecords_ov017_021d1118(arg1, 1, 1, 0);
                 }
             }
         }

@@ -33,136 +33,136 @@ extern "C" void func_02016d8c(void*);
 extern "C" void func_02016db4(void*, void*);
 extern "C" void func_020ca528(const void*, void*);
 
-// USA: func_02016874
-extern "C" ARM void func_02016874(Zone3D* arg0) {
-    if (arg0->unknown_424_ != 0) return;
-    func_0201730c((Struct_02016874_3*)arg0);
-    func_02017540(arg0);
-    arg0->unk_276c[0xb0] = 0;
+// USA: DrawZone_02016874
+extern "C" ARM void DrawZone_02016874(Zone3D* zone) {
+    if (zone->unknown_424_ != 0) return;
+    func_0201730c((Struct_02016874_3*)zone);
+    func_02017540(zone);
+    zone->unk_276c[0xb0] = 0;
     data_020ef0dc.unknown_c_ = 1;
-    if (func_0201b5b0(arg0->currentZoneID_)) {
-        if (((unsigned char*)arg0->unk_23bc)[0] == 0) return;
-        func_0201aedc(arg0);
-        int var0;
-        int var1;
-        int var2;
-        Struct_02013490* var3;
-        int var4;
-        var0 = arg0->grotto_.GetActiveGrottoEnviron();
-        var4 = arg0->grotto_.floorWidth_;
-        GameObject* var5 = GameState::GetInstance()->GetUnknownGameObject();
-        int var6 = (int)(((float)(var5->obj3D_.position_.x + 0x4000) / 4096.0f) / 8.0f);
-        int var7 = (int)(((float)(var5->obj3D_.position_.z + 0x4000) / 4096.0f) / 8.0f);
-        int var8;
-        int var9, var10;
-        int var11 = 1;
-        var11 += var7;
-        if (var0 == 5) {
-            var1 = var6 - 4;
-            var9 = var6 + 4;
-            var10 = var7 - 4;
+    if (func_0201b5b0(zone->currentZoneID_)) {
+        if (((unsigned char*)zone->unk_23bc)[0] == 0) return;
+        func_0201aedc(zone);
+        int grottoEnviron;
+        int firstColumn;
+        int row;
+        GrottoTile_02013490* tile;
+        int floorWidth;
+        grottoEnviron = zone->grotto_.GetActiveGrottoEnviron();
+        floorWidth = zone->grotto_.floorWidth_;
+        GameObject* currentLeader = GameState::GetInstance()->GetUnknownGameObject();
+        int leaderColumn = (int)(((float)(currentLeader->obj3D_.position_.x + 0x4000) / 4096.0f) / 8.0f);
+        int leaderRow = (int)(((float)(currentLeader->obj3D_.position_.z + 0x4000) / 4096.0f) / 8.0f);
+        int column;
+        int endColumn, firstRow;
+        int endRow = 1;
+        endRow += leaderRow;
+        if (grottoEnviron == 5) {
+            firstColumn = leaderColumn - 4;
+            endColumn = leaderColumn + 4;
+            firstRow = leaderRow - 4;
         } else {
-            var1 = var6 - 2;
-            var9 = var6 + 2;
-            var10 = var7 - 2;
+            firstColumn = leaderColumn - 2;
+            endColumn = leaderColumn + 2;
+            firstRow = leaderRow - 2;
         }
-        if (var1 < 0) var1 = 0;
-        if (var10 < 0) var10 = 0;
-        var9++;
-        if (var9 > 16) var9 = 16;
-        var11++;
-        if (var11 > 16) var11 = 16;
-        var2 = var10;
-        for (; var2 < var11; var2++) {
-            for (var8 = var1; var8 < var9; var8++) {
-                var3 = &((Struct_02013490*)arg0->grottoTileMapData_420_)[var2 * 16];
-                var3 = &var3[var8];
-                if (var3->unknown_0_ == 0) continue;
-                BMDJEntry_02016874_2* var12 = var3->unknown_0_->pEntries_44_;
-                if (var12->unknown_2_ & 4) continue;
-                Model3D* var13;
-                var13 = var12->unknown_24_->unknown1_4_;
-                if (var13 == 0 || var13->rawInternalModel_ == 0) continue;
-                LightingManager* var14 = LightingManager::GetInstance();
-                var14->ApplyAmbientColorToModel(var13->rawInternalModel_);
-                func_020ca528(&var3->unknown_14_, &g_nitro3DRenderConfig.objectRotationPosition);
+        if (firstColumn < 0) firstColumn = 0;
+        if (firstRow < 0) firstRow = 0;
+        endColumn++;
+        if (endColumn > 16) endColumn = 16;
+        endRow++;
+        if (endRow > 16) endRow = 16;
+        row = firstRow;
+        for (; row < endRow; row++) {
+            for (column = firstColumn; column < endColumn; column++) {
+                tile = &((GrottoTile_02013490*)zone->grottoTileMapData_420_)[row * 16];
+                tile = &tile[column];
+                if (tile->pBMDJStruct_0_ == 0) continue;
+                BMDJEntry_02016874_2* entry = tile->pBMDJStruct_0_->pEntries_44_;
+                if (entry->flags_2_ & 4) continue;
+                Model3D* model;
+                model = entry->unknown_24_->unknown1_4_;
+                if (model == 0 || model->rawInternalModel_ == 0) continue;
+                LightingManager* lightingManager = LightingManager::GetInstance();
+                lightingManager->ApplyAmbientColorToModel(model->rawInternalModel_);
+                func_020ca528(&tile->rotation_14_, &g_nitro3DRenderConfig.objectRotationPosition);
                 g_nitro3DRenderConfig.flags &= ~0xa4;
-                Nitro3DRenderConfig::SetObjectPosition(&var3->unknown_3c_);
+                Nitro3DRenderConfig::SetObjectPosition(&tile->position_3c_);
                 Nitro3DRenderConfig::SubmitToFifo();
-                var13->Draw(true);
-                if (var0 == 4) {
-                    var13 = func_020196fc(arg0, 11)->pEntries_44_->unknown_24_->unknown1_4_;
-                    Nitro3DModel* var15 = var13->rawInternalModel_;
-                    if (var13 != 0 && var15 != 0) {
-                        Matrix3x3 var16;
-                        Mat3x3_WriteIdentity(&var16);
-                        func_02016d8c(&var16);
+                model->Draw(true);
+                if (grottoEnviron == 4) {
+                    model = func_020196fc(zone, 11)->pEntries_44_->unknown_24_->unknown1_4_;
+                    Nitro3DModel* internalModel = model->rawInternalModel_;
+                    if (model != 0 && internalModel != 0) {
+                        Matrix3x3 rotation;
+                        Mat3x3_WriteIdentity(&rotation);
+                        func_02016d8c(&rotation);
                         Nitro3DRenderConfig::SubmitToFifo();
-                        var13->Draw(true);
+                        model->Draw(true);
                     }
                 }
             }
         }
-        if (var0 != 5) return;
-        Model3D* var17 = func_020196fc(arg0, 12)->pEntries_44_->unknown_24_->unknown1_4_;
-        LightingManager* var18 = LightingManager::GetInstance();
-        var18->ApplyAmbientColorToModel(var17->rawInternalModel_);
-        if (var7 < 4) {
-            for (int var19 = var7 - 4; var19 < var7; var19++) {
-                if (var19 < 0) {
-                    for (int var20 = var6 - 4; var20 < var6 + 5; var20++) {
-                        Vector3i var21;
-                        var21.x = (int)(4096.0f * (8.0f * (float)var20));
-                        var21.y = 0;
-                        var21.z = (int)(4096.0f * (8.0f * (float)var19));
-                        Nitro3DRenderConfig::SetObjectPosition(&var21);
+        if (grottoEnviron != 5) return;
+        Model3D* outsideModel = func_020196fc(zone, 12)->pEntries_44_->unknown_24_->unknown1_4_;
+        LightingManager* lightingManager = LightingManager::GetInstance();
+        lightingManager->ApplyAmbientColorToModel(outsideModel->rawInternalModel_);
+        if (leaderRow < 4) {
+            for (int outsideRow = leaderRow - 4; outsideRow < leaderRow; outsideRow++) {
+                if (outsideRow < 0) {
+                    for (int outsideColumn = leaderColumn - 4; outsideColumn < leaderColumn + 5; outsideColumn++) {
+                        Vector3i outsidePosition;
+                        outsidePosition.x = (int)(4096.0f * (8.0f * (float)outsideColumn));
+                        outsidePosition.y = 0;
+                        outsidePosition.z = (int)(4096.0f * (8.0f * (float)outsideRow));
+                        Nitro3DRenderConfig::SetObjectPosition(&outsidePosition);
                         Nitro3DRenderConfig::SubmitToFifo();
-                        var17->Draw(true);
+                        outsideModel->Draw(true);
                     }
                 }
             }
         }
-        if (var6 < 4) {
-            for (int var22 = var7 - 4; var22 < var7 + 2; var22++) {
-                for (int var23 = var6 - 4; var23 < var6; var23++) {
-                    if (var23 < 0) {
-                        Vector3i var24;
-                        var24.x = (int)(4096.0f * (8.0f * (float)var23));
-                        var24.y = 0;
-                        var24.z = (int)(4096.0f * (8.0f * (float)var22));
-                        Nitro3DRenderConfig::SetObjectPosition(&var24);
+        if (leaderColumn < 4) {
+            for (int outsideRow = leaderRow - 4; outsideRow < leaderRow + 2; outsideRow++) {
+                for (int outsideColumn = leaderColumn - 4; outsideColumn < leaderColumn; outsideColumn++) {
+                    if (outsideColumn < 0) {
+                        Vector3i outsidePosition;
+                        outsidePosition.x = (int)(4096.0f * (8.0f * (float)outsideColumn));
+                        outsidePosition.y = 0;
+                        outsidePosition.z = (int)(4096.0f * (8.0f * (float)outsideRow));
+                        Nitro3DRenderConfig::SetObjectPosition(&outsidePosition);
                         Nitro3DRenderConfig::SubmitToFifo();
-                        var17->Draw(true);
+                        outsideModel->Draw(true);
                     }
                 }
             }
         }
-        if (var6 > var4 - 5) {
-            for (int var25 = var10; var25 < var11; var25++) {
-                for (int var26 = var6; var26 < var6 + 5; var26++) {
-                    if (var26 >= var4) {
-                        Vector3i var27;
-                        var27.x = (int)(4096.0f * (8.0f * (float)var26));
-                        var27.y = 0;
-                        var27.z = (int)(4096.0f * (8.0f * (float)var25));
-                        Nitro3DRenderConfig::SetObjectPosition(&var27);
+        if (leaderColumn > floorWidth - 5) {
+            for (int outsideRow = firstRow; outsideRow < endRow; outsideRow++) {
+                for (int outsideColumn = leaderColumn; outsideColumn < leaderColumn + 5; outsideColumn++) {
+                    if (outsideColumn >= floorWidth) {
+                        Vector3i outsidePosition;
+                        outsidePosition.x = (int)(4096.0f * (8.0f * (float)outsideColumn));
+                        outsidePosition.y = 0;
+                        outsidePosition.z = (int)(4096.0f * (8.0f * (float)outsideRow));
+                        Nitro3DRenderConfig::SetObjectPosition(&outsidePosition);
                         Nitro3DRenderConfig::SubmitToFifo();
-                        var17->Draw(true);
+                        outsideModel->Draw(true);
                     }
                 }
             }
         }
     } else {
-        LightingManager* var28 = LightingManager::GetInstance();
-        int var29 = var28->timeOfDayIndex_;
-        if (var29 != (unsigned char)arg0->unk_830[1]) arg0->unk_830[2] = 1;
-        else arg0->unk_830[2] = 0;
-        arg0->unk_830[1] = var29;
-        BMDJStruct_02013454* var30 = (BMDJStruct_02013454*)(arg0->firstBMDJStruct_41c_);
-        while (var30 != 0) {
-            func_02016db4(arg0, var30);
-            var30 = var30->pNext_54_;
+        LightingManager* lightingManager = LightingManager::GetInstance();
+        int timeOfDayIndex = lightingManager->timeOfDayIndex_;
+        if (timeOfDayIndex != (unsigned char)zone->unk_830[1]) zone->unk_830[2] = 1;
+        else zone->unk_830[2] = 0;
+        zone->unk_830[1] = timeOfDayIndex;
+        BMDJStruct_02013454* bmdj = (BMDJStruct_02013454*)(zone->firstBMDJStruct_41c_);
+        while (bmdj != 0) {
+            func_02016db4(zone, bmdj);
+            bmdj = bmdj->pNext_54_;
         }
-        arg0->unk_830[3] = 0;
+        zone->unk_830[3] = 0;
     }
 }

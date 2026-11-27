@@ -2,7 +2,7 @@
 
 extern "C" void LoadFileToVRAM_ov031_022234d8(void* path, void* loadToVRAM);
 extern "C" int func_ov031_02223478(void* arg0);
-extern "C" int func_ov031_0223b61c(int arg0, int arg1, int arg2);
+extern "C" int LoadFile_ov031_0223b61c(int path, int outLength, int alignAndDir);
 extern "C" void ShowScreenLayers_ov031_0223cb68(int isSubScreen, int layerMask);
 
 extern "C" void LoadToMainObjStandardPalette(int, int, unsigned int);
@@ -34,7 +34,7 @@ extern "C" ARM void func_ov031_02232568(void) {
 
 	int var1 = func_ov031_02223478(var0.unknown_0_);
 
-	int var2 = func_ov031_0223b61c(var1, 0, 4);
+	int var2 = LoadFile_ov031_0223b61c(var1, 0, 4);
 	*(int*)gConnectionListPage_ov031_02290cc0.unknown_4_ = var2;
 	ShowScreenLayers_ov031_0223cb68(1, 0x10);
 

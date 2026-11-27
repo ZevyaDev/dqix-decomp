@@ -13,7 +13,7 @@ struct Struct_ov001_0215e1cc;
 
 struct Struct_ov001_0215f344_2;
 
-extern const char data_ov001_02165745[];
+extern const char gDataPathFormat_ov001_02165745[];
 struct Struct_ov001_021658b8_7 { int unknown_0_; char unknown_4_[0x8c - 0x4]; unsigned char unknown_8c_; };
 extern Struct_ov001_021658b8_7 data_ov001_021658b8;
 
@@ -26,7 +26,7 @@ extern "C" ARM int func_ov001_0215f344(void* arg0) {
     void* var3 = GetScriptValueAsString_ov017_021d612c(arg0);
     GameState* var4 = GameState::GetInstance();
     if (var4 == 0) return 0;
-    sprintf(var0, data_ov001_02165745, var3);
+    sprintf(var0, gDataPathFormat_ov001_02165745, var3);
     int var5 = ResolveEventObjectIndex_ov001_0215ad2c(GetScriptValueAsInt_ov017_021d60f4((ScriptValue_ov001_0215f344*)((char*)arg0 + 8)));
     GameObject* var6 = var4->GetGameObjectByIndex(var5);
     if (var6 == 0) return 0;

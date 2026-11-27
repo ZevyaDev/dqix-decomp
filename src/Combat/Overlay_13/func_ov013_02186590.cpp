@@ -13,7 +13,7 @@ extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc* cur
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 extern "C" int GetMessageWindow_020421a0();
-extern "C" int func_0205cecc(void* arg0);
+extern "C" int GetChoiceListEntryTouchedAgain_0205cecc(void* choiceList);
 extern "C" int GetChoiceListCursorIndex_0205cb64(void* choiceList);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_0205ce94(unsigned char* arg0);
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov013_02186590(void* arg0) {
 
     if (var0[R(0x5ca,0x63e)] != 1) return;
 
-    int var6 = func_0205cecc(var0 + R(0x3d0,0x3d4));
+    int var6 = GetChoiceListEntryTouchedAgain_0205cecc(var0 + R(0x3d0,0x3d4));
     if (g_keyManager.TestKeysPressed(0x601) != 0) {
         var6 = GetChoiceListCursorIndex_0205cb64(var0 + R(0x3d0,0x3d4));
     } else if (g_keyManager.TestKeysPressed(2) != 0) {

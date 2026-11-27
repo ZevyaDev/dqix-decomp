@@ -20,8 +20,8 @@ extern Struct_ov031_02248918 data_ov031_02248918;
 extern unsigned char data_ov031_02248924[][2];
 extern Struct_ov031_0224891e data_ov031_0224891e[];
 extern "C" void func_ov031_0223cb34(Struct_ov031_02248918*, Struct_ov031_02248918*, Struct_ov031_02223000*);
-extern "C" int func_ov031_0223d49c(Struct_ov031_02223000*);
-extern "C" void* func_ov031_0223baa0(OAMAllocation_ov031_02222ce4*, int);
+extern "C" int IsTouchPressInRect_ov031_0223d49c(Struct_ov031_02223000*);
+extern "C" void* GetSpriteOAMEntry_ov031_0223baa0(OAMAllocation_ov031_02222ce4*, int);
 extern "C" void CopySpriteOAMEntries_ov031_0223bdb0(int, int, void*);
 extern "C" void SetSpritePosition_ov031_0223bbd8(OAMAllocation_ov031_02222ce4*, int, int, int);
 extern "C" void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4*, int, int);
@@ -38,10 +38,10 @@ extern "C" ARM void func_ov031_02223000() {
         if (var0 > 0) do {
             Struct_ov031_02223000 var2;
             func_ov031_0223cb34(&data_ov031_0224891c[data_ov031_02248932[gButtonBar_ov031_02250ba8->unknown_17_][var1]], &data_ov031_02248918, &var2);
-            if (func_ov031_0223d49c(&var2)) {
+            if (IsTouchPressInRect_ov031_0223d49c(&var2)) {
                 if (gButtonBar_ov031_02250ba8->unknown_10_) break;
                 int var3 = data_ov031_02248924[gButtonBar_ov031_02250ba8->unknown_17_][var1];
-                CopySpriteOAMEntries_ov031_0223bdb0(0, var3 + 1, func_ov031_0223baa0(gButtonBar_ov031_02250ba8->unknown_0_[var1], 0));
+                CopySpriteOAMEntries_ov031_0223bdb0(0, var3 + 1, GetSpriteOAMEntry_ov031_0223baa0(gButtonBar_ov031_02250ba8->unknown_0_[var1], 0));
                 int var4 = data_ov031_02248932[gButtonBar_ov031_02250ba8->unknown_17_][var1];
                 SetSpritePosition_ov031_0223bbd8(gButtonBar_ov031_02250ba8->unknown_0_[var1], -1, data_ov031_0224891c[var4].unknown_0_, data_ov031_0224891e[var4].unknown_0_);
                 SetSpritePriority_ov031_0223bcc8(gButtonBar_ov031_02250ba8->unknown_0_[var1], -1, 1);

@@ -42,7 +42,7 @@ extern "C" void func_ov031_0222ee34();
 extern "C" void func_ov031_0222ec20();
 extern "C" int func_ov031_02227548();
 extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
-extern "C" void func_ov031_02223518(int);
+extern "C" void ShowStepIndicator_ov031_02223518(int);
 extern "C" void func_ov031_02223a0c();
 extern "C" void func_ov031_022350bc(int, int, int, int, int);
 extern "C" void* func_ov031_0223c560(int, int);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov031_0222ea24() {
     } else {
         ShowSubScreenMessage_ov031_0222336c(0x45, -1, 0);
     }
-    func_ov031_02223518(1);
+    ShowStepIndicator_ov031_02223518(1);
     func_ov031_02223a0c();
     int var1 = gConnectionSettingsPage_ov031_02290ca0.unknown_4_ * 55;
     int var2 = var1 / 145;

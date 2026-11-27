@@ -60,7 +60,7 @@ extern "C" int IsPerformingGesture_020535c8(signed char*);
 extern "C" Struct_0208f3b4* func_0208e9e8(void);
 extern "C" void* func_020100bc(GameState*);
 extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char*);
-extern "C" void func_ov017_0219b33c(void*, Struct_ov017_021986fc_3*);
+extern "C" void SubmitInteractionPrompt_ov017_0219b33c(void*, Struct_ov017_021986fc_3*);
 extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" LocalWireless_0202c1a4* func_0202ae18(void);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov017_021986fc(GameResources* arg0) {
                 Struct_ov017_021986fc_3 var13;
                 ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var13);
                 var13.unknown_0_ = 3;
-                func_ov017_0219b33c(arg0, &var13);
+                SubmitInteractionPrompt_ov017_0219b33c(arg0, &var13);
                 break;
             }
             if (var7) break;

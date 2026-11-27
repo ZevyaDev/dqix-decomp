@@ -9,7 +9,7 @@ extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" int func_020546bc(void* arg0);
-extern "C" int func_02039860(void* arg0);
+extern "C" int GetFollowedObjectIndex_02039860(void* object);
 extern "C" int func_02039874(void* arg0);
 extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov017_021ce32c(int arg0) {
 	var2.unknown_4_ = arg0;
 	var2.unknown_6_ = GetLeaderObjectIndex_020546a8(var1);
 	var2.unknown_7_ = func_020546bc(var1);
-	var2.unknown_8_ = func_02039860(var1);
+	var2.unknown_8_ = GetFollowedObjectIndex_02039860(var1);
 	var2.unknown_9_ = func_02039874(var1);
 	var2.unknown_a_ = *(unsigned char*)((char*)var1 + Enum_ov017_021ce32c_722);
 	QueueOutgoingPacket_0205e330(var0, &var2, 0);

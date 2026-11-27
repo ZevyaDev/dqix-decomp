@@ -9,7 +9,7 @@ extern "C" int func_0204f41c(void* arg0, int arg1, int arg2, void* arg3, int arg
 
 #if defined(jpn)
 
-extern void* data_020fe9a4;
+extern void* gScreenBitmap_020fe9a4;
 #else
 #include "Graphics/GlyphBitmapContext.h"
 #endif
@@ -29,7 +29,7 @@ struct Struct_02029140 {
 // USA: func_02029140
 extern "C" ARM void func_02029140(int arg0, int arg1, void* arg2) {
 #if defined(jpn)
-    if (data_020fe9a4 == 0) return;
+    if (gScreenBitmap_020fe9a4 == 0) return;
 #else
     if (glyphBitmapContext.unknown_0_ == NULL) return;
 #endif
@@ -44,14 +44,14 @@ extern "C" ARM void func_02029140(int arg0, int arg1, void* arg2) {
     var0.unknown_aa_ = 0x18;
     unsigned char var2 = var1 & ~4;
 #if defined(jpn)
-    var0.unknown_8_ = data_020fe9a4;
+    var0.unknown_8_ = gScreenBitmap_020fe9a4;
 #else
     var0.unknown_8_ = glyphBitmapContext.unknown_0_;
 #endif
     var0.unknown_c5_ = var2 & ~0x10;
 
 #if defined(jpn)
-    int var3 = *(((int*)&data_020fe9a4) + 1);
+    int var3 = *(((int*)&gScreenBitmap_020fe9a4) + 1);
 #else
     int var3 = glyphBitmapContext.unknown_4_;
 #endif

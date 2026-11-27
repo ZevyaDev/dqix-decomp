@@ -21,7 +21,7 @@ struct Struct_021117ec_5 {
     Struct_020ce308 unknown_1c_;
 };
 
-extern Struct_021117ec_5 data_021117ec;
+extern Struct_021117ec_5 gPowerControl_021117ec;
 
 // USA: func_020ce39c
 extern "C" ARM void func_020ce39c(int* arg0, int arg1) {
@@ -34,8 +34,8 @@ extern "C" ARM void func_020ce39c(int* arg0, int arg1) {
             continue;
         }
         var0 = -0x10000;
-        data_021117ec.unknown_1c_.unknown_4_ = func_020ce234;
-        data_021117ec.unknown_1c_.unknown_8_ = (void*)&var0;
+        gPowerControl_021117ec.unknown_1c_.unknown_4_ = func_020ce234;
+        gPowerControl_021117ec.unknown_1c_.unknown_8_ = (void*)&var0;
         for (var1 = 0; var1 < arg1; var1++) {
             func_020ce870(arg0[var1]);
         }

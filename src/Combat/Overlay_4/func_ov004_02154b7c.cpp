@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern char* data_ov004_021707c0;
+extern char* gWardrobeCompletion_ov004_021707c0;
 
 extern "C" void func_ov004_02153978(void* arg0, short* arg1, short* arg2, short* arg3);
 extern "C" short func_ov004_021537e0(void);
@@ -21,7 +21,7 @@ extern "C" ARM int func_ov004_02154b7c(void* arg0) {
     int var3 = 0x32;
     unsigned short var4;
     if (var0 == 0) {
-        var4 = (unsigned short)(short)(int)*(short*)(data_ov004_021707c0 + 0x7a);
+        var4 = (unsigned short)(short)(int)*(short*)(gWardrobeCompletion_ov004_021707c0 + 0x7a);
     } else if (var1 == 0) {
         var4 = func_ov004_021537e0();
         var3 = 0x33;

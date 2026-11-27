@@ -59,8 +59,8 @@ extern "C" int func_020def44(int, int, int, short);
 extern "C" void ResetItemContext_0207cbe8(char*);
 extern "C" void func_0207cc18(void*, void*);
 extern "C" void* GetParty_02010828(GameState*);
-struct Struct_0207cf30_4;
-extern "C" void func_020a095c(Struct_0207cf30_4*, int, int);
+struct ItemBag_0207cf30_4;
+extern "C" void AddItemToBag_020a095c(ItemBag_0207cf30_4*, int, int);
 extern "C" void func_020dbc5c(char*, int);
 extern "C" int GetOwnPartyLeaderObjectIndex_020100b0(GameState*);
 extern "C" void SendObjectPosition_ov017_021cee78(int, unsigned char);
@@ -278,7 +278,7 @@ extern "C" ARM void func_ov017_021b0bc0(Struct_ov017_021b0bc0_4* arg0) {
         ResetItemContext_0207cbe8((char*)&var2);
         ResetItemContext_0207cbe8((char*)&var2);
         func_0207cc18(&var2, &var1);
-        func_020a095c((Struct_0207cf30_4*)GetParty_02010828(var5), 0x5612, 1);
+        AddItemToBag_020a095c((ItemBag_0207cf30_4*)GetParty_02010828(var5), 0x5612, 1);
     } else if (arg0->unknown_9_ == 0) {
         func_020dbc5c((char*)var6, arg0->unknown_c_);
         unsigned char* var24 = (unsigned char*)GetParty_02010828(var5) + 0xf78;

@@ -224,7 +224,7 @@ extern "C" void func_ov000_02166784(struct Struct_ov000_02161c0c_3* arg0, unsign
 extern "C" void func_ov000_021677fc(void* arg0);
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 extern "C" int IsCombatantOnBattlefield_02049ee8(unsigned char* combatant);
-extern "C" void func_020d7334(unsigned char* arg0, int arg1);
+extern "C" void ClearCombatantEffectSlot_020d7334(unsigned char* combatantSlots, int combatantIndex);
 extern "C" void SetCombatantOffBattlefield_02049f3c(unsigned char* combatant);
 extern "C" void func_ov000_02167434(unsigned char* arg0, int arg1);
 extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(char* gameResources, int isSet, int combatantIndex, unsigned char flags);
@@ -803,7 +803,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         if (IsCombatantOnBattlefield_02049ee8((unsigned char*)var59)) {
             SetMotion_02033b88((struct Struct_02010604*)var59, 4);
         }
-        func_020d7334((unsigned char*)var5, var48);
+        ClearCombatantEffectSlot_020d7334((unsigned char*)var5, var48);
         SetCombatantOffBattlefield_02049f3c((unsigned char*)var59);
         func_ov000_02167434(arg0, var59->obj3D_.GetTexturePaletteOffset());
         SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var48, 2);
@@ -863,7 +863,7 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
         var29 = var49->unknown_c_;
         if (HasActionResultFlag_ov000_0215fd90(var49, 2)) {
             SetMotion_02033b88((struct Struct_02010604*)var59, 4);
-            func_020d7334((unsigned char*)var5, var48);
+            ClearCombatantEffectSlot_020d7334((unsigned char*)var5, var48);
             SetCombatantOffBattlefield_02049f3c((unsigned char*)var59);
             func_ov000_02167434(arg0, var59->obj3D_.GetTexturePaletteOffset());
             SetCombatantAppearanceFlags_ov017_02191aac(var2, 0, var48, 2);

@@ -13,7 +13,7 @@ extern "C" void func_ov004_02153b6c(void*, int, int, int, short*, short*);
 extern "C" void func_ov004_021545f0(Struct_ov004_02154350_2*, int, short, short, unsigned char, unsigned char);
 extern "C" void ResetItemSortOrder_ov023_021e1518(void*);
 extern "C" void func_ov023_021e1474(Struct_ov002_0215b2c8*, ItemTable_0201099c_10*);
-extern Struct_ov004_02154350_2* data_ov004_021707c0;
+extern Struct_ov004_02154350_2* gWardrobeCompletion_ov004_021707c0;
 
 class Struct_ov004_02154350_4 {
 public:
@@ -41,7 +41,7 @@ extern "C" ARM int func_ov004_02154350(void* arg0) {
     Struct_ov004_02154350_3* var0 = func_ov011_021845f8(arg0, 0);
     if (!var0) return 0;
     Struct_ov004_02154350_2* var1 = (Struct_ov004_02154350_2*)var0->unknown_4_.Allocate(0x7e);
-    data_ov004_021707c0 = var1;
+    gWardrobeCompletion_ov004_021707c0 = var1;
     if (!var1) return 0;
     for (unsigned char var2 = 0; var2 < 20; var2++) {
         var1->unknown_0_[var2].unknown_0_ = -1;
@@ -58,16 +58,16 @@ extern "C" ARM int func_ov004_02154350(void* arg0) {
     signed char var6;
     for (var6 = 0; var6 <= 11; var6++) {
         func_ov004_02153b6c(arg0, -1, 0, var6, &var3, &var4);
-        func_ov004_021545f0(data_ov004_021707c0, var5, 0, var6, var4, var3);
+        func_ov004_021545f0(gWardrobeCompletion_ov004_021707c0, var5, 0, var6, var4, var3);
         var5++;
     }
     for (var6 = 1; var6 <= 6; var6++, var5++) {
         func_ov004_02153b6c(arg0, -1, var6, -1, &var3, &var4);
-        func_ov004_021545f0(data_ov004_021707c0, var5, var6, -1, var4, var3);
+        func_ov004_021545f0(gWardrobeCompletion_ov004_021707c0, var5, var6, -1, var4, var3);
     }
     func_ov004_02153b6c(arg0, -1, 7, -1, &var3, &var4);
-    func_ov004_021545f0(data_ov004_021707c0, var5, 7, -1, var4, var3);
-    Struct_ov004_02154350_2* var7 = data_ov004_021707c0;
+    func_ov004_021545f0(gWardrobeCompletion_ov004_021707c0, var5, 7, -1, var4, var3);
+    Struct_ov004_02154350_2* var7 = gWardrobeCompletion_ov004_021707c0;
     for (unsigned char var8 = 0; var8 < 20; var8++) {
         Struct_ov004_02154350* var9 = &var7->unknown_0_[var8];
         var7->unknown_78_ += var9->unknown_4_;

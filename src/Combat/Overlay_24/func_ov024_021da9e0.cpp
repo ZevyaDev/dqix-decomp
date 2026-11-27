@@ -79,7 +79,7 @@ extern "C" void AppendTargetResult_ov000_0215ffc4(void* target, void* result, in
 struct Struct_ov024_021da9e0_4;
 extern "C" void func_ov024_021eb4e4(Struct_ov024_021da9e0_4*, int);
 extern "C" unsigned long long func_ov024_021e4b14(struct Struct_ov024_021da9e0_2* arg0, int arg1, int arg2, struct Struct_ov024_021da9e0_8* arg3, int arg4);
-extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
+extern "C" int IsActionResultFlagSet_ov000_02159f18(void* battle, unsigned long long flags, int flagIndex);
 struct BattleAction_ov000_0215440c_2;
 extern "C" struct Struct_ov024_021da9e0* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 extern "C" struct Struct_ov024_021da9e0_8* FindActionData_02079e2c(char*, int);
@@ -176,12 +176,12 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
     int var15 = 1;
     if (arg3->unknown_18_.unknown_0_0_ == 0x14 && arg6 == 0) var15 = 0;
     if (var15) var14.unknown1_0_ = func_ov024_021e4b14(arg0, arg1, arg2, arg3, arg4);
-    if (func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0xe) || func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x17))
+    if (IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0xe) || IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x17))
         arg0->unknown_70_ = 0;
     struct Struct_ov024_021da9e0_10* var16 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var16) return 0;
     short var17 = 0;
-    if (!func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0xd) && !func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x29)) {
+    if (!IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0xd) && !IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x29)) {
         struct Struct_ov024_021da9e0_8* var18 = arg3;
         if (arg0->unknown_4_) {
             struct Struct_ov024_021da9e0* var19 = GetActionActor_ov000_02160094((BattleAction_ov000_0215440c_2*)arg0->unknown_4_, 0);
@@ -196,18 +196,18 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
     }
     if (arg4 > 0) arg0->unknown_14_++;
     else SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var14, 4);
-    if (func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 2) || func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0xd)) {
+    if (IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 2) || IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0xd)) {
         *arg5 |= 2;
         arg0->unknown_c_->unknown_0_[1] = 0;
         arg0->unknown_c_->unknown_18_[1] = 0;
         arg0->unknown_c_->unknown_0_[2] = 0;
         arg0->unknown_c_->unknown_18_[2] = 0;
-        if (arg0->unknown_4_ && func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 2) && arg3->unknown_4_.unknown_0_0_ != 0x61) {
+        if (arg0->unknown_4_ && IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 2) && arg3->unknown_4_.unknown_0_0_ != 0x61) {
             if (inline_ov024_021da9e0(arg2))
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, (unsigned short)arg3->unknown_28_.unknown_0_0_);
             arg0->unknown_68_ = var16;
         }
-    } else if (!func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x29)) {
+    } else if (!IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x29)) {
         if (!inline_ov024_021da9e0(arg2) && inline_ov024_021da9e0_2(arg1) && arg4 > 0) {
             int var21 = 0;
             float var22 = GetHPRatio_ov024_021db358(var0);
@@ -236,7 +236,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
 #endif
         }
         if (var23) AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, var23);
-        if (arg0->unknown_4_ && func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 2)) {
+        if (arg0->unknown_4_ && IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 2)) {
             if (inline_ov024_021da9e0(arg2))
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, (unsigned short)arg3->unknown_28_.unknown_0_0_);
             else
@@ -248,7 +248,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
             arg0->unknown_c_->unknown_18_[2] = 0;
         }
     }
-    if (func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0xd)) {
+    if (IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0xd)) {
         arg4 = 0;
         var17 = 0;
         if (inline_ov024_021da9e0(arg2))
@@ -256,7 +256,7 @@ extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struc
         else
             AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, 0x45);
         arg0->unknown_6e_ = 1;
-    } else if (func_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x29)) {
+    } else if (IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var14.unknown1_0_, 0x29)) {
         arg4 = 0;
         var17 = 1;
         AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var16, 0xc8);

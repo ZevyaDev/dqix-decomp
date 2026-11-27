@@ -35,13 +35,13 @@ extern "C" THUMB int func_ov031_0221d6a8(Struct_ov031_0221d6a8* arg0) {
         func_ov031_0221d060(2);
         return -100;
     }
-    int var2 = func_ov031_0221d79c(func_ov031_0221e638(arg0->unknown_0_.unknown_6_), var1);
+    int var2 = func_ov031_0221d79c(SwapBytes16_ov031_0221e638(arg0->unknown_0_.unknown_6_), var1);
     if (var2 != 0) return var2;
-    if (func_ov031_0221e638(arg0->unknown_0_.unknown_6_) == 0x1000)
+    if (SwapBytes16_ov031_0221e638(arg0->unknown_0_.unknown_6_) == 0x1000)
         Memcpy_ov031_0221e51c(data_ov031_0224f440, var1, 8);
-    if ((func_ov031_0221e638(arg0->unknown_0_.unknown_c_) & 15) == 0)
+    if ((SwapBytes16_ov031_0221e638(arg0->unknown_0_.unknown_c_) & 15) == 0)
         return 0;
-    int var3 = func_ov031_0221e638(var0->unknown_0_);
+    int var3 = SwapBytes16_ov031_0221e638(var0->unknown_0_);
     unsigned char* var4 = static_cast<unsigned char*>(func_ov031_0221c49c(var3));
     if (var4 == 0) {
         func_ov031_0221d060(2);

@@ -13,8 +13,8 @@ extern "C" void AddPlayTimeMinutes_020ac644(struct PlayTime_020ac4f8* playTime, 
 struct GameState_020103f0;
 extern "C" void GetElapsedPlayTime_020103f0(struct GameState_020103f0* gameState, unsigned short* hours, unsigned char* minutes, unsigned char* seconds);
 
-struct Struct_020104cc;
-extern "C" void func_020104cc(struct Struct_020104cc* arg0, unsigned short* arg1, unsigned char* arg2, unsigned char* arg3);
+struct GameState_020104cc;
+extern "C" void GetElapsedMultiplayerTime_020104cc(struct GameState_020104cc* gameState, unsigned short* hours, unsigned char* minutes, unsigned char* seconds);
 
 extern "C" void* func_0202ae18(void);
 extern "C" int GetLocalWirelessState_0202ba00(int* wireless);
@@ -43,7 +43,7 @@ extern "C" ARM struct PlayTime_020ac4f8 func_ov023_021e8fe8(struct PlayTime_020a
         int var6 = GetLocalWirelessState_0202ba00((int*)var5);
         int var7 = *((unsigned char*)var5 + 0x100d);
         if ((var6 == 5 && var7 > 1) || var6 == 6) {
-            func_020104cc((struct Struct_020104cc*)var0, &var2, &var3, &var4);
+            GetElapsedMultiplayerTime_020104cc((struct GameState_020104cc*)var0, &var2, &var3, &var4);
         } else {
             var2 = 0;
             var3 = 0;

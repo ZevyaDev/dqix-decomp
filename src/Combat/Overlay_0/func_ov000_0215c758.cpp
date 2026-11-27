@@ -48,7 +48,7 @@ struct Struct_ov000_0215767c_2 {
     int unknown_8e24_;
 };
 
-extern "C" Struct_ov000_0215767c_10* func_ov000_0215e9d8(void* arg0);
+extern "C" Struct_ov000_0215767c_10* GetNextBattleAction_ov000_0215e9d8(void* battle);
 extern "C" Struct_ov000_0215767c_8* func_ov000_0215e918(void* arg0);
 extern "C" Struct_ov000_0215767c_9* func_ov000_0215e938(void* arg0);
 extern "C" void InitBattleAction_ov000_02160030(void* action);
@@ -56,14 +56,14 @@ extern "C" void InitActionTarget_ov000_02157cdc(void* target);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 
 extern "C" Struct_ov000_0215767c* FindActionData_02079e2c(char* actionTables, int actionId);
-struct Struct_ov000_0215767c_6;
-struct Struct_ov000_0215767c_7;
-extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
+struct ActionActor_ov000_0215767c_6;
+struct BattleAction_ov000_0215767c_7;
+extern "C" void AppendActionActor_ov000_02160068(BattleAction_ov000_0215767c_7*, ActionActor_ov000_0215767c_6*);
 struct ActionTarget_ov000_0215767c_4;
 struct BattleAction_ov000_0215767c_5;
 extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*, ActionTarget_ov000_0215767c_4*);
 extern "C" ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
-extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
+extern "C" int IsActionResultFlagSet_ov000_02159f18(void* battle, unsigned long long flags, int flagIndex);
 extern "C" void SetActionResult_ov000_0215ccbc(int, ActionResult_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
 extern "C" void AppendTargetResult_ov000_0215ffc4(void* target, void* result, int listIndex);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
@@ -76,7 +76,7 @@ static inline GameObject* inline_ov000_02153aa4(int arg0) {
 // USA: func_ov000_0215c758
 extern "C" ARM void func_ov000_0215c758(Struct_ov000_0215767c_2* arg0, short* arg1, int arg2, int arg3, short* arg4,
                                         short* arg5, unsigned long long* arg6) {
-    Struct_ov000_0215767c_10* var0 = func_ov000_0215e9d8(arg0);
+    Struct_ov000_0215767c_10* var0 = GetNextBattleAction_ov000_0215e9d8(arg0);
     Struct_ov000_0215767c_8* var1 = func_ov000_0215e918(arg0);
     if (var0 == 0 || var1 == 0) {
         return;
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov000_0215c758(Struct_ov000_0215767c_2* arg0, short* ar
         var1->unknown_22_ = var3->currentStats_->primaryStats.currHP;
         var1->unknown_24_ = var3->currentStats_->primaryStats.currMP;
     }
-    func_ov000_02160068((Struct_ov000_0215767c_7*)var0, (Struct_ov000_0215767c_6*)var1);
+    AppendActionActor_ov000_02160068((BattleAction_ov000_0215767c_7*)var0, (ActionActor_ov000_0215767c_6*)var1);
 
     for (int var4 = 0; var4 < arg2; var4++) {
         Struct_ov000_0215767c_9* var5 = func_ov000_0215e938(arg0);
@@ -143,7 +143,7 @@ extern "C" ARM void func_ov000_0215c758(Struct_ov000_0215767c_2* arg0, short* ar
             var0->unknown_18_ = 0;
             AddActionResultMessage_ov000_0215a88c(arg0, var11, (unsigned short)var2->unknown_20_0_);
             AddActionResultMessage_ov000_0215a88c(arg0, var11, (unsigned short)var2->unknown_22_4_);
-            if (func_ov000_02159f18(arg0, var11->unknown_0_, 2)) {
+            if (IsActionResultFlagSet_ov000_02159f18(arg0, var11->unknown_0_, 2)) {
                 AddActionResultMessage_ov000_0215a88c(arg0, var11, (unsigned short)var2->unknown_28_0_);
             }
         }

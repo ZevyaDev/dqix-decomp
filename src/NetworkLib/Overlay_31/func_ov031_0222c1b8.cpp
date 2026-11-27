@@ -45,7 +45,7 @@ extern "C" void func_ov031_022357b4();
 extern "C" void* GetEditedConnectionSettings_ov031_02235c70();
 extern "C" void func_ov031_02236094(int);
 extern "C" void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int, int);
-extern "C" void func_ov031_0222750c(int, int);
+extern "C" void SetWifiSetupPageArguments_ov031_0222750c(int, int);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_02235cac(void*);
 extern "C" void func_ov031_02233248();
@@ -92,11 +92,11 @@ extern "C" ARM void func_ov031_0222c1b8() {
         SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 0);
         if (gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_0_[gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_52_].unknown_28_ != 0) {
             SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 1);
-            func_ov031_0222750c(1, 1);
+            SetWifiSetupPageArguments_ov031_0222750c(1, 1);
             SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222cbe0);
         } else {
             SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 1);
-            func_ov031_0222750c(0, 1);
+            SetWifiSetupPageArguments_ov031_0222750c(0, 1);
             SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_022340c0);
         }
     }

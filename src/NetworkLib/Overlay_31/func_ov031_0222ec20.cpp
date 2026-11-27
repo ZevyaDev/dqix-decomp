@@ -2,7 +2,7 @@
 
 extern "C" void LoadFileToVRAM_ov031_022234d8(void* path, void* loadToVRAM);
 extern "C" int func_ov031_02223478(void* arg0);
-extern "C" int func_ov031_0223b61c(int arg0, int arg1, int arg2);
+extern "C" int LoadFile_ov031_0223b61c(int path, int outLength, int alignAndDir);
 extern "C" void func_ov031_02234ea8(void* arg0);
 extern "C" void func_ov031_02234f34();
 
@@ -44,15 +44,15 @@ extern "C" ARM void func_ov031_0222ec20(void) {
 	LoadFileToVRAM_ov031_022234d8(data_ov031_0224bb50, (void*)LoadToMainBG3ScreenData);
 
 	int var4 = func_ov031_02223478(&var0);
-	int var5 = func_ov031_0223b61c(var4, 0, 4);
+	int var5 = LoadFile_ov031_0223b61c(var4, 0, 4);
 	gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_8_ = var5;
 	func_ov031_02234ea8((void*)gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_8_);
 	func_ov031_02234f34();
 	int var6 = func_ov031_02223478(&var1);
-	int var7 = func_ov031_0223b61c(var6, 0, 4);
+	int var7 = LoadFile_ov031_0223b61c(var6, 0, 4);
 	gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_c_ = var7;
 	int var8 = func_ov031_02223478(&var2);
-	int var9 = func_ov031_0223b61c(var8, 0, 4);
+	int var9 = LoadFile_ov031_0223b61c(var8, 0, 4);
 	gConnectionSettingsPage_ov031_02290ca0.unknown_8_->unknown_10_ = var9;
 
 	volatile unsigned short* var10 = (volatile unsigned short*)0x4001008;

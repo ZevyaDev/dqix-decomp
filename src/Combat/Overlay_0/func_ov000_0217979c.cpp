@@ -7,7 +7,7 @@ struct Struct_0201099c_3;
 extern "C" int func_ov000_0217542c(void* arg0);
 extern "C" int AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" int AppendCursorTag_02041ea4(char* buffer, int entryIndex);
-extern "C" void* func_ov000_02171b9c(void* arg0, int arg1);
+extern "C" void* GetPanelItem_ov000_02171b9c(void* panel, int itemIndex);
 extern "C" int AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" int AppendText_02042058(char* buffer, const char* text);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov000_0217979c(char* arg0, struct Struct_ov000_0217979c
     }
     AppendCursorTag_02041ea4(arg2, var4 - var2);
     for (signed char var7 = var2; var7 < var3; var7++) {
-        struct Struct_ov000_0217979c* var8 = (struct Struct_ov000_0217979c*)func_ov000_02171b9c(arg1, var7);
+        struct Struct_ov000_0217979c* var8 = (struct Struct_ov000_0217979c*)GetPanelItem_ov000_02171b9c(arg1, var7);
         if (var8 == NULL) {
             AppendMenuEntry_02041b70(arg2, var7 - var2, data_ov000_02184069);
             continue;

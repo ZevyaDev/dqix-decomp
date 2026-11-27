@@ -71,7 +71,7 @@ extern "C" int func_020968d0(Struct_020968d0* arg0, int* arg1);
 extern "C" void __clear(void* arg0, int arg1);
 struct Struct_ov009_0218aa28;
 extern "C" short func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
-extern "C" void func_ov017_0219b33c(Struct_ov017_02197a64_5* arg0, Struct_ov017_02197a64* arg1);
+extern "C" void SubmitInteractionPrompt_ov017_0219b33c(Struct_ov017_02197a64_5* gameResources, Struct_ov017_02197a64* candidate);
 extern "C" void func_ov017_02198f84(Struct_ov017_02197a64_5* arg0);
 
 #define FACING_LIMIT ((int)(0.8f * 4096.0f))
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov017_02197a64(Struct_ov017_02197a64_5* arg0) {
         Vector3fixDivideScalar(&var18, var8.unknown_4_ << 12, &var18);
         var8.unknown_10_ = func_ov017_021a4754(&var3->unknown_44_, (short)var3->unknown_54_, &var18);
         var8.unknown_0_ = 4;
-        func_ov017_0219b33c(arg0, &var8);
+        SubmitInteractionPrompt_ov017_0219b33c(arg0, &var8);
     }
     if (var7) {
         func_ov017_02198f84(arg0);

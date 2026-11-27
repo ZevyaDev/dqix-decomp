@@ -19,13 +19,13 @@ struct Struct_ov017_02197e2c_2 {
     unsigned char unknown_150_6_ : 2;
 };
 struct Struct_ov017_02197e2c_3 { unsigned char unknown_0_; char unknown_1_; short unknown_2_; int unknown_4_; Struct_020133fc* unknown_8_; int unknown_c_; short unknown_10_; short unknown_12_; };
-struct Struct_02046b1c;
+struct Queue_02046b1c;
 struct Struct_ov009_0218aa28;
 extern "C" Zone3D* GetZone3D_02012fe4();
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void* func_020100bc(GameState*);
 extern "C" bool IsPerformingGesture_020535c8(signed char*);
-extern "C" void* func_02046b1c(Struct_02046b1c*);
+extern "C" void* GetQueueHead_02046b1c(Queue_02046b1c*);
 extern "C" Struct_020133fc* func_020177a8(unsigned char*, int);
 int fix32abs(int);
 extern "C" int ComputeFixedPointCosine_020c32f8(int);
@@ -34,7 +34,7 @@ extern "C" float ConvertInt64ToFloat_0200c700(int);
 extern "C" int func_ov017_021a4754(Vector3fix*, int, Vector3fix*);
 extern "C" Struct_ov017_02197e2c_2* GetTimedMessageQueue_020d7a50();
 extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char*);
-extern "C" void func_ov017_0219b33c(GameResources*, Struct_ov017_02197e2c_3*);
+extern "C" void SubmitInteractionPrompt_ov017_0219b33c(GameResources*, Struct_ov017_02197e2c_3*);
 
 static inline int inline_ov017_02197e2c(int arg0, int arg1) { return (int)(((long long)arg0 * arg1 + 0x800) >> 12); }
 
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_02197e2c(GameResources* arg0) {
     if (!var1->numChests_) return;
     int var4 = 0;
     int var5 = 0;
-    void* var6 = func_02046b1c((Struct_02046b1c*)arg0->unknown_ptr_array_36fc[0]);
+    void* var6 = GetQueueHead_02046b1c((Queue_02046b1c*)arg0->unknown_ptr_array_36fc[0]);
     if (var6) var5 = 1;
     int var7 = 0x3244;
     Struct_020133fc* var8 = 0;
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov017_02197e2c(GameResources* arg0) {
     var24.unknown_2_ = var10;
     var24.unknown_12_ = var4;
     if (var24.unknown_10_ >= 0xc91) return;
-    func_ov017_0219b33c(arg0, &var24);
+    SubmitInteractionPrompt_ov017_0219b33c(arg0, &var24);
 }
 
 void force_emission_of_vector3_copy_assignment_operator(Vector3fix* a)

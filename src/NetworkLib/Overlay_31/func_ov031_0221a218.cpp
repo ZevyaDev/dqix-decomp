@@ -29,7 +29,7 @@ struct Struct_ov031_0224e688 {
 extern char data_ov031_0224a224[];
 extern const char* data_ov031_0224a1f4[12];
 extern Struct_ov031_0224e688 data_ov031_0224e688;
-extern int data_020f3390;
+extern int gErrorNumber_020f3390;
 
 // USA: func_ov031_0221a218
 extern "C" ARM int func_ov031_0221a218(const char* arg0) {
@@ -60,9 +60,9 @@ extern "C" ARM int func_ov031_0221a218(const char* arg0) {
     var2[22] = 0;
     var2[25] = 0;
 
-    data_020f3390 = 0;
+    gErrorNumber_020f3390 = 0;
     var0.unknown_0_ = ParseDecimal_02005a94(&var2[12]);
-    if (data_020f3390 == 0x22) {
+    if (gErrorNumber_020f3390 == 0x22) {
         goto fail;
     }
     var0.unknown_0_ -= 2000;
@@ -79,24 +79,24 @@ extern "C" ARM int func_ov031_0221a218(const char* arg0) {
         goto fail;
     }
 
-    data_020f3390 = 0;
+    gErrorNumber_020f3390 = 0;
     var0.unknown_8_ = ParseDecimal_02005a94(&var2[5]);
-    if (data_020f3390 == 0x22) {
+    if (gErrorNumber_020f3390 == 0x22) {
         goto fail;
     }
-    data_020f3390 = 0;
+    gErrorNumber_020f3390 = 0;
     var1.unknown_0_ = ParseDecimal_02005a94(&var2[17]);
-    if (data_020f3390 == 0x22) {
+    if (gErrorNumber_020f3390 == 0x22) {
         goto fail;
     }
-    data_020f3390 = 0;
+    gErrorNumber_020f3390 = 0;
     var1.unknown_4_ = ParseDecimal_02005a94(&var2[20]);
-    if (data_020f3390 == 0x22) {
+    if (gErrorNumber_020f3390 == 0x22) {
         goto fail;
     }
-    data_020f3390 = 0;
+    gErrorNumber_020f3390 = 0;
     var1.unknown_8_ = ParseDecimal_02005a94(&var2[23]);
-    if (data_020f3390 == 0x22) {
+    if (gErrorNumber_020f3390 == 0x22) {
         goto fail;
     }
 

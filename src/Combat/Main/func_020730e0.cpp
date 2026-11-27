@@ -20,7 +20,7 @@ extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
 extern "C" unsigned short (*GetCharacterPalettes_02099cac(void))[2];
 
 struct PartyMemberData_0206f81c;
-extern "C" void* func_02083554(struct PartyMemberData_0206f81c* arg0, int arg1);
+extern "C" void* FindEquippedItem_02083554(struct PartyMemberData_0206f81c* memberData, int itemId);
 
 struct Struct_020730e0_2;
 extern "C" int func_020de2a4(struct Struct_020730e0_2* arg0, int arg1, int arg2);
@@ -79,7 +79,7 @@ extern "C" ARM void func_020730e0(int arg0, int arg1) {
     }
 
     {
-        void* var9 = func_02083554((struct PartyMemberData_0206f81c*)var2, var8[arg1]);
+        void* var9 = FindEquippedItem_02083554((struct PartyMemberData_0206f81c*)var2, var8[arg1]);
         if (!var9) {
             return;
         }

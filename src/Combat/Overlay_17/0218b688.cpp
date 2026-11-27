@@ -102,8 +102,8 @@ extern "C" void ResetBGVRAMManager_0203b634(char*);
 extern "C" void* func_0203bd08();
 extern "C" void ResetOAMManager_0203bd24(char*);
 extern "C" void* GetNPCManager_0203cf4c();
-struct Struct_0203cf58;
-extern "C" void func_0203cf58(Struct_0203cf58*);
+struct NPCManager_0203cf58;
+extern "C" void InitNPCManager_0203cf58(NPCManager_0203cf58*);
 extern "C" void* func_0202ae18();
 extern "C" void ResetLocalWireless_0202aec0(void* wireless);
 extern "C" void* func_0202ae24();
@@ -117,8 +117,8 @@ extern "C" void* GetWirelessLockTable_020e2ff8();
 struct Struct_020e3004;
 extern "C" void func_020e3004(Struct_020e3004*);
 extern "C" void* GetEventSyncTable_020e3808();
-struct Struct_020e3814;
-extern "C" void func_020e3814(Struct_020e3814*);
+struct EventSyncEntry_020e3814;
+extern "C" void func_020e3814(EventSyncEntry_020e3814*);
 extern "C" void* func_020e3580();
 struct Struct_020e358c;
 extern "C" void func_020e358c(Struct_020e358c*);
@@ -158,7 +158,7 @@ extern "C" void SetSubBGMode_020c3984(unsigned int bgMode);
 extern "C" void func_020c51dc();
 extern "C" void ResetMatrixStacksToIdentity_020c537c();
 extern "C" void func_0202ac74();
-extern "C" void func_02028d68(int arg0);
+extern "C" void SetPrintMode_02028d68(int mode);
 extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void* wireless);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" void func_020100a0(GameState* arg0, int arg1);
@@ -178,7 +178,7 @@ extern "C" void func_0209cbcc(void* arg0);
 extern "C" void* func_02099f60();
 extern "C" void func_02099f6c(char*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" void func_02013718(char* arg0, int arg1, int arg2);
+extern "C" void InitZone_02013718(char* zone, int allocator, int textureArena);
 extern "C" void InitCamera_0202df68(void* camera);
 struct Struct_0204a120_2;
 extern "C" void InitKeyControlledCamera_020a2cf0(Struct_0204a120_2*);
@@ -234,8 +234,8 @@ extern "C" void func_02028894(void* arg0, void* arg1, void* arg2);
 extern "C" void func_020287b4(void* arg0);
 extern "C" void* GetBattleNumberPopups_02039e70();
 extern "C" void func_02039e7c(void* arg0);
-struct Struct_0203a54c;
-extern "C" void func_0203a54c(Struct_0203a54c*);
+struct BattleNumberPopups_0203a54c;
+extern "C" void ReleaseBattleNumberPopupSprites_0203a54c(BattleNumberPopups_0203a54c*);
 extern "C" void* GetMessageWindow_020421a0();
 extern "C" void InitMessageWindow_02042c68(void* window);
 extern "C" void CloseMessageWindow_02043124(void* window);
@@ -294,11 +294,11 @@ extern "C" void func_02011634(void* arg0);
 extern "C" void func_020bc028(int arg0);
 extern "C" void func_020d84e0();
 extern "C" void func_0202aff4(void* arg0);
-extern "C" void func_02043368(void* arg0);
+extern "C" void UpdateMessageWindowSpriteLoad_02043368(void* window);
 extern "C" void func_ov017_0218cbd4(void* arg0);
 extern "C" void func_ov017_02191cc0(void* arg0);
 extern "C" void func_ov017_02195a20(void* arg0);
-extern "C" void func_020d9834(int arg0);
+extern "C" void SleepOrCycleCurrentContext_020d9834(int milliseconds);
 extern "C" void func_0209c840(void* arg0);
 extern "C" void PlayPendingSound_0203aa08(void* manager);
 extern "C" void UpdateSound_020bbd9c();
@@ -332,12 +332,12 @@ extern "C" void func_ov017_021a3ef0(void* arg0);
 struct NPCManager_0203cfb4;
 extern "C" void ResetNPCManager_0203cfb4(NPCManager_0203cfb4*);
 extern "C" void UnloadFieldObjects_ov017_021a316c(void* gameResources);
-extern "C" void func_02043000(char*);
+extern "C" void DestroyMessageWindow_02043000(char*);
 extern "C" void func_ov017_02190238(void* arg0);
 extern "C" void func_02013750(void* arg0, int arg1);
 extern "C" void func_020998ac(int*);
 extern "C" void func_0209cd24(Struct_0209cbb8*);
-extern "C" void func_ov017_0219b938(void* arg0);
+extern "C" void UnloadFieldIcons_ov017_0219b938(void* gameResources);
 extern "C" void func_ov017_0219bc50(unsigned char*);
 extern "C" void func_02012da4(AllocatorUnion*, void*);
 extern "C" void func_ov017_021a0790(char*);
@@ -503,7 +503,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     void* var13 = func_0203bd08();
     ResetOAMManager_0203bd24((char*)var13);
     void* var14 = GetNPCManager_0203cf4c();
-    func_0203cf58((Struct_0203cf58*)var14);
+    InitNPCManager_0203cf58((NPCManager_0203cf58*)var14);
     void* var15 = func_0202ae18();
     ResetLocalWireless_0202aec0(var15);
     SetFlags00((GameResources*)arg0, 2);
@@ -516,7 +516,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     LootableContainerManager::GetMainInstance()->Reset();
     func_0208e4bc((char*)GetFieldItemSpots_0208e0a8());
     func_020e3004((Struct_020e3004*)GetWirelessLockTable_020e2ff8());
-    func_020e3814((Struct_020e3814*)GetEventSyncTable_020e3808());
+    func_020e3814((EventSyncEntry_020e3814*)GetEventSyncTable_020e3808());
     func_020e358c((Struct_020e358c*)func_020e3580());
     char* var18 = func_0205ec34();
     char* var19 = GetQuestManager_02094d6c();
@@ -577,7 +577,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     var21[1] = (var21[1] & ~3) | 2;
     var21[2] = (var21[2] & ~3);
     func_0202ac74();
-    func_02028d68(3);
+    SetPrintMode_02028d68(3);
     InitializeTextureImageAllocation(4, 1);
     InitializeTexturePaletteVRAMAllocation((unsigned int)((void*)0x4000), 1);
 
@@ -614,7 +614,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         arg0->unknown_c4_.CreateTypeA(AllocateRoundedSize_02012d88((AllocatorUnion*)&gMainHeap_02114e20, 0x30000), 0x30000);
         ((TextureArena*)(arg0->unknown_f0c_))->Initialize(0x10, 0x10);
     }
-    func_02013718(var9, (int)arg0->unknown_38_, (int)arg0->unknown_2cc_);
+    InitZone_02013718(var9, (int)arg0->unknown_38_, (int)arg0->unknown_2cc_);
     InitCamera_0202df68(var0);
     InitKeyControlledCamera_020a2cf0((Struct_0204a120_2*)var0);
     InitFollowCamera_020a2010(var0);
@@ -930,14 +930,14 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
             }
             break;
         }
-        func_02043368(var51);
+        UpdateMessageWindowSpriteLoad_02043368(var51);
         func_ov017_0218cbd4(arg0);
         func_ov017_02191cc0(arg0);
         if (data_ov017_021d82e0.unknown_0_ == 0 && TestFlags04((GameResources*)arg0, 1) == 0) {
             func_ov017_02195a20(arg0);
         }
         if (var60 != 0) {
-            func_020d9834(1);
+            SleepOrCycleCurrentContext_020d9834(1);
         }
         func_0209c840(&gMusicManager_02109bf4);
         PlayPendingSound_0203aa08(&gSoundEffectManager_02108760);
@@ -945,9 +945,9 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         CleanInvalidateOAMBuffers_0203bd88(var13);
         DrawMessageGlyphs_0204359c(var51, Enum_ov017_0218b688_24);
         if (var60 != 0) {
-            func_020d9834(1);
+            SleepOrCycleCurrentContext_020d9834(1);
         } else {
-            func_020d9834(0);
+            SleepOrCycleCurrentContext_020d9834(0);
         }
         var8->RemoveAllLocks();
         func_0203dd94((char*)var14);
@@ -989,7 +989,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         func_020275e4((Struct_020275e4*)arg0->unknown_36d0_);
 #endif
         if (var60 != 0) {
-            func_020d9834(1);
+            SleepOrCycleCurrentContext_020d9834(1);
         }
     }
 
@@ -1013,9 +1013,9 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         ((SPRSprite*)(&arg0->unknown_2b90_[var68]))->Release();
     }
     func_020798b8((char*)var23);
-    func_02043000((char*)var51);
+    DestroyMessageWindow_02043000((char*)var51);
     func_020939ac(var52);
-    func_0203a54c((Struct_0203a54c*)var50);
+    ReleaseBattleNumberPopupSprites_0203a54c((BattleNumberPopups_0203a54c*)var50);
     func_02057978((Struct_02057930*)var48);
     func_020287b4(var49);
     func_ov017_02190238(arg0);
@@ -1023,7 +1023,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     func_020998ac((int*)var16);
     func_0209cd24((Struct_0209cbb8*)var24);
     func_0207d798((Struct_0207d798*)var53);
-    func_ov017_0219b938(arg0);
+    UnloadFieldIcons_ov017_0219b938(arg0);
     func_ov017_0219bc50((unsigned char*)arg0);
     if (GetGameMode_0200fb9c((char*)var5) == 9 && var25 == 1) {
         void* var69 = arg0->unknown_c4_.GetSignedAllocator();

@@ -16,7 +16,7 @@ extern "C" ARM void func_020dc3d4(void) {
     char var0[0x18];
     GameResources* var1 = GetGameResources();
     Struct_02020554* var2 = var1->unknown_ptr_36d0;
-    func_02020720(var2);
+    ResetSubScreenDisplay_02020720(var2);
     sprintf(var0, data_020f2948, GetZone3D_02012fe4() + 0x26);
     func_020e063c((Struct_020dc3d4*)var2, (int)data_020f294f, (int)var0);
 }

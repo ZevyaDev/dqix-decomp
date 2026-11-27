@@ -21,7 +21,7 @@ struct ItemData_0201099c_9;
 
 struct Struct_ov005_02153ba4
 {
-    short unknown_0_;
+    short itemId_0_;
     char unknown_2_[0x1c - 2];
 };
 
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov005_0215bf58(Struct_ov005_02153954* arg0)
     if (!var0)
         func_ov005_0215730c(arg0);
     int var1 = GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3])->unknown_4fc_;
-    ItemData_0201099c_9* var2 = FindItemData_020dedd0(arg0->unknown_df4_, arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_);
+    ItemData_0201099c_9* var2 = FindItemData_020dedd0(arg0->unknown_df4_, arg0->unknown_2d90_[arg0->unknown_3dbb_].itemId_0_);
     if (var2 != NULL)
     {
         if (GetEquipRestrictions_020dd4c4(var1, var2))

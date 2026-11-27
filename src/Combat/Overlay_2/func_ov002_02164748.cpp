@@ -29,7 +29,7 @@ extern "C" GameObject *GetPartyMemberBaseByIndex_0200ff1c(GameState *gameState, 
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" void func_02083834(struct Struct_ov002_02164748_3 *arg0, int arg1);
 extern "C" int GetHeldItemCount_02083994(struct Struct_ov002_02164748_4 *memberData, int itemId);
-extern "C" void func_020a095c(struct Struct_ov002_02164748_5 *arg0, int arg1, int arg2);
+extern "C" void AddItemToBag_020a095c(struct Struct_ov002_02164748_5 *bag, int itemId, int count);
 extern "C" void ConfigureMenuCursors_ov002_02161cf0(char *menu);
 extern "C" void func_ov002_0215bba8(char *arg0);
 extern "C" void func_ov002_0215a7b4(char *arg0, int arg1, short arg2, int arg3, int arg4);
@@ -110,7 +110,7 @@ extern "C" ARM void func_ov002_02164748(char *arg0) {
                     void *var11 = GetParty_02010828(var4);
                     func_ov002_0215a7b4(arg0, *(signed char *) (arg0 + RG(0x1c00 + 0x20, 0x1ae8)), *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1aea)),
                                         *(short *) (arg0 + RG(0x1b00 + 0xe8, 0x1ab0)), 0);
-                    func_020a095c((struct Struct_ov002_02164748_5 *) var11,
+                    AddItemToBag_020a095c((struct Struct_ov002_02164748_5 *) var11,
                                                                       *(short *) (arg0 + RG(0x1c00 + 0x24, 0x1aec)), var8);
                     SLOT(var6, *(short *) (arg0 + RG(0x1b00 + 0xf4, 0x1abc))) = *(short *) (arg0 + RG(0x1c00 + 0x22, 0x1aea));
                     if (FLAG(var5))

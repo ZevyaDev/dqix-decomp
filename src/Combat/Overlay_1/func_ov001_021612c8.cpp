@@ -6,7 +6,7 @@
 extern "C" int GetScriptValueAsString_ov017_021d612c(void* value);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern SafeAllocator* data_ov001_021658b8[8];
-extern char data_ov001_02165745;
+extern char gDataPathFormat_ov001_02165745;
 
 struct Struct_ov001_021612c8 {
 	char unknown_0_[0x28];
@@ -42,7 +42,7 @@ extern "C" ARM int func_ov001_021612c8(void* arg0) {
 	*(int*)((char*)var0 + 0x28) = 0;
 	*(unsigned char*)((char*)var0 + 0x2c) = 0;
 	int var4 = GetScriptValueAsString_ov017_021d612c(arg0);
-	sprintf((char*)var0 + 0x1, &data_ov001_02165745, var4);
+	sprintf((char*)var0 + 0x1, &gDataPathFormat_ov001_02165745, var4);
 	*(unsigned char*)var0 = (unsigned char)GetScriptValueAsInt_ov017_021d60f4((char*)arg0 + 0x8);
 	if (var1->unknown_d4_ == 0) {
 		var1->unknown_d4_ = var0;

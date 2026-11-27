@@ -9,8 +9,8 @@
 extern unsigned char data_ov031_02290ce4;
 extern "C" ARM void func_ov031_02234960(void);
 extern "C" void ShowPageTitle_ov031_02223998(int titleIndex);
-extern "C" int func_ov031_02223518(void* arg0);
-extern "C" void func_020c99c8(void* arg0);
+extern "C" int ShowStepIndicator_ov031_02223518(void* step);
+extern "C" void GetUserSettings_020c99c8(void* buffer);
 extern "C" void func_020ca390(int a, void* buf, unsigned int size);
 extern "C" int Memcpy16Bit_020ca3b8(int dst, int src, int size);
 extern "C" void func_ov031_02223614(void* arg0, int arg1);
@@ -27,8 +27,8 @@ extern "C" ARM void func_ov031_022348cc(void) {
 	data_ov031_02290ce4 = 0;
 	func_ov031_02234960();
 	ShowPageTitle_ov031_02223998(8);
-	func_ov031_02223518((void*)2);
-	func_020c99c8(&var0[0x16]);
+	ShowStepIndicator_ov031_02223518((void*)2);
+	GetUserSettings_020c99c8(&var0[0x16]);
 	func_020ca390(0, &var0[0], 0x16);
 	unsigned short var1 = *(unsigned short*)&var0[0x30];
 	Memcpy16Bit_020ca3b8((int)&var0[0x1a], (int)&var0[0], var1 * 2);

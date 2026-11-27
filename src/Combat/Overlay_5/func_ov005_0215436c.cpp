@@ -19,7 +19,7 @@
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" void func_ov005_02155424(void* arg0);
 extern "C" void func_ov005_02155544(void* arg0);
-extern "C" void func_ov005_021555c0(void* arg0);
+extern "C" void FillEquipMenuItemGrid_ov005_021555c0(void* equipMenuUI);
 extern "C" void func_ov005_021571d0(void* arg0);
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
@@ -162,7 +162,7 @@ extern "C" ARM int func_ov005_0215436c(Struct_ov005_0215436c_3* arg0) {
     if (arg0->unknown_3dc4_ == 0) {
         func_ov005_02155424(arg0);
         func_ov005_02155544(arg0);
-        func_ov005_021555c0(arg0);
+        FillEquipMenuItemGrid_ov005_021555c0(arg0);
         arg0->unknown_3dcc_.unknown1_0_.unknown_0_5_ = 1;
         arg0->unknown_3da9_ = 0;
         arg0->unknown_3dcc_.unknown1_0_.unknown_0_6_ = 1;

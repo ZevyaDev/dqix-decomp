@@ -15,8 +15,8 @@ extern "C" int IsTextWindowOpen_0204c7e0(unsigned char* textWindow);
 extern "C" void func_ov023_021f8120(void* arg0);
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void func_ov023_021f6844(void* arg0, int arg1);
-struct Struct_ov004_02158dcc;
-extern "C" void func_ov011_021849e0(struct Struct_ov004_02158dcc* arg0, unsigned short arg1);
+struct Menu_ov004_02158dcc;
+extern "C" void SetActiveMenuGrid_ov011_021849e0(struct Menu_ov004_02158dcc* menu, unsigned short gridId);
 extern "C" void* func_ov023_021f6524(void* arg0, int arg1);
 struct Struct_ov004_021698f4;
 extern "C" void* func_ov023_021f9c0c(struct Struct_ov004_021698f4* arg0);
@@ -58,7 +58,7 @@ extern "C" ARM int func_ov004_021698f4(void* arg0) {
                 func_ov023_021f6844(GetMenuObjectList_ov011_021849c8(arg0), 2);
                 ((SafeAllocator*)((char*)var4 + 4))->Reset();
             }
-            func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, 0);
+            SetActiveMenuGrid_ov011_021849e0((struct Menu_ov004_02158dcc*)arg0, 0);
             void* var5 = func_ov023_021f6524(arg0, 0x64);
             if (var5) {
                 func_ov023_021f9c0c((struct Struct_ov004_021698f4*)var5);
@@ -71,7 +71,7 @@ extern "C" ARM int func_ov004_021698f4(void* arg0) {
     func_ov004_02169658(arg0);
     QueueMenuScriptEntry_ov011_021848a0(arg0, 0x53);
     if (var0) {
-        func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, 0x64);
+        SetActiveMenuGrid_ov011_021849e0((struct Menu_ov004_02158dcc*)arg0, 0x64);
     }
 
     if (data_ov004_02171030->unknown_1a0_ != 0) {

@@ -23,7 +23,7 @@ struct Struct_02013fb4;
 struct Struct_020e57e0 { int unknown_0_[3]; };
 struct GameState_02000c9c_12;
 struct MusicManager_02109bf4_4;
-struct Struct_02000c9c_16;
+struct MusicManager_02000c9c_16;
 struct SoundEffectManager_02000c9c_17;
 
 struct Struct_ov016_0218b5c4_7 { char unknown_0_[0x40]; };
@@ -71,7 +71,7 @@ extern "C" void MapVRAMBanksToMainBG(int v);
 extern "C" void SetMainDisplayAndBGMode_020c391c(int displayMode, int bgMode, int isBG03D);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_02028d68(int arg0);
+extern "C" void SetPrintMode_02028d68(int mode);
 extern "C" void func_02028ddc(void* arg0);
 extern "C" void func_02028dec(int);
 extern "C" void Set3DClearColorAndDepth_020c5588(int color, int alpha, int depth, int polygonId, int isFogEnabled);
@@ -111,10 +111,10 @@ extern "C" Struct_ov016_0218b5c4_2* func_ov016_0218e124(Struct_ov016_0218b5c4_6*
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
 extern "C" void StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
 extern "C" void UpdateSound_020bbd9c();
-extern "C" void func_0205e8d4(void* arg0);
+extern "C" void CloseSoundEffectArchive_0205e8d4(void* manager);
 extern "C" void CloseSoundArchive_0203a950(void* manager);
 extern "C" void InitSoundEffectManager_0205e88c(SoundEffectManager_02000c9c_17* manager);
-extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
+extern "C" void InitMusicManager_0209c174(MusicManager_02000c9c_16* manager);
 extern "C" void func_0209c2b8(void* arg0);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
 extern "C" void OpenMusicArchive_0209c290(void* manager);
@@ -173,7 +173,7 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
     ReleaseFileTablesForSpace_020a0cc4(0x100000);
     arg0->unknown_0_.CreateTypeB(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x100000), 0x100000, 4);
     void* var10 = arg0->unknown_0_.Allocate(0x6000);
-    func_02028d68(3);
+    SetPrintMode_02028d68(3);
     func_02028ddc(var10);
     func_02028dec(0);
     Set3DClearColorAndDepth_020c5588(0, 0x10, 0x7fff, 0x3f, 0);
@@ -287,10 +287,10 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
                 StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
                 StopStream_0203ad88(&gMusicManager_02109bf4, 0, 0);
                 UpdateSound_020bbd9c();
-                func_0205e8d4(&gSoundEffectManager_02108760);
+                CloseSoundEffectArchive_0205e8d4(&gSoundEffectManager_02108760);
                 CloseSoundArchive_0203a950(&gMusicManager_02109bf4);
                 InitSoundEffectManager_0205e88c((SoundEffectManager_02000c9c_17*)&gSoundEffectManager_02108760);
-                func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
+                InitMusicManager_0209c174((MusicManager_02000c9c_16*)&gMusicManager_02109bf4);
                 func_0209c2b8(&gMusicManager_02109bf4);
             }
 #endif
@@ -310,10 +310,10 @@ extern "C" ARM void func_ov016_0218b5c4(Struct_ov016_0218b5c4* arg0) {
             }
 #if !defined(jpn)
             if (var19->unknown_11_ != 0) {
-                func_0205e8d4(&gSoundEffectManager_02108760);
+                CloseSoundEffectArchive_0205e8d4(&gSoundEffectManager_02108760);
                 CloseSoundArchive_0203a950(&gMusicManager_02109bf4);
                 InitSoundEffectManager_0205e88c((SoundEffectManager_02000c9c_17*)&gSoundEffectManager_02108760);
-                func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
+                InitMusicManager_0209c174((MusicManager_02000c9c_16*)&gMusicManager_02109bf4);
                 LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 100);
                 OpenMusicArchive_0209c290(&gMusicManager_02109bf4);
             }

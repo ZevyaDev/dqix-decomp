@@ -16,14 +16,14 @@ extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int 
 
 struct Struct_020338d4 {
     char unknown_0_[0x44];
-    struct Struct_ov009_0218aa28 unknown_44_;
+    struct Struct_ov009_0218aa28 position_44_;
 };
 
-// USA: func_020338d4
-extern "C" ARM void func_020338d4(struct Struct_020338d4* arg0, struct Struct_ov009_0218aa28* arg1) {
-    struct Struct_ov009_0218aa28 var0;
-    Vector3fix_Subtract(arg1, &arg0->unknown_44_, &var0);
-    Vector3fix_Normalize(&var0, &var0);
-    int var1 = fix32ReduceAngle0To2Pi(fix32_Atan2(var0.unknown_0_, var0.unknown_8_));
-    SetFacingInstantly_02033874((struct Struct_02033834*)arg0, var1);
+// USA: FacePositionInstantly_020338d4
+extern "C" ARM void FacePositionInstantly_020338d4(struct Struct_020338d4* object, struct Struct_ov009_0218aa28* targetPosition) {
+    struct Struct_ov009_0218aa28 direction;
+    Vector3fix_Subtract(targetPosition, &object->position_44_, &direction);
+    Vector3fix_Normalize(&direction, &direction);
+    int angle = fix32ReduceAngle0To2Pi(fix32_Atan2(direction.unknown_0_, direction.unknown_8_));
+    SetFacingInstantly_02033874((struct Struct_02033834*)object, angle);
 }

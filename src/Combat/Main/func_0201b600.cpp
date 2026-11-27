@@ -5,41 +5,41 @@ enum { Enum_0201b600_1052 = 0x43c };
 enum { Enum_0201b600_1052 = 0x41c };
 #endif
 
-struct Struct_0201b600 { unsigned short unknown_0_; unsigned char unknown_2_[0x6e]; };
-struct Struct_0201b600_2 {
-    int unknown_0_;
+struct BMDJEntry_0201b600 { unsigned short id_0_; unsigned char unknown_2_[0x6e]; };
+struct BMDJStruct_0201b600_2 {
+    int id_0_;
     unsigned char unknown_4_[0x10];
-    int unknown_14_;
+    int entryCount_14_;
     unsigned char unknown_18_[0x2c];
-    struct Struct_0201b600* unknown_44_;
+    struct BMDJEntry_0201b600* pEntries_44_;
     unsigned char unknown_48_[0xc];
-    struct Struct_0201b600_2* unknown_54_;
+    struct BMDJStruct_0201b600_2* pNext_54_;
 };
 struct Struct_02017a94 {
     unsigned char unknown_0_[Enum_0201b600_1052];
-    struct Struct_0201b600_2* unknown_41c_;
+    struct BMDJStruct_0201b600_2* pFirstBMDJStruct_41c_;
     unsigned char unknown_420_[4];
-    int unknown_424_;
+    int isLoadPending_424_;
 };
 
-// USA: func_0201b600
-extern "C" ARM struct Struct_0201b600* func_0201b600(Struct_02017a94* arg0, int arg1, unsigned short arg2) {
-    struct Struct_0201b600_2* var0;
-    int var1;
-    int var2;
-    if (arg0->unknown_424_ != 0) return NULL;
-    var0 = arg0->unknown_41c_;
-    while (var0 != NULL) {
-        if (var0->unknown_0_ == arg1) break;
-        var0 = var0->unknown_54_;
+// USA: FindFirstBMDJEntry_0201b600
+extern "C" ARM struct BMDJEntry_0201b600* FindFirstBMDJEntry_0201b600(Struct_02017a94* zone, int bmdjId, unsigned short entryId) {
+    struct BMDJStruct_0201b600_2* bmdj;
+    int entryCount;
+    int i;
+    if (zone->isLoadPending_424_ != 0) return NULL;
+    bmdj = zone->pFirstBMDJStruct_41c_;
+    while (bmdj != NULL) {
+        if (bmdj->id_0_ == bmdjId) break;
+        bmdj = bmdj->pNext_54_;
     }
-    if (var0 != NULL) {
-        struct Struct_0201b600* var3 = NULL;
-        var1 = var0->unknown_14_;
-        for (var2 = 0; var2 < var1; var2++) {
-            if (arg2 == var0->unknown_44_[var2].unknown_0_) { var3 = &var0->unknown_44_[var2]; break; }
+    if (bmdj != NULL) {
+        struct BMDJEntry_0201b600* entry = NULL;
+        entryCount = bmdj->entryCount_14_;
+        for (i = 0; i < entryCount; i++) {
+            if (entryId == bmdj->pEntries_44_[i].id_0_) { entry = &bmdj->pEntries_44_[i]; break; }
         }
-        return var3;
+        return entry;
     }
     return NULL;
 }

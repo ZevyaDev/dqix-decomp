@@ -10,7 +10,7 @@ struct Struct_02086e9c;
 struct Struct_02086e50;
 struct Struct_02086a04;
 struct Struct_02087574;
-struct Struct_0201099c_16;
+struct PattyMember_0201099c_16;
 struct Struct_020dcd40 { unsigned char unknown_0_[0x30]; };
 
 extern "C" unsigned short* GetZone3D_02012fe4(void* arg0);
@@ -30,7 +30,7 @@ extern "C" void SetFollowerIndex_020546b4(void*, int);
 extern "C" unsigned char* func_02053c6c(unsigned char* gameObject);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
-extern "C" int func_020865b0(Struct_0201099c_16* arg0);
+extern "C" int GetPattyMemberVocation_020865b0(PattyMember_0201099c_16* pattyMember);
 extern "C" void SetVocation_02083ca0(unsigned char* memberData, int vocation);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void func_02086a04(Struct_02086a04* arg0, int arg1);
@@ -97,10 +97,10 @@ extern "C" ARM int func_020dcd40() {
         func_02042764((char*)var6 + 0x140, &var17, 1);
         strcpy((char*)var10->baseStats_, (const char*)&var17);
 #endif
-        int var18 = func_020865b0((Struct_0201099c_16*)var6);
-        unsigned char* var19 = (unsigned char*)var6 + func_020865b0((Struct_0201099c_16*)var6);
+        int var18 = GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var6);
+        unsigned char* var19 = (unsigned char*)var6 + GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var6);
         *(unsigned short*)(var16 + var18 * 2 + 0x16c) = var19[2];
-        SetVocation_02083ca0(var16, func_020865b0((Struct_0201099c_16*)var6));
+        SetVocation_02083ca0(var16, GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var6));
         RebuildFieldPartyOrder_ov017_02191108(var1, 1, 1, 1, 1);
         func_02086a04((Struct_02086a04*)var11, var5);
         var0++;

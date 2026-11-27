@@ -53,7 +53,7 @@ struct Struct_ov017_021d46a4_3 {
 struct Struct_0208fa8c { unsigned short unknown_0_; };
 extern "C" Struct_0208fa8c* GetZone3D_02012fe4();
 extern "C" void* GetActiveZones_02027ca4();
-extern "C" Struct_0206ef40* func_02027cb0();
+extern "C" Struct_0206ef40* FindCurrentActiveZone_02027cb0();
 extern "C" void InitFieldMonster_02076a8c(GameObject*);
 extern "C" int IsNodeInQueue_02046b38(Queue_02046b38*, QueueNode_02046b38_2*);
 extern "C" Struct_02072adc* func_ov017_021a2738(void*, int);
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov017_021d46a4(void*, Struct_ov017_021d46a4_4* arg1) {
     GameObject* var6;
     QueueNode_02046b38_2* var7 = var1->unknown_3718_;
     if (arg1->unknown_6_ != var2->unknown_0_) return;
-    var4 = func_02027cb0();
+    var4 = FindCurrentActiveZone_02027cb0();
     if (!var4) return;
     var5 = var4->unknown_2_0_ * 12 + 0x70 + arg1->unknown_8_0_;
     var6 = var0->GetMaybeFieldMonsterByIndex(var5);

@@ -6,57 +6,57 @@
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 
-// USA: func_ov001_0215b074
-extern "C" ARM int func_ov001_0215b074(int arg0, char* arg1, int arg2) {
-    int var0;
+// USA: RunBrightnessScriptCommand_ov001_0215b074
+extern "C" ARM int RunBrightnessScriptCommand_ov001_0215b074(int command, char* args, int argCount) {
+    int brightness;
     int var1;
-    int var2 = GetScriptValueAsInt_ov017_021d60f4(arg1);
-    var0 = -16;
-    if (arg2 >= 2) {
-        var0 = GetScriptValueAsInt_ov017_021d60f4(arg1 + 8);
+    int duration = GetScriptValueAsInt_ov017_021d60f4(args);
+    brightness = -16;
+    if (argCount >= 2) {
+        brightness = GetScriptValueAsInt_ov017_021d60f4(args + 8);
     }
-    GameResources* var3 = GetResources_0200fb8c((int*)GameState::GetInstance());
-    if (var3 == NULL) return 0;
+    GameResources* resources = GetResources_0200fb8c((int*)GameState::GetInstance());
+    if (resources == NULL) return 0;
     var1 = 0;
-    if (arg0 == 0) {
-        SetBrightness(var3, 0, var2);
-    } else if (arg0 == 1) {
-        SetBrightness(var3, var0, var2);
-    } else if (arg0 == 2) {
-        SetSubBrightness(var3, 0, var2);
-    } else if (arg0 == 3) {
-        SetSubBrightness(var3, var0, var2);
-    } else if (arg0 == 4) {
-        SetMainBrightness(var3, 0, var2);
-    } else if (arg0 == 5) {
-        SetMainBrightness(var3, var0, var2);
-    } else if (arg0 == 6) {
-        SetAndLockBrightness(var3, 0, var2);
-    } else if (arg0 == 7) {
-        SetAndLockBrightness(var3, var0, var2);
-    } else if (arg0 == 8) {
-        SetAndLockSubBrightness(var3, 0, var2);
-    } else if (arg0 == 9) {
-        SetAndLockSubBrightness(var3, var0, var2);
-    } else if (arg0 == 10) {
-        SetAndLockMainBrightness(var3, 0, var2);
-    } else if (arg0 == 11) {
-        SetAndLockMainBrightness(var3, var0, var2);
-    } else if (arg0 == 12) {
-        UnlockAndSetBrightness(var3, 0, var2);
-    } else if (arg0 == 13) {
-        UnlockAndSetBrightness(var3, var0, var2);
-    } else if (arg0 == 14) {
-        UnlockAndSetSubBrightness(var3, 0, var2);
-    } else if (arg0 == 15) {
-        UnlockAndSetSubBrightness(var3, var0, var2);
-    } else if (arg0 == 16) {
-        UnlockAndSetMainBrightness(var3, 0, var2);
-    } else if (arg0 == 17) {
-        UnlockAndSetMainBrightness(var3, var0, var2);
+    if (command == 0) {
+        SetBrightness(resources, 0, duration);
+    } else if (command == 1) {
+        SetBrightness(resources, brightness, duration);
+    } else if (command == 2) {
+        SetSubBrightness(resources, 0, duration);
+    } else if (command == 3) {
+        SetSubBrightness(resources, brightness, duration);
+    } else if (command == 4) {
+        SetMainBrightness(resources, 0, duration);
+    } else if (command == 5) {
+        SetMainBrightness(resources, brightness, duration);
+    } else if (command == 6) {
+        SetAndLockBrightness(resources, 0, duration);
+    } else if (command == 7) {
+        SetAndLockBrightness(resources, brightness, duration);
+    } else if (command == 8) {
+        SetAndLockSubBrightness(resources, 0, duration);
+    } else if (command == 9) {
+        SetAndLockSubBrightness(resources, brightness, duration);
+    } else if (command == 10) {
+        SetAndLockMainBrightness(resources, 0, duration);
+    } else if (command == 11) {
+        SetAndLockMainBrightness(resources, brightness, duration);
+    } else if (command == 12) {
+        UnlockAndSetBrightness(resources, 0, duration);
+    } else if (command == 13) {
+        UnlockAndSetBrightness(resources, brightness, duration);
+    } else if (command == 14) {
+        UnlockAndSetSubBrightness(resources, 0, duration);
+    } else if (command == 15) {
+        UnlockAndSetSubBrightness(resources, brightness, duration);
+    } else if (command == 16) {
+        UnlockAndSetMainBrightness(resources, 0, duration);
+    } else if (command == 17) {
+        UnlockAndSetMainBrightness(resources, brightness, duration);
     }
-    int var4 = (arg0 % 2 == 1);
-    if (arg0 % 6 < 4 && var4) {
+    int var4 = (command % 2 == 1);
+    if (command % 6 < 4 && var4) {
         var1 = 1;
     }
     char* var5 = (char*)GetGameResources()->unknown_ptr_array_371c[6];

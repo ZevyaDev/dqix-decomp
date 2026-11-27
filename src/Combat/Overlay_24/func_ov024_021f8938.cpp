@@ -2,7 +2,7 @@
 #include "Resource/ActionDataTables.h"
 #include <GameState/GameState.h>
 
-struct Struct_02079ee0 {
+struct ActionDamageData_02079ee0 {
     unsigned int unknown_0_0_ : 8;
     unsigned int unknown_1_0_ : 10;
     unsigned int unknown_2_2_ : 14;
@@ -26,14 +26,14 @@ struct Struct_ov024_021f8938 {
     unsigned int unknown_1a_0_ : 2;
     unsigned int unknown_1a_2_ : 14;
 };
-extern "C" Struct_02079ee0* func_02079ee0(void*, int);
+extern "C" ActionDamageData_02079ee0* FindActionDamageData_02079ee0(void*, int);
 
 // USA: func_ov024_021f8938
 extern "C" ARM void func_ov024_021f8938(void* arg0, float* arg1, float* arg2, int arg3, Struct_ov024_021f8938* arg4, GameObject* arg5) {
     ActionTables_02108e10* var0 = GetActionTables_020797dc();
     *arg1 = 0;
     *arg2 = 0;
-    Struct_02079ee0* var1 = func_02079ee0(var0, arg4->unknown_9_6_);
+    ActionDamageData_02079ee0* var1 = FindActionDamageData_02079ee0(var0, arg4->unknown_9_6_);
     if (var1) {
         if (arg4->unknown_1a_0_ == 2) {
             int var2 = arg4->unknown_5_4_;

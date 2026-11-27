@@ -11,7 +11,7 @@ struct ActiveZone_020fdd44 {
     unsigned short unknown_2_2_ : 1;
     unsigned short unknown_2_3_ : 13;
 };
-struct Struct_02028bac;
+struct ActiveZone_02028bac;
 struct FieldMonster_02076a8c_2;
 struct Struct_ov017_021a1ad0 {
     Object3D unknown_0_;
@@ -37,7 +37,7 @@ struct Struct_ov017_021a1ad0_4 {
     Struct_ov017_021a1ad0_4(const Vector3fix& arg0) : unknown_0_(arg0) {}
 };
 extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4();
-extern "C" ActiveZone_020fdd44* func_02028bac(Struct_02028bac*, int);
+extern "C" ActiveZone_020fdd44* GetActiveZoneByIndex_02028bac(ActiveZone_02028bac*, int);
 extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44*, int);
 extern "C" void func_02076b58(FieldMonster_02076a8c_2*);
 extern "C" int func_0201b5d8(int);
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov017_021a1ad0() {
         int var5;
         ActiveZone_020fdd44* var6;
         for (var5 = 0; var5 < 4; var5++) {
-            var6 = func_02028bac((Struct_02028bac*)var1, var5);
+            var6 = GetActiveZoneByIndex_02028bac((ActiveZone_02028bac*)var1, var5);
             if (!var6->unknown_2_2_) continue;
             var4 = var5 * 12 + 0x70;
             int var7 = -1;

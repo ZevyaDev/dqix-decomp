@@ -16,9 +16,9 @@ extern "C" void* GetFirstZoneFeatureOfType_0201e838(unsigned char* zoneFeatures,
 extern "C" int func_02064b24(void* arg0, int arg1, unsigned short arg2, void* arg3);
 
 struct Struct_02017a94;
-struct Struct_0201b600;
+struct BMDJEntry_0201b600;
 struct Struct_02017a94_2;
-extern "C" struct Struct_02017a94_2* func_0201b600(Struct_02017a94*, int, unsigned short);
+extern "C" struct Struct_02017a94_2* FindFirstBMDJEntry_0201b600(Struct_02017a94*, int, unsigned short);
 
 struct Struct_02017a94_2 {
     unsigned short unknown_0_;
@@ -64,7 +64,7 @@ extern "C" ARM void func_02017a94(Zone3D* arg0) {
             for (var3 = 0; var3 < 0x7f; var3++) {
                 if (func_0206eaec(var1, (unsigned char)var2, (short)var3)) {
                     struct Struct_02017a94_2* var5 =
-                        func_0201b600((struct Struct_02017a94*)arg0, var2, var3);
+                        FindFirstBMDJEntry_0201b600((struct Struct_02017a94*)arg0, var2, var3);
                     if (var5 != NULL) {
                         var5->unknown_2_ &= ~4;
                     }
@@ -73,7 +73,7 @@ extern "C" ARM void func_02017a94(Zone3D* arg0) {
             for (var4 = 0x80; var4 < 0xff; var4++) {
                 if (func_0206eaec(var1, (unsigned char)var2, (short)var4)) {
                     struct Struct_02017a94_2* var6 =
-                        func_0201b600((struct Struct_02017a94*)arg0, var2, var4 - 0x80);
+                        FindFirstBMDJEntry_0201b600((struct Struct_02017a94*)arg0, var2, var4 - 0x80);
                     struct Struct_02017a94_3* var7;
                     if (var6 != NULL) {
                         var6->unknown_2_ |= 4;

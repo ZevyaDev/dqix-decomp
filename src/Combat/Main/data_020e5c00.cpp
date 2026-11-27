@@ -2,8 +2,8 @@
 #pragma define_section initcode ".init" RX
 
 extern "C" void func_0203a878(void* arg0);
-class Struct_0203a54c;
-extern "C" void func_0203a8d4(Struct_0203a54c* arg0);
+class BattleNumberPopups_0203a54c;
+extern "C" void func_0203a8d4(BattleNumberPopups_0203a54c* arg0);
 
 struct Struct_02104b60 {
     struct Struct_02104b60* unknown_0_;

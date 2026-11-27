@@ -8,7 +8,7 @@ struct Struct_0208660c;
 extern "C" void func_020a093c(struct Struct_0208660c* arg0, int arg1, int arg2, short arg3);
 
 extern "C" void func_0207c258(void* arg0);
-extern "C" void func_02086404(void* arg0);
+extern "C" void InitPattyMember_02086404(void* pattyMember);
 
 // USA: func_0208660c
 extern "C" ARM void func_0208660c(char* arg0) {
@@ -31,7 +31,7 @@ extern "C" ARM void func_0208660c(char* arg0) {
     *(unsigned char*)(arg0 + 0xf7c) = 0;
 
     for (int var0 = 0; var0 < 0xd; var0++) {
-        func_02086404(arg0 + 0xf80 + var0 * 0x23c);
+        InitPattyMember_02086404(arg0 + 0xf80 + var0 * 0x23c);
     }
 
     *(unsigned char*)(arg0 + 0x2000 + 0xc8c) = 0;

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "GameState/GameState.h"
 
-struct Struct_0201099c_16;
+struct PattyMember_0201099c_16;
 struct Struct_02086e50;
 struct Struct_ov003_02167b34_2;
 
@@ -12,7 +12,7 @@ extern "C" void func_ov003_02168088(struct Struct_ov003_02167b34_2* arg0, int* a
 extern "C" int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
 extern "C" void func_02042764(unsigned char* arg0, char* arg1, int arg2);
 extern "C" void* func_02086e50(Struct_02086e50* arg0, int arg1);
-extern "C" int func_020865b0(Struct_0201099c_16* arg0);
+extern "C" int GetPattyMemberVocation_020865b0(PattyMember_0201099c_16* pattyMember);
 
 struct Struct_ov003_02167ca8_3 {
     unsigned char unknown_0_[2];
@@ -55,10 +55,10 @@ extern "C" ARM void func_ov003_02167ca8(Struct_ov003_02167ca8_2* arg0) {
     if (var0 == 0) {
         return;
     }
-    int var1 = func_020865b0((Struct_0201099c_16*)var0);
+    int var1 = GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var0);
     func_ov003_02167e28(arg0, (unsigned char*)var0 + 0x140, var0->unknown_174_0_, (unsigned char)var1,
                         var0->unknown_f_[var1], var0->unknown_2_[var1], var0->unknown_1c_[var1]);
-    func_ov003_02167fa4(arg0, func_020865b0((Struct_0201099c_16*)var0) & 0xff, var0->unknown_f6_);
+    func_ov003_02167fa4(arg0, GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var0) & 0xff, var0->unknown_f6_);
     int var2[12];
     int var3 = var0->unknown_14c_.unknown_0_0_;
     int var4 = var3;
@@ -99,12 +99,12 @@ extern "C" ARM void func_ov003_02167ca8(Struct_ov003_02167ca8* arg0) {
     if (var19 == 0) {
         return;
     }
-    int var20 = func_020865b0((Struct_0201099c_16*)var19);
+    int var20 = GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var19);
     memset(arg0->unknown_2e_, 0, 0x30);
     func_02042764((unsigned char*)var19 + 0x140, arg0->unknown_2e_, 1);
     func_ov003_02167e28(arg0, arg0->unknown_2e_, var19->unknown_174_0_, (unsigned char)var20,
                         var19->unknown_f_[var20], var19->unknown_2_[var20], var19->unknown_1c_[var20]);
-    func_ov003_02167fa4(arg0, func_020865b0((Struct_0201099c_16*)var19) & 0xff, var19->unknown_f6_);
+    func_ov003_02167fa4(arg0, GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var19) & 0xff, var19->unknown_f6_);
     int var21[12];
     int var22 = var19->unknown_14c_.unknown_0_0_;
     int var23 = var22;

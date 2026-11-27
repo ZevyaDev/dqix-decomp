@@ -22,10 +22,10 @@ struct Struct_ov017_021b6d60 {
     unsigned char unknown_1_[Enum_ov017_021b6d60_47];
 };
 
-extern "C" void func_02086404(void* arg0);
+extern "C" void InitPattyMember_02086404(void* pattyMember);
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" short* GetAppearance_02052e2c(struct Struct_02052e2c* gameObject);
-extern "C" void func_020830cc(void* arg0, void* arg1);
+extern "C" void BuildPattyMember_020830cc(void* memberData, void* pattyMember);
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" void InitPartyMemberData_02082828(void* memberData);
 extern "C" void func_020545ac(short* arg0);
@@ -39,7 +39,7 @@ extern "C" void func_ov017_021cc68c(int arg0);
 
 // USA: func_ov017_021b6d60
 extern "C" ARM int func_ov017_021b6d60(int arg0, void* arg1) {
-    func_02086404(arg1);
+    InitPattyMember_02086404(arg1);
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = GetPartyMemberBaseByIndex_0200ff1c(var0, arg0);
     if (var1 == NULL) {
@@ -53,7 +53,7 @@ extern "C" ARM int func_ov017_021b6d60(int arg0, void* arg1) {
     if (var3 == NULL) {
         return 0;
     }
-    func_020830cc(var2, arg1);
+    BuildPattyMember_020830cc(var2, arg1);
     int var4 = GetResources_0200fb8c((int*)var0);
     InitPartyMemberData_02082828(var2);
     short* var5 = *(short**)((char*)var1 + Enum_ov017_021b6d60_340);

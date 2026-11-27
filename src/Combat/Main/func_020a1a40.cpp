@@ -13,7 +13,7 @@
 #define func_020a1a40 func_020a37b8
 #endif
 
-extern "C" void func_020d9834(int arg0);
+extern "C" void SleepOrCycleCurrentContext_020d9834(int milliseconds);
 void NitroVM_Initialize(NitroVM* vm);
 void DecompressAndStaticInitializeOverlay(const OverlayMetadata& overlay);
 extern "C" int func_020a1ccc(unsigned int arg0);
@@ -45,7 +45,7 @@ extern "C" ARM int func_020a1a40(unsigned int arg0) {
         if (var4 != (int)arg0) {
             func_020a1ccc(var4);
             while (data_01ffd340) {
-                func_020d9834(0);
+                SleepOrCycleCurrentContext_020d9834(0);
             }
             data_01ffd340 = 1;
             LockResourceMutex();
@@ -59,7 +59,7 @@ extern "C" ARM int func_020a1a40(unsigned int arg0) {
                     if (!GET_FLAG_BIT(var6.flags, NITROVM_FLAG_IN_HANDLE_QUEUE)) {
                         break;
                     }
-                    func_020d9834(0);
+                    SleepOrCycleCurrentContext_020d9834(0);
                 }
                 LockResourceMutex();
                 NitroVM_FinishRead(&var6);

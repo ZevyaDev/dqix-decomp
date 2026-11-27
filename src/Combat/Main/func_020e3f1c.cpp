@@ -123,7 +123,7 @@ extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, 
 extern "C" void StopGesture_020531f0(GameObject* gameObject);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 extern "C" int func_02039874(void* arg0);
-extern "C" void func_020338d4(struct Struct_020338d4* arg0, struct Struct_ov009_0218aa28* arg1);
+extern "C" void FacePositionInstantly_020338d4(struct Struct_020338d4* object, struct Struct_ov009_0218aa28* targetPosition);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" void func_020338b0(unsigned char* arg0, int arg1);
 extern "C" void func_0202e6a8(struct Struct_0202e6a8* arg0, int arg1);
@@ -259,7 +259,7 @@ extern "C" ARM void func_020e3f1c(struct Struct_020e3f1c_4* arg0) {
                 var18->unknown_44_.unknown_0_ = var15.unknown_0_;
                 var18->unknown_44_.unknown_4_ = var15.unknown_4_;
                 var18->unknown_44_.unknown_8_ = var15.unknown_8_ + 0x3000;
-                func_020338d4((struct Struct_020338d4*)var18, &var10->unknown_44_);
+                FacePositionInstantly_020338d4((struct Struct_020338d4*)var18, &var10->unknown_44_);
                 ResetFollowTrail_02039d24((unsigned char*)var18);
             }
         }

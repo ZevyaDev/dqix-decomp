@@ -133,7 +133,7 @@ extern "C" void func_02097054(Struct_02000c9c_52* arg0, SafeAllocator* arg1, voi
 extern "C" Struct_ov014_021850cc* func_02097238(Struct_02097238* arg0);
 extern "C" Struct_ov014_021850cc_3* func_02097224(Struct_02097054_5* arg0, int arg1);
 extern "C" void InitNounTable_020e526c(void* nounTable);
-extern "C" void func_020e56fc(void* arg0, int arg1, int arg2);
+extern "C" void LoadNounTableInPlace_020e56fc(void* nounTable, int fileData, int fileSize);
 extern "C" const char** FindNounInTable_020e5294(void* nounTable, int nounId);
 extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, int, int, int, int);
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(ObjectArchiveLoadInfo_0203d028_11* loadInfo);
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov014_021850cc(Struct_ov014_02184dcc* arg0) {
 #else
                 char var14[0xc];
                 InitNounTable_020e526c(var14);
-                func_020e56fc(var14, (int)var10, var11);
+                LoadNounTableInPlace_020e56fc(var14, (int)var10, var11);
                 const char** var15 = FindNounInTable_020e5294(var14, var12->unknown_8_[0]);
                 if (var15 != NULL) {
                     memset(arg0->unknown_60_[0], 0, 0x48);

@@ -1,26 +1,26 @@
 #include <globaldefs.h>
 #include "Graphics/GlyphMetrics.h"
 
-// USA: func_02028d68
-extern "C" ARM void func_02028d68(int arg0) {
-    data_020ef74c.unknown_c_ = arg0;
-    if (arg0 == 0) {
-        data_020ef74c.unknown_4_ = 8;
-        data_020ef74c.unknown_8_ = 8;
+// USA: SetPrintMode_02028d68
+extern "C" ARM void SetPrintMode_02028d68(int mode) {
+    data_020ef74c.mode_c_ = mode;
+    if (mode == 0) {
+        data_020ef74c.lineHeight_4_ = 8;
+        data_020ef74c.charWidth_8_ = 8;
         return;
     }
-    if ((unsigned int)(arg0 - 1) <= 1) {
-        data_020ef74c.unknown_8_ = 6;
-        data_020ef74c.unknown_4_ = 0xc;
+    if ((unsigned int)(mode - 1) <= 1) {
+        data_020ef74c.charWidth_8_ = 6;
+        data_020ef74c.lineHeight_4_ = 0xc;
         return;
     }
-    if ((unsigned int)(arg0 - 3) <= 1) {
-        data_020ef74c.unknown_8_ = 5;
-        data_020ef74c.unknown_4_ = 0xa;
+    if ((unsigned int)(mode - 3) <= 1) {
+        data_020ef74c.charWidth_8_ = 5;
+        data_020ef74c.lineHeight_4_ = 0xa;
         return;
     }
-    if ((unsigned int)(arg0 - 5) <= 1) {
-        data_020ef74c.unknown_8_ = 6;
-        data_020ef74c.unknown_4_ = 0xc;
+    if ((unsigned int)(mode - 5) <= 1) {
+        data_020ef74c.charWidth_8_ = 6;
+        data_020ef74c.lineHeight_4_ = 0xc;
     }
 }

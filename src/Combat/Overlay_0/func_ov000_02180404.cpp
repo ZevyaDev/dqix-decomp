@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_ov000_0217f518(char* arg0);
+extern "C" void ClearPanelCommand_ov000_0217f518(char* panel);
 
 struct Struct_ov000_021735d0_2 {
     char unknown_0_[0x4c];
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov000_02180404(char* arg0) {
         struct Struct_ov000_02180404* var1 = (struct Struct_ov000_02180404*)(arg0 + 0x958) + *(signed char*)(arg0 + var0 + 0x6c);
         int var2 = (var1->unknown_4c_ >= 0 && var1->unknown_4c_ <= 3) ? 1 : 0;
         if (var2 && var1->unknown_87_ != 0) {
-            func_ov000_0217f518((char*)var1);
+            ClearPanelCommand_ov000_0217f518((char*)var1);
         }
     }
     struct Struct_ov000_021735d0_2* var3 = GetSelectedMemberPanel_ov000_0217f8c0((struct Struct_ov000_021735d0_3*)arg0);

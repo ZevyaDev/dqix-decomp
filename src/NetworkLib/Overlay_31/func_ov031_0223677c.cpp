@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alignAndDir);
-extern "C" void* func_ov031_0223b61c(char* arg0, unsigned int* arg1, int arg2);
+extern "C" void* LoadFile_ov031_0223b61c(char* path, unsigned int* outLength, int alignAndDir);
 extern "C" void func_020bbd14(void*);
 extern "C" void func_020bd368(void*, int);
 extern "C" void func_020be6c4(int);
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov031_0223677c(void) {
 	data_ov031_02290d00 = AllocateZeroedMemory_ov031_0223cf4c(0xa0, 4);
 
 	unsigned int var0;
-	void* var1 = func_ov031_0223b61c(data_ov031_0224be60, &var0, 0x20);
+	void* var1 = LoadFile_ov031_0223b61c(data_ov031_0224be60, &var0, 0x20);
 	*(void**)((char*)data_ov031_02290d00 + 0x98) = var1;
 	func_020bbd14(var1);
 

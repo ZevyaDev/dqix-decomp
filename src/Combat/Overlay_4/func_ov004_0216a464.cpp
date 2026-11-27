@@ -31,8 +31,8 @@ extern "C" void StartMessage_0204500c(void*, void*, int);
 extern "C" void StartMessage_0204500c(void* window, void* text, int arg2, int arg3);
 #endif
 extern "C" void func_ov023_021f65d4(void* arg0, int arg1, int arg2);
-struct Struct_ov004_02158dcc;
-extern "C" void func_ov011_021849e0(struct Struct_ov004_02158dcc* arg0, unsigned short arg1);
+struct Menu_ov004_02158dcc;
+extern "C" void SetActiveMenuGrid_ov011_021849e0(struct Menu_ov004_02158dcc* menu, unsigned short gridId);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 
 struct StringList_02072a68_2 { struct StringListEntry_02072a68* unknown_0_; short capacity_4_; };
@@ -100,7 +100,7 @@ extern "C" ARM int func_ov004_0216a464(void* arg0) {
     func_ov023_021f65d4(arg0, 0x1e, 8);
     func_ov023_021f65d4(arg0, 0x1f, 8);
     func_ov023_021f65d4(arg0, 2, 8);
-    func_ov011_021849e0((struct Struct_ov004_02158dcc*)arg0, 0x66);
+    SetActiveMenuGrid_ov011_021849e0((struct Menu_ov004_02158dcc*)arg0, 0x66);
     QueueMenuScriptEntry_ov011_021848a0(arg0, 0x68);
     return 0;
 }

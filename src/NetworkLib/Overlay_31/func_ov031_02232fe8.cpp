@@ -1,11 +1,11 @@
 #include <globaldefs.h>
 
-struct Struct_ov031_02223268_2;
-struct Struct_ov031_022269d8;
+struct OAMEntry_ov031_02223268_2;
+struct OAMAllocation_ov031_022269d8;
 struct OAMAllocation_ov031_02222ce4;
 union Struct_ov031_02232fe8 {
     void* unknown_0_;
-    Struct_ov031_022269d8* unknown1_0_;
+    OAMAllocation_ov031_022269d8* unknown1_0_;
     OAMAllocation_ov031_02222ce4* unknown2_0_;
 };
 struct Struct_ov031_02232fe8_2 {
@@ -28,7 +28,7 @@ extern Struct_ov031_02249082_2 data_ov031_02249084[];
 extern "C" signed char GetDialogChoice_ov031_02237e9c();
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
 extern "C" void func_ov031_02236484(int);
-extern "C" Struct_ov031_02223268_2* func_ov031_0223baa0(Struct_ov031_022269d8*, int);
+extern "C" OAMEntry_ov031_02223268_2* GetSpriteOAMEntry_ov031_0223baa0(OAMAllocation_ov031_022269d8*, int);
 extern "C" int CopySpriteOAMEntries_ov031_0223bdb0(int, int, int);
 extern "C" void SetSpritePosition_ov031_0223bbd8(void*, int, int, int);
 extern "C" void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4*, int, int);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov031_02232fe8() {
     case 1:
         PlayWifiSetupSoundEffect_ov031_02236878(14);
         func_ov031_02236484(var0);
-        CopySpriteOAMEntries_ov031_0223bdb0(0, 86, (int)func_ov031_0223baa0(gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_4_[var0].unknown1_0_, 0));
+        CopySpriteOAMEntries_ov031_0223bdb0(0, 86, (int)GetSpriteOAMEntry_ov031_0223baa0(gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_4_[var0].unknown1_0_, 0));
         SetSpritePosition_ov031_0223bbd8(gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_4_[var0].unknown_0_, -1,
             data_ov031_02249082[var0].unknown_0_, data_ov031_02249084[var0].unknown_0_);
         SetSpritePriority_ov031_0223bcc8(gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_4_[var0].unknown2_0_, -1, 3);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov031_02232fe8() {
         break;
     case 0:
         PlayWifiSetupSoundEffect_ov031_02236878(7);
-        CopySpriteOAMEntries_ov031_0223bdb0(0, 17, (int)func_ov031_0223baa0(gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_10_[var0].unknown1_0_, 0));
+        CopySpriteOAMEntries_ov031_0223bdb0(0, 17, (int)GetSpriteOAMEntry_ov031_0223baa0(gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_10_[var0].unknown1_0_, 0));
         SetSpritePosition_ov031_0223bbd8(gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_10_[var0].unknown_0_, -1,
             data_ov031_02249082[var0 + 3].unknown_0_, data_ov031_02249084[var0 + 3].unknown_0_);
         SetSpritePriority_ov031_0223bcc8(gConnectionListPage_ov031_02290cc0.unknown_4_->unknown_10_[var0].unknown2_0_, -1, 3);

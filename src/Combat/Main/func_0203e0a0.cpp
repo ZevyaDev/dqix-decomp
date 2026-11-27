@@ -22,7 +22,7 @@ struct NPCManager_0203e0a0_3 {
     unsigned int npcCount_8c_;
     unsigned char unknown_90_[0xe];
     SavedNPCState_0203e0a0_2 savedStates_9e_[32];
-    unsigned short unknown_1de_;
+    unsigned short savedZoneId_1de_;
     unsigned short savedNPCCount_1e0_;
     unsigned short unknown_1e2_;
     unsigned int unknown_1e4_;
@@ -44,9 +44,9 @@ struct Struct_0203e0a0_5 {
 };
 
 // USA: SaveNPCStates_0203e0a0
-extern "C" ARM void SaveNPCStates_0203e0a0(void *manager, unsigned short arg1) {
+extern "C" ARM void SaveNPCStates_0203e0a0(void *manager, unsigned short zoneId) {
     NPCManager_0203e0a0_3 *npcManager = static_cast<NPCManager_0203e0a0_3 *>(manager);
-    npcManager->unknown_1de_                   = arg1;
+    npcManager->savedZoneId_1de_                   = zoneId;
     npcManager->savedNPCCount_1e0_          = 0;
     NPC_0203dce4 **slot       = npcManager->npcs_c_;
     SavedNPCState_0203e0a0_2 *savedState    = npcManager->savedStates_9e_;

@@ -57,7 +57,7 @@ extern "C" signed char GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3* bag, 
 extern "C" unsigned int func_ov003_02175898(char* arg0, void* arg1);
 extern "C" int func_ov003_021758cc(char* arg0, int arg1);
 extern "C" void func_ov003_02175924(char* arg0);
-extern "C" int func_020de194(void* arg0);
+extern "C" int GetItemBuyPrice_020de194(void* item);
 extern "C" int GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov003_02178910(unsigned char* arg0) {
                 struct ItemData_0201099c_9* var13 = *(struct ItemData_0201099c_9**)(arg0 + 8);
                 unsigned short var14 = *(unsigned short*)(arg0 + (0x800 + 0x6c - Enum_ov003_02178910_0));
                 int var15 = *(int*)(arg0 + (0x1000 + 0x30 - Enum_ov003_02178910_0));
-                int var16 = func_020de194(var13);
+                int var16 = GetItemBuyPrice_020de194(var13);
                 int var17 = var14 * var16;
                 void* var18 = GetParty_02010828((GameState*)(Struct_0203d028_2*)GameState::GetInstance());
                 int var19 = var13->unknown_8_0_;

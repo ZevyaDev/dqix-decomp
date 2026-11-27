@@ -11,7 +11,7 @@ struct Struct_ov011_02184a18;
 extern "C" unsigned short func_ov011_02184a18(struct Struct_ov011_02184a18* arg0);
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
-extern "C" void func_ov011_02184a40(void* arg0, int arg1);
+extern "C" void StartMenuCallback_ov011_02184a40(void* menu, int callbackIndex);
 
 extern "C" void* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int GetMenuGridCursorIndex_ov023_021f9bc8(void* grid);
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov023_021f98e0(void* arg0, void* arg1) {
 
         int var11 = var4->inline_ov023_021f98e0_5();
         if (var11 > 0) {
-            func_ov011_02184a40(arg1, var11);
+            StartMenuCallback_ov011_02184a40(arg1, var11);
         }
     }
 

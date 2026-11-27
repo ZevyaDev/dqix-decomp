@@ -3,7 +3,7 @@
 extern "C" void* GetBattleScene_ov000_02160130(void);
 extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void* func_ov024_021f69b4(char* arg0, int arg1);
-extern "C" void* func_ov000_02171b9c(void* arg0, int arg1);
+extern "C" void* GetPanelItem_ov000_02171b9c(void* panel, int itemIndex);
 
 struct Struct_ov024_021f691c {
 	unsigned short unknown_0_;
@@ -36,7 +36,7 @@ extern "C" ARM int func_ov024_021f691c(struct Struct_ov024_021f691c* arg0, unsig
 			struct Struct_ov024_021f691c_3* var3 = (struct Struct_ov024_021f691c_3*)func_ov024_021f69b4((char*)var2, arg3);
 			if (var3) {
 				var3->unknown_22_ = arg0->unknown_2_;
-				struct Struct_ov024_021f691c_3* var4 = (struct Struct_ov024_021f691c_3*)func_ov000_02171b9c(var3, arg0->unknown_2_);
+				struct Struct_ov024_021f691c_3* var4 = (struct Struct_ov024_021f691c_3*)GetPanelItem_ov000_02171b9c(var3, arg0->unknown_2_);
 				if (var4) {
 					var3->unknown_2c_ = var4->unknown_18_;
 				}

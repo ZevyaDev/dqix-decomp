@@ -11,7 +11,7 @@ extern "C" int func_ov001_0215ad3c(const char*, char*, char*);
 extern "C" unsigned int func_ov001_0215a750(const char*, void**);
 extern "C" void SetGameObjectByIndex_0200fd38(GameState*, int, GameObject*);
 extern SafeAllocator* data_ov001_021658b8[];
-extern const char data_ov001_02165745[];
+extern const char gDataPathFormat_ov001_02165745[];
 extern const char data_ov001_0216574d[];
 extern const char data_ov001_02165752[];
 extern const char data_ov001_02165758[];
@@ -41,7 +41,7 @@ extern "C" ARM int func_ov001_0215b72c(Struct_ov001_0215b72c* arg0, int arg1) {
     if (func_ov001_0215ad3c(var5, var8, var9)) {
         var4->GetLoadedFileInArchive(var9, var8, &var10, &var11);
     } else {
-        sprintf(var8, data_ov001_02165745, var5);
+        sprintf(var8, gDataPathFormat_ov001_02165745, var5);
         var4->GetLoadedFileByName(var8, &var10, &var11);
     }
     var2 = 0;

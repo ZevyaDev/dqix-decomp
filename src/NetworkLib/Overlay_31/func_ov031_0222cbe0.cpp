@@ -3,7 +3,7 @@
 extern unsigned char data_ov031_02248eb4[2];
 extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(unsigned int size, int alignAndDir);
 
-extern void* data_ov031_02290c94;
+extern void* gTextEntryPage_ov031_02290c94;
 
 extern "C" void GetWifiSetupPageArguments_ov031_02227520(int*, int*);
 extern "C" void func_ov031_02235f0c(void*);
@@ -11,7 +11,7 @@ extern "C" int func_ov031_0223dd34(unsigned char*, int);
 extern "C" void func_ov031_0222cd14(void);
 extern "C" void ShowPageTitle_ov031_02223998(int);
 extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
-extern "C" void func_ov031_02223518(int);
+extern "C" void ShowStepIndicator_ov031_02223518(int);
 extern "C" int func_ov031_0223c560(int, int);
 extern "C" int func_ov031_0223be44(int, int);
 extern "C" void func_ov031_0222d3b0(void);
@@ -26,15 +26,15 @@ extern "C" ARM void func_ov031_0222cbe0(void) {
 	unsigned char var0[2];
 	var0[0] = data_ov031_02248eb4[0];
 	var0[1] = data_ov031_02248eb4[1];
-	data_ov031_02290c94 = AllocateZeroedMemory_ov031_0223cf4c(0x2c, 4);
+	gTextEntryPage_ov031_02290c94 = AllocateZeroedMemory_ov031_0223cf4c(0x2c, 4);
 
 	int var1, var2;
 	GetWifiSetupPageArguments_ov031_02227520(&var1, &var2);
 
 	if (var1 == 0) {
-		func_ov031_02235f0c((char*)data_ov031_02290c94 + 8);
-		unsigned char var3 = func_ov031_0223dd34((unsigned char*)((char*)data_ov031_02290c94 + 8), 0x20);
-		*((unsigned char*)data_ov031_02290c94 + 0x29) = var3;
+		func_ov031_02235f0c((char*)gTextEntryPage_ov031_02290c94 + 8);
+		unsigned char var3 = func_ov031_0223dd34((unsigned char*)((char*)gTextEntryPage_ov031_02290c94 + 8), 0x20);
+		*((unsigned char*)gTextEntryPage_ov031_02290c94 + 0x29) = var3;
 	}
 	func_ov031_0222cd14();
 	ShowPageTitle_ov031_02223998(var1 + 9);
@@ -43,12 +43,12 @@ extern "C" ARM void func_ov031_0222cbe0(void) {
 	} else {
 		ShowSubScreenMessage_ov031_0222336c(var0[var1], -1, 0);
 	}
-	func_ov031_02223518(2);
+	ShowStepIndicator_ov031_02223518(2);
 	int var4 = func_ov031_0223c560(0, 0);
-	*(int*)data_ov031_02290c94 = var4;
+	*(int*)gTextEntryPage_ov031_02290c94 = var4;
 	int var5 = func_ov031_0223be44(0, 0x3e);
-	*(int*)((char*)data_ov031_02290c94 + 4) = var5;
-	Struct_ov031_0222cbe0* var6 = *(Struct_ov031_0222cbe0**)((char*)data_ov031_02290c94 + 4);
+	*(int*)((char*)gTextEntryPage_ov031_02290c94 + 4) = var5;
+	Struct_ov031_0222cbe0* var6 = *(Struct_ov031_0222cbe0**)((char*)gTextEntryPage_ov031_02290c94 + 4);
 	var6->unknown_5_2_ = 3;
 	func_ov031_0222d3b0();
 	func_ov031_0222d2bc();

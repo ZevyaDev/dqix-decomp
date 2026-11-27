@@ -127,7 +127,7 @@ extern "C" void func_0205cc50(void* arg0, int arg1, int arg2);
 extern "C" void func_0205dfa8(void* arg0);
 #endif
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
-extern "C" void func_02043368(char* arg0);
+extern "C" void UpdateMessageWindowSpriteLoad_02043368(char* window);
 extern "C" void UpdateMessageWindowGraphics_020439b0(char* window, int arg1);
 extern "C" char* func_0203bd08(void);
 extern "C" void ResetMatrixStacks_020c5414(void);
@@ -649,7 +649,7 @@ extern "C" ARM void func_ov020_0218b710(Struct_ov020_0218b710_5* arg0) {
         BackgroundLoader* var26 = BackgroundLoader::GetInstance();
         char* var27 = GetMessageWindow_020421a0();
         for (;;) {
-            func_02043368(var27);
+            UpdateMessageWindowSpriteLoad_02043368(var27);
 #if defined(jpn)
             if (((unsigned char*)var27)[0x237] == 2) break;
 #else

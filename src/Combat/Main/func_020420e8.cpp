@@ -14,7 +14,7 @@ extern "C" ARM void func_02028ce4(const char* arg0, int* arg1, int* arg2) {
     if (arg0 == 0) return;
     int var0 = 10;
     int var1 = 11;
-    int var2 = data_020ef74c.unknown_c_;
+    int var2 = data_020ef74c.mode_c_;
 
     if ((unsigned int)(var2 - 3) <= 1) {
     } else if ((unsigned int)(var2 - 5) <= 1) {

@@ -1,24 +1,24 @@
 #include <globaldefs.h>
 
-struct Struct_0209a9dc_3 { unsigned short unknown_0_; unsigned short unknown_2_; };
-struct Struct_0209a9dc {
-    struct Struct_0209a9dc_3 unknown_0_[0x42];
-    int unknown_108_;
+struct SpellEntry_0209a9dc_3 { unsigned short spellId_0_; unsigned short unknown_2_; };
+struct SpellTableBlock_0209a9dc {
+    struct SpellEntry_0209a9dc_3 entries_0_[0x42];
+    int count_108_;
 };
-struct Struct_0209a9dc_2 {
-    struct Struct_0209a9dc* unknown_0_;
+struct SpellTable_0209a9dc_2 {
+    struct SpellTableBlock_0209a9dc* pBlock_0_;
 };
 
-// USA: func_0209a9dc
-extern "C" ARM struct Struct_0209a9dc_3* func_0209a9dc(struct Struct_0209a9dc_2* arg0, int arg1) {
-    int var0;
-    struct Struct_0209a9dc* var1;
-    var1 = arg0->unknown_0_;
-    if (var1 == NULL) return NULL;
-    if (arg1 >= 0x42) return NULL;
-    if (var1->unknown_0_[arg1].unknown_0_ == arg1) return &var1->unknown_0_[arg1];
-    for (var0 = 0; var0 < var1->unknown_108_; var0++) {
-        if (var1->unknown_0_[var0].unknown_0_ == arg1) return &var1->unknown_0_[var0];
+// USA: FindSpellEntry_0209a9dc
+extern "C" ARM struct SpellEntry_0209a9dc_3* FindSpellEntry_0209a9dc(struct SpellTable_0209a9dc_2* table, int spellId) {
+    int i;
+    struct SpellTableBlock_0209a9dc* block;
+    block = table->pBlock_0_;
+    if (block == NULL) return NULL;
+    if (spellId >= 0x42) return NULL;
+    if (block->entries_0_[spellId].spellId_0_ == spellId) return &block->entries_0_[spellId];
+    for (i = 0; i < block->count_108_; i++) {
+        if (block->entries_0_[i].spellId_0_ == spellId) return &block->entries_0_[i];
     }
     return NULL;
 }

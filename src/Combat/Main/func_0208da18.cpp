@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-struct Struct_0208d994 {
-    short unknown_0_;
+struct QuestMessage_0208d994 {
+    short questNumber_0_;
     int unknown_4_;
     int unknown_8_;
     int unknown_c_;
@@ -9,20 +9,20 @@ struct Struct_0208d994 {
     int unknown_14_;
 };
 
-struct Struct_0208bf78_5 {
-    struct Struct_0208d994* unknown_0_;
+struct QuestMessageList_0208bf78_5 {
+    struct QuestMessage_0208d994* unknown_0_;
     short unknown_4_;
 };
 
-extern "C" struct Struct_0208d994* func_0208d994(struct Struct_0208bf78_5* arg0, int arg1);
+extern "C" struct QuestMessage_0208d994* FindQuestMessage_0208d994(struct QuestMessageList_0208bf78_5* questMessages, int questNumber);
 
 // USA: func_0208da18
-extern "C" ARM int func_0208da18(struct Struct_0208bf78_5* arg0, int arg1, int arg2) {
+extern "C" ARM int func_0208da18(struct QuestMessageList_0208bf78_5* arg0, int arg1, int arg2) {
     int var0;
-    struct Struct_0208d994* var1;
+    struct QuestMessage_0208d994* var1;
     int* var2;
     var0 = 0;
-    var1 = func_0208d994(arg0, arg1);
+    var1 = FindQuestMessage_0208d994(arg0, arg1);
     if (var1 != NULL) {
     switch (arg2) {
         case 1:

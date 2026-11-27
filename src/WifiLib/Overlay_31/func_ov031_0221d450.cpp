@@ -20,7 +20,7 @@ extern "C" THUMB int func_ov031_0221d450(int arg0, Struct_ov031_0221d3b0_2* arg1
         ++*arg2;
         return arg0;
     }
-    if (!func_ov031_0221e638(var1->unknown_2_)) {
+    if (!SwapBytes16_ov031_0221e638(var1->unknown_2_)) {
         ++*arg2;
         return arg0;
     }
@@ -47,7 +47,7 @@ extern "C" THUMB int func_ov031_0221d450(int arg0, Struct_ov031_0221d3b0_2* arg1
         ++*arg2;
         return arg0;
     }
-    gAOSSSession_ov031_0224e6e0 = func_ov031_0221dc58(func_ov031_0221e638(var0->unknown_c_));
+    gAOSSSession_ov031_0224e6e0 = func_ov031_0221dc58(SwapBytes16_ov031_0221e638(var0->unknown_c_));
     *arg2 = 0;
     return 1;
 }

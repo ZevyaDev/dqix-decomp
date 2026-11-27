@@ -42,7 +42,7 @@ struct Struct_ov000_0215767c_2 {
     int unknown_8e24_;
 };
 
-extern "C" Struct_ov000_0215767c_10* func_ov000_0215e9d8(void* arg0);
+extern "C" Struct_ov000_0215767c_10* GetNextBattleAction_ov000_0215e9d8(void* battle);
 extern "C" Struct_ov000_0215767c_8* func_ov000_0215e918(void* arg0);
 extern "C" Struct_ov000_0215767c_9* func_ov000_0215e938(void* arg0);
 extern "C" void InitBattleAction_ov000_02160030(void* action);
@@ -50,9 +50,9 @@ extern "C" void InitActionTarget_ov000_02157cdc(void* target);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 
 extern "C" Struct_ov000_0215767c* FindActionData_02079e2c(char* actionTables, int actionId);
-struct Struct_ov000_0215767c_6;
-struct Struct_ov000_0215767c_7;
-extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
+struct ActionActor_ov000_0215767c_6;
+struct BattleAction_ov000_0215767c_7;
+extern "C" void AppendActionActor_ov000_02160068(BattleAction_ov000_0215767c_7*, ActionActor_ov000_0215767c_6*);
 struct ActionTarget_ov000_0215767c_4;
 struct BattleAction_ov000_0215767c_5;
 extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*, ActionTarget_ov000_0215767c_4*);
@@ -72,7 +72,7 @@ static inline short inline_ov000_021584e8_2(GameObject* arg0) { SDK_NULL_ASSERT(
 // USA: func_ov000_0215cac8
 extern "C" ARM void func_ov000_0215cac8(Struct_ov000_0215767c_2* arg0, short* arg1, int arg2, short arg3,
                                         unsigned short* arg4, unsigned char* arg5) {
-    Struct_ov000_0215767c_10* var0 = func_ov000_0215e9d8(arg0);
+    Struct_ov000_0215767c_10* var0 = GetNextBattleAction_ov000_0215e9d8(arg0);
     Struct_ov000_0215767c_8* var1 = func_ov000_0215e918(arg0);
     if (var0 == 0 || var1 == 0) {
         return;
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov000_0215cac8(Struct_ov000_0215767c_2* arg0, short* ar
         var1->unknown_22_ = var3->currentStats_->primaryStats.currHP;
         var1->unknown_24_ = var3->currentStats_->primaryStats.currMP;
     }
-    func_ov000_02160068((Struct_ov000_0215767c_7*)var0, (Struct_ov000_0215767c_6*)var1);
+    AppendActionActor_ov000_02160068((BattleAction_ov000_0215767c_7*)var0, (ActionActor_ov000_0215767c_6*)var1);
 
     for (int var4 = 0; var4 < arg2; var4++) {
         Struct_ov000_0215767c_9* var5 = func_ov000_0215e938(arg0);

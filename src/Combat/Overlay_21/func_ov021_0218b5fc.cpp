@@ -111,7 +111,7 @@ extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDur
 extern "C" void StopStream_0203ad88(void* manager, void* handle, int fadeDuration);
 extern "C" void PlayPendingSound_0203aa08(void* manager);
 extern "C" void ResetMusic_0209c20c(Struct_02109bf4_3* manager);
-extern "C" void func_02043000(char* arg0);
+extern "C" void DestroyMessageWindow_02043000(char* window);
 extern char gMainHeap_02114e20;
 extern char gMusicManager_02109bf4;
 extern int data_02114e50;
@@ -255,7 +255,7 @@ extern "C" ARM void func_ov021_0218b5fc(Struct_ov021_0218b5fc* arg0) {
     StopStream_0203ad88(&gMusicManager_02109bf4, 0, 0);
     PlayPendingSound_0203aa08(&gMusicManager_02109bf4);
     ResetMusic_0209c20c((Struct_02109bf4_3*)&gMusicManager_02109bf4);
-    func_02043000((char*)var5);
+    DestroyMessageWindow_02043000((char*)var5);
     ((TextureArena*)((TextureVRAMArea_0203d028*)arg0->unknown_44_))->Reset();
     SetResources_0200fb84((int*)var0, 0);
 #if !defined(jpn)

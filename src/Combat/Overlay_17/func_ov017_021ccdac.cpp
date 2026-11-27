@@ -10,8 +10,8 @@
 #endif
 
 extern "C" int func_02053c6c(unsigned char* gameObject);
-struct Struct_020839dc;
-extern "C" int func_020839dc(struct Struct_020839dc* arg0, unsigned char* arg1, int arg2);
+struct PartyMemberData_020839dc;
+extern "C" int CollectLearnedSpellIds_020839dc(struct PartyMemberData_020839dc* memberData, unsigned char* spellIds, int maxCount);
 extern "C" void* func_0202ae24(void);
 extern "C" void QueueOutgoingPacket_0205e330(void* packetQueue, void* packet, int flags);
 
@@ -38,7 +38,7 @@ extern "C" ARM void func_ov017_021ccdac(int arg0) {
     int var6;
     int var7;
 
-    var7 = func_020839dc((struct Struct_020839dc*)var2, var3, 0x42);
+    var7 = CollectLearnedSpellIds_020839dc((struct PartyMemberData_020839dc*)var2, var3, 0x42);
     var7 = var7 & 0xff;
 
     var4 = func_0202ae24();

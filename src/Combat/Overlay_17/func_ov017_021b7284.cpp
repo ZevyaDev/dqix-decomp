@@ -147,7 +147,7 @@ struct BattleJoinRecord_0207d7f4 {
 };
 
 extern "C" Struct_ov017_021b7284_4* GetZone3D_02012fe4(void);
-extern "C" Struct_ov017_021b7284_6* func_02027cb0(void);
+extern "C" Struct_ov017_021b7284_6* FindCurrentActiveZone_02027cb0(void);
 extern "C" Struct_ov017_021b7284_7* FindFieldMonsterById_ov017_021a278c(void* gameResources, int fieldMonsterId);
 extern "C" int func_ov017_021b8a34(Struct_0209afd4_5* arg0, int arg1, int arg2);
 extern "C" int func_ov017_021b8abc(int arg0, Struct_ov017_021b7284* arg1);
@@ -232,7 +232,7 @@ extern "C" ARM void func_ov017_021b7284(Struct_ov017_021b7284_9* arg0) {
     } else {
         var1 = -1;
         if (var14 != 0) {
-            Struct_ov017_021b7284_6* var19 = func_02027cb0();
+            Struct_ov017_021b7284_6* var19 = FindCurrentActiveZone_02027cb0();
             if (var19 == NULL) {
                 goto done;
             }
@@ -253,7 +253,7 @@ extern "C" ARM void func_ov017_021b7284(Struct_ov017_021b7284_9* arg0) {
         } else {
             Struct_ov017_021b7284_7* var22;
             LightingManager* var23 = LightingManager::GetInstance();
-            Struct_ov017_021b7284_6* var24 = func_02027cb0();
+            Struct_ov017_021b7284_6* var24 = FindCurrentActiveZone_02027cb0();
             var22 = FindFieldMonsterById_ov017_021a278c(var17, var15);
             void* var25 = var16->GetUnknownGameObject();
             if (var24 == NULL || var22 == NULL) {

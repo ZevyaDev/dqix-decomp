@@ -12,12 +12,12 @@
 #endif
 
 extern "C" void ShowMenuLayoutWindowTexts_02080bac(void* menuLayout, int windowId);
-extern "C" void func_0208065c(void* arg0, int arg1);
+extern "C" void SetMenuLayoutWindowTextsSelectable_0208065c(void* layout, int windowId);
 struct MenuLayout_02080f8c;
 extern "C" void SetMenuLayoutTextString_02080f8c(struct MenuLayout_02080f8c* menuLayout, int textId, int text);
 struct MenuLayout_02080fa8;
 extern "C" void SetMenuLayoutTextValue_02080fa8(struct MenuLayout_02080fa8* menuLayout, int textId, int value);
-extern "C" void func_020806b0(void* arg0, int arg1);
+extern "C" void SetMenuLayoutTextUnselectable_020806b0(void* layout, int textId);
 extern "C" void HideMenuLayoutText_02080b2c(void* menuLayout, int textId);
 extern "C" void SetMenuLayoutWindowPageArrows_02081130(void* menuLayout, int windowId, int hasPageArrows);
 extern "C" int OpenMenuLayoutWindow_020813ec(void* menuLayout, int windowId);
@@ -42,7 +42,7 @@ extern "C" ARM void func_ov014_021885bc(void* arg0) {
     short var1 = *(short*)((char*)arg0 + 0x176);
     *(short*)((char*)var0 + LOW_REGION(0x2a, 0x36)) = var1;
     ShowMenuLayoutWindowTexts_02080bac(var0, 5);
-    func_0208065c(var0, 5);
+    SetMenuLayoutWindowTextsSelectable_0208065c(var0, 5);
 
     struct Struct_ov014_021885bc* var2 = *(struct Struct_ov014_021885bc**)((char*)arg0 + 0xbc);
     short var3 = 0x1b;
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov014_021885bc(void* arg0) {
             }
             var2 = var2->unknown_0_;
         } else {
-            func_020806b0(var0, var3);
+            SetMenuLayoutTextUnselectable_020806b0(var0, var3);
             HideMenuLayoutText_02080b2c(var0, var3);
         }
     }

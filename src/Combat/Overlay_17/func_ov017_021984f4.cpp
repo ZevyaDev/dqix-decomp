@@ -21,7 +21,7 @@ int fix32SignedAngleDistance(int a, int b);
 int fix32abs(int x);
 extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char* prompt);
 extern "C" void func_ov017_0218da48(void* arg0, int arg1, int arg2, int arg3, unsigned char arg4);
-extern "C" void func_ov017_0219b33c(void* arg0, void* arg1);
+extern "C" void SubmitInteractionPrompt_ov017_0219b33c(void* gameResources, void* candidate);
 
 struct Struct_ov017_021984f4 {
     unsigned char unknown_0_[0x20];
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov017_021984f4(void* arg0) {
                     var10.unknown_0_ = 6;
                     var10.unknown_4_ = var6;
                     var10.unknown_8_ = var3;
-                    func_ov017_0219b33c(arg0, &var10);
+                    SubmitInteractionPrompt_ov017_0219b33c(arg0, &var10);
                 }
             }
         }

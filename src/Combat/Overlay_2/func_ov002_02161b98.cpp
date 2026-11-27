@@ -14,7 +14,7 @@ struct MenuCursor_0205bb84;
 struct MenuCursor_0205bcdc;
 
 extern "C" struct TextWindow_0205d0e0 *FindTextWindow_0205d81c(struct TextWindowManager_0205d81c *windowManager, int windowId);
-extern "C" int func_0205c6e4(unsigned char *arg0);
+extern "C" int GetCursorPageCount_0205c6e4(unsigned char *windowManager);
 extern "C" void ChangeMenuCursorPage_0205c4a8(struct MenuCursor_0205c4a8 *cursor, int pageStep);
 extern "C" int GetMenuCursorIndex_0205bb84(struct MenuCursor_0205bb84 *cursor);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(struct MenuCursor_0205bcdc *cursor, int index);
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov002_02161b98(char *arg0) {
     int var11 = (short) (var9 * 8);
     if (var11 - 16 <= var10 && var10 < var11) {
         var4 = arg0 + RG(0x2c8 + 0xc00, 0xe20);
-        if (func_0205c6e4((unsigned char *) var4) == 1) {
+        if (GetCursorPageCount_0205c6e4((unsigned char *) var4) == 1) {
             return 0;
         }
         int var12 = (short) (var2 * 8);

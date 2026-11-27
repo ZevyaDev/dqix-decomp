@@ -29,8 +29,8 @@ extern "C" void GetMenuLayoutTextPosition_020809c4(void* menuLayout, int windowI
 struct YesNoWindow_020e263c_2;
 extern "C" void UpdateYesNoWindow_020e263c(struct YesNoWindow_020e263c_2* yesNoWindow, int ticks);
 
-struct Struct_020e28f0;
-extern "C" void func_020e28f0(struct Struct_020e28f0* arg0, short arg1, short arg2);
+struct YesNoWindow_020e28f0;
+extern "C" void SetYesNoWindowCursorPosition_020e28f0(struct YesNoWindow_020e28f0* yesNoWindow, short x, short y);
 
 
 // USA: func_ov003_02175fd4
@@ -56,6 +56,6 @@ extern "C" ARM void func_ov003_02175fd4(unsigned char* arg0) {
     UpdateYesNoWindow_020e263c(*(YesNoWindow_020e263c_2**)(arg0 + 0x0), *(int*)(arg0 + Enum_ov003_02175fd4_4064));
     var1 = var1 - 0x10;
     var2 = var2 - 3;
-    func_020e28f0(*(Struct_020e28f0**)(arg0 + 0x0), var1, var2);
+    SetYesNoWindowCursorPosition_020e28f0(*(YesNoWindow_020e28f0**)(arg0 + 0x0), var1, var2);
     ((OBJSpriteSet*)(arg0 + Enum_ov003_02175fd4_2008))->DrawAll();
 }

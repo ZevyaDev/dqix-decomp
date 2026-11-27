@@ -11,7 +11,7 @@ enum { Enum_ov004_02169144_2948 = 0xb84, Enum_ov004_02169144_384 = 0x180, Enum_o
 extern "C" void* GetZone3D_02012fe4(void);
 struct Struct_0201e828;
 extern "C" void func_0201e828(Struct_0201e828*, unsigned short);
-extern "C" void func_ov017_021a967c(unsigned char* arg0, int arg1);
+extern "C" void ResetBattleRecordsTask_ov017_021a967c(unsigned char* node, int protagonistObjectIndex);
 extern "C" int GetMessageWindow_020421a0(void);
 extern void* data_ov004_02171030;
 struct Struct_ov004_02169144 {
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov004_02169144(void) {
     if (!var3) return 0;
     struct Struct_ov004_02169144* var4 = (struct Struct_ov004_02169144*)((char*)data_ov004_02171030 + Enum_ov004_02169144_256);
     func_0201e828(var3, var4->unknown_8c_);
-    func_ov017_021a967c(var1, -1);
+    ResetBattleRecordsTask_ov017_021a967c(var1, -1);
     int var5 = GetMessageWindow_020421a0();
     var5 += 0x1000;
     *(unsigned char*)(var5 + Enum_ov004_02169144_2402) = 0;

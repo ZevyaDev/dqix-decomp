@@ -41,14 +41,14 @@ struct Struct_ov004_02166bd8_3 {
     const char* unknown_4_;
 };
 
-struct Struct_0208bf78_5 {
+struct QuestMessageList_0208bf78_5 {
     int unknown_0_[4];
 };
 
 struct Struct_ov004_02166bd8_4 {
     char unknown_0_[8];
     Struct_ov004_02166bd8_2* unknown_8_;
-    Struct_0208bf78_5 unknown_c_;
+    QuestMessageList_0208bf78_5 unknown_c_;
 };
 
 struct Struct_ov004_0217101c_3 {
@@ -67,7 +67,7 @@ extern "C" MenuGrid_ov004_02153e20* func_ov023_021f6524(void*, int);
 extern "C" Struct_02065990_3* GetQuestManager_02094d6c();
 extern "C" void GetMessageWindow_020421a0();
 extern "C" void func_ov023_021f65d4(void*, int, int);
-extern "C" Struct_ov004_02166bd8_3* func_0208d994(Struct_0208bf78_5*, int);
+extern "C" Struct_ov004_02166bd8_3* FindQuestMessage_0208d994(QuestMessageList_0208bf78_5*, int);
 extern "C" void SetMenuGridCell_ov023_021f9b30(MenuGrid_ov004_02153e20*, unsigned short, unsigned int, unsigned int);
 extern "C" Struct_ov004_02166bd8* func_ov004_02165ea4(void*, int, int);
 struct Struct_02000c9c_8;
@@ -149,7 +149,7 @@ extern "C" ARM int func_ov004_02166bd8(void* arg0) {
         func_ov023_021f65d4(arg0, var6, 8);
         func_ov023_021f65d4(arg0, var7, 8);
         if (var3) {
-            Struct_ov004_02166bd8_3* var14 = func_0208d994(&var8->unknown_c_, var3->unknown_0_);
+            Struct_ov004_02166bd8_3* var14 = FindQuestMessage_0208d994(&var8->unknown_c_, var3->unknown_0_);
             if (var14) {
                 var13 = 1;
                 SetMenuGridCell_ov023_021f9b30(var2, var4, (unsigned short)var12, 0);

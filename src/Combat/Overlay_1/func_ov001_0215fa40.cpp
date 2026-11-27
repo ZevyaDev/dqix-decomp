@@ -28,7 +28,7 @@ extern "C" ARM int func_ov001_0215fa40(char* arg0, int arg1) {
             var6->unknown_2c_.unknown1_0_.unknown_2_4_ = var6->unknown_2c_.unknown1_0_.unknown_2_4_ | 0x200;
             OpenDoor_02018300(var5, var6, var3, var4, 0);
             BMDJEntry_02016874_2* var7 = FindDoorEntry_02018b34(var5, var6);
-            var7->unknown_2_ |= 0x40;
+            var7->flags_2_ |= 0x40;
         }
         var6 = var6->unknown_70_;
     }

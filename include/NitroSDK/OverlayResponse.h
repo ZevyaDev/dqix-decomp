@@ -46,7 +46,7 @@ struct Struct_ov031_0221d3b0_3 {
 #endif
 
 extern "C" {
-unsigned short func_ov031_0221e638(unsigned short);
+unsigned short SwapBytes16_ov031_0221e638(unsigned short);
 int func_ov031_0221d7e0(Struct_ov031_0221d7e0*, Struct_ov031_0221d7e0*);
 int func_ov031_0221d450(int, Struct_ov031_0221d3b0_2*, int*, Struct_ov031_0221d3b0_3*);
 int func_ov031_0221d52c(int, Struct_ov031_0221d3b0_2*, int*, Struct_ov031_0221d3b0_3*);

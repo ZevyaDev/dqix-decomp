@@ -271,7 +271,7 @@ struct Struct_ov024_021fe8f0 {
 extern "C" struct Struct_ov024_021fe8f0 data_ov024_021fe8f0;
 
 extern "C" struct Struct_ov024_021eaa50_2* FindActionData_02079e2c(char*, int);
-extern "C" void* func_02079ee0(void* arg0, int arg1);
+extern "C" void* FindActionDamageData_02079ee0(void* actionTables, int damageId);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" int func_ov000_021540c8(void*, void*, int);
 extern "C" int func_ov000_0215440c(void* arg0, void* arg1, void* arg2);
@@ -346,7 +346,7 @@ extern "C" int func_ov000_02157288(void* arg0, int arg1, struct Struct_ov024_021
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, unsigned long long flags, int isCriticalHit);
 struct Struct_ov024_021da9e0_4;
 extern "C" void func_ov024_021eb4e4(Struct_ov024_021da9e0_4*, int);
-extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
+extern "C" short RestoreCombatantMP_ov000_0215a1d4(void* battle, int combatantIndex, int amount, short* restoredAmount);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void AppendActorResult_ov000_0215fe84(void* actor, void* result, int listIndex);
 extern "C" void func_ov024_021e4c04(struct Struct_ov024_021ea4d0* arg0, int arg1, int arg2, struct Struct_ov024_021eaa50_2* arg3, int arg4);
@@ -443,7 +443,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
     var16 = var15->unknown_18_.unknown_0_5_;
     if (var16 >= 0x51) var16 = 0;
     if (data_ov024_021ff508[var16] == 0) var16 = 0;
-    void* var21 = func_02079ee0(var14, var15->unknown_8_.unknown_1_6_);
+    void* var21 = FindActionDamageData_02079ee0(var14, var15->unknown_8_.unknown_1_6_);
     var7 = data_ov024_021fe8f0;
     unsigned char var22;
     if (IN_RANGE_021eb5d0(var18)) var22 = func_ov000_021540c8(arg0->unknown_10_, arg3, (int)var7.unknown_0_);
@@ -657,7 +657,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
             var46 = FindActionData_02079e2c((char*)var14, 1);
             var37 = var46;
             arg0->unknown_c_->unknown_1d_ = (arg0->unknown_c_->unknown_1d_ & ~1u) | 1;
-            if (var46 != 0) var21 = func_02079ee0(var14, var46->unknown_8_.unknown_1_6_);
+            if (var46 != 0) var21 = FindActionDamageData_02079ee0(var14, var46->unknown_8_.unknown_1_6_);
         }
         if (var46 == 0) var46 = var15;
         if (var49 != 0 || arg0->unknown_77_ != 0 || var6 != 0) {
@@ -868,7 +868,7 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                 GetCombatantByID((int)arg0->unknown_10_, var4);
                 struct Struct_ov024_021eb5d0_12* var76 = (struct Struct_ov024_021eb5d0_12*)GetCombatantByID((int)arg0->unknown_10_, var18);
                 var5 = 0;
-                short var77 = func_ov000_0215a1d4(arg0->unknown_10_, var18, var67, &var5);
+                short var77 = RestoreCombatantMP_ov000_0215a1d4(arg0->unknown_10_, var18, var67, &var5);
                 arg2->unknown_10_->unknown_24_ = var77;
                 if (!IN_RANGE_021eb5d0(var18)) {
                     if (var76->unknown_138_->unknown_2_ >= 0xff) var5 = var67;

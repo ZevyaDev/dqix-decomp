@@ -11,7 +11,7 @@ extern "C" int func_0203ab6c(void*, void*);
 extern "C" int func_0209c140();
 extern "C" void* func_020bc068(void* arg0, int arg1);
 extern "C" int func_0209c6bc(void* arg0);
-extern "C" void func_0209c5e8(void* arg0);
+extern "C" void RestartMusic_0209c5e8(void* manager);
 
 struct Struct_0209c530 {
     char unknown_0_[0xb0];
@@ -51,7 +51,7 @@ extern "C" ARM void func_0209c530(struct Struct_0209c530* arg0) {
         } else {
             func_020bc068(&arg0->unknown_bc_, 0);
             if (func_0209c6bc(arg0) == 0) {
-                func_0209c5e8(arg0);
+                RestartMusic_0209c5e8(arg0);
             }
         }
     }

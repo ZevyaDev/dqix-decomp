@@ -106,7 +106,7 @@ extern "C" void PlaceCombatantOnCell_02048cf0(GameObject*, int);
 extern "C" void func_ov000_0216e3c4(void*);
 extern "C" unsigned char* func_ov000_02163524(void*);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
-extern "C" void func_020d7334(unsigned char*, int);
+extern "C" void ClearCombatantEffectSlot_020d7334(unsigned char*, int);
 extern "C" int IsDead_02010088(Struct_02010088*);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
 extern "C" void ResumeAnimation_0203400c(Struct_02032e58*);
@@ -175,7 +175,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleScene_ov000_02160da0* arg0) {
         GameState* var15 = GameState::GetInstance();
         for (int var16 = 0; var16 < 4; var16++) {
             if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var16)) {
-                if (var14) func_020d7334(var14, var16);
+                if (var14) ClearCombatantEffectSlot_020d7334(var14, var16);
                 GameObject* var17 = var15->GetCombatantByIndex(var16);
                 if (var17 && !IsDead_02010088((Struct_02010088*)var17)) {
                     ((Struct_020391ac*)var17)->unknown_c1_ &= ~0xf0;

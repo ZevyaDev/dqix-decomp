@@ -54,9 +54,9 @@ struct MenuLayout_0207fdcc_2;
 extern "C" void ShowMenuLayoutWindow_02080c20(struct MenuLayout_0207fdcc_2 *menuLayout, int windowId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void *menuLayout, int windowId, int palette);
 extern "C" void ShowMenuLayoutWindowTexts_02080bac(void *menuLayout, int windowId);
-extern "C" void func_0208065c(void *arg0, int arg1);
+extern "C" void SetMenuLayoutWindowTextsSelectable_0208065c(void *layout, int windowId);
 extern "C" void SetMenuLayoutWindowPageArrows_02081130(void *menuLayout, int windowId, int hasPageArrows);
-extern "C" void func_020806b0(void *arg0, int arg1);
+extern "C" void SetMenuLayoutTextUnselectable_020806b0(void *layout, int textId);
 extern "C" int HideMenuLayoutText_02080b2c(void *menuLayout, int textId);
 extern "C" int func_0207c6b8(unsigned char *arg0, unsigned int arg1, int arg2);
 struct ItemData_0201099c_9;
@@ -152,14 +152,14 @@ extern "C" ARM void func_ov003_02177dd4(Struct_ov003_02177dd4 *arg0) {
     ShowMenuLayoutWindow_02080c20(var10, var11);
     SetMenuLayoutWindowPalette_02080c68(var10, var11, 0);
     ShowMenuLayoutWindowTexts_02080bac(var10, var11);
-    func_0208065c(var10, var11);
+    SetMenuLayoutWindowTextsSelectable_0208065c(var10, var11);
     SetMenuLayoutWindowPageArrows_02081130(var10, var11, var16 < var7);
 
     short var18              = arg0->unknown_1014_ * var16;
     short var19            = var18 + var16;
     for (; var18 < var19; var18++) {
         if (var7 <= var18) {
-            func_020806b0(var10, var12);
+            SetMenuLayoutTextUnselectable_020806b0(var10, var12);
             HideMenuLayoutText_02080b2c(var10, var12);
             HideMenuLayoutText_02080b2c(var10, var13);
             HideMenuLayoutText_02080b2c(var10, var14);

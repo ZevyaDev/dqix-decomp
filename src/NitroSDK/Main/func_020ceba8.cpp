@@ -21,7 +21,7 @@ struct Struct_021117ec_5
     unsigned long unknown_10_;
 };
 
-extern Struct_021117ec_5 data_021117ec;
+extern Struct_021117ec_5 gPowerControl_021117ec;
 
 extern "C" void BusyWait_020c976c(unsigned long cycles);
 extern "C" void WaitForVBlank_020c9820();
@@ -35,7 +35,7 @@ extern "C" ARM int func_020ceba8(int arg0, int arg1, int arg2, int arg3)
     switch (arg0)
     {
     case PM_LCD_POWER_ON:
-        if (!arg2 && VBLANK_COUNT - data_021117ec.unknown_4_ <= LCD_OFF_WAIT_FRAMES)
+        if (!arg2 && VBLANK_COUNT - gPowerControl_021117ec.unknown_4_ <= LCD_OFF_WAIT_FRAMES)
             return false;
         if (arg1 != PM_LED_NONE)
         {
@@ -55,23 +55,23 @@ extern "C" ARM int func_020ceba8(int arg0, int arg1, int arg2, int arg3)
             }
         }
         POWCNT |= 1;
-        if (func_020ce7e0(data_021117ec.unknown_10_) != PM_SUCCESS)
+        if (func_020ce7e0(gPowerControl_021117ec.unknown_10_) != PM_SUCCESS)
             do
                 BusyWait_020c976c(RETRY_WAIT_CYCLES);
-            while (func_020ce7e0(data_021117ec.unknown_10_) != PM_SUCCESS);
+            while (func_020ce7e0(gPowerControl_021117ec.unknown_10_) != PM_SUCCESS);
         break;
     case PM_LCD_POWER_OFF:
         if (func_020ce7e0(0) != PM_SUCCESS)
             do
                 BusyWait_020c976c(RETRY_WAIT_CYCLES);
             while (func_020ce7e0(0) != PM_SUCCESS);
-        if (VBLANK_COUNT - data_021117ec.unknown_8_ <= LCD_INIT_WAIT_FRAMES)
+        if (VBLANK_COUNT - gPowerControl_021117ec.unknown_8_ <= LCD_INIT_WAIT_FRAMES)
         {
             WaitForVBlank_020c9820();
             WaitForVBlank_020c9820();
         }
         POWCNT &= ~1;
-        data_021117ec.unknown_4_ = VBLANK_COUNT;
+        gPowerControl_021117ec.unknown_4_ = VBLANK_COUNT;
         if (arg1 != PM_LED_NONE)
         {
             if (arg3)

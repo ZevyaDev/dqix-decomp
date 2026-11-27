@@ -14,14 +14,14 @@ struct Struct_ov002_0215a658 {
 };
 struct ItemTable_0201099c_10;
 struct PartyMemberData_02083994;
-struct Struct_0207cf30_4;
+struct ItemBag_0207cf30_4;
 
 extern "C" struct Struct_ov002_0215a658* FindItemData_020dedd0(struct ItemTable_0201099c_10* itemTable, int itemId);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int GetHeldItemCount_02083994(struct PartyMemberData_02083994* memberData, int itemId);
-extern "C" int func_020a095c(struct Struct_0207cf30_4* arg0, int arg1, int arg2);
+extern "C" int AddItemToBag_020a095c(struct ItemBag_0207cf30_4* bag, int itemId, int count);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov002_0215b2c8(char* arg0);
 
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov002_0215a658(char* arg0, int arg1) {
                                     func_ov017_021c9e00(var6->obj3D_.unknown_4_, 0, 0, 1);
                                 }
                             }
-                            func_020a095c((struct Struct_0207cf30_4*)var3, *(short*)(var1 + var0), 1);
+                            AddItemToBag_020a095c((struct ItemBag_0207cf30_4*)var3, *(short*)(var1 + var0), 1);
                             *(short*)(var1 + var0) = -1;
                         }
                     }
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov002_0215a658(char* arg0, int arg1) {
                                     func_ov017_021c9e00(var18->obj3D_.unknown_4_, 0, 0, 1);
                                 }
                             }
-                            func_020a095c((struct Struct_0207cf30_4*)var15, *(short*)(var13 + var12), 1);
+                            AddItemToBag_020a095c((struct ItemBag_0207cf30_4*)var15, *(short*)(var13 + var12), 1);
                             *(short*)(var13 + var12) = -1;
                         }
                     }

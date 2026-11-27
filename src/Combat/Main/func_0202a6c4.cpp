@@ -46,7 +46,7 @@ static inline int inline_0202a6c4(int arg0, int arg1, unsigned int arg2, unsigne
 extern "C" ARM void func_0202a6c4(Struct_0202a6c4_2* arg0) {
     char var0[16];
     int var1 = strlen(arg0->unknown_4_);
-    if (data_020ef74c.unknown_c_ >= 3 && data_020ef74c.unknown_c_ <= 6) {
+    if (data_020ef74c.mode_c_ >= 3 && data_020ef74c.mode_c_ <= 6) {
         int var2;
         #if defined(jpn)
         int var3;
@@ -54,14 +54,14 @@ extern "C" ARM void func_0202a6c4(Struct_0202a6c4_2* arg0) {
 #else
         if (arg0->unknown_4_ != NULL) var2 = func_020420e8(arg0->unknown_4_, 1);
 #endif
-        var2 /= data_020ef74c.unknown_8_;
+        var2 /= data_020ef74c.charWidth_8_;
         var1 = var2;
     }
     Struct_0202a6c4* var4 = arg0->unknown_44_;
     int var5 = 0;
     while (var4 != NULL) {
         int var6;
-        if (data_020ef74c.unknown_c_ >= 3 && data_020ef74c.unknown_c_ <= 6) {
+        if (data_020ef74c.mode_c_ >= 3 && data_020ef74c.mode_c_ <= 6) {
             int var7;
             #if defined(jpn)
             int var8;
@@ -69,7 +69,7 @@ extern "C" ARM void func_0202a6c4(Struct_0202a6c4_2* arg0) {
 #else
             if (var4->unknown_4_ != NULL) var7 = func_020420e8(var4->unknown_4_, 1);
 #endif
-            var7 /= data_020ef74c.unknown_8_;
+            var7 /= data_020ef74c.charWidth_8_;
             var6 = var7;
             if (arg0->unknown_5c_ >= 0 && arg0->unknown_5c_ <= arg0->unknown_5e_ &&
                 arg0->unknown_5c_ <= var5 && var5 <= arg0->unknown_5e_)
@@ -94,11 +94,11 @@ extern "C" ARM void func_0202a6c4(Struct_0202a6c4_2* arg0) {
         var4 = var4->unknown_34_;
         ++var5;
     }
-    arg0->unknown_54_ = (var1 + 3) * data_020ef74c.unknown_8_;
-    arg0->unknown_56_ = (arg0->unknown_5a_ + 3) * data_020ef74c.unknown_4_;
+    arg0->unknown_54_ = (var1 + 3) * data_020ef74c.charWidth_8_;
+    arg0->unknown_56_ = (arg0->unknown_5a_ + 3) * data_020ef74c.lineHeight_4_;
     if (arg0->unknown_50_ + arg0->unknown_56_ > 192)
-        arg0->unknown_56_ = 192 - arg0->unknown_50_ - data_020ef74c.unknown_4_;
-    arg0->unknown_62_ = arg0->unknown_56_ / data_020ef74c.unknown_4_ - 2;
+        arg0->unknown_56_ = 192 - arg0->unknown_50_ - data_020ef74c.lineHeight_4_;
+    arg0->unknown_62_ = arg0->unknown_56_ / data_020ef74c.lineHeight_4_ - 2;
     short var9 = arg0->unknown_5c_;
     int var10 = inline_0202a6c4(arg0->unknown_5e_, var9, arg0->unknown_5a_, arg0->unknown_62_);
     arg0->unknown_64_ = var9;

@@ -32,7 +32,7 @@ extern "C" unsigned char* func_ov000_02163524(void*);
 extern "C" GameObject* GetEnemyByIndex_0200fea4(GameState*, int);
 extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" void func_ov000_02167fb0(void*, GameObject*);
-extern "C" void func_020d7334(unsigned char*, int);
+extern "C" void ClearCombatantEffectSlot_020d7334(unsigned char*, int);
 
 // USA: func_ov025_021e7b74
 extern "C" ARM int func_ov025_021e7b74(void*, void*, void*, void* arg3) {
@@ -96,7 +96,7 @@ extern "C" ARM int func_ov025_021e7b74(void*, void*, void*, void* arg3) {
         GameObject* var32 = GetEnemyByIndex_0200fea4(var3, *var30);
         if (var32 && GetCombatantCell_020493a4((unsigned char*)var32) == 0xff) {
             func_ov000_02167fb0(var5, var32);
-            func_020d7334(var29, *var30);
+            ClearCombatantEffectSlot_020d7334(var29, *var30);
         }
     }
     return 1;

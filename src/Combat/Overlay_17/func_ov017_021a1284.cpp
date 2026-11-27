@@ -97,7 +97,7 @@ extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void LoadFileTables_020a0c0c();
 extern "C" void UnloadZone_ov017_0219bf74();
-extern "C" void func_ov017_0219b938(GameResources*);
+extern "C" void UnloadFieldIcons_ov017_0219b938(GameResources*);
 extern "C" int IsQuestersRestZone_020981e4(int, int);
 extern "C" void UnloadFieldObjects_ov017_021a316c(GameResources*);
 extern "C" void func_020a1df8(int);
@@ -187,7 +187,7 @@ extern "C" ARM void func_ov017_021a1284(Struct_ov017_021a1284* arg0, void* arg1)
         Struct_ov017_021a1284_2* var13 = &((Struct_ov017_021a1284_3*)var7)->unknown_2cc_;
         var12->Reset();
         ((TextureArena*)((TextureVRAMArea_0203d028*)var13))->Reset();
-        func_ov017_0219b938(var7);
+        UnloadFieldIcons_ov017_0219b938(var7);
         SafeAllocator* var14 = &var7->allocator_array_38[5];
         var14->Reset();
         var11 = var12;

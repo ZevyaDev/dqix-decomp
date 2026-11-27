@@ -26,11 +26,11 @@ struct Struct_ov008_0218747c_2 {
 };
 struct Struct_ov008_0218747c_3 { char unknown_0_[0x100d]; unsigned char unknown_100d_; };
 struct GameState_020103f0;
-struct Struct_020104cc;
+struct GameState_020104cc;
 extern "C" void GetElapsedPlayTime_020103f0(GameState_020103f0*, unsigned short*, unsigned char*, unsigned char*);
 extern "C" Struct_ov008_0218747c_3* func_0202ae18();
 extern "C" int GetLocalWirelessState_0202ba00(int*);
-extern "C" void func_020104cc(Struct_020104cc*, unsigned short*, unsigned char*, unsigned char*);
+extern "C" void GetElapsedMultiplayerTime_020104cc(GameState_020104cc*, unsigned short*, unsigned char*, unsigned char*);
 extern "C" void AddPlayTimeHours_020ac614(PlayTime_020ac4f8*, int);
 extern "C" void AddPlayTimeMinutes_020ac644(PlayTime_020ac4f8*, int);
 static inline Struct_ov008_0218747c* inline_ov008_0218747c(GameState* arg0) { return &((Struct_01ff91ac_37*)arg0)->unknown_7504_; }
@@ -59,7 +59,7 @@ extern "C" ARM void func_ov008_0218747c(Struct_ov008_0218747c_2* arg0, int arg1)
         int var10 = GetLocalWirelessState_0202ba00((int*)var9);
         int var11 = var9->unknown_100d_;
         if ((var10 == 5 && var11 > 1) || var10 == 6) {
-            func_020104cc((Struct_020104cc*)var0, &var4, &var5, &var6);
+            GetElapsedMultiplayerTime_020104cc((GameState_020104cc*)var0, &var4, &var5, &var6);
         } else {
             var4 = 0;
             var5 = 0;

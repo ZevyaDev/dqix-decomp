@@ -18,7 +18,7 @@ struct GameState_02010834 {
 };
 
 // USA: GetOwnPartyMemberObjectIndices_02010834
-extern "C" ARM void GetOwnPartyMemberObjectIndices_02010834(struct GameState_02010834* arg0, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount) {
+extern "C" ARM void GetOwnPartyMemberObjectIndices_02010834(struct GameState_02010834* gameState, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount) {
     int isValidIndex;
     unsigned char i;
     struct Party_02010834_2* party;
@@ -30,7 +30,7 @@ extern "C" ARM void GetOwnPartyMemberObjectIndices_02010834(struct GameState_020
     if (isValidIndex == 0) {
         return;
     }
-    party = &arg0->party_2a04_;
+    party = &gameState->party_2a04_;
     for (i = 0; i < party->memberCount_f7c_; i++) {
         outMemberObjectIndices[i] = party->memberObjectIndices_f78_[i];
     }

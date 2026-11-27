@@ -3,7 +3,7 @@
 extern "C" int IsBrightnessFadeActive_ov031_0223c054(int);
 extern "C" void func_ov031_02223c08(void);
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
-extern void* data_ov031_02290c94;
+extern void* gTextEntryPage_ov031_02290c94;
 extern "C" void func_ov031_02223fb4(int arg0);
 extern "C" void func_ov031_02223fc8(int arg0);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
@@ -17,11 +17,11 @@ extern "C" ARM void func_ov031_0222ce24(void) {
     func_ov031_02223c08();
     PlayWifiSetupSoundEffect_ov031_02236878(0x14);
 
-    unsigned char var0 = *((unsigned char*)data_ov031_02290c94 + 0x29);
+    unsigned char var0 = *((unsigned char*)gTextEntryPage_ov031_02290c94 + 0x29);
     if (var0 == 0) {
         func_ov031_02223fb4(0);
     }
-    var0 = *((unsigned char*)data_ov031_02290c94 + 0x29);
+    var0 = *((unsigned char*)gTextEntryPage_ov031_02290c94 + 0x29);
     if (var0 == 0x20) {
         func_ov031_02223fc8(0);
     }

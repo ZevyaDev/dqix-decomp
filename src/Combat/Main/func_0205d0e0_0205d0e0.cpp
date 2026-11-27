@@ -29,7 +29,7 @@ extern "C" void* GetLastOpenedTextWindow_0205d888(struct TextWindowManager_0205d
 extern "C" int func_0205c5b0(void* arg0, int arg1);
 extern "C" unsigned int func_0205c710(unsigned char* arg0);
 extern "C" void SetTextWindowPage_0205042c(unsigned char* textWindow, unsigned char page);
-extern "C" unsigned int func_0205c6e4(unsigned char* arg0);
+extern "C" unsigned int GetCursorPageCount_0205c6e4(unsigned char* windowManager);
 extern "C" void SetTextWindowPageCount_02050440(unsigned char* textWindow, int pageCount);
 extern "C" void func_0204c87c(void* arg0, int arg1);
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
@@ -53,7 +53,7 @@ extern "C" ARM int UpdateTextWindowManager_0205d0e0(void* windowManager, int tic
         if (textWindowManager->cursorWindowId_b0_ == textWindow->unknown_c4_) {
             if (textWindow->unknown_d8_0_) {
                 SetTextWindowPage_0205042c((unsigned char*)textWindow, func_0205c710((unsigned char*)windowManager));
-                SetTextWindowPageCount_02050440((unsigned char*)textWindow, (unsigned char)func_0205c6e4((unsigned char*)windowManager));
+                SetTextWindowPageCount_02050440((unsigned char*)textWindow, (unsigned char)GetCursorPageCount_0205c6e4((unsigned char*)windowManager));
             }
         }
     }

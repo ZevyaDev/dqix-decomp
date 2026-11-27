@@ -36,7 +36,7 @@ struct Struct_ov017_021b11d8_2 {
 
 extern "C" void* func_0202ae18(void);
 extern "C" void func_ov017_021c37a4(void);
-extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);
+extern "C" void SendBattleRecords_ov017_021d1118(int recipientIndex, int sectionMask, int arg2, int arg3);
 extern "C" void func_ov017_021d1014(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 extern "C" void SendNotice_ov017_021d1810(int, int, signed char);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov017_021b11d8(void* arg0, void* arg1) {
             }
         }
         SendNotice_ov017_021d1810(2, -1, (signed char)GetProtagonistObjectIndex_020100a8(var1));
-        func_ov017_021d1118(-1, 1, 1, 2);
+        SendBattleRecords_ov017_021d1118(-1, 1, 1, 2);
         func_ov017_021d1014(-1, 1, 0);
         var0->unknown_8_++;
         return;

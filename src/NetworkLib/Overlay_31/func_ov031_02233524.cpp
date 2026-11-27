@@ -14,7 +14,7 @@ extern Struct_ov031_02290cc8_3 data_ov031_02290cc8;
 extern "C" int func_ov031_02227570(unsigned int);
 extern "C" void SetButtonBarChoice_ov031_02222e20(int);
 extern "C" int AreKeysPressed_ov031_0223d354(int);
-extern "C" int func_ov031_0223d49c(Struct_ov031_02233524_2*);
+extern "C" int IsTouchPressInRect_ov031_0223d49c(Struct_ov031_02233524_2*);
 extern "C" void func_ov031_022237dc(unsigned short, unsigned short, unsigned short, unsigned short);
 extern "C" int func_ov031_0223d394(int);
 extern "C" void func_ov031_022338b4(int);
@@ -25,7 +25,7 @@ extern "C" ARM void func_ov031_02233524(void) {
     unsigned int var1 = 0;
     do {
         Struct_ov031_02233524_2* var2 = (Struct_ov031_02233524_2*)&data_ov031_02249158[func_ov031_02227570(1)].unknown1_0_[var1];
-        if (func_ov031_0223d49c(var2)) {
+        if (IsTouchPressInRect_ov031_0223d49c(var2)) {
             SetButtonBarChoice_ov031_02222e20(1);
             data_ov031_02290cc8.unknown_1_ = var0;
             func_ov031_022237dc(

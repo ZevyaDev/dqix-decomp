@@ -22,7 +22,7 @@ extern "C" THUMB int func_ov031_0221d52c(int arg0, Struct_ov031_0221d3b0_2* arg1
         ++*arg2;
         return arg0;
     }
-    if (!func_ov031_0221e638(var1->unknown_2_)) {
+    if (!SwapBytes16_ov031_0221e638(var1->unknown_2_)) {
         ++*arg2;
         return arg0;
     }
@@ -36,7 +36,7 @@ extern "C" THUMB int func_ov031_0221d52c(int arg0, Struct_ov031_0221d3b0_2* arg1
         return -1;
     }
     func_ov031_0221e52c(data_ov031_0224eda0, 0, 0x6a0);
-    if (func_ov031_0221db48(0, var1, func_ov031_0221e638(var0->unknown_a_),
+    if (func_ov031_0221db48(0, var1, SwapBytes16_ov031_0221e638(var0->unknown_a_),
             data_ov031_0224eda0, &data_ov031_0224e720) < 0) {
         ++*arg2;
         return arg0;

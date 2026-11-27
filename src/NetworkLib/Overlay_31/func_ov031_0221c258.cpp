@@ -9,7 +9,7 @@ struct Struct_ov031_0221bfe8 {
 struct Struct_020cf294 { unsigned int unknown_0_; unsigned int unknown_4_; unsigned int unknown_8_; unsigned int unknown_c_; };
 struct Struct_020cf294_2 { unsigned int unknown_0_; unsigned int unknown_4_; unsigned int unknown_8_; };
 
-extern "C" void func_ov031_0221ae00(Struct_ov031_0221bfe8* arg0);
+extern "C" void UnpackWifiCredentials_ov031_0221ae00(Struct_ov031_0221bfe8* credentials);
 extern "C" void func_020cf020(void);
 extern "C" int GetCurrentDate_020cf0fc(int date);
 extern "C" int GetCurrentTime_020cf1a8(int time);
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov031_0221c258(Struct_ov031_0221bfe8* arg0) {
     unsigned char var5;
     unsigned int var6;
 
-    func_ov031_0221ae00(arg0);
+    UnpackWifiCredentials_ov031_0221ae00(arg0);
     func_020cf020();
     if (inline_ov031_0221bfe8_2(&var1) != 0) return 0;
     if (inline_ov031_0221bfe8_3(&var2) != 0) return 0;

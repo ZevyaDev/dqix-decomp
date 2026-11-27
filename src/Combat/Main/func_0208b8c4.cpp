@@ -9,37 +9,37 @@ struct Struct_020e8cd0 {
 };
 extern Struct_020e8cd0 data_020e8cd0;
 
-struct Struct_0208b8c4 {
-    SafeAllocator* unknown_0_;
+struct QuestDisplay_0208b8c4 {
+    SafeAllocator* pAllocators_0_;
     char unknown_4_[0xb0];
-    void* unknown_b4_;
+    void* pMetatiles_b4_;
     char unknown_b8_[0x27];
-    unsigned char unknown_df_;
+    unsigned char isQuestList_df_;
 };
 
-// USA: func_0208b8c4
-extern "C" ARM void func_0208b8c4(struct Struct_0208b8c4* arg0, SafeAllocator* arg1) {
-    int var0;
+// USA: AllocateQuestDisplay_0208b8c4
+extern "C" ARM void AllocateQuestDisplay_0208b8c4(struct QuestDisplay_0208b8c4* display, SafeAllocator* allocator) {
+    int i;
 
-    arg0->unknown_0_ = (SafeAllocator*)arg1->Allocate(0x64);
-    arg0->unknown_b4_ = arg1->Allocate(0x78);
+    display->pAllocators_0_ = (SafeAllocator*)allocator->Allocate(0x64);
+    display->pMetatiles_b4_ = allocator->Allocate(0x78);
 
-    for (var0 = 0; var0 < 3; var0++) {
-        ((OBJSpriteSet::Metatile*)((struct Sprite_02043368_2*)((char*)arg0->unknown_b4_ + var0 * 0x28)))->Reset();
+    for (i = 0; i < 3; i++) {
+        ((OBJSpriteSet::Metatile*)((struct Sprite_02043368_2*)((char*)display->pMetatiles_b4_ + i * 0x28)))->Reset();
     }
 
-    unsigned char var1 = arg0->unknown_df_;
-    unsigned int var2 = 0x7000;
-    if (var1 != 0) {
-        var2 = 0;
+    unsigned char isQuestList = display->isQuestList_df_;
+    unsigned int lastBlockSize = 0x7000;
+    if (isQuestList != 0) {
+        lastBlockSize = 0;
     }
-    Struct_020e8cd0 var3;
-    var3 = data_020e8cd0;
-    var3.unknown_0_[4] = var2;
+    Struct_020e8cd0 blockSizes;
+    blockSizes = data_020e8cd0;
+    blockSizes.unknown_0_[4] = lastBlockSize;
 
-    for (var0 = 0; var0 < 5; var0++) {
-        arg0->unknown_0_[var0].ResetAllocatorPointer();
-        void* var4 = arg1->Allocate(var3.unknown_0_[var0]);
-        arg0->unknown_0_[var0].CreateTypeA(var4, var3.unknown_0_[var0]);
+    for (i = 0; i < 5; i++) {
+        display->pAllocators_0_[i].ResetAllocatorPointer();
+        void* block = allocator->Allocate(blockSizes.unknown_0_[i]);
+        display->pAllocators_0_[i].CreateTypeA(block, blockSizes.unknown_0_[i]);
     }
 }

@@ -7,7 +7,7 @@ extern "C" void func_0206cb14(void*, int, unsigned short);
 #endif
 
 extern "C" int func_02067ad8(int arg0, void* arg1);
-extern "C" bool IsControlCode_02044494(void* arg0, void* arg1);
+extern "C" bool IsControlCode_02044494(void* window, void* text);
 extern "C" int func_02044420(void* arg0, void* arg1);
 
 struct Struct_0204500c_4;

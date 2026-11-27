@@ -2,8 +2,8 @@
 #include "GameState/GameState.h"
 
 struct Struct_ov017_0219e0ec { unsigned short unknown_0_0_ : 2; unsigned short unknown_0_2_ : 1; unsigned short unknown_0_3_ : 13; };
-struct Struct_02028bac { unsigned char unknown_0_[0x318]; };
-extern "C" struct Struct_02028bac* func_02028bac(struct Struct_02028bac* arg0, int arg1);
+struct ActiveZone_02028bac { unsigned char unknown_0_[0x318]; };
+extern "C" struct ActiveZone_02028bac* GetActiveZoneByIndex_02028bac(struct ActiveZone_02028bac* zones, int index);
 struct ActiveZone_020fdd44;
 extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 extern "C" void InitFieldMonster_02076a8c(void* monster);
@@ -12,11 +12,11 @@ extern "C" void InitFieldMonster_02076a8c(void* monster);
 extern "C" ARM void func_ov017_0219e0ec(void*) {
 	int var0;
 	GameState* var1;
-	struct Struct_02028bac* var2;
+	struct ActiveZone_02028bac* var2;
 	var1 = GameState::GetInstance();
-	var2 = (struct Struct_02028bac*)GetActiveZones_02027ca4();
+	var2 = (struct ActiveZone_02028bac*)GetActiveZones_02027ca4();
 	for (int var3 = 0; var3 < 4; var3++) {
-		struct Struct_02028bac* var4 = func_02028bac(var2, var3);
+		struct ActiveZone_02028bac* var4 = GetActiveZoneByIndex_02028bac(var2, var3);
 		if (!var4) continue;
 		struct Struct_ov017_0219e0ec* var5 = (struct Struct_ov017_0219e0ec*)((unsigned char*)var4 + 2);
 		if (var5->unknown_0_2_) continue;

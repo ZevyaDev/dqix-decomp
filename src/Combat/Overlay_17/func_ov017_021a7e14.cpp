@@ -137,7 +137,7 @@ extern "C" int IsLocalWirelessPlayerDisconnected_0202c578(LocalWireless_0202b2f0
 extern "C" int func_ov017_021a85e8(unsigned char* arg0, int arg1);
 extern "C" void* InitItemTable_020de824(void* itemTable);
 extern "C" void ResetItemContext_0207cbe8(char* itemContext);
-extern "C" void func_0207cf30(void* arg0, int arg1, int arg2, int arg3);
+extern "C" void AddItemToBagThenHeldItems_0207cf30(void* itemContext, int itemId, int count, int isOverflowToHeldItems);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 
@@ -359,7 +359,7 @@ extern "C" ARM void func_ov017_021a7e14(Struct_ov017_021a7e14_5* arg0) {
                 ResetItemContext_0207cbe8((char*)&var21);
                 var21.unknown_2c_ = arg0->unknown_2c_;
                 if ((unsigned char)var20->unknown_8_0_ == 8) {
-                    func_0207cf30(&var21, arg0->unknown_30_, 1, 0);
+                    AddItemToBagThenHeldItems_0207cf30(&var21, arg0->unknown_30_, 1, 0);
                 }
 #if !defined(jpn)
                 ClearMessageParams_02046380(var2);

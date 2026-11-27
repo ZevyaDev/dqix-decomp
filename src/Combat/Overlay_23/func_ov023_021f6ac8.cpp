@@ -3,7 +3,7 @@
 
 extern "C" void* FindMenuObjectById_ov023_021f6880(void** objectList, int id);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
-extern "C" void func_ov011_02184a40(void* arg0, int arg1);
+extern "C" void StartMenuCallback_ov011_02184a40(void* menu, int callbackIndex);
 
 struct Struct_ov023_021f6ac8 {
     unsigned char unknown_0_;
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov023_021f6ac8(void* arg0, void* arg1) {
             if (var3) continue;
 
             if (var2->unknown_12_ > 0) QueueMenuScriptEntry_ov011_021848a0(arg1, var2->unknown_12_);
-            if (var2->unknown_14_ > 0) func_ov011_02184a40(arg1, var2->unknown_14_);
+            if (var2->unknown_14_ > 0) StartMenuCallback_ov011_02184a40(arg1, var2->unknown_14_);
             return 1;
         }
     }

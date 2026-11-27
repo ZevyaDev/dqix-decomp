@@ -17,14 +17,14 @@ struct Struct_021117ec_3 {
     int unknown_20_;
 };
 
-extern struct Struct_021117ec_3 data_021117ec;
+extern struct Struct_021117ec_3 gPowerControl_021117ec;
 
 // USA: func_020ce270
 extern "C" ARM void func_020ce270(void) {
-    if (data_021117ec.unknown_0_ != 0) return;
-    data_021117ec.unknown_0_ = 1;
-    data_021117ec.unknown_1c_ = 0;
-    data_021117ec.unknown_20_ = 0;
+    if (gPowerControl_021117ec.unknown_0_ != 0) return;
+    gPowerControl_021117ec.unknown_0_ = 1;
+    gPowerControl_021117ec.unknown_1c_ = 0;
+    gPowerControl_021117ec.unknown_20_ = 0;
     InitializeInterProcessorCommunication();
     if (IsIPCCommandHandlerRegistered(8, IPCSide_Arm7) == 0) {
         do {
@@ -33,6 +33,6 @@ extern "C" ARM void func_020ce270(void) {
     }
     SetArm9IPCCommandHandler(8, (IPCCommandHandler)func_020ce308);
     int var0 = *(int*)0x27ffc3c;
-    data_021117ec.unknown_8_ = var0;
-    data_021117ec.unknown_4_ = var0;
+    gPowerControl_021117ec.unknown_8_ = var0;
+    gPowerControl_021117ec.unknown_4_ = var0;
 }

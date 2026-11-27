@@ -20,7 +20,7 @@ extern "C" ARM void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" ARM void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" ARM int func_ov023_021fc518(void* arg0, void* arg1, int arg2, int arg3, int arg4, int arg5);
-extern "C" void func_ov023_021e4e8c(void* arg0);
+extern "C" void InitCharacterModel_ov023_021e4e8c(void* model);
 
 struct MenuObjectList_ov004_0215c30c;
 struct MenuObject_ov004_0215c30c_2;
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov011_02187720(struct ScriptValue_ov011_02184c30* arg0, 
             var2++;
         } while (var2 < (SafeAllocator*)(var3->unknown_6b8_ + 10));
         ((SafeAllocator*)var3->unknown_780_)->ResetAllocatorPointer();
-        func_ov023_021e4e8c(var3);
+        InitCharacterModel_ov023_021e4e8c(var3);
         var3++;
     } while (var3 < var0.unknown_20_ + 2);
     memcpy(var1, &var0, sizeof(Struct_ov011_02187720_3));

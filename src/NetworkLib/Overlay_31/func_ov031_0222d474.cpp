@@ -19,7 +19,7 @@ struct Struct_ov031_0222d474 {
 	char unknown_8_[0x2a - 8];
 	unsigned char unknown_2a_;
 };
-extern Struct_ov031_0222d474* data_ov031_02290c94;
+extern Struct_ov031_0222d474* gTextEntryPage_ov031_02290c94;
 
 // USA: func_ov031_0222d474
 extern "C" ARM void func_ov031_0222d474() {
@@ -29,7 +29,7 @@ extern "C" ARM void func_ov031_0222d474() {
 	if (IsDialogOpen_ov031_02237eb0()) {
 		return;
 	}
-	Struct_ov031_0222d474* var1 = data_ov031_02290c94;
+	Struct_ov031_0222d474* var1 = gTextEntryPage_ov031_02290c94;
 	if (var1->unknown_2a_ == 0) {
 		*var1->unknown_4_ &= 0xc1fffcff;
 		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222ce24);
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov031_0222d474() {
 	}
 	int var2;
 	GetWifiSetupPageArguments_ov031_02227520(&var2, (int*)0);
-	var1 = data_ov031_02290c94;
+	var1 = gTextEntryPage_ov031_02290c94;
 	void (*var3)(void*) = var0[var2];
 	var3((char*)var1 + 8);
 	SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222d1b8);

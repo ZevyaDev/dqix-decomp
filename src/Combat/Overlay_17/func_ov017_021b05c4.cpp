@@ -28,7 +28,7 @@ struct Struct_ov017_021b05c4 {
     unsigned char unknown_25_;
 };
 
-extern "C" void func_ov017_021d0d58(void);
+extern "C" void SendReturnZone_ov017_021d0d58(void);
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void* func_0202ae24(void);
 extern "C" int func_0205e488(void* arg0);
@@ -39,7 +39,7 @@ extern "C" ARM unsigned char func_ov017_021b05c4(struct Struct_ov017_021b05c4* a
     GameState* var0 = GameState::GetInstance();
     if (arg0->unknown_23_ == 0) {
         if (arg0->unknown_24_ == 4) {
-            func_ov017_021d0d58();
+            SendReturnZone_ov017_021d0d58();
             arg0->unknown_25_ = 0;
             return 0xa;
         }

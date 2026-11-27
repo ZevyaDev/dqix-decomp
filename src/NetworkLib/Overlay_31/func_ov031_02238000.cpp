@@ -11,7 +11,7 @@ extern Struct_ov031_02249308 data_ov031_02249308[];
 extern signed char data_ov031_022492f4[][2];
 extern signed char data_ov031_022492f5[][2];
 extern "C" void func_ov031_0223cb34(Struct_ov031_02249308*, Struct_ov031_02249308*, Struct_ov031_02238000*);
-extern "C" int func_ov031_0223d49c(Struct_ov031_02238000*);
+extern "C" int IsTouchPressInRect_ov031_0223d49c(Struct_ov031_02238000*);
 extern "C" int AreKeysPressed_ov031_0223d354(int);
 extern "C" void func_ov031_022383fc(int);
 
@@ -23,7 +23,7 @@ extern "C" ARM void func_ov031_02238000() {
     if (var2 > 0) do {
         unsigned char var3 = gDialog_ov031_02290d10->unknown_1c_;
         func_ov031_0223cb34(&data_ov031_02249364[var3][data_ov031_022492ea[var3][var1]], &data_ov031_02249308[var3], &var0);
-        if (func_ov031_0223d49c(&var0)) {
+        if (IsTouchPressInRect_ov031_0223d49c(&var0)) {
             gDialog_ov031_02290d10->unknown_1b_ = var1;
             break;
         }

@@ -17,7 +17,7 @@ extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int);
 extern "C" void func_ov031_0223336c(void);
 extern "C" void func_ov031_022239f4(void);
 extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
-extern "C" void func_ov031_02223518(int);
+extern "C" void ShowStepIndicator_ov031_02223518(int);
 extern "C" void func_ov031_022237dc(unsigned short, unsigned short, unsigned short, unsigned short);
 extern "C" void func_ov031_02233458(void);
 
@@ -39,7 +39,7 @@ extern "C" ARM void func_ov031_02233248(void) {
     func_ov031_0223336c();
     func_ov031_022239f4();
     ShowSubScreenMessage_ov031_0222336c(0x32, data_ov031_02249150[func_ov031_02227548()], (unsigned char)var0[0xf4] + 1);
-    func_ov031_02223518(1);
+    ShowStepIndicator_ov031_02223518(1);
     func_ov031_022237dc(
         data_ov031_02249198[func_ov031_02227570(1)].unknown_0_[data_ov031_02290cc8.unknown_1_].unknown_0_,
         data_ov031_0224919c[func_ov031_02227570(1)].unknown_0_[data_ov031_02290cc8.unknown_1_].unknown_0_,

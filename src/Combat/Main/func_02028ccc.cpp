@@ -4,7 +4,7 @@ struct Struct_0201a300_5;
 struct Struct_020287b4_2;
 struct Struct_020287b4_4;
 
-extern "C" ARM void func_020280b0(struct Struct_0201a300_5* arg0);
+extern "C" ARM void ResetNodeGraph_020280b0(struct Struct_0201a300_5* graph);
 extern "C" ARM void func_0209bc84(void* arg0);
 extern "C" ARM void func_0209af34(struct Struct_020287b4_2* arg0);
 extern "C" ARM void func_0206ee60(struct Struct_020287b4_4* arg0);
@@ -12,9 +12,9 @@ extern "C" ARM void func_0206ee60(struct Struct_020287b4_4* arg0);
 // USA: func_02028ccc
 extern "C" ARM void* func_02028ccc(void* arg0) {
 #if defined(jpn)
-    func_020280b0((struct Struct_0201a300_5*)((char*)arg0 + 0x14));
+    ResetNodeGraph_020280b0((struct Struct_0201a300_5*)((char*)arg0 + 0x14));
 #else
-    func_020280b0((struct Struct_0201a300_5*)((char*)arg0 + 0x18));
+    ResetNodeGraph_020280b0((struct Struct_0201a300_5*)((char*)arg0 + 0x18));
 #endif
 #if defined(jpn)
     func_0209bc84((char*)arg0 + 0x5c);

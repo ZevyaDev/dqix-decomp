@@ -4,7 +4,7 @@
 
 extern "C" void* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
-extern "C" void* func_ov017_021b1d44(void* arg0, int arg1, int arg2);
+extern "C" void* ResetWirelessTask_ov017_021b1d44(void* node, int modeFlags, int isFullReset);
 extern "C" void func_ov017_021b1e24(void* arg0, void* arg1);
 struct Struct_ov004_0215883c_4;
 extern "C" unsigned char func_ov017_021b2060(Struct_ov004_0215883c_4* arg0);
@@ -35,7 +35,7 @@ extern "C" ARM int func_ov004_0216f3b0(void* arg0) {
             data_ov004_02171048.unknown_4_[0x2e] = 0;
             return 0;
         }
-        func_ov017_021b1d44(var2, 2, 1);
+        ResetWirelessTask_ov017_021b1d44(var2, 2, 1);
         *(void**)((char*)var2 + 8) = (char*)var4 + 4;
         data_ov004_02171048.unknown_4_[0x2e]++;
         goto returnOne;

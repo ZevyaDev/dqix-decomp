@@ -19,8 +19,8 @@ extern "C" void* func_ov017_021b8478(void* battleManager);
 extern "C" int func_ov017_021b8468(void* battleManager);
 extern "C" void* GetBattle_ov017_021b8470(void* battleManager);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
-struct Struct_020886dc_2;
-extern "C" void func_02088818(struct Struct_020886dc_2* arg0, unsigned short arg1);
+struct ModifiableCombatStats_020886dc_2;
+extern "C" void SetFourceType_02088818(struct ModifiableCombatStats_020886dc_2* stats, unsigned short fourceType);
 
 struct Struct_ov017_021c6ebc {
     unsigned short unknown_0_0_ : 2;
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov017_021c6ebc(int arg0, struct Struct_ov017_021c6ebc_2
     var3 = (struct Struct_ov017_021c6ebc*)((unsigned char*)var2->currentStats_ + 0x22);
     var3->unknown_0_6_ = var6;
     unsigned char var7 = arg1->unknown_8_.unknown_1_1_;
-    func_02088818((struct Struct_020886dc_2*)var2->currentStats_, var7);
+    SetFourceType_02088818((struct ModifiableCombatStats_020886dc_2*)var2->currentStats_, var7);
     *((unsigned char*)var2->currentStats_ + 0x24) = arg1->unknown_a_;
     *(unsigned short*)((unsigned char*)var2->currentStats_ + 4) = arg1->unknown_c_;
     *(unsigned short*)((unsigned char*)var2->currentStats_ + 6) = arg1->unknown_e_;

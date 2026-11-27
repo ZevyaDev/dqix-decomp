@@ -87,7 +87,7 @@ extern "C" void* GetNPCPlacement_02040538(struct NPC_0203e0a0* npc);
 extern "C" int GetStorySubStep_02010804(char* gameState);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 struct GameState_02010834;
-extern "C" void GetOwnPartyMemberObjectIndices_02010834(struct GameState_02010834* arg0, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
+extern "C" void GetOwnPartyMemberObjectIndices_02010834(struct GameState_02010834* gameState, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
 
 struct Struct_0205faf4_5 {
     int unknown_0_;

@@ -127,7 +127,7 @@ extern "C" int func_02039760(void* arg0);
 extern "C" int func_02077a20(Struct_02077788_2* arg0);
 extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char* prompt);
 extern "C" short func_ov017_021a4754(Vector3fix* arg0, int arg1, Vector3fix* arg2);
-extern "C" void func_ov017_0219b33c(Struct_ov017_02196430_8* arg0, Struct_ov017_02196430_4* arg1);
+extern "C" void SubmitInteractionPrompt_ov017_0219b33c(Struct_ov017_02196430_8* gameResources, Struct_ov017_02196430_4* candidate);
 extern "C" int func_ov017_0219735c(unsigned char* arg0, unsigned short arg1);
 extern "C" int func_020795cc(unsigned char* arg0);
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
@@ -254,7 +254,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
                     var15.unknown_2_ = var27->unknown_0_.unknown_4_;
                     var15.unknown_10_ = func_ov017_021a4754(&var4->unknown_0_.position_, (short)var4->unknown_0_.rotation_.y, &var27->unknown_0_.position_);
                     if (var15.unknown_10_ < 0x1922) {
-                        func_ov017_0219b33c(var0, &var15);
+                        SubmitInteractionPrompt_ov017_0219b33c(var0, &var15);
                     }
                 }
                 continue;
@@ -286,7 +286,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
                 }
                 ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var16);
                 var16.unknown_0_ = 0xe;
-                func_ov017_0219b33c(var0, &var16);
+                SubmitInteractionPrompt_ov017_0219b33c(var0, &var16);
                 if (g_keyManager.TestKeysPressed(1) == 0 && var0->unknown_42e6_ == 0) {
                     continue;
                 }
@@ -336,7 +336,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
     if (var33 != 0) {
         ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var17);
         var17.unknown_0_ = 0xe;
-        func_ov017_0219b33c(var0, &var17);
+        SubmitInteractionPrompt_ov017_0219b33c(var0, &var17);
     }
     if (!IsPerformingGesture_020535c8((signed char*)var4) &&
         (g_keyManager.TestKeysPressed(1) != 0 || var0->unknown_42e6_ != 0) && var33 != 0) {

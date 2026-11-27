@@ -177,7 +177,7 @@ extern "C" Struct_ov003_02170d88_7* func_02053c6c(unsigned char*);
 extern "C" unsigned char func_0200fb08(Struct_02000c9c_8*);
 extern "C" unsigned char func_020119f8(char*, void*);
 extern "C" void func_ov003_02171f80(Struct_ov003_02170d88_13*);
-extern "C" void func_ov017_021b1d44(void*, int, int);
+extern "C" void ResetWirelessTask_ov017_021b1d44(void*, int, int);
 extern const char* data_ov003_021805e4[5];
 extern const char* data_ov003_021805d0[5];
 
@@ -323,5 +323,5 @@ extern "C" ARM void func_ov003_02170d88(Struct_ov003_02170d88_4* arg0) {
     arg0->unknown_72c_ = 0;
     arg0->unknown_730_ = 3;
     ((Struct_ov003_02170d88_12*)GetGameResources())->unknown_4494_ = 1;
-    func_ov017_021b1d44(GetGameResources()->unknown_ptr_array_3afc[19], 0x20, 1);
+    ResetWirelessTask_ov017_021b1d44(GetGameResources()->unknown_ptr_array_3afc[19], 0x20, 1);
 }

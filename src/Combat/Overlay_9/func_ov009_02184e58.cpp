@@ -483,17 +483,17 @@ extern "C" ARM void func_ov009_02184e58(Struct_ov009_021842a0_2* arg0)
 }
 #endif
 
-struct Struct_ov009_021855dc {
+struct CompanionCreationMenu_ov009_021855dc {
 #if defined(jpn)
     char unknown1_0_[0xc1c];
 #else
     char unknown_0_[0xc58];
 #endif
-    signed char unknown_c58_;
+    signed char step_c58_;
     unsigned char unknown_c59_;
     char unknown_c5a_[0xd9c - 0xc5a];
     unsigned int unknown_d9c_;
-    signed char unknown_da0_[2];
+    signed char furthestSteps_da0_[2];
     unsigned char unknown_da2_;
     unsigned char unknown_da3_;
 };
@@ -504,13 +504,13 @@ extern "C" ARM void func_ov009_021867bc(unsigned char* arg0, int arg1) {
 #else
 extern "C" ARM void func_ov009_021855dc(unsigned char* arg0, int arg1) {
 #endif
-    Struct_ov009_021855dc* var0 = (Struct_ov009_021855dc*)arg0;
+    CompanionCreationMenu_ov009_021855dc* var0 = (CompanionCreationMenu_ov009_021855dc*)arg0;
     signed char var1 = (signed char)arg1;
-    var0->unknown_c58_ = var1;
+    var0->step_c58_ = var1;
     var0->unknown_c59_ = 0;
     int var2 = var0->unknown_da3_;
-    if (var0->unknown_da0_[var2] < arg1)
-        var0->unknown_da0_[var2] = var1;
+    if (var0->furthestSteps_da0_[var2] < arg1)
+        var0->furthestSteps_da0_[var2] = var1;
     var0->unknown_d9c_ |= 0x1100;
     if (arg1 != 9 && arg1 != 11 && arg1 != 12)
         var0->unknown_d9c_ |= 0x80;
@@ -689,7 +689,7 @@ extern "C" GameResources* GetResources_0200fb8c(int* gameState);
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void func_020de848(void* itemTable);
 extern "C" void LoadItemTableByIds_020de9a4(void* itemTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize, const void* itemIds, int itemIdCount);
-extern "C" void func_ov023_021e4e8c(void* arg0);
+extern "C" void InitCharacterModel_ov023_021e4e8c(void* model);
 extern "C" void func_ov023_021e4f64(void* arg0, SafeAllocator* arg1);
 extern "C" void func_ov023_021e4fd8(void* arg0);
 extern "C" void func_ov023_021e6198(void* arg0, int arg1);
@@ -713,7 +713,7 @@ struct SpriteAnimationList_02043368;
 extern "C" void func_ov003_0215e6f8(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 extern "C" void func_ov003_0215f41c(Struct_ov009_02185634_2* arg0, const char* arg1);
 extern "C" unsigned char* func_ov003_0215f4fc(Struct_ov009_02185634_2* arg0, const char* arg1);
-extern "C" void func_ov023_021e60e0(void* arg0, unsigned int arg1);
+extern "C" void SetCharacterModelFacing_ov023_021e60e0(void* model, unsigned int angle);
 extern "C" void func_ov023_021e5974(void* arg0, Struct_ov008_02187f6c_3* arg1, short arg2, int arg3, int arg4);
 extern "C" void func_ov023_021d99a4(void* arg0);
 extern "C" void func_ov023_021d9c7c(void* arg0);
@@ -816,7 +816,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_02185634_6* arg0)
 #if !defined(jpn)
         void* var10 = arg0->unknown_7f0_[0];
 #endif
-        func_ov023_021e4e8c(MODEL0);
+        InitCharacterModel_ov023_021e4e8c(MODEL0);
         func_ov023_021e4f64(MODEL0, &arg0->unknown_0_[3]);
         func_ov023_021e4fd8(MODEL0);
         func_ov023_021e6198(MODEL0, (int)arg0->unknown_c8_);
@@ -824,7 +824,7 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_02185634_6* arg0)
 #if !defined(jpn)
         void* var11 = arg0->unknown_7f0_[1];
 #endif
-        func_ov023_021e4e8c(MODEL1);
+        InitCharacterModel_ov023_021e4e8c(MODEL1);
         func_ov023_021e4f64(MODEL1, &arg0->unknown_0_[3]);
         func_ov023_021e4fd8(MODEL1);
         func_ov023_021e6198(MODEL1, (int)arg0->unknown_c8_);
@@ -1222,8 +1222,8 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_02185634_6* arg0)
 #endif
     else
     {
-        func_ov023_021e60e0(arg0->unknown_7f0_[0], 0x1eb);
-        func_ov023_021e60e0(arg0->unknown_7f0_[1], 0x1eb);
+        SetCharacterModelFacing_ov023_021e60e0(arg0->unknown_7f0_[0], 0x1eb);
+        SetCharacterModelFacing_ov023_021e60e0(arg0->unknown_7f0_[1], 0x1eb);
         func_ov023_021e5974(arg0->unknown_7f0_[0], arg0->unknown_d88_, arg0->unknown_d88_->unknown_568_, 0, 0);
         func_ov023_021e5974(arg0->unknown_7f0_[1], arg0->unknown_d88_, arg0->unknown_d88_->unknown_568_, 0, 0);
         arg0->unknown_7f8_ = arg0->unknown_7f0_[0];

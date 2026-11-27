@@ -47,7 +47,7 @@ struct Struct_ov014_02188bfc : public Struct_ov014_02188d48_3 {
 };
 
 struct Struct_ov014_02188d48_4;
-struct Struct_0201bb78;
+struct Zone3D_0201bb78;
 
 extern "C" unsigned int func_ov014_0218934c(Struct_ov014_02188d48_3* arg0);
 extern "C" bool func_ov014_02188b20(Struct_ov014_02188d48_3* arg0, bool arg1);
@@ -60,7 +60,7 @@ extern "C" bool func_0206dfb0(int, unsigned char*, int flagIndex);
 extern "C" void* GetZone3D_02012fe4();
 extern "C" char* func_020da150(SafeAllocator* arg0, const char* arg1);
 extern "C" bool func_0201b588(int arg0);
-extern "C" bool func_0201bb78(Struct_0201bb78* arg0, unsigned int arg1);
+extern "C" bool HasVisitedZone_0201bb78(Zone3D_0201bb78* zone, unsigned int zoneId);
 
 // USA: func_ov014_02188d48
 extern "C" ARM bool func_ov014_02188d48(Struct_ov014_02188bfc* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3, short arg4) {
@@ -168,7 +168,7 @@ extern "C" ARM bool func_ov014_02188d48(Struct_ov014_02188bfc* arg0, SafeAllocat
                     var28 = var22 == 0;
                     var24 = var19;
                     for (int var29 = 0; var29 < var22; var29++, var24++) {
-                        var28 = (func_0201b588(*var24) && var6) || func_0201bb78((Struct_0201bb78*)var7, *var24);
+                        var28 = (func_0201b588(*var24) && var6) || HasVisitedZone_0201bb78((Zone3D_0201bb78*)var7, *var24);
                         if (var28)
                             break;
                     }

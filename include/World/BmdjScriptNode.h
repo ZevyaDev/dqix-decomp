@@ -23,7 +23,7 @@ struct Struct_02016874 {
 
 struct BMDJEntry_02016874_2 {
     unsigned short id_0_;
-    unsigned short unknown_2_;
+    unsigned short flags_2_;
     signed char unknown_4_0_ : 7;
     signed char unknown_4_7_ : 1;
     char unknown_5_;
@@ -66,16 +66,16 @@ struct BMDJStruct_02013454 {
     BMDJStruct_02013454* pNext_54_;
 };
 
-struct Struct_02013490 {
-    BMDJStruct_02013454* unknown_0_;
+struct GrottoTile_02013490 {
+    BMDJStruct_02013454* pBMDJStruct_0_;
     TileFeaturePlacementData unknown_4_;
-    Matrix3x3 unknown_14_;
+    Matrix3x3 rotation_14_;
     int unknown_38_;
-    Vector3i unknown_3c_;
+    Vector3i position_3c_;
 };
 
 extern "C" BMDJStruct_02013454* func_020196fc(Zone3D* arg0, int arg1);
-extern "C" void func_02013490(Struct_02013490* arg0);
+extern "C" void func_02013490(GrottoTile_02013490* arg0);
 extern "C" void func_02013454(BMDJStruct_02013454* arg0);
 extern "C" void func_0201f01c(Struct_02018b34* arg0);
 extern "C" void func_0201aedc(Zone3D* arg0);

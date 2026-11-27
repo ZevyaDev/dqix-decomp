@@ -38,8 +38,8 @@ struct Struct_020e1674_2;
 extern "C" void func_020e1674(Struct_020e1674_2*, int, int);
 struct Struct_020e1e24;
 extern "C" void func_020e1e24(Struct_020e1e24*, unsigned short*, unsigned short*, int);
-struct Struct_020e28f0;
-extern "C" void func_020e28f0(Struct_020e28f0*, short, short);
+struct YesNoWindow_020e28f0;
+extern "C" void SetYesNoWindowCursorPosition_020e28f0(YesNoWindow_020e28f0*, short, short);
 struct YesNoWindow_020e263c_2;
 extern "C" void UpdateYesNoWindow_020e263c(YesNoWindow_020e263c_2*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -60,7 +60,7 @@ extern "C" ARM void func_ov005_02159b74(Struct_ov005_02153954* arg0) {
     func_020e16dc(var3, 0, 0x18c6);
     func_020e1674((Struct_020e1674_2*)var3, 1, 0);
     func_020e1e24((Struct_020e1e24*)var3, (unsigned short*)&var0, (unsigned short*)&var1, 0);
-    func_020e28f0((Struct_020e28f0*)arg0->unknown_e64_, var0, var1 + 4);
+    SetYesNoWindowCursorPosition_020e28f0((YesNoWindow_020e28f0*)arg0->unknown_e64_, var0, var1 + 4);
     int var4 = GameState::GetInstance()->GetTickCount();
     if (var4 == 0)
         var4 = 1;

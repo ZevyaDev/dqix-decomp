@@ -26,7 +26,7 @@ struct Struct_ov023_021f6a1c {
     Struct_ov023_021f6a1c_2* unknown_0_;
 };
 
-extern "C" void func_ov011_02184a40(void* arg0, int arg1);
+extern "C" void StartMenuCallback_ov011_02184a40(void* menu, int callbackIndex);
 
 // USA: func_ov023_021f6a1c
 extern "C" ARM void func_ov023_021f6a1c(struct Struct_ov023_021f6a1c* arg0, void* arg1) {
@@ -43,7 +43,7 @@ extern "C" ARM void func_ov023_021f6a1c(struct Struct_ov023_021f6a1c* arg0, void
             int var3 = var2->inline_ov023_021f6a1c_47();
             if (var3 > 0) {
                 var3 = var2->inline_ov023_021f6a1c_47();
-                func_ov011_02184a40(arg1, var3);
+                StartMenuCallback_ov011_02184a40(arg1, var3);
                 return;
             }
         }

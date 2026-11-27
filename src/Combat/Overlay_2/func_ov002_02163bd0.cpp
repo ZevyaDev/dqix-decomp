@@ -28,7 +28,7 @@ struct TextWindowManager_0205def8;
 struct Party_02048150;
 struct ItemBag_0207cf30_3;
 struct ItemBag_02061c04_23;
-struct Struct_0207cf30_4;
+struct ItemBag_0207cf30_4;
 struct PartyMemberData_02083994;
 struct ItemTable_0201099c_10;
 extern "C" int func_ov002_02154f4c(unsigned char *arg0);
@@ -40,14 +40,14 @@ extern "C" int func_020dcc20(int arg0, int arg1);
 extern "C" void *GetParty_02010828(GameState *gameState);
 extern "C" int IsInParty_02086ef0(struct Party_02048150 *party, int objectIndex);
 extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
-extern "C" int func_0205df38(void *arg0, int arg1);
+extern "C" int IsTextWindowTouched_0205df38(void *windowManager, int windowId);
 extern "C" int func_020dcbbc(unsigned char *arg0, int arg1, int arg2, int arg3, int arg4);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760 *manager, int soundEffectIndex, int handle);
 extern "C" int GetBagItemCount_020a0b3c(struct ItemBag_0207cf30_3 *bag, int itemId);
 extern "C" int RemoveItemFromBag_020a0a08(ItemBag_02061c04_23*, int, int);
-extern "C" int func_020a095c(struct Struct_0207cf30_4 *arg0, int arg1, signed char arg2);
+extern "C" int AddItemToBag_020a095c(struct ItemBag_0207cf30_4 *bag, int itemId, signed char count);
 extern "C" int GetHeldItemCount_02083994(struct PartyMemberData_02083994 *memberData, int itemId);
 extern "C" int func_020dc920(int arg0, int arg1, int arg2, int arg3);
 extern "C" int *func_0202ae18(void);
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
             SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) L(arg0), var8, Enum_ov002_02163bd0_13);
         } else {
             SetTextWindowVisible_0205def8((struct TextWindowManager_0205def8 *) L(arg0), 1, Enum_ov002_02163bd0_13);
-            if (func_0205df38(L(arg0), Enum_ov002_02163bd0_13)) var8 = 1;
+            if (IsTextWindowTouched_0205df38(L(arg0), Enum_ov002_02163bd0_13)) var8 = 1;
         }
         if (*(unsigned char *) (arg0 + 0x1000 + REGIONAL_OFFSET(0xb88, 0xcc4)) != 0 ||
             func_020dcbbc((unsigned char *) (arg0 + REGIONAL_OFFSET(0x32c + 0x1800, 0x68 + 0x1c00)),
@@ -157,7 +157,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                     int var14     = GetBagItemCount_020a0b3c((struct ItemBag_0207cf30_3 *) var13,
                                                                                *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)));
                     RemoveItemFromBag_020a0a08((struct ItemBag_02061c04_23 *) var13, *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)), (signed char)var14);
-                    func_020a095c((struct Struct_0207cf30_4 *) var13,
+                    AddItemToBag_020a095c((struct ItemBag_0207cf30_4 *) var13,
                                                                       *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)), var14);
                     *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xf0, 0x1c00 + 0x28)) = 0x236e;
                 } else {
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov002_02163bd0(char *arg0) {
                     if (var17 != NULL) {
                         func_ov002_0215a7b4(arg0, *(signed char *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xe8, 0x1c00 + 0x20)), *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)),
                                             *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xb0, 0x1b00 + 0xe8)), 0);
-                        func_020a095c((struct Struct_0207cf30_4 *) var16,
+                        AddItemToBag_020a095c((struct ItemBag_0207cf30_4 *) var16,
                                                                           *(short *) (arg0 + REGIONAL_OFFSET(0x1a00 + 0xea, 0x1c00 + 0x22)), 1);
 #if !defined(jpn)
                         func_ov002_0215b2c8(arg0);

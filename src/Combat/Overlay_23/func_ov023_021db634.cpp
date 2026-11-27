@@ -60,7 +60,7 @@ struct Struct_ov023_021db634_7
 };
 
 struct Struct_0201099c_3;
-struct Struct_0201bb78;
+struct Zone3D_0201bb78;
 struct Struct_ov023_021db45c;
 
 struct Struct_ov023_021ff9e0 {
@@ -102,7 +102,7 @@ extern "C" void __clear(void* arg0, unsigned long arg1);
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 extern "C" long ParseDecimal_02005a94(const char* string);
 extern "C" void* GetZone3D_02012fe4();
-extern "C" int func_0201bb78(struct Struct_0201bb78* arg0, unsigned int arg1);
+extern "C" int HasVisitedZone_0201bb78(struct Zone3D_0201bb78* zone, unsigned int zoneId);
 extern "C" void* func_0205ec34();
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void GetAlchemyRecipeStates_020ac2d4(int, short* recipeIds, void* states, int count);
@@ -189,7 +189,7 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
                     char var18[4] = {0};
                     memcpy(var18, var6->unknown_4_ + 2, 2);
                     short var19 = ParseDecimal_02005a94(var18);
-                    if (!func_0201bb78((Struct_0201bb78*)GetZone3D_02012fe4(), (unsigned short)(var19 + 20000)))
+                    if (!HasVisitedZone_0201bb78((Zone3D_0201bb78*)GetZone3D_02012fe4(), (unsigned short)(var19 + 20000)))
                         continue;
                     var16 = ((StringList*)(data_ov023_021ff9e0.unknown1_8_))->GetString((short)ParseDecimal_02005a94(var6->unknown_4_ + 5));
                     var15.unknown_4_ = 2;
@@ -228,7 +228,7 @@ extern "C" ARM void func_ov023_021db634(Struct_ov023_021db634_3* arg0, Struct_ov
                 unsigned short var26 = func_ov023_021db564((char*)var6->unknown_4_);
                 if (var26 == 0)
                     continue;
-                if (!func_0201bb78((Struct_0201bb78*)var25, var26))
+                if (!HasVisitedZone_0201bb78((Zone3D_0201bb78*)var25, var26))
                     continue;
                 var16 = ((StringList*)(data_ov023_021ff9e0.unknown1_8_))->GetString((short)var26);
                 var15.unknown_4_ = 4;

@@ -153,7 +153,7 @@ extern "C" int GetEquipRestrictions_020dd4c4(int, Struct_ov005_0215c530_6*);
 extern "C" void func_ov005_021579ec(Struct_ov005_0215c530_3*, unsigned int, unsigned char);
 extern "C" void SetMenuCursorIndex_0205bb04(void*, int);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
-extern "C" void func_ov005_021555c0(Struct_ov005_0215c530_3*);
+extern "C" void FillEquipMenuItemGrid_ov005_021555c0(Struct_ov005_0215c530_3*);
 extern "C" void SetItemInfoPanelItem_ov023_021dcae0(ItemInfoPanel_ov003_02178910*, int);
 extern "C" void SetEquipMenuMode_ov005_0215792c(Struct_ov005_0215c530_3*, unsigned char);
 
@@ -322,7 +322,7 @@ extern "C" ARM void func_ov005_0215c530(Struct_ov005_0215c530_3* arg0)
         arg0->unknown_3dd4_[arg0->unknown_3dbc_] = 1;
         arg0->unknown_3dcc_ |= 0x800;
     }
-    func_ov005_021555c0(arg0);
+    FillEquipMenuItemGrid_ov005_021555c0(arg0);
     Enum_ov005_0215c530 var25 = (Enum_ov005_0215c530)arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_;
     SetItemInfoPanelItem_ov023_021dcae0(&arg0->unknown_1244_, var25);
     arg0->unknown_3dcc_ |= 0x40;

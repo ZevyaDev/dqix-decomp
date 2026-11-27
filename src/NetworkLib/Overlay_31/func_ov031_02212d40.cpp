@@ -28,11 +28,11 @@ struct Struct_ov031_0224e5c4_2 {
     void* unknown_10_;
 };
 
-extern Struct_ov031_0224e5c4_2 data_ov031_0224e5c4;
+extern Struct_ov031_0224e5c4_2 gWifiConnectionBuffers_ov031_0224e5c4;
 
 // USA: func_ov031_02212d40
 extern "C" ARM int func_ov031_02212d40(Struct_ov031_02212d40* arg0) {
-    Struct_ov031_0224e5c4_2* var0 = &data_ov031_0224e5c4;
+    Struct_ov031_0224e5c4_2* var0 = &gWifiConnectionBuffers_ov031_0224e5c4;
     void* var1 = (void*)((int (*)(int, int))arg0->unknown_0_)(1, 0x24);
     var0->unknown_c_ = var1;
     func_020ca3ec(0, var1, 0x24);

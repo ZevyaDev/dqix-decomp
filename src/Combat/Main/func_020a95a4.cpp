@@ -17,7 +17,7 @@
 struct Struct_0208660c;
 struct ItemBag_02061c04_23;
 struct Struct_020838c4;
-struct Struct_02108760_2;
+struct SoundEffectManager_02108760_2;
 
 struct Struct_020a95a4_7 {
     unsigned char unknown_0_[0x23c];
@@ -158,7 +158,7 @@ extern "C" short GetEquipmentBagCapacity_0207c620(unsigned char* bag, unsigned i
 extern "C" void func_0207c6a8(unsigned char* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" unsigned short* func_020120a0(char* arg0, unsigned int arg1);
 extern "C" void SetMusicVolumeLevel_0209ca70(void* manager, int volumeLevel);
-extern "C" void SetSoundEffectVolumeLevel_0205e9f4(struct Struct_02108760_2* manager, int volumeLevel);
+extern "C" void SetSoundEffectVolumeLevel_0205e9f4(struct SoundEffectManager_02108760_2* manager, int volumeLevel);
 
 extern unsigned char gMusicManager_02109bf4[];
 extern unsigned char gSoundEffectManager_02108760[];
@@ -240,7 +240,7 @@ extern "C" ARM int func_020a95a4(Struct_020a95a4_6* arg0, Struct_020a95a4_5* arg
     var14->unknown_7e74_ = arg0->unknown_2c4c_;
     memcpy(func_020120a0((char*)var0, 0), arg0->unknown_2c50_, sizeof(arg0->unknown_2c50_));
     SetMusicVolumeLevel_0209ca70(gMusicManager_02109bf4, arg0->unknown_2c58_);
-    SetSoundEffectVolumeLevel_0205e9f4((struct Struct_02108760_2*)gSoundEffectManager_02108760, arg0->unknown_2c59_);
+    SetSoundEffectVolumeLevel_0205e9f4((struct SoundEffectManager_02108760_2*)gSoundEffectManager_02108760, arg0->unknown_2c59_);
     var1->unknown_f7d_ = arg0->unknown_2c5a_;
     var14->unknown_63dc_ = arg0->unknown_2c5b_;
     var2->unknown_2786_ = arg0->unknown_2c5c_;

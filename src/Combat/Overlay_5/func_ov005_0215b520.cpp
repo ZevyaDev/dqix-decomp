@@ -69,7 +69,7 @@ struct ItemInfoPanel_ov003_02178910 {
     unsigned char unknown_776_;
 };
 struct Struct_ov005_02153ba4 {
-    short unknown_0_;
+    short itemId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
     void* unknown_4_;
@@ -293,7 +293,7 @@ extern "C" ARM void func_ov005_0215b520(Struct_ov005_0215b520_2* arg0) {
     }
 #if defined(jpn)
     GetEquipMenu_ov017_021a193c((int*)GetGameResources()->unknown_ptr_array_36fc[3]);
-    short var25 = arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_;
+    short var25 = arg0->unknown_2d90_[arg0->unknown_3dbb_].itemId_0_;
     arg0->unknown_1244_.unknown_774_ |= 0x80;
     func_ov023_021dcba4(&arg0->unknown_1244_, var25);
 #endif

@@ -23,7 +23,7 @@ extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" void RebuildMenuWindowText_ov002_0215b9a4(void *menu, int windowId, int hasCursorMark);
 extern "C" void SetTextWindowVisible_0205def8(struct TextWindowManager_0205def8 *windowManager, int isVisible, int windowId);
 extern "C" void SetTextWindowPalette_0205deb4(struct TextWindowManager_0205d81c *windowManager, int windowId, int palette);
-extern "C" int func_0205df38(void *arg0, int arg1);
+extern "C" int IsTextWindowTouched_0205df38(void *windowManager, int windowId);
 extern "C" void func_ov002_0215b458(char *arg0, int arg1);
 struct TextWindowManager_0205da38;
 extern "C" int IsEntryTouchedAgain_0205da38(struct TextWindowManager_0205da38* windowManager, int arg1);
@@ -103,12 +103,12 @@ extern "C" ARM void func_ov002_02162964(char *arg0) {
         if (g_keyManager.TestKeysHeld(0x80)) {
             return;
         }
-        if ((g_keyManager.TestKeysPressed(4) || func_0205df38(OBJ, RG(0x28, 0x2b))) && CUR == LAST) {
+        if ((g_keyManager.TestKeysPressed(4) || IsTextWindowTouched_0205df38(OBJ, RG(0x28, 0x2b))) && CUR == LAST) {
             func_ov002_0215b458(arg0, 0);
             return;
         }
         int var4 = 0;
-        if (func_0205df38(OBJ, 5) && CUR != LAST + 1) {
+        if (IsTextWindowTouched_0205df38(OBJ, 5) && CUR != LAST + 1) {
             var4 = 1;
         }
         if (var2 != CUR) {

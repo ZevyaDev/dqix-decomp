@@ -19,7 +19,7 @@ struct Struct_ov005_02153ba4_2 {
 };
 
 struct Struct_ov005_02153ba4 {
-    short unknown_0_;
+    short itemId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
     void* unknown_4_;
@@ -56,7 +56,7 @@ extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, i
 extern "C" int func_ov005_02157190(void* arg0);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
-extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
+extern "C" void FillEquipMenuItemGrid_ov005_021555c0(Struct_ov005_02153954* equipMenuUI);
 extern "C" int func_ov005_02157ae8(Struct_ov005_02153954* arg0, int arg1);
 extern "C" int func_ov005_021585fc(Struct_ov005_02153954* arg0, int arg1);
 
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov005_0215771c(Struct_ov005_02153954* arg0) {
         arg0->unknown_3dcc_ |= 0x40000;
     }
     if (var4 != 0)
-        func_ov005_021555c0(arg0);
+        FillEquipMenuItemGrid_ov005_021555c0(arg0);
     else {
         arg0->unknown_3dcc_ &= ~0x20000;
         arg0->unknown_3dcc_ &= ~0x40000;
@@ -104,7 +104,7 @@ extern "C" ARM void func_ov005_0215771c(Struct_ov005_02153954* arg0) {
         return;
     if (!func_ov005_02157190(arg0))
         return;
-    if (arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_ < 0)
+    if (arg0->unknown_2d90_[arg0->unknown_3dbb_].itemId_0_ < 0)
         return;
     SetEquipMenuMode_ov005_0215792c(arg0, 5);
     PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);

@@ -25,7 +25,7 @@ struct Struct_ov023_021ff9e0_4 { unsigned int unknown_0_; void* unknown_4_; };
 
 extern struct Struct_ov023_021ff9e0_4 data_ov023_021ff9e0;
 
-struct Struct_ov023_021dc354 {
+struct ItemInfoPanel_ov023_021dc354 {
     SafeAllocator unknown_0_;
     SafeAllocator unknown_14_;
     SafeAllocator unknown_28_;
@@ -41,32 +41,32 @@ struct Struct_ov023_021dc354 {
     unsigned char unknown1_cc_[0x734 - 0xcc];
 #endif
 
-    int unknown_734_;
-    int unknown_738_[7];
+    int loadTaskId_734_;
+    int loadTaskIds_738_[7];
     unsigned char unknown_754_[0x774 - 0x754];
-    unsigned short unknown_774_;
+    unsigned short flags_774_;
     unsigned char unknown_776_[0x77b - 0x776];
-    signed char unknown_77b_;
+    signed char isEmbedded_77b_;
     unsigned char unknown_77c_[0x77e - 0x77c];
     signed char unknown_77e_;
     unsigned char unknown_77f_[0x780 - 0x77f];
-    int unknown_780_;
+    int spriteLoadTaskId_780_;
     unsigned char unknown_784_[0x79b - 0x784];
     unsigned char unknown_79b_0_ : 1;
 };
 
 // USA: ReleaseItemInfoPanel_ov023_021dc354
-extern "C" ARM void ReleaseItemInfoPanel_ov023_021dc354(struct Struct_ov023_021dc354* panel) {
-    func_ov023_021db2e4((volatile int*)&panel->unknown_780_);
+extern "C" ARM void ReleaseItemInfoPanel_ov023_021dc354(struct ItemInfoPanel_ov023_021dc354* panel) {
+    func_ov023_021db2e4((volatile int*)&panel->spriteLoadTaskId_780_);
     panel->unknown_77e_ = -1;
 
-    if (!(panel->unknown_774_ & 0x10)) {
+    if (!(panel->flags_774_ & 0x10)) {
         CancelFontLoad_02094ab0((void*)GetFontLoader_02094a00());
     }
 
-    func_ov023_021db2e4((volatile int*)&panel->unknown_734_);
+    func_ov023_021db2e4((volatile int*)&panel->loadTaskId_734_);
     for (int i = 0; i < 7; i++) {
-        func_ov023_021db2e4((volatile int*)&panel->unknown_738_[i]);
+        func_ov023_021db2e4((volatile int*)&panel->loadTaskIds_738_[i]);
     }
 
     if (panel->unknown_c8_) {
@@ -76,7 +76,7 @@ extern "C" ARM void ReleaseItemInfoPanel_ov023_021dc354(struct Struct_ov023_021d
         func_02075d58(panel->unknown_c4_);
     }
 
-    if (panel->unknown_77b_ != 1) {
+    if (panel->isEmbedded_77b_ != 1) {
         func_ov023_021dcd18(panel);
     }
 
@@ -100,5 +100,5 @@ extern "C" ARM void ReleaseItemInfoPanel_ov023_021dc354(struct Struct_ov023_021d
         data_ov023_021ff9e0.unknown_4_ = 0;
     }
 
-    InitItemInfoPanel_ov023_021dc134(panel, -1, panel->unknown_77b_);
+    InitItemInfoPanel_ov023_021dc134(panel, -1, panel->isEmbedded_77b_);
 }

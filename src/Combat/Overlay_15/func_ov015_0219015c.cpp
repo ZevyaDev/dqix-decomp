@@ -7,9 +7,9 @@ struct Struct_02029634_2 {
 
 struct Struct_02029634 {
     char unknown_0_[0x44];
-    struct Struct_02029634_2* unknown_44_;
+    struct Struct_02029634_2* pFirstEntry_44_;
     char unknown_48_[0x12];
-    unsigned short unknown_5a_;
+    unsigned short entryCount_5a_;
 };
 
 extern "C" struct Struct_02029634_2* GetTextMenuEntry_0202a9ac(struct Struct_02029634* menu, int index);

@@ -117,7 +117,7 @@ extern "C" Zone3D* GetZone3D_02012fe4(void);
 
 struct Struct_021075f4;
 extern "C" void func_020401e4(Struct_021075f4* arg0);
-extern "C" void func_0203cf58(Struct_021075f4* arg0);
+extern "C" void InitNPCManager_0203cf58(Struct_021075f4* npcManager);
 
 struct Struct_021075f4 {
     unsigned char unknown_0_[0x1e8];
@@ -337,5 +337,5 @@ extern "C" ARM int func_0203e8f8(void* arg0, Struct_0203e8f8* arg1, SafeAllocato
 inline Struct_021075f4::Struct_021075f4()
 {
     func_020401e4(this);
-    func_0203cf58(this);
+    InitNPCManager_0203cf58(this);
 }

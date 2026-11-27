@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" bool IsControlCode_02044494(void* arg0, void* arg1);
+extern "C" bool IsControlCode_02044494(void* window, void* text);
 
 // USA: func_0206abf8
 extern "C" ARM int func_0206abf8(void* arg0, void* arg1) {

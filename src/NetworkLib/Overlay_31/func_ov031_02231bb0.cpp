@@ -4,7 +4,7 @@ extern unsigned char data_ov031_02290cb8;
 extern "C" void func_ov031_02231c0c(void);
 extern "C" void func_ov031_022239f4(void);
 extern "C" void ShowSubScreenMessage_ov031_0222336c(int, int, int);
-extern "C" int func_ov031_02223518(void*);
+extern "C" int ShowStepIndicator_ov031_02223518(void*);
 extern "C" void ShowMainScreenMessage_ov031_022235a0(int);
 extern "C" void func_ov031_02222b0c(int);
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int);
@@ -18,7 +18,7 @@ extern "C" ARM void func_ov031_02231bb0(void) {
     func_ov031_022239f4();
     int var0 = 0x37;
     ShowSubScreenMessage_ov031_0222336c(var0, var0 - 0x38, 0);
-    func_ov031_02223518((void*)2);
+    ShowStepIndicator_ov031_02223518((void*)2);
     ShowMainScreenMessage_ov031_022235a0(0x24);
     func_ov031_02222b0c(0);
     PlayWifiSetupSoundEffect_ov031_02236878(0xb);

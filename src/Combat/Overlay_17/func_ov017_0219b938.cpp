@@ -24,7 +24,7 @@ extern "C" void* func_0208e9e8(void);
 extern "C" void func_0208f36c(void* arg0, int arg1);
 
 struct Struct_ov017_021d64b0 {
-    int unknown_0_[17];
+    int indices_0_[17];
 };
 
 extern struct Struct_ov017_021d64b0 data_ov017_021d64b0;
@@ -52,20 +52,20 @@ struct Struct_ov017_0219b938_2 {
     struct Struct_020966a0* unknown_4328_;
 };
 
-// USA: func_ov017_0219b938
-extern "C" ARM void func_ov017_0219b938(struct Struct_ov017_0219b938_2* arg0) {
-    struct Struct_ov017_0219b938* var0 = GetZone3D_02012fe4();
-    var0->inline_ov017_0219b938(0)->Func0207e2e0();
-    var0->inline_ov017_0219b938(1)->Func0207e2e0();
-    func_020966a0(arg0->unknown_4328_);
-    struct Struct_ov017_021d64b0 var1 = data_ov017_021d64b0;
-    int var2;
-    for (var2 = 0; var1.unknown_0_[var2] >= 0; var2++) {
-        ((SPRSprite*)(&arg0->unknown_2b90_[var1.unknown_0_[var2]]))->Reset();
+// USA: UnloadFieldIcons_ov017_0219b938
+extern "C" ARM void UnloadFieldIcons_ov017_0219b938(struct Struct_ov017_0219b938_2* gameResources) {
+    struct Struct_ov017_0219b938* zone = GetZone3D_02012fe4();
+    zone->inline_ov017_0219b938(0)->Func0207e2e0();
+    zone->inline_ov017_0219b938(1)->Func0207e2e0();
+    func_020966a0(gameResources->unknown_4328_);
+    struct Struct_ov017_021d64b0 spriteIndices = data_ov017_021d64b0;
+    int i;
+    for (i = 0; spriteIndices.indices_0_[i] >= 0; i++) {
+        ((SPRSprite*)(&gameResources->unknown_2b90_[spriteIndices.indices_0_[i]]))->Reset();
     }
-    ((SPRSprite*)(&arg0->unknown_2b90_[0x12]))->Reset();
-    ((SPRSprite*)(&arg0->unknown_2b90_[0x13]))->Reset();
+    ((SPRSprite*)(&gameResources->unknown_2b90_[0x12]))->Reset();
+    ((SPRSprite*)(&gameResources->unknown_2b90_[0x13]))->Reset();
     func_0208f36c(func_0208e9e8(), 0);
-    arg0->unknown_9c_.Reset();
-    ((TextureArena*)((struct TextureVRAMArea_0203d028*)arg0->unknown_4fc_))->Reset();
+    gameResources->unknown_9c_.Reset();
+    ((TextureArena*)((struct TextureVRAMArea_0203d028*)gameResources->unknown_4fc_))->Reset();
 }

@@ -6,7 +6,7 @@ extern "C" void func_02029470(int arg0, int arg1, int arg2, int arg3, int arg4, 
 
 // USA: func_02029384
 extern "C" ARM int func_02029384(int arg0, int arg1, int arg2, int arg3) {
-    int var0 = data_020ef74c.unknown_c_;
+    int var0 = data_020ef74c.mode_c_;
 
     if (var0 == 2) {
         return 0;

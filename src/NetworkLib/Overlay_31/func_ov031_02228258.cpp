@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct Struct_ov031_02248d8e { unsigned short unknown_0_, unknown_2_, unknown_4_, unknown_6_; };
-extern Struct_ov031_02248d8e data_ov031_02248d8e[2];
+struct TouchRect_ov031_02248d8e { unsigned short left_0_, top_2_, right_4_, bottom_6_; };
+extern TouchRect_ov031_02248d8e data_ov031_02248d8e[2];
 extern unsigned short data_ov031_02248d9e[];
 extern unsigned short data_ov031_02248da2[];
 extern unsigned short data_ov031_02248da0[];
 extern unsigned short data_ov031_02248da4[];
 extern signed char data_ov031_02290c50;
-extern "C" int func_ov031_0223d49c(Struct_ov031_02248d8e*);
+extern "C" int IsTouchPressInRect_ov031_0223d49c(TouchRect_ov031_02248d8e*);
 extern "C" void SetButtonBarChoice_ov031_02222e20(int);
 extern "C" int AreKeysPressed_ov031_0223d354(int);
 extern "C" int func_ov031_0223d394(int);
@@ -17,9 +17,9 @@ extern "C" void func_ov031_022284ec(int);
 // USA: func_ov031_02228258
 extern "C" ARM void func_ov031_02228258() {
     int var0 = 0;
-    Struct_ov031_02248d8e* var1 = data_ov031_02248d8e;
+    TouchRect_ov031_02248d8e* var1 = data_ov031_02248d8e;
     do {
-        if (func_ov031_0223d49c(var1)) {
+        if (IsTouchPressInRect_ov031_0223d49c(var1)) {
             SetButtonBarChoice_ov031_02222e20(1);
             int var2 = (unsigned char)var0 * 4;
             unsigned short var3 = data_ov031_02248d9e[var2];

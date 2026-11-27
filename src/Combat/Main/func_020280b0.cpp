@@ -18,21 +18,21 @@ struct Struct_0201a300_5 {
     int unknown_28_;
 };
 
-// USA: func_020280b0
-extern "C" ARM void func_020280b0(struct Struct_0201a300_5* arg0) {
-    arg0->unknown_1c_ = 0;
-    arg0->unknown_0_ = 0;
-    arg0->unknown_1_ = 0;
-    arg0->unknown_2_ = 0;
-    arg0->unknown_3_ = 0;
-    arg0->unknown_4_ = 0;
-    arg0->unknown_8_ = 0;
-    arg0->unknown_c_ = 0;
-    arg0->unknown_10_ = 0;
-    arg0->unknown_14_ = 0;
-    arg0->unknown_18_ = 0;
-    arg0->unknown_20_ = 1;
-    arg0->unknown_24_ = 0;
-    arg0->unknown_25_ = 0;
-    arg0->unknown_28_ = 0;
+// USA: ResetNodeGraph_020280b0
+extern "C" ARM void ResetNodeGraph_020280b0(struct Struct_0201a300_5* graph) {
+    graph->unknown_1c_ = 0;
+    graph->unknown_0_ = 0;
+    graph->unknown_1_ = 0;
+    graph->unknown_2_ = 0;
+    graph->unknown_3_ = 0;
+    graph->unknown_4_ = 0;
+    graph->unknown_8_ = 0;
+    graph->unknown_c_ = 0;
+    graph->unknown_10_ = 0;
+    graph->unknown_14_ = 0;
+    graph->unknown_18_ = 0;
+    graph->unknown_20_ = 1;
+    graph->unknown_24_ = 0;
+    graph->unknown_25_ = 0;
+    graph->unknown_28_ = 0;
 }

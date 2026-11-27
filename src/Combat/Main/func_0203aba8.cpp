@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void* func_020bd42c(void* arg0);
+extern "C" void* SetCurrentSoundArchive_020bd42c(void* archive);
 extern "C" int func_020be760(void* arg0, void* arg1);
 
 struct MusicManager_0203aba8 {
@@ -13,7 +13,7 @@ extern "C" ARM int PlaySequence_0203aba8(struct MusicManager_0203aba8* manager, 
     if (manager->pHeap_0_ == 0) {
         return 0;
     }
-    func_020bd42c((char*)manager + 4);
+    SetCurrentSoundArchive_020bd42c((char*)manager + 4);
     isStarted = 1;
     if (handle != 0) {
         if (func_020be760(handle, sequenceIndex) == 0) {

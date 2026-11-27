@@ -50,7 +50,6 @@ struct Struct_020ef74c_2 {
 };
 
 #if defined(jpn)
-#define data_020fe9a4 data_020fe6fc
 #define data_020ef75c data_020ef650
 #define data_020ef75f data_020ef653
 #define data_020ef763 data_020ef655
@@ -86,7 +85,7 @@ extern "C" void func_02029470(int, int, int, int, int, int);
 extern "C" void func_020292ec(int arg0, int arg1, int arg2, int arg3, int arg4);
 
 extern Struct_020ef74c_2 data_020ef74c;
-extern Struct_020fe9a4 data_020fe9a4;
+extern Struct_020fe9a4 gScreenBitmap_020fe9a4;
 extern const char data_020ef75c[];
 extern const char data_020ef75f[];
 extern const char data_020ef763[];
@@ -209,7 +208,7 @@ extern "C" ARM void func_02029988(Struct_02029988_2* arg0, int arg1) {
         if (data_020ef74c.unknown_c_ == 0) {
             func_0202ad98(arg0->unknown_50_ / 8 + 1, arg0->unknown_52_ / 8 + 1, 7, arg0->unknown_4_);
         } else if (data_020ef74c.unknown_c_ >= 3 && data_020ef74c.unknown_c_ <= 6) {
-            data_020fe9a4.unknown_4_ = 0;
+            gScreenBitmap_020fe9a4.unknown_4_ = 0;
             func_020290e8(arg0->unknown_50_ + data_020ef74c.unknown_8_, arg0->unknown_52_ + data_020ef74c.unknown_4_, arg0->unknown_4_);
         }
 
@@ -219,8 +218,8 @@ extern "C" ARM void func_02029988(Struct_02029988_2* arg0, int arg1) {
             for (var5 = 0; var5 < var8; var5++) {
                 if (var7 == NULL) break;
                 sprintf(var23, data_020ef75c, var7->unknown_4_);
-                data_020fe9a4.unknown_4_ = 0;
-                if (var7->unknown_38_) data_020fe9a4.unknown_4_ = 1;
+                gScreenBitmap_020fe9a4.unknown_4_ = 0;
+                if (var7->unknown_38_) gScreenBitmap_020fe9a4.unknown_4_ = 1;
                 if (data_020ef74c.unknown_c_ == 0) {
                     func_0202ad98(arg0->unknown_50_ / 8 + 1, arg0->unknown_52_ / 8 + 2 + var5, 7, var23);
                 } else if (data_020ef74c.unknown_c_ >= 3 && data_020ef74c.unknown_c_ <= 6) {
@@ -238,8 +237,8 @@ extern "C" ARM void func_02029988(Struct_02029988_2* arg0, int arg1) {
             for (var5 = arg0->unknown_5e_ + 1; var5 < arg0->unknown_5a_; var5++) {
                 if (var7 == NULL) break;
                 sprintf(var26, data_020ef75c, var7->unknown_4_);
-                data_020fe9a4.unknown_4_ = 0;
-                if (var7->unknown_38_) data_020fe9a4.unknown_4_ = 1;
+                gScreenBitmap_020fe9a4.unknown_4_ = 0;
+                if (var7->unknown_38_) gScreenBitmap_020fe9a4.unknown_4_ = 1;
                 if (data_020ef74c.unknown_c_ == 0) {
                     func_0202ad98(arg0->unknown_50_ / 8 + 1, arg0->unknown_52_ / 8 + 2 + var5, 7, var26);
                 } else if (data_020ef74c.unknown_c_ >= 3 && data_020ef74c.unknown_c_ <= 6) {
@@ -257,9 +256,9 @@ extern "C" ARM void func_02029988(Struct_02029988_2* arg0, int arg1) {
             var7 = inline_02029988(arg0, arg0->unknown_64_);
             for (var5 = arg0->unknown_64_; var5 <= arg0->unknown_66_; var5++) {
                 if (var7 == NULL) break;
-                data_020fe9a4.unknown_4_ = 0;
+                gScreenBitmap_020fe9a4.unknown_4_ = 0;
                 var6 = 0;
-                if (var7->unknown_38_) data_020fe9a4.unknown_4_ = 1;
+                if (var7->unknown_38_) gScreenBitmap_020fe9a4.unknown_4_ = 1;
                 if (arg0->unknown_5c_ <= var5 && var5 <= arg0->unknown_5e_) {
                     if (arg0->unknown_60_ == var5) {
                         sprintf(var29, data_020ef75f);

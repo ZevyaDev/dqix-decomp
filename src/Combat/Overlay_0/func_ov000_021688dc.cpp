@@ -159,7 +159,7 @@ extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags)
 extern "C" int func_02053c6c(unsigned char* gameObject);
 
 struct ActiveZone_020fdd44;
-extern "C" struct ActiveZone_020fdd44* func_02027cb0(void);
+extern "C" struct ActiveZone_020fdd44* FindCurrentActiveZone_02027cb0(void);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void* GetBattleJoinTable_0207d78c(void);
 extern "C" void* func_020d6c00(void);
@@ -269,7 +269,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
     void* var13 = *(void**)(arg0 + Enum_ov000_021688dc_668);
     struct Party_02048150* var14 = (struct Party_02048150*)GetParty_02010828(var9);
     GameObject* var15 = var9->GetProtagonist();
-    struct ActiveZone_020fdd44* var16 = func_02027cb0();
+    struct ActiveZone_020fdd44* var16 = FindCurrentActiveZone_02027cb0();
     int var17 = GetMessageWindow_020421a0();
     void* var18 = GetBattleJoinTable_0207d78c();
     void* var19 = *(void**)(var10 + Enum_ov000_021688dc_14076);

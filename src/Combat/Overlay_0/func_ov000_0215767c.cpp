@@ -24,7 +24,7 @@ struct Struct_0204887c;extern "C" void func_0204887c(Struct_0204887c*,char*);ext
 extern "C" void InitActionTarget_ov000_02157cdc(void*);extern "C" void* func_ov000_0215e918(void*);extern "C" void func_02089758(unsigned char*);
 extern "C" int func_ov000_02156050(GameObject*);extern "C" int func_ov000_021543f4(GameObject*);
 struct BattleAction_ov000_0215767c_5;struct ActionTarget_ov000_0215767c_4;extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*,ActionTarget_ov000_0215767c_4*);
-struct Struct_ov000_0215767c_7;struct Struct_ov000_0215767c_6;extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*,Struct_ov000_0215767c_6*);
+struct BattleAction_ov000_0215767c_7;struct ActionActor_ov000_0215767c_6;extern "C" void AppendActionActor_ov000_02160068(BattleAction_ov000_0215767c_7*,ActionActor_ov000_0215767c_6*);
 extern "C" {
 extern const Struct_ov000_02182ae4 data_ov000_02182c54,data_ov000_02182c64;extern const Struct_ov000_02182a74 data_ov000_02182a74;
 int CollectPartyCombatantIndices_ov000_0215e9fc(void*,short*,int,int);int func_ov000_02159cb4(void*,int);int IsCombatantIncapacitated_ov000_02155f9c(void*,int,int);
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov000_0215767c(Struct_ov000_0215767c_2* arg0,Struct_ov0
    else if(var6){arg1->unknown_0_=0x1f7;arg1->unknown_9_=0;if((unsigned char)var3->unknown_138_->unknown_23_4_==1){arg0->unknown_8e96_=func_ov000_02157cc4(var3);func_02088474(var3->unknown_138_,10,0);var3->unknown_138_->unknown_3b_|=2;}}
    else if(func_ov000_021543f4(var3)){arg1->unknown_0_=func_ov000_0215f67c(arg0,var27);arg1->unknown_9_=0;}
   }
-  func_ov000_02160068((Struct_ov000_0215767c_7*)arg2,(Struct_ov000_0215767c_6*)var26);arg0->unknown_8e00_++;
+  AppendActionActor_ov000_02160068((BattleAction_ov000_0215767c_7*)arg2,(ActionActor_ov000_0215767c_6*)var26);arg0->unknown_8e00_++;
  }
  arg2->unknown_0_=arg1->unknown_0_;arg2->unknown_b_0_=arg1->unknown_b_0_;
 }

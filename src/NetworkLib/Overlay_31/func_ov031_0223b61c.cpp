@@ -20,32 +20,32 @@ extern "C" void func_020ca7e8(void*, void*);
 extern "C" unsigned int FreeAndClearPointer_ov031_0223cf70(void** pointer);
 extern char data_ov031_0224c56c[];
 
-// USA: func_ov031_0223b61c
-extern "C" ARM void* func_ov031_0223b61c(char* arg0, unsigned int* arg1, int arg2) {
+// USA: LoadFile_ov031_0223b61c
+extern "C" ARM void* LoadFile_ov031_0223b61c(char* path, unsigned int* outLength, int alignAndDir) {
     func_ov031_0223bfa0(data_ov031_02290d24.unknown_0_->unknown_84_);
 
-    NitroVM var0;
-    NitroVM_Initialize(&var0);
-    if (!NitroVM_PrepareReadFileByPath(&var0, arg0))
+    NitroVM reader;
+    NitroVM_Initialize(&reader);
+    if (!NitroVM_PrepareReadFileByPath(&reader, path))
         func_020c9be0();
 
-    unsigned int var1 = var0.fileInfo.endOffset - var0.fileInfo.startOffset;
-    if (arg1) *arg1 = var1;
+    unsigned int fileSize = reader.fileInfo.endOffset - reader.fileInfo.startOffset;
+    if (outLength) *outLength = fileSize;
 
-    int var2 = func_ov031_0223b744(arg0, data_ov031_0224c56c, 2) ? -4 : arg2;
+    int readAlignAndDir = func_ov031_0223b744(path, data_ov031_0224c56c, 2) ? -4 : alignAndDir;
 
-    void* var3 = AllocateZeroedMemory_ov031_0223cf4c(var1, var2);
-    NitroVM_ReadSync(&var0, var3, var1);
-    NitroVM_FinishRead(&var0);
+    void* fileData = AllocateZeroedMemory_ov031_0223cf4c(fileSize, readAlignAndDir);
+    NitroVM_ReadSync(&reader, fileData, fileSize);
+    NitroVM_FinishRead(&reader);
 
-    if (var2 > 0) {
-        return var3;
+    if (readAlignAndDir > 0) {
+        return fileData;
     }
 
-    unsigned int var4 = *(unsigned int*)var3 >> 8;
-    if (arg1) *arg1 = var4;
-    void* var5 = AllocateZeroedMemory_ov031_0223cf4c(var4, arg2);
-    func_020ca7e8(var3, var5);
-    FreeAndClearPointer_ov031_0223cf70(&var3);
-    return var5;
+    unsigned int decompressedSize = *(unsigned int*)fileData >> 8;
+    if (outLength) *outLength = decompressedSize;
+    void* decompressedData = AllocateZeroedMemory_ov031_0223cf4c(decompressedSize, alignAndDir);
+    func_020ca7e8(fileData, decompressedData);
+    FreeAndClearPointer_ov031_0223cf70(&fileData);
+    return decompressedData;
 }

@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-struct Struct_ov031_02223268_2;
-struct Struct_ov031_022269d8;
-extern "C" Struct_ov031_02223268_2* func_ov031_0223baa0(Struct_ov031_022269d8* arg0, int arg1);
+struct OAMEntry_ov031_02223268_2;
+struct OAMAllocation_ov031_022269d8;
+extern "C" OAMEntry_ov031_02223268_2* GetSpriteOAMEntry_ov031_0223baa0(OAMAllocation_ov031_022269d8* sprite, int entryIndex);
 extern "C" int CopySpriteOAMEntries_ov031_0223bdb0(int, int, int);
 struct OAMAllocation_ov031_02222ce4;
 extern "C" void SetSpritePriority_ov031_0223bcc8(OAMAllocation_ov031_02222ce4* sprite, int entryIndex, int priority);
@@ -16,8 +16,8 @@ extern unsigned short data_ov031_02249084[];
 // USA: func_ov031_02232f58
 extern "C" ARM void func_ov031_02232f58(void) {
     int var0 = gConnectionListPage_ov031_02290cc0.unknown_0_ - 4;
-    Struct_ov031_02223268_2* var1 = func_ov031_0223baa0(
-        (Struct_ov031_022269d8*)*(void**)(gConnectionListPage_ov031_02290cc0.unknown_4_ + var0 * 4 + 0x10), 0);
+    OAMEntry_ov031_02223268_2* var1 = GetSpriteOAMEntry_ov031_0223baa0(
+        (OAMAllocation_ov031_022269d8*)*(void**)(gConnectionListPage_ov031_02290cc0.unknown_4_ + var0 * 4 + 0x10), 0);
     CopySpriteOAMEntries_ov031_0223bdb0(0, 0x32, (int)var1);
 
     SetSpritePosition_ov031_0223bbd8(*(void**)(gConnectionListPage_ov031_02290cc0.unknown_4_ + var0 * 4 + 0x10), -1,

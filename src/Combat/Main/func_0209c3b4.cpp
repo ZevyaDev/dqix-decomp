@@ -3,7 +3,7 @@
 struct Struct_02109bf4_5;
 extern "C" void func_0209c73c(struct Struct_02109bf4_5* arg0);
 extern "C" void func_0203aa44(void* arg0);
-extern "C" int func_0203aaf8(void* arg0, void* arg1, int* arg2);
+extern "C" int LoadSequence_0203aaf8(void* manager, void* sequenceIndex, int* heapState);
 struct MusicManager_0203aba8;
 extern "C" int PlaySequence_0203aba8(struct MusicManager_0203aba8* manager, void* sequenceIndex, void* handle);
 extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
@@ -44,7 +44,7 @@ extern "C" ARM void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int mu
     manager->musicState_b0_ = 1;
     func_0203aa44(manager);
     if (musicIndex > 0) {
-        func_0203aaf8(manager, (void*)musicIndex, &manager->unknown_b4_);
+        LoadSequence_0203aaf8(manager, (void*)musicIndex, &manager->unknown_b4_);
         PlaySequence_0203aba8((struct MusicManager_0203aba8*)manager, (void*)musicIndex, &manager->unknown_bc_);
         SetMusicVolume_0209c2e0(manager, manager->unknown_cd_, 0);
     }

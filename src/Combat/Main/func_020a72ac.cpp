@@ -40,7 +40,7 @@ extern "C" void* func_0202ae18();
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void func_020a6aa4(Vector3i* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_0200ffc0(struct Struct_0200ffc0* arg0);
-extern "C" struct Struct_02017a94* func_0201b600(Struct_02017a94* arg0, int arg1, unsigned short arg2);
+extern "C" struct Struct_02017a94* FindFirstBMDJEntry_0201b600(Struct_02017a94* zone, int bmdjId, unsigned short entryId);
 extern "C" void SetBMDJEntryVisible_02013380(struct BMDJEntry_02013380* entry, int bmdjId, int isVisible);
 extern "C" void func_0201b8c8(struct Struct_02017a94* arg0, int arg1, int arg2, int arg3);
 extern "C" void* func_0201b754(void* arg0, int arg1);
@@ -59,9 +59,9 @@ extern "C" ARM void func_020a72ac(struct Struct_020a72ac_3* arg0) {
     if (arg0->unknown_2788_ == 0) {
         if (arg0->unknown_2786_ == arg0->unknown_0_) {
             if (arg0->unknown_0_ == 0x76c) {
-                struct Struct_02017a94* var4 = func_0201b600((struct Struct_02017a94*)arg0, 0, 4);
+                struct Struct_02017a94* var4 = FindFirstBMDJEntry_0201b600((struct Struct_02017a94*)arg0, 0, 4);
                 if (var4) SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var4, 0, 1);
-                var4 = func_0201b600((struct Struct_02017a94*)arg0, 0, 0x28);
+                var4 = FindFirstBMDJEntry_0201b600((struct Struct_02017a94*)arg0, 0, 0x28);
                 if (var4) SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var4, 0, 1);
             } else if (var2) {
                 var2->MakeVisible();
@@ -92,9 +92,9 @@ extern "C" ARM void func_020a72ac(struct Struct_020a72ac_3* arg0) {
                 var3->obj3D_.position_ = var6;
             }
         } else if (arg0->unknown_0_ == 0x76c) {
-            struct Struct_02017a94* var7 = func_0201b600((struct Struct_02017a94*)arg0, 0, 4);
+            struct Struct_02017a94* var7 = FindFirstBMDJEntry_0201b600((struct Struct_02017a94*)arg0, 0, 4);
             if (var7) SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var7, 0, 0);
-            var7 = func_0201b600((struct Struct_02017a94*)arg0, 0, 0x28);
+            var7 = FindFirstBMDJEntry_0201b600((struct Struct_02017a94*)arg0, 0, 0x28);
             if (var7) SetBMDJEntryVisible_02013380((struct BMDJEntry_02013380*)var7, 0, 0);
         } else if (arg0->unknown_0_ == 0x2774) {
             if (var2) var2->MakeVisible();

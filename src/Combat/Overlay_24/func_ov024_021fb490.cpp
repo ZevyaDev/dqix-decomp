@@ -87,7 +87,7 @@ struct Struct_ov024_021dd028_5;
 
 extern "C" int func_02053c6c(unsigned char*);
 extern "C" void* GetActionTables_020797dc();
-extern "C" void* func_02079ee0(void*, int);
+extern "C" void* FindActionDamageData_02079ee0(void*, int);
 extern "C" float func_02074948(int);
 extern "C" float _fmul(float, float);
 extern "C" int _fgeq(float, float);
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov024_021fb490(Struct_ov024_021fb490_5* arg0) {
     func_ov024_021f8938(arg0, &var10, &var11, var9, var3, var7);
     var8 = arg0->unknown_7c_;
     var5 = arg0->unknown_9c_;
-    var6 = func_02079ee0(var4, var3->unknown_9_6_);
+    var6 = FindActionDamageData_02079ee0(var4, var3->unknown_9_6_);
     for (int var13 = 0; var13 < var5; var13++) {
         var1[var13] = 0;
         var2[var13] = 0;

@@ -37,7 +37,7 @@ struct Struct_ov000_0215767c_2 {
 };
 
 extern "C" void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
-extern "C" void* func_ov000_0215e9d8(void* arg0);
+extern "C" void* GetNextBattleAction_ov000_0215e9d8(void* battle);
 extern "C" void InitBattleAction_ov000_02160030(void* action);
 extern "C" Struct_ov000_0215767c_8* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" Struct_ov000_0215ab88_2* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
@@ -66,7 +66,7 @@ extern "C" ARM void func_ov000_0215ab88(Struct_ov000_0215767c_2* arg0) {
     GameObject* var5;
     GameObject* var6;
     for (var0 = arg0->unknown_8e08_; var0 < arg0->unknown_8e0b_; var0++) {
-        var1 = func_ov000_0215e9d8(arg0);
+        var1 = GetNextBattleAction_ov000_0215e9d8(arg0);
         if (var1 == 0) {
             return;
         }

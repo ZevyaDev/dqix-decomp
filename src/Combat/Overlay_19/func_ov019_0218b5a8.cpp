@@ -44,7 +44,7 @@ struct SaveProgress_020a9ea4;
 struct PacEntry_02020cb8_4;
 struct PacEntry_02020aec;
 struct GlobalFlags_02038598_4;
-struct Struct_020444e0;
+struct MessageWindow_020444e0;
 struct OAMManager_0203bdb0;
 
 extern "C" unsigned int* func_020d6c00();
@@ -100,12 +100,12 @@ extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, u
 extern "C" void PlayJingle_0209c6d8(void* manager, int jingleIndex);
 extern "C" int func_ov019_0218c240(void* arg0);
 extern "C" int ClearSaveHeader_020aba5c(int isSecondCopy);
-extern "C" void func_02043368(MessageWindow_02021b84* arg0);
+extern "C" void UpdateMessageWindowSpriteLoad_02043368(MessageWindow_02021b84* window);
 extern "C" void UpdateSound_020bbd9c();
 extern "C" void ResetGeometryEngine_020c52e8();
 extern "C" void ResetMatrixStacks_020c5414();
 extern "C" void WriteAndLoadViewMatrix_020c57d4(int, int, int, int, void*);
-extern "C" void func_020444e0(Struct_020444e0* arg0);
+extern "C" void DrawMessageWindow_020444e0(MessageWindow_020444e0* window);
 extern "C" void func_ov019_0218c178(void* arg0);
 extern "C" void CleanInvalidateOAMBuffers_0203bd88(void* arg0);
 extern "C" void DrawMessageGlyphs_0204359c(void* window, int glyphCount);
@@ -504,7 +504,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         UpdateAndApplyBrightness((GameResources*)arg0);
         var1->RemoveAllLocks();
         if (!(arg0->unknown_4c_ & 1)) {
-            func_02043368(var7);
+            UpdateMessageWindowSpriteLoad_02043368(var7);
         }
         if (var7->unknown_9a0_ != 3 && !(var13 == 3 && var7->unknown_9a0_ == 4)) {
             var7->func_020444d4(1);
@@ -519,7 +519,7 @@ extern "C" ARM void func_ov019_0218b5a8(Struct_ov019_0218b5a8* arg0) {
         inline_ov019_0218b5a8_9(&var16, &var17, &var15, NULL);
         inline_ov019_0218b5a8_4(0, 0xc0000, 0, 0x100000, -0x400000, 0x400000, 0x400000, NULL);
         inline_ov019_0218b5a8_8(2);
-        func_020444e0((Struct_020444e0*)var7);
+        DrawMessageWindow_020444e0((MessageWindow_020444e0*)var7);
         func_ov019_0218c178(arg0);
         CleanInvalidateOAMBuffers_0203bd88(var4);
         DrawMessageGlyphs_0204359c(var7, 0x10);

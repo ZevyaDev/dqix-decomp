@@ -375,7 +375,7 @@ extern "C" void func_0202f404(void* arg0, int arg1, int arg2);
 extern "C" bool func_02067a9c(void* arg0, void* arg1);
 extern "C" void func_0206b6b8(unsigned char* arg0);
 extern "C" int GetFontDefaultWidth_02042648(int font);
-extern "C" bool IsControlCode_02044494(void* arg0, void* arg1);
+extern "C" bool IsControlCode_02044494(void* window, void* text);
 extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 extern "C" int GetMessageWindow_020421a0();
 struct Struct_020416cc_2;

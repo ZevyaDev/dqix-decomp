@@ -622,7 +622,7 @@ data_ov004_02170780 kind:data(any) addr:0x02170780
 data_ov004_02170790 kind:data(any) addr:0x02170790
 data_ov004_021707a0 kind:data(any) addr:0x021707a0
 data_ov004_021707b0 kind:data(any) addr:0x021707b0
-data_ov004_021707c0 kind:bss addr:0x021707c0
+gWardrobeCompletion_ov004_021707c0 kind:bss addr:0x021707c0
 data_ov004_021707c4 kind:bss addr:0x021707c4
 data_ov004_021707c8 kind:bss addr:0x021707c8
 sShown0$1602 kind:bss addr:0x021707d8 local

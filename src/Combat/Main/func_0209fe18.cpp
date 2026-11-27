@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
 extern "C" int func_ov017_021d4df8(void*, int);
-extern "C" void func_ov017_021d4ce4(void*, int);
-extern "C" void func_ov017_021d4ccc(void*);
+extern "C" void StartScriptEntry_ov017_021d4ce4(void*, int);
+extern "C" void ResumeScript_ov017_021d4ccc(void*);
 
 struct Struct_0209fe18 {
     char unknown_0_[0x4c];
@@ -19,12 +19,12 @@ extern "C" ARM void func_0209fe18(Struct_0209fe18* arg0) {
             arg0->unknown_64_ = -1;
             return;
         }
-        func_ov017_021d4ce4((char*)arg0 + 0x10, arg0->unknown_64_);
+        StartScriptEntry_ov017_021d4ce4((char*)arg0 + 0x10, arg0->unknown_64_);
         arg0->unknown_68_ = arg0->unknown_64_;
         arg0->unknown_64_ = -1;
     } else {
         if (arg0->unknown_68_ < 0) return;
-        func_ov017_021d4ccc((char*)arg0 + 0x10);
+        ResumeScript_ov017_021d4ccc((char*)arg0 + 0x10);
         if (arg0->unknown_4c_ != 0) {
             arg0->unknown_68_ = -1;
         }

@@ -87,7 +87,7 @@ extern "C" Struct_ov031_02222b0c_3* func_ov031_0223c458(int, int, int, int, int*
 extern "C" void func_ov031_0223c980(Struct_ov031_02222b0c_3*, int, int, int, int, int, unsigned long, const unsigned short*);
 extern "C" OAMAllocation_ov031_02222ce4* func_ov031_0223b8c4(int, int, int);
 extern "C" void* AddTask_ov031_0223e218(void*, void*, void*, int);
-extern "C" void func_ov031_02224ca4(int, int, int);
+extern "C" void SetKeyboardRowY_ov031_02224ca4(int, int, int);
 extern "C" void func_ov031_02223ff8(void*);
 
 // USA: func_ov031_02223c08
@@ -141,5 +141,5 @@ extern "C" ARM void func_ov031_02223c08() {
     func_ov031_0223bab4(gKeyboard_ov031_02250bfc->unknown_114_, -1, 0x200, 0);
     SetSpritePriority_ov031_0223bcc8(gKeyboard_ov031_02250bfc->unknown_114_, -1, 2);
     gKeyboard_ov031_02250bfc->unknown_118_ = AddTask_ov031_0223e218(0, (void*)func_ov031_02223ff8, 0, 0x78);
-    func_ov031_02224ca4(gKeyboard_ov031_02250bfc->unknown_11d_, 0, 0xc0);
+    SetKeyboardRowY_ov031_02224ca4(gKeyboard_ov031_02250bfc->unknown_11d_, 0, 0xc0);
 }

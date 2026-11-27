@@ -24,7 +24,7 @@ extern "C" long long ComputeFixedPointCosine_020c32f8(int angle);
 extern "C" float ConvertInt64ToFloat_0200c700(long long);
 extern "C" struct NPCManager_0203dce4_2* GetNPCManager_0203cf4c();
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438**);
-extern "C" struct Struct_02017a94* func_0201b600(Struct_02017a94*, int, unsigned short);
+extern "C" struct Struct_02017a94* FindFirstBMDJEntry_0201b600(Struct_02017a94*, int, unsigned short);
 extern "C" struct NPC_0203dce4* GetNPCByIndex_0203dce4(struct NPCManager_0203dce4_2*, int);
 extern "C" void func_02040648(unsigned int*);
 extern "C" int IsQueueEmpty_02046b08(void**);
@@ -51,7 +51,7 @@ extern "C" ARM void func_020aeb34(void) {
     var2 = GetGameResources();
     var5 = (QueueNode_02015438**)var2->unknown_ptr_array_36fc[0];
     GetQueueHeadType_02046b24(var5);
-    var3 = func_0201b600(var3, 0, 0x2a);
+    var3 = FindFirstBMDJEntry_0201b600(var3, 0, 0x2a);
 
     if (var3 == NULL) return;
 

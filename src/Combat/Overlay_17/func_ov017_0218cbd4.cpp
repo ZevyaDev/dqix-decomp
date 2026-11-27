@@ -44,7 +44,7 @@ extern "C" void func_ov017_021941fc(GameResources*);
 extern "C" void func_02039830(void*);
 extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char*);
 extern "C" void func_02015438(void*);
-extern "C" void func_020d9834(int);
+extern "C" void SleepOrCycleCurrentContext_020d9834(int);
 extern "C" void func_02022dc8(void*);
 extern "C" void func_ov017_021a624c(GameResources*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
@@ -55,7 +55,7 @@ extern "C" void func_020a654c(GameResources*);
 extern "C" void func_020ac9ac(GameResources*);
 extern "C" void func_02011b68(GameState*);
 extern "C" int GetCameraClassFlags_0202e09c(int);
-extern "C" void func_020a20d8(void*);
+extern "C" void UpdateFollowCamera_020a20d8(void*);
 extern "C" void func_ov000_0216d464(void*);
 extern "C" void func_0204a170(void*);
 extern "C" void func_ov017_0218d0ec(GameResources*);
@@ -121,7 +121,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     ResetInteractionPrompt_ov017_0219a674(arg0->unknown_36b4_);
     if (!TestFlags00(arg0, 4)) {
         func_02015438(var2);
-        if (var12) func_020d9834(1);
+        if (var12) SleepOrCycleCurrentContext_020d9834(1);
     }
     if (!var11 && *var7) func_02015438(*var7);
     func_02022dc8(arg0->unknown_ptr_36d0);
@@ -138,7 +138,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     func_02011b68(var0);
     void* var13 = func_020100bc(var0);
     if (var13) {
-        if (GetCameraClassFlags_0202e09c((int)var13) & 4) func_020a20d8(var13);
+        if (GetCameraClassFlags_0202e09c((int)var13) & 4) UpdateFollowCamera_020a20d8(var13);
         else if (GetCameraClassFlags_0202e09c((int)var13) & 8) func_ov000_0216d464(var13);
         else if (GetCameraClassFlags_0202e09c((int)var13) & 16) func_0204a170(var13);
     }
@@ -165,9 +165,9 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
         }
         if (!((unsigned char*)arg0->unknown_ptr_array_3afc[13])[2]) func_0208b088((Struct_0208b088*)func_0208a9b4());
         func_0203dd20(var6);
-        if (var12) func_020d9834(0);
+        if (var12) SleepOrCycleCurrentContext_020d9834(0);
         func_ov017_0218d06c(arg0);
-        if (var12) func_020d9834(0);
+        if (var12) SleepOrCycleCurrentContext_020d9834(0);
         if (data_ov017_021d82fc.unknown_e_) func_020da2fc(&data_ov017_021d82fc);
         func_020579b4(var3, var5);
         if (!var2->unknown_424_) func_ov017_02192700(arg0);
@@ -177,7 +177,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
             UpdateTaskQueue_ov017_021a3498((Queue_0203d028_4*)arg0->unknown_ptr_array_36fc[2]);
         func_020d7b04(var9);
         if (TestFlags00(arg0, 0x1000)) func_ov028_021d9734();
-        if (var12) func_020d9834(1);
+        if (var12) SleepOrCycleCurrentContext_020d9834(1);
     }
     func_ov017_0219ca88(arg0);
     func_ov017_02191bdc((unsigned char*)arg0, 0);
@@ -189,7 +189,7 @@ extern "C" ARM void func_ov017_0218cbd4(GameResources* arg0) {
     func_02093b90(var16, var0->GetTickCount());
     func_ov017_021a4e48((unsigned char*)arg0);
     UpdateBrightnessTransitions(arg0);
-    if (var12) func_020d9834(0);
+    if (var12) SleepOrCycleCurrentContext_020d9834(0);
     func_020e30f0(var10);
     func_ov017_0218d818((unsigned char*)arg0);
 }

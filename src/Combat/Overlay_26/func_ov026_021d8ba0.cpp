@@ -220,7 +220,7 @@ void func_ov000_02174614(void*, int);
 void ExpandInflectionTags_020e4864(void*, char*, int, int, int, int);
 void __clear(void*, int);
 void func_02046608(Struct_ov023_021f4c04*, int, char*, char*, int, int, int);
-void func_ov000_0217f518(Struct_ov026_021d8ba0_6*);
+void ClearPanelCommand_ov000_0217f518(Struct_ov026_021d8ba0_6*);
 void GetPartyMemberCommand_ov000_02162c14( BattleScene_ov000_02160da0*, int, void*);
 void func_ov000_0217fa60(void*);
 void func_ov000_02175258(void*);
@@ -795,7 +795,7 @@ state1:
         for (var56 = 0; var56 < 4; var56++) {
             Struct_ov026_021d8ba0_6* var75 = func_ov026_021dae60((Struct_ov026_021d8ba0_4*)arg0->unknown_3760_, var56);
             if (var75 != 0) {
-                func_ov000_0217f518(var75);
+                ClearPanelCommand_ov000_0217f518(var75);
             }
         }
         GetPartyMemberCommand_ov000_02162c14(arg0, GetProtagonistObjectIndex_020100a8(var17), &arg0->unknown_54e4_);
@@ -869,7 +869,7 @@ state1:
                 if (arg0->unknown_774a_ != 0) {
                     Struct_ov026_021d8ba0_6* var82 = func_ov026_021dae60((Struct_ov026_021d8ba0_4*)arg0->unknown_3760_, var81);
                     if (var82 != 0) {
-                        func_ov000_0217f518(var82);
+                        ClearPanelCommand_ov000_0217f518(var82);
                     }
                 }
                 GetPartyMemberCommand_ov000_02162c14(arg0, var80->unknown_f78_[var81], &var5);
@@ -887,7 +887,7 @@ state1:
                 for (var83 = 0; var83 < 4; var83++) {
                     Struct_ov026_021d8ba0_6* var84 = func_ov026_021dae60((Struct_ov026_021d8ba0_4*)arg0->unknown_3760_, var83);
                     if (var84 != 0) {
-                        func_ov000_0217f518(var84);
+                        ClearPanelCommand_ov000_0217f518(var84);
                     }
                 }
                 arg0->unknown_774a_ = 0;

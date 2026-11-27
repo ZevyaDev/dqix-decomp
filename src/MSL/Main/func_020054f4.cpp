@@ -14,7 +14,7 @@ extern "C" int func_02003d58(void* arg0, int arg1, int arg2);
 extern "C" long double func_020042a8(int arg0, int (*arg1)(void*, int, int), void* arg2,
                                      int* arg3, int* arg4);
 extern "C" double func_02008f3c(double arg0);
-extern int data_020f3390;
+extern int gErrorNumber_020f3390;
 
 // USA: func_020054f4
 extern "C" ARM long double func_020054f4(const char* arg0, char** arg1) {
@@ -33,7 +33,7 @@ extern "C" ARM long double func_020054f4(const char* arg0, char** arg1) {
     var1 = func_02008f3c(var0);
 
     if (var3 || (var0 != 0.0 && (var1 < LDBL_MIN || var1 > LDBL_MAX)))
-        data_020f3390 = ERANGE;
+        gErrorNumber_020f3390 = ERANGE;
 
     return var0;
 }

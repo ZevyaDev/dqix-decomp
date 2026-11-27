@@ -7,7 +7,7 @@ extern "C" int func_ov023_021f6f10(void* arg0);
 #else
 extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
-extern char* data_ov004_021707c0; // pointer to struct with fields at 0x78 (short), 0x7a (short)
+extern char* gWardrobeCompletion_ov004_021707c0; // pointer to struct with fields at 0x78 (short), 0x7a (short)
 extern "C" short func_ov004_021537e0(void);
 extern "C" short func_ov004_02153860(void);
 extern "C" short func_ov004_021538f0(void);
@@ -47,7 +47,7 @@ extern "C" ARM int func_ov004_02154c78(void* arg0) {
 	var0->inline_ov004_02154c78_42();
 	if (!var0) return 0;
 
-	if (*(short*)(data_ov004_021707c0 + 0x7a) == 0) {
+	if (*(short*)(gWardrobeCompletion_ov004_021707c0 + 0x7a) == 0) {
 		Struct_ov004_02154c78* var1 = (Struct_ov004_02154c78*)FindMenuObjectById_ov023_021f6880(GetMenuObjectList_ov011_021849c8(arg0), 0x1a);
 		if (var1) var1->inline_ov004_02154c78_58(0);
 	}

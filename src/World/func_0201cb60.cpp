@@ -15,7 +15,7 @@ extern "C" ARM bool func_0201cb60(Script::Parameter *arg0, int arg1, Struct_0201
 
     arg2.unknown_0_ = (arg0++)->ToInt();
     if (var0[1].type == 0) {
-        MapListEntry_0201cb60 *var2 = func_0209998c(var1, (arg0++)->ToString());
+        MapListEntry_0201cb60 *var2 = FindMapListEntryByShortName_0209998c(var1, (arg0++)->ToString());
         if (var2 == NULL) return false;
         arg2.unknown_1c_ = var2->unknown_0_;
     } else {

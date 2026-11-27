@@ -8,7 +8,7 @@ struct MapListEntry_0201cb60 {
     unsigned short unknown_0_;
     unsigned short unknown_2_;
     unsigned char unknown_4_;
-    char unknown_5_[7];
+    char mapShortName_5_[7];
     unsigned char unknown_c_;
     unsigned char unknown_d_;
     unsigned char unknown_e_;
@@ -22,4 +22,4 @@ struct MapList_0201cb60_2 {
 };
 
 extern "C" void *func_02011584(void *gameState);
-extern "C" MapListEntry_0201cb60 *func_0209998c(MapList_0201cb60_2 *arg0, const char *arg1);
+extern "C" MapListEntry_0201cb60 *FindMapListEntryByShortName_0209998c(MapList_0201cb60_2 *mapList, const char *mapShortName);

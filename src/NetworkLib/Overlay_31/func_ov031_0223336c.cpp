@@ -14,7 +14,7 @@ extern int data_ov031_0224bd1c;
 extern int data_ov031_0224bd34;
 
 extern "C" const char* func_ov031_02223478(const char* arg0);
-extern "C" void* func_ov031_0223b61c(const char* arg0, unsigned int* arg1, int arg2);
+extern "C" void* LoadFile_ov031_0223b61c(const char* path, unsigned int* outLength, int alignAndDir);
 
 struct Struct_ov031_02290cc8_2 { unsigned char unknown_0_; signed char unknown_1_; unsigned char unknown_2_; int unknown_4_; };
 extern Struct_ov031_02290cc8_2 data_ov031_02290cc8;
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov031_0223336c(void) {
     LoadFileToVRAM_ov031_022234d8((int)&data_ov031_0224bd34, (VRAMLoader_ov031_022234d8)LoadToMainBG2ScreenData);
 
     const char* var1 = func_ov031_02223478(var0.unknown_0_);
-    void* var2 = func_ov031_0223b61c(var1, 0, 4);
+    void* var2 = LoadFile_ov031_0223b61c(var1, 0, 4);
     data_ov031_02290cc8.unknown_4_ = (int)var2;
 
     volatile unsigned short* var3 = (volatile unsigned short*)0x4001008;

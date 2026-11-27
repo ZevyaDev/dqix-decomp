@@ -10,16 +10,16 @@ extern "C" void SetCameraFlags_020a28a0(unsigned char* camera, unsigned char fla
 extern "C" void ClearCameraFlags_020a28b0(unsigned char* camera, int flags);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-struct Struct_02092aa4;
-extern "C" void ResetCallToArms_02092aa4(Struct_02092aa4*, int);
+struct CallToArms_02092aa4;
+extern "C" void ResetCallToArms_02092aa4(CallToArms_02092aa4*, int);
 extern "C" void func_02092a74(SafeAllocator* arg0, SafeAllocator* arg1);
 extern "C" int ReleaseFileTablesForSpace_020a0cc4(int neededSize);
 extern "C" void LoadFileTables_020a0c0c();
-extern "C" int func_02092bcc(struct Struct_02092aa4* arg0, int arg1);
-extern "C" void func_02092b34(struct Struct_02092aa4* arg0);
+extern "C" int func_02092bcc(struct CallToArms_02092aa4* arg0, int arg1);
+extern "C" void func_02092b34(struct CallToArms_02092aa4* arg0);
 
 extern AllocatorUnion gMainHeap_02114e20;
-extern struct Struct_02092aa4* data_ov017_021d8474;
+extern struct CallToArms_02092aa4* data_ov017_021d8474;
 
 struct Struct_ov017_021c01a4 {
     unsigned char unknown_0_;
@@ -50,7 +50,7 @@ extern "C" ARM void func_ov017_021c01a4(struct Struct_ov017_021c01a4* arg0) {
         }
         arg0->unknown_8_.CreateTypeA(var3, 0xc3c);
         arg0->unknown_8_.Reset();
-        data_ov017_021d8474 = (struct Struct_02092aa4*)arg0->unknown_8_.Allocate(0x3c);
+        data_ov017_021d8474 = (struct CallToArms_02092aa4*)arg0->unknown_8_.Allocate(0x3c);
         if (data_ov017_021d8474 == NULL) {
             LoadFileTables_020a0c0c();
             arg0->unknown_1_ = 1;

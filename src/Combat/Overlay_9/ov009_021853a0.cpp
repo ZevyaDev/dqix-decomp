@@ -71,7 +71,7 @@ struct Struct_0205c570;
 struct TextWindowManager_0205da38;
 struct TextWindowManager_0205d6a0;
 struct ItemTable_0201099c_10;
-struct Struct_0201099c_18;
+struct SpellTable_0201099c_18;
 struct MusicManager_02109bf4_4;
 struct Struct_ov009_02188454;
 struct KeyMenuCursor_0205bef8;
@@ -709,7 +709,7 @@ extern "C" void func_0203c4c4(char* arg0);
 extern "C" void ResetTextWindowManager_0205d048(struct TextWindowManager_0205d048* windowManager);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int func_ov009_02185c58(Struct_ov009_02185c58* arg0);
-extern "C" void func_020a20d8(void* arg0);
+extern "C" void UpdateFollowCamera_020a20d8(void* camera);
 extern "C" Struct_ov006_02158478_2* GetCursorTextWindow_0205d8c4(TextWindowManager_0205d81c* windowManager);
 extern "C" int IsTextWindowReady_0204c7cc(unsigned char* textWindow);
 extern "C" void SetMenuCursorTouchedIndex_0205bc24(void* cursor, int index);
@@ -736,7 +736,7 @@ extern "C" void func_ov023_021da1dc(unsigned char*);
 extern "C" int func_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" GameResources* GetResources_0200fb8c(int*);
 extern "C" void LoadItemTableByIds_020de9a4(void* itemTable, SafeAllocator* allocator, void* fileData, unsigned int fileSize, const void* itemIds, int itemIdCount);
-extern "C" void func_ov023_021e4e8c(void* arg0);
+extern "C" void InitCharacterModel_ov023_021e4e8c(void* model);
 extern "C" void func_ov023_021e4f64(void* arg0, SafeAllocator* arg1);
 extern "C" void func_ov023_021e4fd8(void* arg0);
 extern "C" void func_ov023_021e6198(void* arg0, int arg1);
@@ -756,7 +756,7 @@ extern "C" void SetTextWindowArray_0205cf78(TextWindowManager_0205cf78* windowMa
 extern "C" void func_ov003_0215e6f8(void* arg0, SafeAllocator* arg1, void* arg2, unsigned int arg3);
 extern "C" void func_ov003_0215f41c(Struct_ov009_02185634_2* arg0, const char* arg1);
 extern "C" unsigned char* func_ov003_0215f4fc(void*, const char*);
-extern "C" void func_ov023_021e60e0(void*, unsigned int);
+extern "C" void SetCharacterModelFacing_ov023_021e60e0(void*, unsigned int);
 extern "C" void func_ov023_021e5974(void*, void*, int, int, int);
 extern "C" void func_ov023_021d99a4(void* arg0);
 extern "C" void func_ov023_021d9c7c(void* arg0);
@@ -779,7 +779,7 @@ extern "C" void func_ov023_021d9f88(Struct_ov009_0218742c_6*);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570*);
 extern "C" int IsEntryTouchedAgain_0205da38(TextWindowManager_0205da38*, int);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
-extern "C" void func_02086404(Struct_ov009_0218742c*);
+extern "C" void InitPattyMember_02086404(Struct_ov009_0218742c*);
 extern "C" void SetVocation_02083ca0(unsigned char*, int);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" void ClearLevelEntries_0208247c(void*);
@@ -790,10 +790,10 @@ extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" void CalculatePartyMemberStats_02083e28(void*, int);
 extern "C" void func_020863c4(unsigned char*);
 extern "C" void ClearSpellTable_0209a804(int*);
-extern "C" void func_0209a810(Struct_0201099c_18*, void*);
+extern "C" void LoadSpellTable_0209a810(SpellTable_0201099c_18*, void*);
 extern "C" void LearnSpell_02083b60(unsigned char*, int);
-extern "C" void func_020830cc(void*, Struct_ov009_0218742c*);
-extern "C" void func_02086778(void*, Struct_ov009_0218742c*, unsigned char, unsigned char);
+extern "C" void BuildPattyMember_020830cc(void*, Struct_ov009_0218742c*);
+extern "C" void AddPattyMember_02086778(void*, Struct_ov009_0218742c*, unsigned char, unsigned char);
 extern "C" Object3D* func_ov023_021e6194(void*);
 extern "C" void func_ov023_021db4b4(void* arg0, unsigned int arg1);
 extern "C" int func_ov009_0218b908(char* arg0, int arg1);
@@ -1131,7 +1131,7 @@ extern "C" ARM int func_ov009_02184a18(Struct_ov009_021842a0_3* arg0)
     if (var0 == 0)
         var0 = 1;
     if (arg0->unknown_c58_ != 0)
-        func_020a20d8(arg0->unknown_924_);
+        UpdateFollowCamera_020a20d8(arg0->unknown_924_);
     if (arg0->unknown_c58_ == 9 && arg0->unknown_c59_ == 2)
     {
         Struct_ov006_02158478_2* var1 = GetCursorTextWindow_0205d8c4((TextWindowManager_0205d81c*)&arg0->unknown_1f8_[1]);
@@ -1533,12 +1533,12 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_6* arg0)
         func_020e0484(arg0->unknown_c8_, &arg0->unknown_0_[4], gItemDataPath_020f2a38, data_ov009_0218bab0, var99, 1);
 
         arg0->unknown_7f0_[0] = arg0->unknown_0_[3].Allocate(0xc20);
-        func_ov023_021e4e8c(arg0->unknown_7f0_[0]);
+        InitCharacterModel_ov023_021e4e8c(arg0->unknown_7f0_[0]);
         func_ov023_021e4f64(arg0->unknown_7f0_[0], &arg0->unknown_0_[3]);
         func_ov023_021e4fd8(arg0->unknown_7f0_[0]);
         func_ov023_021e6198(arg0->unknown_7f0_[0], (int)arg0->unknown_c8_);
         arg0->unknown_7f0_[1] = arg0->unknown_0_[3].Allocate(0xc20);
-        func_ov023_021e4e8c(arg0->unknown_7f0_[1]);
+        InitCharacterModel_ov023_021e4e8c(arg0->unknown_7f0_[1]);
         func_ov023_021e4f64(arg0->unknown_7f0_[1], &arg0->unknown_0_[3]);
         func_ov023_021e4fd8(arg0->unknown_7f0_[1]);
         func_ov023_021e6198(arg0->unknown_7f0_[1], (int)arg0->unknown_c8_);
@@ -1844,8 +1844,8 @@ extern "C" ARM void func_ov009_02185634(Struct_ov009_021842a0_6* arg0)
     }
     else
     {
-        func_ov023_021e60e0(arg0->unknown_7f0_[0], 0x1eb);
-        func_ov023_021e60e0(arg0->unknown_7f0_[1], 0x1eb);
+        SetCharacterModelFacing_ov023_021e60e0(arg0->unknown_7f0_[0], 0x1eb);
+        SetCharacterModelFacing_ov023_021e60e0(arg0->unknown_7f0_[1], 0x1eb);
         func_ov023_021e5974(arg0->unknown_7f0_[0], arg0->unknown_d88_, (short)arg0->unknown_d88_->unknown_568_, 0, 0);
         func_ov023_021e5974(arg0->unknown_7f0_[1], arg0->unknown_d88_, (short)arg0->unknown_d88_->unknown_568_, 0, 0);
         arg0->unknown_7f8_ = arg0->unknown_7f0_[0];
@@ -2365,7 +2365,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
         } else if (arg0->unknown_d95_ == 1) {
             void* var7 = GetParty_02010828(var0);
             Struct_ov009_0218742c var8;
-            func_02086404(&var8);
+            InitPattyMember_02086404(&var8);
             SetVocation_02083ca0((unsigned char*)arg0->unknown_d88_, arg0->unknown_da2_);
             arg0->unknown_d88_->unknown_138_[arg0->unknown_da2_] = 0;
             arg0->unknown_d88_->unknown_16c_[arg0->unknown_da2_] = 1;
@@ -2407,7 +2407,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             int var19;
             ClearSpellTable_0209a804(&var19);
             Struct_ov009_0218742c_4 var20;
-            func_0209a810((Struct_0201099c_18*)&var19, &var20);
+            LoadSpellTable_0209a810((SpellTable_0201099c_18*)&var19, &var20);
             unsigned char var21 = arg0->unknown_d88_->unknown_950_;
             unsigned char var22 = arg0->unknown_d88_->unknown_16c_[arg0->unknown_d88_->unknown_950_];
             Struct_ov009_0218742c_3* var23 = var20.unknown_10c_[var21];
@@ -2415,8 +2415,8 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
                 if (var22 >= var23[var24].unknown_2_ && var23[var24].unknown_2_ != 0)
                     LearnSpell_02083b60((unsigned char*)arg0->unknown_d88_, var23[var24].unknown_0_);
             }
-            func_020830cc(arg0->unknown_d88_, &var8);
-            func_02086778(var7, &var8, 0, 0);
+            BuildPattyMember_020830cc(arg0->unknown_d88_, &var8);
+            AddPattyMember_02086778(var7, &var8, 0, 0);
             arg0->unknown_d9c_ |= 0x400;
             func_ov009_021867bc((unsigned char*)arg0, 11);
         }
@@ -2666,7 +2666,7 @@ extern "C" ARM void func_ov009_02189214(Struct_ov009_021842a0_8* arg0) {
             return;
 
         if (arg0->unknown_d9c_ & 0x40000) {
-            func_ov023_021e60e0(arg0->unknown_7f8_, 0x1eb);
+            SetCharacterModelFacing_ov023_021e60e0(arg0->unknown_7f8_, 0x1eb);
             arg0->unknown_d9c_ &= ~0x40000;
         }
         const Vector3i& var1 = func_ov023_021e613c(arg0->unknown_7f8_);
@@ -2735,7 +2735,7 @@ extern "C" ARM void func_ov009_021893c4(Struct_ov009_021842a0_9* arg0, unsigned 
             for (unsigned int var6 = 0; var6 < arg1 - 1; var6++)
                 var2 -= (0x6488 - fix32ReduceAngle0To2Pi(arg0->unknown_804_ - var2)) / 12;
         }
-        func_ov023_021e60e0(arg0->unknown_7f8_, fix32ReduceAngle0To2Pi(var2));
+        SetCharacterModelFacing_ov023_021e60e0(arg0->unknown_7f8_, fix32ReduceAngle0To2Pi(var2));
         int var7 = fix32ReduceAngle0To2Pi(arg0->unknown_804_ - var2);
         if ((var7 < 0 ? -var7 : var7) < 40)
             var0 = 1;
@@ -2743,7 +2743,7 @@ extern "C" ARM void func_ov009_021893c4(Struct_ov009_021842a0_9* arg0, unsigned 
             var0 = 1;
         if (var0)
         {
-            func_ov023_021e60e0(arg0->unknown_7f8_, fix32ReduceAngle0To2Pi(arg0->unknown_804_));
+            SetCharacterModelFacing_ov023_021e60e0(arg0->unknown_7f8_, fix32ReduceAngle0To2Pi(arg0->unknown_804_));
             arg0->unknown_804_ = 0;
             arg0->unknown_d9c_ &= ~8;
         }

@@ -1,71 +1,71 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-struct Struct_ov017_021d4ce4_3 {
-    int unknown_0_;
-    int unknown_4_;
+struct ScriptEntry_ov017_021d4ce4_3 {
+    int id_0_;
+    int functionOffset_4_;
 };
-struct Struct_ov017_021d4ce4 {
+struct ScriptHeader_ov017_021d4ce4 {
     int unknown_0_;
-    int unknown_4_;
+    int defaultFunctionOffset_4_;
     int unknown_8_;
-    int unknown_c_;
-    int unknown_10_;
+    int entryTableOffset_c_;
+    int entryCount_10_;
 };
-struct Struct_ov017_021d4ce4_2 {
-    int unknown_0_;
+struct ScriptFunction_ov017_021d4ce4_2 {
+    int codeOffset_0_;
     int unknown_4_;
-    int unknown_8_;
-    int unknown_c_;
+    int frameSlotCount_8_;
+    int argCount_c_;
 };
 
 extern "C" void func_ov017_021d4e38(void* arg0, int arg1);
 
-// USA: func_ov017_021d4ce4
-extern "C" ARM int func_ov017_021d4ce4(void* arg0, int arg1) {
-    unsigned char* var0 = (unsigned char*)arg0;
-    if (*(struct Struct_ov017_021d4ce4**)(var0 + 0x44) == NULL) {
+// USA: StartScriptEntry_ov017_021d4ce4
+extern "C" ARM int StartScriptEntry_ov017_021d4ce4(void* scriptVM, int entryId) {
+    unsigned char* scriptVMBytes = (unsigned char*)scriptVM;
+    if (*(struct ScriptHeader_ov017_021d4ce4**)(scriptVMBytes + 0x44) == NULL) {
         return -1;
     }
 
-    *(int*)(var0 + 0x14) = *(int*)(var0 + 0x10);
-    *(int*)(var0 + 0x28) = *(int*)(var0 + 0x24);
-    *(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34) = NULL;
+    *(int*)(scriptVMBytes + 0x14) = *(int*)(scriptVMBytes + 0x10);
+    *(int*)(scriptVMBytes + 0x28) = *(int*)(scriptVMBytes + 0x24);
+    *(struct ScriptFunction_ov017_021d4ce4_2**)(scriptVMBytes + 0x34) = NULL;
 
-    if (arg1 < 0) {
-        struct Struct_ov017_021d4ce4* var1 = *(struct Struct_ov017_021d4ce4**)(var0 + 0x44);
-        *(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34) = (struct Struct_ov017_021d4ce4_2*)((char*)var1 + var1->unknown_4_);
+    if (entryId < 0) {
+        struct ScriptHeader_ov017_021d4ce4* header = *(struct ScriptHeader_ov017_021d4ce4**)(scriptVMBytes + 0x44);
+        *(struct ScriptFunction_ov017_021d4ce4_2**)(scriptVMBytes + 0x34) = (struct ScriptFunction_ov017_021d4ce4_2*)((char*)header + header->defaultFunctionOffset_4_);
     } else {
-        struct Struct_ov017_021d4ce4_3* var2;
-        int var3;
-        struct Struct_ov017_021d4ce4* var4 = *(struct Struct_ov017_021d4ce4**)(var0 + 0x44);
-        var2 = (struct Struct_ov017_021d4ce4_3*)((char*)var4 + var4->unknown_c_);
-        for (var3 = 0; var3 < var4->unknown_10_; var3++, var2++) {
-            if (var2->unknown_0_ == arg1) {
-                *(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34) = (struct Struct_ov017_021d4ce4_2*)((char*)var4 + var2->unknown_4_);
+        struct ScriptEntry_ov017_021d4ce4_3* entry;
+        int i;
+        struct ScriptHeader_ov017_021d4ce4* header = *(struct ScriptHeader_ov017_021d4ce4**)(scriptVMBytes + 0x44);
+        entry = (struct ScriptEntry_ov017_021d4ce4_3*)((char*)header + header->entryTableOffset_c_);
+        for (i = 0; i < header->entryCount_10_; i++, entry++) {
+            if (entry->id_0_ == entryId) {
+                *(struct ScriptFunction_ov017_021d4ce4_2**)(scriptVMBytes + 0x34) = (struct ScriptFunction_ov017_021d4ce4_2*)((char*)header + entry->functionOffset_4_);
                 break;
             }
         }
     }
 
-    if (*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34) == NULL) {
+    if (*(struct ScriptFunction_ov017_021d4ce4_2**)(scriptVMBytes + 0x34) == NULL) {
         return -1;
     }
 
-    int var5 = *(int*)(var0 + 0x14) - (*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34))->unknown_c_ * 8;
-    *(int*)(var0 + 0x30) = var5;
-    *(int*)(var0 + 0x14) = var5 + (*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34))->unknown_8_ * 8;
+    int frame = *(int*)(scriptVMBytes + 0x14) - (*(struct ScriptFunction_ov017_021d4ce4_2**)(scriptVMBytes + 0x34))->argCount_c_ * 8;
+    *(int*)(scriptVMBytes + 0x30) = frame;
+    *(int*)(scriptVMBytes + 0x14) = frame + (*(struct ScriptFunction_ov017_021d4ce4_2**)(scriptVMBytes + 0x34))->frameSlotCount_8_ * 8;
 
-    int var6 = *(int*)(var0 + 0x30) + (*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34))->unknown_c_ * 8;
-    int var7 = ((*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34))->unknown_8_ - (*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34))->unknown_c_) * 8;
-    memset((void*)var6, 0, var7);
+    int locals = *(int*)(scriptVMBytes + 0x30) + (*(struct ScriptFunction_ov017_021d4ce4_2**)(scriptVMBytes + 0x34))->argCount_c_ * 8;
+    int localsSize = ((*(struct ScriptFunction_ov017_021d4ce4_2**)(scriptVMBytes + 0x34))->frameSlotCount_8_ - (*(struct ScriptFunction_ov017_021d4ce4_2**)(scriptVMBytes + 0x34))->argCount_c_) * 8;
+    memset((void*)locals, 0, localsSize);
 
-    int var8 = *(int*)(var0 + 0x48) + (*(struct Struct_ov017_021d4ce4_2**)(var0 + 0x34))->unknown_0_;
-    *(int*)(var0 + 0x3c) = 0;
-    *(int*)(var0 + 0x40) = 0;
-    *(int*)(var0 + 0x50) = 0;
+    int code = *(int*)(scriptVMBytes + 0x48) + (*(struct ScriptFunction_ov017_021d4ce4_2**)(scriptVMBytes + 0x34))->codeOffset_0_;
+    *(int*)(scriptVMBytes + 0x3c) = 0;
+    *(int*)(scriptVMBytes + 0x40) = 0;
+    *(int*)(scriptVMBytes + 0x50) = 0;
 
-    func_ov017_021d4e38(var0, var8);
+    func_ov017_021d4e38(scriptVMBytes, code);
 
-    return (*(int*)(var0 + 0x3c) == 0) ? 1 : 0;
+    return (*(int*)(scriptVMBytes + 0x3c) == 0) ? 1 : 0;
 }

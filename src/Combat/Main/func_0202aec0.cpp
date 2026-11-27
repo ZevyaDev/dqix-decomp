@@ -2,7 +2,7 @@
 #include "Resource/TextEncoding.h"
 
 extern "C" void* memset(void* arg0, int arg1, unsigned long arg2);
-extern "C" void func_020c99c8(void* arg0);
+extern "C" void GetUserSettings_020c99c8(void* buffer);
 
 struct Struct_0202aec0 {
     int unknown_0_;
@@ -67,7 +67,7 @@ extern "C" ARM void ResetLocalWireless_0202aec0(Struct_0202aec0_2* wireless) {
     memset(wireless->unknown_bc0_, 0, 0x400);
     memset(wireless->unknown_fc4_, 0, 0x40);
 
-    func_020c99c8(&userSettings);
+    GetUserSettings_020c99c8(&userSettings);
     wireless->unknown_1000_.unknown_28_ = userSettings.unknown_1a_;
     func_020328bc(wireless->unknown_1000_.unknown_14_, userSettings.unknown_4_, wireless->unknown_1000_.unknown_28_);
 

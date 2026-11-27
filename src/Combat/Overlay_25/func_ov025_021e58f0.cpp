@@ -58,7 +58,7 @@ extern "C" ARM int func_ov025_021e58f0(Struct_ov025_021e58f0_3* arg0) {
         unsigned short var3 = var2->unknown_2_;
         if (arg0->unknown_8_ != 0) {
             MapList_0201cb60_2* var4 = (MapList_0201cb60_2*)func_02011584(GameState::GetInstance());
-            MapListEntry_0201cb60* var5 = func_0209998c(var4, arg0->unknown_8_);
+            MapListEntry_0201cb60* var5 = FindMapListEntryByShortName_0209998c(var4, arg0->unknown_8_);
             if (var5 == 0) {
                 return 1;
             }

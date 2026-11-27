@@ -10,7 +10,7 @@ enum { Enum_ov012_02189d68_4977 = 0x1371, Enum_ov012_02189d68_4980 = 0x1374, Enu
 extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int, int);
 #endif
 
-extern "C" void func_ov012_021893b4(void*, int, int, int);
+extern "C" void SetNextTextWindow_ov012_021893b4(void*, int, int, int);
 extern "C" void func_ov012_02189dfc(void*, void*, int);
 
 struct Struct_ov012_021884f4 {
@@ -20,7 +20,7 @@ struct Struct_ov012_021884f4 {
 
 // USA: func_ov012_02189d68
 extern "C" ARM void func_ov012_02189d68(char* arg0) {
-    func_ov012_021893b4(arg0, *(unsigned char*)(arg0 + Enum_ov012_02189d68_4977), 16, 1);
+    SetNextTextWindow_ov012_021893b4(arg0, *(unsigned char*)(arg0 + Enum_ov012_02189d68_4977), 16, 1);
     memset(*(void**)(arg0 + Enum_ov012_02189d68_4980), 0, Enum_ov012_02189d68_2400);
     func_ov012_02189dfc(arg0, *(void**)(arg0 + Enum_ov012_02189d68_4980), 0);
     int var0 = 0;

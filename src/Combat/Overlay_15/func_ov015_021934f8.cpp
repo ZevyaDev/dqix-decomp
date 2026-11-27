@@ -89,7 +89,7 @@ extern "C" void func_020c51dc();
 extern "C" void ResetMatrixStacksToIdentity_020c537c();
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void func_02028ddc(void*);
-extern "C" void func_02028d68(int);
+extern "C" void SetPrintMode_02028d68(int);
 extern "C" void func_02028dec(int);
 extern "C" void func_ov015_02192600(struct Struct_ov015_02192600_3*);
 extern "C" void Set3DClearColorAndDepth_020c5588(int, int, int, int, int);
@@ -100,7 +100,7 @@ extern "C" void func_020de848(void*);
 extern "C" void LoadItemTableByCategories_020dea64(void*, SafeAllocator*, void*, unsigned int, const void*, int);
 extern "C" void ClearMonsterTable_0206efc4(void*);
 extern "C" void func_0206efd8(void*, void*);
-extern "C" void func_020709d8(void*);
+extern "C" void ClearMonsterBattleDataTable_020709d8(void*);
 extern "C" void func_020709ec(void*, void*);
 extern "C" void InitCamera_0202df68(void*);
 extern "C" void InitKeyControlledCamera_020a2cf0(struct Struct_0204a120_2*);
@@ -214,7 +214,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     BG0HOFS_SUB = 0;
     arg0->unknown_84_ = AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x6000);
     func_02028ddc(arg0->unknown_84_);
-    func_02028d68(4);
+    SetPrintMode_02028d68(4);
     func_02028dec(1);
     InitializeTextureImageAllocation(3, 1);
     InitializeTexturePaletteVRAMAllocation((unsigned int)((void*)0x8000), 1);
@@ -254,7 +254,7 @@ extern "C" ARM void func_ov015_021934f8(Struct_ov015_021934f8_3* arg0)
     arg0->unknown_b0_.ResetAllocatorPointer();
     arg0->unknown_b0_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0x20000), 0x20000);
     arg0->unknown_b0_.Reset();
-    func_020709d8(arg0->unknown_70_);
+    ClearMonsterBattleDataTable_020709d8(arg0->unknown_70_);
     func_020709ec(arg0->unknown_70_, &arg0->unknown_b0_);
 
     Struct_ov015_021934f8 var6;

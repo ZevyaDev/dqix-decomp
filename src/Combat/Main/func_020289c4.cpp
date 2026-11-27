@@ -9,7 +9,7 @@ struct Struct_0201a300_5;
 struct Struct_020287b4_2;
 struct Struct_020287b4_4;
 
-extern "C" ARM void func_020280b0(struct Struct_0201a300_5* arg0);
+extern "C" ARM void ResetNodeGraph_020280b0(struct Struct_0201a300_5* graph);
 extern "C" ARM void func_0209bffc(void* arg0);
 extern "C" ARM void func_0209bc84(void* arg0);
 extern "C" ARM void func_0209af34(struct Struct_020287b4_2* arg0);
@@ -41,7 +41,7 @@ extern "C" ARM void func_020289c4(struct Struct_020288e0* arg0) {
     arg0->unknown_2_4_ = 0;
     arg0->unknown_4_ = 0;
     arg0->unknown_d_ = -1;
-    func_020280b0((struct Struct_0201a300_5*)((char*)arg0 + SUBOBJECT_OFFSET(0x18)));
+    ResetNodeGraph_020280b0((struct Struct_0201a300_5*)((char*)arg0 + SUBOBJECT_OFFSET(0x18)));
     func_0209bffc((char*)arg0 + SUBOBJECT_OFFSET(0x44));
     func_0209bc84((char*)arg0 + SUBOBJECT_OFFSET(0x60));
     func_0209af34((struct Struct_020287b4_2*)((char*)arg0 + SUBOBJECT_OFFSET(0x124)));

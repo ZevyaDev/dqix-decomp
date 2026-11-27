@@ -5,7 +5,7 @@
 struct Struct_02010088;
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_020854e8(unsigned char* arg0);
-extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
+extern "C" short RestoreCombatantMP_ov000_0215a1d4(void* battle, int combatantIndex, int amount, short* restoredAmount);
 extern "C" void func_ov000_0215acb8(void* arg0, int arg1, int arg2, int arg3);
 
 struct Struct_ov024_021e556c {
@@ -67,6 +67,6 @@ extern "C" ARM void func_ov024_021e556c(struct Struct_ov024_021e556c_4* arg0, in
     if (IsDead_02010088((struct Struct_02010088*)var3)) return;
     if (!func_020854e8(var3->unknown_150_)) return;
     short var4 = 0;
-    short var5 = func_ov000_0215a1d4(arg0->unknown_10_, arg2, arg3->unknown_8_.unknown_0_0_, &var4);
+    short var5 = RestoreCombatantMP_ov000_0215a1d4(arg0->unknown_10_, arg2, arg3->unknown_8_.unknown_0_0_, &var4);
     func_ov000_0215acb8(arg0->unknown_10_, arg2, var4, var5);
 }

@@ -10,7 +10,7 @@ extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
 extern "C" void func_ov001_021538c8(void);
 extern "C" void func_ov001_021538d4(int arg0, void* arg1, SafeAllocator* arg2);
 
-extern const char data_ov001_02165745[];
+extern const char gDataPathFormat_ov001_02165745[];
 extern SafeAllocator* data_ov001_021658b8[8];
 
 // USA: func_ov001_0215f1fc
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov001_0215f1fc(void* arg0) {
     if (GameState::GetInstance() == NULL) {
         return 0;
     }
-    sprintf(var0, data_ov001_02165745, var5);
+    sprintf(var0, gDataPathFormat_ov001_02165745, var5);
     var3 = data_ov001_021658b8[0];
     var4 = 0;
     ((BackgroundLoader*)((Struct_ov001_0215e1cc*)(int)BackgroundLoader::GetInstance()))->GetLoadedFileByName((const char*)(var0), (void**)(&var1), (unsigned int*)(&var2));

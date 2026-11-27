@@ -49,7 +49,7 @@ struct Struct_ov023_021e6448_4 {
     int unknown_1398_;
 };
 
-extern "C" int func_0205c6e4(unsigned char* arg0);
+extern "C" int GetCursorPageCount_0205c6e4(unsigned char* windowManager);
 extern "C" Struct_ov023_021e6448* FindTextWindow_0205d81c(TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void ChangeMenuCursorPage_0205c4a8(MenuCursor_0205c4a8* cursor, int pageStep);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
@@ -58,7 +58,7 @@ extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
 // USA: func_ov023_021e6448
 extern "C" ARM int func_ov023_021e6448(Struct_ov023_021e6448_4* arg0) {
-    if (func_0205c6e4((unsigned char*)&arg0->unknown_ac_) <= 1)
+    if (GetCursorPageCount_0205c6e4((unsigned char*)&arg0->unknown_ac_) <= 1)
         return 0;
     if (g_touchInput.pressed_ != 0) {
         int var0, var1;

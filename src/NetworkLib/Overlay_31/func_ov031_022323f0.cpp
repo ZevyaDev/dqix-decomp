@@ -12,7 +12,7 @@ extern "C" char* GetEditedConnectionSettings_ov031_02235c70(void);
 extern "C" void func_ov031_02236094(int arg0);
 extern "C" void SetStepIndicatorAndButtonBarModes_ov031_022274d0(int stepIndicatorMode, int buttonBarMode);
 extern "C" void SetWifiSetupFrameHandler_ov031_022274c0(int handler);
-extern "C" void func_ov031_0222750c(int, int);
+extern "C" void SetWifiSetupPageArguments_ov031_0222750c(int, int);
 extern "C" void func_ov031_02233248(void);
 extern "C" void func_ov031_0222b644(void);
 
@@ -43,6 +43,6 @@ extern "C" ARM void func_ov031_022323f0(void) {
 	}
 
 	SetStepIndicatorAndButtonBarModes_ov031_022274d0(0, 1);
-	func_ov031_0222750c(0, 0);
+	SetWifiSetupPageArguments_ov031_0222750c(0, 0);
 	SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222b644);
 }

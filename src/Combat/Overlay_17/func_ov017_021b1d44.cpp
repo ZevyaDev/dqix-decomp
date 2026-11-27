@@ -17,36 +17,36 @@ struct Struct_ov017_021b1d44_2 { char unknown_0_[0x5d00]; struct Struct_ov017_02
 
 struct Struct_ov017_021b1d44_3 { unsigned char unknown_0_[0x3c]; int unknown_3c_[8]; };
 
-// USA: func_ov017_021b1d44
-extern "C" ARM int func_ov017_021b1d44(unsigned char* arg0, int arg1, int arg2) {
-    ResetQueueNode_0204693c((struct QueueNode_0204693c*)arg0);
-    arg0[0] = 0x2c;
-    *(int*)(arg0 + 8) = 0;
-    arg0[0x20] = 0;
-    arg0[0x21] = (unsigned char)arg1;
-    *(int*)(arg0 + 0x24) = 0;
-    ((SafeAllocator*)(arg0 + 0xc))->ResetAllocatorPointer();
-    arg0[0x32] = 0;
-    if (arg2 != 0) {
-        arg0[0x28] = 0;
-        arg0[0x29] = 0;
-        VectorizedMemset(arg0 + 0x2a, 0, 8);
+// USA: ResetWirelessTask_ov017_021b1d44
+extern "C" ARM int ResetWirelessTask_ov017_021b1d44(unsigned char* node, int modeFlags, int isFullReset) {
+    ResetQueueNode_0204693c((struct QueueNode_0204693c*)node);
+    node[0] = 0x2c;
+    *(int*)(node + 8) = 0;
+    node[0x20] = 0;
+    node[0x21] = (unsigned char)modeFlags;
+    *(int*)(node + 0x24) = 0;
+    ((SafeAllocator*)(node + 0xc))->ResetAllocatorPointer();
+    node[0x32] = 0;
+    if (isFullReset != 0) {
+        node[0x28] = 0;
+        node[0x29] = 0;
+        VectorizedMemset(node + 0x2a, 0, 8);
     }
-    *(int*)(arg0 + 0x34) = 0;
-    *(int*)(arg0 + 0x38) = 0;
-    if ((arg0[0x21] & 0x40) != 0) {
-        struct Struct_ov017_021b1d44_3* var0 = (struct Struct_ov017_021b1d44_3*)arg0;
-        for (int var1 = 0; var1 < 8; var1++) {
-            var0->unknown_3c_[var1] = -1;
+    *(int*)(node + 0x34) = 0;
+    *(int*)(node + 0x38) = 0;
+    if ((node[0x21] & 0x40) != 0) {
+        struct Struct_ov017_021b1d44_3* wirelessTask = (struct Struct_ov017_021b1d44_3*)node;
+        for (int i = 0; i < 8; i++) {
+            wirelessTask->unknown_3c_[i] = -1;
         }
         return 0;
     }
     struct Struct_ov017_021b1d44_2* var2 =
         (struct Struct_ov017_021b1d44_2*)((char*)GameState::GetInstance() + Enum_ov017_021b1d44_620);
     if ((var2->unknown_5d00_.unknown_c_0_ & 8) == 0) {
-        unsigned char var3 = arg0[0x21];
+        unsigned char var3 = node[0x21];
         if ((var3 & 4) == 0 && (var3 & 2) == 0 && (var3 & 0x20) == 0) {
-            arg0[0x21] = var3 | 0x10;
+            node[0x21] = var3 | 0x10;
         }
     }
     return 1;

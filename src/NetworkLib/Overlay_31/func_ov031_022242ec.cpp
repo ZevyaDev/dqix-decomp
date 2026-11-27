@@ -21,12 +21,12 @@ extern Struct_ov031_022489c4 data_ov031_022489e4[4];
 extern int data_ov031_0224b43c[4];
 extern Struct_ov031_022489c4 data_ov031_022489dc[2];
 extern Struct_ov031_022489c4 data_ov031_022489c4;
-extern "C" int func_ov031_0223d49c(Struct_ov031_022493b8*);
+extern "C" int IsTouchPressInRect_ov031_0223d49c(Struct_ov031_022493b8*);
 
 // USA: func_ov031_022242ec
 extern "C" ARM void func_ov031_022242ec() {
     Struct_ov031_022493b8 var0;
-    if (!func_ov031_0223d49c(&data_ov031_022493b8)) return;
+    if (!IsTouchPressInRect_ov031_0223d49c(&data_ov031_022493b8)) return;
     gKeyboard_ov031_02250bfc->unknown_11e_ = -1;
     {
         Struct_ov031_022489c4* var1;
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov031_022242ec() {
         var3 = 0;
         do {
             func_ov031_0223cb34(var2, var1, &var0);
-            if (func_ov031_0223d49c(&var0)) {
+            if (IsTouchPressInRect_ov031_0223d49c(&var0)) {
                 if (!gKeyboard_ov031_02250bfc->unknown_124_) {
                     PlayWifiSetupSoundEffect_ov031_02236878(9);
                     return;
@@ -58,7 +58,7 @@ extern "C" ARM void func_ov031_022242ec() {
         var6 = 0;
         do {
             func_ov031_0223cb34(var5, var4, &var0);
-            if (func_ov031_0223d49c(&var0)) {
+            if (IsTouchPressInRect_ov031_0223d49c(&var0)) {
                 if ((var6 == 3 && !gKeyboard_ov031_02250bfc->unknown_123_) || (var6 == 2 && !gKeyboard_ov031_02250bfc->unknown_124_)) {
                     PlayWifiSetupSoundEffect_ov031_02236878(9);
                     return;
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov031_022242ec() {
         var9 = 0;
         do {
             func_ov031_0223cb34(var8, var7, &var0);
-            if (func_ov031_0223d49c(&var0)) {
+            if (IsTouchPressInRect_ov031_0223d49c(&var0)) {
                 PlayWifiSetupSoundEffect_ov031_02236878(0);
                 gKeyboard_ov031_02250bfc->unknown_11e_ = var9 + 51;
                 return;

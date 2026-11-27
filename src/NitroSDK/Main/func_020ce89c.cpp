@@ -45,7 +45,7 @@ struct Struct_021117ec_5
     Struct_020cef0c* unknown_18_;
 };
 
-extern Struct_021117ec_5 data_021117ec;
+extern Struct_021117ec_5 gPowerControl_021117ec;
 
 static inline int inline_020ce89c()
 {
@@ -103,7 +103,7 @@ extern "C" ARM void func_020ce89c(int arg0, int arg1, unsigned short arg2)
     unsigned long var7;
     int var8;
 
-    func_020cef0c(data_021117ec.unknown_18_);
+    func_020cef0c(gPowerControl_021117ec.unknown_18_);
 
     var0 = inline_020ce89c();
     var1 = DisableIRQInterrupts();
@@ -152,14 +152,14 @@ extern "C" ARM void func_020ce89c(int arg0, int arg1, unsigned short arg2)
         }
     }
 
-    data_021117ec.unknown_c_ = false;
+    gPowerControl_021117ec.unknown_c_ = false;
     func_020ce45c(
         (unsigned short)(arg0 | (var4 ? BACKLIGHT_RECOVER_TOP_ON : 0) | (var5 ? BACKLIGHT_RECOVER_BOTTOM_ON : 0)),
         (unsigned short)(arg1 | arg2));
-    if (!data_021117ec.unknown_c_)
+    if (!gPowerControl_021117ec.unknown_c_)
         do
             func_020c9bf0();
-        while (!data_021117ec.unknown_c_);
+        while (!gPowerControl_021117ec.unknown_c_);
 
     if ((arg0 & PM_TRIGGER_CARD) && (IF & IE_CARD_IREQ))
         var3 = true;
@@ -193,5 +193,5 @@ extern "C" ARM void func_020ce89c(int arg0, int arg1, unsigned short arg2)
     if (var3)
         func_020ce7a4();
 
-    func_020cef0c(data_021117ec.unknown_14_);
+    func_020cef0c(gPowerControl_021117ec.unknown_14_);
 }

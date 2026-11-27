@@ -181,7 +181,7 @@ typedef int Type_02020aec;
 typedef int* Type_02020aec;
 #endif
 
-extern "C" void func_02020720(Struct_02020554* arg0);
+extern "C" void ResetSubScreenDisplay_02020720(Struct_02020554* subScreenDisplay);
 // The caller supplies its display context; this global screen setup does not read it.
 extern "C" void func_02020838(Struct_02020554* arg0);
 extern "C" void func_02020aec(Struct_02020554* arg0, Type_02020aec arg1, SafeAllocator* arg2);

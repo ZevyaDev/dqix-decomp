@@ -28,8 +28,8 @@ extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_02037d88(GameObject* arg0);
 extern "C" void func_ov017_0218e210(int arg0, int arg1);
 extern "C" int func_ov017_021bd3a4(struct Struct_ov017_0218e674* arg0);
-extern "C" void func_020d9834(int arg0);
-extern "C" int func_02039860(void* arg0);
+extern "C" void SleepOrCycleCurrentContext_020d9834(int milliseconds);
+extern "C" int GetFollowedObjectIndex_02039860(void* object);
 extern "C" int func_02039874(void* arg0);
 extern "C" void func_ov017_02193428(void* arg0, void* arg1);
 extern "C" void func_02052ae8(struct Struct_02037d88_11* arg0);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov017_0218e674(unsigned char* arg0) {
 
     int var5 = 0;
     for (int var6 = 0; var6 < var1->unknown_f7c_; var6++) {
-        if (var5 != 0 && var4 != 0) func_020d9834(1);
+        if (var5 != 0 && var4 != 0) SleepOrCycleCurrentContext_020d9834(1);
         int var7 = var1->unknown_f78_[var6];
         var5++;
         var2[var7] = 1;
@@ -75,13 +75,13 @@ extern "C" ARM void func_ov017_0218e674(unsigned char* arg0) {
         if (var2[var8] != 0) continue;
         GameObject* var9 = var0->GetPartyMemberByIndex(var8);
         if (var9 == NULL) continue;
-        if (var5 != 0 && var4 != 0) func_020d9834(1);
+        if (var5 != 0 && var4 != 0) SleepOrCycleCurrentContext_020d9834(1);
         var5++;
         if (IsLocalWirelessGuest_0202c540(func_0202ae18()) != 0 &&
             var9->obj3D_.GetField06() == var0->GetUnknownGameObject()->obj3D_.GetField06() &&
             ((var9->obj3D_.unknown_0_ & 0x1000) != 0 ||
              (var9->obj3D_.unknown_4_ == 0 && (*(unsigned int*)((char*)var9 + Enum_ov017_0218e674_396) & 1) != 0)) &&
-            func_02039860(var9) >= 0) {
+            GetFollowedObjectIndex_02039860(var9) >= 0) {
             var2[var8] = 1;
             func_02037d88(var9);
             func_ov017_02193428(var9, NULL);
@@ -96,6 +96,6 @@ extern "C" ARM void func_ov017_0218e674(unsigned char* arg0) {
     if (var10 != NULL) var10->AdvanceEffects();
 
     if (var0->GetPartyMemberByIndex(0xce) == NULL) return;
-    if (var5 != 0 && var4 != 0) func_020d9834(1);
+    if (var5 != 0 && var4 != 0) SleepOrCycleCurrentContext_020d9834(1);
     func_ov017_0218e210(0xce, var3);
 }

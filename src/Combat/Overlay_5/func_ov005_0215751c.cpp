@@ -19,7 +19,7 @@ struct Struct_ov005_02153ba4_2 {
 };
 
 struct Struct_ov005_02153ba4 {
-    short unknown_0_;
+    short itemId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
     void* unknown_4_;
@@ -57,7 +57,7 @@ extern "C" int func_ov005_02157190(void* arg0);
 extern "C" void func_ov005_021579ec(Struct_ov005_02153954* arg0, unsigned int arg1, unsigned char arg2);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
 extern "C" int func_ov005_02158560(Struct_ov005_02153954* arg0, unsigned char arg1, int arg2);
-extern "C" void func_ov005_021555c0(Struct_ov005_02153954* arg0);
+extern "C" void FillEquipMenuItemGrid_ov005_021555c0(Struct_ov005_02153954* equipMenuUI);
 extern "C" int func_ov005_02157ae8(Struct_ov005_02153954* arg0, int arg1);
 extern "C" void SetMenuCursorIndex_0205bb04(void* cursor, int index);
 
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov005_0215751c(Struct_ov005_02153954* arg0) {
         if (!func_ov005_02157ae8(arg0, var2->unknown_4fc_))
             return;
         if (func_ov005_02157190(arg0)) {
-            if (arg0->unknown_2d90_[arg0->unknown_3dbc_].unknown_0_ < 0) {
+            if (arg0->unknown_2d90_[arg0->unknown_3dbc_].itemId_0_ < 0) {
                 var1 = 1;
             } else {
                 SetEquipMenuMode_ov005_0215792c(arg0, 5);
@@ -105,5 +105,5 @@ extern "C" ARM void func_ov005_0215751c(Struct_ov005_02153954* arg0) {
         return;
     arg0->unknown_3dbb_ = arg0->unknown_3dbc_;
     arg0->unknown_3dcc_ |= 0x100;
-    func_ov005_021555c0(arg0);
+    FillEquipMenuItemGrid_ov005_021555c0(arg0);
 }

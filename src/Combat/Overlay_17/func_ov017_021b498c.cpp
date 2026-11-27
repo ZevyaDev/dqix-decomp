@@ -12,7 +12,7 @@ enum { Enum_ov017_021b498c_24 = 0x18 };
 struct Struct_020534ac_2;
 struct Struct_020534ac;
 struct Struct_0201a300_5;
-extern "C" ARM void func_020280b0(struct Struct_0201a300_5* arg0);
+extern "C" ARM void ResetNodeGraph_020280b0(struct Struct_0201a300_5* graph);
 struct Struct_02028104;
 extern "C" void func_02028104(struct Struct_02028104* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02028214(void* arg0, int arg1);
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_021b498c(struct Struct_ov017_021b498c* arg0) {
             FindFilesInNarcBySubstring((const void*)var2, &data_ov017_021d7b4f, &var4, &var3, 1);
             if (var4 != 0) {
                 char* var5 = (char*)arg0->unknown_8_;
-                func_020280b0((struct Struct_0201a300_5*)(var5 + Enum_ov017_021b498c_24));
+                ResetNodeGraph_020280b0((struct Struct_0201a300_5*)(var5 + Enum_ov017_021b498c_24));
                 func_02028104((struct Struct_02028104*)(var5 + Enum_ov017_021b498c_24), *(int*)((char*)arg0->unknown_8_ + 0x10), (int)var4, (int)var3);
                 func_02028214(var5 + Enum_ov017_021b498c_24, *(int*)((char*)arg0->unknown_8_ + 0x10));
                 var5[0xc] = 1;

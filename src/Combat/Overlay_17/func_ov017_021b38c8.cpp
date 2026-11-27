@@ -36,7 +36,7 @@ extern "C" PartyMemberData_0206f81c* func_02053c6c(unsigned char*);
 extern "C" Struct_ov017_021b38c8_6* GetAppearance_02052e2c(Struct_02052e2c*);
 extern "C" void func_020543ec(char*, char*);
 extern "C" void func_02072afc(int, int*, short*);
-extern "C" ItemData_0206f81c_8* func_02083554(PartyMemberData_0206f81c*, int);
+extern "C" ItemData_0206f81c_8* FindEquippedItem_02083554(PartyMemberData_0206f81c*, int);
 extern "C" int func_02072e94(char*, int, int, ItemData_0206f81c_8*, ItemData_0206f81c_8*);
 extern "C" void func_02072d58(int, char*, char*);
 #if defined(jpn)
@@ -103,7 +103,7 @@ extern "C" ARM int func_ov017_021b38c8(Struct_ov017_021b38c8* arg0) {
     arg0->unknown_b_ &= ~1;
     int var21 = 0;
     var19 = 1;
-    func_02083554(var6, var14[7]);
+    FindEquippedItem_02083554(var6, var14[7]);
     var1 = var6->equipment_194_;
     var0 = var5->unknown_4_;
     for (int var22 = 0; var22 < 11; var22++) {
@@ -116,7 +116,7 @@ extern "C" ARM int func_ov017_021b38c8(Struct_ov017_021b38c8* arg0) {
         }
         var23->obj3D_.unknown_2_ = var14[var22];
         if (var14[var22] < 0) continue;
-        ItemData_0206f81c_8* var26 = func_02083554(var6, var14[var22]);
+        ItemData_0206f81c_8* var26 = FindEquippedItem_02083554(var6, var14[var22]);
         if (!var26) continue;
         char var27[0x80];
         if (!func_02072e94(var27, arg0->unknown_8_, var22, var26, var1)) {

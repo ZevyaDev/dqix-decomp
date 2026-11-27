@@ -3,7 +3,7 @@
 
 struct Struct_ov000_021599f4 { char unknown_0_[0x5c]; unsigned char unknown_5c_[35]; unsigned char unknown_7f_[35]; };
 struct Struct_ov000_02182efc { int unknown_0_; int unknown_4_; };
-struct Struct_02088660;
+struct ModifiableCombatStats_02088660;
 extern "C" int func_ov000_02156038(GameObject*);
 extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" int func_ov000_021543f4(GameObject*);
@@ -18,7 +18,7 @@ extern "C" int func_ov000_021598a4(GameObject*);
 extern "C" int func_ov000_021598bc(GameObject*);
 extern "C" int func_ov000_021598d4(GameObject*);
 extern "C" int func_ov000_02156c94(GameObject*);
-extern "C" int func_02088660(Struct_02088660*);
+extern "C" int HasFource_02088660(ModifiableCombatStats_02088660*);
 extern "C" int func_ov000_02156cac(GameObject*);
 extern "C" int func_ov000_021598ec(GameObject*);
 extern "C" int func_ov000_02159904(GameObject*);
@@ -72,7 +72,7 @@ extern "C" ARM void func_ov000_021599f4(void*, int arg1) {
     var7[8] = func_ov000_021598bc(var0);
     var7[9] = func_ov000_021598d4(var0);
     var7[10] = func_ov000_02156c94(var0);
-    var7[11] = func_02088660((Struct_02088660*)var0->currentStats_);
+    var7[11] = HasFource_02088660((ModifiableCombatStats_02088660*)var0->currentStats_);
     var7[12] = func_ov000_02156cac(var0);
     var7[13] = func_ov000_021598ec(var0);
     var7[14] = func_ov000_02159904(var0);

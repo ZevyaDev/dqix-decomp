@@ -68,7 +68,7 @@ extern "C" void GetZone3D_02012fe4();
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void AppendText_02042058(char* buffer, const char* text);
-extern "C" unsigned char* func_0205e00c(struct TextWindowManager_0205d81c* arg0, int arg1);
+extern "C" unsigned char* GetNextTextWindowSlot_0205e00c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" void SetTextWindowPageNumberShown_02050400(unsigned char* textWindow, int isShown);
 extern "C" void SetTextWindowPage_0205042c(unsigned char* textWindow, unsigned char page);
 extern "C" void SetTextWindowPageCount_02050440(unsigned char* textWindow, int pageCount);
@@ -215,7 +215,7 @@ extern "C" ARM void func_ov003_0217dd60(struct Struct_ov003_0217dd60_2* arg0) {
         }
     }
     if (arg0->unknown_32_ > 1) {
-        unsigned char* var25 = func_0205e00c((struct TextWindowManager_0205d81c*)arg0->unknown_90_, 0);
+        unsigned char* var25 = GetNextTextWindowSlot_0205e00c((struct TextWindowManager_0205d81c*)arg0->unknown_90_, 0);
         if (var25 != NULL) {
             SetTextWindowPageNumberShown_02050400(var25, 1);
             SetTextWindowPage_0205042c(var25, var23);

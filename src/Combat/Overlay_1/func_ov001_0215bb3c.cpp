@@ -9,7 +9,7 @@ extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int scriptObjectId);
 extern "C" unsigned int func_ov001_0215a750(const char* arg0, void** arg1);
 
-extern const char data_ov001_02165745[];
+extern const char gDataPathFormat_ov001_02165745[];
 extern SafeAllocator* data_ov001_021658b8[8];
 
 // USA: func_ov001_0215bb3c
@@ -48,7 +48,7 @@ extern "C" ARM int func_ov001_0215bb3c(char* arg0, int arg1) {
     GameObject* var12 = var4->GetGameObjectByIndex(var9);
     if (var12 == NULL) return 0;
 
-    sprintf(var0, data_ov001_02165745, var8);
+    sprintf(var0, gDataPathFormat_ov001_02165745, var8);
     int var13 = 0;
     var5->GetLoadedFileByName(var0, &var2, &var3);
     if (var2 == NULL) {

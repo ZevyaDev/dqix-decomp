@@ -55,10 +55,10 @@ extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(void* window);
 extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
-extern "C" void func_0209fe9c(char* arg0);
-extern "C" void func_0209fee4(Struct_ov002_02168d54_7* arg0, SafeAllocator* arg1, int arg2, int arg3);
-extern "C" void func_0209ff64(Struct_ov002_02168d54_5* arg0, int arg1);
-extern "C" void func_0209ff6c(Struct_ov002_02168d54_6* arg0);
+extern "C" void ResetSelectionScript_0209fe9c(char* script);
+extern "C" void LoadSelectionScript_0209fee4(Struct_ov002_02168d54_7* script, SafeAllocator* allocator, int scriptData, int scriptSize);
+extern "C" void QueueSelectionScriptEntry_0209ff64(Struct_ov002_02168d54_5* script, int entryId);
+extern "C" void UpdateSelectionScript_0209ff6c(Struct_ov002_02168d54_6* script);
 extern "C" int func_ov002_02168c00(unsigned char* arg0);
 extern "C" void func_ov013_02186fa0(char* arg0);
 extern "C" void func_ov002_021688f8(char* arg0);
@@ -195,13 +195,13 @@ extern "C" ARM void func_ov002_02168d54(char* arg0) {
             var2->GetLoadedFileByID(*(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)), &var10, &var11);
             ((SafeAllocator*)(arg0 + REGION_VALUE(0x78c, 0x828)))->Reset();
             *(char**)(arg0 + REGION_VALUE(0x2290, 0x2460)) = (char*)((SafeAllocator*)(arg0 + REGION_VALUE(0x78c, 0x828)))->Allocate(0xd0);
-            func_0209fe9c(*(char**)(arg0 + REGION_VALUE(0x2290, 0x2460)));
-            func_0209fee4(*(Struct_ov002_02168d54_7**)(arg0 + REGION_VALUE(0x2290, 0x2460)), (SafeAllocator*)(arg0 + REGION_VALUE(0x78c, 0x828)), (int)var10, var11);
+            ResetSelectionScript_0209fe9c(*(char**)(arg0 + REGION_VALUE(0x2290, 0x2460)));
+            LoadSelectionScript_0209fee4(*(Struct_ov002_02168d54_7**)(arg0 + REGION_VALUE(0x2290, 0x2460)), (SafeAllocator*)(arg0 + REGION_VALUE(0x78c, 0x828)), (int)var10, var11);
             var2->RemoveTask(*(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)));
             *(int*)(arg0 + REGION_VALUE(0x228c, 0x2458)) = -1;
-            func_0209ff64(*(Struct_ov002_02168d54_5**)(arg0 + REGION_VALUE(0x2290, 0x2460)), 100);
+            QueueSelectionScriptEntry_0209ff64(*(Struct_ov002_02168d54_5**)(arg0 + REGION_VALUE(0x2290, 0x2460)), 100);
             do {
-                func_0209ff6c(*(Struct_ov002_02168d54_6**)(arg0 + REGION_VALUE(0x2290, 0x2460)));
+                UpdateSelectionScript_0209ff6c(*(Struct_ov002_02168d54_6**)(arg0 + REGION_VALUE(0x2290, 0x2460)));
             } while (!func_ov002_02168c00(*(unsigned char**)(arg0 + REGION_VALUE(0x2290, 0x2460))));
             (*(int*)(arg0 + REGION_VALUE(0x1a88, 0x1bc0)))++;
         }

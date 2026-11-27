@@ -8,9 +8,9 @@ extern "C" ARM int func_02069430(void* arg0, unsigned short arg1) {
 }
 #else
 // USA: IsControlCode_02044494
-extern "C" ARM bool IsControlCode_02044494(void* arg0, void* arg1) {
+extern "C" ARM bool IsControlCode_02044494(void* window, void* text) {
     unsigned short code;
-    memcpy(&code, arg1, 2);
+    memcpy(&code, text, 2);
     return (code & 0xff00) == 0xff00;
 }
 

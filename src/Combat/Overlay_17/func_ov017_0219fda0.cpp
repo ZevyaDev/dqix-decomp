@@ -12,7 +12,7 @@
 extern "C" void* GetZone3D_02012fe4(void);
 struct ActiveZone_020fdd44;
 extern "C" struct ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
-struct Struct_02028bac {
+struct ActiveZone_02028bac {
 	unsigned short unknown_0_;
 	unsigned short unknown_2_;
 	unsigned char unknown_4_[0xc];
@@ -24,7 +24,7 @@ struct Struct_02028bac {
 #endif
 	unsigned char unknown_30c_[0xc];
 };
-extern "C" struct Struct_02028bac* func_02028bac(struct Struct_02028bac* arg0, int arg1);
+extern "C" struct ActiveZone_02028bac* GetActiveZoneByIndex_02028bac(struct ActiveZone_02028bac* zones, int index);
 struct Struct_020288e0;
 extern "C" void func_020289c4(struct Struct_020288e0* arg0);
 extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
@@ -44,7 +44,7 @@ extern "C" ARM void func_ov017_0219fda0(void) {
 	GetZone3D_02012fe4();
 	struct ActiveZone_020fdd44* var1 = GetActiveZones_02027ca4();
 	for (int var2 = 0; var2 < 4; var2++) {
-		struct Struct_02028bac* var3 = func_02028bac((struct Struct_02028bac*)var1, var2);
+		struct ActiveZone_02028bac* var3 = GetActiveZoneByIndex_02028bac((struct ActiveZone_02028bac*)var1, var2);
 		func_020289c4((struct Struct_020288e0*)var3);
 		void* var4 = (void*)var3->unknown_10_->GetSignedAllocator();
 		if (var4) {
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_0219fda0(void) {
 	for (int var5 = 0x70; var5 <= 0x9f; var5++) {
 		ClearGameObjectByIndex_0200fd48(var0, var5);
 	}
-	struct Struct_02028bac* var6 = func_02028bac((struct Struct_02028bac*)var1, 0);
+	struct ActiveZone_02028bac* var6 = GetActiveZoneByIndex_02028bac((struct ActiveZone_02028bac*)var1, 0);
 	unsigned int var7 = 0xa000;
 	var6->unknown_2_ |= 4;
 	var6->unknown_0_ = 3;

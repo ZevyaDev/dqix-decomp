@@ -7,9 +7,9 @@
 
 #define GUIDE_WINDOW_MESSAGE_WINDOW 4
 
-struct Struct_0209fee4;
-struct Struct_0209ff64;
-struct Struct_0209ff6c;
+struct SelectionScript_0209fee4;
+struct SelectionScript_0209ff64;
+struct SelectionScript_0209ff6c;
 struct Struct_ov023_021f1868_10;
 struct Struct_020a13c4;
 struct AccoladeTable_020a15bc;
@@ -116,10 +116,10 @@ extern const char data_ov023_021fe2b7[];
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void func_ov023_021d8b6c(void* arg0);
-extern "C" void func_0209fe9c(char* arg0);
-extern "C" void func_0209fee4(Struct_0209fee4* arg0, SafeAllocator* arg1, int arg2, int arg3);
-extern "C" void func_0209ff64(Struct_0209ff64* arg0, int arg1);
-extern "C" void func_0209ff6c(Struct_0209ff6c* arg0);
+extern "C" void ResetSelectionScript_0209fe9c(char* script);
+extern "C" void LoadSelectionScript_0209fee4(SelectionScript_0209fee4* script, SafeAllocator* allocator, int scriptData, int scriptSize);
+extern "C" void QueueSelectionScriptEntry_0209ff64(SelectionScript_0209ff64* script, int entryId);
+extern "C" void UpdateSelectionScript_0209ff6c(SelectionScript_0209ff6c* script);
 extern "C" int func_ov023_021f21f4(Struct_ov023_021f1868_10* arg0);
 extern "C" void ClearAccoladeTable_020a13c4(Struct_020a13c4* table);
 extern "C" void func_020a13e4(void* arg0, void* arg1, int arg2, unsigned short arg3, unsigned char arg4);
@@ -173,17 +173,17 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
             void* var6 = arg0->unknown_30_.Allocate(var4);
             memcpy(var6, var5, var4);
             arg0->unknown_55c4_ = (Struct_ov023_021f3aac_8*)arg0->unknown_30_.Allocate(0xd0);
-            func_0209fe9c((char*)arg0->unknown_55c4_);
-            func_0209fee4((Struct_0209fee4*)arg0->unknown_55c4_, &arg0->unknown_30_, (int)var6, var4);
+            ResetSelectionScript_0209fe9c((char*)arg0->unknown_55c4_);
+            LoadSelectionScript_0209fee4((SelectionScript_0209fee4*)arg0->unknown_55c4_, &arg0->unknown_30_, (int)var6, var4);
             var3->RemoveTask(var0->unknown_4_);
             var0->unknown_4_ = -1;
-            func_0209ff64((Struct_0209ff64*)arg0->unknown_55c4_, 100);
+            QueueSelectionScriptEntry_0209ff64((SelectionScript_0209ff64*)arg0->unknown_55c4_, 100);
             var0->unknown_0_++;
         }
     }
     else if (var2 == 2)
     {
-        func_0209ff6c((Struct_0209ff6c*)arg0->unknown_55c4_);
+        UpdateSelectionScript_0209ff6c((SelectionScript_0209ff6c*)arg0->unknown_55c4_);
         if (func_ov023_021f21f4((Struct_ov023_021f1868_10*)arg0->unknown_55c4_))
             var0->unknown_0_++;
     }

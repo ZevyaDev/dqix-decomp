@@ -6,22 +6,22 @@
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int func_0201b5d8(int arg0);
 
-struct Struct_ov017_021b6e70 {
+struct BattleRequest_ov017_021b6e70 {
     unsigned char unknown_0_[0xc];
-    unsigned char unknown_c_;
-    unsigned char unknown_d_;
+    unsigned char isRegularMapBoss_c_;
+    unsigned char isLegacyMapBoss_d_;
 };
 
 // USA: func_ov017_021b6e70
-extern "C" ARM bool func_ov017_021b6e70(struct Struct_ov017_021b6e70* arg0, int arg1) {
+extern "C" ARM bool func_ov017_021b6e70(struct BattleRequest_ov017_021b6e70* arg0, int arg1) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetMaybeFieldMonsterByIndex(arg1);
     if (var1) {
         unsigned char var2 = *((unsigned char*)var1 + 0x17d);
         if (var2 & 0x2) {
-            arg0->unknown_c_ = 1;
+            arg0->isRegularMapBoss_c_ = 1;
         } else if (var2 & 0x4) {
-            arg0->unknown_d_ = 1;
+            arg0->isLegacyMapBoss_d_ = 1;
         }
     }
 
@@ -36,11 +36,11 @@ extern "C" ARM bool func_ov017_021b6e70(struct Struct_ov017_021b6e70* arg0, int 
 
     if (func_0201b5d8(var6)) {
         if (var5 == 1) {
-            arg0->unknown_c_ = 1;
+            arg0->isRegularMapBoss_c_ = 1;
         } else if (var5 == 2) {
-            arg0->unknown_d_ = 1;
+            arg0->isLegacyMapBoss_d_ = 1;
         }
     }
 
-    return arg0->unknown_c_ != 0 || arg0->unknown_d_ != 0;
+    return arg0->isRegularMapBoss_c_ != 0 || arg0->isLegacyMapBoss_d_ != 0;
 }

@@ -23,7 +23,7 @@ extern "C" int func_02053c6c(unsigned char* gameObject);
 struct PartyMember_0205faf4_11;
 extern "C" int IsNPCCompanion_02061bd8(struct PartyMember_0205faf4_11* partyMember);
 extern "C" void func_02072afc(int arg0, int* arg1, short* arg2);
-extern "C" void* func_ov017_021a4658(void* arg0, int arg1);
+extern "C" void* GetPartyMemberModelLoadTask_ov017_021a4658(void* gameResources, int memberIndex);
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 extern "C" void AppendToQueue_020469b4(struct Queue_0201bdac_2* queue, struct QueueNode_0201bdac* node);
@@ -73,7 +73,7 @@ extern "C" ARM int QueuePartyMemberModelLoad_ov017_0218f5a4(char* gameResources,
         }
     }
 
-    void* loadTask = func_ov017_021a4658(gameResources, memberIndex);
+    void* loadTask = GetPartyMemberModelLoadTask_ov017_021a4658(gameResources, memberIndex);
     if (loadTask != 0) {
         *(short*)((char*)loadTask + 8) = (short)memberIndex;
         if (isForced != 0) {

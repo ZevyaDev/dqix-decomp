@@ -8,12 +8,12 @@
 
 #pragma optimize_for_size off
 
-// USA: func_ov000_02171b9c
-extern "C" ARM void* func_ov000_02171b9c(void* arg0, int arg1) {
-    if (arg1 < 0) goto fail;
-    if (arg1 < 0x10) goto ok;
+// USA: GetPanelItem_ov000_02171b9c
+extern "C" ARM void* GetPanelItem_ov000_02171b9c(void* panel, int itemIndex) {
+    if (itemIndex < 0) goto fail;
+    if (itemIndex < 0x10) goto ok;
 fail:
     return NULL;
 ok:
-    return *(void**)((char*)arg0 + arg1 * 4 + REGION_OFFSET_0);
+    return *(void**)((char*)panel + itemIndex * 4 + REGION_OFFSET_0);
 }

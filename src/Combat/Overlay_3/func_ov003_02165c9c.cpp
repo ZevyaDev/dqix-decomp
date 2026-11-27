@@ -9,7 +9,7 @@ struct MenuLayout_02080f8c;
 struct MenuLayout_02080fa8;
 struct Struct_02081198;
 struct MenuLayout_02081164;
-struct Struct_0201099c_16;
+struct PattyMember_0201099c_16;
 struct Struct_ov003_0215f56c_3;
 struct Struct_ov003_02165c9c_5;
 
@@ -17,7 +17,7 @@ extern "C" int HideMenuLayoutWindowTexts_02080b54(void* menuLayout, int windowId
 extern "C" int func_ov003_021614e8(int);
 extern "C" void func_ov003_02166164(Struct_ov003_02165c9c_5*, int, int);
 extern "C" void func_02042764(void* arg0, void* arg1, int arg2);
-extern "C" int func_020865b0(Struct_0201099c_16*);
+extern "C" int GetPattyMemberVocation_020865b0(PattyMember_0201099c_16*);
 extern "C" int func_ov003_0215f56c(Struct_ov003_0215f56c_3*);
 extern "C" int ShowMenuLayoutText_02080b40(void* menuLayout, int textId);
 extern "C" void SetMenuLayoutTextColor_02080cc0(struct MenuLayout_02080cc0* menuLayout, int textId, int color);
@@ -176,12 +176,12 @@ extern "C" ARM void func_ov003_02165c9c(Struct_ov003_02165c9c_4* arg0) {
         func_02042764(var3->unknown_140_, (char*)arg0->unknown_39c_ + var16, 1);
         SetMenuLayoutTextString_02080f8c((struct MenuLayout_02080f8c*)var0, var12, (int)&arg0->unknown_39c_[0][var16]);
 #endif
-        if (func_020865b0((Struct_0201099c_16*)var3) != 0) {
-            var6 = (short)(func_020865b0((Struct_0201099c_16*)var3) + 0x11);
+        if (GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var3) != 0) {
+            var6 = (short)(GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var3) + 0x11);
         }
         func_02080fe0(var0, (short)(var12 + 4), var6);
         SetMenuLayoutTextValue_02080fa8((struct MenuLayout_02080fa8*)var0, (short)(var12 + 8),
-                                   var3->unknown_2_[func_020865b0((Struct_0201099c_16*)var3)]);
+                                   var3->unknown_2_[GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var3)]);
         var14 = func_ov003_0215f56c((Struct_ov003_0215f56c_3*)var3);
         if (var12 == ((struct Struct_ov003_02165c9c_6*)var0)->unknown_36_ && var14 == 0xf) {
             var14 = 0xa;
@@ -199,7 +199,7 @@ extern "C" ARM void func_ov003_02165c9c(Struct_ov003_02165c9c_4* arg0) {
             SetMenuLayoutTextColor_02080cc0(var0, var4, var14);
             ShowMenuLayoutText_02080b40(var0, var4);
 #endif
-            var19 = var3->unknown_f_[func_020865b0((Struct_0201099c_16*)var3)];
+            var19 = var3->unknown_f_[GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var3)];
             SetMenuLayoutTextStringId_0208103c(var0, var13, (short)(var19 + 100));
             if (var19 != 0) {
                 var14 = 5;

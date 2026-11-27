@@ -27,7 +27,7 @@ struct NPCManager_0203e0a0_3 {
     unsigned int npcCount_8c_;
     unsigned char unknown_90_[0xe];
     SavedNPCState_0203e0a0_2 savedStates_9e_[32];
-    unsigned short unknown_1de_;
+    unsigned short savedZoneId_1de_;
     unsigned short savedNPCCount_1e0_;
     unsigned short unknown_1e2_;
     unsigned int unknown_1e4_;
@@ -67,7 +67,7 @@ extern "C" void SetNPCPosition_02040774(struct NPC_0203d028_15 *npc, int x, int 
 // USA: func_0203e2c4
 extern "C" ARM void func_0203e2c4(void *arg0, unsigned short arg1) {
     NPCManager_0203e0a0_3 *var0 = static_cast<NPCManager_0203e0a0_3 *>(arg0);
-    if (var0->unknown_1de_ == arg1) {
+    if (var0->savedZoneId_1de_ == arg1) {
         SavedNPCState_0203e0a0_2 *var1 = var0->savedStates_9e_;
         for (int var2 = 0; var2 < var0->savedNPCCount_1e0_; ++var1, ++var2) {
             NPC_0203dce4 **var3 = var0->npcs_c_;
@@ -125,7 +125,7 @@ extern "C" ARM void func_0203e2c4(void *arg0, unsigned short arg1) {
             }
         }
     }
-    var0->unknown_1de_ = 0;
+    var0->savedZoneId_1de_ = 0;
     var0->unknown_1e4_ = 0;
     GameState *var12 = GameState::GetInstance();
     Struct_0203e2c4 *var13 = (Struct_0203e2c4 *) ((char *) var12 + Enum_0203e2c4_32376);

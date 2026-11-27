@@ -5,7 +5,7 @@
 struct ActionResult_ov000_021584e8;
 struct Struct_ov024_021ddf5c_4 { int unknown_0_; int unknown_4_; };
 
-extern "C" short func_ov000_0215a1d4(void* arg0, int arg1, int arg2, short* arg3);
+extern "C" short RestoreCombatantMP_ov000_0215a1d4(void* battle, int combatantIndex, int amount, short* restoredAmount);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" struct ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
@@ -47,7 +47,7 @@ extern "C" ARM struct ActionResult_ov000_021584e8* func_ov024_021ddf5c(struct St
     unsigned short var1 = arg3->unknown_4_.unknown_0_0_;
     if (var1 == 0x19b || var1 == 0x22e) arg4 = var0->currentStats_->primaryStats.maxMP;
     short var2 = 0;
-    short var3 = func_ov000_0215a1d4(arg0->unknown_10_, arg2, arg4, &var2);
+    short var3 = RestoreCombatantMP_ov000_0215a1d4(arg0->unknown_10_, arg2, arg4, &var2);
     int var4 = 0;
     if (!inline_ov024_021ddf5c(arg2) && var0->currentStats_->primaryStats.currMP >= 0xff) var4 = 1;
     unsigned short var5;

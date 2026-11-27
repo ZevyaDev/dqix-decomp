@@ -20,7 +20,7 @@
 #endif
 
 
-struct Struct_0203cf58;
+struct NPCManager_0203cf58;
 struct EventSyncEntry_020e385c;
 struct Struct_ov001_02154f24_3
 {
@@ -63,7 +63,7 @@ extern "C" void func_02012de4(AllocatorUnion*);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(int);
 extern "C" void SaveNPCStates_0203e0a0(void*, int);
 extern "C" void UnloadFieldObjects_ov017_021a316c(GameResources*);
-extern "C" void func_0203cf58(Struct_0203cf58*);
+extern "C" void InitNPCManager_0203cf58(NPCManager_0203cf58*);
 extern "C" void func_02012da4(AllocatorUnion*, void*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
 extern "C" void __clear(void*, unsigned int);
@@ -74,9 +74,9 @@ extern "C" EventSyncEntry_020e385c* GetEventSyncTable_020e3808();
 extern "C" void* FindEventSyncEntry_020e385c(EventSyncEntry_020e385c*, int, int);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" void RemoveEventSyncEntry_020e3994(EventSyncEntry_020e385c*, int, int);
-extern "C" void func_020e392c(EventSyncEntry_020e385c*, int, int);
+extern "C" void AddEventSyncEntry_020e392c(EventSyncEntry_020e385c*, int, int);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" void func_020e39d4(EventSyncEntry_020e385c*, int, int, int);
+extern "C" void AddEventSyncPlayer_020e39d4(EventSyncEntry_020e385c*, int, int, int);
 extern AllocatorUnion gMainHeap_02114e20;
 extern const char data_ov001_02164bef[];
 extern const char data_ov001_02164c01[];
@@ -122,7 +122,7 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
     {
         SaveNPCStates_0203e0a0(var3, var4->unknown_0_);
         UnloadFieldObjects_ov017_021a316c(var1);
-        func_0203cf58((Struct_0203cf58*)GetNPCManager_0203cf4c());
+        InitNPCManager_0203cf58((NPCManager_0203cf58*)GetNPCManager_0203cf4c());
         SafeAllocator* var6 = inline_ov001_02154f24(var1, 7);
         arg0->unknown_90_ = var6->GetSize();
         void* var7 = var6->GetSignedAllocator();
@@ -133,7 +133,7 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
     {
         SaveNPCStates_0203e0a0(var3, var4->unknown_0_);
         UnloadFieldObjects_ov017_021a316c(var1);
-        func_0203cf58((Struct_0203cf58*)GetNPCManager_0203cf4c());
+        InitNPCManager_0203cf58((NPCManager_0203cf58*)GetNPCManager_0203cf4c());
         var1->allocator_array_38[7].Reset();
     }
     unsigned int var8 = 0x40400;
@@ -203,8 +203,8 @@ extern "C" ARM int func_ov001_02154f24(Struct_ov001_02154f24_3* arg0)
     if (IsNotLocalWirelessGuest_0202c508(var5) && !var18 && !FindEventSyncEntry_020e385c(var17, 1, arg0->unknown_18_))
     {
         RemoveEventSyncEntry_020e3994(var17, 1, -1);
-        func_020e392c(var17, 1, arg0->unknown_18_);
+        AddEventSyncEntry_020e392c(var17, 1, arg0->unknown_18_);
     }
-    func_020e39d4(var17, GetProtagonistObjectIndex_020100a8(var0), 1, arg0->unknown_18_);
+    AddEventSyncPlayer_020e39d4(var17, GetProtagonistObjectIndex_020100a8(var0), 1, arg0->unknown_18_);
     return 2;
 }

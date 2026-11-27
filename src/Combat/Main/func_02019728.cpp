@@ -52,13 +52,13 @@ extern "C" ARM int func_02019728(Zone3D* arg0, int arg1, Struct_020134e0* arg2, 
         for (var5 = 0; var5 < 16; var5++) {
             Struct_02019728 var6;
             Matrix3x3 var7;
-            Struct_02013490* var8;
+            GrottoTile_02013490* var8;
             TileFeaturePlacementData* var9;
             int var10;
             int var11;
 
             var6 = inline_02019728(var2, var5, var4);
-            var8 = &((Struct_02013490*)arg0->grottoTileMapData_420_)[var4 * 16];
+            var8 = &((GrottoTile_02013490*)arg0->grottoTileMapData_420_)[var4 * 16];
             var8 = &var8[var5];
             Mat3x3_WriteIdentity(&var7);
 
@@ -126,7 +126,7 @@ extern "C" ARM int func_02019728(Zone3D* arg0, int arg1, Struct_020134e0* arg2, 
             }
 
             if (arg3 == 0) {
-                var8->unknown_0_ = func_020196fc(arg0, var3);
+                var8->pBMDJStruct_0_ = func_020196fc(arg0, var3);
                 var9 = func_0201e434(var1, var0);
                 if (var9 != 0) {
                     func_02019f24(&var8->unknown_4_, var9);
@@ -169,10 +169,10 @@ extern "C" ARM int func_02019728(Zone3D* arg0, int arg1, Struct_020134e0* arg2, 
             if (arg3 == 0) {
                 var8->unknown_38_ = var10;
                 func_02019f6c(arg0, var8->unknown_4_.directionBitmasks, var11);
-                var8->unknown_3c_.x = (int)(4096.0f * (8.0f * (float)var5));
-                var8->unknown_3c_.y = 0;
-                var8->unknown_3c_.z = (int)(4096.0f * (8.0f * (float)var4));
-                var8->unknown_14_ = var7;
+                var8->position_3c_.x = (int)(4096.0f * (8.0f * (float)var5));
+                var8->position_3c_.y = 0;
+                var8->position_3c_.z = (int)(4096.0f * (8.0f * (float)var4));
+                var8->rotation_14_ = var7;
             } else {
                 func_02019f6c(arg0, (arg3 + var4 * 16)[var5].directionBitmasks, var11);
             }

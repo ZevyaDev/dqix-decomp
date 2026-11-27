@@ -11,7 +11,7 @@ struct Struct_02033834;
 struct Struct_02018300_3;
 
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" int func_02039860(void* arg0);
+extern "C" int GetFollowedObjectIndex_02039860(void* object);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021d2ad0(short arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 extern "C" void func_ov017_021d2c34(unsigned char arg0, unsigned char arg1, unsigned char arg2);
@@ -45,7 +45,7 @@ extern "C" ARM void func_020a8d08(struct Struct_020a8d08_2* arg0, unsigned char 
     Struct_020a8d08* var1 = (Struct_020a8d08*)var0->GetPartyMemberByIndex(arg1);
     Object3D* var2 = &var0->GetUnknownGameObject()->obj3D_;
     GetParty_02010828(var0);
-    var0->GetPartyMemberByIndex(func_02039860(var1));
+    var0->GetPartyMemberByIndex(GetFollowedObjectIndex_02039860(var1));
     if ((arg0->unknown_4_ & (1 << arg1)) == 0) {
         return;
     }

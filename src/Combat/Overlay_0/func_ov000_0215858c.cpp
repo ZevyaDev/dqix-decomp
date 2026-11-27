@@ -3,7 +3,7 @@
 
 struct Random;
 struct Struct_02010088;
-struct Struct_02088660;
+struct ModifiableCombatStats_02088660;
 struct Struct_02088674;
 
 struct Struct_ov000_0215858c {
@@ -67,7 +67,7 @@ extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
 extern "C" void ClearRage_02088e64(unsigned char* stats);
 extern "C" void func_020488cc(unsigned char* arg0, int arg1);
-extern "C" int func_02088660(struct Struct_02088660* arg0);
+extern "C" int HasFource_02088660(struct ModifiableCombatStats_02088660* stats);
 extern "C" void func_02088674(struct Struct_02088674* arg0);
 void UpdateCombatantAttack(int random, int combatantId);
 void UpdateCombatantDefense(int random, int combatantId);
@@ -92,7 +92,7 @@ extern "C" void func_02088964(unsigned char* arg0);
 extern "C" int func_ov000_021598d4(GameObject* arg0);
 extern "C" void func_02088b34(unsigned char* arg0);
 extern "C" int func_ov000_02156c94(GameObject* arg0);
-extern "C" void func_02088cf4(unsigned char* arg0);
+extern "C" void ClearHolyImpregnable_02088cf4(unsigned char* stats);
 extern "C" int func_ov000_02156cac(GameObject* arg0);
 extern "C" void ClearEerieLight_02088d4c(unsigned char* stats);
 extern "C" int func_ov000_021598ec(GameObject* arg0);
@@ -295,7 +295,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         }
     }
 
-    if (func_02088660((struct Struct_02088660*)var1->currentStats_) != 0 && var0->unknown_8d_ != 0) {
+    if (HasFource_02088660((struct ModifiableCombatStats_02088660*)var1->currentStats_) != 0 && var0->unknown_8d_ != 0) {
         void* var20 = GetNextActionResult_ov000_0215e958(arg0);
         if (var20 == 0) {
             return;
@@ -333,7 +333,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_8e_ = var0->unknown_8e_ - 1;
         if (data_ov000_02182ad4[var0->unknown_8e_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_8e_ = 0;
-            func_02088cf4((unsigned char*)var1->currentStats_);
+            ClearHolyImpregnable_02088cf4((unsigned char*)var1->currentStats_);
             func_ov000_021584e8(arg0, var22, var1, arg2, 0x25d, 0);
         }
     }

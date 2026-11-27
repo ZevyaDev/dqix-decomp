@@ -18,7 +18,7 @@ struct Struct_ov031_0224e6e0_6 {
     unsigned int unknown_38_;
 };
 extern Struct_ov031_0224e6e0_6 gAOSSSession_ov031_0224e6e0;
-extern "C" unsigned short func_ov031_0221e638(unsigned short);
+extern "C" unsigned short SwapBytes16_ov031_0221e638(unsigned short);
 extern "C" unsigned int func_ov031_0221e610(unsigned int);
 extern "C" unsigned int func_ov031_0221d8e8(unsigned char*, int);
 extern "C" void Memcpy_ov031_0221e51c(void*, const void*, unsigned int);
@@ -29,7 +29,7 @@ extern "C" THUMB int func_ov031_0221d82c(unsigned char* arg0, Struct_ov031_0224e
     func_ov031_0221e52c(arg1, 0, sizeof(Struct_ov031_0224e720));
     Struct_ov031_0221d82c* var0 = (Struct_ov031_0221d82c*)arg0;
     for (;;) {
-        int var1 = func_ov031_0221e638(var0->unknown_2_);
+        int var1 = SwapBytes16_ov031_0221e638(var0->unknown_2_);
         if (var1 <= 0) return -1;
         switch (var0->unknown_0_) {
         case 0:
@@ -43,7 +43,7 @@ extern "C" THUMB int func_ov031_0221d82c(unsigned char* arg0, Struct_ov031_0224e
             break;
         case 3:
         case 4:
-            var1 = func_ov031_0221e638(var0->unknown_6_[0]);
+            var1 = SwapBytes16_ov031_0221e638(var0->unknown_6_[0]);
             if (var1 <= 0) return -2;
             break;
         case 5:
@@ -56,7 +56,7 @@ extern "C" THUMB int func_ov031_0221d82c(unsigned char* arg0, Struct_ov031_0224e
             return -1;
         }
         if (var0->unknown_4_ == 0) break;
-        var0 = (Struct_ov031_0221d82c*)(arg0 + func_ov031_0221e638(var0->unknown_4_));
+        var0 = (Struct_ov031_0221d82c*)(arg0 + SwapBytes16_ov031_0221e638(var0->unknown_4_));
     }
     return 0;
 }

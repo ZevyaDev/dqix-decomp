@@ -2,9 +2,9 @@
 
 extern void* gCurrentSoundArchive_02110370;
 
-// USA: func_020bd42c
-extern "C" ARM void* func_020bd42c(void* arg0) {
-    void* var0 = gCurrentSoundArchive_02110370;
-    gCurrentSoundArchive_02110370 = arg0;
-    return var0;
+// USA: SetCurrentSoundArchive_020bd42c
+extern "C" ARM void* SetCurrentSoundArchive_020bd42c(void* archive) {
+    void* previousArchive = gCurrentSoundArchive_02110370;
+    gCurrentSoundArchive_02110370 = archive;
+    return previousArchive;
 }

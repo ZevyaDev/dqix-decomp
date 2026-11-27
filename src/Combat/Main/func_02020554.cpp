@@ -49,7 +49,7 @@ extern "C" ARM void func_02020554(Struct_02020554 *arg0) {
     arg0->unknown_9c4_ = 0;
     arg0->unknown_9c6_ = 0;
     arg0->unknown_a96_ = 0;
-    func_02020720(arg0);
+    ResetSubScreenDisplay_02020720(arg0);
 
     for (int var0 = 0; var0 < 4; var0++) {
         func_0201f9b8(&gPartyStatsCache_020fdcb0[var0]);

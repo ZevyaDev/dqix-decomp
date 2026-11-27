@@ -37,7 +37,7 @@ extern "C" int func_ov001_021612ac(void*);
 extern "C" int IsNPCCompanion_02061bd8(PartyMember_0205faf4_11*);
 extern SafeAllocator* data_ov001_021658b8[];
 extern const char data_ov001_02165728[];
-extern const char data_ov001_02165745[];
+extern const char gDataPathFormat_ov001_02165745[];
 extern const char data_ov001_02165775[];
 extern const char data_ov001_021657b2[];
 
@@ -123,7 +123,7 @@ extern "C" ARM int func_ov001_02160da8(Struct_ov001_0215b72c* arg0, int arg1) {
             const char* var10 = strrchr(var9, '/');
             if (var10) var9 = var10 + 1;
             strcpy(var1->unknown_8_.unknown_0_, var9);
-        } else sprintf(var1->unknown_8_.unknown_0_, data_ov001_02165745, var9);
+        } else sprintf(var1->unknown_8_.unknown_0_, gDataPathFormat_ov001_02165745, var9);
         var1->unknown_1_ = GetScriptValueAsInt_ov017_021d60f4(arg0 + 2);
         var1->unknown_2_ = var2->unknown_fb_3_ + 160;
         ++var2->unknown_fb_3_;

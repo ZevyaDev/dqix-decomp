@@ -58,7 +58,7 @@ extern "C" int FormatToSizedBuffer_020c7170(char*, unsigned long, const char*, .
 extern "C" int func_020c7130(char*, const char*, ...);
 extern "C" void func_020c9be0(void);
 extern "C" void GetMACAddress_020c99ac(unsigned char*);
-extern "C" void func_020c99c8(void*);
+extern "C" void GetUserSettings_020c99c8(void*);
 extern "C" int func_020cf25c(void*, void*);
 extern "C" unsigned char* func_ov031_0220f040(void);
 extern "C" unsigned char* func_ov031_0220f084(unsigned short*);
@@ -106,7 +106,7 @@ extern "C" ARM int func_ov031_02217604(Struct_ov031_02217604_5* arg0, const Stru
         ++var7;
         var9 += 2;
     } while (var7 < 6);
-    func_020c99c8(&var0);
+    GetUserSettings_020c99c8(&var0);
     if (var0.unknown_0_ >= 8) {
         var0.unknown_0_ = 1;
     }

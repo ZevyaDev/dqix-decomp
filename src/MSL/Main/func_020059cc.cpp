@@ -11,7 +11,7 @@ extern "C" unsigned long func_020055e4(int arg0, int arg1,
                                        Struct_02003d58* arg3, int* arg4,
                                        int* arg5, int* arg6);
 
-extern int data_020f3390;
+extern int gErrorNumber_020f3390;
 
 // USA: func_020059cc
 extern "C" ARM long func_020059cc(const char* arg0, char** arg1, int arg2) {
@@ -29,7 +29,7 @@ extern "C" ARM long func_020059cc(const char* arg0, char** arg1, int arg2) {
 
     if (var3 || (!var2 && var0 > 0x7fffffff) || (var2 && var0 > 0x80000000)) {
         var0 = var2 ? 0x80000000 : 0x7fffffff;
-        data_020f3390 = 0x22;
+        gErrorNumber_020f3390 = 0x22;
     } else if (var2) {
         var0 = -var0;
     }

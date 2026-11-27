@@ -1,13 +1,13 @@
 #include <globaldefs.h>
 
-struct Struct_0208d994;
-struct Struct_0208bf78_5;
+struct QuestMessage_0208d994;
+struct QuestMessageList_0208bf78_5;
 struct Struct_02046574_2;
 
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ClearMessageParams_02046380(void* window);
 extern "C" int func_ov004_021666bc(void*, int*);
-extern "C" Struct_0208d994* func_0208d994(Struct_0208bf78_5*, int);
+extern "C" QuestMessage_0208d994* FindQuestMessage_0208d994(QuestMessageList_0208bf78_5*, int);
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
 
 #if defined(jpn)
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov004_02167310(void* arg0) {
     ClearMessageParams_02046380((void*)var1);
     int var2;
     int var3 = func_ov004_021666bc(arg0, &var2);
-    Struct_0208d994* var4 = func_0208d994((Struct_0208bf78_5*)((char*)var0 + 0xc), var3);
+    QuestMessage_0208d994* var4 = FindQuestMessage_0208d994((QuestMessageList_0208bf78_5*)((char*)var0 + 0xc), var3);
     if (var4) {
         SetMessageString_02046574((Struct_02046574_2*)var1, 0, *(char**)((char*)var4 + 0x4));
     }

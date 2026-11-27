@@ -9,7 +9,7 @@
 #define func_020d6c00 func_020d8608
 #endif
 
-extern "C" void func_020c99c8(void* arg0);
+extern "C" void GetUserSettings_020c99c8(void* buffer);
 extern "C" void func_0208660c(char* arg0);
 struct Struct_0200f3a4_7;
 extern "C" void InitPartyMemberData_02082828(Struct_0200f3a4_7* memberData);
@@ -109,7 +109,7 @@ extern "C" ARM void func_0200f3a4(void* arg0) {
     unsigned char var2[0x54];
     unsigned char var3;
 
-    func_020c99c8(var2);
+    GetUserSettings_020c99c8(var2);
     var3 = var2[0];
     *(unsigned char*)(var1 + 5) = var3;
 #if defined(eur)

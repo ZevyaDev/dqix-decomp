@@ -659,7 +659,7 @@ func_ov031_0221a89c kind:function(arm,size=0x248) addr:0x0221a89c
 func_ov031_0221aae4 kind:function(arm,size=0x188) addr:0x0221aae4
 func_ov031_0221ac6c kind:function(arm,size=0x168) addr:0x0221ac6c
 func_ov031_0221add4 kind:function(arm,size=0x2c) addr:0x0221add4
-func_ov031_0221ae00 kind:function(arm,size=0xd8) addr:0x0221ae00
+UnpackWifiCredentials_ov031_0221ae00 kind:function(arm,size=0xd8) addr:0x0221ae00
 func_ov031_0221aed8 kind:function(arm,size=0xdc) addr:0x0221aed8
 func_ov031_0221afb4 kind:function(arm,size=0x44) addr:0x0221afb4
 func_ov031_0221aff8 kind:function(arm,size=0x2c) addr:0x0221aff8
@@ -756,7 +756,7 @@ func_ov031_0221e5c8 kind:function(thumb,size=0x8) addr:0x0221e5c8
 func_ov031_0221e5d0 kind:function(thumb,size=0x28) addr:0x0221e5d0
 func_ov031_0221e5f8 kind:function(thumb,size=0x16) addr:0x0221e5f8
 func_ov031_0221e610 kind:function(thumb,size=0x28) addr:0x0221e610
-func_ov031_0221e638 kind:function(thumb,size=0x16) addr:0x0221e638
+SwapBytes16_ov031_0221e638 kind:function(thumb,size=0x16) addr:0x0221e638
 func_ov031_0221e650 kind:function(thumb,size=0x14) addr:0x0221e650
 func_ov031_0221e664 kind:function(thumb,size=0x70) addr:0x0221e664
 func_ov031_0221e6d4 kind:function(thumb,size=0xa) addr:0x0221e6d4
@@ -871,7 +871,7 @@ ShowSubScreenMessage_ov031_0222336c kind:function(arm,size=0xd4) addr:0x0222336c
 CloseSubScreenMessage_ov031_02223440 kind:function(arm,size=0x38) addr:0x02223440
 func_ov031_02223478 kind:function(arm,size=0x60) addr:0x02223478
 LoadFileToVRAM_ov031_022234d8 kind:function(arm,size=0x40) addr:0x022234d8
-func_ov031_02223518 kind:function(arm,size=0x50) addr:0x02223518
+ShowStepIndicator_ov031_02223518 kind:function(arm,size=0x50) addr:0x02223518
 CreateButtonBarIfEnabled_ov031_02223568 kind:function(arm,size=0x38) addr:0x02223568
 ShowMainScreenMessage_ov031_022235a0 kind:function(arm,size=0x74) addr:0x022235a0
 func_ov031_02223614 kind:function(arm,size=0xbc) addr:0x02223614
@@ -909,7 +909,7 @@ func_ov031_022247ec kind:function(arm,size=0x30) addr:0x022247ec
 func_ov031_0222481c kind:function(arm,size=0x204) addr:0x0222481c
 func_ov031_02224a20 kind:function(arm,size=0x54) addr:0x02224a20
 func_ov031_02224a74 kind:function(arm,size=0x230) addr:0x02224a74
-func_ov031_02224ca4 kind:function(arm,size=0x27c) addr:0x02224ca4
+SetKeyboardRowY_ov031_02224ca4 kind:function(arm,size=0x27c) addr:0x02224ca4
 func_ov031_02224f20 kind:function(arm,size=0x84) addr:0x02224f20
 func_ov031_02224fa4 kind:function(arm,size=0xc8) addr:0x02224fa4
 func_ov031_0222506c kind:function(arm,size=0xdc) addr:0x0222506c
@@ -962,7 +962,7 @@ func_ov031_02227468 kind:function(arm,size=0x58) addr:0x02227468
 SetWifiSetupFrameHandler_ov031_022274c0 kind:function(arm,size=0x10) addr:0x022274c0
 SetStepIndicatorAndButtonBarModes_ov031_022274d0 kind:function(arm,size=0x14) addr:0x022274d0
 func_ov031_022274e4 kind:function(arm,size=0x28) addr:0x022274e4
-func_ov031_0222750c kind:function(arm,size=0x14) addr:0x0222750c
+SetWifiSetupPageArguments_ov031_0222750c kind:function(arm,size=0x14) addr:0x0222750c
 GetWifiSetupPageArguments_ov031_02227520 kind:function(arm,size=0x28) addr:0x02227520
 func_ov031_02227548 kind:function(arm,size=0x10) addr:0x02227548
 func_ov031_02227558 kind:function(arm,size=0x18) addr:0x02227558
@@ -1690,14 +1690,14 @@ func_ov031_0223b560 kind:function(arm,size=0x64) addr:0x0223b560
 func_ov031_0223b5c4 kind:function(arm,size=0x40) addr:0x0223b5c4
 func_ov031_0223b604 kind:function(arm,size=0x10) addr:0x0223b604
 func_ov031_0223b614 kind:function(arm,size=0x8) addr:0x0223b614
-func_ov031_0223b61c kind:function(arm,size=0xf4) addr:0x0223b61c
+LoadFile_ov031_0223b61c kind:function(arm,size=0xf4) addr:0x0223b61c
 FreeLoadedFile_ov031_0223b710 kind:function(arm,size=0x34) addr:0x0223b710
 func_ov031_0223b744 kind:function(arm,size=0x58) addr:0x0223b744
 func_ov031_0223b79c kind:function(arm,size=0xd4) addr:0x0223b79c
 func_ov031_0223b870 kind:function(arm,size=0x54) addr:0x0223b870
 func_ov031_0223b8c4 kind:function(arm,size=0x15c) addr:0x0223b8c4
 func_ov031_0223ba20 kind:function(arm,size=0x80) addr:0x0223ba20
-func_ov031_0223baa0 kind:function(arm,size=0xc) addr:0x0223baa0
+GetSpriteOAMEntry_ov031_0223baa0 kind:function(arm,size=0xc) addr:0x0223baa0
 func_ov031_0223baac kind:function(arm,size=0x8) addr:0x0223baac
 func_ov031_0223bab4 kind:function(arm,size=0xa4) addr:0x0223bab4
 func_ov031_0223bb58 kind:function(arm,size=0x80) addr:0x0223bb58
@@ -1758,7 +1758,7 @@ AreKeysPressed_ov031_0223d354 kind:function(arm,size=0x40) addr:0x0223d354
 func_ov031_0223d394 kind:function(arm,size=0x40) addr:0x0223d394
 func_ov031_0223d3d4 kind:function(arm,size=0x40) addr:0x0223d3d4
 func_ov031_0223d414 kind:function(arm,size=0x88) addr:0x0223d414
-func_ov031_0223d49c kind:function(arm,size=0x88) addr:0x0223d49c
+IsTouchPressInRect_ov031_0223d49c kind:function(arm,size=0x88) addr:0x0223d49c
 func_ov031_0223d524 kind:function(arm,size=0x88) addr:0x0223d524
 func_ov031_0223d5ac kind:function(arm,size=0x88) addr:0x0223d5ac
 func_ov031_0223d634 kind:function(arm,size=0x68) addr:0x0223d634
@@ -2735,7 +2735,7 @@ data_ov031_0224e5ac kind:bss addr:0x0224e5ac
 data_ov031_0224e5b4 kind:bss addr:0x0224e5b4
 data_ov031_0224e5bc kind:bss addr:0x0224e5bc
 data_ov031_0224e5c0 kind:bss addr:0x0224e5c0
-data_ov031_0224e5c4 kind:bss addr:0x0224e5c4
+gWifiConnectionBuffers_ov031_0224e5c4 kind:bss addr:0x0224e5c4
 data_ov031_0224e5d8 kind:bss addr:0x0224e5d8
 data_ov031_0224e5dc kind:bss addr:0x0224e5dc
 gAccountRequest_ov031_0224e5e8 kind:bss addr:0x0224e5e8
@@ -2841,7 +2841,7 @@ data_ov031_02290c80 kind:bss addr:0x02290c80
 data_ov031_02290c88 kind:bss addr:0x02290c88
 gAccessPointListPage_ov031_02290c8c kind:bss addr:0x02290c8c
 data_ov031_02290c90 kind:bss addr:0x02290c90
-data_ov031_02290c94 kind:bss addr:0x02290c94
+gTextEntryPage_ov031_02290c94 kind:bss addr:0x02290c94
 gAddressEntryPage_ov031_02290c98 kind:bss addr:0x02290c98
 data_ov031_02290c9c kind:bss addr:0x02290c9c
 gConnectionSettingsPage_ov031_02290ca0 kind:bss addr:0x02290ca0

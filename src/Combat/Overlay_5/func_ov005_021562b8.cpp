@@ -22,7 +22,7 @@ struct Struct_ov005_02153ba4_2 {
 };
 
 struct Struct_ov005_02153ba4 {
-    short unknown_0_;
+    short itemId_0_;
     signed char unknown_2_;
     unsigned char unknown_3_;
     void* unknown_4_;
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov005_021562b8(Struct_ov005_02153954* arg0) {
             return;
         if (arg0->unknown_3e07_ == arg0->unknown_3d78_) {
             if (arg0->unknown_3e06_ > 0) {
-                if (arg0->unknown_2d90_[arg0->unknown_3dbb_].unknown_0_ >= 0) {
+                if (arg0->unknown_2d90_[arg0->unknown_3dbb_].itemId_0_ >= 0) {
                     SetEquipMenuMode_ov005_0215792c(arg0, 5);
                     PlaySoundEffect_0205eaa0((SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 1, 0);
                     var3->unknown_634_ &= ~1;

@@ -24,7 +24,7 @@ struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
-extern "C" void func_ov011_02184a40(void* arg0, int arg1);
+extern "C" void StartMenuCallback_ov011_02184a40(void* menu, int callbackIndex);
 
 #if defined(jpn)
 extern "C" void* func_0203bd08(void);
@@ -231,7 +231,7 @@ DONE:
             if (arg0->unknown_c_ & 0x40) {
                 PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
             }
-            func_ov011_02184a40(arg1, var29);
+            StartMenuCallback_ov011_02184a40(arg1, var29);
         } else {
             arg0->unknown_c_ &= ~0x20;
         }

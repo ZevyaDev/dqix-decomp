@@ -36,7 +36,7 @@ extern "C" int func_0203402c(Struct_0203402c*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char*);
-extern "C" void func_ov017_0219b33c(void*, Struct_ov017_02198aa0_3*);
+extern "C" void SubmitInteractionPrompt_ov017_0219b33c(void*, Struct_ov017_02198aa0_3*);
 extern "C" int func_0202ec84(void*, Struct_02015ef4*, int*, int*);
 extern "C" void* GetZoneEntry_0200fd0c(GameState*);
 extern "C" void InitZoneEntry_02070378(char*);
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov017_02198aa0(GameResources* arg0) {
     Struct_ov017_02198aa0_3 var13;
     ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var13);
     var13.unknown_0_ = 4;
-    func_ov017_0219b33c(arg0, &var13);
+    SubmitInteractionPrompt_ov017_0219b33c(arg0, &var13);
     int var14 = 0;
     if (g_keyManager.TestKeysPressed(1)) var14 = 1;
     int var15 = -1;

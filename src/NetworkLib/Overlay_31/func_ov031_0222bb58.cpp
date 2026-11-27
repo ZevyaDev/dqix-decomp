@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_ov031_0223d49c(void*);
+extern "C" int IsTouchPressInRect_ov031_0223d49c(void*);
 extern "C" int func_ov031_0223d5ac(void*);
 extern "C" void SetButtonBarChoice_ov031_02222e20(int);
 extern "C" void func_ov031_0222c8cc(void);
@@ -39,12 +39,12 @@ extern "C" ARM void func_ov031_0222bb58(void) {
         return;
     }
 
-    if (func_ov031_0223d49c(&data_ov031_022493b8)) {
+    if (IsTouchPressInRect_ov031_0223d49c(&data_ov031_022493b8)) {
         gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_50_ = -1;
         int var0 = 0;
         unsigned char* var1 = &data_ov031_02248e5c;
         do {
-            if (func_ov031_0223d49c(var1)) {
+            if (IsTouchPressInRect_ov031_0223d49c(var1)) {
                 if (var0 < 4) {
                     gAccessPointListPage_ov031_02290c8c.unknown_4_->unknown_50_ = (signed char)var0;
                     break;

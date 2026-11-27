@@ -1,7 +1,6 @@
 #if defined(jpn)
 #define R(j,u) (j)
 #define func_ov024_021f6f10 func_ov024_021f5c80
-#define func_ov023_021e4e8c func_ov023_021e5080
 #define data_ov023_021ff5b4 data_ov023_021fe83c
 #define func_ov023_021fc518 func_ov023_021fb810
 #else
@@ -14,8 +13,8 @@ extern "C" unsigned char GetGameMode_0200fb9c(char* gameState);
 extern "C" unsigned char func_02012034(void* arg0);
 extern "C" int _s32_div_f(int a, int b);
 extern "C" int func_ov017_021d4df8(void* arg0, int arg1);
-extern "C" void func_ov017_021d4ce4(void* arg0, int arg1);
-extern "C" void func_ov017_021d4ccc(void* arg0);
+extern "C" void StartScriptEntry_ov017_021d4ce4(void* scriptVM, int entryId);
+extern "C" void ResumeScript_ov017_021d4ccc(void* scriptVM);
 
 // USA: func_ov011_021848a8
 extern "C" ARM void func_ov011_021848a8(void* arg0) {
@@ -43,7 +42,7 @@ extern "C" ARM void func_ov011_021848a8(void* arg0) {
         }
         *(int*)((char*)arg0 + 0x110) = *(int*)((char*)arg0 + 0x10c);
         *(int*)((char*)arg0 + 0x10c) = -1;
-        func_ov017_021d4ce4((char*)arg0 + 0xb8, *(int*)((char*)arg0 + 0x110));
+        StartScriptEntry_ov017_021d4ce4((char*)arg0 + 0xb8, *(int*)((char*)arg0 + 0x110));
         if (*(int*)((char*)arg0 + 0xf4) != 0) {
             *(int*)((char*)arg0 + 0x110) = -1;
         }
@@ -53,7 +52,7 @@ extern "C" ARM void func_ov011_021848a8(void* arg0) {
     if (*(int*)((char*)arg0 + 0x110) < 0) {
         return;
     }
-    func_ov017_021d4ccc((char*)arg0 + 0xb8);
+    ResumeScript_ov017_021d4ccc((char*)arg0 + 0xb8);
     if (*(int*)((char*)arg0 + 0xf4) != 0) {
         *(int*)((char*)arg0 + 0x110) = -1;
     }

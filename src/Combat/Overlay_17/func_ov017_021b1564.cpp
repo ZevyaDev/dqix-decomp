@@ -89,7 +89,7 @@ extern "C" void CloseMessageWindow_02043124(void*);
 extern "C" void func_020a1df8(int);
 extern "C" void PushSubOverlay_020a1ef0(int);
 extern "C" void func_ov017_021b1ca8(int);
-extern "C" void func_020979c0(VRAMBankSwitch_020979c0*, unsigned char);
+extern "C" void InitVRAMBankSwitch_020979c0(VRAMBankSwitch_020979c0*, unsigned char);
 extern "C" void func_ov006_02157a60(Struct_ov017_021b1564*);
 extern "C" void func_ov006_021576a0(Struct_ov017_021b1564*, SafeAllocator*, void*);
 extern "C" int func_02097a04(VRAMBankSwitch_020979c0*);
@@ -211,7 +211,7 @@ extern "C" ARM void func_ov017_021b1564(Struct_ov017_021b1564_7* arg0, Queue_020
         func_020a1df8(6);
         PushSubOverlay_020a1ef0(1);
         func_ov017_021b1ca8(1);
-        func_020979c0(arg0->unknown_1c_, 2);
+        InitVRAMBankSwitch_020979c0(arg0->unknown_1c_, 2);
         func_ov006_02157a60(data_ov017_021d83ec);
         if (arg0->unknown_49_) data_ov017_021d83ec->unknown_394_ |= 2;
         func_ov006_021576a0(data_ov017_021d83ec, &arg0->unknown_8_, var8->unknown_1000_);

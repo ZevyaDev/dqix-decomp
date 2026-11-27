@@ -17,7 +17,7 @@ extern "C" void func_ov017_02191e5c(int, int, short, unsigned char, unsigned sho
 extern "C" void func_ov017_02191f4c(int, int);
 static inline int inline_ov017_02191cc0(GameObject* arg0) { return arg0->obj3D_.GetField06(); }
 extern "C" void func_ov017_0219230c(unsigned char* arg0, int arg1, int arg2);
-extern "C" void func_ov017_02192400(unsigned char* arg0, int arg1);
+extern "C" void RestorePartyMemberPolygonIDs_ov017_02192400(unsigned char* gameResources, int memberIndex);
 extern "C" unsigned char* func_ov017_0219219c(unsigned char* arg0, int arg1);
 
 // USA: func_ov017_02191cc0
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov017_02191cc0(unsigned char* arg0) {
             func_ov017_0219230c(arg0, var3, 8);
         } else if (var6) {
             func_ov017_02191e5c((int)arg0, var3, 0x1000, 0, 0x282f);
-            func_ov017_02192400(arg0, var3);
+            RestorePartyMemberPolygonIDs_ov017_02192400(arg0, var3);
         } else if (var7) {
             unsigned char* var8 = *(unsigned char**)(arg0 + Enum_ov017_02191cc0_15184);
             short var9 = 0x999;
@@ -55,7 +55,7 @@ extern "C" ARM void func_ov017_02191cc0(unsigned char* arg0) {
             func_ov017_0219230c(arg0, var3, 8);
         } else {
             func_ov017_02191f4c((int)arg0, var3);
-            func_ov017_02192400(arg0, var3);
+            RestorePartyMemberPolygonIDs_ov017_02192400(arg0, var3);
         }
         unsigned char* var10 = func_ov017_0219219c(arg0, var3);
         if (var10 != 0) *var10 &= ~1;

@@ -196,7 +196,7 @@ extern "C" struct Struct_ov024_021f7478* func_ov000_0217199c(void* arg0, int arg
 extern "C" int func_ov000_02171698(struct Struct_ov000_02171640* arg0);
 extern "C" struct Struct_ov024_021f7478* func_ov000_02171674(void* arg0, int arg1);
 extern "C" int func_ov000_02171bc0(void* arg0);
-extern "C" struct Struct_ov024_021f7478_2* func_ov000_02171b9c(void* arg0, int arg1);
+extern "C" struct Struct_ov024_021f7478_2* GetPanelItem_ov000_02171b9c(void* panel, int itemIndex);
 extern "C" struct Struct_ov024_021f7478* FindActionData_02079e2c(char* actionTables, int actionId);
 extern "C" int func_02085748(unsigned char* arg0);
 float NextRandomFloat01(struct Random* rng);
@@ -403,7 +403,7 @@ extern "C" ARM void func_ov024_021f7478(struct Struct_ov024_021f7478_7* arg0) {
     ActionTables_02108e10* var43 = GetActionTables_020797dc();
     int var44 = func_ov000_02171bc0(var35);
     for (int var45 = 0; var45 < var44; var45++) {
-        struct Struct_ov024_021f7478_2* var46 = func_ov000_02171b9c(var35, var45);
+        struct Struct_ov024_021f7478_2* var46 = GetPanelItem_ov000_02171b9c(var35, var45);
         if (var46 == 0) continue;
         if (var46->unknown_18_ <= 0) continue;
         unsigned short var47 = var46->unknown_16_;

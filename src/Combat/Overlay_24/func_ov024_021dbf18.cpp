@@ -19,7 +19,7 @@ extern "C" unsigned long long func_ov024_021e4b14(struct Struct_ov024_021dbf18_4
 extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 extern "C" void ClearSleep_02088390(void* stats);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
-extern "C" int func_ov000_02159f18(void* arg0, unsigned long long arg1, int arg2);
+extern "C" int IsActionResultFlagSet_ov000_02159f18(void* battle, unsigned long long flags, int flagIndex);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
@@ -45,7 +45,7 @@ extern "C" ARM void* func_ov024_021dbf18(struct Struct_ov024_021dbf18_4* arg0, i
 			arg0->unknown_14_++;
 		}
 	}
-	if (func_ov000_02159f18(arg0->unknown_10_, var3, 0x19)) {
+	if (IsActionResultFlagSet_ov000_02159f18(arg0->unknown_10_, var3, 0x19)) {
 		if (!var2) {
 			arg0->unknown_14_++;
 			var2 = 1;

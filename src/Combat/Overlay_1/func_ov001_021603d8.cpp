@@ -4,7 +4,7 @@
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" void func_ov001_021601f8(void* arg0, void* arg1);
-extern "C" void func_02016874(void* arg0);
+extern "C" void DrawZone_02016874(void* zone);
 
 struct Struct_ov001_021603d8 { char unknown_0_[0x44]; int unknown_44_; char unknown_48_[0x54 - 0x48]; struct Struct_ov001_021603d8* unknown_54_; };
 struct Struct_ov001_021603d8_2 {
@@ -93,6 +93,6 @@ extern "C" ARM int func_ov001_021603d8(void* arg0) {
 
     var0->unknown_832_ = 1;
     var0->unknown_833_ = 1;
-    func_02016874(var0);
+    DrawZone_02016874(var0);
     return 1;
 }

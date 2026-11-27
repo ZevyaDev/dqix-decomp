@@ -4,7 +4,7 @@
 
 extern int data_ov001_021658b8;
 extern int data_ov001_021658e0[];
-extern const char data_ov001_02165745[];
+extern const char gDataPathFormat_ov001_02165745[];
 extern "C" void* GetScriptValueAsString_ov017_021d612c(void*);
 extern "C" void func_ov001_0215ec94(void*, int);
 extern "C" int func_ov001_0215ad3c(char*, char*, char*);
@@ -27,7 +27,7 @@ extern "C" ARM int func_ov001_0215ed2c(void* arg0, int arg1) {
         if (func_ov001_0215ad3c(var5, var1, var2) != 0) {
             data_ov001_021658e0[var4] = var0->QueueLoadFileInGP2(var2, var1, NULL);
         } else {
-            sprintf(var1, data_ov001_02165745, var5);
+            sprintf(var1, gDataPathFormat_ov001_02165745, var5);
             data_ov001_021658e0[var4] = var0->QueueLoadFile(var1, NULL);
         }
         *(int*)((char*)&data_ov001_021658b8 + 0x88) += 1;

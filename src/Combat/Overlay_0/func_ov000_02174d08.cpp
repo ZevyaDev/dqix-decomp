@@ -25,7 +25,7 @@ extern int data_ov000_02183ff0;
 extern struct Struct_ov000_02184288 data_ov000_02184288;
 
 extern "C" void func_ov000_02177184(void* arg0, void* arg1, int arg2, int arg3);
-extern "C" void func_ov000_0217f518(void* arg0);
+extern "C" void ClearPanelCommand_ov000_0217f518(void* panel);
 extern "C" void func_ov000_0217636c(void* arg0, int arg1);
 
 struct Struct_ov000_02174d08 {
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov000_02174d08(void* arg0) {
         return;
     }
     int var3 = (((struct Struct_ov000_02174d08*)arg0)->unknown_118_ == 2) ? 1 : 0;
-    func_ov000_0217f518(var2);
+    ClearPanelCommand_ov000_0217f518(var2);
     if (*(int*)((char*)var2 + 0x38) != 0) {
         func_ov000_0217636c(var2, var3);
     }

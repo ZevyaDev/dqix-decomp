@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" int _s32_div_f(int a, int b);
-extern char* data_ov004_021707c0; // pointer to struct with fields at 0x78 (short), 0x7a (short)
+extern char* gWardrobeCompletion_ov004_021707c0; // pointer to struct with fields at 0x78 (short), 0x7a (short)
 
 extern "C" void* GetMenuObjectList_ov011_021849c8(void*);
 extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
@@ -20,8 +20,8 @@ struct Struct_ov004_02154250_2 { struct Struct_ov004_02154250* unknown_0_; };
 
 // USA: func_ov004_02154250
 extern "C" ARM int func_ov004_02154250(void* arg0) {
-    short var0 = *(short*)(data_ov004_021707c0 + 0x7a);
-    short var1 = *(short*)(data_ov004_021707c0 + 0x78);
+    short var0 = *(short*)(gWardrobeCompletion_ov004_021707c0 + 0x7a);
+    short var1 = *(short*)(gWardrobeCompletion_ov004_021707c0 + 0x78);
     int var2 = _s32_div_f(var0 * 100, var1);
     var2 = (short)var2;
     if (var2 == 0 && var0 == 0) var2 = 0;

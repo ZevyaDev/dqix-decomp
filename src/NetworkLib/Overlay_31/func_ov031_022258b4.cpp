@@ -8,7 +8,7 @@ struct Struct_ov031_02248c98 { unsigned char unknown_0_[5]; };
 struct OAMAllocation_ov031_02222ce4;
 struct Struct_ov031_02226d48;
 struct OAMAllocation_ov031_02222f44_2;
-struct Struct_ov031_022269d8 { int unknown_0_, unknown_4_; Struct_020b0a1c_2* unknown_8_; };
+struct OAMAllocation_ov031_022269d8 { int unknown_0_, unknown_4_; Struct_020b0a1c_2* pOAMEntries_8_; };
 struct Struct_ov031_022266b0;
 
 struct Struct_ov031_022258b4 {
@@ -73,7 +73,7 @@ extern "C" void SetTaskCallback_ov031_0223e2b8(void* task, int callback);
 extern "C" void QueueTaskRemoval_ov031_0223e2c0(int, void*);
 extern "C" void GetSpritePosition_ov031_0223bd28(OAMAllocation_ov031_02222f44_2*, int, unsigned int*, unsigned int*);
 extern "C" void func_ov031_0223cb34(const Struct_ov031_022489c4*, const Struct_ov031_022489c4*, Struct_ov031_022493b8*);
-extern "C" int func_ov031_0223d49c(Struct_ov031_022493b8* arg0);
+extern "C" int IsTouchPressInRect_ov031_0223d49c(Struct_ov031_022493b8* rect);
 extern "C" int func_ov031_0223d5ac(Struct_ov031_022493b8*);
 extern "C" int func_ov031_0223d414(Struct_ov031_022493b8*);
 extern "C" void PlayWifiSetupSoundEffect_ov031_02236878(int soundEffectIndex);
@@ -83,7 +83,7 @@ extern "C" ARM int func_ov031_0223d3d4(int arg0);
 extern "C" void func_ov031_0223ca54(Struct_ov031_022266b0* arg0, int arg1, int arg2, void* arg3, int arg4);
 extern "C" void SetSpritePosition_ov031_0223bbd8(void* sprite, int entryIndex, int x, int y);
 extern "C" void func_ov031_0223bb58(void* arg0, int arg1, int arg2, int arg3);
-extern "C" Struct_020b0a1c_2* func_ov031_0223baa0(Struct_ov031_022269d8* arg0, int arg1);
+extern "C" Struct_020b0a1c_2* GetSpriteOAMEntry_ov031_0223baa0(OAMAllocation_ov031_022269d8* sprite, int entryIndex);
 extern "C" int CopySpriteOAMEntries_ov031_0223bdb0(int isSubScreen, int spriteId, int oamEntries);
 extern "C" void func_ov031_0223c534(Struct_ov031_02226d48*);
 extern "C" void func_ov031_0223da58(void*);
@@ -347,13 +347,13 @@ extern "C" ARM void func_ov031_02225f14(void) {
 // USA: func_ov031_02225f2c
 extern "C" ARM void func_ov031_02225f2c(void) {
     Struct_ov031_022493b8 var0;
-    if (!func_ov031_0223d49c(&data_ov031_022493b8)) return;
+    if (!IsTouchPressInRect_ov031_0223d49c(&data_ov031_022493b8)) return;
     gNumericKeypad_ov031_02250c00->unknown_61_ = -1;
     const Struct_ov031_022489c4* var1 = data_ov031_02248cda;
     int var2 = 0;
     do {
         func_ov031_0223cb34(var1, &data_ov031_02248c88, &var0);
-        if (func_ov031_0223d49c(&var0)) {
+        if (IsTouchPressInRect_ov031_0223d49c(&var0)) {
             if (gNumericKeypad_ov031_02250c00->unknown_67_ == 0) {
                 PlayWifiSetupSoundEffect_ov031_02236878(9);
                 return;
@@ -369,7 +369,7 @@ extern "C" ARM void func_ov031_02225f2c(void) {
     var2 = 0;
     do {
         func_ov031_0223cb34(var3, &data_ov031_02248c90, &var0);
-        if (func_ov031_0223d49c(&var0)) {
+        if (IsTouchPressInRect_ov031_0223d49c(&var0)) {
             if (var2 == 0) {
                 if (gNumericKeypad_ov031_02250c00->unknown_66_ == 0) goto call9_l2;
             }
@@ -390,7 +390,7 @@ extern "C" ARM void func_ov031_02225f2c(void) {
     int var5 = 0;
     do {
         func_ov031_0223cb34(var4, &data_ov031_02248c94, &var0);
-        if (func_ov031_0223d49c(&var0)) {
+        if (IsTouchPressInRect_ov031_0223d49c(&var0)) {
             PlayWifiSetupSoundEffect_ov031_02236878(0);
             gNumericKeypad_ov031_02250c00->unknown_61_ = (signed char)(var5 + 0xc);
             return;
@@ -641,7 +641,7 @@ extern "C" ARM void func_ov031_022269d8(void) {
     signed char var0 = gNumericKeypad_ov031_02250c00->unknown_63_;
     int var1 = (var0 <= 0xb) ? 0x44 : 0x45;
     void* var2 = gNumericKeypad_ov031_02250c00->unknown_58_;
-    void* var3 = func_ov031_0223baa0((Struct_ov031_022269d8*)var2, 0);
+    void* var3 = GetSpriteOAMEntry_ov031_0223baa0((OAMAllocation_ov031_022269d8*)var2, 0);
     CopySpriteOAMEntries_ov031_0223bdb0(0, var1, (int)var3);
 
     SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)gNumericKeypad_ov031_02250c00->unknown_58_, -1, 2);
@@ -685,7 +685,7 @@ end:
 // USA: func_ov031_02226b10
 extern "C" ARM void func_ov031_02226b10(void* arg0) {
 	int var0, var1;
-	inline_ov031_02223ff8(func_ov031_0223baa0((Struct_ov031_022269d8*)gNumericKeypad_ov031_02250c00->unknown_40_[0], 0), (unsigned int*)&var0, (unsigned int*)&var1);
+	inline_ov031_02223ff8(GetSpriteOAMEntry_ov031_0223baa0((OAMAllocation_ov031_022269d8*)gNumericKeypad_ov031_02250c00->unknown_40_[0], 0), (unsigned int*)&var0, (unsigned int*)&var1);
 	var1 += 0xc;
 	func_ov031_022266b0(4, var1);
 	if (var1 < 0xc0) return;

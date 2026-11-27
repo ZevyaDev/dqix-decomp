@@ -33,7 +33,7 @@ public:
     TextWindow_ov023_021f7eb8_2 textWindow_20_;
     unsigned short pixelX_100_;
     unsigned short pixelY_102_;
-    short unknown_104_;
+    short page_104_;
     short pageCount_106_;
     unsigned char unknown_108_;
     char unknown_109_;
@@ -85,7 +85,7 @@ extern "C" ARM void DrawMenuWindow_ov023_021f7eb8(MenuWindow_ov023_021f7eb8_3* w
         height = (short)(height * 8) - 12;
         unsigned short textWidth;
         unsigned short textHeight;
-        func_02050cc0(&window->textWindow_20_, (short)(width - 24), height, window->unknown_104_ + 1, 8, colorIndex, &textWidth, &textHeight, 1, 3, 0, 0);
+        func_02050cc0(&window->textWindow_20_, (short)(width - 24), height, window->page_104_ + 1, 8, colorIndex, &textWidth, &textHeight, 1, 3, 0, 0);
         func_02050cc0(&window->textWindow_20_, (short)(width + 8), height, window->pageCount_106_, 8, colorIndex, &textWidth, &textHeight, 0, 3, 0, 0);
         func_02050678(&window->textWindow_20_, width, height, data_ov023_021fd91c, 8, colorIndex, &textWidth, &textHeight);
 
@@ -100,7 +100,7 @@ extern "C" ARM void DrawMenuWindow_ov023_021f7eb8(MenuWindow_ov023_021f7eb8_3* w
         unsigned short textWidth;
         unsigned short textHeight;
         short centerX = width * 4;
-        func_0204f7e8(&window->textWindow_20_, centerX - separatorWidth, height, window->unknown_104_ + 1, 8, colorIndex, &textWidth,
+        func_0204f7e8(&window->textWindow_20_, centerX - separatorWidth, height, window->page_104_ + 1, 8, colorIndex, &textWidth,
                       &textHeight, 1, 3, 0, 0);
         func_0204f7e8(&window->textWindow_20_, centerX + separatorWidth + 1, height, window->pageCount_106_, 8, colorIndex, &textWidth,
                       &textHeight, 0, 3, 0, 0);

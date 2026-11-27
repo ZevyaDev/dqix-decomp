@@ -13,7 +13,7 @@ struct Struct_0201a300_11;
 struct Struct_0201a300_12;
 struct Struct_020105a8;
 extern "C" void func_020280f8(Struct_0201a300_5*);
-extern "C" void func_020280b0(Struct_0201a300_5*);
+extern "C" void ResetNodeGraph_020280b0(Struct_0201a300_5*);
 extern "C" void func_020286fc(Struct_0201a300_6*, SafeAllocator*, int);
 extern "C" void func_02028754(Struct_0201a300_7*, SafeAllocator*, int);
 extern "C" void func_0202834c(Struct_0201a300_8*, SafeAllocator*, int);
@@ -59,7 +59,7 @@ extern "C" ARM int func_0201a300(Zone3D* arg0, int arg1, Struct_0201a300_4* arg2
     int var11 = 0x1020 - ((var3 << 4) + (var4 << 3));
     if (var11 < 0) var4 -= abs(var11 / 8) + 1;
     func_020280f8((Struct_0201a300_5*)&arg2->unknown_18_);
-    func_020280b0((Struct_0201a300_5*)&arg2->unknown_18_);
+    ResetNodeGraph_020280b0((Struct_0201a300_5*)&arg2->unknown_18_);
     func_020286fc((Struct_0201a300_6*)&arg2->unknown_18_, arg2->unknown_10_, var3);
     func_02028754((Struct_0201a300_7*)&arg2->unknown_18_, arg2->unknown_10_, var4);
     func_0202834c((Struct_0201a300_8*)&arg2->unknown_18_, arg2->unknown_10_, 1);

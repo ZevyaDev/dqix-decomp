@@ -173,7 +173,7 @@ struct Struct_ov000_021643d4_7 {
 };
 
 extern "C" int func_0202ae18(BackgroundLoader*);
-extern "C" int func_02027cb0();
+extern "C" int FindCurrentActiveZone_02027cb0();
 extern "C" Struct_ov000_0215f7a8* FindFieldMonsterById_ov017_021a278c(void*, int);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" int IsOnLadder_02039d7c(char*);
@@ -184,7 +184,7 @@ extern "C" void func_0203409c(unsigned char*);
 extern "C" void func_02039d58(unsigned char*);
 extern "C" int GetPartyLeaderObjectIndex_02039888(void*);
 void Vector3fixMultiplyScalar(const Vector3i* v, int s, Vector3i* out);
-extern "C" void func_020338d4(Struct_020338d4*, Struct_ov009_0218aa28*);
+extern "C" void FacePositionInstantly_020338d4(Struct_020338d4*, Struct_ov009_0218aa28*);
 extern "C" void SendObjectPosition_ov017_021cee78(int objectIndex, unsigned char isFacingInstant);
 extern "C" void func_02053ec8(void*, int);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
@@ -197,7 +197,7 @@ extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" struct Struct_ov017_0219e384* GetZoneEntry_0200fd0c(GameState*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov017_021a27e8(void* arg0);
-extern "C" void func_ov017_0219b938(int arg0);
+extern "C" void UnloadFieldIcons_ov017_0219b938(int gameResources);
 extern "C" int GetNPCManager_0203cf4c();
 extern "C" int func_0203e06c(void*);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
@@ -246,7 +246,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
     int var1 = func_0202ae18(BackgroundLoader::GetInstance());
     GameResources* var2 = GetGameResources();
     int var3 = (int)var2;
-    Struct_ov000_021643d4* var4 = (Struct_ov000_021643d4*)func_02027cb0();
+    Struct_ov000_021643d4* var4 = (Struct_ov000_021643d4*)FindCurrentActiveZone_02027cb0();
     Zone3D* var5 = GetZone3D_02012fe4();
     Struct_ov000_021643d4_2* var6 = (Struct_ov000_021643d4_2*)GetParty_02010828(var0);
     Struct_ov000_0215f7a8* var7 = (Struct_ov000_0215f7a8*)var0->GetProtagonist();
@@ -309,7 +309,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
                 var19.y = GetGroundHeight_02018fbc(var5, &var19);
                 var18->unknown_44_ = var19;
             }
-            func_020338d4((Struct_020338d4*)var18, (Struct_ov009_0218aa28*)&var15);
+            FacePositionInstantly_020338d4((Struct_020338d4*)var18, (Struct_ov009_0218aa28*)&var15);
             SendObjectPosition_ov017_021cee78(var17, 0);
         }
     }
@@ -342,7 +342,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         var28[0xa] = 0;
     }
     func_ov017_021a27e8((void*)var3);
-    func_ov017_0219b938(var3);
+    UnloadFieldIcons_ov017_0219b938(var3);
     for (int var29 = 0; var29 < 12; var29++) {
         Struct_ov000_0215f7a8* var30 = (Struct_ov000_0215f7a8*)var0->GetMaybeFieldMonsterByIndex(var29 + (var4->unknown_2_0_ * 12 + 0x70));
         if (var30) ((Object3D*)var30)->Destroy();

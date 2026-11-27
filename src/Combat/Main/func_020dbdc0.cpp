@@ -22,7 +22,7 @@ extern "C" void func_020dbf70(struct Struct_020dbdc0* arg0);
 
 extern "C" int GetEffectManager_02057924(void);
 
-struct Struct_020dbd9c {
+struct EffectLoader_020dbd9c {
     SafeAllocator* unknown_0_;
     char* unknown_4_;
     int unknown_8_;
@@ -32,7 +32,7 @@ struct Struct_020dbd9c {
 };
 
 // USA: func_020dbdc0
-extern "C" ARM void func_020dbdc0(Struct_020dbd9c* arg0) {
+extern "C" ARM void func_020dbdc0(EffectLoader_020dbd9c* arg0) {
     if (arg0->unknown_c_ >= 0) {
         BackgroundLoader* var0 = BackgroundLoader::GetInstance();
         if (var0->GetTaskStatus(arg0->unknown_c_) != 0) {

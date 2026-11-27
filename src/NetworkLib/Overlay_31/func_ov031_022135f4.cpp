@@ -29,13 +29,13 @@ struct Struct_ov031_0224e5c4_10 {
     Struct_ov031_022135f4_2* unknown_10_;
 };
 
-extern Struct_ov031_0224e5c4_10 data_ov031_0224e5c4;
+extern Struct_ov031_0224e5c4_10 gWifiConnectionBuffers_ov031_0224e5c4;
 
 // USA: func_ov031_022135f4
 extern "C" ARM int func_ov031_022135f4() {
     unsigned char var0;
     unsigned char var1;
-    Struct_ov031_022135f4_2* var2 = data_ov031_0224e5c4.unknown_10_;
+    Struct_ov031_022135f4_2* var2 = gWifiConnectionBuffers_ov031_0224e5c4.unknown_10_;
     var1 = var2->unknown_d13_;
     Struct_ov031_022135f4* var3 = var2->unknown_474_;
     Struct_ov031_022135f4* var4 = &var3[(short)var1];

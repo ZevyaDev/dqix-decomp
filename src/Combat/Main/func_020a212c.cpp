@@ -42,7 +42,7 @@ int fix32abs(int x);
 int fix32ReduceAngle0To2Pi(int angle);
 extern "C" void func_0202e6a8(struct Struct_0202e6a8* arg0, int arg1);
 extern "C" void func_0202e6c0(struct Struct_0202e6c0* arg0, int arg1);
-extern "C" void func_0202e71c(struct Struct_0202e71c* arg0, int arg1);
+extern "C" void SetCameraDistance_0202e71c(struct Camera_0202e71c* camera, int distance);
 extern "C" int func_020a10a8(int* arg0);
 extern "C" void func_020a0dec(struct Struct_0202ef14_2* arg0);
 extern "C" void func_0202ec5c(char* arg0, int* arg1);
@@ -120,7 +120,7 @@ extern "C" ARM void func_020a212c(Struct_020a212c_2* arg0, int arg1) {
     } else if (var5 && var4) {
         arg0->unknown_245_ |= 2;
         func_0202e6c0((struct Struct_0202e6c0*)arg0, arg0->unknown_220_.y);
-        func_0202e71c((struct Struct_0202e71c*)arg0, arg0->unknown_220_.z);
+        SetCameraDistance_0202e71c((struct Camera_0202e71c*)arg0, arg0->unknown_220_.z);
     } else if (var4) {
         var3 = fix32ReduceAngle0To2Pi(var3 + (int)(4096.0f * (0.0015f * (float)var6)));
         if (var3 > 0xc91 && var3 < 0x57f7) {
@@ -176,7 +176,7 @@ extern "C" ARM void func_020a212c(Struct_020a212c_2* arg0, int arg1) {
         arg0->unknown_2c6_ += -arg0->unknown_2c6_ / 10;
         if (arg0->unknown_2c6_ < 0x28) {
             arg0->unknown_2c4_ = 0;
-            func_0202e71c((struct Struct_0202e71c*)arg0, var14.z);
+            SetCameraDistance_0202e71c((struct Camera_0202e71c*)arg0, var14.z);
             func_0202e6c0((struct Struct_0202e6c0*)arg0, var14.y);
             var15 = 0;
         }

@@ -81,7 +81,7 @@ extern "C" void func_ov005_021579ec(Struct_ov005_0215c058_4* arg0, unsigned int 
 extern "C" unsigned int _ZNK9GameState12GetTickCountEv(GameState* arg0);
 extern "C" int UpdateKeyMenuCursor_0205bf58(void* cursor, int ticks);
 extern "C" int func_ov005_021585fc(Struct_ov005_0215c058_4* arg0, int arg1);
-extern "C" void func_ov005_021555c0(Struct_ov005_0215c058_4* arg0);
+extern "C" void FillEquipMenuItemGrid_ov005_021555c0(Struct_ov005_0215c058_4* equipMenuUI);
 extern "C" void func_ov005_021536e0(Struct_ov005_0215c058_3* arg0);
 extern "C" void func_ov005_021553b4(Struct_ov005_0215c058_4* arg0, int arg1, int* arg2, int* arg3);
 extern "C" void func_ov005_02154d18(Struct_ov005_0215c058_3* arg0, int arg1, int arg2);
@@ -167,7 +167,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
                     var8 = func_ov005_021585fc(arg0, 1);
             }
             if (var8)
-                func_ov005_021555c0(arg0);
+                FillEquipMenuItemGrid_ov005_021555c0(arg0);
         }
 
         short var10 = arg0->unknown_3dbd_ * 16;
@@ -220,7 +220,7 @@ extern "C" ARM void func_ov005_0215c058(Struct_ov005_0215c058_4* arg0)
             var21[arg0->unknown_3de0_] = var21[var18];
             var20[var18] = var22;
             var21[var18] = var23;
-            func_ov005_021555c0(arg0);
+            FillEquipMenuItemGrid_ov005_021555c0(arg0);
             arg0->unknown_3dcc_.unknown_0_6_ = 1;
             arg0->unknown_3daa_ = 0;
             arg0->unknown_3de0_ = -1;

@@ -18,7 +18,7 @@ struct Struct_ov011_021849bc;
 extern "C" int func_ov011_021849bc(struct Struct_ov011_021849bc* arg0, int arg1);
 extern "C" void func_ov011_021849ac(void* arg0, unsigned int arg1);
 
-extern "C" void SaveNPCStates_0203e0a0(void* manager, unsigned short arg1);
+extern "C" void SaveNPCStates_0203e0a0(void* manager, unsigned short zoneId);
 extern "C" void* UnloadZone_ov017_0219bf74(void);
 extern "C" void func_ov017_021a27e8(void* arg0);
 
@@ -27,7 +27,7 @@ extern "C" void ResetNPCManager_0203cfb4(struct NPCManager_0203cfb4* npcManager)
 
 extern "C" void UnloadFieldObjects_ov017_021a316c(int gameResources);
 
-extern "C" void func_ov017_0219b938(int arg0);
+extern "C" void UnloadFieldIcons_ov017_0219b938(int gameResources);
 
 // USA: func_ov011_02184cc0
 extern "C" ARM int func_ov011_02184cc0(struct ScriptValue_ov011_02184c30* arg0) {
@@ -55,7 +55,7 @@ extern "C" ARM int func_ov011_02184cc0(struct ScriptValue_ov011_02184c30* arg0) 
         break;
     case 2:
         if (func_ov011_021849bc(var1, 4)) return 1;
-        func_ov017_0219b938(var0);
+        UnloadFieldIcons_ov017_0219b938(var0);
         ((SafeAllocator*)((void*)(var0 + 0x9c)))->Reset();
         func_ov011_021849ac(var1, 4);
         break;

@@ -49,7 +49,7 @@ extern "C" void* func_020d6c00(void);
 extern "C" void ClearGlobalFlags_020466f4(GlobalFlags_02038598_4* globalFlags, unsigned int mask);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" void DisablePlayerControl_020397cc(struct Struct_02018300_3* object, int standStill);
-extern "C" void func_020a35cc(unsigned char* arg0, unsigned char arg1);
+extern "C" void AddPartyMemberToBattle_020a35cc(unsigned char* arg0, unsigned char partyMemberIndex);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void func_020c9be0(void);
 extern "C" void func_ov017_021c3f70(unsigned short arg0);
@@ -80,16 +80,16 @@ extern "C" ARM void func_ov017_021b848c(Struct_ov017_021b848c_2* arg0, signed ch
         *(unsigned short*)((char*)var4 + 0xb2) = 0;
     }
     if (arg1[0] != 0 && var0->GetGameObjectByIndex(0) != NULL) {
-        func_020a35cc(arg0->unknown_1c_, 0);
+        AddPartyMemberToBattle_020a35cc(arg0->unknown_1c_, 0);
     }
     if (arg1[1] != 0 && var0->GetGameObjectByIndex(1) != NULL) {
-        func_020a35cc(arg0->unknown_1c_, 1);
+        AddPartyMemberToBattle_020a35cc(arg0->unknown_1c_, 1);
     }
     if (arg1[2] != 0 && var0->GetGameObjectByIndex(2) != NULL) {
-        func_020a35cc(arg0->unknown_1c_, 2);
+        AddPartyMemberToBattle_020a35cc(arg0->unknown_1c_, 2);
     }
     if (arg1[3] != 0 && var0->GetGameObjectByIndex(3) != NULL) {
-        func_020a35cc(arg0->unknown_1c_, 3);
+        AddPartyMemberToBattle_020a35cc(arg0->unknown_1c_, 3);
     }
     arg0->unknown_46_ = arg2;
     if (IsPartyMemberInBattle_020a35e0(arg0->unknown_1c_, arg0->unknown_46_) == 0) func_020c9be0();

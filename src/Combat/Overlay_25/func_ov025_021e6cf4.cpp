@@ -32,7 +32,7 @@ extern "C" void func_ov025_021def64(unsigned char* arg0, void* arg1, int arg2);
 extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2* action, int index);
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c* action, int index);
 extern "C" void func_ov025_021e4448(int* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_020338d4(Struct_020338d4* arg0, Struct_ov009_0218aa28* arg1);
+extern "C" void FacePositionInstantly_020338d4(Struct_020338d4* object, Struct_ov009_0218aa28* targetPosition);
 
 // USA: func_ov025_021e6cf4
 extern "C" ARM int func_ov025_021e6cf4(Struct_ov025_021e6cf4* arg0, void* arg1) {
@@ -79,8 +79,8 @@ extern "C" ARM int func_ov025_021e6cf4(Struct_ov025_021e6cf4* arg0, void* arg1) 
         var4->obj3D_.position_ = var11;
         var5->obj3D_.position_ = var12;
         if (arg0->unknown_8_7_) {
-            func_020338d4((Struct_020338d4*)var4, (Struct_ov009_0218aa28*)&var12);
-            func_020338d4((Struct_020338d4*)var5, (Struct_ov009_0218aa28*)&var11);
+            FacePositionInstantly_020338d4((Struct_020338d4*)var4, (Struct_ov009_0218aa28*)&var12);
+            FacePositionInstantly_020338d4((Struct_020338d4*)var5, (Struct_ov009_0218aa28*)&var11);
         }
     } else if (arg0->unknown_8_0_ == 3) {
         func_ov000_02167f10(var0);

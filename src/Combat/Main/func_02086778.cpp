@@ -11,37 +11,37 @@ struct PattyMember_02086778_2 {
 
 struct Party_02086778 {
     char unknown_0_[0xf80];
-    struct PattyMember_02086778_2 unknown_f80_[13];
+    struct PattyMember_02086778_2 pattyMembers_f80_[13];
     unsigned char pattyMemberCount_2c8c_;
 };
 
-// USA: func_02086778
-extern "C" ARM int func_02086778(void* arg0, struct PattyMember_02086778_2* arg1, unsigned char arg2, unsigned char arg3) {
-    struct Party_02086778* var0 = (struct Party_02086778*)arg0;
-    signed char var1 = -1;
-    signed char var2 = 0;
-    int var3 = 0;
-    for (var2 = 0; var2 < 16; var2++) {
-        bool var4 = var3;
-        unsigned char var5 = var3;
-        for (; var5 < var0->pattyMemberCount_2c8c_; var5++) {
-            if (var2 == var0->unknown_f80_[var5].id_0_0_) {
-                var4 = true;
+// USA: AddPattyMember_02086778
+extern "C" ARM int AddPattyMember_02086778(void* party, struct PattyMember_02086778_2* pattyMember, unsigned char arg2, unsigned char arg3) {
+    struct Party_02086778* roster = (struct Party_02086778*)party;
+    signed char freeId = -1;
+    signed char id = 0;
+    int firstIndex = 0;
+    for (id = 0; id < 16; id++) {
+        bool isTaken = firstIndex;
+        unsigned char i = firstIndex;
+        for (; i < roster->pattyMemberCount_2c8c_; i++) {
+            if (id == roster->pattyMembers_f80_[i].id_0_0_) {
+                isTaken = true;
                 break;
             }
         }
-        if (!var4) {
-            var1 = var2;
+        if (!isTaken) {
+            freeId = id;
             break;
         }
     }
-    if (var1 < 0) {
+    if (freeId < 0) {
         return 0;
     }
-    arg1->id_0_0_ = var1;
-    arg1->unknown_0_6_ = arg2;
-    arg1->unknown_0_7_ = arg3;
-    func_02086868(&var0->unknown_f80_[var0->pattyMemberCount_2c8c_], arg1);
-    var0->pattyMemberCount_2c8c_++;
+    pattyMember->id_0_0_ = freeId;
+    pattyMember->unknown_0_6_ = arg2;
+    pattyMember->unknown_0_7_ = arg3;
+    func_02086868(&roster->pattyMembers_f80_[roster->pattyMemberCount_2c8c_], pattyMember);
+    roster->pattyMemberCount_2c8c_++;
     return 1;
 }

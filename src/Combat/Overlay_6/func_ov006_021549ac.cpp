@@ -6,7 +6,7 @@
 #include "Filesystem/BackgroundLoader.h"
 #include "GameState/GameState.h"
 
-struct Struct_020dbd9c {
+struct EffectLoader_020dbd9c {
     char unknown_0_[0x10];
     int unknown_10_;
     unsigned char unknown_14_;
@@ -85,7 +85,7 @@ struct Struct_ov006_02154614 {
     SafeAllocator* unknown_1280_;
     SafeAllocator* unknown_1284_;
     char unknown_1288_[0x18];
-    Struct_020dbd9c unknown_12a0_;
+    EffectLoader_020dbd9c unknown_12a0_;
     short unknown_12b8_;
     signed char unknown_12ba_;
     unsigned char unknown_12bb_;

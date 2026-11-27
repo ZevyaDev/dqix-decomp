@@ -31,7 +31,7 @@ extern "C" Struct_ov025_021e771c_2* func_ov017_021b8478(void* battleManager);
 extern "C" Struct_ov025_021e771c_3* GetBattleScene_ov000_02160130(void);
 extern "C" void func_ov000_02166804(Struct_ov025_021e771c_3* arg0);
 void* LoadFileIntoMemory(const char* path, void* dst, unsigned int* outSize);
-extern "C" void* func_020709d8(void* arg0);
+extern "C" void* ClearMonsterBattleDataTable_020709d8(void* table);
 extern "C" void* ClearMonsterTable_0206efc4(void* monsterTable);
 extern "C" void func_02070b6c(void* arg0, void* arg1, void* arg2, unsigned int arg3, int arg4, int arg5);
 #if defined(jpn)
@@ -71,7 +71,7 @@ extern "C" ARM int func_ov025_021e771c(short* arg0, int arg1, int arg2, int arg3
 #endif
 
     if (var7 != 0) {
-        func_020709d8(var4);
+        ClearMonsterBattleDataTable_020709d8(var4);
         func_02070b6c(var4, var5, var7, var6, arg2, arg3);
 #if defined(jpn)
         void* var8 = LoadFileIntoMemory(data_ov025_021efb3a, g_fileScratchSpace, &var6);

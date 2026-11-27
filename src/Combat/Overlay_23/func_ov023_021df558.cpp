@@ -88,9 +88,9 @@ extern "C" void func_ov023_021db45c(void* arg0, struct Struct_ov023_021db45c* ar
 extern "C" void DrawLayoutElements_ov023_021e257c(Struct_ov023_021df558* layout);
 extern "C" void func_ov023_021db544(void* arg0, void* arg1, int arg2, int arg3);
 extern "C" unsigned int func_ov023_021ddc98(Struct_ov023_021df558_2* arg0, unsigned int arg1, unsigned short arg2, int arg3);
-extern "C" unsigned short func_020de194(void* arg0);
-extern "C" void func_ov023_021e24b0(void* arg0, int arg1, int arg2, unsigned char arg3, unsigned char arg4,
-                              unsigned char arg5, unsigned char arg6, unsigned char arg7, unsigned char arg8);
+extern "C" unsigned short GetItemBuyPrice_020de194(void* item);
+extern "C" void SetLayoutGroupNumber_ov023_021e24b0(void* layout, int groupId, int number, unsigned char fontSize, unsigned char colorIndex,
+                              unsigned char isRightAligned, unsigned char digitCount, unsigned char hasPlusSign, unsigned char isZeroPadded);
 
 #define SHOW_ELEMENT(layout, id)                                           \
     {                                                                      \
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov023_021df558(Struct_ov023_021df558_4* arg0)
     {
         Struct_ov023_021df558_3* var7 = arg0->unknown_4c_;
         SHOW_ELEMENT(&arg0->unknown_cc_, 0x10);
-        if (var7->unknown_8_0_ == 9 || func_020de194(var7) == 0)
+        if (var7->unknown_8_0_ == 9 || GetItemBuyPrice_020de194(var7) == 0)
         {
             HIDE_ELEMENT(&arg0->unknown_cc_, 5);
             HIDE_ELEMENT(&arg0->unknown_cc_, 0x17);
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov023_021df558(Struct_ov023_021df558_4* arg0)
         }
         else
         {
-            func_ov023_021e24b0(&arg0->unknown_cc_, 5, func_020de194(var7), 8, 15, 1, 6, 0, 0);
+            SetLayoutGroupNumber_ov023_021e24b0(&arg0->unknown_cc_, 5, GetItemBuyPrice_020de194(var7), 8, 15, 1, 6, 0, 0);
             SHOW_ELEMENT(&arg0->unknown_cc_, 5);
             SHOW_ELEMENT(&arg0->unknown_cc_, 0x17);
             HIDE_ELEMENT(&arg0->unknown_cc_, 0x19);
@@ -202,7 +202,7 @@ extern "C" ARM void func_ov023_021df558(Struct_ov023_021df558_4* arg0)
         }
         else
         {
-            func_ov023_021e24b0(&arg0->unknown_cc_, 6, var11, 8, 15, 1, 6, 0, 0);
+            SetLayoutGroupNumber_ov023_021e24b0(&arg0->unknown_cc_, 6, var11, 8, 15, 1, 6, 0, 0);
             SHOW_ELEMENT(&arg0->unknown_cc_, 6);
             SHOW_ELEMENT(&arg0->unknown_cc_, 0x18);
             HIDE_ELEMENT(&arg0->unknown_cc_, 0x1a);

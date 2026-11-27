@@ -25,7 +25,7 @@ struct Struct_ov017_021b04e0 {
 
 extern "C" void func_ov017_021d0b30(int arg0, int arg1, int arg2);
 extern "C" void* func_ov017_021b0fe0(int arg0, int arg1);
-extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);
+extern "C" void SendBattleRecords_ov017_021d1118(int recipientIndex, int sectionMask, int arg2, int arg3);
 extern "C" void func_ov017_021d1014(int arg0, int arg1, int arg2);
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" void* func_0202ae24(void);
@@ -51,7 +51,7 @@ extern "C" ARM unsigned char func_ov017_021b04e0(struct Struct_ov017_021b04e0* a
         int var6 = func_02053c6c((unsigned char*)var5);
         int var7 = *(int*)((char*)var6 + Enum_ov017_021b04e0_2384) & 0xff;
         func_ov017_021b0fe0(var4, var7);
-        func_ov017_021d1118(-1, 5, 1, 1);
+        SendBattleRecords_ov017_021d1118(-1, 5, 1, 1);
         func_ov017_021d1014(-1, 1, 1);
         arg0->unknown_21_ = arg0->unknown_21_ + 1;
     } else if (var1 == 1) {

@@ -13,9 +13,9 @@ struct Struct_020fe6fc {
 };
 
 #if defined(jpn)
-extern Struct_020fe6fc data_020fe6fc;
-#define glyphBitmapContext data_020fe6fc
+extern Struct_020fe6fc gScreenBitmap_020fe9a4;
+#define glyphBitmapContext gScreenBitmap_020fe9a4
 #else
-extern Struct_020fe6fc data_020fe9a4;
-#define glyphBitmapContext data_020fe9a4
+extern Struct_020fe6fc gScreenBitmap_020fe9a4;
+#define glyphBitmapContext gScreenBitmap_020fe9a4
 #endif

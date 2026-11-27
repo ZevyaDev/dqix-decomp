@@ -349,7 +349,7 @@ extern "C" Struct_020a99d0_3* func_0205ec34(void);
 extern "C" int IsLocalWirelessGuest_0202c540(Struct_ov031_0224e6e0* wireless);
 extern "C" int IsNotLocalWirelessGuest_0202c508(Struct_ov031_0224e6e0* wireless);
 extern "C" int func_02075acc(int arg0, void* arg1, unsigned int arg2, int arg3);
-extern "C" void func_020830cc(Struct_020a95a4_5* arg0, Struct_020a95a4_7* arg1);
+extern "C" void BuildPattyMember_020830cc(Struct_020a95a4_5* memberData, Struct_020a95a4_7* pattyMember);
 extern "C" void LoadFileTables_020a0c0c(void);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 
@@ -377,7 +377,7 @@ extern "C" void func_02012da4(AllocatorUnion* allocator, void* block);
 extern "C" int GetOwnPartyOrder_02011494(char* gameState, void* outOwnPartyOrder);
 extern "C" void func_020a99d0(Struct_020a99d0_3* arg0, Struct_020a99d0_3* arg1);
 extern "C" int func_020ac7b4(int arg0);
-extern "C" void func_ov017_021d0d58(void);
+extern "C" void SendReturnZone_ov017_021d0d58(void);
 extern "C" ActiveZone_020fdd44* GetActiveZones_02027ca4(void);
 extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44* zones, int zoneId);
 extern "C" NPCManager_0203dce4_2* GetNPCManager_0203cf4c(void);
@@ -501,7 +501,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
                 if (var28 != NULL) {
                     Struct_020a95a4_5* var29 = func_02053c6c((unsigned char*)var28);
                     if (var29 != NULL) {
-                        func_020830cc(var29, &var22->unknown_0_[var10]);
+                        BuildPattyMember_020830cc(var29, &var22->unknown_0_[var10]);
                     }
                 }
             }
@@ -541,7 +541,7 @@ extern "C" ARM int func_020a9eb8(Struct_020a9eb8_15* arg0, Struct_020a9eb8_13* a
                 var22->unknown_2c4c_ = var25->unknown_2c94_;
                 var34->unknown_7e74_ = var25->unknown_2c94_;
                 if (IsNotLocalWirelessGuest_0202c508(var13)) {
-                    func_ov017_021d0d58();
+                    SendReturnZone_ov017_021d0d58();
                 }
             } else {
                 var22->unknown_2c4c_ = var34->unknown_7e74_;

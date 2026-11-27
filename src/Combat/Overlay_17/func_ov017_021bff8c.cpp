@@ -14,7 +14,7 @@ struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" int IsQueueEmpty_02046b08(void** queue);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
-extern "C" int func_02039820(void* arg0);
+extern "C" int IsControllable_02039820(void* object);
 extern "C" int IsOnLadder_02039d7c(char* object);
 extern "C" void func_ov017_021cf4b0(int arg0, int arg1);
 extern "C" void func_0200fb40(void* arg0);
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov017_021bff8c(Struct_ov017_021bff8c* arg0, unsigned ch
             var1 = 1;
         } else if (IsPerformingGesture_020535c8((signed char*)var4) != 0) {
             var1 = 1;
-        } else if (func_02039820(var4) == 0) {
+        } else if (IsControllable_02039820(var4) == 0) {
             var1 = 1;
         } else if (*(int*)(var5 + Enum_ov017_021bff8c_2456) != 0) {
             var1 = 1;

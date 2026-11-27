@@ -155,7 +155,7 @@ struct Struct_ov000_02165490_10 {
 
 extern "C" int* func_0202ae18(GameResources*);
 extern "C" int func_ov000_0215ed34(Struct_ov000_02165490_14* arg0, short* arg1, int arg2);
-extern "C" void func_020709d8(void*);
+extern "C" void ClearMonsterBattleDataTable_020709d8(void*);
 extern "C" void func_02070b6c(void*, void*, void*, unsigned int, short*, short);
 extern "C" Struct_ov000_02165490_11* FindMonsterBattleData_02070fd0(void*, int);
 extern "C" char* GetActionTables_020797dc();
@@ -247,7 +247,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
     var8 = func_ov000_0215ed34(arg0->unknown_29c_, var2, 3);
     BackgroundLoader::AddLockGlobal();
     if (LoadFileIntoMemory(data_ov000_021839ee, g_fileScratchSpace, &var4)) {
-        func_020709d8(&var14->unknown_400_);
+        ClearMonsterBattleDataTable_020709d8(&var14->unknown_400_);
         func_02070b6c(&var14->unknown_400_, &arg0->unknown_44_, g_fileScratchSpace, var4, var2, var8);
 
         {
@@ -364,7 +364,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
         }
 
         arg0->unknown_44_.Reset();
-        func_020709d8(&var14->unknown_400_);
+        ClearMonsterBattleDataTable_020709d8(&var14->unknown_400_);
         func_02070b6c(&var14->unknown_400_, &arg0->unknown_44_, g_fileScratchSpace, var4, var5, var9);
         memcpy(var2, var5, var9 * 2);
 
@@ -389,7 +389,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
                 }
                 if (var52) {
                     arg0->unknown_44_.Reset();
-                    func_020709d8(&((Struct_ov000_02165490_6*)var10)->unknown_400_);
+                    ClearMonsterBattleDataTable_020709d8(&((Struct_ov000_02165490_6*)var10)->unknown_400_);
                     func_02070b6c(&((Struct_ov000_02165490_6*)var10)->unknown_400_, &arg0->unknown_44_, g_fileScratchSpace, var50, var2, var8);
                 }
             }
@@ -397,7 +397,7 @@ extern "C" ARM void func_ov000_02165490(Struct_ov000_02165490_10* arg0) {
 
         var8 = func_ov000_02167484(var2, var8);
         arg0->unknown_44_.Reset();
-        func_020709d8(&var14->unknown_400_);
+        ClearMonsterBattleDataTable_020709d8(&var14->unknown_400_);
         func_02070b6c(&var14->unknown_400_, &arg0->unknown_44_, g_fileScratchSpace, var4, var2, var8);
     }
 

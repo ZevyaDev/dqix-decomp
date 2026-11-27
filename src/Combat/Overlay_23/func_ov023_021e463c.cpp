@@ -5,7 +5,7 @@ extern "C" void func_ov023_021e6194(void* arg0);
 struct Struct_ov009_02188454 { unsigned int unknown_0_[3]; };
 extern "C" void func_ov023_021e613c(Struct_ov009_02188454* arg0, char* arg1);
 int fix32ReduceAngle0To2Pi(int angle);
-extern "C" void func_ov023_021e60e0(void* arg0, unsigned int arg1);
+extern "C" void SetCharacterModelFacing_ov023_021e60e0(void* model, unsigned int angle);
 extern "C" void func_ov023_021e6088(void* arg0, Struct_ov009_02188454* arg1);
 extern "C" int func_ov023_021e29d0(char* arg0);
 
@@ -49,7 +49,7 @@ extern "C" ARM void func_ov023_021e463c(void* arg0, unsigned int arg1) {
             }
         }
         int var17 = fix32ReduceAngle0To2Pi(var11);
-        func_ov023_021e60e0(*(void**)(var0 + Enum_ov023_021e463c_296), var17);
+        SetCharacterModelFacing_ov023_021e60e0(*(void**)(var0 + Enum_ov023_021e463c_296), var17);
         int var18 = fix32ReduceAngle0To2Pi(0x1eb - var11);
         int var19 = var18 < 0 ? -var18 : var18;
         if (var19 < 0x28) {
@@ -61,7 +61,7 @@ extern "C" ARM void func_ov023_021e463c(void* arg0, unsigned int arg1) {
         }
         if (var6) {
             int var22 = fix32ReduceAngle0To2Pi(0x1eb);
-            func_ov023_021e60e0(*(void**)(var0 + Enum_ov023_021e463c_296), var22);
+            SetCharacterModelFacing_ov023_021e60e0(*(void**)(var0 + Enum_ov023_021e463c_296), var22);
             *(unsigned short*)(var0 + Enum_ov023_021e463c_1588) &= ~2;
         }
     } else if (var5 & 1) {

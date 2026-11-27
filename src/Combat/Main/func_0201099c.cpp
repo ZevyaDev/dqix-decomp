@@ -39,7 +39,7 @@ struct Struct_0201099c_19 {
     short unknown_1a_;
 };
 
-struct Struct_0201099c_20 {
+struct PattyMember_0201099c_20 {
     signed char unknown_0_0_ : 6;
     unsigned char unknown_0_6_ : 1;
     unsigned char unknown_0_7_ : 1;
@@ -75,7 +75,7 @@ struct Struct_0201099c_4 {
 #else
     unsigned char unknown1_0_[0x3984];
 #endif
-    Struct_0201099c_20 unknown_3984_[13];
+    PattyMember_0201099c_20 unknown_3984_[13];
     unsigned char unknown_5690_;
 };
 
@@ -172,9 +172,9 @@ struct Struct_020e6d74 {
 
 struct Struct_0201099c_3;
 struct Struct_0201099c_15;
-struct Struct_0201099c_16;
+struct PattyMember_0201099c_16;
 struct Struct_0201099c_17;
-struct Struct_0201099c_18 {
+struct SpellTable_0201099c_18 {
     int unknown_0_;
 };
 
@@ -184,13 +184,13 @@ extern "C" void func_02089db4(Struct_0201099c_6* arg0);
 extern "C" void func_02089ddc(Struct_0201099c_6* arg0);
 extern "C" void func_02089de8(void* arg0, void* arg1, const char* arg2);
 extern "C" void* func_0208a018(unsigned char* arg0, int arg1);
-extern "C" void func_02086404(Struct_0201099c_20* arg0);
+extern "C" void InitPattyMember_02086404(PattyMember_0201099c_20* pattyMember);
 extern "C" void func_02086598(Struct_0201099c_15* arg0, int arg1);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 extern "C" int func_020426bc(void* text, void* outGlyphIndices, int font);
 extern "C" void ClearSpellTable_0209a804(int* table);
-extern "C" void func_0209a810(Struct_0201099c_18* arg0, void* arg1);
-extern "C" int func_020865b0(Struct_0201099c_16* arg0);
+extern "C" void LoadSpellTable_0209a810(SpellTable_0201099c_18* table, void* block);
+extern "C" int GetPattyMemberVocation_020865b0(PattyMember_0201099c_16* pattyMember);
 extern "C" void func_020865b8(Struct_0201099c_17* arg0, int arg1);
 extern "C" void InitItemTable_020de824(void* itemTable);
 extern "C" void func_020de848(void* itemTable);
@@ -250,7 +250,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
     LevelEntries_0201099c_2 var1;
     Random* var2 = GetBTRandom();
     Struct_0201099c_5* var3;
-    Struct_0201099c_20* var4;
+    PattyMember_0201099c_20* var4;
     long var5;
     int var6;
     unsigned char var7[3];
@@ -312,7 +312,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
             continue;
         }
         var4 = &arg0->unknown_3984_[var6];
-        func_02086404(var4);
+        InitPattyMember_02086404(var4);
         var4->unknown_0_0_ = var6;
         var4->unknown_0_6_ = 0;
         var4->unknown_0_7_ = 0;
@@ -332,7 +332,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
         }
 #if defined(jpn)
         const char** var20 = var17->unknown_14_0_ == 0 ? var14.unknown_c_ : var14.unknown_14_;
-        unsigned char var21 = func_020865b0((Struct_0201099c_16*)var4);
+        unsigned char var21 = GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var4);
         if (var21 == 1) {
             var20 += NextRandomMax(var2, 5);
         } else if (var21 == 4) {
@@ -397,12 +397,12 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
 
     if (var16 > 0) {
         Struct_0201099c_13 var32;
-        Struct_0201099c_18 var33;
+        SpellTable_0201099c_18 var33;
         ClearSpellTable_0209a804(&var33.unknown_0_);
-        func_0209a810(&var33, &var0);
+        LoadSpellTable_0209a810(&var33, &var0);
         for (int var34 = 0; var34 < arg0->unknown_5690_; var34++) {
             var4 = &arg0->unknown_3984_[var34];
-            unsigned char var35 = func_020865b0((Struct_0201099c_16*)var4);
+            unsigned char var35 = GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var4);
             unsigned char var36 = var4->unknown_2_[var35];
             Struct_0201099c_7* var37 = var0.unknown_10c_[var35];
             for (int var38 = 0; var38 < 20; var38++) {
@@ -452,7 +452,7 @@ extern "C" ARM void func_0201099c(Struct_0201099c_4* arg0) {
                     ReadLevelEntries_02082490(var47, g_fileScratchSpace, var46, var4->unknown_2_[var44], 0);
                     var4->unknown_1c_[var44] = var47->requestedLevelEntry_0_.requiredExperience_0_0_;
                     var4->unknown_f4_ += var47->requestedLevelEntry_0_.unknown_4_7_;
-                    if (var44 == func_020865b0((Struct_0201099c_16*)var4)) {
+                    if (var44 == GetPattyMemberVocation_020865b0((PattyMember_0201099c_16*)var4)) {
                         var43 = &var32;
                         Struct_0201099c_11* var49 = &var43->unknown_3c_;
                         InitPartyMemberData_02082828(var43);

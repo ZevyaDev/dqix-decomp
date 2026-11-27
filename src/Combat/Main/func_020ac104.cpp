@@ -7,18 +7,18 @@
 
 #include "GameState/GameState.h"
 #include "std_library_functions.h"
-struct Struct_020ac104 {
-    short unknown_0_;
-    unsigned short unknown_2_0_ : 1;
-    unsigned short unknown_2_1_ : 1;
+struct AlchemyRecipeState_020ac104 {
+    short recipeId_0_;
+    unsigned short isMade_2_0_ : 1;
+    unsigned short isKnown_2_1_ : 1;
     unsigned short unknown_2_2_ : 14;
 };
-struct Struct_020ac104_2 {
-    unsigned short unknown_0_;
+struct AlchemyRecipeEntry_020ac104_2 {
+    unsigned short idAndFlags_0_;
 };
-struct Struct_020ac104_3 {
+struct GameState_020ac104_3 {
     unsigned char unknown_0_[IS_JPN ? 0x7884 : 0x7ac4];
-    Struct_020ac104_2 unknown_7ac4_[0x1d7];
+    AlchemyRecipeEntry_020ac104_2 recipeEntries_7ac4_[0x1d7];
 };
 struct Struct_020a0434 {
     unsigned char unknown_0_[0x10];
@@ -30,33 +30,33 @@ extern "C" int GetBattleRecords_020ac4c0(void*);
 extern "C" void func_020a0434(Struct_020a0434*, unsigned int);
 extern "C" int SetBattleRecords_020ac494(void*);
 // USA: func_020ac104
-extern "C" ARM int func_020ac104(int arg0, Struct_020ac104* arg1, int arg2) {
-    Struct_020ac104_3* var0 = (Struct_020ac104_3*)GameState::GetInstance();
+extern "C" ARM int func_020ac104(int arg0, AlchemyRecipeState_020ac104* arg1, int arg2) {
+    GameState_020ac104_3* var0 = (GameState_020ac104_3*)GameState::GetInstance();
     int var1 = 0;
-    Struct_020ac104_2* var2 = var0->unknown_7ac4_;
+    AlchemyRecipeEntry_020ac104_2* var2 = var0->recipeEntries_7ac4_;
     for (int var3 = 0; var3 < arg2; var3++) {
-        Struct_020ac104* var4 = &arg1[var3];
-        if (var4->unknown_0_ < 0) continue;
-        Struct_020ac104_2* var5 = var2;
+        AlchemyRecipeState_020ac104* var4 = &arg1[var3];
+        if (var4->recipeId_0_ < 0) continue;
+        AlchemyRecipeEntry_020ac104_2* var5 = var2;
         unsigned int var6 = 0;
         unsigned int var7;
-        int var8 = var4->unknown_0_;
+        int var8 = var4->recipeId_0_;
         for (var7 = 0; var7 < 0x1d7; var7++) {
             var6 = var7;
-            int var9 = (var5->unknown_0_ & 0xfffc) >> 2;
+            int var9 = (var5->idAndFlags_0_ & 0xfffc) >> 2;
             if (var9 <= 0) {
-                if (var4->unknown_2_0_ == 1) var1++;
+                if (var4->isMade_2_0_ == 1) var1++;
                 break;
             }
             if (var9 == var8) {
-                if (!((var5->unknown_0_ & 2) >> 1) && var4->unknown_2_0_ == 1) var1++;
+                if (!((var5->idAndFlags_0_ & 2) >> 1) && var4->isMade_2_0_ == 1) var1++;
                 break;
             }
             var5++;
         }
-        Struct_020ac104_2 var10;
-        var10.unknown_0_ = (var8 << 2) | (var4->unknown_2_0_ << 1) | var4->unknown_2_1_;
-        memcpy(&var0->unknown_7ac4_[var6], &var10, 2);
+        AlchemyRecipeEntry_020ac104_2 var10;
+        var10.idAndFlags_0_ = (var8 << 2) | (var4->isMade_2_0_ << 1) | var4->isKnown_2_1_;
+        memcpy(&var0->recipeEntries_7ac4_[var6], &var10, 2);
     }
     Struct_020a0434 var11;
     GetBattleRecords_020ac4c0(&var11);

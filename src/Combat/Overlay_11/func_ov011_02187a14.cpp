@@ -38,7 +38,7 @@ extern "C" ARM void* func_ov011_0218513c(void* arg0);
 extern "C" ARM void* func_ov011_0218513c(void* arg0);
 #endif
 extern "C" ARM int func_ov023_021f6f20(void* arg0, int arg1, int arg2, int arg3, int arg4, unsigned int arg5);
-extern "C" ARM void* func_ov023_021f7318(void* arg0);
+extern "C" ARM void* GetMenuObjectSprite_ov023_021f7318(void* object);
 
 struct Struct_02012fa4;
 extern "C" ARM void func_ov023_021f7320(void* arg0);
@@ -78,8 +78,8 @@ extern "C" ARM int func_ov011_02187a14(struct Struct_ov011_02187a14_2* arg0) {
         return 0;
     }
 
-    void* var9 = func_ov023_021f7318(var5);
-    void* var10 = func_ov023_021f7318(var7);
+    void* var9 = GetMenuObjectSprite_ov023_021f7318(var5);
+    void* var10 = GetMenuObjectSprite_ov023_021f7318(var7);
     ((SPRSprite*)((struct Struct_02012fa4*)var9))->CloneTo((SPRSprite*)((struct Struct_02012fa4*)var10));
     func_ov023_021f7320(var7);
     AppendMenuObject_ov023_021f67ac((struct MenuObjectList_ov004_0215c30c*)var4, (struct MenuObject_ov004_0215c30c_2*)var7);

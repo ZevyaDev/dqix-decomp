@@ -10,7 +10,7 @@ extern "C" int GetScriptValueAsInt_ov017_021d60f4(void* value);
 extern "C" int ResolveEventObjectIndex_ov001_0215ad2c(int scriptObjectId);
 
 extern SafeAllocator* data_ov001_021658b8[8];
-extern const char data_ov001_02165745[];
+extern const char gDataPathFormat_ov001_02165745[];
 extern const char data_ov001_02165791[];
 extern const char data_ov001_02165798[];
 extern const char data_ov001_0216579f[];
@@ -25,7 +25,7 @@ extern "C" ARM int func_ov001_0215f060(char* arg0, int arg1) {
     SafeAllocator* var3 = data_ov001_021658b8[0];
 
     char var4[0x20];
-    sprintf(var4, data_ov001_02165745, var1);
+    sprintf(var4, gDataPathFormat_ov001_02165745, var1);
 
     int var5 = -1;
     if (strstr(var4, data_ov001_02165791) != NULL) {

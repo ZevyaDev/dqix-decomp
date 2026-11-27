@@ -18,8 +18,8 @@ extern "C" int IsParalysed_ov024_021da9b0(struct Struct_ov024_021da670_7* combat
 extern "C" int IsAsleep_020882f8(unsigned char* currentStats);
 struct Struct_ov024_021de124;
 extern "C" int IsConfused_ov024_021de25c(struct Struct_ov024_021de124* combatant);
-struct Struct_02088660;
-extern "C" int func_02088660(struct Struct_02088660* arg0);
+struct ModifiableCombatStats_02088660;
+extern "C" int HasFource_02088660(struct ModifiableCombatStats_02088660* stats);
 struct Struct_ov024_021fa7ec_5;
 extern "C" int func_ov024_021fb430(struct Struct_ov024_021fa7ec_5* arg0);
 struct Struct_ov024_021fa7ec_6;
@@ -38,7 +38,7 @@ extern "C" void RankCandidateAction_ov024_021f9874(void* tacticAI, void* effects
 
 struct PartyMember_ov024_021fd954 {
     char unknown_0_[4];
-    short unknown_4_;
+    short objectIndex_4_;
     char unknown_6_[0x138 - 0x6];
     struct ModifiableCombatStats* pCurrentStats_138_;
 #if defined(jpn)
@@ -167,7 +167,7 @@ extern "C" ARM void EvaluatePartyStatusAction_ov024_021fd954(struct TacticAI_ov0
             if ((((*(int*)((char*)member->pCurrentStats_138_ + 0x58)) << 8) >> 29) <= 0) isNeeded = true;
             kind = 7;
         } else if (statusEffect == 0xd) {
-            if (!func_02088660((struct Struct_02088660*)member->pCurrentStats_138_)) isNeeded = true;
+            if (!HasFource_02088660((struct ModifiableCombatStats_02088660*)member->pCurrentStats_138_)) isNeeded = true;
             kind = 7;
         } else if (statusEffect == 0xe) {
             if (!func_ov024_021fb430((struct Struct_ov024_021fa7ec_5*)member) && !func_ov024_021fb448((struct Struct_ov024_021fa7ec_6*)member)
@@ -203,11 +203,11 @@ extern "C" ARM void EvaluatePartyStatusAction_ov024_021fd954(struct TacticAI_ov0
             tacticAI->pEffects_658_ = &effects;
             func_ov024_021f6a4c(&tacticAI->effect_65c_, &effect);
             tacticAI->pTarget_668_ = member;
-            tacticAI->targetIndex_66c_ = member->unknown_4_;
+            tacticAI->targetIndex_66c_ = member->objectIndex_4_;
             func_ov024_021fd858(tacticAI);
         }
         if (targetScope == 2 || targetScope == 1) {
-            int targetIndex = (unsigned char)member->unknown_4_;
+            int targetIndex = (unsigned char)member->objectIndex_4_;
             if (hasNeededTarget) RankCandidateAction_ov024_021f9874(tacticAI, &effects, 0, targetIndex);
             memset(&effects, 0, sizeof(effects));
             hasNeededTarget = 0;
@@ -215,7 +215,7 @@ extern "C" ARM void EvaluatePartyStatusAction_ov024_021fd954(struct TacticAI_ov0
     }
     if (targetScope == 4 || targetScope == 3) {
         GetCombatantByID((int)tacticAI->pBattle_0_, 0);
-        int targetIndex = (unsigned char)actor->unknown_4_;
+        int targetIndex = (unsigned char)actor->objectIndex_4_;
         if (targetScope == 3) targetIndex = 0xff;
         if (hasNeededTarget) RankCandidateAction_ov024_021f9874(tacticAI, &effects, 0, targetIndex);
     }

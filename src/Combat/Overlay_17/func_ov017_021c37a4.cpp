@@ -128,7 +128,7 @@ struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 struct Struct_020e3004;
 struct Struct_020e358c;
-struct Struct_020e3814;
+struct EventSyncEntry_020e3814;
 struct MusicManager_02109bf4_4;
 struct Struct_02109bf4_3;
 struct GlobalFlags_02038598_4;
@@ -187,7 +187,7 @@ extern "C" void func_ov017_02195748(unsigned char* arg0);
 extern "C" void ResetFollowCameraAngle_020a2718(char* camera);
 extern "C" void func_020e3004(Struct_020e3004* arg0);
 extern "C" void func_020e358c(Struct_020e358c* arg0);
-extern "C" void func_020e3814(Struct_020e3814* arg0);
+extern "C" void func_020e3814(EventSyncEntry_020e3814* arg0);
 extern "C" int func_0209c3ac(char* arg0);
 extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4* manager, int fadeDuration);
@@ -403,7 +403,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     ResetFollowCameraAngle_020a2718((char*)var27);
     func_020e3004((Struct_020e3004*)var5);
     func_020e358c((Struct_020e358c*)var6);
-    func_020e3814((Struct_020e3814*)var7);
+    func_020e3814((EventSyncEntry_020e3814*)var7);
     var43->unknown_2820_ = 1;
 
     if (func_0209c3ac((char*)&gMusicManager_02109bf4) != 0x7f) {

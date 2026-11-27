@@ -34,7 +34,7 @@ struct Struct_ov017_021a28a8_4 {
 };
 
 extern "C" void func_ov017_021a27e8(void*);
-extern "C" Struct_ov017_021a28a8* func_02027cb0();
+extern "C" Struct_ov017_021a28a8* FindCurrentActiveZone_02027cb0();
 extern "C" int func_0209c0ec(char*);
 extern "C" int func_0209c0a8(void*, int);
 extern "C" Struct_ov017_021a28a8_2* FindMonsterData_0206f4f0(Struct_0206f01c_2*, int);
@@ -54,7 +54,7 @@ extern "C" ARM void func_ov017_021a28a8(Struct_ov017_021a28a8_4* arg0) {
     SafeAllocator* var1 = &arg0->unknown_113c_;
     char* var2 = arg0->unknown_1150_;
     func_ov017_021a27e8(arg0);
-    Struct_ov017_021a28a8* var3 = func_02027cb0();
+    Struct_ov017_021a28a8* var3 = FindCurrentActiveZone_02027cb0();
     if (!var3) return;
     Struct_ov017_021a28a8_3* var4 = (Struct_ov017_021a28a8_3*)var1->Allocate(func_0209c0ec(var3->unknown_44_) * 0xb0);
     if (!var4) return;

@@ -87,11 +87,11 @@ extern "C" int func_ov017_02194140(Struct_ov017_02192700_5* arg0, Struct_ov017_0
 extern "C" int func_02039d68(unsigned char* arg0);
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
-extern "C" void func_ov017_0219b33c(Struct_ov017_02192700_4* arg0, Struct_01ff91ac_18* arg1);
+extern "C" void SubmitInteractionPrompt_ov017_0219b33c(Struct_ov017_02192700_4* gameResources, Struct_01ff91ac_18* candidate);
 extern "C" void func_ov017_021c316c(Struct_ov017_02192700_2* arg0, int arg1);
 extern "C" int func_ov017_0218d4ec(void* arg0, int arg1);
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
-extern "C" int func_02039860(void* arg0);
+extern "C" int GetFollowedObjectIndex_02039860(void* object);
 extern "C" void func_ov017_0219344c(Struct_ov017_02192700_5* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
 
 static inline Struct_ov017_02192700_4* inline_ov017_02192700() {
@@ -99,7 +99,7 @@ static inline Struct_ov017_02192700_4* inline_ov017_02192700() {
     Struct_01ff91ac_18 var1;
     ResetInteractionPrompt_ov017_0219a674((unsigned char*)&var1);
     var1.unknown_0_ = 1;
-    func_ov017_0219b33c(var0, &var1);
+    SubmitInteractionPrompt_ov017_0219b33c(var0, &var1);
     return var0;
 }
 
@@ -113,7 +113,7 @@ static inline void inline_ov017_02192700_3(Struct_ov017_02192700_4* arg0, Struct
     Struct_01ff91ac_18 var0;
     inline_ov017_02192700_2(&var0);
     var0.unknown_2_ = arg1->unknown_0_.unknown_4_;
-    func_ov017_0219b33c(arg0, &var0);
+    SubmitInteractionPrompt_ov017_0219b33c(arg0, &var0);
 }
 
 // USA: func_ov017_02192700
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov017_02192700(Struct_ov017_02192700_4* arg0) {
                 func_ov017_02194140(var3, var7)) {
                 inline_ov017_02192700_3((Struct_ov017_02192700_4*)GetGameResources(), var7);
             }
-            if (func_02039860(var7) >= 0) {
+            if (GetFollowedObjectIndex_02039860(var7) >= 0) {
                 continue;
             }
             if (!var7->unknown_0_.IsVisible()) {

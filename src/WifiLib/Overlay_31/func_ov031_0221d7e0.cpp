@@ -11,8 +11,8 @@ extern "C" THUMB int func_ov031_0221d7e0(Struct_ov031_0221d7e0* arg0, Struct_ov0
     if (func_ov031_0221e4fc(arg0->unknown_0_, arg1->unknown_0_, 6) != 0)
         var0--;
     else {
-        unsigned short var1 = func_ov031_0221e638(arg0->unknown_6_);
-        unsigned short var2 = func_ov031_0221e638(arg1->unknown_6_);
+        unsigned short var1 = SwapBytes16_ov031_0221e638(arg0->unknown_6_);
+        unsigned short var2 = SwapBytes16_ov031_0221e638(arg1->unknown_6_);
         if (var1 + 1 != var2)
             var0 -= 2;
     }

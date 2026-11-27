@@ -11,8 +11,8 @@ extern "C" void func_020ac6b8(PlayTime_020ac4f8* arg0, int arg1);
 struct GameState_020103f0;
 extern "C" void GetElapsedPlayTime_020103f0(struct GameState_020103f0* gameState, unsigned short* hours, unsigned char* minutes, unsigned char* seconds);
 
-struct Struct_020104cc;
-extern "C" void func_020104cc(struct Struct_020104cc* arg0, unsigned short* arg1, unsigned char* arg2, unsigned char* arg3);
+struct GameState_020104cc;
+extern "C" void GetElapsedMultiplayerTime_020104cc(struct GameState_020104cc* gameState, unsigned short* hours, unsigned char* minutes, unsigned char* seconds);
 
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" int SetBattleRecords_020ac494(void* records);
@@ -51,7 +51,7 @@ extern "C" ARM int AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded) {
 
     if (isMultiplayerTimeIncluded != 0) {
         PlayTime_020ac4f8* multiplayerTime;
-        func_020104cc((struct Struct_020104cc*)gameState, &hours, &minutes, &seconds);
+        GetElapsedMultiplayerTime_020104cc((struct GameState_020104cc*)gameState, &hours, &minutes, &seconds);
         multiplayerTime = &records.playTimes_0_.multiplayerTime_4_;
 
         AddPlayTimeHours_020ac614(multiplayerTime, hours);

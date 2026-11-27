@@ -48,7 +48,7 @@ extern "C" void* func_0205ec34(void);
 extern "C" int RunTrigger_020649b0(void*, int, void*);
 extern "C" void RunDeferredTriggerActions_0206f81c(void*);
 extern "C" void SetGlobalFlags_020466e4(unsigned int*, unsigned int);
-extern "C" void func_ov017_021d1118(int, int, int, int);
+extern "C" void SendBattleRecords_ov017_021d1118(int, int, int, int);
 extern "C" void func_ov017_021d1014(int, int, int);
 struct MusicManager_02109bf4_2;
 extern "C" void QueueJingle_0209c830(MusicManager_02109bf4_2*, int);
@@ -56,7 +56,7 @@ extern "C" int func_020bc0a4(int);
 struct SaveProgress_020a9ea4;
 extern "C" void ResetSaveProgress_020a9ea4(SaveProgress_020a9ea4*);
 extern "C" int UpdateSaveProgress_020aad1c(void*, void*, int, int);
-extern "C" void func_0209c7fc(void*);
+extern "C" void StopJingle_0209c7fc(void*);
 extern "C" void ClearMessageParams_02046380(void*);
 struct Struct_02046574_2;
 extern "C" void SetMessageString_02046574(Struct_02046574_2*, int, char*);
@@ -148,7 +148,7 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         SetGlobalFlags_020466e4((unsigned int*)var2, 0x80);
         *(int*)(var0 + 0x598) = 0xf;
         if (IsLocalWirelessOn_0202b7d8((int*)var3)) {
-            func_ov017_021d1118(-1, 1, 1, 2);
+            SendBattleRecords_ov017_021d1118(-1, 1, 1, 2);
             func_ov017_021d1014(-1, 1, 0);
         }
         *(unsigned char*)(var0 + 0x580) = 0x64;
@@ -197,7 +197,7 @@ extern "C" ARM void func_ov003_02159d0c(void* arg0) {
         if (*(int*)(var1 + Enum_ov003_02159d0c_2464) == 3) {
             *(unsigned char*)(var1 + 0x1000 + Enum_ov003_02159d0c_2478) = 0;
         }
-        func_0209c7fc(&gMusicManager_02109bf4);
+        StopJingle_0209c7fc(&gMusicManager_02109bf4);
         if (BackgroundLoader::GetInstance()->GetNumQueuedTasks() > 0) return;
         *(unsigned char*)(var0 + 0x59f) = *(unsigned char*)(var0 + 0x59f) & ~2;
         memset(*(void**)(var0 + 0x7c), 0, Enum_ov003_02159d0c_2400);

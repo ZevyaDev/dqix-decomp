@@ -41,7 +41,7 @@ extern "C" void func_ov000_02160e48(void* arg0);
 extern "C" void* func_0205ec34(void);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 extern "C" void* GetParty_02010828(GameState* gameState);
-extern "C" void func_ov017_021d0d58(void);
+extern "C" void SendReturnZone_ov017_021d0d58(void);
 
 // USA: func_ov000_02169770
 extern "C" ARM void func_ov000_02169770(unsigned char* arg0) {
@@ -70,6 +70,6 @@ extern "C" ARM void func_ov000_02169770(unsigned char* arg0) {
         void* var2 = func_0205ec34();
         SetFlag_0206df6c(var2, (unsigned char*)var2 + 0x8c, 3, 1);
         *(int*)((char*)GetParty_02010828(var0) + 0x2000 + 0xc94) = 0x6d;
-        func_ov017_021d0d58();
+        SendReturnZone_ov017_021d0d58();
     }
 }

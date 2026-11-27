@@ -24,7 +24,7 @@ extern "C" unsigned char IsOnLadder_02039d7c(char* object);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 struct GameState_02010834;
-extern "C" void GetOwnPartyMemberObjectIndices_02010834(struct GameState_02010834* arg0, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
+extern "C" void GetOwnPartyMemberObjectIndices_02010834(struct GameState_02010834* gameState, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
 extern "C" void func_02039d58(unsigned char* arg0);
 extern "C" void* func_020d6c00(void);
 extern "C" void* GetParty_02010828(GameState* gameState);
@@ -33,7 +33,7 @@ extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex)
 struct Struct_0205420c;
 extern "C" void func_0205420c(struct Struct_0205420c* arg0, int arg1, int arg2);
 extern "C" void func_ov017_02191f4c(int arg0, int arg1);
-extern "C" void func_ov017_02192400(int arg0, int arg1);
+extern "C" void RestorePartyMemberPolygonIDs_ov017_02192400(int gameResources, int memberIndex);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
@@ -141,7 +141,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
                 func_0205420c((struct Struct_0205420c*)var13, 1, 0);
             }
             func_ov017_02191f4c((int)var0, var12);
-            func_ov017_02192400((int)var0, var12);
+            RestorePartyMemberPolygonIDs_ov017_02192400((int)var0, var12);
         }
         SetGlobalFlags_020466e4(var10, 0x20000);
     }

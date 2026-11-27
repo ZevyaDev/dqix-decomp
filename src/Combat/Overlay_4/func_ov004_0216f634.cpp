@@ -4,18 +4,18 @@
 #include "Memory/SafeAllocator.h"
 #include "NitroSDK/OverlayId.h"
 
-struct Struct_02000c9c_16;
+struct MusicManager_02000c9c_16;
 struct SoundEffectManager_02000c9c_17;
 
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" SafeAllocator* func_ov011_021845f8(void* arg0, int arg1);
 extern "C" void LoadOverlay_020a1940(unsigned int overlayId);
 extern "C" int func_ov031_0221156c(void* arg0);
-extern "C" void func_0205e8d4(void* arg0);
+extern "C" void CloseSoundEffectArchive_0205e8d4(void* manager);
 extern "C" void CloseSoundArchive_0203a950(void* manager);
 extern "C" int func_ov031_02212cbc(void* arg0);
 extern "C" int func_ov031_02211608(void* arg0);
-extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
+extern "C" void InitMusicManager_0209c174(MusicManager_02000c9c_16* manager);
 extern "C" void OpenMusicArchive_0209c290(void* manager);
 extern "C" void InitSoundEffectManager_0205e88c(SoundEffectManager_02000c9c_17* manager);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov004_0216f634(void* arg0) {
         QueueMenuScriptEntry_ov011_021848a0(arg0, 0xd3);
     } else {
         GameState* var0 = GameState::GetInstance();
-        func_0205e8d4(&gSoundEffectManager_02108760);
+        CloseSoundEffectArchive_0205e8d4(&gSoundEffectManager_02108760);
         CloseSoundArchive_0203a950(&gMusicManager_02109bf4);
         LoadOverlay_020a1940(OVERLAY_ID(31));
         SafeAllocator* var1 = func_ov011_021845f8(arg0, 0);
@@ -66,7 +66,7 @@ extern "C" ARM int func_ov004_0216f634(void* arg0) {
         data_ov004_02171048.unknown_4_->unknown_32_ = func_ov031_0221156c(var2) != 0;
         data_ov004_02171048.unknown_4_->unknown_33_ = func_ov031_02211608(var2) != 0;
         LoadOverlay_020a1940(OVERLAY_ID(32));
-        func_0209c174((Struct_02000c9c_16*)&gMusicManager_02109bf4);
+        InitMusicManager_0209c174((MusicManager_02000c9c_16*)&gMusicManager_02109bf4);
         OpenMusicArchive_0209c290(&gMusicManager_02109bf4);
         InitSoundEffectManager_0205e88c((SoundEffectManager_02000c9c_17*)&gSoundEffectManager_02108760);
         LoadSoundEffectSet_0205ea20(&gSoundEffectManager_02108760, 100);

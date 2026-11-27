@@ -4,7 +4,7 @@
 struct Struct_ov023_021d8c60;
 struct Struct_0203a588_2;
 
-struct Struct_020444e0 {
+struct MessageWindow_020444e0 {
     char unknown_0_[0x38];
     void* unknown_38_;
 #if defined(jpn)
@@ -54,8 +54,8 @@ extern "C" void func_ov013_02184a58(void* arg0);
 extern "C" void func_ov023_021d8c60(struct Struct_ov023_021d8c60* arg0);
 extern "C" struct Struct_0203a588_2* GetBattleNumberPopups_02039e70(void);
 extern "C" int func_020a1fa8(void);
-extern "C" struct Struct_020444e0* GetMessageWindow_020421a0();
-extern "C" void func_020444e0(struct Struct_020444e0* arg0);
+extern "C" struct MessageWindow_020444e0* GetMessageWindow_020421a0();
+extern "C" void DrawMessageWindow_020444e0(struct MessageWindow_020444e0* window);
 extern "C" void func_ov013_02187784(void* arg0);
 extern "C" void func_ov000_02173954(char* arg0);
 extern "C" void func_0203a0b4(struct Struct_0203a588_2* arg0);
@@ -89,8 +89,8 @@ extern "C" ARM void func_ov000_02160c84(struct Struct_ov000_02160c84* arg0) {
         }
     }
     GameState::GetInstance()->GetTickCount();
-    struct Struct_020444e0* var0 = GetMessageWindow_020421a0();
+    struct MessageWindow_020444e0* var0 = GetMessageWindow_020421a0();
     if (var0->unknown_998_) {
-        func_020444e0(var0);
+        DrawMessageWindow_020444e0(var0);
     }
 }

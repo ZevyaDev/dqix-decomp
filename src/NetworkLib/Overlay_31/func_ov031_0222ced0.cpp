@@ -17,7 +17,7 @@ struct Struct_ov031_0222ced0 {
 	unsigned char unknown_29_;
 	unsigned char unknown_2a_;
 };
-extern Struct_ov031_0222ced0* data_ov031_02290c94;
+extern Struct_ov031_0222ced0* gTextEntryPage_ov031_02290c94;
 
 // USA: func_ov031_0222ced0
 extern "C" ARM void func_ov031_0222ced0(void) {
@@ -26,14 +26,14 @@ extern "C" ARM void func_ov031_0222ced0(void) {
 	case 0:
 		goto epilogueA;
 	case 0x80:
-		if (data_ov031_02290c94->unknown_29_ != 0) {
+		if (gTextEntryPage_ov031_02290c94->unknown_29_ != 0) {
 			PlayWifiSetupSoundEffect_ov031_02236878(3);
-			data_ov031_02290c94->unknown_29_ -= 1;
+			gTextEntryPage_ov031_02290c94->unknown_29_ -= 1;
 			{
-				unsigned char* var1 = (unsigned char*)data_ov031_02290c94 + data_ov031_02290c94->unknown_29_;
+				unsigned char* var1 = (unsigned char*)gTextEntryPage_ov031_02290c94 + gTextEntryPage_ov031_02290c94->unknown_29_;
 				var1[8] = 0;
 			}
-			if (data_ov031_02290c94->unknown_29_ == 0) {
+			if (gTextEntryPage_ov031_02290c94->unknown_29_ == 0) {
 				func_ov031_02223fb4(0);
 			}
 			func_ov031_02223fc8(1);
@@ -41,31 +41,31 @@ extern "C" ARM void func_ov031_0222ced0(void) {
 		goto epilogueA;
 	case 0x82:
 		PlayWifiSetupSoundEffect_ov031_02236878(7);
-		data_ov031_02290c94->unknown_2a_ = 0;
+		gTextEntryPage_ov031_02290c94->unknown_2a_ = 0;
 		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222d094);
 		return;
 	case 0x83:
 		if (func_ov031_0222d524()) {
 			PlayWifiSetupSoundEffect_ov031_02236878(6);
-			data_ov031_02290c94->unknown_2a_ = 1;
+			gTextEntryPage_ov031_02290c94->unknown_2a_ = 1;
 		} else {
-			data_ov031_02290c94->unknown_2a_ = 2;
+			gTextEntryPage_ov031_02290c94->unknown_2a_ = 2;
 			PlayWifiSetupSoundEffect_ov031_02236878(9);
 		}
-		*(data_ov031_02290c94->unknown_4_) = (*(data_ov031_02290c94->unknown_4_) & 0xc1fffcff) | 0x200;
+		*(gTextEntryPage_ov031_02290c94->unknown_4_) = (*(gTextEntryPage_ov031_02290c94->unknown_4_) & 0xc1fffcff) | 0x200;
 		SetWifiSetupFrameHandler_ov031_022274c0((int)func_ov031_0222d094);
 		return;
 	case 0xe01d:
 	default:
-		if (data_ov031_02290c94->unknown_29_ != 0x20) {
+		if (gTextEntryPage_ov031_02290c94->unknown_29_ != 0x20) {
 			PlayWifiSetupSoundEffect_ov031_02236878(1);
 			{
-				unsigned char* var2 = (unsigned char*)data_ov031_02290c94 + data_ov031_02290c94->unknown_29_;
+				unsigned char* var2 = (unsigned char*)gTextEntryPage_ov031_02290c94 + gTextEntryPage_ov031_02290c94->unknown_29_;
 				var2[8] = (unsigned char)var0;
 			}
-			data_ov031_02290c94->unknown_29_ += 1;
+			gTextEntryPage_ov031_02290c94->unknown_29_ += 1;
 			func_ov031_02223fb4(1);
-			if (data_ov031_02290c94->unknown_29_ == 0x20) {
+			if (gTextEntryPage_ov031_02290c94->unknown_29_ == 0x20) {
 				func_ov031_02223fc8(0);
 			}
 		}

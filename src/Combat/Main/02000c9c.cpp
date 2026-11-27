@@ -19,7 +19,7 @@ struct GameState_02000c9c_12;
 struct Struct_02000c9c_13;
 struct Struct_02000c9c_14;
 struct Struct_02000c9c_15;
-struct Struct_02000c9c_16;
+struct MusicManager_02000c9c_16;
 struct SoundEffectManager_02000c9c_17;
 struct Struct_02000c9c_18;
 
@@ -39,7 +39,7 @@ extern "C" Struct_02000c9c_18* func_020daf90();
 extern "C" void func_020dafd4();
 extern "C" void func_020db0f0(Struct_02000c9c_18* arg0);
 extern "C" void func_020db228(void* arg0);
-extern "C" void func_0209c174(Struct_02000c9c_16* arg0);
+extern "C" void InitMusicManager_0209c174(MusicManager_02000c9c_16* manager);
 extern "C" void OpenMusicArchive_0209c290(void* manager);
 extern "C" void InitSoundEffectManager_0205e88c(SoundEffectManager_02000c9c_17* manager);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
@@ -61,7 +61,7 @@ extern "C" int GetRequestedMovie_020115a8(GameState_02000c9c_12* gameState);
 extern "C" void func_020115b4(Struct_02000c9c_13* arg0, unsigned char arg1);
 extern "C" void func_020115c0(Struct_02000c9c_14* arg0);
 extern "C" void func_020d6cb4();
-extern "C" void func_0205e8d4(void* arg0);
+extern "C" void CloseSoundEffectArchive_0205e8d4(void* manager);
 extern "C" void CloseSoundArchive_0203a950(void* manager);
 void InitializeActiveAlarmList();
 extern "C" void func_ov031_02211c50(int arg0);
@@ -246,7 +246,7 @@ extern "C" ARM void main() {
     func_020dafd4();
     func_020db0f0(var2);
     func_020db228(var2);
-    func_0209c174((Struct_02000c9c_16*)gMusicManager_02109bf4);
+    InitMusicManager_0209c174((MusicManager_02000c9c_16*)gMusicManager_02109bf4);
     OpenMusicArchive_0209c290(gMusicManager_02109bf4);
     InitSoundEffectManager_0205e88c((SoundEffectManager_02000c9c_17*)gSoundEffectManager_02108760);
     LoadSoundEffectSet_0205ea20(gSoundEffectManager_02108760, 100);
@@ -355,7 +355,7 @@ extern "C" ARM void main() {
                 }
                 break;
             case 8:
-                func_0205e8d4(gSoundEffectManager_02108760);
+                CloseSoundEffectArchive_0205e8d4(gSoundEffectManager_02108760);
                 CloseSoundArchive_0203a950(gMusicManager_02109bf4);
                 g_touchInput.Pause();
                 LoadOverlay_020a1940(&OVERLAY_27_ID);
@@ -393,7 +393,7 @@ extern "C" ARM void main() {
                 func_020c98f0(1);
                 LoadOverlay_020a1940(&OVERLAY_32_ID);
                 g_touchInput.Unpause();
-                func_0209c174((Struct_02000c9c_16*)gMusicManager_02109bf4);
+                InitMusicManager_0209c174((MusicManager_02000c9c_16*)gMusicManager_02109bf4);
                 OpenMusicArchive_0209c290(gMusicManager_02109bf4);
                 SetInterruptHandler(1, (const void*)func_02012bd8);
                 EnableSpecificInterrupts(1);

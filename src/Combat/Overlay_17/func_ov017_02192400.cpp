@@ -10,51 +10,51 @@ enum { Enum_ov017_02192400_17500 = 0x445c };
 extern "C" void func_ov017_021923e0(void* arg0, unsigned int arg1);
 
 struct Struct_ov017_021d619e {
-    short unknown_0_[8];
+    short objectIndices_0_[8];
 };
 struct Struct_ov017_021d6186 {
-    signed char unknown_0_[8];
+    signed char polygonIDs_0_[8];
 };
 extern Struct_ov017_021d619e data_ov017_021d619e;
 extern Struct_ov017_021d6186 data_ov017_021d6186;
 
-// USA: func_ov017_02192400
-extern "C" ARM void func_ov017_02192400(unsigned char* arg0, int arg1) {
-    int var0;
-    if (arg1 >= 0 && arg1 <= 3) {
-        var0 = 1;
+// USA: RestorePartyMemberPolygonIDs_ov017_02192400
+extern "C" ARM void RestorePartyMemberPolygonIDs_ov017_02192400(unsigned char* gameResources, int memberIndex) {
+    int isPartyMember;
+    if (memberIndex >= 0 && memberIndex <= 3) {
+        isPartyMember = 1;
     } else {
-        var0 = 0;
+        isPartyMember = 0;
     }
-    if (!var0) {
+    if (!isPartyMember) {
         return;
     }
 
-    GameState* var1 = GameState::GetInstance();
-    Struct_ov017_021d619e var2 = data_ov017_021d619e;
-    var2.unknown_0_[0] = arg1;
-    var2.unknown_0_[1] = arg1 * 0xc + 0x13;
-    var2.unknown_0_[2] = arg1 * 0xc + 0x14;
-    var2.unknown_0_[3] = arg1 * 0xc + 0x15;
-    var2.unknown_0_[4] = arg1 * 0xc + 0x1b;
-    var2.unknown_0_[5] = arg1 * 0xc + 0x1c;
-    var2.unknown_0_[6] = arg1 * 0xc + 0x1d;
-    signed char* var3 = (signed char*)(arg0 + Enum_ov017_02192400_17500) + arg1 * 11;
+    GameState* gameState = GameState::GetInstance();
+    Struct_ov017_021d619e partObjectIndices = data_ov017_021d619e;
+    partObjectIndices.objectIndices_0_[0] = memberIndex;
+    partObjectIndices.objectIndices_0_[1] = memberIndex * 0xc + 0x13;
+    partObjectIndices.objectIndices_0_[2] = memberIndex * 0xc + 0x14;
+    partObjectIndices.objectIndices_0_[3] = memberIndex * 0xc + 0x15;
+    partObjectIndices.objectIndices_0_[4] = memberIndex * 0xc + 0x1b;
+    partObjectIndices.objectIndices_0_[5] = memberIndex * 0xc + 0x1c;
+    partObjectIndices.objectIndices_0_[6] = memberIndex * 0xc + 0x1d;
+    signed char* savedPolygonIDs = (signed char*)(gameResources + Enum_ov017_02192400_17500) + memberIndex * 11;
 
-    Struct_ov017_021d6186 var4 = data_ov017_021d6186;
-    var4.unknown_0_[0] = var3[0];
-    var4.unknown_0_[1] = var3[1];
-    var4.unknown_0_[2] = var3[2];
-    var4.unknown_0_[3] = var3[3];
-    var4.unknown_0_[4] = var3[7];
-    var4.unknown_0_[5] = var3[8];
-    var4.unknown_0_[6] = var3[9];
+    Struct_ov017_021d6186 polygonIDs = data_ov017_021d6186;
+    polygonIDs.polygonIDs_0_[0] = savedPolygonIDs[0];
+    polygonIDs.polygonIDs_0_[1] = savedPolygonIDs[1];
+    polygonIDs.polygonIDs_0_[2] = savedPolygonIDs[2];
+    polygonIDs.polygonIDs_0_[3] = savedPolygonIDs[3];
+    polygonIDs.polygonIDs_0_[4] = savedPolygonIDs[7];
+    polygonIDs.polygonIDs_0_[5] = savedPolygonIDs[8];
+    polygonIDs.polygonIDs_0_[6] = savedPolygonIDs[9];
 
-    int var5;
-    for (var5 = 0; var2.unknown_0_[var5] > -1; var5++) {
-        GameObject* var6 = var1->GetGameObjectByIndex(var2.unknown_0_[var5]);
-        if (var6 && var4.unknown_0_[var5] >= 0) {
-            func_ov017_021923e0(var6, var4.unknown_0_[var5]);
+    int i;
+    for (i = 0; partObjectIndices.objectIndices_0_[i] > -1; i++) {
+        GameObject* part = gameState->GetGameObjectByIndex(partObjectIndices.objectIndices_0_[i]);
+        if (part && polygonIDs.polygonIDs_0_[i] >= 0) {
+            func_ov017_021923e0(part, polygonIDs.polygonIDs_0_[i]);
         }
     }
 }

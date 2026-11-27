@@ -6,7 +6,7 @@ extern "C" int func_ov031_02235984(void* arg0);
 extern "C" void func_ov031_0222b71c(void);
 extern "C" void func_ov031_022239f4(void);
 extern "C" void ShowSubScreenMessage_ov031_0222336c(int messageIndex, int digitPosition, int digit);
-extern "C" void func_ov031_02223518(int arg0);
+extern "C" void ShowStepIndicator_ov031_02223518(int step);
 extern "C" void func_ov031_0222b870(void);
 extern "C" void func_ov031_0222b918(void);
 extern "C" void* func_ov031_0223c560(int arg0, int arg1);
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov031_0222b644(void) {
 	func_ov031_0222b71c();
 	func_ov031_022239f4();
 	ShowSubScreenMessage_ov031_0222336c(0x34, -1, 0);
-	func_ov031_02223518(2);
+	ShowStepIndicator_ov031_02223518(2);
 	func_ov031_0222b870();
 	func_ov031_0222b918();
 

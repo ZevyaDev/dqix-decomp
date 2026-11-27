@@ -63,7 +63,7 @@ struct Struct_02000c9c_8;
 extern "C" void WriteBrightnessRegister_020c39a0(short*, int);
 extern "C" void ClearSoundHandle_020bc078(int*);
 extern "C" void func_0203aa44(void*);
-extern "C" int func_0203aaf8(void*, void*, int*);
+extern "C" int LoadSequence_0203aaf8(void*, void*, int*);
 extern "C" void func_ov016_0218be1c();
 extern "C" void func_02012bd8();
 extern "C" int SetVBlankInterruptEnabled_020c3864(int);
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov016_0218caa8(char* arg0, void* arg1, Struct_ov016_021
     if (data_ov016_0219d0c0.unknown_34_->unknown_10_ == 0)
     {
         func_0203aa44(&gMusicManager_02109bf4);
-        func_0203aaf8(&gMusicManager_02109bf4, (void*)(int)data_ov016_0219d0c0.unknown_34_->unknown_12_, NULL);
+        LoadSequence_0203aaf8(&gMusicManager_02109bf4, (void*)(int)data_ov016_0219d0c0.unknown_34_->unknown_12_, NULL);
     }
     SetInterruptHandler(1, (const void*)func_ov016_0218be1c);
     EnableSpecificInterrupts(0x60078);

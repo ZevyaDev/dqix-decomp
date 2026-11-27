@@ -15,12 +15,12 @@ extern "C" ActiveZone_020fdd44* FindActiveZone_02028bd0(ActiveZone_020fdd44*, in
 extern "C" ARM void func_0201874c(Zone3D* arg0, Struct_020134e0::Struct_02018300* arg1) {
     BMDJEntry_02016874_2* var0 = FindDoorEntry_02018b34(arg0, arg1);
     if (!var0) return;
-    var0->unknown_2_ &= ~1;
-    var0->unknown_2_ &= ~4;
+    var0->flags_2_ &= ~1;
+    var0->flags_2_ &= ~4;
     for (int var1 = 0; var1 < arg0->unknown_82c_; var1++) {
         BMDJEntry_02016874_2* var2 = (*(BMDJEntry_02016874_2***)(arg0->unk_5f0 + 0x234))[var1];
         if (var2->unknown_28_ == var0) {
-            var2->unknown_2_ &= ~1;
+            var2->flags_2_ &= ~1;
             break;
         }
     }
@@ -39,7 +39,7 @@ extern "C" ARM void func_0201874c(Zone3D* arg0, Struct_020134e0::Struct_02018300
         else var0->unknown_34_ = var0->unknown_6_ - 128.68f;
         var0->unknown_36_ = 0x199;
         var0->unknown_4_0_ = 0x1f;
-        var0->unknown_2_ |= 0x80;
+        var0->flags_2_ |= 0x80;
     }
     arg1->unknown_2c_.unknown1_0_.unknown_2_4_ &= ~1;
     arg0->unk_830[0] = 0xf;

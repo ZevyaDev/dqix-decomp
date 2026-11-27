@@ -8,8 +8,8 @@
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" int func_02053c6c(unsigned char* gameObject);
-struct Struct_0207cf30_4;
-extern "C" int func_020a095c(struct Struct_0207cf30_4* arg0, int arg1, int arg2);
+struct ItemBag_0207cf30_4;
+extern "C" int AddItemToBag_020a095c(struct ItemBag_0207cf30_4* bag, int itemId, int count);
 
 // USA: func_ov017_021b6bb8
 extern "C" ARM void func_ov017_021b6bb8(int arg0) {
@@ -26,7 +26,7 @@ extern "C" ARM void func_ov017_021b6bb8(int arg0) {
         char* var5 = var3 + var4 * 2 + 0x400;
         short var6 = *(short*)(var5 + 0x54);
         if (var6 > 0) {
-            func_020a095c((struct Struct_0207cf30_4*)var1, var6, 1);
+            AddItemToBag_020a095c((struct ItemBag_0207cf30_4*)var1, var6, 1);
         }
         var4 = (var4 + 1) & 0xff;
     }

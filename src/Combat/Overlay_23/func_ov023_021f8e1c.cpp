@@ -92,7 +92,7 @@ struct SoundEffectManager_02108760;
 
 extern "C" unsigned short func_ov011_02184a00(struct Struct_ov011_02184a00* arg0);
 extern "C" int ReadBrightnessRegister_020c39c8(volatile unsigned short* reg);
-extern "C" void* func_ov023_021f7318(void* arg0);
+extern "C" void* GetMenuObjectSprite_ov023_021f7318(void* object);
 extern "C" unsigned short func_ov023_021f8c50(unsigned char* arg0);
 extern "C" unsigned short func_ov023_021f8c60(unsigned char* arg0);
 extern "C" unsigned int func_ov023_021f6f08(struct Struct_ov004_02153978* arg0);
@@ -104,7 +104,7 @@ extern "C" void* func_ov023_021f9cb8(void* arg0, void* arg1, void* arg2);
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
-extern "C" void func_ov011_02184a40(void* arg0, int arg1);
+extern "C" void StartMenuCallback_ov011_02184a40(void* menu, int callbackIndex);
 extern "C" int GetMenuGridCursorIndex_ov023_021f9bc8(void* grid);
 extern "C" Struct_ov023_021f8e1c_3* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
@@ -163,7 +163,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
                     var10 = 1;
                 }
                 if (var8[var9] != 0) {
-                    func_ov011_02184a40(arg1, var8[var9]);
+                    StartMenuCallback_ov011_02184a40(arg1, var8[var9]);
                     var10 = 1;
                 }
                 if (var10) {
@@ -222,25 +222,25 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
     if (var12) {
         var0--;
         if (arg0->unknown_4c_ != 0) {
-            func_ov011_02184a40(arg1, arg0->unknown_4c_);
+            StartMenuCallback_ov011_02184a40(arg1, arg0->unknown_4c_);
             return;
         }
     } else if (var13) {
         var0++;
         if (arg0->unknown_4e_ != 0) {
-            func_ov011_02184a40(arg1, arg0->unknown_4e_);
+            StartMenuCallback_ov011_02184a40(arg1, arg0->unknown_4e_);
             return;
         }
     } else if (var14) {
         var6--;
         if (arg0->unknown_56_ != 0) {
-            func_ov011_02184a40(arg1, arg0->unknown_56_);
+            StartMenuCallback_ov011_02184a40(arg1, arg0->unknown_56_);
             return;
         }
     } else if (var15) {
         var6++;
         if (arg0->unknown_54_ != 0) {
-            func_ov011_02184a40(arg1, arg0->unknown_54_);
+            StartMenuCallback_ov011_02184a40(arg1, arg0->unknown_54_);
             return;
         }
     }
@@ -343,7 +343,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
                 if (func_ov023_021f6f10(var32) == 0) {
                     var27 = (int)(var33.unknown_0_ / 4096.0f);
                     var28 = (int)(var33.unknown_4_ / 4096.0f);
-                    void* var34 = func_ov023_021f7318(var32);
+                    void* var34 = GetMenuObjectSprite_ov023_021f7318(var32);
                     var29 = ((SPRSprite*)((struct Struct_02047a5c*)var34))->GetTextureWidth(0);
                     var30 = ((int)((SPRSprite*)((struct Struct_02047a3c*)var34))->GetTextureHeight(0));
                 } else if (func_ov023_021f6f10(var32) == 8) {
@@ -395,7 +395,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
             arg0->unknown_5c_ = arg0->unknown_5e_ - 1;
         }
         if (arg0->unknown_48_ != 0) {
-            func_ov011_02184a40(arg1, arg0->unknown_48_);
+            StartMenuCallback_ov011_02184a40(arg1, arg0->unknown_48_);
         }
         return;
     }
@@ -420,7 +420,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
             }
             var39 = var37->inline_ov023_021f8e1c_56();
             if (var39 > 0) {
-                func_ov011_02184a40(arg1, var39);
+                StartMenuCallback_ov011_02184a40(arg1, var39);
                 var38 = 1;
             }
         }
@@ -428,7 +428,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
             QueueMenuScriptEntry_ov011_021848a0(arg1, arg0->unknown_42_);
         }
         if (arg0->unknown_40_ != 0) {
-            func_ov011_02184a40(arg1, arg0->unknown_40_);
+            StartMenuCallback_ov011_02184a40(arg1, arg0->unknown_40_);
         }
         if (var38 && arg0->unknown_61_ != 0) {
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 1, 0);
@@ -443,7 +443,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
             QueueMenuScriptEntry_ov011_021848a0(arg1, arg0->unknown_44_);
         }
         if (arg0->unknown_46_ != 0) {
-            func_ov011_02184a40(arg1, arg0->unknown_46_);
+            StartMenuCallback_ov011_02184a40(arg1, arg0->unknown_46_);
         }
     }
 
@@ -456,7 +456,7 @@ extern "C" ARM void func_ov023_021f8e1c(Struct_ov023_021f8e1c_2* arg0, void* arg
             if (var40 != 0) {
                 int var42 = var40->inline_ov023_021f8e1c_4();
                 if (var42 > 0) {
-                    func_ov011_02184a40(arg1, var42);
+                    StartMenuCallback_ov011_02184a40(arg1, var42);
                     var41 = 1;
                 }
             }

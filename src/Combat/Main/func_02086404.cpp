@@ -9,7 +9,7 @@ struct Struct_02082cdc_2 {
 };
 struct Struct_02082cdc { Struct_02082cdc_2 unknown_0_[3]; };
 struct Struct_020827c4 { char unknown_0_[0x1c]; };
-struct Struct_0201099c_20 {
+struct PattyMember_0201099c_20 {
     signed char unknown_0_0_ : 6;
     unsigned char unknown_0_6_ : 1;
     unsigned char unknown_0_7_ : 1;
@@ -41,43 +41,43 @@ struct Struct_0201099c_20 {
 extern "C" void func_02082cdc(Struct_02082cdc*);
 extern "C" void func_020827c4(Struct_020827c4*);
 
-// USA: func_02086404
-extern "C" ARM void func_02086404(Struct_0201099c_20* arg0) {
-    arg0->unknown_0_0_ = -1;
-    arg0->unknown_0_6_ = 0;
-    arg0->unknown_1_0_ = 0;
-    arg0->unknown_1_4_ = 0;
-    for (int var0 = 0; var0 < 13; ++var0) {
-        arg0->unknown_1c_[var0] = 0;
-        arg0->unknown_2_[var0] = 1;
-        arg0->unknown_f_[var0] = 0;
-        func_02082cdc(&arg0->unknown_58_[var0]);
+// USA: InitPattyMember_02086404
+extern "C" ARM void InitPattyMember_02086404(PattyMember_0201099c_20* pattyMember) {
+    pattyMember->unknown_0_0_ = -1;
+    pattyMember->unknown_0_6_ = 0;
+    pattyMember->unknown_1_0_ = 0;
+    pattyMember->unknown_1_4_ = 0;
+    for (int i = 0; i < 13; ++i) {
+        pattyMember->unknown_1c_[i] = 0;
+        pattyMember->unknown_2_[i] = 1;
+        pattyMember->unknown_f_[i] = 0;
+        func_02082cdc(&pattyMember->unknown_58_[i]);
     }
-    arg0->unknown_50_ = 0;
-    arg0->unknown_54_ = 0;
-    arg0->unknown_f4_ = 0;
-    memset(arg0->unknown_f6_, 0, sizeof(arg0->unknown_f6_));
-    memset(arg0->unknown_111_, 0, sizeof(arg0->unknown_111_));
-    memset(arg0->unknown_11a_, 0, sizeof(arg0->unknown_11a_));
-    arg0->unknown_13e_ = 0;
-    memset(arg0->unknown_140_, 0, sizeof(arg0->unknown_140_));
-    arg0->unknown_14c_[0].unknown_0_0_ = 0;
-    arg0->unknown_14c_[0].unknown_1_2_ = 0;
-    arg0->unknown_14c_[0].unknown_2_4_ = 0;
-    arg0->unknown_14c_[1].unknown_0_0_ = 0;
-    arg0->unknown_14c_[1].unknown_1_2_ = 0;
-    arg0->unknown_14c_[1].unknown_2_4_ = 0;
-    arg0->unknown_14c_[2].unknown_0_0_ = 0;
-    arg0->unknown_14c_[2].unknown_1_2_ = 1;
-    arg0->unknown_14c_[2].unknown_2_4_ = 0;
-    arg0->unknown_14c_[3].unknown_0_0_ = 1;
-    arg0->unknown_14c_[3].unknown_1_2_ = 0;
-    arg0->unknown_14c_[3].unknown_2_4_ = 0;
-    arg0->unknown_15c_0_ = 0;
-    arg0->unknown_15d_2_ = 0;
-    func_020827c4(&arg0->unknown_160_);
-    memset(arg0->unknown_17c_, -1, sizeof(arg0->unknown_17c_));
-    arg0->unknown_1_5_ = 0;
-    arg0->unknown_13f_0_ = 0;
-    arg0->unknown_13f_3_ = 5;
+    pattyMember->unknown_50_ = 0;
+    pattyMember->unknown_54_ = 0;
+    pattyMember->unknown_f4_ = 0;
+    memset(pattyMember->unknown_f6_, 0, sizeof(pattyMember->unknown_f6_));
+    memset(pattyMember->unknown_111_, 0, sizeof(pattyMember->unknown_111_));
+    memset(pattyMember->unknown_11a_, 0, sizeof(pattyMember->unknown_11a_));
+    pattyMember->unknown_13e_ = 0;
+    memset(pattyMember->unknown_140_, 0, sizeof(pattyMember->unknown_140_));
+    pattyMember->unknown_14c_[0].unknown_0_0_ = 0;
+    pattyMember->unknown_14c_[0].unknown_1_2_ = 0;
+    pattyMember->unknown_14c_[0].unknown_2_4_ = 0;
+    pattyMember->unknown_14c_[1].unknown_0_0_ = 0;
+    pattyMember->unknown_14c_[1].unknown_1_2_ = 0;
+    pattyMember->unknown_14c_[1].unknown_2_4_ = 0;
+    pattyMember->unknown_14c_[2].unknown_0_0_ = 0;
+    pattyMember->unknown_14c_[2].unknown_1_2_ = 1;
+    pattyMember->unknown_14c_[2].unknown_2_4_ = 0;
+    pattyMember->unknown_14c_[3].unknown_0_0_ = 1;
+    pattyMember->unknown_14c_[3].unknown_1_2_ = 0;
+    pattyMember->unknown_14c_[3].unknown_2_4_ = 0;
+    pattyMember->unknown_15c_0_ = 0;
+    pattyMember->unknown_15d_2_ = 0;
+    func_020827c4(&pattyMember->unknown_160_);
+    memset(pattyMember->unknown_17c_, -1, sizeof(pattyMember->unknown_17c_));
+    pattyMember->unknown_1_5_ = 0;
+    pattyMember->unknown_13f_0_ = 0;
+    pattyMember->unknown_13f_3_ = 5;
 }

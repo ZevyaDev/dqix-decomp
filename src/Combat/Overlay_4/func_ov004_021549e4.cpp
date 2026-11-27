@@ -18,7 +18,7 @@ extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* man
 extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 struct Struct_ov004_021549e4_8 { char unknown_0_[0x7c]; unsigned char unknown_7c_; };
-extern struct Struct_ov004_021549e4_8* data_ov004_021707c0;
+extern struct Struct_ov004_021549e4_8* gWardrobeCompletion_ov004_021707c0;
 
 class Struct_ov004_021549e4_6 {
 public:
@@ -57,8 +57,8 @@ extern "C" ARM int func_ov004_021549e4(void* arg0) {
     void* var0 = (void*)func_ov004_02153c74(arg0);
     if (!var0) return 0;
 
-    data_ov004_021707c0->unknown_7c_++;
-    data_ov004_021707c0->unknown_7c_ &= 1;
+    gWardrobeCompletion_ov004_021707c0->unknown_7c_++;
+    gWardrobeCompletion_ov004_021707c0->unknown_7c_ &= 1;
 
     func_ov004_02154984(arg0);
 

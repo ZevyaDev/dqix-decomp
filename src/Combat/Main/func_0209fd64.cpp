@@ -7,7 +7,7 @@
 
 
 extern "C" void func_020c9be0(void);
-extern "C" void func_ov017_021d4c04(void*, int, void*, int, void*, int);
+extern "C" void InitScriptVM_ov017_021d4c04(void*, int, void*, int, void*, int);
 extern "C" void func_0209dc4c(void* arg0);
 
 extern void* data_02109d88;
@@ -31,6 +31,6 @@ extern "C" ARM void func_0209fd64(struct Struct_0209fd64* arg0, struct SafeAlloc
         func_020c9be0();
     }
 
-    func_ov017_021d4c04(&arg0->unknown_10_, arg0->unknown_8_, var0, 0x80, var1, 0x200);
+    InitScriptVM_ov017_021d4c04(&arg0->unknown_10_, arg0->unknown_8_, var0, 0x80, var1, 0x200);
     func_0209dc4c(&arg0->unknown_10_);
 }

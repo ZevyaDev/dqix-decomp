@@ -35,8 +35,8 @@ struct Struct_ov017_021ca6dc_2 {
     unsigned char unknown_25_;
 };
 
-struct Struct_020886dc_2;
-extern "C" void func_02088818(struct Struct_020886dc_2* arg0, unsigned short arg1);
+struct ModifiableCombatStats_020886dc_2;
+extern "C" void SetFourceType_02088818(struct ModifiableCombatStats_020886dc_2* stats, unsigned short fourceType);
 
 struct Struct_ov017_021ca6dc_3 {
     char unknown_0_[4];
@@ -79,7 +79,7 @@ extern "C" ARM void func_ov017_021ca6dc(void* arg0, struct Struct_ov017_021ca6dc
     unsigned char var6 = arg1->unknown_8_.unknown_0_6_;
     var3->unknown_22_.unknown_0_6_ = var6;
     unsigned char var7 = arg1->unknown_8_.unknown_1_1_;
-    func_02088818((struct Struct_020886dc_2*)var3, var7);
+    SetFourceType_02088818((struct ModifiableCombatStats_020886dc_2*)var3, var7);
     unsigned char var8 = arg1->unknown_8_.unknown_1_4_;
     var3->unknown_22_.unknown_1_4_ = var8;
     var3->unknown_24_ = arg1->unknown_a_;

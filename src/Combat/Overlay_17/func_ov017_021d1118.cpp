@@ -26,21 +26,21 @@ extern "C" int GetAlchenomiconCompletion_020a090c(BattleRecords_02061c04* record
 
 struct PlayerId_ov017_021d1118_8 { unsigned char bytes_0_[6]; };
 
-struct Struct_ov017_021d1118_9 {
-    unsigned char unknown_0_[14];
-    unsigned char unknown_e_0_ : 2;
+struct BattleRecordsBody_ov017_021d1118_9 {
+    unsigned char bytes_0_[14];
+    unsigned char recipientIndex_e_0_ : 2;
     unsigned char unknown_e_2_ : 2;
     unsigned char unknown_e_4_ : 4;
-    unsigned char unknown_f_0_ : 2;
-    unsigned char unknown_f_2_ : 4;
-    unsigned char unknown_f_6_ : 1;
+    unsigned char section_f_0_ : 2;
+    unsigned char length_f_2_ : 4;
+    unsigned char isLast_f_6_ : 1;
     unsigned char unknown_f_7_ : 1;
 };
 
 struct Struct_ov017_021d1118 {
     unsigned char unknown_0_;
     char unknown_1_[3];
-    Struct_ov017_021d1118_9 unknown_4_;
+    BattleRecordsBody_ov017_021d1118_9 unknown_4_;
 };
 
 struct RecordsSummary_ov017_021d1118_2 {
@@ -79,11 +79,11 @@ struct Struct_ov017_021d1118_3 {
 struct Struct_ov017_021d1118_4 {
 #if defined(jpn)
     char unknown_0_[0x543c];
-    Struct_ov017_021d1118_3 unknown_569c_;
+    Struct_ov017_021d1118_3 profile_569c_;
     char unknown_54b8_[0x72be - 0x54b8];
 #else
     char unknown1_0_[0x569c];
-    Struct_ov017_021d1118_3 unknown_569c_;
+    Struct_ov017_021d1118_3 profile_569c_;
     char unknown_5718_[0x74fe - 0x5718];
 #endif
     PlayerId_ov017_021d1118_8 playerId_74fe_;
@@ -116,103 +116,103 @@ struct Struct_ov017_021d1118_7 {
     unsigned char unknown_100d_;
 };
 
-// USA: func_ov017_021d1118
-extern "C" ARM void func_ov017_021d1118(int arg0, int arg1, bool arg2, unsigned char arg3) {
-    GameState* var0;
-    void* var1;
-    Struct_ov017_021d1118_9* var2;
-    unsigned char* var3;
-    Struct_ov017_021d1118_7* var4;
-    int var5;
-    int var6;
-    int var7;
-    int var8;
-    int var9;
-    Struct_ov017_021d1118_6* var10;
-    Struct_ov017_021d1118_5* var11;
-    int var12;
-    int var13;
-    Struct_ov017_021d1118_3* var14;
-    var0 = GameState::GetInstance();
-    var1 = func_0202ae24();
-    Struct_ov017_021d1118 var15;
-    var2 = &var15.unknown_4_;
-    var15.unknown_0_ = 0x1a;
-    var2->unknown_e_2_ = arg3;
-    var2->unknown_f_7_ = arg2;
-    var2->unknown_e_0_ = arg0;
-    var14 = &((Struct_ov017_021d1118_4*)var0)->unknown_569c_;
-    if (arg1 & 4) {
-        var2->unknown_f_0_ = 2;
-        var2->unknown_f_2_ = 6;
-        PlayerId_ov017_021d1118_8 var16 = ((Struct_ov017_021d1118_4*)var0)->inline_ov017_021d1118();
-        memcpy(var2->unknown_0_, &var16, var2->unknown_f_2_);
-        QueueOutgoingPacket_0205e330(var1, &var15, 0);
+// USA: SendBattleRecords_ov017_021d1118
+extern "C" ARM void SendBattleRecords_ov017_021d1118(int recipientIndex, int sectionMask, bool arg2, unsigned char arg3) {
+    GameState* gameState;
+    void* packetQueue;
+    BattleRecordsBody_ov017_021d1118_9* body;
+    unsigned char* chunk;
+    Struct_ov017_021d1118_7* wireless;
+    int wirelessState;
+    int playerCount;
+    int isMultiplayerTimeIncluded;
+    int gender;
+    int revocationCount;
+    Struct_ov017_021d1118_6* protagonist;
+    Struct_ov017_021d1118_5* memberData;
+    int summaryBytesLeft;
+    int profileBytesLeft;
+    Struct_ov017_021d1118_3* profile;
+    gameState = GameState::GetInstance();
+    packetQueue = func_0202ae24();
+    Struct_ov017_021d1118 packet;
+    body = &packet.unknown_4_;
+    packet.unknown_0_ = 0x1a;
+    body->unknown_e_2_ = arg3;
+    body->unknown_f_7_ = arg2;
+    body->recipientIndex_e_0_ = recipientIndex;
+    profile = &((Struct_ov017_021d1118_4*)gameState)->profile_569c_;
+    if (sectionMask & 4) {
+        body->section_f_0_ = 2;
+        body->length_f_2_ = 6;
+        PlayerId_ov017_021d1118_8 playerId = ((Struct_ov017_021d1118_4*)gameState)->inline_ov017_021d1118();
+        memcpy(body->bytes_0_, &playerId, body->length_f_2_);
+        QueueOutgoingPacket_0205e330(packetQueue, &packet, 0);
     }
-    if (arg1 & 1) {
-        var4 = (Struct_ov017_021d1118_7*)func_0202ae18();
-        var5 = GetLocalWirelessState_0202ba00((int*)var4);
-        var6 = var4->unknown_100d_;
-        var7 = 0;
-        if ((var5 == 5 && var6 > 1) || var5 == 6) var7 = 1;
-        AddElapsedPlayTime_020ac4f8(var7);
-        BattleRecords_02061c04 var17;
-        GetBattleRecords_020ac4c0(&var17);
-        unsigned int var18 = 0;
-        GetAlchemyCount_020ac0b4(&var18);
-        var8 = 0;
-        var9 = 0;
-        var10 = (Struct_ov017_021d1118_6*)var0->GetProtagonist();
-        if (var10) {
-            var11 = var10->unknown_150_;
-            var8 = var11->unknown_49c_0_;
-            var9 = var11->unknown_186_[var11->unknown_950_];
+    if (sectionMask & 1) {
+        wireless = (Struct_ov017_021d1118_7*)func_0202ae18();
+        wirelessState = GetLocalWirelessState_0202ba00((int*)wireless);
+        playerCount = wireless->unknown_100d_;
+        isMultiplayerTimeIncluded = 0;
+        if ((wirelessState == 5 && playerCount > 1) || wirelessState == 6) isMultiplayerTimeIncluded = 1;
+        AddElapsedPlayTime_020ac4f8(isMultiplayerTimeIncluded);
+        BattleRecords_02061c04 records;
+        GetBattleRecords_020ac4c0(&records);
+        unsigned int alchemyCount = 0;
+        GetAlchemyCount_020ac0b4(&alchemyCount);
+        gender = 0;
+        revocationCount = 0;
+        protagonist = (Struct_ov017_021d1118_6*)gameState->GetProtagonist();
+        if (protagonist) {
+            memberData = protagonist->unknown_150_;
+            gender = memberData->unknown_49c_0_;
+            revocationCount = memberData->unknown_186_[memberData->unknown_950_];
         }
-        RecordsSummary_ov017_021d1118_2 var19;
-        VectorizedMemset(&var19, 0, sizeof(var19));
-        var19.playTimeHours_0_0_ = var17.playTimes_0_.playTime_0_.hours_0_;
-        var19.playTimeMinutes_8_0_ = var17.playTimes_0_.playTime_0_.minutes_2_;
-        var19.multiplayerTimeHours_4_0_ = var17.playTimes_0_.multiplayerTime_4_.hours_0_;
-        var19.multiplayerTimeMinutes_8_7_ = var17.playTimes_0_.multiplayerTime_4_.minutes_2_;
-        var19.unknown_5_6_ = var17.unknown_8_0_;
-        var19.alchemyCount_1_6_ = var18;
-        var19.unknown_c_0_ = var17.unknown_10_0_;
-        var19.unknown_10_0_ = var17.unknown_b_0_;
-        var19.unknown_d_2_ = var17.unknown_d_6_;
-        var19.unknown_11_1_ = var17.unknown_11_1_;
-        var19.defeatedMonsterListCompletion_9_6_ = (unsigned char)GetDefeatedMonsterListCompletion_020a0870(&var17);
-        var19.itemListCompletion_a_5_ = (unsigned char)GetItemListCompletion_020a08a4(&var17);
-        var19.wardrobeCompletion_f_0_ = (unsigned char)GetWardrobeCompletion_020a08d8(&var17);
-        var19.alchenomiconCompletion_12_7_ = (unsigned char)GetAlchenomiconCompletion_020a090c(&var17);
-        var19.unknown_14_ = var14->unknown_6_3_;
-        var19.gender_16_0_ = var8;
-        var19.revocationCount_16_1_ = var9;
-        var2->unknown_f_0_ = 0;
-        var2->unknown_f_6_ = 0;
-        var3 = (unsigned char*)&var19;
-        for (var12 = sizeof(var19); var12 > 0; var3 += 14, var12 -= 14) {
-            if (var12 > 14) {
-                var2->unknown_f_2_ = 14;
+        RecordsSummary_ov017_021d1118_2 summary;
+        VectorizedMemset(&summary, 0, sizeof(summary));
+        summary.playTimeHours_0_0_ = records.playTimes_0_.playTime_0_.hours_0_;
+        summary.playTimeMinutes_8_0_ = records.playTimes_0_.playTime_0_.minutes_2_;
+        summary.multiplayerTimeHours_4_0_ = records.playTimes_0_.multiplayerTime_4_.hours_0_;
+        summary.multiplayerTimeMinutes_8_7_ = records.playTimes_0_.multiplayerTime_4_.minutes_2_;
+        summary.unknown_5_6_ = records.unknown_8_0_;
+        summary.alchemyCount_1_6_ = alchemyCount;
+        summary.unknown_c_0_ = records.unknown_10_0_;
+        summary.unknown_10_0_ = records.unknown_b_0_;
+        summary.unknown_d_2_ = records.unknown_d_6_;
+        summary.unknown_11_1_ = records.unknown_11_1_;
+        summary.defeatedMonsterListCompletion_9_6_ = (unsigned char)GetDefeatedMonsterListCompletion_020a0870(&records);
+        summary.itemListCompletion_a_5_ = (unsigned char)GetItemListCompletion_020a08a4(&records);
+        summary.wardrobeCompletion_f_0_ = (unsigned char)GetWardrobeCompletion_020a08d8(&records);
+        summary.alchenomiconCompletion_12_7_ = (unsigned char)GetAlchenomiconCompletion_020a090c(&records);
+        summary.unknown_14_ = profile->unknown_6_3_;
+        summary.gender_16_0_ = gender;
+        summary.revocationCount_16_1_ = revocationCount;
+        body->section_f_0_ = 0;
+        body->isLast_f_6_ = 0;
+        chunk = (unsigned char*)&summary;
+        for (summaryBytesLeft = sizeof(summary); summaryBytesLeft > 0; chunk += 14, summaryBytesLeft -= 14) {
+            if (summaryBytesLeft > 14) {
+                body->length_f_2_ = 14;
             } else {
-                var2->unknown_f_2_ = var12;
-                if (!(arg1 & 2)) var2->unknown_f_6_ = 1;
+                body->length_f_2_ = summaryBytesLeft;
+                if (!(sectionMask & 2)) body->isLast_f_6_ = 1;
             }
-            memcpy(var2->unknown_0_, var3, var2->unknown_f_2_);
-            QueueOutgoingPacket_0205e330(var1, &var15, 0);
+            memcpy(body->bytes_0_, chunk, body->length_f_2_);
+            QueueOutgoingPacket_0205e330(packetQueue, &packet, 0);
         }
     }
-    if (arg1 & 2) {
-        var2->unknown_f_0_ = 1;
-        var3 = (unsigned char*)var14;
-        for (var13 = sizeof(*var14); var13 > 0; var3 += 14, var13 -= 14) {
-            if (var13 > 14) {
-                var2->unknown_f_2_ = 14;
+    if (sectionMask & 2) {
+        body->section_f_0_ = 1;
+        chunk = (unsigned char*)profile;
+        for (profileBytesLeft = sizeof(*profile); profileBytesLeft > 0; chunk += 14, profileBytesLeft -= 14) {
+            if (profileBytesLeft > 14) {
+                body->length_f_2_ = 14;
             } else {
-                var2->unknown_f_2_ = var13;
-                var2->unknown_f_6_ = 1;
+                body->length_f_2_ = profileBytesLeft;
+                body->isLast_f_6_ = 1;
             }
-            memcpy(var2->unknown_0_, var3, var2->unknown_f_2_);
-            QueueOutgoingPacket_0205e330(var1, &var15, 0);
+            memcpy(body->bytes_0_, chunk, body->length_f_2_);
+            QueueOutgoingPacket_0205e330(packetQueue, &packet, 0);
         }
     }
 }

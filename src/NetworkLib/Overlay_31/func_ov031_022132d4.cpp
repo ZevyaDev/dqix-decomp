@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" char* GetWifiConnectionBuffer_ov031_022133f8(int);
-extern int data_ov031_0224e5c4;
+extern int gWifiConnectionBuffers_ov031_0224e5c4;
 
 typedef void (*Type_ov031_022132d4)(int, void*, int);
 
@@ -37,6 +37,6 @@ extern "C" ARM void* func_ov031_022132d4(void) {
 	if (!((*(unsigned char*)(var0+8)) & 0x1)) return (void*)(int)(*(unsigned char*)(var0+8));
 	(*(unsigned char*)(var0+8)) = (*(unsigned char*)(var0+8)) & ~0x1;
 	(*(Type_ov031_022132d4*)(var0 + 4))(0x1, var0, 0x24);
-	*(int*)((char*)&data_ov031_0224e5c4 + 0xc) = 0;
-	return &data_ov031_0224e5c4;
+	*(int*)((char*)&gWifiConnectionBuffers_ov031_0224e5c4 + 0xc) = 0;
+	return &gWifiConnectionBuffers_ov031_0224e5c4;
 }

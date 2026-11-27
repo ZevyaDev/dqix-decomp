@@ -20,7 +20,7 @@ struct Struct_ov000_0215ae80_2 {
     char unknown_0_[0x28];
 };
 
-extern "C" void* func_ov000_0215e9d8(void* arg0);
+extern "C" void* GetNextBattleAction_ov000_0215e9d8(void* battle);
 extern "C" void InitBattleAction_ov000_02160030(void* action);
 
 struct Struct_ov000_0215ae80_3 {
@@ -38,7 +38,7 @@ struct Struct_ov000_0215ae80_3 {
 extern "C" ARM void func_ov000_0215ae80(Struct_ov000_0215ae80_3* arg0) {
     int var0;
     for (var0 = arg0->unknown_8e0a_; var0 < arg0->unknown_8e0f_; var0++) {
-        void* var1 = func_ov000_0215e9d8(arg0);
+        void* var1 = GetNextBattleAction_ov000_0215e9d8(arg0);
         if (var1 == NULL) return;
         InitBattleAction_ov000_02160030(var1);
         Struct_ov000_0215ae80_2* var2 = &arg0->unknown_7770_[var0];

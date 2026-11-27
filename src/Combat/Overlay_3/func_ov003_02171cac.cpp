@@ -9,7 +9,7 @@ enum { Enum_ov003_02171cac_2888 = 0xb48 };
 #endif
 
 extern "C" void* UnloadZone_ov017_0219bf74(void);
-extern "C" void func_ov017_021b1d44(void* arg0, int arg1, int arg2);
+extern "C" void ResetWirelessTask_ov017_021b1d44(void* node, int modeFlags, int isFullReset);
 
 // USA: func_ov003_02171cac
 extern "C" ARM void func_ov003_02171cac(unsigned char* arg0) {
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov003_02171cac(unsigned char* arg0) {
 		unsigned char* var1 = (unsigned char*)GetGameResources() + 0x3000;
 		void* var2 = *(void**)(var1 + Enum_ov003_02171cac_2888);
 		void* var3 = UnloadZone_ov017_0219bf74();
-		func_ov017_021b1d44(var2, 0x20, 1);
+		ResetWirelessTask_ov017_021b1d44(var2, 0x20, 1);
 		*(void**)((unsigned char*)var2 + 8) = var3;
 		var0 = 9;
 	}

@@ -124,7 +124,7 @@ struct Struct_ov006_02157a60 {
 
 extern "C" Struct_ov006_021537d0* func_ov006_02158d50(Struct_ov006_02158d50_2* arg0, short arg1);
 extern "C" void ShowMenuLayoutWindowTexts_02080bac(void* menuLayout, int windowId);
-extern "C" void func_0208065c(void* arg0, int arg1);
+extern "C" void SetMenuLayoutWindowTextsSelectable_0208065c(void* layout, int windowId);
 extern "C" void SetMenuLayoutTextValue_02080fa8(MenuLayout_02080fa8* menuLayout, int textId, int value);
 extern "C" void SetMenuLayoutTextString_02080f8c(MenuLayout_02080f8c* menuLayout, int textId, int text);
 extern "C" void SetMenuLayoutTextColor_02080cc0(MenuLayout_02080cc0* menuLayout, int textId, int color);
@@ -133,7 +133,7 @@ extern "C" const char** FindNounInTable_020e5294(void* nounTable, int nounId);
 extern "C" void* memset(void* arg0, int arg1, unsigned int arg2);
 extern "C" void ExpandInflectionTags_020e4864(const char* text, char* buffer, int, int, int, int);
 extern "C" void CapitalizeMenuLayoutText_020805f4(void* menuLayout, int textId);
-extern "C" void func_020806b0(void* arg0, int arg1);
+extern "C" void SetMenuLayoutTextUnselectable_020806b0(void* layout, int textId);
 extern "C" void HideMenuLayoutText_02080b2c(void* menuLayout, int textId);
 extern "C" void SetMenuLayoutWindowPalette_02080c68(void* menuLayout, int windowId, int palette);
 extern "C" void SetMenuLayoutWindowCursorMark_02081ea4(MenuLayout_0207fdcc_2* menuLayout, int windowId, int hasCursorMark);
@@ -151,7 +151,7 @@ extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
         arg0->unknown_394_ |= 4;
     void* var1 = arg0->unknown_14_;
     ShowMenuLayoutWindowTexts_02080bac(var1, 9);
-    func_0208065c(var1, 9);
+    SetMenuLayoutWindowTextsSelectable_0208065c(var1, 9);
     SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var1, 0x3a, arg0->unknown_388_ + 1);
     SetMenuLayoutTextValue_02080fa8((MenuLayout_02080fa8*)var1, 0x3b, arg0->unknown_389_);
     Struct_ov006_021537d0* var2 = arg0->unknown_30_;
@@ -191,7 +191,7 @@ extern "C" ARM void func_ov006_0215f7e8(Struct_ov006_02157a60* arg0) {
         }
         else
         {
-            func_020806b0(var1, var4);
+            SetMenuLayoutTextUnselectable_020806b0(var1, var4);
             HideMenuLayoutText_02080b2c(var1, var4);
         }
         var4++;

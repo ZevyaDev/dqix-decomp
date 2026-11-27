@@ -5,7 +5,7 @@
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" int GetGroundHeight_02018fbc(int zone, Struct_ov001_02158efc* position);
 struct ActiveZone_020fdd44;
-extern "C" struct ActiveZone_020fdd44* func_02027cb0(void);
+extern "C" struct ActiveZone_020fdd44* FindCurrentActiveZone_02027cb0(void);
 struct Vector3i;
 
 struct Struct_02039df4;
@@ -18,7 +18,7 @@ extern "C" ARM void func_ov017_021a3338(void*) {
     GameState* var0 = GameState::GetInstance();
     struct Struct_ov017_021a3338* var1 = (struct Struct_ov017_021a3338*)GetZone3D_02012fe4();
     unsigned short var2 = var1->unknown_0_;
-    struct ActiveZone_020fdd44* var3 = func_02027cb0();
+    struct ActiveZone_020fdd44* var3 = FindCurrentActiveZone_02027cb0();
     if (var3 == NULL) return;
 
     int var4;

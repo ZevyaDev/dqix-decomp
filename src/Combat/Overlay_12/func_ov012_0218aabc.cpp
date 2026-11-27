@@ -11,12 +11,12 @@ enum { Enum_ov012_0218aabc_4977 = 0x1371, Enum_ov012_0218aabc_4980 = 0x1374, Enu
 extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int, int);
 #endif
 
-extern "C" void func_ov012_021893b4(void*, int, int, int);
+extern "C" void SetNextTextWindow_ov012_021893b4(void*, int, int, int);
 extern "C" void func_ov012_0218ab34(void*, void*, int);
 
 // USA: func_ov012_0218aabc
 extern "C" ARM void func_ov012_0218aabc(char* arg0) {
-    func_ov012_021893b4(arg0, *(unsigned char*)(arg0 + Enum_ov012_0218aabc_4977), 1, 3);
+    SetNextTextWindow_ov012_021893b4(arg0, *(unsigned char*)(arg0 + Enum_ov012_0218aabc_4977), 1, 3);
     memset(*(void**)(arg0 + Enum_ov012_0218aabc_4980), 0, Enum_ov012_0218aabc_2400);
     func_ov012_0218ab34(arg0, *(void**)(arg0 + Enum_ov012_0218aabc_4980), 0);
 #if defined(jpn)

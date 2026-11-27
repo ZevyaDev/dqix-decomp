@@ -2,8 +2,8 @@
 
 extern "C" void* GetZone3D_02012fe4(void);
 extern "C" void func_ov017_02197e2c(void* arg0);
-struct Struct_02046b1c;
-extern "C" int func_02046b1c(struct Struct_02046b1c* arg0);
+struct Queue_02046b1c;
+extern "C" int GetQueueHead_02046b1c(struct Queue_02046b1c* queue);
 extern "C" void func_ov017_021975e4(void* arg0);
 extern "C" void func_ov017_02197a64(void* arg0);
 extern "C" void func_ov017_0219814c(void* arg0);
@@ -31,7 +31,7 @@ extern "C" ARM void func_ov017_0219755c(unsigned char* arg0) {
 	if (((Struct_ov017_0219755c*)GetZone3D_02012fe4())->unknown_424_ != 0) return;
 
 	func_ov017_02197e2c(arg0);
-	if (func_02046b1c((struct Struct_02046b1c*)*(void**)(arg0 + 0x3000 + Enum_ov017_0219755c_1788)) != 0) return;
+	if (GetQueueHead_02046b1c((struct Queue_02046b1c*)*(void**)(arg0 + 0x3000 + Enum_ov017_0219755c_1788)) != 0) return;
 
 	func_ov017_021975e4(arg0);
 	func_ov017_02197a64(arg0);

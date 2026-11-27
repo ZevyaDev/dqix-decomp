@@ -15,7 +15,7 @@ struct Queue_02038598_5;
 extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
 extern "C" void RemoveFromQueue_02046a8c(void* queue, void* node);
 extern "C" int AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
-extern "C" void func_ov017_021d1118(int arg0, int arg1, int arg2, int arg3);
+extern "C" void SendBattleRecords_ov017_021d1118(int recipientIndex, int sectionMask, int arg2, int arg3);
 
 struct Struct_ov017_0219577c_2 {
     unsigned short unknown_0_;
@@ -118,6 +118,6 @@ extern "C" ARM void func_ov017_0219577c(unsigned char arg0, int arg1, int arg2) 
     }
     AddElapsedPlayTime_020ac4f8(1);
     if (arg0) {
-        func_ov017_021d1118(-1, 1, 1, 2);
+        SendBattleRecords_ov017_021d1118(-1, 1, 1, 2);
     }
 }

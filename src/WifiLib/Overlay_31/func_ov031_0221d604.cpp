@@ -10,7 +10,7 @@ extern "C" THUMB int func_ov031_0221d604(int arg0, Struct_ov031_0221d3b0_2* arg1
     Struct_ov031_0221d3b0* var1 = (Struct_ov031_0221d3b0*)((unsigned char*)arg1 + 12);
     if (func_ov031_0221d7e0(&arg3->unknown_0_[2], &var1->unknown_10_) < 0) { ++*arg2; return arg0; }
     if (var0->unknown_0_ != 7) { ++*arg2; return arg0; }
-    if (func_ov031_0221e638(var0->unknown_2_) == 0) { ++*arg2; return arg0; }
+    if (SwapBytes16_ov031_0221e638(var0->unknown_2_) == 0) { ++*arg2; return arg0; }
     if (func_ov031_0221e610(var0->unknown_4_) == 0) return 100;
     if (func_ov031_0221e610(var0->unknown_4_) == -2) {
         func_ov031_0221d060(20);

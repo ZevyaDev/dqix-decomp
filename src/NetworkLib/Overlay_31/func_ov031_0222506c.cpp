@@ -2,7 +2,7 @@
 
 struct Struct_ov031_0222506c { int unknown_0_; int unknown_4_; };
 struct Struct_ov031_02222c18 { int unknown_0_, unknown_4_; Struct_ov031_0222506c* unknown_8_; };
-extern "C" Struct_ov031_0222506c* func_ov031_0223baa0(Struct_ov031_02222c18* arg0, int arg1);
+extern "C" Struct_ov031_0222506c* GetSpriteOAMEntry_ov031_0223baa0(Struct_ov031_02222c18* sprite, int entryIndex);
 extern "C" int CopySpriteOAMEntries_ov031_0223bdb0(int isSubScreen, int spriteId, int oamEntries);
 
 struct OAMEntry_ov031_0223bcc8 { unsigned int unknown_0_; unsigned short unknown_4_; unsigned short unknown_6_; };
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov031_0222506c(void) {
 	default: var2 = '@'; break;
 	}
 
-	Struct_ov031_0222506c* var3 = func_ov031_0223baa0(var0->unknown_114_, 0);
+	Struct_ov031_0222506c* var3 = GetSpriteOAMEntry_ov031_0223baa0(var0->unknown_114_, 0);
 	CopySpriteOAMEntries_ov031_0223bdb0(0, var2, (int)var3);
 
 	SetSpritePriority_ov031_0223bcc8((OAMAllocation_ov031_02222ce4*)gKeyboard_ov031_02250bfc->unknown_114_, -1, 2);

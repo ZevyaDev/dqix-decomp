@@ -74,7 +74,7 @@ extern "C" int ParseDecimal_02005a94(const char* string);
 extern "C" int func_ov031_022175dc(void* arg0);
 extern "C" int func_ov031_022178b4(Struct_ov031_022192c0_3* arg0, void* arg1, int arg2);
 extern "C" int func_ov031_02218604(Struct_ov031_022192c0_3* arg0, const char* arg1, const char* arg2, int arg3);
-extern "C" void func_ov031_0221ae00(Struct_ov031_022192c0* arg0);
+extern "C" void UnpackWifiCredentials_ov031_0221ae00(Struct_ov031_022192c0* credentials);
 extern "C" int func_ov031_022167c8(Struct_ov031_0224e640* arg0, Struct_ov031_022192c0_3* arg1);
 extern "C" void func_ov031_02216a84();
 extern "C" int func_ov031_02216ab4();
@@ -92,7 +92,7 @@ extern Struct_ov031_0224e624 data_ov031_0224e624;
 extern Struct_ov031_0224e640 data_ov031_0224e640;
 extern const char* data_ov031_0224a010;
 extern const char* data_ov031_02249b54;
-extern int data_020f3390;
+extern int gErrorNumber_020f3390;
 extern char data_ov031_0224a124[];
 extern char data_ov031_0224a130[];
 extern char data_ov031_0224a150[];
@@ -172,7 +172,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
         if (func_ov031_02218b8c(G.unknown_14_, 0) != 1) FAIL(2);
 
         var0 = ParseDecimal_02005a94(func_ov031_02218e2c(G.unknown_14_, data_ov031_0224a124));
-        if (data_020f3390 == 0x22) {
+        if (gErrorNumber_020f3390 == 0x22) {
             func_ov031_0221a1d4(2);
             goto done;
         }
@@ -224,7 +224,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
         }
 
         func_ov031_022183b4(G.unknown_14_);
-        func_ov031_0221ae00(&var20);
+        UnpackWifiCredentials_ov031_0221ae00(&var20);
         if (var20.unknown_0_ == var6) {
             G.unknown_0_->unknown_1004_ = -3;
             data_ov031_0224e640.unknown_0_ = 0;
@@ -299,7 +299,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
         if (func_ov031_02218b8c(G.unknown_14_, 0) != 1) FAIL(2);
 
         var0 = ParseDecimal_02005a94(func_ov031_02218e2c(G.unknown_14_, data_ov031_0224a124));
-        if (data_020f3390 == 0x22) FAIL(2);
+        if (gErrorNumber_020f3390 == 0x22) FAIL(2);
         if (var0 != 200) {
             func_ov031_022183b4(G.unknown_14_);
             if (G.unknown_c_ == 1 && var0 == 302) {
@@ -313,7 +313,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
 
         if (func_ov031_02218e84(G.unknown_14_, (int)data_ov031_0224a180, var21, 4) <= 0) FAIL(9);
         var14 = ParseDecimal_02005a94(var21);
-        if (data_020f3390 == 0x22) FAIL(9);
+        if (gErrorNumber_020f3390 == 0x22) FAIL(9);
         if (G.unknown_c_ == 1 && var14 == 0x72) {
             G.unknown_0_->unknown_1004_ = 0;
             func_ov031_0221a1d4(0xb);
@@ -346,7 +346,7 @@ extern "C" ARM void func_ov031_022192c0(void) {
             if (var0 < 0) FAIL(9);
             var5[var0] = 0;
             var0 = ParseDecimal_02005a94(var5);
-            if (data_020f3390 == 0x22) FAIL(9);
+            if (gErrorNumber_020f3390 == 0x22) FAIL(9);
             var10 = var0 * 1000;
             if ((int)var10 > 180000) var10 = 180000;
         }

@@ -82,7 +82,7 @@ extern "C" void func_ov000_02176038(Struct_ov000_02176038* arg0);
 extern "C" {
 void* memset(void*, int, unsigned int);
 void func_ov000_0217fcc4(Struct_ov026_021d8ba0_4*, int);
-void func_ov000_0217f518(Struct_ov026_021d8ba0_6*);
+void ClearPanelCommand_ov000_0217f518(Struct_ov026_021d8ba0_6*);
 void GetPartyMemberCommand_ov000_02162c14(BattleScene_ov000_02160da0*, int, Struct_ov026_021d8ba0*);
 void func_ov017_021c6814(unsigned short, unsigned short, Struct_ov026_021d8ba0*, unsigned char, int, int);
 }
@@ -107,7 +107,7 @@ extern "C" ARM void func_ov026_021dbf04(BattleScene_ov000_02160da0* arg0) {
         int var4 = var2->unknown_f78_[var3];
         Struct_ov026_021d8ba0_6* var5 = func_ov026_021dae60(&arg0->unknown_3760_, var4);
         if (var5 != NULL) {
-            func_ov000_0217f518(var5);
+            ClearPanelCommand_ov000_0217f518(var5);
             GetPartyMemberCommand_ov000_02162c14(arg0, var4, &var0);
             func_ov017_021c6814(arg0->unknown_2a0_->unknown_8_, var4, &var0, 0, -1, 0);
         }

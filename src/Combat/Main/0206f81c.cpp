@@ -85,7 +85,7 @@ extern "C" unsigned char GetOwnPartyOrder_02011494(char* gameState, void* outOwn
 struct Struct_0203d028_3;
 extern "C" int func_02053c6c(unsigned char* gameObject);
 struct PartyMemberData_0206f81c;
-extern "C" void* func_02083554(struct PartyMemberData_0206f81c* arg0, int arg1);
+extern "C" void* FindEquippedItem_02083554(struct PartyMemberData_0206f81c* memberData, int itemId);
 extern "C" void UnequipCategory_02083738(void* memberData, int category);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int memberIndex, int requestModelLoad);
@@ -395,7 +395,7 @@ extern "C" ARM void RunDeferredTriggerActions_0206f81c(void* triggerResult) {
                             if (partyMemberBase != NULL) {
                                 int memberData = func_02053c6c((unsigned char*)partyMemberBase);
                                 if (memberData != 0) {
-                                    struct ItemData_0206f81c_8* equippedItem = (struct ItemData_0206f81c_8*)func_02083554((struct PartyMemberData_0206f81c*)memberData, *(unsigned short*)(action + 2));
+                                    struct ItemData_0206f81c_8* equippedItem = (struct ItemData_0206f81c_8*)FindEquippedItem_02083554((struct PartyMemberData_0206f81c*)memberData, *(unsigned short*)(action + 2));
                                     if (equippedItem != NULL) {
                                         UnequipCategory_02083738((void*)memberData, equippedItem->unknown_8_0_);
                                         unequippedMembers[unequippedCount] = ownPartyOrder[i];
@@ -446,7 +446,7 @@ extern "C" ARM void RunDeferredTriggerActions_0206f81c(void* triggerResult) {
                             if (partyMemberBase != NULL) {
                                 int memberData = func_02053c6c((unsigned char*)partyMemberBase);
                                 if (memberData != 0) {
-                                    struct ItemData_0206f81c_8* equippedItem = (struct ItemData_0206f81c_8*)func_02083554((struct PartyMemberData_0206f81c*)memberData, *(short*)(action + 4));
+                                    struct ItemData_0206f81c_8* equippedItem = (struct ItemData_0206f81c_8*)FindEquippedItem_02083554((struct PartyMemberData_0206f81c*)memberData, *(short*)(action + 4));
                                     if (equippedItem != NULL) {
                                         UnequipCategory_02083738((void*)memberData, equippedItem->unknown_8_0_);
                                         if (IsLocalWirelessOn_0202b7d8((int*)func_0202ae18())) {

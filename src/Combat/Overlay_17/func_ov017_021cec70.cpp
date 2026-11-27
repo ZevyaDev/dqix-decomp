@@ -5,9 +5,9 @@ extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" void func_ov017_021cebcc(int, int, int);
 
 struct EventSyncEntry_020e385c;
-extern "C" void func_020e39d4(struct EventSyncEntry_020e385c* arg0, int arg1, int arg2, int arg3);
+extern "C" void AddEventSyncPlayer_020e39d4(struct EventSyncEntry_020e385c* entry, int protagonistObjectIndex, int type, int eventId);
 extern "C" void func_020e3a50(struct EventSyncEntry_020e385c* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_020e392c(struct EventSyncEntry_020e385c* arg0, int arg1, int arg2);
+extern "C" void AddEventSyncEntry_020e392c(struct EventSyncEntry_020e385c* entry, int type, int eventId);
 extern "C" void RemoveEventSyncEntry_020e3994(struct EventSyncEntry_020e385c* entry, int type, int eventId);
 
 struct Struct_020e3b44 {
@@ -36,13 +36,13 @@ extern "C" ARM void func_ov017_021cec70(int arg0, struct Struct_ov017_021cec70* 
     if (var1 != 0) {
         switch (var2) {
         case 0:
-            func_020e39d4(var0, arg0, arg1->unknown_8_.unknown_4_, arg1->unknown_8_.unknown_0_);
+            AddEventSyncPlayer_020e39d4(var0, arg0, arg1->unknown_8_.unknown_4_, arg1->unknown_8_.unknown_0_);
             break;
         case 1:
             func_020e3a50(var0, arg0, arg1->unknown_8_.unknown_4_, arg1->unknown_8_.unknown_0_);
             break;
         case 2:
-            func_020e392c(var0, arg1->unknown_8_.unknown_4_, arg1->unknown_8_.unknown_0_);
+            AddEventSyncEntry_020e392c(var0, arg1->unknown_8_.unknown_4_, arg1->unknown_8_.unknown_0_);
             break;
         case 3:
             func_ov017_021cebcc(3, arg1->unknown_8_.unknown_4_, arg1->unknown_8_.unknown_0_);

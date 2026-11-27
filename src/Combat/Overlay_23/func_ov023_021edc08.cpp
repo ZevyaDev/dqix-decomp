@@ -19,7 +19,7 @@ struct SkillTable_0200f3a4_8 { int unknown_0_, unknown_4_; };
 struct MusicManager_02109bf4_4;
 struct Struct_020d6f0c;
 struct Struct_020d6d18_2;
-struct Struct_0203a54c;
+struct BattleNumberPopups_0203a54c;
 struct EventSyncEntry_020e385c;
 struct Struct_ov003_02162f40 {
     char unknown_0_[8]; unsigned short unknown_8_; char unknown_a_[2]; int unknown_c_;
@@ -88,8 +88,8 @@ extern "C" void RemoveEffectResource_02057f00(void*, int);
 extern "C" void func_020d6f0c(Struct_020d6f0c*);
 extern "C" void func_020d6d18(Struct_020d6d18_2*);
 extern "C" void func_ov000_021823a4(char*);
-extern "C" Struct_0203a54c* GetBattleNumberPopups_02039e70();
-extern "C" void func_0203a54c(Struct_0203a54c*);
+extern "C" BattleNumberPopups_0203a54c* GetBattleNumberPopups_02039e70();
+extern "C" void ReleaseBattleNumberPopupSprites_0203a54c(BattleNumberPopups_0203a54c*);
 extern "C" void ClearSkillTable_0209a338(SkillTable_0200f3a4_8*);
 extern "C" void ClearSpellTable_0209a804(int*);
 extern "C" void func_ov023_021f52a0(void*);
@@ -110,8 +110,8 @@ extern "C" void PlayJingle_0209c6d8(void*, int);
 extern "C" int IsNotLocalWirelessGuest_0202c508(void*);
 extern "C" EventSyncEntry_020e385c* GetEventSyncTable_020e3808();
 extern "C" void RemoveEventSyncEntry_020e3994(EventSyncEntry_020e385c*, int, int);
-extern "C" void func_020e392c(EventSyncEntry_020e385c*, int, int);
-extern "C" void func_020e39d4(EventSyncEntry_020e385c*, int, int, int);
+extern "C" void AddEventSyncEntry_020e392c(EventSyncEntry_020e385c*, int, int);
+extern "C" void AddEventSyncPlayer_020e39d4(EventSyncEntry_020e385c*, int, int, int);
 
 static inline SafeAllocator* inline_ov000_02166804(GameResources* arg0, int arg1) {
     return &arg0->allocator_array_38[arg1];
@@ -142,7 +142,7 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
         arg0->unknown_ea4_ = 0;
     }
     func_ov000_021823a4(arg0->unknown_6ffc_);
-    func_0203a54c(GetBattleNumberPopups_02039e70());
+    ReleaseBattleNumberPopupSprites_0203a54c(GetBattleNumberPopups_02039e70());
     SafeAllocator* const var7 = inline_ov000_02166804(var1, 5);
     var7->Reset();
     Struct_ov023_021edc08* var8 = (Struct_ov023_021edc08*)var7->Allocate(sizeof(Struct_ov023_021edc08));
@@ -202,8 +202,8 @@ extern "C" ARM int func_ov023_021edc08(Struct_ov023_021edc08_6* arg0) {
     if (IsNotLocalWirelessGuest_0202c508(var2) && arg0->unknown_2a0_->unknown_c_ == 19) {
         EventSyncEntry_020e385c* var20 = GetEventSyncTable_020e3808();
         RemoveEventSyncEntry_020e3994(var20, 1, -1);
-        func_020e392c(var20, 1, 0x71e8);
-        func_020e39d4(var20, 0, 1, 0x71e8);
+        AddEventSyncEntry_020e392c(var20, 1, 0x71e8);
+        AddEventSyncPlayer_020e39d4(var20, 0, 1, 0x71e8);
     }
     return 1;
 }

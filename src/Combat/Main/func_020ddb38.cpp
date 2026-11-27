@@ -27,7 +27,7 @@ struct Struct_020a0504;
 
 extern "C" int func_020ddb20(unsigned int* arg0);
 extern "C" void RemoveHeldItemByIndex_0208386c(struct PartyMemberData_02061c04_22* memberData, int index);
-extern "C" void* func_ov000_02171b9c(void* arg0, int arg1);
+extern "C" void* GetPanelItem_ov000_02171b9c(void* panel, int itemIndex);
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int GetBattleRecords_020ac4c0(void* records);
 extern "C" void func_020a0504(struct Struct_020a0504* arg0, unsigned int arg1);
@@ -52,7 +52,7 @@ extern "C" ARM int func_020ddb38(int arg0, int arg1, struct Struct_020ddb38_3* a
     fail:
         return 0;
     ok:
-        var2 = (struct Struct_020ddb38*)func_ov000_02171b9c(arg2, arg1);
+        var2 = (struct Struct_020ddb38*)GetPanelItem_ov000_02171b9c(arg2, arg1);
     } else {
         var2 = (struct Struct_020ddb38*)((char*)(*(struct PartyMemberData_02061c04_22**)((char*)var1 + Enum_020ddb38_336)) + 0x2d4);
     }

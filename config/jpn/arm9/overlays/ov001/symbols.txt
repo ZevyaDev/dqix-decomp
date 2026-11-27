@@ -186,7 +186,7 @@ func_ov001_0215af8c kind:function(arm,size=0x60) addr:0x0215c610
 func_ov001_0215afec kind:function(arm,size=0x54) addr:0x0215c670
 func_ov001_0215b040 kind:function(arm,size=0x18) addr:0x0215c6c4
 func_ov001_0215b058 kind:function(arm,size=0x1c) addr:0x0215c6dc
-func_ov001_0215b074 kind:function(arm,size=0x258) addr:0x0215c6f8
+RunBrightnessScriptCommand_ov001_0215b074 kind:function(arm,size=0x258) addr:0x0215c6f8
 func_ov001_0215b2cc kind:function(arm,size=0x4c) addr:0x0215c950
 func_ov001_0215b318 kind:function(arm,size=0x6c) addr:0x0215c99c
 func_ov001_0215b384 kind:function(arm,size=0x28) addr:0x0215ca08
@@ -546,7 +546,7 @@ data_ov001_02165706 kind:data(any) addr:0x02166cca
 data_ov001_0216570d kind:data(any) addr:0x02166cd1
 data_ov001_02165728 kind:data(any) addr:0x02166cec
 data_ov001_0216572d kind:data(any) addr:0x02166cf1
-data_ov001_02165745 kind:data(any) addr:0x02166d09
+gDataPathFormat_ov001_02165745 kind:data(any) addr:0x02166d09
 data_ov001_0216574d kind:data(any) addr:0x02166d11
 data_ov001_02165752 kind:data(any) addr:0x02166d16
 data_ov001_02165758 kind:data(any) addr:0x02166d1c

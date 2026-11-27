@@ -18,7 +18,7 @@ extern int data_ov017_021d669c[];
 // USA: func_ov017_021a050c
 extern "C" ARM void func_ov017_021a050c(GameResources* arg0) {
     Struct_02020554* var0 = arg0->unknown_ptr_36d0;
-    func_02020720(var0);
+    ResetSubScreenDisplay_02020720(var0);
 
     for (int var1 = 0; data_ov017_021d669c[var1] >= 0; var1++) {
         int var2 = data_ov017_021d669c[var1];

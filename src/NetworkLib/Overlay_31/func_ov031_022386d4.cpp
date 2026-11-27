@@ -37,7 +37,7 @@ struct Struct_ov031_022386d4_3 {
 
 extern struct Struct_ov031_022386d4_3* data_ov031_02290d14;
 
-extern "C" void func_020c99c8(void* arg0);
+extern "C" void GetUserSettings_020c99c8(void* buffer);
 extern "C" void* VectorizedInvertedMemcpy(void* src, void* dst, int n);
 extern "C" int func_ov027_021dc680(void* arg0, struct Struct_ov031_022386d4* arg1, void* arg2, unsigned short arg3, int arg4);
 extern "C" void func_020c9be0(void);
@@ -50,7 +50,7 @@ extern "C" void func_ov031_02239108(unsigned short arg0);
 extern "C" ARM void func_ov031_022386d4(void* arg0, unsigned short arg1) {
 	struct Struct_ov031_022386d4_4 var0;
 	struct Struct_ov031_022386d4 var1;
-	func_020c99c8(&var0);
+	GetUserSettings_020c99c8(&var0);
 	var1.unknown_0_0_ = var0.unknown_1_;
 	var1.unknown_1_ = var0.unknown_1a_;
 	VectorizedInvertedMemcpy(var0.unknown_4_, var1.unknown_2_, var0.unknown_1a_ * 2);

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_020c99c8(void* arg0);
+extern "C" void GetUserSettings_020c99c8(void* buffer);
 
 struct Struct_02000c9c_8 { unsigned char unknown_0_[5]; unsigned char language_5_; };
 
@@ -9,7 +9,7 @@ struct Struct_02000c9c_8 { unsigned char unknown_0_[5]; unsigned char language_5
 extern "C" ARM unsigned char func_0200fb08(Struct_02000c9c_8* gameState) {
     unsigned char userSettings[0x54];
     unsigned char language;
-    func_020c99c8(userSettings);
+    GetUserSettings_020c99c8(userSettings);
     language = userSettings[0];
     gameState->language_5_ = language;
 #if defined(eur)

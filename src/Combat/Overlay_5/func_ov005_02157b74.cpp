@@ -110,7 +110,7 @@ extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
 extern "C" void AddEquipmentToBag_0207c378(char* bag, short itemId, int count, int category);
 extern "C" void func_ov005_021551fc(char*, int, int);
 extern "C" void func_ov005_02155544(Struct_ov005_02157b74_2* arg0);
-extern "C" void func_ov005_021555c0(Struct_ov005_02157b74_2* arg0);
+extern "C" void FillEquipMenuItemGrid_ov005_021555c0(Struct_ov005_02157b74_2* equipMenuUI);
 struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern "C" int GetEquipRestrictions_020dd4c4(signed char memberIndex, Struct_ov005_02157b74_5* item);
@@ -197,7 +197,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
         arg0->unknown_3da8_ = 0;
         arg0->unknown_3dac_ = arg0->unknown_3dbc_;
         if (arg2 == 0) {
-            func_ov005_021555c0(arg0);
+            FillEquipMenuItemGrid_ov005_021555c0(arg0);
             for (int var12 = 8; var12 < 0x18; var12++) {
                 if (var7 == arg0->unknown_2d90_[var12].unknown_0_ && arg0->unknown_2d90_[var12].unknown_2_ == 1) {
                     arg0->unknown_3dcc_ |= 0x40;
@@ -336,7 +336,7 @@ extern "C" ARM void func_ov005_02157b74(Struct_ov005_02157b74_2* arg0, int arg1,
     arg0->unknown_3dbb_ = arg0->unknown_3dbc_;
     func_ov005_02154d18(arg0->unknown_1a34_, 0x85000, 0x17000);
     func_ov005_02154d50(arg0->unknown_1a34_, 0x76000, 0x16000);
-    func_ov005_021555c0(arg0);
+    FillEquipMenuItemGrid_ov005_021555c0(arg0);
     for (int var25 = 8; var25 < 0x18; var25++) {
         if (var17 == arg0->unknown_2d90_[var25].unknown_0_ && arg0->unknown_2d90_[var25].unknown_2_ == 1) {
             arg0->unknown_3dcc_ |= 0x40;

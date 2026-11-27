@@ -37,7 +37,7 @@ extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" int func_ov000_02156038(GameObject*);
 extern "C" int func_ov000_02156050(GameObject*);
 extern "C" int func_020881c4(unsigned char*);
-extern "C" Struct_ov000_0215b5a0_3* func_ov000_0215e9d8(void*);
+extern "C" Struct_ov000_0215b5a0_3* GetNextBattleAction_ov000_0215e9d8(void*);
 extern "C" void InitBattleAction_ov000_02160030(void*);
 extern "C" Struct_ov000_0215b5a0_4* func_ov000_0215e918(void*);
 extern "C" Struct_ov000_0215b5a0_5* func_ov000_0215e938(void*);
@@ -46,12 +46,12 @@ extern "C" void SetSuperHighTension_02088150(void*);
 extern "C" void func_02088220(void*, int);
 extern "C" void AppendTargetResult_ov000_0215ffc4(void*, void*, int);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void*, void*, int);
-struct Struct_ov000_0215767c_7; struct Struct_ov000_0215767c_6; struct BattleAction_ov000_0215767c_5; struct ActionTarget_ov000_0215767c_4;
-extern "C" void func_ov000_02160068(Struct_ov000_0215767c_7*, Struct_ov000_0215767c_6*);
+struct BattleAction_ov000_0215767c_7; struct ActionActor_ov000_0215767c_6; struct BattleAction_ov000_0215767c_5; struct ActionTarget_ov000_0215767c_4;
+extern "C" void AppendActionActor_ov000_02160068(BattleAction_ov000_0215767c_7*, ActionActor_ov000_0215767c_6*);
 extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*, ActionTarget_ov000_0215767c_4*);
 extern "C" void SetActionResult_ov000_0215ccbc(int, ActionResult_ov000_021584e8*, GameObject*, short, short, short, unsigned long long, unsigned char);
 extern "C" ActionResult_ov000_021584e8* GetNextActionResult_ov000_0215e958(void*);
-extern "C" int func_ov000_02159f18(void*, unsigned long long, int);
+extern "C" int IsActionResultFlagSet_ov000_02159f18(void*, unsigned long long, int);
 
 static inline Struct_ov000_0215b5a0* inline_ov000_0215b5a0(GameObject* arg0) { return (Struct_ov000_0215b5a0*)arg0->currentStats_; }
 static inline short inline_ov000_021584e8(GameObject* arg0) { return arg0->currentStats_->primaryStats.currHP; }
@@ -91,7 +91,7 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAct
         int var15 = inline_ov000_0215b5a0(var14)->unknown_24_;
         if (NextRandomMax(&arg0->unknown_0_, 100) >= sSleepChance[var15]) continue;
 
-        var8 = func_ov000_0215e9d8(arg0);
+        var8 = GetNextBattleAction_ov000_0215e9d8(arg0);
         if (!var8) continue;
         InitBattleAction_ov000_02160030(var8);
         var9 = func_ov000_0215e918(arg0);
@@ -131,13 +131,13 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAct
         var10->unknown_e_[0] = var0[var7];
         var10->unknown_17_ = 1;
         AppendTargetResult_ov000_0215ffc4(var10, var11, 0);
-        func_ov000_02160068((Struct_ov000_0215767c_7*)var8, (Struct_ov000_0215767c_6*)var9);
+        AppendActionActor_ov000_02160068((BattleAction_ov000_0215767c_7*)var8, (ActionActor_ov000_0215767c_6*)var9);
         AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)var8, (ActionTarget_ov000_0215767c_4*)var10);
         var8->unknown_b_ |= 4;
         arg0->unknown_8e24_++; arg0->unknown_8e00_++; arg0->unknown_8e01_++; arg0->unknown_8e02_++;
 
-        if (!func_ov000_02159f18(arg0, var16, 7)) continue;
-        var8 = func_ov000_0215e9d8(arg0);
+        if (!IsActionResultFlagSet_ov000_02159f18(arg0, var16, 7)) continue;
+        var8 = GetNextBattleAction_ov000_0215e9d8(arg0);
         if (!var8) continue;
         InitBattleAction_ov000_02160030(var8);
         var9 = func_ov000_0215e918(arg0);
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAct
         var10->unknown_17_ = 1;
         AppendTargetResult_ov000_0215ffc4(var10, var11, 0);
         arg0->unknown_8e02_++;
-        func_ov000_02160068((Struct_ov000_0215767c_7*)var8, (Struct_ov000_0215767c_6*)var9);
+        AppendActionActor_ov000_02160068((BattleAction_ov000_0215767c_7*)var8, (ActionActor_ov000_0215767c_6*)var9);
         AppendActionTarget_ov000_021600cc((BattleAction_ov000_0215767c_5*)var8, (ActionTarget_ov000_0215767c_4*)var10);
         arg0->unknown_8e24_++; arg0->unknown_8e00_++; arg0->unknown_8e01_++; arg0->unknown_8e02_++;
     }

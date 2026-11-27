@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-struct Struct_02108760_2;
+struct SoundEffectManager_02108760_2;
 
 extern "C" void func_0203a914(void* arg0);
-extern "C" void SetSoundEffectVolumeLevel_0205e9f4(struct Struct_02108760_2* manager, int volumeLevel);
+extern "C" void SetSoundEffectVolumeLevel_0205e9f4(struct SoundEffectManager_02108760_2* manager, int volumeLevel);
 extern "C" void SetSoundEffectVolume_0205e944(void*, int);
 
 struct SoundEffectManager_02000c9c_17 {
@@ -28,5 +28,5 @@ extern "C" ARM void InitSoundEffectManager_0205e88c(struct SoundEffectManager_02
     manager->unknown_c0_ = 0;
     manager->extraSoundSet_c4_ = -1;
     SetSoundEffectVolume_0205e944(manager, 0x7f);
-    SetSoundEffectVolumeLevel_0205e9f4((struct Struct_02108760_2*)manager, 3);
+    SetSoundEffectVolumeLevel_0205e9f4((struct SoundEffectManager_02108760_2*)manager, 3);
 }

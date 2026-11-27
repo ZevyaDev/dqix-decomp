@@ -14,7 +14,7 @@ extern char data_ov031_0224a2ac[];
 extern char data_ov031_0224a2b8[];
 extern char data_ov031_0224a2c0[];
 extern char data_ov031_0224a2d0[];
-extern int data_020f3390;
+extern int gErrorNumber_020f3390;
 
 // USA: func_ov031_0221a89c
 extern "C" ARM int func_ov031_0221a89c(void) {
@@ -33,7 +33,7 @@ extern "C" ARM int func_ov031_0221a89c(void) {
         return 0;
     }
     int var3 = ParseDecimal_02005a94((const char*)var2);
-    if (data_020f3390 == 0x22) {
+    if (gErrorNumber_020f3390 == 0x22) {
         func_ov031_02211b08(0x10, 0xffff9df3);
         return 0;
     }
@@ -46,7 +46,7 @@ extern "C" ARM int func_ov031_0221a89c(void) {
         return 0;
     }
     var3 = ParseDecimal_02005a94(var0);
-    if (data_020f3390 == 0x22) {
+    if (gErrorNumber_020f3390 == 0x22) {
         func_ov031_02211b08(0x10, 0xffff9df3);
         return 0;
     }

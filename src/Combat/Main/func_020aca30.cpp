@@ -12,8 +12,8 @@ struct Struct_0200ffd0;
 extern "C" void* func_0200ffd0(struct Struct_0200ffd0* arg0);
 struct QueueNode_02015438;
 extern "C" int GetQueueHeadType_02046b24(struct QueueNode_02015438** queue);
-struct Struct_02046b1c;
-extern "C" int func_02046b1c(struct Struct_02046b1c* arg0);
+struct Queue_02046b1c;
+extern "C" int GetQueueHead_02046b1c(struct Queue_02046b1c* queue);
 
 struct Struct_020aca30 { char unknown_0_[Enum_020aca30_14076]; void* unknown_36fc_; };
 
@@ -24,7 +24,7 @@ extern "C" ARM void func_020aca30(struct Struct_020aca30* arg0) {
     void* var2 = arg0->unknown_36fc_;
     var1 = func_0200ffd0((struct Struct_0200ffd0*)var0);
     int var3 = GetQueueHeadType_02046b24((struct QueueNode_02015438**)var2);
-    int var4 = func_02046b1c((struct Struct_02046b1c*)var2);
+    int var4 = GetQueueHead_02046b1c((struct Queue_02046b1c*)var2);
     if (var1 == NULL) return;
     if (var3 == 0xa) {
         if (*((unsigned char*)var4 + 3) != 0) return;

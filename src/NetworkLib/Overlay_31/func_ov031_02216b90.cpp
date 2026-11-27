@@ -34,7 +34,7 @@ struct Struct_02111304_6 {
 struct ProcessorContext;
 int GetContextPriority(ProcessorContext*);
 extern "C" int func_ov031_02217c00(void* arg0, Struct_ov031_02249b54* arg1);
-extern "C" void func_ov031_0221ae00(void* arg0);
+extern "C" void UnpackWifiCredentials_ov031_0221ae00(void* credentials);
 extern "C" int func_ov031_022173f4(void* arg0, void* arg1, void* arg2);
 extern "C" int func_ov031_02217d1c(void* arg0);
 extern "C" void func_ov031_02217db4(void* arg0, int arg1);
@@ -61,7 +61,7 @@ extern "C" ARM int func_ov031_02216b90(int arg0) {
         return 4;
     }
     if (arg0 == 1) {
-        func_ov031_0221ae00(&data_ov031_0224e5f4);
+        UnpackWifiCredentials_ov031_0221ae00(&data_ov031_0224e5f4);
     }
     gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1004_ = func_ov031_022173f4(gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1314_,
                                                           gAccountRequest_ov031_0224e5e8.unknown_8_->unknown_1200_,

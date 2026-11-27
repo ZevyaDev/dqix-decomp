@@ -117,7 +117,7 @@ extern "C" ARM void func_020227dc(Struct_02020554* arg0) {
     func_02021428(arg0, 0x19);
     if (IsBrightnessWithinValidRange((GameResources*)var2, true) != 0) return;
 
-    func_02020720(arg0);
+    ResetSubScreenDisplay_02020720(arg0);
     func_020209d0(arg0);
     func_0203b66c((char*)var4);
     var6->Reset();

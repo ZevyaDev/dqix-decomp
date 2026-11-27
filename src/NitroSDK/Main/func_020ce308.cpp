@@ -28,7 +28,7 @@ struct Struct_021117ec_5
     Struct_020ce308 unknown_1c_;
 };
 
-extern Struct_021117ec_5 data_021117ec;
+extern Struct_021117ec_5 gPowerControl_021117ec;
 
 extern "C" void func_020ce240(int arg0);
 
@@ -55,8 +55,8 @@ extern "C" ARM void func_020ce308(unsigned int arg0, unsigned int arg1, unsigned
     switch (var0)
     {
     case COMMAND_UTILITY:
-        if (data_021117ec.unknown_1c_.unknown_c_)
-            *(unsigned short*)data_021117ec.unknown_1c_.unknown_c_ = var1;
+        if (gPowerControl_021117ec.unknown_1c_.unknown_c_)
+            *(unsigned short*)gPowerControl_021117ec.unknown_1c_.unknown_c_ = var1;
         var1 = PM_SUCCESS;
         break;
     case COMMAND_SYNC:
@@ -65,7 +65,7 @@ extern "C" ARM void func_020ce308(unsigned int arg0, unsigned int arg1, unsigned
     case COMMAND_SLEEP_START:
         break;
     case COMMAND_SLEEP_END:
-        data_021117ec.unknown_c_ = true;
+        gPowerControl_021117ec.unknown_c_ = true;
         break;
     }
     func_020ce240(var1);

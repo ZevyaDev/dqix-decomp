@@ -39,7 +39,7 @@ struct Struct_0203d028_12;
 struct Queue_0201bdac_2;
 struct QueueNode_0201bdac;
 struct Queue_02038598_5;
-struct Struct_0208b8c4;
+struct QuestDisplay_0208b8c4;
 
 struct Struct_ov017_021b8e8c {
     int unknown_0_;
@@ -116,7 +116,7 @@ extern "C" void func_0203cedc(struct Struct_0203ca24* arg0, int arg1, int arg2);
 extern "C" int GetStoryChapter_0201079c(char* gameState);
 extern "C" int GetStoryStep_020107d0(char* gameState);
 extern "C" Struct_0203d028_12* func_0209854c(struct Struct_0203d028_12* arg0, int arg1);
-extern "C" void func_ov017_021a967c(QueueNode_0201bdac* arg0, int arg1);
+extern "C" void ResetBattleRecordsTask_ov017_021a967c(QueueNode_0201bdac* node, int protagonistObjectIndex);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" int func_ov017_0218d2c4(int arg0);
 extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
@@ -132,7 +132,7 @@ extern "C" int func_0206f6cc(unsigned char* arg0, int arg1);
 extern "C" int IsTypeInQueue_02046b60(Queue_02038598_5* queue, int type);
 extern "C" void ReleaseFileTablesForSpace_020a0cc4(unsigned int neededSize);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion* allocator, unsigned int size);
-extern "C" void func_0208b8c4(struct Struct_0208b8c4* arg0, SafeAllocator* arg1);
+extern "C" void AllocateQuestDisplay_0208b8c4(struct QuestDisplay_0208b8c4* display, SafeAllocator* allocator);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2);
 #else
@@ -226,7 +226,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
             QueueNode_0201bdac* var18 = (QueueNode_0201bdac*)var1->unknown_ptr_array_3afc[0x22];
             var17 = (Queue_0201bdac_2*)var1->unknown_ptr_array_36fc[0];
             Struct_0203d028_12* var19 = func_0209854c((Struct_0203d028_12*)((char*)var3 + Enum_ov017_021b8e8c_2112), *(unsigned short*)var14);
-            func_ov017_021a967c(var18, -1);
+            ResetBattleRecordsTask_ov017_021a967c(var18, -1);
             *(Struct_0203d028_12**)((char*)var18 + 0x54) = var19;
             AppendToQueue_020469b4(var17, var18);
             arg0->unknown_1_ = 1;
@@ -354,7 +354,7 @@ extern "C" ARM void func_ov017_021b8e8c(Struct_ov017_021b8e8c_5* arg0, Queue_020
     case 2: {
         ReleaseFileTablesForSpace_020a0cc4(0xa000);
         arg0->unknown_8_.CreateTypeA(AllocateRoundedSize_02012d88(&gMainHeap_02114e20, 0xa000), 0xa000);
-        func_0208b8c4((Struct_0208b8c4*)arg0->unknown_30_, &arg0->unknown_8_);
+        AllocateQuestDisplay_0208b8c4((QuestDisplay_0208b8c4*)arg0->unknown_30_, &arg0->unknown_8_);
         char* var34 = *(char**)(var4 + Enum_ov017_021b8e8c_92);
         int var35 = 1;
         switch (var9) {

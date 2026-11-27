@@ -85,7 +85,7 @@ struct Struct_ov009_0218742c_8 { char unknown_0_[0x63d4]; unsigned char unknown_
 struct Struct_ov009_0218aac8 { unsigned char unknown_0_; unsigned char unknown_1_; unsigned char unknown_2_[5]; };
 struct TextWindowManager_0205d81c; struct SoundEffectManager_02108760; struct Struct_0205c570; struct TextWindowManager_0205da38;
 struct TextWindowManager_0205d6a0; struct BGLayer_0204b010; struct TextWindowManager_0205d1e0; struct TextWindowManager_0205d228;
-struct TextWindowManager_0205d274; struct TextWindowManager_0205d2bc; struct ItemTable_0201099c_10; struct Struct_0201099c_18;
+struct TextWindowManager_0205d274; struct TextWindowManager_0205d2bc; struct ItemTable_0201099c_10; struct SpellTable_0201099c_18;
 extern "C" void* func_020d6c00();
 extern "C" void func_ov023_021d9f88(Struct_ov009_0218742c_6*);
 extern "C" void SetTextWindowPalette_0205deb4(TextWindowManager_0205d81c*, int, int);
@@ -98,7 +98,7 @@ extern "C" void DrawTextWindows_0205d228(TextWindowManager_0205d228*);
 extern "C" void FlushTextWindowManagerBGScreenData_0205d274(TextWindowManager_0205d274*);
 extern "C" void CopyTextWindowManagerBGScreenDataToVRAM_0205d2bc(TextWindowManager_0205d2bc*);
 extern "C" void func_ov009_021855dc(unsigned char*, int);
-extern "C" void func_02086404(Struct_ov009_0218742c*);
+extern "C" void InitPattyMember_02086404(Struct_ov009_0218742c*);
 extern "C" void SetVocation_02083ca0(unsigned char*, int);
 extern "C" int sprintf(char*, const char*, ...);
 extern "C" void ClearLevelEntries_0208247c(void*);
@@ -109,10 +109,10 @@ extern "C" void* FindItemData_020dedd0(ItemTable_0201099c_10*, int);
 extern "C" void CalculatePartyMemberStats_02083e28(void*, int);
 extern "C" void func_020863c4(unsigned char*);
 extern "C" void ClearSpellTable_0209a804(int*);
-extern "C" void func_0209a810(Struct_0201099c_18*, void*);
+extern "C" void LoadSpellTable_0209a810(SpellTable_0201099c_18*, void*);
 extern "C" void LearnSpell_02083b60(unsigned char*, int);
-extern "C" void func_020830cc(void*, Struct_ov009_0218742c*);
-extern "C" void func_02086778(void*, Struct_ov009_0218742c*, unsigned char, unsigned char);
+extern "C" void BuildPattyMember_020830cc(void*, Struct_ov009_0218742c*);
+extern "C" void AddPattyMember_02086778(void*, Struct_ov009_0218742c*, unsigned char, unsigned char);
 extern "C" void* func_ov003_0215f4fc(void*, const char*);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern unsigned char data_ov009_0218a9b4[];
@@ -189,7 +189,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
         } else if (arg0->unknown_d95_ == 1) {
             void* var7 = GetParty_02010828(var0);
             Struct_ov009_0218742c var8;
-            func_02086404(&var8);
+            InitPattyMember_02086404(&var8);
             SetVocation_02083ca0((unsigned char*)arg0->unknown_d88_, arg0->unknown_da2_);
             arg0->unknown_d88_->unknown_138_[arg0->unknown_da2_] = 0;
             arg0->unknown_d88_->unknown_16c_[arg0->unknown_da2_] = 1;
@@ -231,7 +231,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             int var19;
             ClearSpellTable_0209a804(&var19);
             Struct_ov009_0218742c_4 var20;
-            func_0209a810((Struct_0201099c_18*)&var19, &var20);
+            LoadSpellTable_0209a810((SpellTable_0201099c_18*)&var19, &var20);
             unsigned char var21 = arg0->unknown_d88_->unknown_950_;
             unsigned char var22 = arg0->unknown_d88_->unknown_16c_[arg0->unknown_d88_->unknown_950_];
             Struct_ov009_0218742c_3* var23 = var20.unknown_10c_[var21];
@@ -239,8 +239,8 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
                 if (var22 >= var23[var24].unknown_2_ && var23[var24].unknown_2_ != 0)
                     LearnSpell_02083b60((unsigned char*)arg0->unknown_d88_, var23[var24].unknown_0_);
             }
-            func_020830cc(arg0->unknown_d88_, &var8);
-            func_02086778(var7, &var8, 0, 0);
+            BuildPattyMember_020830cc(arg0->unknown_d88_, &var8);
+            AddPattyMember_02086778(var7, &var8, 0, 0);
             arg0->unknown_d9c_ |= 0x400;
             func_ov009_021855dc((unsigned char*)arg0, 11);
         }
@@ -249,7 +249,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             Struct_ov009_0218742c_9* var25 = arg0->unknown_d88_;
             void* var26 = GetParty_02010828(var0);
             Struct_ov009_0218742c var27;
-            func_02086404(&var27);
+            InitPattyMember_02086404(&var27);
             SetVocation_02083ca0((unsigned char*)var25, arg0->unknown_da2_);
             var25->unknown_138_[arg0->unknown_da2_] = 0;
             var25->unknown_16c_[arg0->unknown_da2_] = 1;
@@ -290,7 +290,7 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
             int var37;
             ClearSpellTable_0209a804(&var37);
             Struct_ov009_0218742c_4 var38;
-            func_0209a810((Struct_0201099c_18*)&var37, &var38);
+            LoadSpellTable_0209a810((SpellTable_0201099c_18*)&var37, &var38);
             unsigned char var39 = var25->unknown_950_;
             unsigned char var40 = var25->unknown_16c_[var25->unknown_950_];
             Struct_ov009_0218742c_3* var41 = var38.unknown_10c_[var39];
@@ -298,8 +298,8 @@ extern "C" ARM void func_ov009_0218742c(Struct_ov009_0218742c_6* arg0) {
                 if (var40 >= var41[var42].unknown_2_ && var41[var42].unknown_2_ != 0)
                     LearnSpell_02083b60((unsigned char*)var25, var41[var42].unknown_0_);
             }
-            func_020830cc(var25, &var27);
-            func_02086778(var26, &var27, 0, 0);
+            BuildPattyMember_020830cc(var25, &var27);
+            AddPattyMember_02086778(var26, &var27, 0, 0);
             arg0->unknown_d9c_ |= 0x400;
             func_ov009_021855dc((unsigned char*)arg0, 11);
         }

@@ -14,7 +14,7 @@ struct Struct_ov031_0223c308 {
 extern "C" void* AllocateZeroedMemory_ov031_0223cf4c(int size, int alignAndDir);
 extern "C" int func_ov031_0223beec(int arg0, int arg1, int arg2);
 extern "C" int func_ov031_02227548(void);
-extern "C" void* func_ov031_0223b61c(int arg0, int arg1, int arg2);
+extern "C" void* LoadFile_ov031_0223b61c(int path, int outLength, int alignAndDir);
 extern "C" void func_020b0e48(Struct_020b0e48* arg0, void* arg1);
 
 extern Struct_ov031_0223c308* data_ov031_02290d38;
@@ -33,7 +33,7 @@ extern "C" ARM void func_ov031_0223c308(void) {
         int var1 = 0;
         int var2 = 0;
         do {
-            data_ov031_02290d38->unknown_674_[var1] = func_ov031_0223b61c(data_ov031_0224c570[var1], 0, 4);
+            data_ov031_02290d38->unknown_674_[var1] = LoadFile_ov031_0223b61c(data_ov031_0224c570[var1], 0, 4);
             func_020b0e48((Struct_020b0e48*)((char*)data_ov031_02290d38 + var2),
                                data_ov031_02290d38->unknown_674_[var1]);
             var1++;
@@ -46,7 +46,7 @@ extern "C" ARM void func_ov031_0223c308(void) {
         int var4 = 0;
         var3 = 0;
         do {
-            data_ov031_02290d38->unknown_674_[var4] = func_ov031_0223b61c(data_ov031_0224c578[var4], 0, 4);
+            data_ov031_02290d38->unknown_674_[var4] = LoadFile_ov031_0223b61c(data_ov031_0224c578[var4], 0, 4);
             func_020b0e48((Struct_020b0e48*)((char*)data_ov031_02290d38 + var3),
                                data_ov031_02290d38->unknown_674_[var4]);
             var4++;

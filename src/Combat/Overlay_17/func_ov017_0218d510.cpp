@@ -6,8 +6,8 @@ extern "C" unsigned short* GetZone3D_02012fe4(void);
 extern "C" int IsQuestersRestZone_020981e4(int questersRest, int zoneId);
 struct TextureVRAMArea_0203d028;
 extern "C" void func_020dbebc(void* arg0);
-struct Struct_020dbd9c;
-extern "C" void func_020dbd9c(struct Struct_020dbd9c* arg0);
+struct EffectLoader_020dbd9c;
+extern "C" void InitEffectLoader_020dbd9c(struct EffectLoader_020dbd9c* effectLoader);
 struct Struct_020dbf18;
 extern "C" int func_020dbf18(struct Struct_020dbf18* arg0, int arg1, int arg2, int arg3, int arg4);
 
@@ -49,7 +49,7 @@ extern "C" ARM int func_ov017_0218d510(struct Struct_ov017_0218d510* arg0, SafeA
         func_020dbebc(arg0->unknown_4498_);
     }
     struct Struct_020dbf18* var3 = arg0->unknown_4498_ = (struct Struct_020dbf18*)arg1->Allocate(0x18);
-    func_020dbd9c((struct Struct_020dbd9c*)var3);
+    InitEffectLoader_020dbd9c((struct EffectLoader_020dbd9c*)var3);
     func_020dbf18(var3, (int)data_ov017_021d7383, (int)arg1, (int)var2, 0x17);
     return 0;
 }

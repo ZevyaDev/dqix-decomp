@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_ov009_02188454 { unsigned int unknown_0_, unknown_4_, unknown_8_; };
-extern "C" void func_ov023_021e60e0(void* arg0, unsigned int arg1);
+extern "C" void SetCharacterModelFacing_ov023_021e60e0(void* model, unsigned int angle);
 extern "C" void func_ov023_021e6088(void* arg0, Struct_ov009_02188454* arg1);
 extern "C" void func_ov023_021e613c(Struct_ov009_02188454* arg0, char* arg1);
 extern "C" void func_ov023_021e6158(void* arg0, int arg1);
@@ -27,8 +27,8 @@ extern "C" ARM void func_ov023_021e447c(Struct_ov023_021e447c* arg0) {
     if (!(arg0->unknown_634_ & 0x8)) return;
     if (*(unsigned char*)((char*)arg0->unknown_12c_ + 0xc12) != 0) return;
     if (arg0->unknown_634_ & 0x40) {
-        func_ov023_021e60e0(arg0->unknown_128_, 0x1eb);
-        func_ov023_021e60e0(arg0->unknown_12c_, 0x1eb);
+        SetCharacterModelFacing_ov023_021e60e0(arg0->unknown_128_, 0x1eb);
+        SetCharacterModelFacing_ov023_021e60e0(arg0->unknown_12c_, 0x1eb);
     } else {
         Struct_ov009_02188454 var0;
         func_ov023_021e613c(&var0, (char*)arg0->unknown_128_);

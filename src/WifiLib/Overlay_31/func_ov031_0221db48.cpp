@@ -46,14 +46,14 @@ extern "C" THUMB int func_ov031_0221db48(int arg0, Struct_ov031_0221db48_3* arg1
     do {
         var1 = arg1;
         if (var1->unknown_0_ == data_ov031_0224b06c[arg0]) goto found;
-        int var2 = func_ov031_0221e638(arg1->unknown_2_) + 4;
+        int var2 = SwapBytes16_ov031_0221e638(arg1->unknown_2_) + 4;
         arg2 -= var2;
         arg1 = (Struct_ov031_0221db48_3*)((char*)arg1 + var2);
     } while (arg2 > 0);
     return -4;
 found:
     arg1 = var1 + 1;
-    int var3 = func_ov031_0221e638(var1->unknown_2_);
+    int var3 = SwapBytes16_ov031_0221e638(var1->unknown_2_);
     Struct_ov031_0221db48* var4 = &arg3[arg0];
     unsigned char* var5 = (unsigned char*)arg4;
     unsigned int var6 = (arg0 + 3) * sizeof(Struct_ov031_0221db48_2);
@@ -84,7 +84,7 @@ found:
             break;
         }
         if (var7) return var7;
-        int var8 = func_ov031_0221e638(arg1->unknown_2_) + 4;
+        int var8 = SwapBytes16_ov031_0221e638(arg1->unknown_2_) + 4;
         var3 -= var8;
         arg1 = (Struct_ov031_0221db48_3*)((char*)arg1 + var8);
     } while (var3 > 0);
