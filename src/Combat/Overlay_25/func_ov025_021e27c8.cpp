@@ -37,7 +37,7 @@ extern "C" SafeAllocator* func_ov025_021e8a54(char* arg0);
 extern "C" char* func_ov025_021e8a64(char* arg0);
 extern "C" EffectManager_02057de0_2* GetEffectManager_02057924(void);
 extern "C" unsigned char func_0200fb08(Struct_02000c9c_8* gameState);
-extern "C" int func_ov025_021e24d0(char* arg0, char* arg1, char* arg2);
+extern "C" int ResolveCharaPackPath_ov025_021e24d0(char* path, char* outArchivePath, char* outEntryName);
 extern "C" void func_ov025_021e8bac(Struct_ov025_021e267c_2* arg0, Struct_ov025_021e267c_3* arg1);
 extern "C" int LoadEffectResource_02057de0(EffectManager_02057de0_2* effectManager, int effectId, SafeAllocator* allocator, int fileData, int fileSize);
 extern "C" void func_ov025_021eb084(Struct_ov025_021e27c8* arg0, int arg1);
@@ -76,7 +76,7 @@ extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
 #endif
 
     int var7;
-    if (func_ov025_021e24d0(arg0, var0, var1)) {
+    if (ResolveCharaPackPath_ov025_021e24d0(arg0, var0, var1)) {
         var7 = var5->GetLoadedFileInArchive(var0, var1, &var3, &var4);
     } else {
 #if defined(jpn)

@@ -4,7 +4,7 @@
 #include "GameState/GameState.h"
 
 extern "C" void* func_ov025_021e8a54(char* arg0);
-extern "C" int func_ov025_021e24d0(char* arg0, char* arg1, char* arg2);
+extern "C" int ResolveCharaPackPath_ov025_021e24d0(char* path, char* outArchivePath, char* outEntryName);
 
 struct Struct_ov025_021e4aac;
 struct Struct_ov001_0215e1cc;
@@ -51,7 +51,7 @@ extern "C" ARM int func_ov025_021e4aac(struct Struct_ov025_021e4aac_2* arg0, int
     int var7 = 0;
     int var8;
     int var9;
-    if (func_ov025_021e24d0(var1, var5, var6)) {
+    if (ResolveCharaPackPath_ov025_021e24d0(var1, var5, var6)) {
         var9 = ((BackgroundLoader*)((struct Struct_ov025_021e4aac*)var0))->GetLoadedFileInArchive((const char*)(var5), (const char*)(var6), (void**)(&var7), (unsigned int*)(&var8));
     } else {
         var9 = ((BackgroundLoader*)((struct Struct_ov001_0215e1cc*)var0))->GetLoadedFileByName((const char*)(var1), (void**)(&var7), (unsigned int*)(&var8));

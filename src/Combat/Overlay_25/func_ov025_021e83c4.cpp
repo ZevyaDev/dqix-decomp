@@ -10,7 +10,7 @@ enum { Enum_ov025_021e83c4_336 = 0x150, Enum_ov025_021e83c4_12 = 0xc };
 #include "GameState/GameState.h"
 
 extern "C" void* func_ov025_021e8a54(char* arg0);
-extern "C" int func_ov025_021e24d0(char* arg0, char* arg1, char* arg2);
+extern "C" int ResolveCharaPackPath_ov025_021e24d0(char* path, char* outArchivePath, char* outEntryName);
 
 struct Struct_ov025_021e4aac;
 struct Struct_ov001_0215e1cc;
@@ -54,7 +54,7 @@ extern "C" ARM int func_ov025_021e83c4(struct Struct_ov025_021e83c4_2* arg0, str
     int var9 = 0;
     int var10;
     int var11;
-    if (func_ov025_021e24d0(var6, var7, var8)) {
+    if (ResolveCharaPackPath_ov025_021e24d0(var6, var7, var8)) {
         var11 = ((BackgroundLoader*)((struct Struct_ov025_021e4aac*)var1))->GetLoadedFileInArchive((const char*)(var7), (const char*)(var8), (void**)(&var9), (unsigned int*)(&var10));
     } else {
         var11 = ((BackgroundLoader*)((struct Struct_ov001_0215e1cc*)var1))->GetLoadedFileByName((const char*)(var6), (void**)(&var9), (unsigned int*)(&var10));
