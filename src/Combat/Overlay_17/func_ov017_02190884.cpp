@@ -82,7 +82,7 @@ extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wir
 extern "C" void func_020340e4(unsigned char* arg0);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" void func_0203986c(unsigned char*, int);
-extern "C" void func_02039880(unsigned char*, int);
+extern "C" void SetPartyLeaderObjectIndex_02039880(unsigned char*, int);
 extern "C" void func_020398a4(unsigned char* arg0);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834* object, int angle);
 extern "C" void func_0202006c(unsigned char* arg0, int arg1);
@@ -292,7 +292,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
         }
         func_0203986c((unsigned char*)var46, var45);
         var46->unknown_b4_ = 0x189;
-        func_02039880((unsigned char*)var46, arg1[0]);
+        SetPartyLeaderObjectIndex_02039880((unsigned char*)var46, arg1[0]);
         if (arg3 != 0) {
             func_020398a4((unsigned char*)var46);
         }
@@ -335,7 +335,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
             }
             func_0203986c((unsigned char*)var50, var48);
             var50->unknown_b4_ = 0x189;
-            func_02039880((unsigned char*)var50, arg1[0]);
+            SetPartyLeaderObjectIndex_02039880((unsigned char*)var50, arg1[0]);
             var50->unknown_0_.EnableFlag(0x80);
             if (arg3 != 0) {
                 func_020398a4((unsigned char*)var50);

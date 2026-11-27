@@ -157,7 +157,7 @@ extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" void func_ov017_02190264(void* arg0, int arg1);
 extern "C" void func_ov017_021c32b0(Struct_ov017_021c37a4_2* arg0, int arg1);
 extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void* wireless);
-extern "C" void func_020100a0(GameState* arg0, int arg1);
+extern "C" void SetProtagonistObjectIndex_020100a0(GameState* gameState, int protagonistObjectIndex);
 extern "C" void func_020dcd40(void);
 extern "C" void LoadPartyMemberColors_020dc7e8(int destination, int partyMemberIndex);
 extern "C" void RebuildPartyOrders_ov017_02191234(void* gameResources);
@@ -293,7 +293,7 @@ extern "C" ARM void func_ov017_021c37a4(void) {
     }
 
     UpdateLocalWirelessPlayerCount_0202c288(var2);
-    func_020100a0(var0, 0);
+    SetProtagonistObjectIndex_020100a0(var0, 0);
     if (var9) {
         func_020dcd40();
         LoadPartyMemberColors_020dc7e8(6, -1);

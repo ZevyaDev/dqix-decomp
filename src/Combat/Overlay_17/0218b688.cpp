@@ -161,7 +161,7 @@ extern "C" void func_0202ac74();
 extern "C" void SetPrintMode_02028d68(int mode);
 extern "C" void UpdateLocalWirelessPlayerCount_0202c288(void* wireless);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
-extern "C" void func_020100a0(GameState* arg0, int arg1);
+extern "C" void SetProtagonistObjectIndex_020100a0(GameState* gameState, int protagonistObjectIndex);
 extern "C" unsigned char GetProtagonistObjectIndex_020100a8(GameState* gameState);
 struct LocalWireless_0202c1a4;
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4*);
@@ -583,10 +583,10 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
 
     UpdateLocalWirelessPlayerCount_0202c288(var15);
     if (IsLocalWirelessOn_0202b7d8((int*)var15) == 0) {
-        func_020100a0(GameState::GetInstance(), 0);
+        SetProtagonistObjectIndex_020100a0(GameState::GetInstance(), 0);
     } else {
         GameState* var22 = GameState::GetInstance();
-        func_020100a0(var22, GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var15));
+        SetProtagonistObjectIndex_020100a0(var22, GetOwnProtagonistObjectIndex_0202c1a4((LocalWireless_0202c1a4*)var15));
     }
     func_020c555c((int)&data_ov017_021d615c);
     func_ov017_021a02f0(arg0);

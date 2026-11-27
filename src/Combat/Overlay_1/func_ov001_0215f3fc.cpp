@@ -69,7 +69,7 @@ extern "C" void func_020404c0(int*);
 extern "C" void func_0203c794(void*);
 extern "C" void* func_0203d004(void*);
 extern "C" void func_02040530(int*, int);
-extern "C" void func_02040520(int*, int);
+extern "C" void SetNPCData_02040520(int*, int);
 extern "C" void func_0203f02c(Struct_0203d028_14*, int, int, char*, int, int);
 extern "C" void func_0203f138(Struct_0203d028_14*, int);
 extern "C" void func_020408c8(Struct_0203d028_19*, short, short, short);
@@ -204,7 +204,7 @@ extern "C" ARM int func_ov001_0215f3fc(Struct_ov001_0215f3fc_3* arg0, int arg1)
         sprintf(var15->unknown_4_, data_ov001_021657d1, var4);
     }
     func_02040530((int*)var13, (int)var14);
-    func_02040520((int*)var13, (int)var15);
+    SetNPCData_02040520((int*)var13, (int)var15);
     Struct_ov001_0215f3fc* var18 = var2->unknown_2cc_;
     char* var19 = var18[var12].unknown_0_;
     unsigned int var20 = var8;

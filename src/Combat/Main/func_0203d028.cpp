@@ -103,7 +103,7 @@ struct Struct_0203d028_9 {
 };
 extern "C" struct Struct_0203d028_9* FindNPCPlacement_0206db20(void* placementList, int npcId);
 
-extern "C" void func_02040520(int* arg0, int arg1);
+extern "C" void SetNPCData_02040520(int* npc, int npcData);
 extern "C" void func_02040530(int* arg0, int arg1);
 
 struct Struct_0203d028_10 {
@@ -366,7 +366,7 @@ extern "C" ARM void func_0203d028(struct Struct_0203d028_25* arg0, void* arg1, S
         if (var10 == 0) goto abort_unlock;
         func_020404c0((int*)var10);
         struct Struct_0203d028_9* var11 = FindNPCPlacement_0206db20(&arg0->unknown_94_, var2->unknown_0_);
-        func_02040520((int*)var10, (int)var2);
+        SetNPCData_02040520((int*)var10, (int)var2);
         func_02040530((int*)var10, (int)var11);
 
         if (var0->inline_0203d028()->unknown_6_ != 0xff && var11 != 0 && var11->unknown_1f_ != 0) {
