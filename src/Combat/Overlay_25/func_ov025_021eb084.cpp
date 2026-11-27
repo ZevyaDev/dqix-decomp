@@ -7,26 +7,26 @@ struct Struct_ov025_021e27c8 {
     unsigned short unknown_584_[1];
 };
 
-// USA: func_ov025_021eb084
-extern "C" ARM void func_ov025_021eb084(struct Struct_ov025_021e27c8* arg0, int arg1) {
-    if (arg1 < 0) {
+// USA: RemoveBACTLoadTask_ov025_021eb084
+extern "C" ARM void RemoveBACTLoadTask_ov025_021eb084(struct Struct_ov025_021e27c8* player, int taskId) {
+    if (taskId < 0) {
         return;
     }
-    if (arg0->unknown_582_ == 0) {
+    if (player->unknown_582_ == 0) {
         return;
     }
     int var0 = 0;
     int var1 = 0;
-    for (int var2 = 0; var2 < arg0->unknown_582_; var2++) {
-        unsigned short var3 = arg0->unknown_584_[var2];
-        if (arg1 == var3) {
+    for (int var2 = 0; var2 < player->unknown_582_; var2++) {
+        unsigned short var3 = player->unknown_584_[var2];
+        if (taskId == var3) {
             var0 = 1;
         } else {
-            arg0->unknown_584_[var1] = var3;
+            player->unknown_584_[var1] = var3;
             var1++;
         }
     }
     if (var0) {
-        arg0->unknown_582_ = arg0->unknown_582_ - 1;
+        player->unknown_582_ = player->unknown_582_ - 1;
     }
 }

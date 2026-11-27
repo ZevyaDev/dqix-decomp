@@ -7,7 +7,7 @@
 
 extern "C" SafeAllocator* func_ov025_021e8a54(char* arg0);
 struct Struct_ov025_021e27c8;
-extern "C" void func_ov025_021eb084(struct Struct_ov025_021e27c8* arg0, int arg1);
+extern "C" void RemoveBACTLoadTask_ov025_021eb084(struct Struct_ov025_021e27c8* player, int taskId);
 struct ObjectArchiveLoadInfo_0203d028_11;
 extern "C" void ClearObjectArchiveLoadInfo_0203dafc(struct ObjectArchiveLoadInfo_0203d028_11* loadInfo);
 extern "C" void SetCamera_020100c4(GameState* gameState, int camera);
@@ -73,7 +73,7 @@ extern "C" ARM int func_ov025_021e4be4(struct Struct_ov025_021e4be4* arg0) {
     if (var7 == NULL) {
         if (var9 >= 0) {
             var1->RemoveTask(var9);
-            func_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var9);
+            RemoveBACTLoadTask_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var9);
         }
         return 1;
     }
@@ -81,14 +81,14 @@ extern "C" ARM int func_ov025_021e4be4(struct Struct_ov025_021e4be4* arg0) {
     Object3D* var10 = (Object3D*)var2->Allocate(sizeof(Object3D));
     if (var10 == NULL) {
         var1->RemoveTask(var9);
-        func_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var9);
+        RemoveBACTLoadTask_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var9);
         return 1;
     }
 
     Struct_ov025_021e267c_3* var11 = (Struct_ov025_021e267c_3*)var2->Allocate(sizeof(Struct_ov025_021e267c_3));
     if (var11 == NULL) {
         var1->RemoveTask(var9);
-        func_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var9);
+        RemoveBACTLoadTask_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var9);
         return 1;
     }
 
@@ -101,16 +101,16 @@ extern "C" ARM int func_ov025_021e4be4(struct Struct_ov025_021e4be4* arg0) {
     var12.unk_10 = 1;
     if (!var10->LoadFromCHRArchive(&var12)) {
         var1->RemoveTask(var9);
-        func_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var9);
+        RemoveBACTLoadTask_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var9);
         return 1;
     }
     var1->RemoveTask(var9);
-    func_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var9);
+    RemoveBACTLoadTask_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var9);
 
     char* var13 = (char*)var2->Allocate(0x268);
     if (var13 == NULL) {
         var1->RemoveTask(var9);
-        func_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var9);
+        RemoveBACTLoadTask_ov025_021eb084((struct Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var9);
         return 1;
     }
 

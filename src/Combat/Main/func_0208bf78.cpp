@@ -138,7 +138,7 @@ extern "C" int func_0206e260(Struct_0205faf4_4*, int);
 extern "C" MessageWindow_020465c0* GetMessageWindow_020421a0();
 extern "C" Struct_0208bf78_7* FindAcceptedQuest_02096134(QuestManager_0205faf4_7*, int);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
-extern "C" void func_0208c9cc(int, int, int, int, int);
+extern "C" void SetBG0SubControl_0208c9cc(int, int, int, int, int);
 extern "C" void InitTextWindow_0204c684(Struct_0208bf78_2*);
 extern "C" FlagManager_0205faf4_3* func_0205ec34();
 extern "C" void ClearMessageParams_02046380(MessageWindow_020465c0*);
@@ -392,7 +392,7 @@ extern "C" ARM void func_0208bf78(Struct_0208bf78_4* arg0) {
         var39.unknown_1c_4_ = 0;
         ((BGLayer*)(&var39))->SetPriority(0);
         ((BGLayer*)((BGLayer_02020cb8_5*)&var39))->SetOffset(0, 0);
-        func_0208c9cc(0, 0, 15, 0, 0);
+        SetBG0SubControl_0208c9cc(0, 0, 15, 0, 0);
         for (int var40 = 0; var40 < var12; var40++) {
             ((BGLayer*)(&var39))->ProcessGraphicsFileMetadata((const void*)((char*)var8[var40]));
             ((BGLayer*)((BGLayer_02020cb8_6*)&var39))->StageGraphicsFileBuffer((const void*)((char*)var8[var40]));

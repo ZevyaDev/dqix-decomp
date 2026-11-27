@@ -13,7 +13,7 @@ struct Struct_02010604 { Object3D unknown_0_; char unknown_ac_[0x14]; unsigned c
 struct Struct_ov023_021f2a48 { char unknown_0_[0x14]; unsigned int unknown_14_; };
 extern "C" ActionActor_ov000_02160094* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
 extern "C" ActionTarget_ov000_021600f8* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
-extern "C" void func_ov025_021e3158(Struct_ov025_021ef9a8*);
+extern "C" void ResetBACTCommandState_ov025_021e3158(Struct_ov025_021ef9a8*);
 extern "C" void StopCombatantSidestep_02049ae4(unsigned char*);
 extern "C" int func_02048c10(unsigned char*);
 extern "C" int IsAsleep_020882f8(unsigned char*);
@@ -28,10 +28,10 @@ extern "C" ARM int func_ov025_021e6a08(Struct_ov025_021e6a08* arg0, BattleAction
     GameState* var0 = GameState::GetInstance();
     ActionActor_ov000_02160094* var1 = GetActionActor_ov000_02160094(arg1, 0);
     ActionTarget_ov000_021600f8* var2 = GetActionTarget_ov000_021600f8((BattleAction_ov000_0215440c*)arg1, 0);
-    if (!var1 || !var2) { func_ov025_021e3158(&data_ov025_021ef9a8); return 1; }
+    if (!var1 || !var2) { ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8); return 1; }
     GameObject* var3 = var0->GetCombatantByIndex(var1->unknown_20_);
     GameObject* var4 = var0->GetCombatantByIndex(var2->unknown_e_);
-    if (!var3 || !var4) { func_ov025_021e3158(&data_ov025_021ef9a8); return 1; }
+    if (!var3 || !var4) { ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8); return 1; }
     int var5 = 0;
     if (data_ov025_021ef988.unknown_20_ == 0) {
         StopCombatantSidestep_02049ae4((unsigned char*)var3);
@@ -47,8 +47,8 @@ extern "C" ARM int func_ov025_021e6a08(Struct_ov025_021e6a08* arg0, BattleAction
         int var8 = var3->obj3D_.GetRadius() + var4->obj3D_.GetRadius();
         int var9 = arg0->unknown_8_ + var8 / 2;
         int var10 = Vector3fix_Distance(&var6, &var7);
-        if (!var10) { func_ov025_021e3158(&data_ov025_021ef9a8); return 1; }
-        if (var10 < var9) { func_ov025_021e3158(&data_ov025_021ef9a8); return 1; }
+        if (!var10) { ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8); return 1; }
+        if (var10 < var9) { ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8); return 1; }
         Vector3i var11;
         Vector3fix_Subtract(&var7, &var6, &var11);
         var9 = var10 - var9;
@@ -67,7 +67,7 @@ extern "C" ARM int func_ov025_021e6a08(Struct_ov025_021e6a08* arg0, BattleAction
         var3->obj3D_.position_ = var16;
         if (var9 < 0x28 || (!var5 && ((Struct_02010604*)var3)->unknown_c0_ == 0)) {
             SetMotion_02033b88((Struct_02010604*)var3, 0);
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
     }

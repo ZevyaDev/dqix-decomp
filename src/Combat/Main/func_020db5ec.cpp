@@ -6,7 +6,7 @@
 #endif
 
 extern "C" unsigned int func_020937f0(int arg0);
-extern "C" int func_0209378c(int arg0);
+extern "C" int GetOBJCharBoundaryShift_0209378c(int isSubScreen);
 extern "C" void func_0203bd08(int arg0);
 
 extern "C" int func_020db2dc(int arg0, int arg1);
@@ -45,7 +45,7 @@ struct Struct_020db5ec_2 {
 extern "C" ARM void func_020db5ec(struct Struct_020db5ec_2* arg0) {
     if (arg0->unknown_51_ == 0) return;
     unsigned int var0 = func_020937f0(arg0->unknown_3c_);
-    int var1 = func_0209378c(arg0->unknown_3c_);
+    int var1 = GetOBJCharBoundaryShift_0209378c(arg0->unknown_3c_);
     int var2 = (var0 - 0xb80) >> var1;
     int var3 = (var0 - 0x800) >> var1;
     func_0203bd08(var1);

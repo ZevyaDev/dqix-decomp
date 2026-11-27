@@ -44,7 +44,7 @@ extern "C" Struct_ov025_021e58f0* GetBattleScene_ov000_02160130(void);
 extern "C" Struct_ov025_021e58f0_2* func_ov017_021b8478(void* battleManager);
 struct Struct_02018f6c_2;
 extern "C" void func_02018f6c(Struct_02018f6c_2*, short);
-extern "C" void func_ov025_021e3158(Struct_ov025_021ef9a8* arg0);
+extern "C" void ResetBACTCommandState_ov025_021e3158(Struct_ov025_021ef9a8* state);
 
 extern Struct_ov025_021ef988_15 data_ov025_021ef988;
 extern Struct_ov025_021ef9a8 data_ov025_021ef9a8;
@@ -68,7 +68,7 @@ extern "C" ARM int func_ov025_021e58f0(Struct_ov025_021e58f0_3* arg0) {
         data_ov025_021ef988.unknown_20_ = 1;
     } else if (data_ov025_021ef988.unknown_20_ == 1 && var1->unknown_424_ == 0) {
         func_02018f6c((Struct_02018f6c_2*)var1, var0->unknown_36ec_);
-        func_ov025_021e3158(&data_ov025_021ef9a8);
+        ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
         return 1;
     }
     return 0;

@@ -43,7 +43,7 @@ extern Struct_ov025_021ef988_23 data_ov025_021ef988;
 extern Struct_ov025_021ef9a8 data_ov025_021ef9a8;
 extern char data_ov025_021ef809[];
 extern char data_ov025_021ef791[];
-extern "C" void func_ov025_021e3158(Struct_ov025_021ef9a8*);
+extern "C" void ResetBACTCommandState_ov025_021e3158(Struct_ov025_021ef9a8*);
 extern "C" void* GetEquippedWeaponItemData_02054000(PartyMember_02054000*);
 extern "C" void func_02072e94(char*, int, int, void*, int);
 extern "C" int func_ov025_021e2628(int, int);
@@ -63,12 +63,12 @@ extern "C" ARM int func_ov025_021e63b0(void* arg0, Struct_ov025_021e63b0_3* arg1
         int var2 = arg1->unknown_10_->unknown_20_;
         GameObject* var3 = GetPartyMemberBaseByIndex_0200ff1c(var0, var2);
         if (!var3) {
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         void* var4 = GetEquippedWeaponItemData_02054000((PartyMember_02054000*)var3);
         if (!var4) {
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         char var5[0x50];
@@ -86,7 +86,7 @@ extern "C" ARM int func_ov025_021e63b0(void* arg0, Struct_ov025_021e63b0_3* arg1
         if (!var1->GetTaskStatus(var7)) return 0;
         if (var1->GetDetailedTaskStatus(var7) != 2) {
             var1->RemoveTask(var7);
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         unsigned int var8;
@@ -97,13 +97,13 @@ extern "C" ARM int func_ov025_021e63b0(void* arg0, Struct_ov025_021e63b0_3* arg1
         Object3D* var12 = (Object3D*)var10->Allocate(sizeof(Object3D));
         if (!var12) {
             var1->RemoveTask(var7);
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         Struct_ov025_021e267c_3* var13 = (Struct_ov025_021e267c_3*)var10->Allocate(sizeof(Struct_ov025_021e267c_3));
         if (!var13) {
             var1->RemoveTask(var7);
-            func_ov025_021e3158(&data_ov025_021ef9a8);
+            ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
             return 1;
         }
         var13->unknown_0_ = 4;
@@ -131,7 +131,7 @@ extern "C" ARM int func_ov025_021e63b0(void* arg0, Struct_ov025_021e63b0_3* arg1
             }
         }
         var1->RemoveTask(var7);
-        func_ov025_021e3158(&data_ov025_021ef9a8);
+        ResetBACTCommandState_ov025_021e3158(&data_ov025_021ef9a8);
         return 1;
     }
     return 0;

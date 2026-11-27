@@ -24,7 +24,7 @@ extern "C" unsigned char func_02011930(void* arg0, struct Struct_02011930* arg1,
 extern "C" int func_ov004_021634dc(void* arg0);
 extern "C" unsigned char func_020119f8(char* arg0, void* arg1);
 extern "C" unsigned int GetMenuGridCursorRow_ov023_021f9bb0(struct MenuGrid_ov004_021549e4_2* grid);
-extern "C" unsigned int func_ov023_021f9ba0(void* arg0);
+extern "C" unsigned int GetMenuGridRowCount_ov023_021f9ba0(void* grid);
 extern "C" int IsInGrotto_020117f0(GameState* arg0);
 
 extern char* gTreasureMapScreen_ov004_02171010;
@@ -84,7 +84,7 @@ extern "C" ARM int func_ov004_02165630(void* arg0) {
         } else {
             short var6 = var2->unknown_5c_;
             unsigned int var7 = GetMenuGridCursorRow_ov023_021f9bb0((struct MenuGrid_ov004_021549e4_2*)var2);
-            unsigned short var8 = var6 * func_ov023_021f9ba0(var2) + var7;
+            unsigned short var8 = var6 * GetMenuGridRowCount_ov023_021f9ba0(var2) + var7;
             if (((TreasureMapMetadata*)(gTreasureMapScreen_ov004_02171010 + var8 * 0x1c))->GetInitialByteUnknownBit()) {
                 QueueMenuScriptEntry_ov011_021848a0(arg0, 0x74);
             } else {

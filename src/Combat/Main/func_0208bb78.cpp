@@ -31,7 +31,7 @@ extern Type_01ff8b48_6 gNullMemberFunctionPointer_020e6d5c;
 struct QueueNode_02015438;
 struct Struct_02000c9c_8;
 struct Struct_02065990_3;
-extern "C" int func_0208ca00(QuestDisplay_0208bb78*, int);
+extern "C" int UpdateQuestDisplayShake_0208ca00(QuestDisplay_0208bb78*, int);
 extern "C" void func_0208bf78(QuestDisplay_0208bb78*);
 extern "C" void func_0208b788(int, float, Struct_0208baec*, int);
 extern "C" int func_0208baec(int, Struct_0208baec_2*, Struct_0208baec*, int, float, int, unsigned char);
@@ -46,7 +46,7 @@ extern "C" int func_02096088(void*, int);
 extern "C" ARM int UpdateQuestDisplay_0208bb78(QuestDisplay_0208bb78* display, int ticks) {
     if (display->unknown_d2_ < 0) return 1;
     if (!ticks) ticks = 1;
-    int shakeOffset = func_0208ca00(display, (signed char)ticks);
+    int shakeOffset = UpdateQuestDisplayShake_0208ca00(display, (signed char)ticks);
     if (display->unknown_d9_) {
         display->unknown_d9_ -= ticks;
         if (display->unknown_d9_ < 0) display->unknown_d9_ = 0;

@@ -4439,7 +4439,7 @@ struct Struct_ov004_0216fb70 { int unknown_0_[4]; };
 extern Struct_ov004_0216fb70 data_ov004_0216fb70;
 struct Struct_ov004_0215cec4_2 { short unknown_0_; };
 struct Struct_ov004_0215cec4_3 { char unknown_0_[8]; unsigned int unknown_8_0_ : 4; };
-extern "C" int func_020dd718(int arg0, int arg1);
+extern "C" int IsItemEquippedByPartyMember_020dd718(int memberIndex, int itemId);
 
 typedef void (*Type_01ff8b48_16)(void*, int);
 struct Struct_ov004_0215cec4_4 { char unknown_0_[0xe0]; Type_01ff8b48_16 unknown_e0_; };
@@ -4508,7 +4508,7 @@ extern "C" ARM int func_ov004_0215cec4(void* arg0) {
             if (!var15) return 0;
             var15->unknown_20_ = var14->baseStats_;
             var15->inline_ov004_0215cec4_55(GetPartyMemberHPColor_020dcc98(var8.unknown_0_[var12]));
-            if (func_020dd718((signed char)var8.unknown_0_[var12], var2->unknown_0_)) {
+            if (IsItemEquippedByPartyMember_020dd718((signed char)var8.unknown_0_[var12], var2->unknown_0_)) {
                 func_ov023_021f65d4(arg0, var12 + 0x1c6, 8);
                 func_ov023_021f65d4(arg0, var12 + 0x1ce, 8);
                 func_ov023_021f65d4(arg0, var12 + 0x1ca, 8);

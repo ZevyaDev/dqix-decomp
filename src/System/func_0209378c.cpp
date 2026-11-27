@@ -2,10 +2,10 @@
 
 #include "NitroSDK/Graphics.h"
 
-// USA: func_0209378c
-extern "C" ARM int func_0209378c(int arg0) {
+// USA: GetOBJCharBoundaryShift_0209378c
+extern "C" ARM int GetOBJCharBoundaryShift_0209378c(int isSubScreen) {
     unsigned int var0;
-    if (arg0 == 0)
+    if (isSubScreen == 0)
         var0 = DISPCNT & 0x00300010;
     else
         var0 = DISPCNTSUB & 0x00300010;

@@ -65,7 +65,7 @@ extern "C" void func_020941b0(Struct_02093b90_2*);
 extern "C" int func_020941f8(Struct_02093b90_2*);
 extern "C" int func_020943dc(Struct_02093b90_2*);
 extern "C" void* AllocateRoundedSize_02012d88(AllocatorUnion*, unsigned int);
-extern "C" int func_0209378c(int);
+extern "C" int GetOBJCharBoundaryShift_0209378c(int);
 extern "C" int func_020937f0(int);
 extern "C" void InitCanvas_0205b20c(Canvas_020200c0_4*);
 extern "C" void SetCanvasCharacterData_0205b220(void*, int);
@@ -112,7 +112,7 @@ extern "C" ARM void func_02093b90(Struct_02093b90_2* arg0, int arg1) {
         if (var3) {
           unsigned char* var5 = inline_02093b90(arg0);
           if (var5) {
-            func_0209378c(var4);
+            GetOBJCharBoundaryShift_0209378c(var4);
             int var6 = func_020937f0(var4);
             if (var6) {
                 memset(var3, 0x11111111, 0x800);

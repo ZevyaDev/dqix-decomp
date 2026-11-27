@@ -19,14 +19,14 @@ struct Struct_ov000_0216a1a4 {
 	unsigned char unknown_c_;
 };
 
-// USA: func_ov000_0216a1a4
-extern "C" ARM int func_ov000_0216a1a4(struct Struct_0201c1c8* arg0, int arg1) {
+// USA: AppendBACTWaitCommand_ov000_0216a1a4
+extern "C" ARM int AppendBACTWaitCommand_ov000_0216a1a4(struct Struct_0201c1c8* params, int numParams) {
 	struct Struct_ov000_0216a1a4* var0 = (struct Struct_ov000_0216a1a4*)gBACTParseState_ov000_02184264.unknown_8_->Allocate(0x10);
 	var0->unknown_0_ = 8;
-	var0->unknown_8_ = ((Script::Parameter*)arg0)->ToInt();
+	var0->unknown_8_ = ((Script::Parameter*)params)->ToInt();
 	var0->unknown_c_ = 0;
-	if (arg1 >= 2) {
-		var0->unknown_c_ = (unsigned char)((Script::Parameter*)(arg0 + 1))->ToInt();
+	if (numParams >= 2) {
+		var0->unknown_c_ = (unsigned char)((Script::Parameter*)(params + 1))->ToInt();
 	}
 	AppendBACTCommand_ov000_02169b78(var0);
 	return 1;

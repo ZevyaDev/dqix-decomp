@@ -37,16 +37,16 @@ extern "C" SafeAllocator* func_ov025_021e8a54(char* arg0);
 extern "C" char* func_ov025_021e8a64(char* arg0);
 extern "C" EffectManager_02057de0_2* GetEffectManager_02057924(void);
 extern "C" unsigned char func_0200fb08(Struct_02000c9c_8* gameState);
-extern "C" int func_ov025_021e24d0(char* arg0, char* arg1, char* arg2);
+extern "C" int ResolveCharaPackPath_ov025_021e24d0(char* path, char* outArchivePath, char* outEntryName);
 extern "C" void func_ov025_021e8bac(Struct_ov025_021e267c_2* arg0, Struct_ov025_021e267c_3* arg1);
 extern "C" int LoadEffectResource_02057de0(EffectManager_02057de0_2* effectManager, int effectId, SafeAllocator* allocator, int fileData, int fileSize);
-extern "C" void func_ov025_021eb084(Struct_ov025_021e27c8* arg0, int arg1);
+extern "C" void RemoveBACTLoadTask_ov025_021eb084(Struct_ov025_021e27c8* player, int taskId);
 extern "C" void __clear(void* arg0, int arg1);
 
 extern Struct_ov025_021ef988_3 data_ov025_021ef988;
 
-// USA: func_ov025_021e27c8
-extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
+// USA: LoadBACTEffectResource_ov025_021e27c8
+extern "C" ARM void LoadBACTEffectResource_ov025_021e27c8(char* path, int effectId) {
     char var0[0x50];
     char var1[0x50];
 #if defined(jpn)
@@ -72,15 +72,15 @@ extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
 
 #else
     __clear(var2, 0x50);
-    StringReplaceLanguageTag(arg0, var2, var6);
+    StringReplaceLanguageTag(path, var2, var6);
 #endif
 
     int var7;
-    if (func_ov025_021e24d0(arg0, var0, var1)) {
+    if (ResolveCharaPackPath_ov025_021e24d0(path, var0, var1)) {
         var7 = var5->GetLoadedFileInArchive(var0, var1, &var3, &var4);
     } else {
 #if defined(jpn)
-        var7 = var5->GetLoadedFileByName(arg0, &var3, &var4);
+        var7 = var5->GetLoadedFileByName(path, &var3, &var4);
 #else
         var7 = var5->GetLoadedFileByName(var2, &var3, &var4);
 #endif
@@ -100,14 +100,14 @@ extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
         var12 = var11->Allocate(var9);
         if (var12 != 0) {
             memcpy(var12, var8, var9);
-            if (arg1 < 0) arg1 = data_ov025_021ef988.unknown1_8_ + 0x64;
+            if (effectId < 0) effectId = data_ov025_021ef988.unknown1_8_ + 0x64;
             Struct_ov025_021e267c_3* var14 = (Struct_ov025_021e267c_3*)var11->Allocate(0xc);
             if (var14 != 0) {
                 var14->unknown_0_ = 1;
-                var14->unknown_4_ = arg1;
+                var14->unknown_4_ = effectId;
                 func_ov025_021e8bac((Struct_ov025_021e267c_2*)data_ov025_021ef988.unknown_c_, var14);
                 ((TextureArena*)(var10))->Restore();
-                LoadEffectResource_02057de0(var13, arg1, var11, (int)var12, var9);
+                LoadEffectResource_02057de0(var13, effectId, var11, (int)var12, var9);
                 ((TextureArena*)(var10))->Save();
                 data_ov025_021ef988.unknown1_8_++;
             }
@@ -115,6 +115,6 @@ extern "C" ARM void func_ov025_021e27c8(char* arg0, int arg1) {
     }
     if (var7 >= 0) {
         var5->RemoveTask(var7);
-        func_ov025_021eb084((Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var7);
+        RemoveBACTLoadTask_ov025_021eb084((Struct_ov025_021e27c8*)data_ov025_021ef988.unknown_c_, var7);
     }
 }
