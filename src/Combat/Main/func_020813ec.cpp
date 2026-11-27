@@ -12,7 +12,7 @@ extern "C" int FindMenuLayoutWindowEntry_0207f0ac(MenuLayoutWindowEntryList_0207
 struct Struct_020813ec;
 extern "C" unsigned int func_02081e18(Struct_020813ec*, int);
 struct Struct_020813ec_2;
-extern "C" int func_02081de0(Struct_020813ec_2*);
+extern "C" int FindFreeMenuLayoutWindow_02081de0(Struct_020813ec_2*);
 extern "C" int ClearMenuLayoutWindowHighlights_020804fc(void *menuLayout, int windowId);
 extern "C" int SetTextWindowCharacterDataOffsetAndId_0204f160(unsigned char*, int, int);
 struct Struct_020813ec_3;
@@ -37,7 +37,7 @@ extern "C" ARM int OpenMenuLayoutWindow_020813ec(void *menuLayout, int windowId)
     unsigned int characterDataOffset = func_02081e18((Struct_020813ec*)menuLayout, bgIndex);
 
     if (window == 0) {
-        window = func_02081de0((Struct_020813ec_2*)menuLayout);
+        window = FindFreeMenuLayoutWindow_02081de0((Struct_020813ec_2*)menuLayout);
         ClearMenuLayoutWindowHighlights_020804fc(menuLayout, windowId);
     }
 
