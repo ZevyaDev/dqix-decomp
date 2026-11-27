@@ -10,7 +10,7 @@ struct Struct_ov023_021f9d14 {
 };
 
 struct Struct_ov004_021549e4_5;
-extern "C" void func_ov023_021f9bdc(struct Struct_ov004_021549e4_5* arg0, int arg1);
+extern "C" void SetMenuGridCursorIndex_ov023_021f9bdc(struct Struct_ov004_021549e4_5* grid, int index);
 extern "C" int func_ov023_021f98e0(void* arg0, void* arg1);
 
 // USA: func_ov023_021f9d14
@@ -31,6 +31,6 @@ extern "C" ARM int func_ov023_021f9d14(struct Struct_ov023_021f9d14* arg0, void*
     }
     var3 = var1 * var2 + var0;
     if (arg0->unknown_20_[var3] == 0) var3 = 0;
-    func_ov023_021f9bdc((struct Struct_ov004_021549e4_5*)arg0, (unsigned short)var3);
+    SetMenuGridCursorIndex_ov023_021f9bdc((struct Struct_ov004_021549e4_5*)arg0, (unsigned short)var3);
     return func_ov023_021f98e0(arg0, arg1);
 }

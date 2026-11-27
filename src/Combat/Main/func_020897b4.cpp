@@ -29,7 +29,7 @@ extern "C" void* ClearLevelEntries_0208247c(void* levelEntries);
 extern "C" int func_0208274c(void* arg0, Struct_02013fb4* arg1, int arg2, int arg3);
 extern "C" void SetLevelStats_02083cbc(void* memberData, void* levelEntry, void* arg2);
 extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
-extern "C" void func_02083b8c(unsigned char* arg0, unsigned char* arg1, unsigned int arg2);
+extern "C" void LearnSpells_02083b8c(unsigned char* memberData, unsigned char* spellIds, unsigned int spellCount);
 extern "C" void ClearSpellTable_0209a804(int* table);
 extern "C" void BuildSpellTable_0209a8b4(SpellTable_02086f24_6* table, SafeAllocator* allocator, Struct_02013fb4* scriptData, int scriptSize);
 extern "C" int func_0209aa54(void* arg0, unsigned char* arg1, unsigned char* arg2, int arg3);
@@ -115,7 +115,7 @@ extern "C" ARM void func_020897b4(unsigned char arg0, unsigned char arg1, int ar
         ClearSpellTable_0209a804((int*)&var6);
         BuildSpellTable_0209a8b4(&var6, &var3, (Struct_02013fb4*)arg7, arg8);
         unsigned int var11 = func_0209aa54(&var6, (unsigned char*)var7, var4, 0);
-        func_02083b8c(reinterpret_cast<unsigned char*>(var9), var4, var11);
+        LearnSpells_02083b8c(reinterpret_cast<unsigned char*>(var9), var4, var11);
         var3.Destroy();
     }
 

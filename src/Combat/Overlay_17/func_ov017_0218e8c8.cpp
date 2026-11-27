@@ -36,7 +36,7 @@ extern "C" unsigned char* func_ov017_021b8478(void* battleManager);
 extern "C" int func_ov017_02191b58(void*, int);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void func_ov017_0218eafc(Struct_ov017_0218e8c8_2* arg0, int arg1);
-extern "C" int func_02039d68(unsigned char* arg0);
+extern "C" int IsFadeInOnMove_02039d68(unsigned char* object);
 extern "C" int func_02032fdc(void* arg0, int arg1, int arg2);
 extern "C" void func_ov017_0218dba0(int arg0);
 
@@ -93,7 +93,7 @@ extern "C" ARM void func_ov017_0218e8c8(Struct_ov017_0218e8c8_2* arg0, int arg1,
     }
 
     GameObject* var9 = var0->GetPartyMemberByIndex(0xce);
-    if (var9 != NULL && !func_02039d68((unsigned char*)var9) && func_02032fdc(var9, 1, 0)) {
+    if (var9 != NULL && !IsFadeInOnMove_02039d68((unsigned char*)var9) && func_02032fdc(var9, 1, 0)) {
         func_ov017_0218dba0(0xce);
     }
 }

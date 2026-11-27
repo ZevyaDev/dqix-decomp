@@ -3,7 +3,7 @@
 
 
 struct Struct_02039d84;
-extern "C" void func_02039d84(struct Struct_02039d84* arg0);
+extern "C" void StopLadderAction_02039d84(struct Struct_02039d84* object);
 
 // USA: func_ov017_021d443c
 extern "C" ARM void func_ov017_021d443c(int arg0, signed char* arg1, GameState* arg2) {
@@ -14,6 +14,6 @@ extern "C" ARM void func_ov017_021d443c(int arg0, signed char* arg1, GameState* 
 	}
 	GameObject* var2 = arg2->GetPartyMemberByIndex(var0);
 	if (var2) {
-		func_02039d84((struct Struct_02039d84*)var2);
+		StopLadderAction_02039d84((struct Struct_02039d84*)var2);
 	}
 }

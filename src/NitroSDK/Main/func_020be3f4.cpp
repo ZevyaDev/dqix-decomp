@@ -4,7 +4,7 @@ unsigned int DisableIRQInterrupts();
 unsigned int SetIRQInterruptState(int mask);
 extern "C" void* SetCurrentSoundArchive_020bd42c(void* archive);
 extern "C" int GetLoadedSoundFile_020bd8ac(unsigned int fileId);
-extern "C" void func_020bd8d4(unsigned int arg0, int arg1);
+extern "C" void SetLoadedSoundFile_020bd8d4(unsigned int fileId, int loadedAddress);
 
 // USA: func_020be3f4
 extern "C" ARM void func_020be3f4(int arg0, void* arg1, unsigned int arg2) {
@@ -14,7 +14,7 @@ extern "C" ARM void func_020be3f4(int arg0, void* arg1, unsigned int arg2) {
     var0 = SetCurrentSoundArchive_020bd42c(arg1);
     int var2 = GetLoadedSoundFile_020bd8ac(arg2);
     if (arg0 == var2) {
-        func_020bd8d4(arg2, 0);
+        SetLoadedSoundFile_020bd8d4(arg2, 0);
     }
     SetCurrentSoundArchive_020bd42c(var0);
     SetIRQInterruptState(var1);

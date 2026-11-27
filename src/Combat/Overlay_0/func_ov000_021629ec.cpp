@@ -13,7 +13,7 @@ extern "C" void ClearCombatantPath_02048c90(struct Combatant_02048c90* combatant
 extern "C" void StopCombatantSidestep_02049ae4(unsigned char* combatant);
 extern "C" void func_02049458(unsigned char* arg0, unsigned char arg1);
 extern "C" void func_0204947c(unsigned char* arg0, unsigned char arg1);
-extern "C" void func_020493dc(unsigned char* arg0, unsigned char arg1);
+extern "C" void SetCombatantReservedCell_020493dc(unsigned char* combatant, unsigned char cell);
 extern "C" int CollectPartyCombatantIndices_ov000_0215e9fc(int battle, short* indices, int maxCount, int filterFlags);
 extern "C" int CollectAllEnemyCombatantIndices_ov000_0215ec1c(int battle, short* indices, int maxCount, int arg3);
 
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov000_021629ec(struct Struct_ov000_021629ec* arg0) {
             StopCombatantSidestep_02049ae4((unsigned char*)var4);
             func_02049458((unsigned char*)var4, 0xff);
             func_0204947c((unsigned char*)var4, 0xff);
-            func_020493dc((unsigned char*)var4, 0xff);
+            SetCombatantReservedCell_020493dc((unsigned char*)var4, 0xff);
         }
     }
 }

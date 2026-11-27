@@ -61,7 +61,7 @@ struct Struct_ov001_0215f3fc_2
 extern "C" void* GetNPCManager_0203cf4c();
 extern "C" int GetResources_0200fb8c(int*);
 extern "C" const char* GetScriptValueAsString_ov017_021d612c(void*);
-extern "C" int func_0203e03c(Struct_0203e03c*);
+extern "C" int FindFreeNPCSlot_0203e03c(Struct_0203e03c*);
 extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 extern "C" unsigned int func_ov001_0215a750(const char*, void**);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(Struct_ov001_0215f3fc_3*);
@@ -73,7 +73,7 @@ extern "C" void func_02040520(int*, int);
 extern "C" void func_0203f02c(Struct_0203d028_14*, int, int, char*, int, int);
 extern "C" void func_0203f138(Struct_0203d028_14*, int);
 extern "C" void func_020408c8(Struct_0203d028_19*, short, short, short);
-extern "C" void func_0203dd10(Struct_0203dd10*, unsigned int, int);
+extern "C" void SetNPCByIndex_0203dd10(Struct_0203dd10*, unsigned int, int);
 extern const char data_ov001_021657ad[];
 extern const char data_ov001_021657b2[];
 extern const char data_ov001_021657be[];
@@ -93,7 +93,7 @@ extern "C" ARM int func_ov001_0215f3fc(Struct_ov001_0215f3fc_3* arg0, int arg1)
         return 0;
     }
     const char* var4 = GetScriptValueAsString_ov017_021d612c(arg0++);
-    int var5 = func_0203e03c((Struct_0203e03c*)var1);
+    int var5 = FindFreeNPCSlot_0203e03c((Struct_0203e03c*)var1);
     if (var5 == -1)
     {
         return 0;
@@ -223,6 +223,6 @@ extern "C" ARM int func_ov001_0215f3fc(Struct_ov001_0215f3fc_3* arg0, int arg1)
         BackgroundLoader::RemoveLockGlobal();
     }
     func_020408c8((Struct_0203d028_19*)var13, 0x8f, 0x8f, 0x8f);
-    func_0203dd10((Struct_0203dd10*)var1, var5, (int)var13);
+    SetNPCByIndex_0203dd10((Struct_0203dd10*)var1, var5, (int)var13);
     return 1;
 }

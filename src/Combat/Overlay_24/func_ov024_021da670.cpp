@@ -13,7 +13,7 @@ extern "C" void func_02088474(void*,int,int);
 struct Struct_ov024_021da670_6;
 extern "C" int HasTension_ov024_021da998(Struct_ov024_021da670_6*);
 extern "C" void func_0208826c(unsigned char*);
-extern "C" void func_020883cc(unsigned char*);
+extern "C" void SetConfusion_020883cc(unsigned char*);
 struct Struct_ov024_021da670_7;
 extern "C" int IsParalysed_ov024_021da9b0(Struct_ov024_021da670_7*);
 extern "C" int IsAsleep_020882f8(unsigned char*);
@@ -71,7 +71,7 @@ extern "C" ARM void* func_ov024_021da670(Struct_ov024_021da670* arg0,int arg1,in
             break;
         case 3:
             var2=0x95;
-            func_020883cc((unsigned char*)var0->currentStats_);
+            SetConfusion_020883cc((unsigned char*)var0->currentStats_);
             SetActionResultFlag_ov000_02159eac(arg0->unknown_10_,&var3,0x17);
             break;
         }

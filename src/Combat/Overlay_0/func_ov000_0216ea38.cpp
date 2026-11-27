@@ -4,7 +4,7 @@
 
 extern "C" int func_ov000_0216f728(unsigned short*);
 extern "C" void SetCameraOrbitFromArray_0202e694(void*, int*);
-extern "C" int func_0202e88c(void*);
+extern "C" int GetCameraRoll_0202e88c(void*);
 extern "C" void SetCameraRoll_0202e874(unsigned char*, int);
 extern "C" {
 void SetCameraOrbit_0202e5d8(void*,int,int,int);
@@ -122,7 +122,7 @@ extern "C" ARM void func_ov000_0216ea38(Struct_ov000_0216ea38* arg0) {
         var32.z = (int)((float)var19.z + 0.02f*(float)(var27-var19.z));
         SetCameraOrbitFromArray_0202e694(arg0,&var32.x);
         int var35, var36;
-        int var37 = func_0202e88c(arg0);
+        int var37 = GetCameraRoll_0202e88c(arg0);
         float var38 = (float)fix32SignedAngleDistance(var37,var31);
         var38 *= 0.1f;
         var35 = (int)var38;

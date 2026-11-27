@@ -33,7 +33,7 @@ extern "C" char *func_020e1b24(void *arg0);
 extern "C" void OpenYesNoWindow_020e280c(struct YesNoWindow_020e280c *yesNoWindow, void *objVRAMEnd);
 extern "C" int GetCursorIndex_0205d794(struct Struct_0205c570 *windowManager);
 extern "C" char *GetFollowCamera_020100f8(char *gameState);
-extern "C" int func_020a27c4(struct Struct_020676e0 *arg0);
+extern "C" int IsCameraTurningEnabled_020a27c4(struct Struct_020676e0 *camera);
 extern "C" int GetYesNoWindowChoice_020e2918(signed char *yesNoWindow);
 extern "C" int func_020e2910(signed char *arg0);
 extern "C" void CloseYesNoWindow_020e25e8(struct YesNoWindow_020e25e8 *yesNoWindow);
@@ -139,7 +139,7 @@ extern "C" ARM void func_ov002_0216a300(char *arg0) {
             GetCursorIndex_0205d794((struct Struct_0205c570 *) LST(arg0));
         int var3  = 0;
         char *var4 = GetFollowCamera_020100f8((char *) GameState::GetInstance());
-        if (var4 != NULL && ((*(unsigned char *) (var4 + 0x244) & 2) || func_020a27c4((struct Struct_020676e0 *) var4) == 0)) {
+        if (var4 != NULL && ((*(unsigned char *) (var4 + 0x244) & 2) || IsCameraTurningEnabled_020a27c4((struct Struct_020676e0 *) var4) == 0)) {
             if (g_keyManager.TestKeysPressed(0x200)) {
                 var3 = 1;
             } else {

@@ -39,7 +39,7 @@ struct Struct_0204027c_2;
 extern "C" int func_02040404(Struct_0204027c_2*, char const*);
 extern "C" void func_0204039c(Struct_0204039c* arg0, int arg1);
 extern "C" void func_02040504(int* arg0);
-extern "C" void func_0203dd10(Struct_0203dd10*, unsigned int, int);
+extern "C" void SetNPCByIndex_0203dd10(Struct_0203dd10*, unsigned int, int);
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" int func_0203adfc(void* arg0, void* arg1);
@@ -143,7 +143,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
                 int var20 = func_02040404((Struct_0204027c_2*)var19, var16);
                 func_0204039c(var19, var20);
                 func_02040504(var17);
-                func_0203dd10((Struct_0203dd10*)var13, var8, 0);
+                SetNPCByIndex_0203dd10((Struct_0203dd10*)var13, var8, 0);
             }
         }
     }

@@ -153,7 +153,7 @@ extern "C" void AddEquipmentToBag_0207c378(char*, short, int, int);
 extern "C" void SetEquippedItem_02052d7c(Struct_ov000_02176634_7*, int, short);
 struct EquipmentBag_0207c484;
 extern "C" void RemoveEquipmentFromBag_0207c484(EquipmentBag_0207c484*, int, int, int);
-extern "C" void func_020483f0(unsigned char*, unsigned short);
+extern "C" void SetStatusFlags_020483f0(unsigned char*, unsigned short);
 extern "C" void func_ov017_021c9e00(int, int, int, int);
 extern "C" void func_02046608(Struct_ov000_02176634_9*, int, char*, char*, int, int, unsigned char);
 extern "C" void ConfigurePanelMenuCursors_ov000_0217ab8c(Struct_ov000_02176634*, int, int);
@@ -385,7 +385,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
             if (var7->unknown_138_->unknown_14_ & 1) var25++;
             if (var5->unknown_a_2_) {
                 var25 = 0x24;
-                func_020483f0((unsigned char*)var7, 4);
+                SetStatusFlags_020483f0((unsigned char*)var7, 4);
                 var8->unknown_a8_ |= 4;
                 func_ov017_021c9e00(var12, 0, 0, 1);
                 PlayJingle_0209c6d8(gMusicManager_02109bf4, 0x3d);
@@ -546,7 +546,7 @@ extern "C" ARM void func_ov000_02176634(Struct_ov000_02176634_11* arg0, Struct_o
             }
             if (var5->unknown_a_2_) {
                 var33 = 0x24;
-                func_020483f0((unsigned char*)var7, 4);
+                SetStatusFlags_020483f0((unsigned char*)var7, 4);
                 var8->unknown_a8_ |= 4;
                 func_ov017_021c9e00(var12, 0, 0, 1);
                 PlayJingle_0209c6d8(gMusicManager_02109bf4, 0x3d);

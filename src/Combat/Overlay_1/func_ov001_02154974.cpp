@@ -55,7 +55,7 @@ int* GetNPCByIndex_0203dce4(void* npcManager, int index);
 int func_02040404(void* arg0, const char* arg1);
 void func_0204039c(void* arg0, int arg1);
 void func_02040504(int* arg0);
-void func_0203dd10(void* arg0, int arg1, int arg2);
+void SetNPCByIndex_0203dd10(void* npcManager, int index, int npc);
 void func_ov001_0215acd4(int arg0);
 }
 
@@ -132,7 +132,7 @@ extern "C" ARM void func_ov001_02154974(struct Struct_ov001_02154974_3* arg0) {
                 func_0204039c(
                     var14, func_02040404(var14, var4->unknown_11_));
                 func_02040504(var13);
-                func_0203dd10(var1, var4->unknown_2_, var6);
+                SetNPCByIndex_0203dd10(var1, var4->unknown_2_, var6);
             }
             break;
         }

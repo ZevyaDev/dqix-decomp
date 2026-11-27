@@ -2,10 +2,10 @@
 
 extern "C" void LearnSpell_02083b60(unsigned char* memberData, int spellId);
 
-// USA: func_02083b8c
-extern "C" ARM void func_02083b8c(unsigned char* arg0, unsigned char* arg1, unsigned int arg2) {
-    unsigned int var0;
-    for (var0 = 0; var0 < arg2; var0++) {
-        LearnSpell_02083b60(arg0, arg1[var0]);
+// USA: LearnSpells_02083b8c
+extern "C" ARM void LearnSpells_02083b8c(unsigned char* memberData, unsigned char* spellIds, unsigned int spellCount) {
+    unsigned int i;
+    for (i = 0; i < spellCount; i++) {
+        LearnSpell_02083b60(memberData, spellIds[i]);
     }
 }

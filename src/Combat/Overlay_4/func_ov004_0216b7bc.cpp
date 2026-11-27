@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
-extern "C" void func_ov023_021f8120(void* arg0);
+extern "C" void CloseMenuWindow_ov023_021f8120(void* window);
 extern "C" void DrawMenuWindow_ov023_021f7eb8(void* window, void* menu, int characterDataOffset, int x, int y, int width, int height, int palette, int isTransparent, int isFrameless);
 extern "C" void func_ov023_021f8960(char* arg0, short arg1, unsigned short arg2);
 struct Struct_ov004_0216b7bc;
@@ -18,7 +18,7 @@ enum { Enum_ov004_0216b7bc_3 = 3, Enum_ov004_0216b7bc_2 = 2 };
 // USA: func_ov004_0216b7bc
 extern "C" ARM int func_ov004_0216b7bc(void* arg0, int arg1, int arg2, int arg3) {
 	void* var0 = func_ov004_0216ae9c(arg0, arg1);
-	func_ov023_021f8120(var0);
+	CloseMenuWindow_ov023_021f8120(var0);
 	switch (arg1) {
 	case 0xd4:
 		if (((unsigned char*)&data_ov004_02171034)[Enum_ov004_0216b7bc_3] == 0 || arg3 == 1) {

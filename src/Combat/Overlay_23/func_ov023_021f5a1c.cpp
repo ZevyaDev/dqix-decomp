@@ -13,7 +13,7 @@ struct Struct_0201c1c8;
 struct FlagManager_0205faf4_13;
 extern "C" int IsQuestUnlocked_0206e2dc(struct FlagManager_0205faf4_13* flagManager, int questId);
 struct Struct_0206e2a0;
-extern "C" void func_0206e2a0(struct Struct_0206e2a0* arg0, int arg1);
+extern "C" void UnlockQuest_0206e2a0(struct Struct_0206e2a0* flagManager, int questId);
 
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
 
@@ -39,7 +39,7 @@ extern "C" ARM int func_ov023_021f5a1c(struct Struct_0201c1c8* arg0, int arg1) {
         arg0 = (struct Struct_0201c1c8*)((char*)arg0 + 8);
         int var3 = IsQuestUnlocked_0206e2dc((struct FlagManager_0205faf4_13*)var0, var2);
         if (var3 == 0) {
-            func_0206e2a0((struct Struct_0206e2a0*)var0, var2);
+            UnlockQuest_0206e2a0((struct Struct_0206e2a0*)var0, var2);
             data_ov023_021fff08.unknown_c_->unknown_10c_.unknown_0_0_ |= 0x40;
             SetFlag_0206df6c(var0, (unsigned char*)((char*)var0 + 0x8c), 0x797, 1);
         }

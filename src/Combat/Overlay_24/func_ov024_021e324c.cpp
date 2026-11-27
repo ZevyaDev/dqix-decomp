@@ -7,7 +7,7 @@ extern "C" int IsPoisoned_020885b4(struct Struct_020885b4* stats);
 struct Struct_02088514;
 extern "C" int IsEnvenomated_02088514(struct Struct_02088514* stats);
 struct Struct_02088644;
-extern "C" void func_02088644(struct Struct_02088644* arg0);
+extern "C" void ClearPoison_02088644(struct Struct_02088644* stats);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
 struct ActionRunner_ov024_021e2bd0;
 extern "C" void* AddExtraTargetResult_ov024_021e8ca0(struct ActionRunner_ov024_021e2bd0* actionRunner, int messageId);
@@ -23,7 +23,7 @@ extern "C" ARM unsigned long long func_ov024_021e324c(struct Struct_ov024_021e32
 	var1.unknown_0_ = 0;
 	var1.unknown_4_ = 0;
 	if (IsPoisoned_020885b4((struct Struct_020885b4*)var0->currentStats_) || IsEnvenomated_02088514((struct Struct_02088514*)var0->currentStats_)) {
-		func_02088644((struct Struct_02088644*)var0->currentStats_);
+		ClearPoison_02088644((struct Struct_02088644*)var0->currentStats_);
 		SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var1, 0x11);
 		void* var2 = AddExtraTargetResult_ov024_021e8ca0((struct ActionRunner_ov024_021e2bd0*)arg0, 0x54);
 		if (var2) {

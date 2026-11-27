@@ -419,7 +419,7 @@ extern "C" void DestroyItemContext_0207cc0c(char*);
 extern "C" void* GetParty_02010828(struct GameState*);
 extern "C" int GetEquippedItem_02052df8(Struct_02052df8*, int);
 extern "C" int RemoveEquipmentFromBag_0207c484(struct EquipmentBag_0207c484*, int, int, int);
-extern "C" void func_020483f0(unsigned char*, unsigned short);
+extern "C" void SetStatusFlags_020483f0(unsigned char*, unsigned short);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void UpdateTaskQueue_ov017_021a3498(Queue_0203d028_4*);
@@ -481,7 +481,7 @@ extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
         int var18 = 0;
         Struct_ov004_02157a28_2* var19 = ((Struct_ov004_02157a28_2*)FindItemData_020dedd0(var4, ((Struct_ov004_02157a28_3*)data_ov004_021707e0)->unknown_e_));
         if (var19 && var19->unknown_8_.unknown_2_2_) {
-            func_020483f0((unsigned char*)var3, 4);
+            SetStatusFlags_020483f0((unsigned char*)var3, 4);
             var18 = 1;
         }
         if (IsLocalWirelessOn_0202b7d8(var1)) {
@@ -792,7 +792,7 @@ enum { Enum_ov004_02158298_108 = 0x6c, Enum_ov004_02158298_620 = 0x26c, Enum_ov0
 #endif
 
 struct Struct_0201e828;
-extern "C" void func_0201e828(Struct_0201e828*, unsigned short);
+extern "C" void SetZoneClearColor_0201e828(Struct_0201e828*, unsigned short);
 
 extern "C" void EnablePlayerControl_020397c0(void* object);
 
@@ -820,7 +820,7 @@ extern "C" ARM int func_ov004_02158298(void) {
     if (!var2) return 0;
     var2 = (char*)var2 + Enum_ov004_02158298_108;
     if (!var2) return 0;
-    func_0201e828((struct Struct_0201e828*)var2, ((Struct_ov004_02158298*)data_ov004_021707e0)->unknown_c_);
+    SetZoneClearColor_0201e828((struct Struct_0201e828*)var2, ((Struct_ov004_02158298*)data_ov004_021707e0)->unknown_c_);
 
     EnablePlayerControl_020397c0(var0->GetUnknownGameObject());
 
@@ -2368,7 +2368,7 @@ extern "C" int CountUsedBagSlots_020a0b8c(ItemBag_020a0b8c* bag);
 extern "C" int func_02053c6c(unsigned char*);
 extern "C" int GetPartyMemberHPColor_020dcc98(signed char partyMemberIndex);
 typedef int (*Type_ov004_0215a31c)(Struct_ov004_0215a31c_2*, unsigned short, unsigned int, unsigned int);
-extern "C" void func_ov023_021f9ba8(Struct_ov004_0215a31c_2* arg0, int arg1);
+extern "C" void SetMenuGridCursorRow_ov023_021f9ba8(Struct_ov004_0215a31c_2* grid, int row);
 extern "C" void* func_ov004_02157088(void* arg0, int arg1);
 extern "C" void SetItemInfoPanelItem_ov023_021dcae0(struct ItemInfoPanel_ov003_02178910*, int);
 
@@ -2452,7 +2452,7 @@ extern "C" ARM int func_ov004_0215a31c(void* arg0) {
             }
         }
     }
-    func_ov023_021f9ba8(var4, 0);
+    SetMenuGridCursorRow_ov023_021f9ba8(var4, 0);
     void* var17 = FindMenuWindow_ov004_02156f6c(arg0, 0x17);
     if (var17) RedrawMenuWindow_ov023_021f809c(var17, arg0);
     void* var18 = func_ov004_02157088(arg0, 7);

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_020bbf84_2;
-extern "C" void* func_020bd444(void);
+extern "C" void* GetCurrentSoundArchive_020bd444(void);
 extern "C" void* func_020bd648(int arg0);
 extern "C" void func_020bbf4c(int arg0, int arg1);
 extern "C" void func_020bbf6c(int arg0, void* arg1);
@@ -16,7 +16,7 @@ struct Struct_020be6c4 {
 
 // USA: func_020be6c4
 extern "C" ARM int func_020be6c4(struct Struct_020bbf84_2* arg0) {
-    func_020bd444();
+    GetCurrentSoundArchive_020bd444();
     int var0 = 0;
     int var1 = 0;
     do {

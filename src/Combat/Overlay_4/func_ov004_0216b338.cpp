@@ -14,7 +14,7 @@ extern "C" int func_ov024_021f6f10(void* arg0);
 #else
 extern "C" int func_ov024_021f6f10(void* arg0);
 #endif
-extern "C" void func_ov023_021f9ba8(void*, int);
+extern "C" void SetMenuGridCursorRow_ov023_021f9ba8(void*, int);
 extern "C" int func_ov023_021f98e0(void*, void*);
 
 // USA: func_ov004_0216b338
@@ -24,6 +24,6 @@ extern "C" ARM int func_ov004_0216b338(void* arg0, int arg1, int arg2) {
     int var1 = func_ov024_021f6f10(var0);
     if (var1 != 7) return var1;
     if (!var0) return var1;
-    func_ov023_021f9ba8(var0, (unsigned short)arg2);
+    SetMenuGridCursorRow_ov023_021f9ba8(var0, (unsigned short)arg2);
     return func_ov023_021f98e0(var0, arg0);
 }

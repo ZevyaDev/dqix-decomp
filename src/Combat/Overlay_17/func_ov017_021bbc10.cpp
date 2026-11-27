@@ -65,7 +65,7 @@ extern "C" int IsOnLadder_02039d7c(char*);
 extern "C" int GetCameraYaw_0202e7f0(void* camera);
 extern "C" void* GetFollowCamera_020100f8(char*);
 extern "C" int IsLocalWirelessOn_0202b7d8(int*);
-extern "C" int func_020a1eb0(void);
+extern "C" int GetCurrentOverlay_020a1eb0(void);
 extern "C" void func_020a1df8(int);
 extern "C" unsigned int* func_020d6c00(void);
 extern "C" void SetGlobalFlags_020466e4(unsigned int* globalFlags, unsigned int mask);
@@ -127,7 +127,7 @@ extern "C" ARM int func_ov017_021bbc10(Struct_ov017_021bbc10* arg0) {
         return arg0->unknown_a_;
     }
     SetFlags00(var4, 0x10);
-    if (TestFlags00(var4, 0x1000) == 0 && func_020a1eb0() != 1) {
+    if (TestFlags00(var4, 0x1000) == 0 && GetCurrentOverlay_020a1eb0() != 1) {
         func_020a1df8(1);
     }
     func_ov001_0215aa14((SafeAllocator*)NULL);

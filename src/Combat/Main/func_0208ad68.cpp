@@ -21,7 +21,7 @@ struct Struct_020482e0 {
     char unknown_0_[0x130];
     struct Struct_020482e0_2* unknown_130_;
 };
-extern "C" int func_020482e0(struct Struct_020482e0* arg0, int arg1, int arg2);
+extern "C" int ReduceHP_020482e0(struct Struct_020482e0* member, int amount, int canKill);
 
 extern "C" void func_02026f08(unsigned char* arg0, int arg1, int arg2);
 extern "C" void func_02026f20(int arg0, int arg1);
@@ -38,7 +38,7 @@ extern "C" ARM void func_0208ad68(void* arg0, int arg1) {
     struct Struct_020482e0* var3 = (struct Struct_020482e0*)var0->GetPartyMemberByIndex(arg1);
     unsigned char var4 = ((unsigned char*)arg0)[5];
     unsigned short var5 = var3->unknown_130_->unknown_4_;
-    func_020482e0(var3, var4, 0);
+    ReduceHP_020482e0(var3, var4, 0);
     unsigned short var6 = var3->unknown_130_->unknown_4_;
     if (var5 != var6) {
         func_02026f08((unsigned char*)var2, arg1, 1);

@@ -167,7 +167,7 @@ extern "C" Struct_ov017_021b790c_3* func_0202ae18(void);
 extern "C" Struct_ov017_021b790c_2* GetMessageWindow_020421a0(void);
 extern "C" unsigned int* func_020d6c00(void);
 extern "C" void func_020a1df8(int overlayEntry);
-extern "C" void func_020a1edc();
+extern "C" void ClearSubOverlayStack_020a1edc();
 extern "C" void func_ov017_021b71d8(Struct_ov017_021b790c_4* arg0);
 extern "C" void func_ov017_021b7284(Struct_ov017_021b790c_4* arg0);
 extern "C" int func_0209ca68(char* arg0);
@@ -177,7 +177,7 @@ extern "C" void func_ov000_02160620(void* arg0);
 extern "C" int func_ov000_02161264(void* arg0);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 extern "C" void func_02054248(void* arg0);
-extern "C" unsigned char func_02010750(char* arg0);
+extern "C" unsigned char IsPartyWipedOut_02010750(char* gameState);
 extern "C" void SetPartyWipedOut_0201075c(char* gameState, unsigned char isWipedOut);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" void func_ov017_021aa4cc(void* arg0, int arg1);
@@ -261,7 +261,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
 
     if (!(arg0->unknown_6b6_ & 0x100)) {
         func_020a1df8(0);
-        func_020a1edc();
+        ClearSubOverlayStack_020a1edc();
         arg0->unknown_6b6_ |= 0x800;
         func_ov017_021b71d8(arg0);
         func_ov017_021b7284(arg0);
@@ -293,7 +293,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
             }
         }
         if (arg0->unknown_6b0_->unknown_8e14_ == 2) {
-            if (func_02010750((char*)var0) == 0) {
+            if (IsPartyWipedOut_02010750((char*)var0) == 0) {
                 SetPartyWipedOut_0201075c((char*)var0, 1);
                 for (var12 = 0; var12 < 4; var12++) {
                     GameObject* var14 = var0->GetPartyMemberByIndex(var12);
@@ -303,7 +303,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
                     }
                 }
             }
-            if (func_02010750((char*)var0) == 0) {
+            if (IsPartyWipedOut_02010750((char*)var0) == 0) {
                 func_ov017_021aa4cc(var1, 1);
             }
         }
@@ -345,7 +345,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
                 }
             }
         }
-        if (func_02010750((char*)var0) != 0) {
+        if (IsPartyWipedOut_02010750((char*)var0) != 0) {
             if (IsScriptedBattle_020a3694((int*)arg0->unknown_1c_)) {
                 func_02010604(var0, 1, 1, arg0->unknown_3e_);
                 arg0->unknown_6b6_ |= 0x2000;

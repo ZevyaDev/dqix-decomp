@@ -50,7 +50,7 @@ extern "C" void func_ov003_02169658(void* arg0);
 extern "C" void func_0205bc10(Struct_0205bc10* arg0);
 extern "C" int GetCursorIndex_0205d794(Struct_0205c570* windowManager);
 extern "C" void func_ov003_021694b8(void* arg0, int arg1);
-extern "C" void func_0205bf3c(KeyMenuCursor_0205bf3c* arg0);
+extern "C" void ResetKeyMenuCursorInput_0205bf3c(KeyMenuCursor_0205bf3c* cursor);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84* cursor);
 extern "C" int func_0200fb08(Struct_02000c9c_8* gameState);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
@@ -284,7 +284,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
                 g_keyManager.TestKeysReleased(0x40) || g_keyManager.TestKeysHeld(0x80) ||
                 g_keyManager.TestKeysPressed(0x80) ||
                 g_keyManager.TestKeysReleased(0x80)) {
-                func_0205bf3c((KeyMenuCursor_0205bf3c*)((char*)arg0 + Enum_ov003_02169eec_312));
+                ResetKeyMenuCursorInput_0205bf3c((KeyMenuCursor_0205bf3c*)((char*)arg0 + Enum_ov003_02169eec_312));
                 int var24 = var8[var7];
                 int var25 = GetMenuCursorItemCount_0205bafc(arg0->unknown_4fc_);
                 SetMenuCursorIndex_0205bb04(arg0->unknown_4fc_, var25 - 1 - var8[var7]);

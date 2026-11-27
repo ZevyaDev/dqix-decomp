@@ -50,7 +50,7 @@ extern "C" int func_0202be08(struct LocalWireless_0202b2f0* arg0, int arg1);
 struct PartyMember_02054000;
 extern "C" void* GetEquippedWeaponItemData_02054000(struct PartyMember_02054000* gameObject);
 extern "C" int func_02053c6c(unsigned char* gameObject);
-extern "C" int func_020483f0(unsigned char* arg0, unsigned short arg1);
+extern "C" int SetStatusFlags_020483f0(unsigned char* gameObject, unsigned short statusFlags);
 extern "C" void CalculatePartyMemberStats_02083e28(void* memberData, int outStats);
 void ApplyCombatantBuffs(int world, int id);
 extern "C" void func_ov017_021c6bc8(void);
@@ -329,7 +329,7 @@ extern "C" ARM int func_ov017_021b3e14(struct Struct_ov017_021b3e14* arg0) {
                     if (var42 != NULL && var42->unknown_18_ > 0 && var42->unknown_a_2_) {
                         int* var43 = (int*)func_02053c6c((unsigned char*)var41);
                         if (var43 != NULL) {
-                            func_020483f0((unsigned char*)var41, 4);
+                            SetStatusFlags_020483f0((unsigned char*)var41, 4);
                             var43[0xa8 / 4] |= 4;
                         }
                     }

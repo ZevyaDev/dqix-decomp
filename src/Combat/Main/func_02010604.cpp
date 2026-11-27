@@ -29,7 +29,7 @@ extern "C" void func_ov017_0219bfb4(int arg0, int arg1);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 
 struct Struct_02010604_3;
-extern "C" int func_020482bc(struct Struct_02010604_3* arg0);
+extern "C" int RestoreFullMP_020482bc(struct Struct_02010604_3* member);
 
 struct Struct_02010604;
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
@@ -64,7 +64,7 @@ extern "C" ARM void func_02010604(GameState* arg0, int arg1, int arg2, int arg3)
         var4 = (struct Struct_02010604_2*)var3;
         if ((*var4->unknown_130_ & 1) == 0) continue;
         RevivePartyMember_02048150(var3, 0, 1);
-        func_020482bc((struct Struct_02010604_3*)var3);
+        RestoreFullMP_020482bc((struct Struct_02010604_3*)var3);
         var4->unknown_18c_ &= ~1;
         SetMotion_02033b88((struct Struct_02010604*)var3, 0);
         if (IsLocalWirelessOn_0202b7d8((int*)var0)) {

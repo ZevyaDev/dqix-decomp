@@ -80,8 +80,8 @@ extern "C" void RebuildPartyOrders_ov017_02191234(GameResources*);
 extern "C" int IsLocalWirelessGuest_0202c540(void*);
 extern "C" void LinkPartyFollowers_ov017_021907dc(int, int, int, int, int);
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
-extern "C" void func_02039d58(unsigned char*);
-extern "C" int func_02039d68(unsigned char*);
+extern "C" void ClearFadeInOnMove_02039d58(unsigned char*);
+extern "C" int IsFadeInOnMove_02039d68(unsigned char*);
 extern "C" void SetFadeInOnMove_02039d48(unsigned char*);
 #if defined(jpn)
 extern char data_ov017_021d87c4[], data_ov017_021d87d8[];
@@ -204,10 +204,10 @@ configureCombatant:
                     var23->obj3D_.SetScale(0x10a, 0x10a, 0x10a);
                     SetLeaderObjectIndex_020546a0(var23, 0);
                     SetMotion_02033b88((Struct_02010604*)var23, 0);
-                    func_02039d58((unsigned char*)var23);
+                    ClearFadeInOnMove_02039d58((unsigned char*)var23);
                     for (int var24 = 0; var24 < 4; var24++) {
                         GameObject* var25 = GetCompanionByIndex_0200ff58(var0, var24);
-                        if (var25 && func_02039d68((unsigned char*)var25)) SetFadeInOnMove_02039d48((unsigned char*)var23);
+                        if (var25 && IsFadeInOnMove_02039d68((unsigned char*)var25)) SetFadeInOnMove_02039d48((unsigned char*)var23);
                     }
                     GameObject* var26 = var0->GetGameObjectByIndex(0);
                     if (var26) {

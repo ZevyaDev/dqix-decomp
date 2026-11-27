@@ -20,7 +20,7 @@ extern "C" int* GetNoticeQueue_020936f8(void);
 extern "C" unsigned int func_02092cd0(Struct_02092cd0* arg0, int arg1);
 extern "C" int func_02092d18(Struct_02092cd0* arg0, int arg1);
 extern "C" int IsTypeInQueue_02046b60(struct Queue_02038598_5* queue, int type);
-extern "C" int func_020a35f8(unsigned char* arg0);
+extern "C" int CountPartyMembersInBattle_020a35f8(unsigned char* battleSetup);
 
 struct Struct_02092cd0 {
     char unknown_0_[0x30];
@@ -117,7 +117,7 @@ extern "C" ARM void func_020930d0(struct Struct_02092cd0* arg0) {
             } else {
                 var15 = 6;
                 if (IsTypeInQueue_02046b60(var8, 10)) {
-                    if (var12 == func_020a35f8(func_ov017_021b8478(var0->unknown_ptr_3718)) && var16 + var17 == 4) arg0->unknown_3b_ = 1;
+                    if (var12 == CountPartyMembersInBattle_020a35f8(func_ov017_021b8478(var0->unknown_ptr_3718)) && var16 + var17 == 4) arg0->unknown_3b_ = 1;
                 }
             }
             arg0->unknown_30_ = var15;

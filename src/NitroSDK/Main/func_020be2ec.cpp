@@ -3,9 +3,9 @@
 #include "NitroSDK/Memory.h"
 
 extern "C" int GetLoadedSoundFile_020bd8ac(unsigned int fileId);
-extern "C" void func_020bd8d4(unsigned int arg0, int arg1);
+extern "C" void SetLoadedSoundFile_020bd8d4(unsigned int fileId, int loadedAddress);
 extern "C" int func_020bd7c4(unsigned int arg0, void* arg1, int arg2, int arg3);
-extern "C" void* func_020bd444(void);
+extern "C" void* GetCurrentSoundArchive_020bd444(void);
 void CleanCacheRange(const void* addr, unsigned int size);
 
 struct Struct_020bbf84_2;
@@ -40,7 +40,7 @@ extern "C" ARM void* func_020be2ec(unsigned int arg0, struct Struct_020bbf84_2* 
     if (arg1 == NULL) {
         return NULL;
     }
-    void* var5 = arg2 ? func_020bd444() : NULL;
+    void* var5 = arg2 ? GetCurrentSoundArchive_020bd444() : NULL;
     var1 = func_020bda58(arg1, var0 + 0x5c, (Type_020bbf84)&func_020be4d4, (int)var5, arg0);
     if (var1 == NULL) {
         return NULL;
@@ -54,7 +54,7 @@ extern "C" ARM void* func_020be2ec(unsigned int arg0, struct Struct_020bbf84_2* 
     VectorizedMemset((char*)var1 + 0x3c, 0, var4);
     CleanCacheRange(var1, var0 + 0x3c);
     if (arg2) {
-        func_020bd8d4(arg0, (int)var1);
+        SetLoadedSoundFile_020bd8d4(arg0, (int)var1);
     }
 done:
     return var1;

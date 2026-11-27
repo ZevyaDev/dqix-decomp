@@ -25,7 +25,7 @@ extern "C" int func_020493c8(unsigned char*);
 extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" void SetCombatantCell_02049390(unsigned char*, unsigned char);
 extern "C" void func_020493b8(unsigned char*, unsigned char);
-extern "C" void func_020493dc(unsigned char*, unsigned char);
+extern "C" void SetCombatantReservedCell_020493dc(unsigned char*, unsigned char);
 extern "C" void SetCombatantCellPosition_02049bd4(unsigned char*, int*);
 struct Struct_02010604;
 extern "C" void SetMotion_02033b88(Struct_02010604*, int);
@@ -63,7 +63,7 @@ extern "C" ARM void PlaceCombatantOnCell_02048cf0(struct Combatant_02048cf0_3* c
     SetCombatantCell_02049390((unsigned char*)combatant, cell & 0xff);
     func_020493b8((unsigned char*)combatant, 0xff);
     if (isCurrentCellKept == 0) {
-        func_020493dc((unsigned char*)combatant, 0xff);
+        SetCombatantReservedCell_020493dc((unsigned char*)combatant, 0xff);
     }
     if (combatant->motion_be_ == 0) {
         SetMotion_02033b88((Struct_02010604*)combatant, 0);

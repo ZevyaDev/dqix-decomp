@@ -15,7 +15,7 @@ struct Struct_ov025_021e1c20_2 {
 extern "C" void func_ov000_0216f82c(Struct_ov025_021e1c20* arg0, const int* arg1);
 extern "C" int GetCombatantCell_020493a4(unsigned char*);
 extern "C" int GetCombatantReservedCell_020493ec(unsigned char*);
-extern "C" void func_020493dc(unsigned char*, unsigned char);
+extern "C" void SetCombatantReservedCell_020493dc(unsigned char*, unsigned char);
 
 // USA: func_ov025_021e1c20
 extern "C" ARM void func_ov025_021e1c20(int arg0, unsigned char* arg1, unsigned char* arg2, int arg3, Struct_ov025_021e1c20_2* arg4, int arg5, unsigned char* arg6) {
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov025_021e1c20(int arg0, unsigned char* arg1, unsigned 
                 }
                 if (var7 == var10) {
                     arg4[var6].unknown_4_ = 1;
-                    func_020493dc(arg4[var6].unknown_8_, 0xff);
+                    SetCombatantReservedCell_020493dc(arg4[var6].unknown_8_, 0xff);
                 }
             }
         }

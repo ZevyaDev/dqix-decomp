@@ -29,7 +29,7 @@ struct Struct_ov017_0218eafc {
 extern "C" void* GetEffectManager_02057924(void);
 extern "C" void DrawAttachedEffects_02057ab8(void* effectManager, int objectIndex);
 extern "C" int func_ov017_021922ac(void* arg0, unsigned int arg1);
-extern "C" int func_02039d68(unsigned char* arg0);
+extern "C" int IsFadeInOnMove_02039d68(unsigned char* object);
 extern "C" int func_02053cdc(int* arg0);
 extern "C" int func_02053cd4(unsigned char* arg0);
 extern "C" int func_02032fdc(void* arg0, int arg1, Vector3i* arg2);
@@ -52,7 +52,7 @@ extern "C" ARM void func_ov017_0218eafc(Struct_ov017_0218eafc* arg0, int arg1) {
     int var4 = arg1 * 12 + 0x13;
     Object3D* var5 = (Object3D*)var0->GetGameObjectByIndex(var4);
     if (var3->obj3D_.GetFlag(0x200)) return;
-    if (func_02039d68((unsigned char*)var3)) return;
+    if (IsFadeInOnMove_02039d68((unsigned char*)var3)) return;
     if (var3->obj3D_.IsChild()) return;
     Model3D* var6 = var3->obj3D_.pModel_;
     if (var6 == NULL) return;

@@ -142,7 +142,7 @@ extern "C" void RemoveEffectResource_02057f00(void* effectManager, int effectId)
 extern "C" void UnloadExtraSoundSet_0205ebec(void* manager);
 extern "C" void func_ov017_02197528(void);
 extern "C" void EnablePlayerControl_020397c0(void* object);
-extern "C" void func_02039d58(unsigned char* arg0);
+extern "C" void ClearFadeInOnMove_02039d58(unsigned char* object);
 extern "C" void func_ov017_021c37a4(void);
 extern "C" void func_ov017_021b11b0(Struct_ov003_021638e4_2* arg0);
 extern "C" void PrependToQueue_020469f8(Queue_020469f8* queue, QueueNode_020469f8_2* node);
@@ -432,7 +432,7 @@ extern "C" ARM void func_ov017_021acdf4(Struct_ov017_021acdf4* arg0, Queue_02046
         arg0->unknown_1_ = 1;
         EnablePlayerControl_020397c0(var2);
         ((Object3D*)var2)->SetInheritedAlpha(0x1f);
-        func_02039d58((unsigned char*)var2);
+        ClearFadeInOnMove_02039d58((unsigned char*)var2);
         func_ov017_021adb1c(arg0);
         LoadFileTables_020a0c0c();
         if (arg0->unknown_280_) {

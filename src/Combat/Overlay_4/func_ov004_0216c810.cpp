@@ -70,11 +70,11 @@ extern "C" void QueueMenuScriptEntry_ov011_021848a0(void* menu, int entryId);
 extern "C" void func_ov004_0216b498(void* arg0, int arg1, int arg2);
 extern "C" int func_ov004_0216b2c8(void* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_ov004_0216b20c(void* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_ov023_021f9ba8(void* arg0, unsigned short arg1);
+extern "C" void SetMenuGridCursorRow_ov023_021f9ba8(void* grid, unsigned short row);
 extern "C" struct StringList_02072a68_2* GetMenuObjectStringList_ov023_021fa598(void* object);
 extern "C" Struct_ov004_0216c810* GetMessageWindow_020421a0();
 extern "C" void StartMessage_0204500c(Struct_ov004_0216c810* window, void* text, int arg2, int arg3);
-extern "C" void func_ov023_021f8120(void* arg0);
+extern "C" void CloseMenuWindow_ov023_021f8120(void* window);
 extern "C" void DrawMenuWindow_ov023_021f7eb8(void* window, void* menu, int characterDataOffset, int x, int y, int width, int height, int palette, int isTransparent, int isFrameless);
 extern "C" void func_ov004_0216ba70(void* arg0);
 
@@ -147,7 +147,7 @@ extern "C" ARM int func_ov004_0216c810(void* arg0) {
                 var9 = var8;
             }
             if (var9) {
-                func_ov023_021f9ba8(var9, var7);
+                SetMenuGridCursorRow_ov023_021f9ba8(var9, var7);
             }
             var1->unknown_7f73_ = 0;
         }
@@ -239,7 +239,7 @@ extern "C" ARM int func_ov004_0216c810(void* arg0) {
     func_ov011_02184ad8((struct Struct_ov004_0216b7bc*)arg0);
     int var17;
     void* var18 = func_ov004_0216ae9c(arg0, 0xd2);
-    func_ov023_021f8120(var18);
+    CloseMenuWindow_ov023_021f8120(var18);
     var17 = 0x60;
     unsigned char var19 = func_0200fb08((struct Struct_02000c9c_8*)GameState::GetInstance());
     Struct_ov004_02170174 var20 = data_ov004_02170174;

@@ -7,8 +7,8 @@ struct Struct_ov004_021549e4_5 {
     unsigned short unknown_2a_;
 };
 
-// USA: func_ov023_021f9bdc
-extern "C" ARM void func_ov023_021f9bdc(struct Struct_ov004_021549e4_5* arg0, int arg1) {
-    arg0->unknown_28_ = arg1 / arg0->unknown_26_;
-    arg0->unknown_2a_ = arg1 % arg0->unknown_26_;
+// USA: SetMenuGridCursorIndex_ov023_021f9bdc
+extern "C" ARM void SetMenuGridCursorIndex_ov023_021f9bdc(struct Struct_ov004_021549e4_5* grid, int index) {
+    grid->unknown_28_ = index / grid->unknown_26_;
+    grid->unknown_2a_ = index % grid->unknown_26_;
 }

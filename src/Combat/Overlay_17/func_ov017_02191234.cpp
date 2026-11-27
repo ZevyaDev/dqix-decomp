@@ -14,8 +14,8 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" unsigned char* GetCompanionByIndex_0200ff58(GameState* gameState, int index);
 extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" void func_02026348(char* arg0, unsigned char* arg1, int arg2);
-extern "C" void func_020114c0(char* arg0, int arg1, void* arg2);
-extern "C" void func_02011468(void* arg0, int arg1, void* arg2);
+extern "C" void SetPartyOrder_020114c0(char* gameState, int count, void* partyOrder);
+extern "C" void SetOwnPartyOrder_02011468(void* gameState, int count, void* ownPartyOrder);
 
 // USA: RebuildPartyOrders_ov017_02191234
 extern "C" ARM void RebuildPartyOrders_ov017_02191234(unsigned char* gameResources) {
@@ -66,6 +66,6 @@ extern "C" ARM void RebuildPartyOrders_ov017_02191234(unsigned char* gameResourc
         }
     }
     func_02026348(*(char**)(gameResources + Enum_ov017_02191234_14032), partyOrder, partyCount);
-    func_020114c0((char*)gameState, partyCount, partyOrder);
-    func_02011468(gameState, ownPartyCount, ownPartyOrder);
+    SetPartyOrder_020114c0((char*)gameState, partyCount, partyOrder);
+    SetOwnPartyOrder_02011468(gameState, ownPartyCount, ownPartyOrder);
 }

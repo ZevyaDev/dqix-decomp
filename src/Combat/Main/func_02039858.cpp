@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_02039858
-extern "C" ARM void func_02039858(unsigned char* arg0, int arg1) {
+// USA: SetFollowedObjectIndex_02039858
+extern "C" ARM void SetFollowedObjectIndex_02039858(unsigned char* object, int index) {
 #if defined(jpn)
-    arg0[0x1bc] = arg1;
+    object[0x1bc] = index;
 #else
-    arg0[0x1c8] = arg1;
+    object[0x1c8] = index;
 #endif
 }

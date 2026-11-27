@@ -18,15 +18,15 @@ struct Struct_02010604_3 {
     struct Struct_020482bc* unknown_134_;
 };
 
-// USA: func_020482bc
-extern "C" ARM int func_020482bc(struct Struct_02010604_3* arg0) {
-    struct Struct_020482bc_2* var0 = arg0->unknown_130_;
-    struct Struct_020482bc* var1 = arg0->unknown_134_;
-    unsigned short var2 = var0->unknown_6_;
-    unsigned short var3 = var1->unknown_32_;
-    if (var3 - var2 <= 0) {
+// USA: RestoreFullMP_020482bc
+extern "C" ARM int RestoreFullMP_020482bc(struct Struct_02010604_3* member) {
+    struct Struct_020482bc_2* status = member->unknown_130_;
+    struct Struct_020482bc* baseStats = member->unknown_134_;
+    unsigned short currMP = status->unknown_6_;
+    unsigned short maxMP = baseStats->unknown_32_;
+    if (maxMP - currMP <= 0) {
         return 0;
     }
-    var0->unknown_6_ = var3;
-    return var3 - var2;
+    status->unknown_6_ = maxMP;
+    return maxMP - currMP;
 }

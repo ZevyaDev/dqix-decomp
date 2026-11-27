@@ -30,8 +30,8 @@ extern "C" int func_020885e0(Struct_020885e0*);
 extern "C" int func_ov024_021e939c(Struct_ov024_021dbaf4_4*, int, int, int);
 extern "C" int func_ov024_021eb4b0(int, int, int);
 extern "C" void SetActionResultFlag_ov000_02159eac(void*, Struct_ov024_021e2bd0_6*, int);
-extern "C" void func_02088560(unsigned char*);
-extern "C" void func_02088624(Struct_02088624*);
+extern "C" void SetEnvenomated_02088560(unsigned char*);
+extern "C" void SetPoisoned_02088624(Struct_02088624*);
 extern "C" void* AddExtraTargetResult_ov024_021e8ca0(ActionRunner_ov024_021e2bd0*, int);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
 
@@ -62,8 +62,8 @@ extern "C" ARM unsigned long long func_ov024_021e303c(Struct_ov024_021e2bd0_3* a
     var6.unknown_4_ = 0;
     if (func_ov024_021eb4b0((int)arg0, ((Struct_ov024_021e2bd0_4*)var0->currentStats_)->unknown_14_, 2))
         SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var6, 0x2b);
-    if (var4) func_02088560((unsigned char*)var0->currentStats_);
-    else func_02088624((Struct_02088624*)var0->currentStats_);
+    if (var4) SetEnvenomated_02088560((unsigned char*)var0->currentStats_);
+    else SetPoisoned_02088624((Struct_02088624*)var0->currentStats_);
     SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var6, 0xf);
     void* var7 = AddExtraTargetResult_ov024_021e8ca0((ActionRunner_ov024_021e2bd0*)arg0, var5);
     if (var7) SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var7, var0, 0, 0, 0, 0);

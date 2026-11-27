@@ -8,7 +8,7 @@ extern "C" void* FindMenuObjectById_ov023_021f6880(void*, int);
 extern "C" int func_ov023_021f6f10(void*);
 extern "C" int func_ov023_021f98e0(void*, void*);
 extern "C" unsigned int GetMenuGridCursorRow_ov023_021f9bb0(struct MenuGrid_ov004_021549e4_2* grid);
-extern "C" unsigned short func_ov023_021f9bc0(struct Struct_ov004_021549e4_4* arg0);
+extern "C" unsigned short GetMenuGridCursorColumn_ov023_021f9bc0(struct Struct_ov004_021549e4_4* grid);
 extern "C" unsigned int func_ov023_021f9b6c(struct Struct_ov004_021549e4_3* arg0, unsigned int arg1, unsigned int arg2);
 extern "C" void* func_ov023_021f9cb8(void* arg0, void* arg1, void* arg2);
 extern "C" void func_ov023_021f88b8(void* arg0, void* arg1, int arg2);
@@ -44,7 +44,7 @@ struct Struct_ov004_021549e4 { void* unknown_0_; };
 extern "C" short func_ov023_021e1da4(struct Struct_ov004_021549e4* arg0, int arg1);
 
 struct Struct_ov004_021549e4_5;
-extern "C" void func_ov023_021f9bdc(struct Struct_ov004_021549e4_5* arg0, int arg1);
+extern "C" void SetMenuGridCursorIndex_ov023_021f9bdc(struct Struct_ov004_021549e4_5* grid, int index);
 
 struct Struct_ov004_021549e4_7 {
     char unknown_0_[0x5c];
@@ -83,12 +83,12 @@ extern "C" ARM int func_ov004_021549e4(void* arg0) {
     var7->unknown_5e_ = var8;
     short var9 = (short)(var4 % 16);
     unsigned short var10 = (unsigned short)var9;
-    func_ov023_021f9bdc((struct Struct_ov004_021549e4_5*)var6, var10);
+    SetMenuGridCursorIndex_ov023_021f9bdc((struct Struct_ov004_021549e4_5*)var6, var10);
 
     func_ov023_021f98e0(var6, arg0);
 
     unsigned int var11 = GetMenuGridCursorRow_ov023_021f9bb0((struct MenuGrid_ov004_021549e4_2*)var6);
-    unsigned short var12 = func_ov023_021f9bc0((struct Struct_ov004_021549e4_4*)var6);
+    unsigned short var12 = GetMenuGridCursorColumn_ov023_021f9bc0((struct Struct_ov004_021549e4_4*)var6);
     unsigned int var13 = func_ov023_021f9b6c((struct Struct_ov004_021549e4_3*)var6, var11, var12);
 
     void* var14 = GetMenuObjectList_ov011_021849c8(arg0);

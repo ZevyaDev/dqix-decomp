@@ -18,7 +18,7 @@ struct PartyMemberData_0208358c_3 { char unknown_0_[0x194]; ItemData_0208358c_2 
     EquipData_0208358c equipData_6f0_[11]; };
 struct ItemData_02083508_2;
 extern "C" void InitItemData_020de1d4(ItemData_02083508_2*);
-extern "C" void func_020836e4(ItemData_0208358c_2*, ItemData_0208358c_2*);
+extern "C" void CopyItemData_020836e4(ItemData_0208358c_2*, ItemData_0208358c_2*);
 extern "C" unsigned char* func_0208349c(unsigned char*, int);
 // USA: SetEquipment_0208358c
 extern "C" ARM void SetEquipment_0208358c(PartyMemberData_0208358c_3* memberData, ItemData_0208358c_2* item, int explicitRecordIndex) {
@@ -50,7 +50,7 @@ extern "C" ARM void SetEquipment_0208358c(PartyMemberData_0208358c_3* memberData
     if (item->unknown_4_) { memset(name, 0, 0x30); sprintf(name, item->unknown_4_); }
 #endif
     InitItemData_020de1d4((ItemData_02083508_2*)equippedItem);
-    func_020836e4(equippedItem, item);
+    CopyItemData_020836e4(equippedItem, item);
     equippedItem->unknown_0_ = &memberData->equipData_6f0_[recordIndex];
 #if defined(jpn)
     equippedItem->unknown_4_ = (char*)memberData + 0x56f + recordIndex * 0x15;

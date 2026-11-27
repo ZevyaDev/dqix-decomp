@@ -177,8 +177,8 @@ void func_02040520(struct Struct_ov001_021539d8* arg0, struct Struct_ov001_02153
 void func_0203f02c(struct Struct_ov001_021539d8_12* arg0, char* arg1, SafeAllocator* arg2, struct Struct_ov001_021539d8_7* arg3, void* arg4, unsigned int arg5);
 void func_0203f138(struct Struct_ov001_021539d8_12* arg0, int arg1);
 void func_020408c8(struct Struct_ov001_021539d8* arg0, int arg1, int arg2, int arg3);
-int func_0203e03c(void* arg0);
-void func_0203dd10(void* arg0, int arg1, struct Struct_ov001_021539d8* arg2);
+int FindFreeNPCSlot_0203e03c(void* npcManager);
+void SetNPCByIndex_0203dd10(void* npcManager, int index, struct Struct_ov001_021539d8* npc);
 int _Z26FindFilesInNarcBySubstringPKvPKcPS0_Pjj(void* arg0, const char* arg1, void** arg2, unsigned int* arg3, unsigned int arg4);
 void __clear(unsigned char* arg0, int arg1);
 }
@@ -468,9 +468,9 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
             inline_ov001_021539d8(var19, var5->unknown1_8_ + 9, var14, var21, var43, var44);
             inline_ov001_021539d8_2(var19, 1);
             func_020408c8(var19, 0x8f, 0x8f, 0x8f);
-            var5->unknown_2_ = func_0203e03c(var2);
+            var5->unknown_2_ = FindFreeNPCSlot_0203e03c(var2);
             if (var5->unknown_2_ != -1) {
-                func_0203dd10(var2, var5->unknown_2_, var19);
+                SetNPCByIndex_0203dd10(var2, var5->unknown_2_, var19);
                 var19->unknown_0_ |= 0x10000;
                 func_ov001_0215ab54(2, var5->unknown_2_, var5->unknown_1_);
                 var1->RemoveTask(var5->unknown_2c_);

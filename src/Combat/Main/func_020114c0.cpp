@@ -1,16 +1,16 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-// USA: func_020114c0
-extern "C" ARM void func_020114c0(char* arg0, int arg1, void* arg2) {
+// USA: SetPartyOrder_020114c0
+extern "C" ARM void SetPartyOrder_020114c0(char* gameState, int count, void* partyOrder) {
 #if defined(jpn)
-    memcpy(arg0 + 0x54bd, arg2, arg1);
+    memcpy(gameState + 0x54bd, partyOrder, count);
 #else
-    memcpy(arg0 + 0x571d, arg2, arg1);
+    memcpy(gameState + 0x571d, partyOrder, count);
 #endif
 #if defined(jpn)
-    *(unsigned char*)(arg0 + 0x54c1) = (unsigned char)arg1;
+    *(unsigned char*)(gameState + 0x54c1) = (unsigned char)count;
 #else
-    *(unsigned char*)(arg0 + 0x5721) = (unsigned char)arg1;
+    *(unsigned char*)(gameState + 0x5721) = (unsigned char)count;
 #endif
 }

@@ -69,7 +69,7 @@ extern "C" void InitZoneEntry_02070378(char* zoneEntry);
 extern "C" void ResetZoneLoadTask_ov017_0219e310(unsigned char* task, int isFullReset);
 extern "C" void AppendToQueue_020469b4(Queue_0201bdac_2* queue, QueueNode_0201bdac* node);
 extern "C" void func_02017d7c(void* arg0);
-extern "C" void func_02039d58(unsigned char* arg0);
+extern "C" void ClearFadeInOnMove_02039d58(unsigned char* object);
 extern "C" void SetFadeInOnMove_02039d48(unsigned char* object);
 extern "C" int GetMessageWindow_020421a0(void);
 extern "C" void ResetMessageWindow_02043204(char* window);
@@ -171,7 +171,7 @@ extern "C" ARM void func_ov017_0219bfb4(int arg0, unsigned short arg1) {
         GameObject* var18 = var1->GetPartyMemberByIndex(*(unsigned char*)(var2 + var17 + 0xf78));
         if (var18) {
             if (var17 == 0) {
-                func_02039d58((unsigned char*)var18);
+                ClearFadeInOnMove_02039d58((unsigned char*)var18);
                 var18->obj3D_.SetInheritedAlpha(0x1f);
             } else {
                 SetFadeInOnMove_02039d48((unsigned char*)var18);

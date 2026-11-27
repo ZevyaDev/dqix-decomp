@@ -87,7 +87,7 @@ extern "C" void func_0209a348(struct Struct_0209a348*, void*);
 extern "C" int func_0209a670(struct Struct_0209a670*);
 extern "C" struct Struct_ov004_0215eb40_4* func_0209a654(struct Struct_0209a654_2*, unsigned int);
 extern "C" void LearnSkillEntry_02083acc(unsigned char*, int);
-extern "C" void func_02083b28(unsigned char*, int);
+extern "C" void ClearLearnedSkillEntry_02083b28(unsigned char*, int);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char*, int);
 extern "C" void* func_02053c6c(unsigned char*);
 extern "C" struct ItemData_0201099c_9* FindItemData_020dedd0(struct ItemTable_0201099c_10*, int);
@@ -160,7 +160,7 @@ extern "C" ARM void func_ov004_0215eb40(void* arg0) {
         if (var7) {
             LearnSkillEntry_02083acc(var3, var16->unknown_14_);
         } else {
-            func_02083b28(var3, var16->unknown_14_);
+            ClearLearnedSkillEntry_02083b28(var3, var16->unknown_14_);
         }
     }
 

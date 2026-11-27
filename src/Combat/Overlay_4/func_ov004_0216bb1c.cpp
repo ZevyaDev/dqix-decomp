@@ -83,7 +83,7 @@ extern "C" const char* FindStringInList_02072a68(void* stringList, int stringId)
 extern "C" int func_020d2ff0(const char* string);
 extern "C" void func_ov011_02184ad8(void* arg0);
 extern "C" void* func_ov004_0216ae9c(void* arg0, int arg1);
-extern "C" void func_ov023_021f8120(void* arg0);
+extern "C" void CloseMenuWindow_ov023_021f8120(void* window);
 extern "C" void DrawMenuWindow_ov023_021f7eb8(void* window, void* menu, int characterDataOffset, int x, int y, int width, int height, int palette, int isTransparent, int isFrameless);
 extern "C" void func_ov004_0216afb0(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, unsigned char arg8);
 extern "C" void func_ov004_0216b06c(void* arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);
@@ -332,7 +332,7 @@ extern "C" ARM int func_ov004_0216bb1c(void* arg0) {
     if (var41) var41->inline_ov004_0216bb1c_18(var36);
 
     void* var42 = func_ov004_0216ae9c(arg0, 0xd3);
-    func_ov023_021f8120(var42);
+    CloseMenuWindow_ov023_021f8120(var42);
 
     int var43 = data_ov004_02171034.unknown_10_;
     switch (var0) {

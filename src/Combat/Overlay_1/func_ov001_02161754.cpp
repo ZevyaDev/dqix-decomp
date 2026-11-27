@@ -22,7 +22,7 @@ extern "C" void func_0204128c(struct Struct_0203d028_10* arg0);
 extern "C" void func_02040504(int* arg0);
 
 struct Struct_0203dd10;
-extern "C" void func_0203dd10(Struct_0203dd10* arg0, unsigned int arg1, int arg2);
+extern "C" void SetNPCByIndex_0203dd10(Struct_0203dd10* npcManager, unsigned int index, int npc);
 
 struct Struct_ov001_02161754 { int unknown_0_; int unknown_4_; char unknown_8_[8]; };
 struct Struct_ov001_02165880_47 { char unknown_0_[4]; struct Struct_ov001_02161754* unknown_4_; };
@@ -64,6 +64,6 @@ extern "C" ARM int func_ov001_02161754(void* arg0) {
     }
 
     func_02040504(&var3->flags_0_);
-    func_0203dd10((Struct_0203dd10*)var2, data_ov001_02165880.unknown_4_[var0].unknown_4_, 0);
+    SetNPCByIndex_0203dd10((Struct_0203dd10*)var2, data_ov001_02165880.unknown_4_[var0].unknown_4_, 0);
     return 1;
 }

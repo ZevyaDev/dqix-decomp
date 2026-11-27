@@ -236,7 +236,7 @@ extern "C" void func_ov000_021823dc(unsigned char* arg0, int arg1);
 extern "C" int func_ov000_02163c0c(void* arg0, int arg1);
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" void func_ov000_02176134(struct Struct_ov000_02176134* arg0, short arg1);
-extern "C" void func_ov000_02176150(struct Struct_ov000_021537b8_6* arg0, short arg1);
+extern "C" void SetPartyMemberPanelMP_ov000_02176150(struct Struct_ov000_021537b8_6* panel, short mp);
 extern "C" void func_ov000_0216ff20(char* arg0, unsigned char arg1);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021c9d2c(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8);
@@ -1106,12 +1106,12 @@ extern "C" ARM int func_ov025_021d8c30(unsigned char* arg0, struct Struct_ov025_
             if (var50 && (var50->unknown_14_[1] == 8 || var50->unknown_14_[1] == 7 || var50->unknown_14_[1] == 6)) {
                 if (var49 && (HasActionResultFlag_ov000_0215fd90(var49, 0x22) || HasActionResultFlag_ov000_0215fd90(var49, 0x2a))) {
                     short var130 = var49->unknown_10_;
-                    func_ov000_02176150((struct Struct_ov000_021537b8_6*)var128, var130);
+                    SetPartyMemberPanelMP_ov000_02176150((struct Struct_ov000_021537b8_6*)var128, var130);
                     *(short*)(var128 + 0xe) = var130;
                 }
             } else {
                 short var131 = var49->unknown_10_;
-                func_ov000_02176150((struct Struct_ov000_021537b8_6*)var128, var131);
+                SetPartyMemberPanelMP_ov000_02176150((struct Struct_ov000_021537b8_6*)var128, var131);
                 *(short*)(var128 + 0xe) = var131;
             }
             *(short*)(var128 + 8) = var49->unknown_12_;

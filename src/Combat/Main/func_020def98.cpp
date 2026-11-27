@@ -41,13 +41,13 @@ extern "C" int func_020de56c(void*);
 extern "C" ItemData_0201099c_9* func_020de650(Struct_020de5b0_2* arg0, int arg1, Type_020de5fc arg2);
 extern "C" int func_020df618(SafeAllocator*, void*, Struct_020def98*, void**, int, Struct_020def98*);
 extern "C" int func_020df6cc(void*, Struct_020def98_2*, int, Struct_020def98_2*);
-extern "C" void func_020836e4(ItemData_0208358c_2* arg0, ItemData_0208358c_2* arg1);
+extern "C" void CopyItemData_020836e4(ItemData_0208358c_2* dst, ItemData_0208358c_2* src);
 extern "C" void InitItemData_020de1d4(ItemData_02083508_2*);
 
 static inline void inline_020def98(ItemData_0208358c_2* arg0, ItemData_0208358c_2* arg1) {
     ItemData_0208358c_2 var0 = *arg0;
-    func_020836e4(arg0, arg1);
-    func_020836e4(arg1, &var0);
+    CopyItemData_020836e4(arg0, arg1);
+    CopyItemData_020836e4(arg1, &var0);
 }
 
 // USA: func_020def98
@@ -150,8 +150,8 @@ extern "C" ARM int func_020def98(SafeAllocator* arg0, Struct_020de5b0_2* arg1,
                         if (var24->unknown_18_ > var25->unknown_18_) {
                             var26 = var29;
                             ItemData_0208358c_2 var32 = *var25;
-                            func_020836e4(var25, var24);
-                            func_020836e4(var24, &var32);
+                            CopyItemData_020836e4(var25, var24);
+                            CopyItemData_020836e4(var24, &var32);
                         }
                         var25 = var24;
                     }

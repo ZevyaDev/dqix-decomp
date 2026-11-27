@@ -1,17 +1,17 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-// USA: func_02011468
+// USA: SetOwnPartyOrder_02011468
 // Copies 'size' bytes from 'src' into the buffer at +0x5718 and stores the size byte at +0x571c.
-extern "C" ARM void func_02011468(void* arg0, int arg1, void* arg2) {
+extern "C" ARM void SetOwnPartyOrder_02011468(void* gameState, int count, void* ownPartyOrder) {
 #if defined(jpn)
-    memcpy((char*)arg0 + 0x54b8, arg2, arg1);
+    memcpy((char*)gameState + 0x54b8, ownPartyOrder, count);
 #else
-    memcpy((char*)arg0 + 0x5718, arg2, arg1);
+    memcpy((char*)gameState + 0x5718, ownPartyOrder, count);
 #endif
 #if defined(jpn)
-    *((char*)arg0 + 0x54bc) = (char)arg1;
+    *((char*)gameState + 0x54bc) = (char)count;
 #else
-    *((char*)arg0 + 0x571c) = (char)arg1;
+    *((char*)gameState + 0x571c) = (char)count;
 #endif
 }

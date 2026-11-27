@@ -172,7 +172,7 @@ extern "C" void* func_020d6c00();
 extern "C" void* GetParty_02010828(GameState* gameState);
 extern "C" void* func_0202ae18(void);
 extern "C" void SetPartyWipedOut_0201075c(char* gameState, unsigned char isWipedOut);
-extern "C" unsigned char func_02010750(char* arg0);
+extern "C" unsigned char IsPartyWipedOut_02010750(char* gameState);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" void func_ov017_021d2400(void);
@@ -233,7 +233,7 @@ extern "C" ARM void func_ov023_021f4c04(BattleScene_ov000_02160da0* arg0) {
             if (IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var11)) continue;
             SetPartyWipedOut_0201075c((char*)var3, 0);
         }
-        if (func_02010750((char*)var3) != 0 && IsLocalWirelessOn_0202b7d8((int*)var9) != 0) {
+        if (IsPartyWipedOut_02010750((char*)var3) != 0 && IsLocalWirelessOn_0202b7d8((int*)var9) != 0) {
             func_ov017_021d2400();
         }
         StopMusic_0209c678(&gMusicManager_02109bf4, 0x1e);

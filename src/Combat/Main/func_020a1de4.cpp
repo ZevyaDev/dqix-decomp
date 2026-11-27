@@ -2,7 +2,7 @@
 
 extern unsigned char data_02109da4[];
 
-// USA: func_020a1de4
-extern "C" ARM void func_020a1de4() {
+// USA: ClearOverlayStack_020a1de4
+extern "C" ARM void ClearOverlayStack_020a1de4() {
     data_02109da4[0] = 0;
 }

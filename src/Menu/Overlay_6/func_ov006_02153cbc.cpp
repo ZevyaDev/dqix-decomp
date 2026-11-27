@@ -24,7 +24,7 @@ bool GetAlchemyRecipeStates_020ac2d4(int, short*, Struct_ov006_02153cbc*, int);
 void func_020ac104(void*, Struct_ov006_02153cbc*, int);
 Struct_ov006_02153cbc_2* func_02071d60(void*, short);
 bool GetAlchemyCount_020ac0b4(unsigned int*);
-void func_020ac08c(unsigned int*);
+void SetAlchemyCount_020ac08c(unsigned int*);
 int GetBattleRecords_020ac4c0(void*);
 void func_020a0228(void*, int);
 int SetBattleRecords_020ac494(void*);
@@ -63,7 +63,7 @@ extern "C" ARM void func_ov006_02153cbc(void* arg0, short arg1, short arg2, void
     if (GetAlchemyCount_020ac0b4(&var3)) {
         var3++;
         if (var3 > 99999) var3 = 99999;
-        func_020ac08c(&var3);
+        SetAlchemyCount_020ac08c(&var3);
         Struct_ov006_02153cbc_3 var4;
         GetBattleRecords_020ac4c0(&var4);
         func_020a0228(var4.unknown_68_, 1);

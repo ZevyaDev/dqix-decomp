@@ -15,7 +15,7 @@ struct Struct_ov011_02184de4 {
 extern "C" int func_ov011_02184c30(struct ScriptValue_ov011_02184c30* arg0);
 extern "C" ARM void* GetCurrentMenu_ov017_021b2164(void);
 extern "C" ARM void* func_ov011_021845f4(void);
-extern "C" ARM void* func_ov011_021842c8(unsigned char* arg0, unsigned int arg1);
+extern "C" ARM void* FindHeapById_ov011_021842c8(unsigned char* heap, unsigned int id);
 extern "C" ARM void func_ov011_021842a0(void* arg0);
 extern "C" ARM void* func_ov011_02184324(void* arg0, void* arg1);
 
@@ -29,7 +29,7 @@ extern "C" ARM int func_ov011_02184de4(struct Struct_ov011_02184de4* arg0) {
     void* var3;
     int var4 = func_ov011_02184c30(&arg0->unknown_8_);
 
-    void* var5 = func_ov011_021842c8((unsigned char*)var1, var4);
+    void* var5 = FindHeapById_ov011_021842c8((unsigned char*)var1, var4);
     if (var5 != 0) return 0;
 
     var3 = 0;

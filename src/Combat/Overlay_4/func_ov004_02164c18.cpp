@@ -29,7 +29,7 @@ extern "C" int func_ov004_021634dc(void* arg0);
 extern "C" void* GetMenuObjectList_ov011_021849c8(void* menu);
 extern "C" struct Struct_ov004_02164c18_2* FindMenuObjectById_ov023_021f6880(void* objectList, int id);
 extern "C" int func_ov023_021f6f10(void* arg0);
-extern "C" void func_ov023_021f9ba8(void* arg0, unsigned short arg1);
+extern "C" void SetMenuGridCursorRow_ov023_021f9ba8(void* grid, unsigned short row);
 extern "C" void func_ov004_021636b0(void* arg0, void* arg1);
 extern "C" int func_ov004_02163530(void* arg0);
 extern "C" void func_ov004_02164084(void* arg0);
@@ -71,7 +71,7 @@ extern "C" ARM int func_ov004_02164c18(void* arg0) {
         short var6 = gTreasureMapScreen_ov004_02171010->unknown_18f6_;
         var3->unknown_5c_ = var6;
         var3->unknown_5e_ = var5;
-        func_ov023_021f9ba8(var3, var4);
+        SetMenuGridCursorRow_ov023_021f9ba8(var3, var4);
     }
 
     gTreasureMapScreen_ov004_02171010->unknown_18f4_--;

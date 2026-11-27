@@ -9,11 +9,11 @@ struct KeyMenuCursor_0205bf3c {
     unsigned char repeatTimer_38_;
 };
 
-// USA: func_0205bf3c
-extern "C" ARM void func_0205bf3c(struct KeyMenuCursor_0205bf3c* arg0) {
-    arg0->step_30_ = 0;
-    arg0->heldKey_34_ = 0;
-    arg0->isVerticalKeyHeld_36_ = 0;
-    arg0->isHorizontalKeyHeld_37_ = 0;
-    arg0->repeatTimer_38_ = 0;
+// USA: ResetKeyMenuCursorInput_0205bf3c
+extern "C" ARM void ResetKeyMenuCursorInput_0205bf3c(struct KeyMenuCursor_0205bf3c* cursor) {
+    cursor->step_30_ = 0;
+    cursor->heldKey_34_ = 0;
+    cursor->isVerticalKeyHeld_36_ = 0;
+    cursor->isHorizontalKeyHeld_37_ = 0;
+    cursor->repeatTimer_38_ = 0;
 }

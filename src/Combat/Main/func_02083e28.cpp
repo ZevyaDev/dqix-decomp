@@ -130,7 +130,7 @@ extern "C" int func_02085f1c(unsigned char*, int);
 extern "C" int func_02085b88(unsigned char*);
 struct Struct_02083e28_6;
 extern "C" void func_020863e0(Struct_02083e28_6*);
-extern "C" void func_020836e4(struct ItemData_0208358c_2*, struct ItemData_0208358c_2*);
+extern "C" void CopyItemData_020836e4(struct ItemData_0208358c_2*, struct ItemData_0208358c_2*);
 
 static inline void inline_02083e28(unsigned char* arg0, struct Struct_02083e28 arg1) {
     memcpy(arg0, &arg1, sizeof(arg1));
@@ -362,9 +362,9 @@ extern "C" ARM void CalculatePartyMemberStats_02083e28(struct PartyMemberData_02
         struct ItemData_0208358c_2* shield;
         if (outStats->unknown_34_ != 0 && (shield = items[9]) != NULL && shield->unknown_18_ > 0) {
             struct ItemData_0208358c_2 savedShield = memberData->equipment_194_[9];
-            func_020836e4(&memberData->equipment_194_[9], shield);
+            CopyItemData_020836e4(&memberData->equipment_194_[9], shield);
             blockChance += func_02085b88((unsigned char*)memberData);
-            func_020836e4(&memberData->equipment_194_[9], &savedShield);
+            CopyItemData_020836e4(&memberData->equipment_194_[9], &savedShield);
         }
         if (attack > 999) attack = 999;
         if (defense > 999) defense = 999;

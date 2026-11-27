@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_ov023_021f9ba8
-extern "C" ARM void func_ov023_021f9ba8(void* arg0, unsigned short arg1) {
-    *(unsigned short*)((char*)arg0 + 0x28) = arg1;
+// USA: SetMenuGridCursorRow_ov023_021f9ba8
+extern "C" ARM void SetMenuGridCursorRow_ov023_021f9ba8(void* grid, unsigned short row) {
+    *(unsigned short*)((char*)grid + 0x28) = row;
 }

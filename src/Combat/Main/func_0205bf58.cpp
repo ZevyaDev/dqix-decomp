@@ -31,7 +31,7 @@ struct KeyMenuCursor_0205bf3c : MenuCursor_0205c4a8 {
 struct Struct_020e7dc4 { int unknown_0_[4]; };
 struct Struct_020e7db8 { unsigned short unknown_0_[5]; };
 struct Struct_020e7db0 { unsigned char unknown_0_[4]; };
-extern "C" void func_0205bf3c(KeyMenuCursor_0205bf3c*);
+extern "C" void ResetKeyMenuCursorInput_0205bf3c(KeyMenuCursor_0205bf3c*);
 extern "C" int GetMenuCursorIndex_0205bb84(MenuCursor_0205bb84*);
 extern "C" void ChangeMenuCursorPage_0205c4a8(MenuCursor_0205c4a8*, int);
 extern "C" void SetMenuCursorIndex_0205bb04(KeyMenuCursor_0205bf3c*, int);
@@ -52,7 +52,7 @@ extern "C" ARM int UpdateKeyMenuCursor_0205bf58(KeyMenuCursor_0205bf3c* cursor, 
         unsigned short key = directionKeys.unknown_0_[i];
         if (g_keyManager.TestKeysPressed(key)) {
             if (cursor->isVerticalKeyHeld_36_ | cursor->isHorizontalKeyHeld_37_) {
-                func_0205bf3c(cursor);
+                ResetKeyMenuCursorInput_0205bf3c(cursor);
                 break;
             }
             Struct_020e7dc4 steps = data_020e7dc4;
@@ -145,7 +145,7 @@ extern "C" ARM int UpdateKeyMenuCursor_0205bf58(KeyMenuCursor_0205bf3c* cursor, 
                 }
             }
         }
-        if (g_keyManager.TestKeysReleased(0xf0)) func_0205bf3c(cursor);
+        if (g_keyManager.TestKeysReleased(0xf0)) ResetKeyMenuCursorInput_0205bf3c(cursor);
         return 1;
     } else if (cursor->isHorizontalKeyHeld_37_) {
         if (g_keyManager.TestKeysHeld(0xf0)) {
@@ -172,7 +172,7 @@ extern "C" ARM int UpdateKeyMenuCursor_0205bf58(KeyMenuCursor_0205bf3c* cursor, 
                 }
             }
         }
-        if (g_keyManager.TestKeysReleased(0xf0)) func_0205bf3c(cursor);
+        if (g_keyManager.TestKeysReleased(0xf0)) ResetKeyMenuCursorInput_0205bf3c(cursor);
         return 1;
     }
     return 0;

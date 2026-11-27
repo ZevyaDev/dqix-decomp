@@ -31,7 +31,7 @@ extern "C" void SetFadeInOnMove_02039d48(unsigned char*);
 int fix32sin(int);
 int fix32cos(int);
 extern "C" unsigned char IsOnLadder_02039d7c(char*);
-extern "C" void func_02039d84(Struct_02039d84*);
+extern "C" void StopLadderAction_02039d84(Struct_02039d84*);
 extern "C" void func_ov017_021d440c(int);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834*, int);
 extern "C" void ResetFollowTrail_02039d24(unsigned char*);
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov017_021bd704(Struct_ov017_021bd704* arg0) {
                 }
             }
             if (arg0->unknown_a_ != 8100 && IsOnLadder_02039d7c((char*)var9)) {
-                func_02039d84((Struct_02039d84*)var9);
+                StopLadderAction_02039d84((Struct_02039d84*)var9);
                 func_ov017_021d440c(-1);
             }
             var9->obj3D_.position_ = var4;

@@ -25,7 +25,7 @@ extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 struct GameState_02010834;
 extern "C" void GetOwnPartyMemberObjectIndices_02010834(struct GameState_02010834* gameState, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
-extern "C" void func_02039d58(unsigned char* arg0);
+extern "C" void ClearFadeInOnMove_02039d58(unsigned char* object);
 extern "C" void* func_020d6c00(void);
 extern "C" void* GetParty_02010828(GameState* gameState);
 struct Party_02048150;
@@ -127,7 +127,7 @@ extern "C" ARM int func_ov001_021557e0(struct Struct_ov001_021557e0_2* arg0) {
                 continue;
             }
             var9->obj3D_.SetInheritedAlpha(0x1f);
-            func_02039d58((unsigned char*)var9);
+            ClearFadeInOnMove_02039d58((unsigned char*)var9);
         }
 
         unsigned int* var10 = (unsigned int*)func_020d6c00();

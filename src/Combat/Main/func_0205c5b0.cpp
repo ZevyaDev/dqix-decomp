@@ -7,7 +7,7 @@ extern "C" int func_0205bd04(struct Struct_0205bd04*);
 struct MenuCursor_0205bb04;
 extern "C" void SetMenuCursorIndex_0205bb04(struct MenuCursor_0205bb04*, int);
 struct KeyMenuCursor_0205bf3c;
-extern "C" void func_0205bf3c(struct KeyMenuCursor_0205bf3c*);
+extern "C" void ResetKeyMenuCursorInput_0205bf3c(struct KeyMenuCursor_0205bf3c*);
 struct Struct_0205bc10;
 extern "C" void func_0205bc10(struct Struct_0205bc10*);
 struct Struct_0205bc2c;
@@ -37,7 +37,7 @@ extern "C" ARM int func_0205c5b0(void* arg0, void* arg1) {
         if (func_0205c6bc((Struct_0205c5b0_2*)arg0) != 0) {
             int var4 = func_0205bd04((struct Struct_0205bd04*)((char*)var1 + 0x4));
             SetMenuCursorIndex_0205bb04((struct MenuCursor_0205bb04*)((char*)var1 + 0x54), var4);
-            func_0205bf3c((struct KeyMenuCursor_0205bf3c*)((char*)var1 + 0x54));
+            ResetKeyMenuCursorInput_0205bf3c((struct KeyMenuCursor_0205bf3c*)((char*)var1 + 0x54));
             func_0205bc10((struct Struct_0205bc10*)((char*)var1 + 0x4));
             var2 = 1;
             goto done;
@@ -50,7 +50,7 @@ extern "C" ARM int func_0205c5b0(void* arg0, void* arg1) {
             int var5 = func_0205bd04((struct Struct_0205bd04*)((char*)var1 + 0x4));
             if (var3 != var5) var2 = 2;
             SetMenuCursorIndex_0205bb04((struct MenuCursor_0205bb04*)((char*)var1 + 0x54), var5);
-            func_0205bf3c((struct KeyMenuCursor_0205bf3c*)((char*)var1 + 0x54));
+            ResetKeyMenuCursorInput_0205bf3c((struct KeyMenuCursor_0205bf3c*)((char*)var1 + 0x54));
             goto done;
         }
     }

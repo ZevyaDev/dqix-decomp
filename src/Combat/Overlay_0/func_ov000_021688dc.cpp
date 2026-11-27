@@ -173,7 +173,7 @@ extern "C" void func_02049f50(struct Struct_02049f50* arg0, int arg1, int arg2);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char* memberData, int skillEntryId);
 extern "C" void ResumeAnimation_0203400c(Struct_02032e58* object);
 extern "C" void SetFadeInOnMove_02039d48(unsigned char* object);
-extern "C" void func_02039d58(unsigned char* arg0);
+extern "C" void ClearFadeInOnMove_02039d58(unsigned char* object);
 extern "C" void func_020398a4(unsigned char* arg0);
 struct Struct_02033834;
 extern "C" void SetFacingInstantly_02033874(struct Struct_02033834* object, int angle);
@@ -233,7 +233,7 @@ extern const char data_ov000_02183b3b[];
 extern const char data_ov000_02183b55[];
 extern int gSoundEffectManager_02108760;
 
-extern "C" void func_020114c0(char* arg0, int arg1, void* arg2);
+extern "C" void SetPartyOrder_020114c0(char* gameState, int count, void* partyOrder);
 struct Struct_ov000_02164fac_2 { char unknown_0_[0x70]; };
 static inline SafeAllocator* inline_ov000_02164fac(GameResources* arg0, int arg1) { return &arg0->allocator_array_38[arg1]; }
 static inline Struct_ov000_02164fac_2* inline_ov000_021688dc(GameResources* arg0, int arg1) { return &((Struct_ov000_02164fac_2*)arg0->unknown_2cc_)[arg1]; }
@@ -324,7 +324,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
 
         int var28 = 1;
         var6 = data_ov000_02183218;
-        func_020114c0((char*)var9, var28, &var6);
+        SetPartyOrder_020114c0((char*)var9, var28, &var6);
 
         SafeAllocator* var29 = inline_ov000_02164fac((GameResources*)var10, 3);
         Struct_ov000_02164fac_2* var30 = inline_ov000_021688dc((GameResources*)var10, 3);
@@ -383,7 +383,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
                         SetFacingInstantly_02033874((struct Struct_02033834*)var36, *(short*)(arg0 + var35 * 16 + Enum_ov000_021688dc_22784 + Enum_ov000_021688dc_28));
                     }
                     if (*(unsigned short*)((char*)var36 + Enum_ov000_021688dc_434) != 0) {
-                        func_02039d58((unsigned char*)var36);
+                        ClearFadeInOnMove_02039d58((unsigned char*)var36);
                     }
                 }
 

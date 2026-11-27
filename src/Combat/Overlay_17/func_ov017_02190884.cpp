@@ -66,17 +66,17 @@ extern "C" int GetLeaderObjectIndex_020546a8(void* companion);
 extern "C" int func_ov017_02190818(int arg0);
 extern "C" int GetPartyLeaderObjectIndex_02039888(void* object);
 extern "C" int IsControllable_02039820(void* object);
-extern "C" int func_02039828(void* arg0);
+extern "C" int IsControlRequested_02039828(void* object);
 extern "C" int func_02010038(GameState* arg0, unsigned char* arg1);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" void StopGesture_020531f0(void* gameObject);
 extern "C" int func_02039874(void* arg0);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
 extern "C" void func_020340f4(unsigned char* arg0);
-extern "C" void func_02039858(unsigned char*, int);
+extern "C" void SetFollowedObjectIndex_02039858(unsigned char*, int);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void DisablePlayerControl_020397cc(Struct_02018300_3* object, int standStill);
-extern "C" void func_02039d58(unsigned char* arg0);
+extern "C" void ClearFadeInOnMove_02039d58(unsigned char* object);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" void func_020340e4(unsigned char* arg0);
@@ -209,7 +209,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
         } else {
             var33 = 1;
         }
-        if (func_02039828(var34) != 0) {
+        if (IsControlRequested_02039828(var34) != 0) {
             var33 = 1;
         }
     }
@@ -262,7 +262,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
         }
         func_020340f4((unsigned char*)var46);
         if (var45 == 0) {
-            func_02039858((unsigned char*)var46, -1);
+            SetFollowedObjectIndex_02039858((unsigned char*)var46, -1);
             var46->unknown_b6_ = 0x28;
             var46->unknown_b0_ = 0x324;
             if (arg4 != 0) {
@@ -273,13 +273,13 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
                     DisablePlayerControl_020397cc((Struct_02018300_3*)var46, 1);
                 }
             }
-            func_02039d58((unsigned char*)var46);
+            ClearFadeInOnMove_02039d58((unsigned char*)var46);
             var46->unknown_0_.SetInheritedAlpha(0x1f);
             if (IsLocalWirelessOn_0202b7d8((int*)var8) && arg0 != GetOwnProtagonistObjectIndex_0202c1a4(var8)) {
                 func_020340e4((unsigned char*)var46);
             }
         } else {
-            func_02039858((unsigned char*)var46, arg1[var44 - 1]);
+            SetFollowedObjectIndex_02039858((unsigned char*)var46, arg1[var44 - 1]);
             var46->unknown_b6_ = 0x66;
             var46->unknown_b0_ = 0x648;
             if (arg5 != 0) {
@@ -311,7 +311,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
                 var46->unknown_0_.SetInheritedAlpha(0);
             } else {
                 if (var46->unknown_0_.GetInheritedAlpha() == 0) {
-                    func_02039d58((unsigned char*)var46);
+                    ClearFadeInOnMove_02039d58((unsigned char*)var46);
                     var46->unknown_0_.SetInheritedAlpha(0x1f);
                 }
                 var44++;
@@ -326,7 +326,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
     if (arg0 == 0 && var0->GetPartyMemberByIndex(0xce) != NULL) {
         Struct_ov017_02190884_2* var50 = (Struct_ov017_02190884_2*)var0->GetPartyMemberByIndex(0xce);
         if (var50 != NULL) {
-            func_02039858((unsigned char*)var50, var49);
+            SetFollowedObjectIndex_02039858((unsigned char*)var50, var49);
             var50->unknown_b6_ = 0x66;
             var50->unknown_b0_ = 0x648;
             ResetFollowTrail_02039d24((unsigned char*)var50);

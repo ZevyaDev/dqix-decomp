@@ -53,7 +53,7 @@ struct Struct_ov006_02157a60 {
 };
 
 extern "C" void func_ov006_02157c78(Struct_ov006_02157a60_2* arg0);
-extern "C" void func_020836e4(ItemData_0208358c_2* arg0, ItemData_0208358c_2* arg1);
+extern "C" void CopyItemData_020836e4(ItemData_0208358c_2* dst, ItemData_0208358c_2* src);
 extern "C" Struct_ov006_021537d0* func_02071d60(Struct_02071d60* arg0, int arg1);
 extern "C" void func_020deef4(int arg0, int arg1, int arg2, short* arg3, short arg4);
 extern "C" void func_ov006_02156f04(Struct_ov006_02154614* arg0, Struct_ov006_02156f04* arg1);
@@ -74,7 +74,7 @@ extern "C" ARM unsigned char func_ov006_0215a384(Struct_ov006_02157a60* arg0, in
             unsigned char var5;
             for (var5 = 0; var5 < 4; var5++) {
                 func_ov006_02157c78((Struct_ov006_02157a60_2*)&arg0->unknown_17c_[var5]);
-                func_020836e4(&var4[var5], &arg0->unknown_17c_[var5].unknown_0_);
+                CopyItemData_020836e4(&var4[var5], &arg0->unknown_17c_[var5].unknown_0_);
             }
             Struct_ov006_021537d0* var6 = arg0->unknown_34_;
             if (var6 != 0) {
@@ -112,13 +112,13 @@ extern "C" ARM unsigned char func_ov006_0215a384(Struct_ov006_02157a60* arg0, in
             }
             func_020deef4((int)var4, (int)var1, var2, var3.unknown_0_, 4);
             if (var3.unknown_0_[1] == var3.unknown_0_[2] && var3.unknown_0_[2] > 0)
-                func_020836e4(&var4[2], &var4[1]);
+                CopyItemData_020836e4(&var4[2], &var4[1]);
             if (var3.unknown_0_[1] == var3.unknown_0_[3] && var3.unknown_0_[3] > 0)
-                func_020836e4(&var4[3], &var4[1]);
+                CopyItemData_020836e4(&var4[3], &var4[1]);
             if (var3.unknown_0_[2] == var3.unknown_0_[3] && var3.unknown_0_[3] > 0)
-                func_020836e4(&var4[3], &var4[2]);
+                CopyItemData_020836e4(&var4[3], &var4[2]);
             for (var5 = 0; var5 < 4; var5++)
-                func_020836e4(&arg0->unknown_17c_[var5].unknown_0_, &var4[var5]);
+                CopyItemData_020836e4(&arg0->unknown_17c_[var5].unknown_0_, &var4[var5]);
             func_ov006_02156f04(arg0->unknown_10_, arg0->unknown_17c_);
         }
         var0->RemoveTask(arg0->unknown_354_);

@@ -6,10 +6,10 @@ struct Struct_02000c9c_13 {
 #else
     char unknown_0_[0x63D6];
 #endif
-    unsigned char unknown_63d6_;
+    unsigned char requestedMovie_63d6_;
 };
 
-// USA: func_020115b4
-extern "C" ARM void func_020115b4(struct Struct_02000c9c_13* arg0, unsigned char arg1) {
-    arg0->unknown_63d6_ = arg1;
+// USA: SetRequestedMovie_020115b4
+extern "C" ARM void SetRequestedMovie_020115b4(struct Struct_02000c9c_13* gameState, unsigned char movie) {
+    gameState->requestedMovie_63d6_ = movie;
 }

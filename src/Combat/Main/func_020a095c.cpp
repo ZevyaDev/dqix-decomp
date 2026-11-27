@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_020a095c;
-extern "C" short func_020a0af4(struct Struct_020a095c* arg0, int arg1);
+extern "C" short FindBagItemSlot_020a0af4(struct Struct_020a095c* bag, int itemId);
 
 struct ItemBag_0207cf30_4 { short* pItemIds_0_; signed char* pCounts_4_; short slotCount_8_; };
 
@@ -19,7 +19,7 @@ extern "C" ARM int AddItemToBag_020a095c(struct ItemBag_0207cf30_4* bag, int ite
         return 0;
     }
     isAdded = 0;
-    slot = func_020a0af4((struct Struct_020a095c*)bag, itemId);
+    slot = FindBagItemSlot_020a0af4((struct Struct_020a095c*)bag, itemId);
     if (slot >= 0) {
         isAdded = 1;
         if (counts[slot] < 99) {
