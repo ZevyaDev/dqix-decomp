@@ -9,16 +9,16 @@ struct Struct_0202e6c0 {
     int unknown_78_;
 };
 
-// USA: func_0202e6c0
-extern "C" ARM void func_0202e6c0(struct Struct_0202e6c0* arg0, int arg1) {
-    int var0;
-    arg0->unknown_74_ = arg1;
-    if (0.0f < (float)arg0->unknown_74_) {
-        var0 = arg0->unknown_78_ - 0x1000;
-        if (var0 < arg0->unknown_74_) arg0->unknown_74_ = var0;
+// USA: SetCameraHeight_0202e6c0
+extern "C" ARM void SetCameraHeight_0202e6c0(struct Struct_0202e6c0* camera, int height) {
+    int heightLimit;
+    camera->unknown_74_ = height;
+    if (0.0f < (float)camera->unknown_74_) {
+        heightLimit = camera->unknown_78_ - 0x1000;
+        if (heightLimit < camera->unknown_74_) camera->unknown_74_ = heightLimit;
     } else {
-        var0 = 0x1000 - arg0->unknown_78_;
-        if (arg0->unknown_74_ < var0) arg0->unknown_74_ = var0;
+        heightLimit = 0x1000 - camera->unknown_78_;
+        if (camera->unknown_74_ < heightLimit) camera->unknown_74_ = heightLimit;
     }
-    SetCameraOrbit_0202e5d8(arg0, arg0->unknown_70_, arg0->unknown_74_, arg0->unknown_78_);
+    SetCameraOrbit_0202e5d8(camera, camera->unknown_70_, camera->unknown_74_, camera->unknown_78_);
 }

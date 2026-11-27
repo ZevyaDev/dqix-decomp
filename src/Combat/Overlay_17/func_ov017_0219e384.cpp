@@ -395,7 +395,7 @@ struct Struct_020a2868;
 extern "C" void func_020a2868(Struct_020a2868*);
 struct Struct_0204a170;
 extern "C" int func_020a3570(Struct_0204a170*);
-extern "C" void func_0202ec5c(char*, int*);
+extern "C" void SetCameraOrbitTarget_0202ec5c(char*, int*);
 extern "C" void func_ov017_021982ac(void* arg0);
 extern "C" void ResetFollowCameraAngle_020a2718(char*);
 extern "C" void RestartMapDisplay_020dc2d0(int modeOverride);
@@ -955,7 +955,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 				var18.unknown_54_ = *(Struct_02014900*)(var63 + 0x10);
 				Vector3fix_Subtract(&var17.unknown_0_.unknown1_0_, &var17.unknown_90_.unknown1_0_, &var18.unknown_60_.unknown1_0_);
 				Vector3fix_Add(&var18.unknown_54_.unknown1_0_, &var18.unknown_60_.unknown1_0_, &var18.unknown_54_.unknown1_0_);
-				func_0202ec5c((char*)var63, (int*)&var18.unknown_54_);
+				SetCameraOrbitTarget_0202ec5c((char*)var63, (int*)&var18.unknown_54_);
 			}
 			func_ov017_021982ac(var1);
 			ResetFollowCameraAngle_020a2718((char*)var63);

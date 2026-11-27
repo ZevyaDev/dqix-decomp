@@ -22,11 +22,11 @@ struct Struct_0202e6c0 {
 extern "C" void func_0202e784(struct Struct_0202e6a8* arg0, int arg1);
 extern "C" int GetCameraDistance_0202e800(void* camera);
 extern "C" int func_0202e7f8(void* arg0);
-extern "C" void func_0202e6c0(struct Struct_0202e6c0* arg0, int arg1);
+extern "C" void SetCameraHeight_0202e6c0(struct Struct_0202e6c0* camera, int height);
 extern "C" void func_0202e9f4(void* arg0, struct Struct_ov009_0218aa28* arg1);
 extern "C" void func_0202ea4c(struct Struct_0202ea4c* arg0);
 extern "C" int func_0202e858(void* arg0, int arg1);
-extern "C" void func_0202ec5c(char* arg0, int* arg1);
+extern "C" void SetCameraOrbitTarget_0202ec5c(char* camera, int* target);
 
 static inline fix32_t inline_02061c04_5(fix32_t arg0, fix32_t arg1) {
     return (fix32_t)(((int64_t)arg0 * arg1 + 0x800) >> 12);
@@ -97,7 +97,7 @@ extern "C" ARM void func_020a2d14(struct Struct_0202e6c0* arg0) {
             Vector3fix var21 = {var20, var17, 0};
             Matrix4x3 var22 = RotationMatrixZ((int)(178.72223f * var11));
             Mat4x3_ApplyToVector(&var21, &var22, &var21);
-            func_0202e6c0(arg0, var21.y);
+            SetCameraHeight_0202e6c0(arg0, var21.y);
         }
         if (var7) {
             fix32_t var23 = GetCameraDistance_0202e800(arg0);
@@ -108,7 +108,7 @@ extern "C" ARM void func_020a2d14(struct Struct_0202e6c0* arg0) {
             Vector3fix var28 = {var27, var24, 0};
             Matrix4x3 var29 = RotationMatrixZ(fix32ReduceAngle0To2Pi((int)(-178.72223f * var11)));
             Mat4x3_ApplyToVector(&var28, &var29, &var28);
-            func_0202e6c0(arg0, var28.y);
+            SetCameraHeight_0202e6c0(arg0, var28.y);
         }
     }
 
@@ -244,5 +244,5 @@ extern "C" ARM void func_020a2d14(struct Struct_0202e6c0* arg0) {
         }
     }
 
-    func_0202ec5c((char*)arg0, (int*)&var15);
+    SetCameraOrbitTarget_0202ec5c((char*)arg0, (int*)&var15);
 }
