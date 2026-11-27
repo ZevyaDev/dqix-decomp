@@ -35,7 +35,7 @@ struct Struct_ov000_02171c04_3 {
 extern "C" {
     void* func_02053c6c(void*);
     extern unsigned char data_ov000_02183380[8];
-    void func_ov000_02171b68(Struct_ov000_02171c04_3*, int, Struct_ov000_02171c04*);
+    void SetPanelItem_ov000_02171b68(Struct_ov000_02171c04_3*, int, Struct_ov000_02171c04*);
 }
 
 // USA: func_ov000_02171c04
@@ -75,7 +75,7 @@ extern "C" ARM void func_ov000_02171c04(Struct_ov000_02171c04_3* arg0)
                 if (var15 && var15->unknown_18_ > 0) {
                     int var16 = var15->unknown_8_0_ <= 7;
                     if (var16) {
-                        func_ov000_02171b68(arg0, var6, var15);
+                        SetPanelItem_ov000_02171b68(arg0, var6, var15);
                         ++var6;
                     }
                 }

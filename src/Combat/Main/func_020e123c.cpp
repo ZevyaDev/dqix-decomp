@@ -1,14 +1,14 @@
 #include <globaldefs.h>
 #include "Input/Input.h"
 
-extern "C" int func_020e11e4(void);
+extern "C" int IsInputLocked_020e11e4(void);
 
 struct InputLock_02153628_2 { void* durationMs_0_; unsigned int startTimestampLow_4_; unsigned int startTimestampHigh_8_; };
 extern InputLock_02153628_2 data_02153628;
 
-// USA: func_020e123c
-extern "C" ARM void func_020e123c(void) {
-    if (func_020e11e4()) {
+// USA: UpdateInputLock_020e123c
+extern "C" ARM void UpdateInputLock_020e123c(void) {
+    if (IsInputLocked_020e11e4()) {
         return;
     }
     data_02153628.startTimestampLow_4_ = 0;

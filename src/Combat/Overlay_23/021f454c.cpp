@@ -19,7 +19,7 @@ struct Struct_02010088;
 struct Struct_02053dfc;
 struct Struct_02070b6c_3;
 
-extern "C" int func_02011518(void* arg0, unsigned int arg1);
+extern "C" int GetPartyOrderEntry_02011518(void* gameState, unsigned int index);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char* battleSetup, unsigned char partyMemberIndex);
 extern "C" int IsDead_02010088(struct Struct_02010088* object);
 extern "C" int func_02053dfc(struct Struct_02053dfc* arg0);
@@ -165,7 +165,7 @@ extern "C" ARM void func_ov023_021f454c(struct Struct_ov023_021f454c_6* arg0) {
     for (var14 = 0; var14 < 5; var14++) {
         var5 = 100;
         if (var14 > 0) {
-            int var18 = func_02011518(var1, (unsigned char)(var14 - 1));
+            int var18 = GetPartyOrderEntry_02011518(var1, (unsigned char)(var14 - 1));
             struct Struct_ov023_021f454c* var19 = (struct Struct_ov023_021f454c*)GetPartyMemberBaseByIndex_0200ff1c(var1, var18);
             if (var19 == 0) continue;
             if (!IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var18)) continue;

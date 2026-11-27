@@ -6,14 +6,14 @@ struct Struct_02057f8c {
     struct Struct_02057f8c* unknown_1ec_;
 };
 
-// USA: func_02057f8c
-extern "C" ARM struct Struct_02057f8c* func_02057f8c(void* arg0, int arg1) {
-    struct Struct_02057f8c* var0 = *(struct Struct_02057f8c**)arg0;
-    while (var0 != 0) {
-        if (arg1 == var0->unknown_0_) {
-            return var0;
+// USA: FindEffectResource_02057f8c
+extern "C" ARM struct Struct_02057f8c* FindEffectResource_02057f8c(void* effectManager, int effectId) {
+    struct Struct_02057f8c* effect = *(struct Struct_02057f8c**)effectManager;
+    while (effect != 0) {
+        if (effectId == effect->unknown_0_) {
+            return effect;
         }
-        var0 = var0->unknown_1ec_;
+        effect = effect->unknown_1ec_;
     }
     return 0;
 }

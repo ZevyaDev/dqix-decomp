@@ -23,7 +23,7 @@ extern "C" {
     void _Z23ChangeROMLoadDMAChannelj(int arg0);
     void func_020758a8(void);
     void func_020bbd14(void);
-    void func_020e1114(void);
+    void InitInputLock_020e1114(void);
     void func_02012bd8(void);
 }
 
@@ -59,7 +59,7 @@ extern "C" ARM void func_02012c34(void) {
     func_020bbd14();
     g_keyManager.Initialize();
     g_touchInput.Initialize();
-    func_020e1114();
+    InitInputLock_020e1114();
     data_02114e00 = 0;
     data_02114e50 = 0;
 }

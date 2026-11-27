@@ -105,7 +105,7 @@ extern "C" void ClearBattleSceneFlags_ov000_02160fbc(void*, int);
 extern "C" void AddPartyMemberToBattle_020a35cc(unsigned char*, unsigned char);
 extern "C" int IsPartyMemberInBattle_020a35e0(unsigned char*, unsigned char);
 extern "C" Struct_ov026_021d8ba0_6* func_ov026_021dae60(Struct_ov026_021d8ba0_4*, int);
-extern "C" void func_02053da0(char*, Struct_02053da0*);
+extern "C" void SetBattleCommand_02053da0(char*, Struct_02053da0*);
 extern "C" void func_0208936c(char*, char*, char*);
 extern "C" void func_02039d84(Struct_02039d84*);
 extern "C" void ResumeMovementUpdate_02033fdc(Struct_02033fdc*);
@@ -188,7 +188,7 @@ extern "C" ARM void func_ov026_021dce34(int arg0, BattleScene_ov000_02160da0* ar
             var11->obj3D_.SetField06(var10);
             memset(&arg6[var6], 0, sizeof(Struct_ov026_021dce34_3));
             SetCombatantBattleState_02049c88(var11, &arg6[var6]);
-            func_02053da0((char*)var11, (Struct_02053da0*)&arg7[var6]);
+            SetBattleCommand_02053da0((char*)var11, (Struct_02053da0*)&arg7[var6]);
             func_0208936c((char*)var11->currentStats_, (char*)((Struct_ov023_021f2a48_2*)var11)->unknown_130_, (char*)var11->baseStats_);
             func_ov026_021dc8fc(arg1, arg2, arg3, arg4, arg8, arg9, var6);
             StopGesture_020531f0(var11);

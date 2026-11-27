@@ -120,7 +120,7 @@ extern "C" void func_ov023_021d8cb4(void*, void*);
 extern "C" void func_ov023_021d9988(Struct_ov023_021d9988*, void*, unsigned int);
 extern "C" void ClearMessageParams_02046380(Struct_02092e0c*);
 extern "C" void func_ov023_021d8ddc(Struct_ov023_021f03a0_2*, int*);
-extern "C" int func_02011518(void*, unsigned int);
+extern "C" int GetPartyOrderEntry_02011518(void*, unsigned int);
 extern "C" void InitPartyMemberNoun_020e4bf4(void*, int);
 extern "C" char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 #if !defined(jpn)
@@ -215,7 +215,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleScene_ov000_02160da0* arg0) {
         BaseCombatStats* var23 = 0;
         if (arg0->unknown_2a0_->unknown_25_) {
             for (int var24 = 0; var24 < 4 && !var23; var24++) {
-                int var25 = func_02011518(var5, (unsigned char)var24);
+                int var25 = GetPartyOrderEntry_02011518(var5, (unsigned char)var24);
                 if (arg0->unknown_5758_[var25]) {
                     GameObject* var26 = GetPartyMemberBaseByIndex_0200ff1c(var5, var25);
 #if defined(jpn)
@@ -234,7 +234,7 @@ extern "C" ARM int func_ov023_021f03a0(BattleScene_ov000_02160da0* arg0) {
             }
         } else {
             for (int var27 = 0; var27 < 4; var27++) {
-                int var28 = func_02011518(var5, (unsigned char)var27);
+                int var28 = GetPartyOrderEntry_02011518(var5, (unsigned char)var27);
                 GameObject* var29 = GetPartyMemberBaseByIndex_0200ff1c(var5, var28);
                 if (var29 && IsPartyMemberInBattle_020a35e0((unsigned char*)arg0->unknown_2a0_, var28) && !IsDead_02010088((Struct_02010088*)var29)) {
 #if defined(jpn)
