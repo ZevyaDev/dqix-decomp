@@ -50,7 +50,7 @@ struct Struct_02028460_2 { unsigned char unknown_0_[2]; unsigned char unknown_2_
 extern "C" int func_02028460(struct Struct_02028460_2* arg0, Vector3i* arg1);
 
 struct Struct_020733d8 { Vector3i unknown_0_; Vector3i unknown_c_; };
-extern "C" int func_02031118(Vector3i* arg0, struct Struct_020733d8* arg1);
+extern "C" int IsPointInBoundingBox_02031118(Vector3i* point, struct Struct_020733d8* box);
 extern "C" int func_02031468(Vector3i* arg0, Vector3i* arg1, Vector3i* arg2, Vector3i* arg3);
 
 extern "C" void func_02073d50(struct Struct_020733d8_2* arg0, int arg1, int arg2, int arg3);
@@ -252,7 +252,7 @@ extern "C" ARM void func_020733d8(unsigned char* arg0, int arg1) {
                     if (!var30->obj3D_.IsVisible()) {
                         continue;
                     }
-                    if (func_02031118(&var30->obj3D_.position_, &var32)) {
+                    if (IsPointInBoundingBox_02031118(&var30->obj3D_.position_, &var32)) {
                         var36[var35]++;
                     }
                 }
@@ -475,7 +475,7 @@ extern "C" ARM void func_020733d8(unsigned char* arg0, int arg1) {
                 if (!var77->obj3D_.IsVisible()) {
                     continue;
                 }
-                if (func_02031118(&var77->obj3D_.position_, &var79)) {
+                if (IsPointInBoundingBox_02031118(&var77->obj3D_.position_, &var79)) {
                     var76 = 1;
                     goto crowdChecked;
                 }

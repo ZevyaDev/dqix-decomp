@@ -14,8 +14,8 @@ struct TextWindow_0205d0e0 {
 struct TextWindowManager_0205d81c;
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" void func_0204f138(unsigned char* arg0, unsigned char** arg1, unsigned char** arg2, unsigned char** arg3,
-                              unsigned char** arg4);
+extern "C" void GetTextWindowEntryRectArrays_0204f138(unsigned char* textWindow, unsigned char** outXs, unsigned char** outYs, unsigned char** outWidths,
+                              unsigned char** outHeights);
 
 extern "C" void* func_0202ae18(void);
 
@@ -56,7 +56,7 @@ extern "C" ARM void func_ov003_0216d990(char* arg0) {
     short* var7;
     short* var8;
     short* var9;
-    func_0204f138((unsigned char*)var3, (unsigned char**)&var6, (unsigned char**)&var7, (unsigned char**)&var8,
+    GetTextWindowEntryRectArrays_0204f138((unsigned char*)var3, (unsigned char**)&var6, (unsigned char**)&var7, (unsigned char**)&var8,
                              (unsigned char**)&var9);
     int var10 = var6[1] + var8[1] + var4;
     int var11 = var7[1] + var5;

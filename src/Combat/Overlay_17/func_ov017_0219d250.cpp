@@ -163,7 +163,7 @@ extern "C" Struct_ov017_0219d250_6* func_020999d8(unsigned char*, unsigned int);
 extern "C" void func_ov017_0219cdc0(unsigned short arg0, int arg1, signed char arg2);
 extern "C" void _ZN8Object3D10SetField06Et(Object3D* arg0, int arg1);
 extern "C" void ResetFollowTrail_02039d24(unsigned char*);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" int IsPerformingGesture_020535c8(signed char* gameObject);
 extern "C" void StopGesture_020531f0(void* gameObject);
 extern "C" void func_0203409c(unsigned char* arg0);
@@ -351,7 +351,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
             ResetFollowTrail_02039d24((unsigned char*)var17);
             if (var2 != var15) {
                 var17->unknown_130_[8] = 0;
-                func_ov017_021c9e00(var14->unknown_f78_[var35], 1, 0, 1);
+                QueuePartyMemberStatusPacket_ov017_021c9e00(var14->unknown_f78_[var35], 1, 0, 1);
             }
         }
     }

@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 
-extern "C" void func_ov023_021db2e4(volatile int* arg0);
+extern "C" void RemoveLoadTask_ov023_021db2e4(volatile int* loadTaskId);
 
 // USA: func_ov023_021dcdf4
 extern "C" ARM void func_ov023_021dcdf4(void* arg0) {
@@ -12,9 +12,9 @@ extern "C" ARM void func_ov023_021dcdf4(void* arg0) {
 #endif
     (int)BackgroundLoader::GetInstance();
     if (*((unsigned char*)arg0 + Enum_ov023_021dcdf4_1910)) {
-        func_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dcdf4_1844));
+        RemoveLoadTask_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dcdf4_1844));
         for (int var0 = 0; var0 < 7; var0++) {
-            func_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dcdf4_1848 + var0 * 4));
+            RemoveLoadTask_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dcdf4_1848 + var0 * 4));
         }
         *(int*)((char*)arg0 + Enum_ov023_021dcdf4_1876) = 0;
         *(unsigned short*)((char*)arg0 + Enum_ov023_021dcdf4_1908) |= 1;

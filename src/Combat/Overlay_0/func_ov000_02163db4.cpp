@@ -24,7 +24,7 @@ struct TimedMessageQueue_020d7aa0_2;
 extern "C" void* func_0202ae18();
 extern "C" Struct_020708c8* GetColorFade_020704fc();
 extern "C" void* func_0202ae24();
-extern "C" void func_020708c8(Struct_020708c8*, unsigned int);
+extern "C" void StartColorFadeToClear_020708c8(Struct_020708c8*, unsigned int);
 extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4();
 extern "C" void StopGesture_020531f0(GameObject*);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov000_02163db4(Struct_ov000_02163db4_2* arg0) {
     Struct_020708c8* var3 = GetColorFade_020704fc();
     func_0202ae24();
     SetBrightness(var1, -16, 0);
-    func_020708c8(var3, 0);
+    StartColorFadeToClear_020708c8(var3, 0);
     if (IsLocalWirelessHostDisconnected_ov017_021959b4()) {
         for (int var4 = 0; var4 < 4; var4++) {
             GameObject* var5 = GetPartyMemberBaseByIndex_0200ff1c(var0, var4);

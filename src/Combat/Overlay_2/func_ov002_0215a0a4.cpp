@@ -91,7 +91,7 @@ extern "C" int AppendText_02042058(char*, const char*);
 extern "C" void SetMessageNumber_020465c0(Struct_ov002_02157d40_2*, int, int);
 extern "C" int* func_0202ae18();
 extern "C" void ClearMessageParams_02046380(void*);
-extern "C" void func_ov017_021c9e00(int, int, int, int);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int, int, int, int);
 #if defined(jpn)
 extern "C" void func_020474a8(void*, int, int, void*);
 #else
@@ -176,7 +176,7 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
         arg0->unknown_1000_.unknown_bc0_ = 0;
         if (var12) {
             SpendMP_02048350((Struct_ov002_02157d40_8*)var3, var9->unknown_8_0_);
-            if (IsLocalWirelessOn_0202b7d8(var2)) func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
+            if (IsLocalWirelessOn_0202b7d8(var2)) QueuePartyMemberStatusPacket_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
         }
         return;
     }
@@ -212,7 +212,7 @@ extern "C" ARM void func_ov002_0215a0a4(Struct_ov002_0215a0a4* arg0, Struct_ov00
             var10++;
         }
         SpendMP_02048350((Struct_ov002_02157d40_8*)var3, var9->unknown_8_0_);
-        if (IsLocalWirelessOn_0202b7d8(var2)) func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
+        if (IsLocalWirelessOn_0202b7d8(var2)) QueuePartyMemberStatusPacket_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
     } else {
         var0 = var7->GetUnknownGameObject();
         if (var0) {

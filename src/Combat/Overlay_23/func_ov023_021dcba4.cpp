@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "std_library_functions.h"
 
-extern "C" void func_ov023_021db2e4(volatile int* arg0);
+extern "C" void RemoveLoadTask_ov023_021db2e4(volatile int* loadTaskId);
 extern "C" unsigned int GetSubBG0ScreenBase(void);
 extern "C" unsigned int GetMainBG2ScreenBase(void);
 
@@ -35,9 +35,9 @@ extern "C" ARM void func_ov023_021dcba4(void* arg0, short arg1) {
         return;
     }
 
-    func_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dcba4_1844));
+    RemoveLoadTask_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dcba4_1844));
     for (int var0 = 0; var0 < 7; var0++) {
-        func_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dcba4_1848 + var0 * 4));
+        RemoveLoadTask_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dcba4_1848 + var0 * 4));
     }
 
     *(short*)((char*)arg0 + Enum_ov023_021dcba4_1904) = arg1;

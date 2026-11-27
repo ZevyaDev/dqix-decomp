@@ -26,7 +26,7 @@ struct Struct_0203de84 { int unknown_0_[3]; };
 extern "C" NPCManager_0203dce4_2* GetNPCManager_0203cf4c();
 extern "C" NPC_0203dce4* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
 extern "C" void GetNPCPosition_020406f8(Struct_0203de84*, NPC_0203de84_2*);
-extern "C" int func_020d857c(signed char*, signed char*);
+extern "C" int StringStartsWith_020d857c(signed char*, signed char*);
 extern "C" int func_020d85dc(const char*, const char*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
@@ -112,13 +112,13 @@ extern "C" ARM const char* func_0206a3c0(Struct_0206a3c0_2* arg0, const char* ar
     arg0->unknown_1000_.unknown_9b7_ = 0;
     while (var0)
     {
-        if (func_020d857c((signed char*)arg1, (signed char*)data_020f0934))
+        if (StringStartsWith_020d857c((signed char*)arg1, (signed char*)data_020f0934))
         {
             arg0->unknown_1000_.unknown_844_ = arg0->unknown_1000_.unknown_83c_;
             arg0->unknown_1000_.unknown_9b6_ = 0;
             arg1 += 8;
         }
-        else if (func_020d857c((signed char*)arg1, (signed char*)data_020f093d))
+        else if (StringStartsWith_020d857c((signed char*)arg1, (signed char*)data_020f093d))
         {
             arg0->unknown_1000_.unknown_959_ = 60;
             arg0->unknown_1000_.unknown_9b7_ = 1;
@@ -126,7 +126,7 @@ extern "C" ARM const char* func_0206a3c0(Struct_0206a3c0_2* arg0, const char* ar
             arg1 += 5;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 6, 0);
         }
-        else if (func_020d857c((signed char*)arg1, (signed char*)data_020f0943))
+        else if (StringStartsWith_020d857c((signed char*)arg1, (signed char*)data_020f0943))
         {
             arg0->unknown_1000_.unknown_959_ = 60;
             arg0->unknown_1000_.unknown_9b7_ = 1;

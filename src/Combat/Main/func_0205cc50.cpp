@@ -6,7 +6,7 @@
 
 extern "C" int GetMessageWindow_020421a0();
 struct Struct_0205bd58;
-extern "C" void func_0205bd58(Struct_0205bd58 *arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void SetMenuCursorEntryRects_0205bd58(Struct_0205bd58 *cursor, int entryCount, int entryXs, int entryYs, int entryWidths, int entryHeights);
 
 struct Struct_0205cc50 {
     unsigned char unknown_0_[0x58];
@@ -57,6 +57,6 @@ extern "C" ARM void func_0205cc50(void *arg0, int arg1, int arg2) {
     short var6      = var0->unknown_b6_;
     var0->unknown_58_ = var5;
     var0->unknown_5a_ = var6;
-    func_0205bd58(reinterpret_cast<Struct_0205bd58 *>(static_cast<unsigned char *>(arg0) + 0x20), var0->unknown_dc_,
+    SetMenuCursorEntryRects_0205bd58(reinterpret_cast<Struct_0205bd58 *>(static_cast<unsigned char *>(arg0) + 0x20), var0->unknown_dc_,
                       (int) var0->unknown_e0_, (int) var0->unknown_f0_, (int) var0->unknown_100_, (int) var0->unknown_110_);
 }

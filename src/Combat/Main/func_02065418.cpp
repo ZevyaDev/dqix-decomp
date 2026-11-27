@@ -11,7 +11,7 @@ enum { Enum_02065418_14076 = 0x36fc };
 
 struct QueueNode_02015438;
 
-extern "C" int func_020a18f4(unsigned int arg0);
+extern "C" int IsOverlayLoaded_020a18f4(unsigned int overlayId);
 extern "C" int GetResources_0200fb8c(int* gameState);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438** queue);
 
@@ -25,7 +25,7 @@ static inline void inline_02065418_2(int arg0) {
 
 // USA: func_02065418
 extern "C" ARM void func_02065418(int arg0) {
-    if (!func_020a18f4(OVERLAY_ID(17))) {
+    if (!IsOverlayLoaded_020a18f4(OVERLAY_ID(17))) {
         return;
     }
     QueueNode_02015438** var0 = *(QueueNode_02015438***)((char*)GetResources_0200fb8c((int*)GameState::GetInstance()) + Enum_02065418_14076);

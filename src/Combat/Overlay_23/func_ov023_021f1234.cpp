@@ -179,7 +179,7 @@ unsigned char func_0209a678(char* arg0, void* arg1, unsigned short* arg2);
 void CalculatePartyMemberStats_02083e28(unsigned char* memberData, int outStats);
 void func_ov017_021cc730(int arg0, int arg1, int arg2, int arg3);
 void func_ov017_021ccc34(int arg0);
-void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 void func_ov017_021cd0d8(int arg0, unsigned short* arg1, int arg2);
 }
 
@@ -348,7 +348,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
                 }
                 func_ov017_021cc730(var6, 0, 0, 1);
                 func_ov017_021ccc34(var6);
-                func_ov017_021c9e00(var6, 0, 0, 0);
+                QueuePartyMemberStatusPacket_ov017_021c9e00(var6, 0, 0, 0);
                 if (var1->unknown_e2_ != 0)
                 {
                     arg0->unknown_5574_ = NULL;

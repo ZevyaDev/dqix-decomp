@@ -47,7 +47,7 @@ extern "C" int* func_0202ae18();
 extern "C" unsigned short* GetZone3D_02012fe4();
 extern "C" int IsNotLocalWirelessGuest_0202c508(int*);
 extern "C" void func_02034104(Vector3fix*, GameObject*);
-extern "C" int func_02031118(Vector3fix*, Struct_ov017_021a1ad0_2*);
+extern "C" int IsPointInBoundingBox_02031118(Vector3fix*, Struct_ov017_021a1ad0_2*);
 extern "C" void InitFieldMonster_02076a8c(Struct_ov017_021a1ad0*);
 
 // USA: func_ov017_021a1ad0
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov017_021a1ad0() {
                             var14.unknown_18_.unknown_c_.x -= 0x19000;
                             var14.unknown_18_.unknown_c_.y -= 0x19000;
                             var14.unknown_18_.unknown_c_.z -= 0x19000;
-                            if (func_02031118(&var14.unknown_0_, &var14.unknown_18_)) {
+                            if (IsPointInBoundingBox_02031118(&var14.unknown_0_, &var14.unknown_18_)) {
                                 var11 = 0;
                                 goto collisionComplete;
                             }

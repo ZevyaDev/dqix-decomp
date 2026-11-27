@@ -37,11 +37,11 @@ extern "C" void func_0205bbcc(Struct_0205bbcc* arg0);
 extern "C" void SetMenuCursorGrid_0205ba68(MenuCursor_0205ba68* cursor, int columnCount, int rowCount, int isRowMajor);
 extern "C" void SetMenuCursorItemCount_0205bacc(MenuCursor_0205bacc* cursor, int itemCount);
 extern "C" void SetTouchMenuCursorIndex_0205bcdc(MenuCursor_0205bcdc* cursor, int index);
-extern "C" void func_0205bd58(Struct_0205bd58* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void SetMenuCursorEntryRects_0205bd58(Struct_0205bd58* cursor, int entryCount, int entryXs, int entryYs, int entryWidths, int entryHeights);
 extern "C" void func_ov003_0216a85c(Struct_ov003_02169eec_2* arg0);
 extern "C" unsigned char* GetCursorTextWindow_0205d8c4(TextWindowManager_0205d81c* windowManager);
-extern "C" void func_0204f138(unsigned char* arg0, unsigned char** arg1, unsigned char** arg2, unsigned char** arg3,
-                              unsigned char** arg4);
+extern "C" void GetTextWindowEntryRectArrays_0204f138(unsigned char* textWindow, unsigned char** outXs, unsigned char** outYs, unsigned char** outWidths,
+                              unsigned char** outHeights);
 extern "C" void SetMenuCursorTouchedIndex_0205bc24(void* cursor, int index);
 extern "C" int func_0205bc2c(Struct_0205bc2c*, int);
 extern "C" int func_0205bd04(Struct_0205bd04* arg0);
@@ -152,7 +152,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
         arg0->unknown_58c_[5] = Enum_ov003_02169eec_8;
         arg0->unknown_58c_[6] = 0x10;
         arg0->unknown_58c_[7] = 0x10;
-        func_0205bd58((Struct_0205bd58*)arg0->unknown_53c_, 2, (int)&arg0->unknown_58c_[0], (int)&arg0->unknown_58c_[2],
+        SetMenuCursorEntryRects_0205bd58((Struct_0205bd58*)arg0->unknown_53c_, 2, (int)&arg0->unknown_58c_[0], (int)&arg0->unknown_58c_[2],
                           (int)&arg0->unknown_58c_[4], (int)&arg0->unknown_58c_[6]);
         func_ov003_0216a85c((Struct_ov003_02169eec_2*)&arg0->unknown_5a8_);
         arg0->unknown_5a8_.unknown_4_ = 2;
@@ -167,7 +167,7 @@ extern "C" ARM int func_ov003_02169eec(Struct_ov003_02169eec* arg0, unsigned int
         arg0->unknown_5c0_.unknown_0_ = var5 << 3;
         arg0->unknown_5c0_.unknown_2_ = var6 << 3;
         arg0->unknown_5c0_.unknown_4_ = 4;
-        func_0204f138(var4, (unsigned char**)&arg0->unknown_5c0_.unknown_8_, (unsigned char**)&arg0->unknown_5c0_.unknown_c_,
+        GetTextWindowEntryRectArrays_0204f138(var4, (unsigned char**)&arg0->unknown_5c0_.unknown_8_, (unsigned char**)&arg0->unknown_5c0_.unknown_c_,
                                  (unsigned char**)&arg0->unknown_5c0_.unknown_10_, (unsigned char**)&arg0->unknown_5c0_.unknown_14_);
         arg0->unknown_4e9_++;
     } else if (arg0->unknown_4e9_ == 1) {

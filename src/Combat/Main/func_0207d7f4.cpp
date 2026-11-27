@@ -18,7 +18,7 @@ struct BattleJoinRecord_0207d7f4 {
 };
 
 extern "C" void* func_0207d9f4(unsigned char* arg0, int arg1);
-extern "C" void func_0207d7c0(struct Struct_0207d798* arg0);
+extern "C" void ResetBattleJoinRecord_0207d7c0(struct Struct_0207d798* record);
 extern "C" struct BattleJoinRecord_0207d7f4* FindBattleJoinRecord_0207d9bc(struct BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
 extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
@@ -39,14 +39,14 @@ extern "C" ARM int func_0207d7f4(struct BattleJoinRecord_0207d7f4* arg0, unsigne
     if (arg3 != 0) {
         var2 = (struct BattleJoinRecord_0207d7f4*)func_0207d9f4((unsigned char*)arg0, arg2);
         if (var2 != NULL && var2->unknown_0_ != arg1) {
-            func_0207d7c0((struct Struct_0207d798*)var2);
+            ResetBattleJoinRecord_0207d7c0((struct Struct_0207d798*)var2);
         }
     }
     var2 = FindBattleJoinRecord_0207d9bc(arg0, arg1);
     if (var2 == NULL) {
         var2 = FindBattleJoinRecord_0207d9bc(arg0, 0);
         if (var2 == NULL) return 0;
-        func_0207d7c0((struct Struct_0207d798*)var2);
+        ResetBattleJoinRecord_0207d7c0((struct Struct_0207d798*)var2);
         var2->unknown_0_ = arg1;
         var3 = (struct LocalWireless_0202b2f0*)func_0202ae18();
         for (var5 = 0; var5 < 4; var5++) {

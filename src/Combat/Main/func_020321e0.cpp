@@ -28,5 +28,5 @@ extern "C" ARM int func_020321e0(const Vector3fix* arg0, const BoundingBox_02018
         Mat4x3_ApplyToVector(&var1, &var2, &var1);
         Vector3fix_Add(&var1, arg3, &var0);
     }
-    return func_02031118(&var0, arg1);
+    return IsPointInBoundingBox_02031118(&var0, arg1);
 }

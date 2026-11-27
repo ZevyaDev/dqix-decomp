@@ -19,38 +19,38 @@ struct Struct_ov000_02169d08 {
     unsigned char unknown_f_;
 };
 
-// USA: func_ov000_02169d08
-extern "C" ARM int func_ov000_02169d08(Script::Parameter* arg0, int arg1) {
+// USA: AppendBACTSetAnimationCommand_ov000_02169d08
+extern "C" ARM int AppendBACTSetAnimationCommand_ov000_02169d08(Script::Parameter* params, int numParams) {
     struct Struct_ov000_02169d08* var0 = (struct Struct_ov000_02169d08*)gBACTParseState_ov000_02184264.pAllocator_8_->Allocate(sizeof(struct Struct_ov000_02169d08));
     var0->unknown_0_ = 3;
-    if (arg0->type == 0) {
-        const char* var1 = (arg0++)->ToString();
+    if (params->type == 0) {
+        const char* var1 = (params++)->ToString();
         int var2 = 1;
-        if (arg1 >= 2) {
-            var2 = (arg0++)->ToInt();
+        if (numParams >= 2) {
+            var2 = (params++)->ToInt();
         }
         var0->unknown_8_ = (char*)gBACTParseState_ov000_02184264.pAllocator_8_->Allocate(strlen(var1) + 1);
         strcpy(var0->unknown_8_, var1);
         var0->unknown_c_ = var2;
         var0->unknown_e_ = 7;
         int var3 = 0;
-        if (arg1 >= 3) {
-            var3 = arg0->ToInt();
+        if (numParams >= 3) {
+            var3 = params->ToInt();
         }
         var0->unknown_f_ = var3;
-    } else if (arg0->type == 1) {
-        var0->unknown_e_ = (arg0++)->ToInt();
-        const char* var4 = (arg0++)->ToString();
+    } else if (params->type == 1) {
+        var0->unknown_e_ = (params++)->ToInt();
+        const char* var4 = (params++)->ToString();
         int var5 = 1;
-        if (arg1 >= 3) {
-            var5 = (arg0++)->ToInt();
+        if (numParams >= 3) {
+            var5 = (params++)->ToInt();
         }
         var0->unknown_8_ = (char*)gBACTParseState_ov000_02184264.pAllocator_8_->Allocate(strlen(var4) + 1);
         strcpy(var0->unknown_8_, var4);
         var0->unknown_c_ = var5;
         int var6 = 0;
-        if (arg1 >= 4) {
-            var6 = arg0->ToInt();
+        if (numParams >= 4) {
+            var6 = params->ToInt();
         }
         var0->unknown_f_ = var6;
     } else {

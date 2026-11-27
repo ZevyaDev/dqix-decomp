@@ -9,9 +9,9 @@ struct Struct_020708c8 {
     int unknown_8_;             // 0x8
 };
 
-// USA: func_020708c8
-extern "C" ARM void func_020708c8(struct Struct_020708c8* arg0, unsigned int arg1) {
-    arg0->unknown_8_ = (int)(16.667f * (float)arg1);
-    arg0->unknown_4_ = 1;
-    arg0->unknown_0_ = 1;
+// USA: StartColorFadeToClear_020708c8
+extern "C" ARM void StartColorFadeToClear_020708c8(struct Struct_020708c8* colorFade, unsigned int frames) {
+    colorFade->unknown_8_ = (int)(16.667f * (float)frames);
+    colorFade->unknown_4_ = 1;
+    colorFade->unknown_0_ = 1;
 }

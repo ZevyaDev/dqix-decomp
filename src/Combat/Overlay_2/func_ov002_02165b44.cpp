@@ -67,7 +67,7 @@ extern "C" char *GetZone3D_02012fe4(void);
 extern "C" int *func_0202ae18(void);
 extern "C" int IsNotLocalWirelessGuest_0202c508(int *wireless);
 extern "C" void CloseItemInfoPanel_ov023_021dca88(char *panel);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void func_ov017_021d1a18(int arg0, int arg1, int arg2, int arg3);
 extern "C" char gSoundEffectManager_02108760[];
 
@@ -133,7 +133,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                         SpendMP_02048350(
                             (struct PartyMember_02048350_2 *) GetGameObjectByIndex_0200ff94(var3, *(signed char *) (arg0 + 0x1ae8)),
                             ((struct Struct_ov002_02165b44 *) var12)->unknown_8_0_);
-                        if (IsLocalWirelessOn_0202b7d8(var11)) func_ov017_021c9e00(*(signed char *) (arg0 + 0x1ae8), 0, 0, 1);
+                        if (IsLocalWirelessOn_0202b7d8(var11)) QueuePartyMemberStatusPacket_ov017_021c9e00(*(signed char *) (arg0 + 0x1ae8), 0, 0, 1);
                     }
                     unsigned char *var13 = (unsigned char *) GetZoneEntry_0200fd0c(var3);
                     VectorizedMemset(var13, 0, 0x70);
@@ -287,7 +287,7 @@ extern "C" ARM void func_ov002_02165b44(char *arg0) {
                         SpendMP_02048350(
                             (struct PartyMember_02048350_2 *) GetGameObjectByIndex_0200ff94(var22, *(signed char *) (arg0 + 0x1c00 + 0x20)),
                             ((struct Struct_ov002_02165b44 *) var31)->unknown_8_0_);
-                        if (IsLocalWirelessOn_0202b7d8(var30)) func_ov017_021c9e00(*(signed char *) (arg0 + 0x1c00 + 0x20), 0, 0, 1);
+                        if (IsLocalWirelessOn_0202b7d8(var30)) QueuePartyMemberStatusPacket_ov017_021c9e00(*(signed char *) (arg0 + 0x1c00 + 0x20), 0, 0, 1);
                     }
                     unsigned char *var32 = (unsigned char *) GetZoneEntry_0200fd0c(var22);
                     VectorizedMemset(var32, 0, 0x70);

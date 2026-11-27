@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Filesystem/BackgroundLoader.h"
 extern "C" void SetItemInfoPanelItem_ov023_021dcae0(void* panel, int itemId);
-extern "C" void func_ov023_021db2e4(volatile int* arg0);
+extern "C" void RemoveLoadTask_ov023_021db2e4(volatile int* loadTaskId);
 struct Struct_ov023_021fdaa8 { int unknown_0_; int unknown_4_; };
 extern Struct_ov023_021fdaa8 data_ov023_021fdaa8[];
 
@@ -25,9 +25,9 @@ extern "C" ARM void func_ov023_021dfb4c(void* arg0) {
     if (*(signed char*)((char*)arg0 + Enum_ov023_021dfb4c_1915) == 1) {
         struct Struct_ov023_021dfb4c { unsigned char unknown_0_0_ : 1; unsigned char unknown_0_1_ : 1; unsigned char unknown_0_2_ : 6; };
         if (((Struct_ov023_021dfb4c*)((char*)arg0 + Enum_ov023_021dfb4c_1947))->unknown_0_1_ == 0) {
-            func_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dfb4c_1844));
+            RemoveLoadTask_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dfb4c_1844));
             for (int var2 = 0; var2 < 7; var2++) {
-                func_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dfb4c_1848 + var2 * 4));
+                RemoveLoadTask_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dfb4c_1848 + var2 * 4));
             }
             *(unsigned short*)((char*)arg0 + Enum_ov023_021dfb4c_1908) |= 1;
             *(int*)((char*)arg0 + Enum_ov023_021dfb4c_1876) = 0;
@@ -58,9 +58,9 @@ extern "C" ARM void func_ov023_021dfb4c(void* arg0) {
         *(int*)((char*)arg0 + Enum_ov023_021dfb4c_1876) = var11;
         if (var11 < 0) {
             *(unsigned short*)((char*)arg0 + Enum_ov023_021dfb4c_1908) &= ~1;
-            func_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dfb4c_1844));
+            RemoveLoadTask_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dfb4c_1844));
             for (int var12 = 0; var12 < 7; var12++) {
-                func_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dfb4c_1848 + var12 * 4));
+                RemoveLoadTask_ov023_021db2e4((volatile int*)((char*)arg0 + Enum_ov023_021dfb4c_1848 + var12 * 4));
             }
             return;
         }

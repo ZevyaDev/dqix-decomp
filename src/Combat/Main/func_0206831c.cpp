@@ -4,7 +4,7 @@
 #define func_020d2ff0 func_020d4a54
 #endif
 extern "C" char* func_020424ac(char*);
-extern "C" int func_020d857c(signed char*, signed char*);
+extern "C" int StringStartsWith_020d857c(signed char*, signed char*);
 extern "C" int func_020d2ff0(const char*);
 extern "C" int ParseDecimal_02005a94(const char*);
 struct Struct_020e7e5c {
@@ -26,7 +26,7 @@ extern "C" ARM void func_0206831c(void* arg0, signed char* arg1, signed char* ar
                 Struct_020e7e5c* var3 = data_020e7e5c;
                 signed char* var4 = arg1 + 1;
                 while (var3->unknown_0_) {
-                    if (func_020d857c(var4, var3->unknown_0_)) {
+                    if (StringStartsWith_020d857c(var4, var3->unknown_0_)) {
                         if (var3->unknown_4_) {
                             int var5 = 0;
                             int var6 = func_020d2ff0((char*)var3->unknown_0_);

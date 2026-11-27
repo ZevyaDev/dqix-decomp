@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_0205d67c;
-extern "C" int func_0205d67c(struct Struct_0205d67c*);
+extern "C" int GetOpenTextWindowCount_0205d67c(struct Struct_0205d67c*);
 
 struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(struct TextWindowManager_0205d6a0*, int);
@@ -15,7 +15,7 @@ extern "C" void InitTextWindowManager_0205cfd4(struct TextWindowManager_0205cfd4
 // USA: func_ov023_021d8af8
 extern "C" ARM void func_ov023_021d8af8(void* arg0) {
     void* var0 = (char*)arg0 + 0x20;
-    if (func_0205d67c((struct Struct_0205d67c*)var0)) {
+    if (GetOpenTextWindowCount_0205d67c((struct Struct_0205d67c*)var0)) {
         CloseTextWindows_0205d6a0((struct TextWindowManager_0205d6a0*)var0, 1);
     }
     *(int*)arg0 = 0;

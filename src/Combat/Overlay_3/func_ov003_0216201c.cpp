@@ -76,7 +76,7 @@ extern "C" void SetFlag_0206df6c(void *, unsigned char *, int, int);
 extern "C" int func_0206dfb0(int, unsigned char *, int);
 extern "C" int HasLearnedSkillEntry_02083b00(unsigned char *, int);
 extern "C" void LearnSkillEntry_02083acc(unsigned char *, int);
-extern "C" void func_ov017_021c9e00(int, int, int, int);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int, int, int, int);
 extern "C" void func_ov017_021ccfd0(int);
 
 // USA: func_ov003_0216201c
@@ -201,7 +201,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                         if (var3 != 0) {
                             LearnSkillEntry_02083acc(var3, 0x11e);
                         }
-                        func_ov017_021c9e00(0, 0, 0, 0);
+                        QueuePartyMemberStatusPacket_ov017_021c9e00(0, 0, 0, 0);
                         func_ov017_021ccfd0(0);
                     } else {
                         arg0->unknown_484_ = 0x44;
@@ -218,7 +218,7 @@ extern "C" ARM void func_ov003_0216201c(Struct_ov003_02154af4_3 *arg0) {
                 if (var3 != 0) {
                     LearnSkillEntry_02083acc(var3, 0x11e);
                 }
-                func_ov017_021c9e00(0, 0, 0, 0);
+                QueuePartyMemberStatusPacket_ov017_021c9e00(0, 0, 0, 0);
                 func_ov017_021ccfd0(0);
             } else {
                 arg0->unknown_484_ = 0x44;

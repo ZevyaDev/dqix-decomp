@@ -408,7 +408,7 @@ extern "C" void SetEquippedItem_02052d7c(struct Struct_02052d7c*, int, short);
 extern "C" int AddEquipmentToBag_0207c378(struct EquipmentBag_020732cc*, int, int, int);
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(int, int);
 extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(int, int);
-extern "C" void func_ov017_021c9e00(int, int, int, int);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int, int, int, int);
 extern "C" void QueuePartyMemberModelLoad_ov017_0218f5a4(GameResources*, int, int, int, int);
 extern "C" void QueueMenuScriptEntry_ov011_021848a0(void*, int);
 
@@ -487,7 +487,7 @@ extern "C" ARM int func_ov004_02157a28(void* arg0, int arg1) {
         if (IsLocalWirelessOn_0202b7d8(var1)) {
             SendPartyMemberEquippedItems_ov017_021c3fb4(var0, 1);
             SendPartyMemberBodyAppearance_ov017_021c4418(var0, -1);
-            if (var18) func_ov017_021c9e00(var0, 0, 0, 1);
+            if (var18) QueuePartyMemberStatusPacket_ov017_021c9e00(var0, 0, 0, 1);
         }
         GameResources* var20 = GetGameResources();
         QueueNode_02015438** var21 = (QueueNode_02015438**)var20->unknown_ptr_array_36fc[1];

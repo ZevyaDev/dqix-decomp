@@ -132,7 +132,7 @@ extern "C" void func_020ac0dc();
 extern "C" void func_02096524(void* arg0);
 extern "C" void* GetColorFade_020704fc();
 struct Struct_02108d5c;
-extern "C" void func_02070508(Struct_02108d5c*);
+extern "C" void ResetColorFade_02070508(Struct_02108d5c*);
 extern "C" void SetMusicVolume_0209c2e0(void* manager, int volume, int fadeDuration);
 extern "C" void SetSoundEffectVolume_0205e944(void* manager, int volume);
 extern "C" void* GetTimedMessageQueue_020d7a50();
@@ -530,7 +530,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
     }
     *(int*)(var18 + 0x480) = 0;
     *(int*)(var18 + 0x47c) = 0;
-    func_02070508((Struct_02108d5c*)GetColorFade_020704fc());
+    ResetColorFade_02070508((Struct_02108d5c*)GetColorFade_020704fc());
     SetMusicVolume_0209c2e0(&gMusicManager_02109bf4, 0x7f, 0);
     SetSoundEffectVolume_0205e944(&gSoundEffectManager_02108760, 0x7f);
     gMusicManager_02109bf4.unknown_c8_ &= ~4;

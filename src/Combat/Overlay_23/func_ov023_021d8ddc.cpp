@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 struct Struct_0205d67c;
-extern "C" int func_0205d67c(struct Struct_0205d67c*);
+extern "C" int GetOpenTextWindowCount_0205d67c(struct Struct_0205d67c*);
 
 // USA: func_ov023_021d8ddc
 extern "C" ARM void func_ov023_021d8ddc(void* arg0, int* arg1) {
@@ -14,7 +14,7 @@ extern "C" ARM void func_ov023_021d8ddc(void* arg0, int* arg1) {
     for (int var2 = 0; var2 < var1; var2++) {
         *(int*)((char*)arg0 + 0xdc + var2 * 4) = arg1[var0[var2]];
     }
-    int var3 = func_0205d67c((struct Struct_0205d67c*)((char*)arg0 + 0x20));
+    int var3 = GetOpenTextWindowCount_0205d67c((struct Struct_0205d67c*)((char*)arg0 + 0x20));
     if (var3 == 0) {
         *((unsigned char*)arg0 + 0x11c) = 0;
     } else {

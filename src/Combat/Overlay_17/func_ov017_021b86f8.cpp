@@ -41,7 +41,7 @@ extern "C" void* GetTimedMessageQueue_020d7a50(void);
 extern "C" void* GetBattleUI_ov000_02160f08(void* battleScene);
 extern "C" void func_ov000_02172850(void* arg0);
 extern "C" float func_020709ac(unsigned char* arg0);
-extern "C" void func_020708c8(Struct_020708c8* arg0, unsigned int arg1);
+extern "C" void StartColorFadeToClear_020708c8(Struct_020708c8* colorFade, unsigned int frames);
 extern "C" int abs(int arg0);
 void SetMainBrightness(GameResources* res, int level, int b);
 extern "C" int func_02046708(GlobalFlags_02012de8* globalFlags, unsigned int mask);
@@ -80,7 +80,7 @@ extern "C" ARM void func_ov017_021b86f8(Struct_ov017_021b86f8* arg0, int arg1, i
         func_ov000_02172850(GetBattleUI_ov000_02160f08(arg0->unknown_6ac_));
     }
     if ((int)func_020709ac((unsigned char*)var3) > 0x1e) {
-        func_020708c8(var3, 0x1e);
+        StartColorFadeToClear_020708c8(var3, 0x1e);
     }
     if (abs(GetBrightness((GameResources*)var2, false)) == 0x10) {
         SetMainBrightness(var2, 0, 0x1e);

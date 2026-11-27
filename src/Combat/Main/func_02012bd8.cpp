@@ -4,12 +4,12 @@
 #include "Resource/GameResources.h"
 #include "NitroSDK/OverlayId.h"
 
-extern "C" int func_020a18f4(unsigned int arg0);
+extern "C" int IsOverlayLoaded_020a18f4(unsigned int overlayId);
 extern char gDTCMData_027e0000;
 
 // USA: func_02012bd8
 extern "C" ARM void func_02012bd8() {
-    if (func_020a18f4(OVERLAY_ID(17))) {
+    if (IsOverlayLoaded_020a18f4(OVERLAY_ID(17))) {
         GetGameResources();
         if (GetGameResources() != NULL) {
             ApplyBrightness(GetGameResources());

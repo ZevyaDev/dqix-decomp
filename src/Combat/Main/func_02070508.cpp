@@ -7,9 +7,9 @@ struct Struct_02108d5c {
     int unknown_10_;
 };
 
-// USA: func_02070508
-extern "C" ARM void func_02070508(struct Struct_02108d5c *arg0) {
-    arg0->unknown_0_ = 0;
-    arg0->unknown_c_ = 0;
-    arg0->unknown_10_ = 0;
+// USA: ResetColorFade_02070508
+extern "C" ARM void ResetColorFade_02070508(struct Struct_02108d5c *colorFade) {
+    colorFade->unknown_0_ = 0;
+    colorFade->unknown_c_ = 0;
+    colorFade->unknown_10_ = 0;
 }

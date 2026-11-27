@@ -22,7 +22,7 @@ extern "C" float _fmul(float a, float b);
 extern "C" int _ffix(float v);
 extern "C" void* func_0202ae18(void);
 extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 
 // USA: func_ov003_02155740
 extern "C" ARM void func_ov003_02155740(char* arg0) {
@@ -56,5 +56,5 @@ extern "C" ARM void func_ov003_02155740(char* arg0) {
         return;
     }
     signed char var9 = *(signed char*)(arg0 + Enum_ov003_02155740_503);
-    func_ov017_021c9e00(var9, 1, 0, 1);
+    QueuePartyMemberStatusPacket_ov017_021c9e00(var9, 1, 0, 1);
 }

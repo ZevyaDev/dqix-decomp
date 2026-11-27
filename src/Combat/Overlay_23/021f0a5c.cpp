@@ -124,7 +124,7 @@ extern "C" void StartMessage_0204500c(Struct_02092e0c*, char*, int, int);
 extern "C" void PlayJingle_0209c6d8(void*, int);
 extern "C" void func_ov017_021ce704(int);
 extern "C" void func_ov017_021cc730(int, int, int, int);
-extern "C" void func_ov017_021c9e00(int, int, int, int);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int, int, int, int);
 extern "C" int func_ov023_021f4fc8();
 extern "C" int func_ov023_021f5228(int);
 extern "C" void* func_0205ec34();
@@ -280,7 +280,7 @@ extern "C" ARM int func_ov023_021f0a5c(BattleScene_ov000_02160da0* arg0) {
             PlayJingle_0209c6d8(gMusicManager_02109bf4, 0x35);
             func_ov017_021ce704(var30);
             func_ov017_021cc730(var30, 0, 0, 1);
-            func_ov017_021c9e00(var30, 0, 0, 0);
+            QueuePartyMemberStatusPacket_ov017_021c9e00(var30, 0, 0, 0);
             var6->unknown_0_++;
         } else {
             var6->unknown_0_ += 2;

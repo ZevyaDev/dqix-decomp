@@ -126,7 +126,7 @@ extern "C" void RebuildPartyOrders_ov017_02191234(int gameResources);
 extern "C" void ResetEventTask_ov017_021baedc(void* node, int isRestart);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(int gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void SetCombatantAppearanceFlags_ov017_02191aac(int gameResources, int isSet, int combatantIndex, int flags);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" void SetObjectsVisibleBySelector_ov000_021626a0(void* battleScene, int selector, int isVisible);
 
@@ -153,7 +153,7 @@ struct Party_02048150 {
 extern "C" int IsInParty_02086ef0(struct Party_02048150* party, int objectIndex);
 
 struct BattleJoinRecord_0207d7f4;
-extern "C" void func_0207da7c(struct BattleJoinRecord_0207d7f4* arg0, unsigned short arg1);
+extern "C" void RemoveBattleJoinRecord_0207da7c(struct BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
 extern "C" int func_ov000_02160fd4(void* battleScene, int flags);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 extern "C" int func_02053c6c(unsigned char* gameObject);
@@ -307,7 +307,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
 
     func_ov017_0218d274((void*)var10);
     ClearFlags04((GameResources*)var10, 0x200000);
-    func_0207da7c((struct BattleJoinRecord_0207d7f4*)var18, *(unsigned short*)(*(unsigned char**)(arg0 + Enum_ov000_021688dc_672) + 8));
+    RemoveBattleJoinRecord_0207da7c((struct BattleJoinRecord_0207d7f4*)var18, *(unsigned short*)(*(unsigned char**)(arg0 + Enum_ov000_021688dc_672) + 8));
     *(unsigned char*)(var17 + Enum_ov000_021688dc_6590) = 0;
 
     if (func_ov000_02160fd4(arg0, 0x400000)) {
@@ -414,7 +414,7 @@ extern "C" ARM void func_ov000_021688dc(unsigned char* arg0) {
         GameObject* var39 = GetPartyMemberBaseByIndex_0200ff1c(var9, var14->memberObjectIndices_f78_[var38]);
         if (var39 != NULL) {
             func_02053ec8(var39, 0);
-            func_ov017_021c9e00(var14->memberObjectIndices_f78_[var38], 1, 0, 1);
+            QueuePartyMemberStatusPacket_ov017_021c9e00(var14->memberObjectIndices_f78_[var38], 1, 0, 1);
         }
     }
 

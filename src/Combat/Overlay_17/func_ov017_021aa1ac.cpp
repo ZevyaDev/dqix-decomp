@@ -35,7 +35,7 @@ struct Struct_ov017_021aa1ac_3 {
 };
 
 extern "C" Struct_ov017_021aa1ac_2* GetMessageWindow_020421a0(void);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void __clear(void* arg0, unsigned int arg1);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(Struct_ov017_021aa1ac_2* window, const char* text, int arg2);
@@ -68,7 +68,7 @@ extern "C" ARM void func_ov017_021aa1ac(Struct_ov017_021aa1ac_3* arg0) {
                 continue;
             }
             var7->unknown_4_ = 1;
-            func_ov017_021c9e00(var5, 1, 0, 1);
+            QueuePartyMemberStatusPacket_ov017_021c9e00(var5, 1, 0, 1);
             arg0->unknown_8_[arg0->unknown_10_++] = var5;
         }
         if (arg0->unknown_10_ != 0) {

@@ -25,8 +25,8 @@ struct Struct_ov000_0216a68c {
     unsigned char unknown_1b_;
 };
 
-// USA: func_ov000_0216a68c
-extern "C" ARM int func_ov000_0216a68c(Script::Parameter* arg0, int arg1) {
+// USA: AppendBACTPlayEffectCommand_ov000_0216a68c
+extern "C" ARM int AppendBACTPlayEffectCommand_ov000_0216a68c(Script::Parameter* params, int numParams) {
     Struct_ov000_0216a68c* var0 = (Struct_ov000_0216a68c*)gBACTParseState_ov000_02184264.pAllocator_8_->Allocate(sizeof(Struct_ov000_0216a68c));
     int var1;
     int var2 = -1;
@@ -39,45 +39,45 @@ extern "C" ARM int func_ov000_0216a68c(Script::Parameter* arg0, int arg1) {
     short var9 = 0;
     Vector3fix16 var10;
     __clear(&var10, sizeof(var10));
-    if (arg0[0].type == 1) {
-        if (arg1 >= 3 && arg0[2].type == 0) {
-            var1 = arg0++->ToInt();
-            var2 = arg0++->ToInt() - 0x1a;
-            var3 = arg0++->ToString();
+    if (params[0].type == 1) {
+        if (numParams >= 3 && params[2].type == 0) {
+            var1 = params++->ToInt();
+            var2 = params++->ToInt() - 0x1a;
+            var3 = params++->ToString();
             if (var3 != NULL) {
                 var4 = (char*)gBACTParseState_ov000_02184264.pAllocator_8_->Allocate(strlen(var3) + 1);
                 strcpy(var4, var3);
             }
-            if (arg1 >= 4) {
-                var6 = arg0++->ToInt();
+            if (numParams >= 4) {
+                var6 = params++->ToInt();
             }
-            if (arg1 >= 5) {
-                var7 = arg0++->ToInt() != 0;
+            if (numParams >= 5) {
+                var7 = params++->ToInt() != 0;
             }
-            if (arg1 >= 6) {
-                var8 = arg0++->ToInt() != 0;
+            if (numParams >= 6) {
+                var8 = params++->ToInt() != 0;
             }
         } else {
-            var1 = arg0++->ToInt() + 100;
-            if (arg1 >= 2) {
-                var5 = arg0++->ToInt();
+            var1 = params++->ToInt() + 100;
+            if (numParams >= 2) {
+                var5 = params++->ToInt();
             }
-            if (arg1 >= 3) {
-                arg0->ToVec3fix16(&var10);
+            if (numParams >= 3) {
+                params->ToVec3fix16(&var10);
             }
         }
-    } else if (arg0[0].type == 2) {
-        var9 = arg0++->ToFloat() * 4096.0f;
-        if (arg1 >= 2) {
-            var1 = arg0++->ToInt() + 100;
+    } else if (params[0].type == 2) {
+        var9 = params++->ToFloat() * 4096.0f;
+        if (numParams >= 2) {
+            var1 = params++->ToInt() + 100;
         } else {
             return 0;
         }
-        if (arg1 >= 3) {
-            var5 = arg0++->ToInt();
+        if (numParams >= 3) {
+            var5 = params++->ToInt();
         }
-        if (arg1 >= 4) {
-            arg0->ToVec3fix16(&var10);
+        if (numParams >= 4) {
+            params->ToVec3fix16(&var10);
         }
     } else {
         return 0;

@@ -19,8 +19,8 @@ extern "C" void* GetBattleScene_ov000_02160130();
 extern "C" int CollectEnemyCombatantIndices_ov000_0215eb1c(void*, short*, int, int);
 extern "C" int func_ov000_0215ed34(void*, short*, int);
 extern "C" int func_ov000_02167484(short*, int);
-extern "C" int func_02070fe4(Struct_02070fe4*);
-extern "C" Struct_02070f98* func_02070f98(Struct_02070f98_2*, int);
+extern "C" int GetMonsterBattleDataCount_02070fe4(Struct_02070fe4*);
+extern "C" Struct_02070f98* GetMonsterBattleDataByIndex_02070f98(Struct_02070f98_2*, int);
 extern "C" void func_ov025_021e771c(short*, int, short*, int);
 extern "C" void func_ov000_02161c0c(void*, int);
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState*, int);
@@ -48,9 +48,9 @@ extern "C" ARM int func_ov025_021e7b74(void*, void*, void*, void* arg3) {
     unsigned char var8 = func_ov000_0215ed34(arg3, var7, 12);
     unsigned char var9 = func_ov000_02167484(var7, var8);
     var1 = &var4->unknown_284_;
-    int var10 = func_02070fe4((Struct_02070fe4*)var1->unknown_400_);
+    int var10 = GetMonsterBattleDataCount_02070fe4((Struct_02070fe4*)var1->unknown_400_);
     for (int var11 = 0; var11 < var10; ++var11) {
-        Struct_02070f98* var12 = func_02070f98((Struct_02070f98_2*)var1->unknown_400_, var11);
+        Struct_02070f98* var12 = GetMonsterBattleDataByIndex_02070f98((Struct_02070f98_2*)var1->unknown_400_, var11);
         if (!var12) continue;
         int var13 = 1;
         short* var14 = var7;

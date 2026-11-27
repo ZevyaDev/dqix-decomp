@@ -603,7 +603,7 @@ extern "C" void func_02067b28(Struct_02067b28* arg0);
 extern "C" void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* arg2, char* arg3);
 extern "C" void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2);
 extern "C" void func_0206c570(void* arg0, const char* arg1);
-extern "C" int func_020d857c(const char* arg0, const char* arg1);
+extern "C" int StringStartsWith_020d857c(const char* string, const char* prefix);
 extern "C" int func_020d2ff0(const char* string);
 extern "C" int ParseDecimal_02005a94(const char* string);
 extern "C" unsigned char GetOwnPartyLeaderObjectIndex_020100b0(GameState* gameState);
@@ -2047,7 +2047,7 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
     }
     unsigned char var0 = arg1;
     while (*arg2 != 0) {
-        if (func_020d857c((char*)arg2, (char*)data_020f07d1)) {
+        if (StringStartsWith_020d857c((char*)arg2, (char*)data_020f07d1)) {
             GameState* var1 = GameState::GetInstance();
             signed char var2[5];
             __clear(var2, 5);
@@ -2057,7 +2057,7 @@ extern "C" ARM void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* 
             unsigned char var3 = 0;
             int var4 = 0;
             for (signed char** var5 = data_020f0784; *var5 != 0; var3++, var5++) {
-                if (func_020d857c((char*)arg2 + 2, (char*)*var5 + 2)) {
+                if (StringStartsWith_020d857c((char*)arg2 + 2, (char*)*var5 + 2)) {
                     Struct_020698d8_2* var6 = (Struct_020698d8_2*)var1->GetPartyMemberByIndex(var2[var3]);
                     if (var6 != 0) {
                         arg2 += func_020d2ff0((char*)*var5);
@@ -2265,7 +2265,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 const char* var16[6] = {data_020f0728, data_020f0742, data_020f0734, data_020f072e, data_020f073b, 0};
                 const char** var17 = var16;
                 while (*var17 != 0) {
-                    if (func_020d857c(var140, *var17)) {
+                    if (StringStartsWith_020d857c(var140, *var17)) {
                         while (*var140 != '>') {
                             var140++;
                         }
@@ -2295,7 +2295,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f086d)) {
+            if (StringStartsWith_020d857c(var140, data_020f086d)) {
                 int var21 = 6;
                 arg0->unknown_178c_ = ParseDecimal_02005a94(var140 + var21);
                 while (var140[var21] != '>') {
@@ -2309,13 +2309,13 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0874)) {
+            if (StringStartsWith_020d857c(var140, data_020f0874)) {
                 inline_02069ecc(arg2, 0xff0a);
                 var140 += 5;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f087a)) {
+            if (StringStartsWith_020d857c(var140, data_020f087a)) {
                 int var24 = 6;
                 int var25 = ParseDecimal_02005a94(var140 + var24);
                 while (var140[var24] != '>') {
@@ -2334,13 +2334,13 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0881)) {
+            if (StringStartsWith_020d857c(var140, data_020f0881)) {
                 inline_02069ecc(arg2, 0xff1f);
                 var140 += 10;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f088c)) {
+            if (StringStartsWith_020d857c(var140, data_020f088c)) {
                 int var28 = 7;
                 int var29 = ParseDecimal_02005a94(var140 + var28);
                 while (var140[var28] != '>') {
@@ -2359,37 +2359,37 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0894)) {
+            if (StringStartsWith_020d857c(var140, data_020f0894)) {
                 inline_02069ecc(arg2, 0xff21);
                 var140 += 0x10;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08a5)) {
+            if (StringStartsWith_020d857c(var140, data_020f08a5)) {
                 inline_02069ecc(arg2, 0xff28);
                 var140 += 8;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08ae)) {
+            if (StringStartsWith_020d857c(var140, data_020f08ae)) {
                 inline_02069ecc(arg2, 0xff29);
                 var140 += 9;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08b8)) {
+            if (StringStartsWith_020d857c(var140, data_020f08b8)) {
                 inline_02069ecc(arg2, 0xff2a);
                 var140 += 8;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08c1)) {
+            if (StringStartsWith_020d857c(var140, data_020f08c1)) {
                 inline_02069ecc(arg2, 0xff2b);
                 var140 += 9;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08cb)) {
+            if (StringStartsWith_020d857c(var140, data_020f08cb)) {
                 int var36 = 0xd;
                 arg0->unknown_17f7_ = ParseDecimal_02005a94(var140 + var36) != 0;
                 int var37 = 0;
@@ -2430,7 +2430,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08d9)) {
+            if (StringStartsWith_020d857c(var140, data_020f08d9)) {
                 int var39 = 4;
                 signed char var40 = ParseDecimal_02005a94(var140 + var39);
                 int var41 = 0;
@@ -2461,7 +2461,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg0->unknown_1784_++;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08de)) {
+            if (StringStartsWith_020d857c(var140, data_020f08de)) {
                 int var44 = 3;
                 short var45 = ParseDecimal_02005a94(var140 + var44);
                 while (var140[var44] != '>') {
@@ -2476,7 +2476,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 4;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08e2)) {
+            if (StringStartsWith_020d857c(var140, data_020f08e2)) {
                 int var47 = 3;
                 short var48 = ParseDecimal_02005a94(var140 + var47);
                 while (var140[var47] != '>') {
@@ -2491,7 +2491,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 4;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08e6)) {
+            if (StringStartsWith_020d857c(var140, data_020f08e6)) {
                 short var50 = 0;
                 short var51 = 0;
                 int var52 = 4;
@@ -2523,7 +2523,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 6;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08eb)) {
+            if (StringStartsWith_020d857c(var140, data_020f08eb)) {
                 int var55 = 3;
                 short var56 = ParseDecimal_02005a94(var140 + var55);
                 while (var140[var55] != '>') {
@@ -2538,7 +2538,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 4;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08ef)) {
+            if (StringStartsWith_020d857c(var140, data_020f08ef)) {
                 int var58 = 3;
                 short var59 = ParseDecimal_02005a94(var140 + var58);
                 while (var140[var58] != '>') {
@@ -2553,7 +2553,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 4;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08f3)) {
+            if (StringStartsWith_020d857c(var140, data_020f08f3)) {
                 short var61 = 0;
                 short var62 = 0;
                 int var63 = 4;
@@ -2585,37 +2585,37 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 6;
                 continue;
             }
-            if (func_020d857c(var140, data_020f08f8)) {
+            if (StringStartsWith_020d857c(var140, data_020f08f8)) {
                 inline_02069ecc(arg2, 0xff04);
                 var140 += 7;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0900)) {
+            if (StringStartsWith_020d857c(var140, data_020f0900)) {
                 inline_02069ecc(arg2, 0xff05);
                 var140 += 7;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0908)) {
+            if (StringStartsWith_020d857c(var140, data_020f0908)) {
                 inline_02069ecc(arg2, 0xff06);
                 var140 += 0xb;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0916)) {
+            if (StringStartsWith_020d857c(var140, data_020f0916)) {
                 inline_02069ecc(arg2, 0xff07);
                 var140 += 0xf;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0928)) {
+            if (StringStartsWith_020d857c(var140, data_020f0928)) {
                 inline_02069ecc(arg2, 0xff08);
                 var140 += 9;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0932)) {
+            if (StringStartsWith_020d857c(var140, data_020f0932)) {
                 int var71 = 0xe;
                 int var72 = ParseDecimal_02005a94(var140 + var71);
                 while (var140[var71] != '>') {
@@ -2631,7 +2631,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0941)) {
+            if (StringStartsWith_020d857c(var140, data_020f0941)) {
                 var0 = 0xff56;
                 var0 += (signed char)(var140[5] - '0');
                 inline_02069ecc(arg2, var0);
@@ -2639,7 +2639,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0947)) {
+            if (StringStartsWith_020d857c(var140, data_020f0947)) {
                 var0 = 0xffd0;
                 var0 += (unsigned short)(var140[4] - 0x40);
                 inline_02069ecc(arg2, var0);
@@ -2647,7 +2647,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f094c)) {
+            if (StringStartsWith_020d857c(var140, data_020f094c)) {
                 var0 = 0xffe0;
                 var0 += (unsigned short)(var140[4] - 0x40);
                 inline_02069ecc(arg2, var0);
@@ -2655,7 +2655,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0951)) {
+            if (StringStartsWith_020d857c(var140, data_020f0951)) {
                 GameState* var77 = GameState::GetInstance();
                 int var142 = GetProtagonistObjectIndex_020100a8(var77);
                 int var78[4];
@@ -2673,7 +2673,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 func_0206c520(arg0, &var140, data_020f0959, 9);
                 continue;
             }
-            if (func_020d857c(var140, data_020f0959)) {
+            if (StringStartsWith_020d857c(var140, data_020f0959)) {
                 if (var1 == 0) {
                     var140 += 9;
                     continue;
@@ -2681,11 +2681,11 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 func_0206c520(arg0, &var140, data_020f0963, 8);
                 continue;
             }
-            if (func_020d857c(var140, data_020f0963)) {
+            if (StringStartsWith_020d857c(var140, data_020f0963)) {
                 var140 += 8;
                 continue;
             }
-            if (func_020d857c(var140, data_020f096c)) {
+            if (StringStartsWith_020d857c(var140, data_020f096c)) {
                 GameState* var82 = GameState::GetInstance();
                 GameObject* var83 = GetPartyMemberBaseByIndex_0200ff1c(var82, GetOwnPartyLeaderObjectIndex_020100b0(var82));
                 var140 += 0xa;
@@ -2700,7 +2700,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 func_0206c520(arg0, &var140, data_020f0977, 0xc);
                 continue;
             }
-            if (func_020d857c(var140, data_020f0977)) {
+            if (StringStartsWith_020d857c(var140, data_020f0977)) {
                 if (var2 == 0) {
                     var140 += 0xc;
                     continue;
@@ -2708,11 +2708,11 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 func_0206c520(arg0, &var140, data_020f0984, 0xb);
                 continue;
             }
-            if (func_020d857c(var140, data_020f0984)) {
+            if (StringStartsWith_020d857c(var140, data_020f0984)) {
                 var140 += 0xb;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0990)) {
+            if (StringStartsWith_020d857c(var140, data_020f0990)) {
                 GameObject* var84 = GetPartyMemberBaseByIndex_0200ff1c(GameState::GetInstance(), 0);
                 var140 += 0xf;
                 if (var84 == 0) {
@@ -2726,7 +2726,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 func_0206c520(arg0, &var140, data_020f09a0, 0x11);
                 continue;
             }
-            if (func_020d857c(var140, data_020f09a0)) {
+            if (StringStartsWith_020d857c(var140, data_020f09a0)) {
                 if (var3 == 0) {
                     var140 += 0x11;
                     continue;
@@ -2734,11 +2734,11 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 func_0206c520(arg0, &var140, data_020f09b2, 0x10);
                 continue;
             }
-            if (func_020d857c(var140, data_020f09b2)) {
+            if (StringStartsWith_020d857c(var140, data_020f09b2)) {
                 var140 += 0x10;
                 continue;
             }
-            if (func_020d857c(var140, data_020f09c3)) {
+            if (StringStartsWith_020d857c(var140, data_020f09c3)) {
                 Struct_02069ecc_3* var85 = (Struct_02069ecc_3*)GetParty_02010828(GameState::GetInstance());
                 var140 += 9;
                 if (var85->unknown_f7c_ > 1) {
@@ -2749,7 +2749,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 func_0206c520(arg0, &var140, data_020f09cd, 0xb);
                 continue;
             }
-            if (func_020d857c(var140, data_020f09cd)) {
+            if (StringStartsWith_020d857c(var140, data_020f09cd)) {
                 if (var4 == 0) {
                     var140 += 0xb;
                     continue;
@@ -2757,11 +2757,11 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 func_0206c520(arg0, &var140, data_020f09d9, 0xa);
                 continue;
             }
-            if (func_020d857c(var140, data_020f09d9)) {
+            if (StringStartsWith_020d857c(var140, data_020f09d9)) {
                 var140 += 0xa;
                 continue;
             }
-            if (func_020d857c(var140, data_020f09e4)) {
+            if (StringStartsWith_020d857c(var140, data_020f09e4)) {
                 int var86 = 6;
                 float var87 = func_020055d4(var140 + var86);
                 while (var140[var86] != '>') {
@@ -2776,13 +2776,13 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg0->unknown_1710_ = var87 * 4096.0f;
                 continue;
             }
-            if (func_020d857c(var140, data_020f09eb)) {
+            if (StringStartsWith_020d857c(var140, data_020f09eb)) {
                 inline_02069ecc(arg2, 0xff0f);
                 var140 += 0xa;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f09f6)) {
+            if (StringStartsWith_020d857c(var140, data_020f09f6)) {
                 int var90 = 4;
                 int var91 = ParseDecimal_02005a94(var140 + var90);
                 while (var140[var90] != '>') {
@@ -2796,7 +2796,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f09fb)) {
+            if (StringStartsWith_020d857c(var140, data_020f09fb)) {
                 int var93 = 4;
                 int var94 = ParseDecimal_02005a94(var140 + var93);
                 while (var140[var93] != '>') {
@@ -2820,7 +2820,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a00)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a00)) {
                 int var99 = 7;
                 short var100 = ParseDecimal_02005a94(var140 + var99);
                 arg0->unknown_1776_ = func_jpn_02098210(GetQuestManager_02094d6c(), var100 & 0xff);
@@ -2835,103 +2835,103 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a08)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a08)) {
                 inline_02069ecc(arg2, 0xff11);
                 var140 += 0xb;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a14)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a14)) {
                 inline_02069ecc(arg2, 0xff13);
                 var140 += 0xe;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a23)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a23)) {
                 inline_02069ecc(arg2, 0xff12);
                 var140 += 8;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a2c)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a2c)) {
                 inline_02069ecc(arg2, 0xff2d);
                 var140 += 8;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a35)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a35)) {
                 inline_02069ecc(arg2, 0xff02);
                 var140 += 0xc;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a42)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a42)) {
                 inline_02069ecc(arg2, 0xff2e);
                 var140 += 8;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a4b)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a4b)) {
                 inline_02069ecc(arg2, 0xff2f);
                 var140 += 8;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a54)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a54)) {
                 inline_02069ecc(arg2, 0xff30);
                 var140 += 5;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a5a)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a5a)) {
                 inline_02069ecc(arg2, 0xff31);
                 var140 += 5;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a60)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a60)) {
                 inline_02069ecc(arg2, 0xff14);
                 var140 += 5;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a66)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a66)) {
                 inline_02069ecc(arg2, 0xff15);
                 var140 += 4;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a6b)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a6b)) {
                 inline_02069ecc(arg2, 0xff16);
                 var140 += 5;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a71)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a71)) {
                 inline_02069ecc(arg2, 0xff17);
                 var140 += 6;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a78)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a78)) {
                 inline_02069ecc(arg2, 0xff01);
                 var140 += 5;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a7e)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a7e)) {
                 inline_02069ecc(arg2, 0xff03);
                 var140 += 7;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a86)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a86)) {
                 inline_02069ecc(arg2, 0xff0e);
                 var140 += 7;
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a8e)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a8e)) {
                 char var118[3] = "\xea\x43";
                 unsigned short var119;
                 memcpy(&var119, var118, 2);
@@ -2940,7 +2940,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0a97)) {
+            if (StringStartsWith_020d857c(var140, data_020f0a97)) {
                 char var121[3] = "\xea\x44";
                 unsigned short var122;
                 memcpy(&var122, var121, 2);
@@ -2949,7 +2949,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0aa0)) {
+            if (StringStartsWith_020d857c(var140, data_020f0aa0)) {
                 char var124[3] = "\xea\x45";
                 unsigned short var125;
                 memcpy(&var125, var124, 2);
@@ -2958,7 +2958,7 @@ extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2)
                 arg2 += 2;
                 continue;
             }
-            if (func_020d857c(var140, data_020f0aa9)) {
+            if (StringStartsWith_020d857c(var140, data_020f0aa9)) {
                 char var127[3] = "\xea\x46";
                 unsigned short var128;
                 memcpy(&var128, var127, 2);
@@ -3054,13 +3054,13 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
     arg0->unknown_1000_.unknown_9b7_ = 0;
     while (var0)
     {
-        if (func_020d857c(arg1, data_020f0a2c))
+        if (StringStartsWith_020d857c(arg1, data_020f0a2c))
         {
             arg0->unknown_1000_.unknown_844_ = arg0->unknown_1000_.unknown_83c_;
             arg0->unknown_1000_.unknown_9b6_ = 0;
             arg1 += 8;
         }
-        else if (func_020d857c(arg1, data_020f0a54))
+        else if (StringStartsWith_020d857c(arg1, data_020f0a54))
         {
             arg0->unknown_1000_.unknown_959_ = 60;
             arg0->unknown_1000_.unknown_9b7_ = 1;
@@ -3068,7 +3068,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             arg1 += 5;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 6, 0);
         }
-        else if (func_020d857c(arg1, data_020f0a5a))
+        else if (StringStartsWith_020d857c(arg1, data_020f0a5a))
         {
             arg0->unknown_1000_.unknown_959_ = 60;
             arg0->unknown_1000_.unknown_9b7_ = 1;

@@ -11,13 +11,13 @@ struct Struct_0207d798 {
     char unknown_a_;
     char unknown_b_;
 };
-extern "C" void func_0207d7c0(struct Struct_0207d798* arg0);
+extern "C" void ResetBattleJoinRecord_0207d7c0(struct Struct_0207d798* record);
 
 // USA: func_0207ddf0
 extern "C" ARM struct Struct_0207d798* func_0207ddf0(struct Struct_0207d798* arg0) {
-    func_0207d7c0(&arg0[0]);
-    func_0207d7c0(&arg0[1]);
-    func_0207d7c0(&arg0[2]);
-    func_0207d7c0(&arg0[3]);
+    ResetBattleJoinRecord_0207d7c0(&arg0[0]);
+    ResetBattleJoinRecord_0207d7c0(&arg0[1]);
+    ResetBattleJoinRecord_0207d7c0(&arg0[2]);
+    ResetBattleJoinRecord_0207d7c0(&arg0[3]);
     return arg0;
 }

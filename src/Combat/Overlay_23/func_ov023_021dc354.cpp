@@ -6,7 +6,7 @@
 #define func_02012da4 func_02012b6c
 #endif
 
-extern "C" void func_ov023_021db2e4(volatile int* arg0);
+extern "C" void RemoveLoadTask_ov023_021db2e4(volatile int* loadTaskId);
 extern "C" int GetFontLoader_02094a00(void);
 extern "C" void CancelFontLoad_02094ab0(void* loader);
 struct Struct_02075cdc;
@@ -57,16 +57,16 @@ struct ItemInfoPanel_ov023_021dc354 {
 
 // USA: ReleaseItemInfoPanel_ov023_021dc354
 extern "C" ARM void ReleaseItemInfoPanel_ov023_021dc354(struct ItemInfoPanel_ov023_021dc354* panel) {
-    func_ov023_021db2e4((volatile int*)&panel->spriteLoadTaskId_780_);
+    RemoveLoadTask_ov023_021db2e4((volatile int*)&panel->spriteLoadTaskId_780_);
     panel->unknown_77e_ = -1;
 
     if (!(panel->flags_774_ & 0x10)) {
         CancelFontLoad_02094ab0((void*)GetFontLoader_02094a00());
     }
 
-    func_ov023_021db2e4((volatile int*)&panel->loadTaskId_734_);
+    RemoveLoadTask_ov023_021db2e4((volatile int*)&panel->loadTaskId_734_);
     for (int i = 0; i < 7; i++) {
-        func_ov023_021db2e4((volatile int*)&panel->loadTaskIds_738_[i]);
+        RemoveLoadTask_ov023_021db2e4((volatile int*)&panel->loadTaskIds_738_[i]);
     }
 
     if (panel->unknown_c8_) {

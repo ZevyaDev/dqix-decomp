@@ -139,7 +139,7 @@ static inline short* inline_ov002_02157d40(char* arg0) {
 }
 extern "C" void SendPartyMemberEquippedItems_ov017_021c3fb4(signed char memberIndex, int requestModelLoad);
 extern "C" void SendPartyMemberBodyAppearance_ov017_021c4418(signed char memberIndex, int recipientIndex);
-extern "C" void func_ov017_021c9e00(signed char arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(signed char memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 
 extern int gSoundEffectManager_02108760;
 extern unsigned char data_ov002_0216c992;
@@ -466,7 +466,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                     }
                     SpendMP_02048350((struct Struct_ov002_02157d40_8*)var7, var17->unknown_8_0_);
                     if (IsLocalWirelessOn_0202b7d8(var8) != 0) {
-                        func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
+                        QueuePartyMemberStatusPacket_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
                     }
                 } else {
                     struct Struct_ov002_02157d40* var31 = (Struct_ov002_02157d40*)((GameState*)var2)->GetUnknownGameObject();
@@ -726,7 +726,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 }
                 SpendMP_02048350((struct Struct_ov002_02157d40_8*)var7, var56->unknown_8_0_);
                 if (IsLocalWirelessOn_0202b7d8(var8) != 0) {
-                    func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
+                    QueuePartyMemberStatusPacket_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
                 }
             } else {
                 arg0->unknown_248a_ = 1;
@@ -840,7 +840,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
                 int* var69 = (int*)func_0202ae18();
                 ClearStatusFlags_02048418((unsigned char*)var68, 4);
                 if (IsLocalWirelessOn_0202b7d8(var69) != 0) {
-                    func_ov017_021c9e00(arg0->unknown_1c21_, 0, 0, 1);
+                    QueuePartyMemberStatusPacket_ov017_021c9e00(arg0->unknown_1c21_, 0, 0, 1);
                 }
                 unsigned char* var70 = (unsigned char*)GetParty_02010828((GameState*)var2);
                 var0.unknown_1c_ = *(struct Struct_ov002_02157d40_20*)&data_ov002_0216c992;
@@ -914,7 +914,7 @@ extern "C" ARM void func_ov002_02157d40(struct Struct_ov002_02157634_2* arg0) {
     if (var9 != 0) {
         SpendMP_02048350((struct Struct_ov002_02157d40_8*)var7, var6->unknown_8_0_);
         if (IsLocalWirelessOn_0202b7d8(var8) != 0) {
-            func_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
+            QueuePartyMemberStatusPacket_ov017_021c9e00(arg0->unknown_1c20_, 0, 0, 1);
         }
     }
 }

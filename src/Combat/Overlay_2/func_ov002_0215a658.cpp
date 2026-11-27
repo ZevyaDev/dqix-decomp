@@ -22,7 +22,7 @@ extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, 
 extern "C" int func_02053c6c(unsigned char* gameObject);
 extern "C" int GetHeldItemCount_02083994(struct PartyMemberData_02083994* memberData, int itemId);
 extern "C" int AddItemToBag_020a095c(struct ItemBag_0207cf30_4* bag, int itemId, int count);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void func_ov002_0215b2c8(char* arg0);
 
 // USA: func_ov002_0215a658
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov002_0215a658(char* arg0, int arg1) {
                             if (*(short*)(var1 + var0) == 0x570a) {
                                 if (GetHeldItemCount_02083994((struct PartyMemberData_02083994*)var7, 0x570a) == 1) {
                                     *(char*)(*(char**)((char*)var6 + 0x130) + 8) = 0;
-                                    func_ov017_021c9e00(var6->obj3D_.unknown_4_, 0, 0, 1);
+                                    QueuePartyMemberStatusPacket_ov017_021c9e00(var6->obj3D_.unknown_4_, 0, 0, 1);
                                 }
                             }
                             AddItemToBag_020a095c((struct ItemBag_0207cf30_4*)var3, *(short*)(var1 + var0), 1);
@@ -92,7 +92,7 @@ extern "C" ARM void func_ov002_0215a658(char* arg0, int arg1) {
                             if (*(short*)(var13 + var12) == 0x570a) {
                                 if (GetHeldItemCount_02083994((struct PartyMemberData_02083994*)var19, 0x570a) == 1) {
                                     *(char*)(*(char**)((char*)var18 + 0x130) + 8) = 0;
-                                    func_ov017_021c9e00(var18->obj3D_.unknown_4_, 0, 0, 1);
+                                    QueuePartyMemberStatusPacket_ov017_021c9e00(var18->obj3D_.unknown_4_, 0, 0, 1);
                                 }
                             }
                             AddItemToBag_020a095c((struct ItemBag_0207cf30_4*)var15, *(short*)(var13 + var12), 1);

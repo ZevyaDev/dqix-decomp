@@ -30,7 +30,7 @@ extern "C" void func_ov017_021ccdac(int arg0);
 extern "C" void func_ov017_021ccfd0(int arg0);
 extern "C" void func_ov017_021cff8c(int arg0, int arg1);
 extern "C" void func_ov017_021d0e00(int arg0);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void func_ov017_021d25f4(int arg0);
 extern "C" void* func_ov017_021b8468(void* battleManager);
 extern "C" void SendPartyMemberPanelStats_ov000_0217616c(void* panel);
@@ -70,7 +70,7 @@ extern "C" ARM void func_ov017_021b0fe0(int arg0) {
 	func_ov017_021ce32c(arg0);
 	SendObjectPosition_ov017_021cee78(arg0, 0);
 	func_ov017_021d0e00(arg0);
-	func_ov017_021c9e00(arg0, 1, 0, 1);
+	QueuePartyMemberStatusPacket_ov017_021c9e00(arg0, 1, 0, 1);
 	func_ov017_021d25f4(arg0 & 0xff);
 
 	if (!IsInParty_02086ef0((Party_02048150*)GetParty_02010828(GameState::GetInstance()), arg0)) {

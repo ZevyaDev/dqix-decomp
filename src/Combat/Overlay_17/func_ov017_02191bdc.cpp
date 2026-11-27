@@ -11,7 +11,7 @@ enum { Enum_ov017_02191bdc_14092 = 0x370c, Enum_ov017_02191bdc_156 = 0x9c, Enum_
 extern "C" void* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" GameObject* GetPartyMemberBaseByIndex_0200ff1c(GameState* gameState, int index);
 
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 
 // USA: func_ov017_02191bdc
 extern "C" ARM void func_ov017_02191bdc(unsigned char* arg0, int arg1) {
@@ -32,7 +32,7 @@ extern "C" ARM void func_ov017_02191bdc(unsigned char* arg0, int arg1) {
 		GameObject* var6 = GetPartyMemberBaseByIndex_0200ff1c(var0, var5);
 		if (var6 != NULL) {
 			func_02053fe4(var6, *(short*)(var4 + 2), 1);
-			func_ov017_021c9e00(var5, 1, 0, 1);
+			QueuePartyMemberStatusPacket_ov017_021c9e00(var5, 1, 0, 1);
 		}
 		var4[0] = 0;
 		*(short*)(var4 + 2) = 0;

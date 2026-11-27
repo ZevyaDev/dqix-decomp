@@ -204,7 +204,7 @@ extern "C" void RevivePartyMember_02048150(GameObject* gameObject, int hp, int i
 extern "C" int SetMotion_02033b88(Struct_02010604* object, int motion);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" void func_ov017_021cedf4(int arg0, int arg1, int arg2);
-extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
+extern "C" void QueuePartyMemberStatusPacket_ov017_021c9e00(int memberIndex, int updateDeathState, int recalculateStats, int redrawPanels);
 extern "C" void RebuildFieldPartyOrder_ov017_02191108(void* gameResources, int resumeFollowing, int updatePlayerControl, int clearFollowTrails, int recomputeCameraOffset);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_02015438(void* arg0);
@@ -226,7 +226,7 @@ extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int 
 extern "C" int abs(int arg0);
 extern "C" void* GetColorFade_020704fc(void);
 extern "C" void func_02070900(Struct_02070900_2* arg0, Struct_02070900* arg1, unsigned int arg2);
-extern "C" void func_020707c8(Struct_020707c8* arg0);
+extern "C" void UpdateColorFade_020707c8(Struct_020707c8* colorFade);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2);
 #else
@@ -372,7 +372,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
                 }
                 unsigned char var26 = GetProtagonistObjectIndex_020100a8(var0);
                 func_ov017_021cedf4(var26, 1, 0);
-                func_ov017_021c9e00(var26, 0, 0, 1);
+                QueuePartyMemberStatusPacket_ov017_021c9e00(var26, 0, 0, 1);
             }
         }
         RebuildFieldPartyOrder_ov017_02191108(var1, 1, 1, 1, 1);
@@ -454,7 +454,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
                 __clear(&var39, sizeof(var39));
                 SetMainBrightness((GameResources*)var1, 0, 1);
                 func_02070900((Struct_02070900_2*)var38, (Struct_02070900*)&var39, 0);
-                func_020707c8((Struct_020707c8*)var38);
+                UpdateColorFade_020707c8((Struct_020707c8*)var38);
 #if defined(jpn)
                 StartMessage_0204500c(var3, var34, 0);
 #else
