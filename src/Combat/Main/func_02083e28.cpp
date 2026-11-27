@@ -129,7 +129,7 @@ extern "C" int func_02085cd0(unsigned char*, int);
 extern "C" int func_02085f1c(unsigned char*, int);
 extern "C" int func_02085b88(unsigned char*);
 struct Struct_02083e28_6;
-extern "C" void func_020863e0(Struct_02083e28_6*);
+extern "C" void ClampHPAndMPToMax_020863e0(Struct_02083e28_6*);
 extern "C" void func_020836e4(struct ItemData_0208358c_2*, struct ItemData_0208358c_2*);
 
 static inline void inline_02083e28(unsigned char* arg0, struct Struct_02083e28 arg1) {
@@ -295,7 +295,7 @@ extern "C" ARM void CalculatePartyMemberStats_02083e28(struct PartyMemberData_02
         inline_02083e28_3(memberData, var29);
         memberData->maxHP_6c_ = var30;
         memberData->maxMP_6e_ = var34;
-        func_020863e0((Struct_02083e28_6*)memberData);
+        ClampHPAndMPToMax_020863e0((Struct_02083e28_6*)memberData);
 
         short var35[0x16] = {0};
         for (int i = 0; i < 0x16; i++) {

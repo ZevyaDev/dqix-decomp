@@ -9,8 +9,8 @@ struct Struct_02083e28_6 {
     unsigned short unknown_6e_;
 };
 
-// USA: func_020863e0
-extern "C" ARM void func_020863e0(struct Struct_02083e28_6* arg0) {
-    if (arg0->unknown_6c_ < arg0->unknown_1c_) arg0->unknown_1c_ = arg0->unknown_6c_;
-    if (arg0->unknown_6e_ < arg0->unknown_1e_) arg0->unknown_1e_ = arg0->unknown_6e_;
+// USA: ClampHPAndMPToMax_020863e0
+extern "C" ARM void ClampHPAndMPToMax_020863e0(struct Struct_02083e28_6* memberData) {
+    if (memberData->unknown_6c_ < memberData->unknown_1c_) memberData->unknown_1c_ = memberData->unknown_6c_;
+    if (memberData->unknown_6e_ < memberData->unknown_1e_) memberData->unknown_1e_ = memberData->unknown_6e_;
 }
