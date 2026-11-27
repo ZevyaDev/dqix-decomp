@@ -120,7 +120,7 @@ extern "C" Struct_ov000_0215d63c* GetBattleCommand_02053dc0(Struct_02053dc0*);
 extern "C" void func_020dc548(signed char arg0, signed char* arg1, signed char* arg2);
 extern "C" void InitBattleAction_ov000_02160030(void* action);
 struct Struct_ov000_02157d14;
-extern "C" void func_ov000_02157d14(Struct_ov000_02157d14*);
+extern "C" void InitActionActor_ov000_02157d14(Struct_ov000_02157d14*);
 extern "C" void InitActionTarget_ov000_02157cdc(void* target);
 extern "C" int IsCombatantIncapacitated_ov000_02155f9c(void* battle, int combatantIndex, int isConfusionCounted);
 extern "C" void func_ov024_021f73b8(Struct_ov000_0215767c_3* arg0);
@@ -295,7 +295,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
         InitBattleAction_ov000_02160030(var27);
         var27->unknown_8_ = 1;
         var27->unknown_10_ = &arg0->unknown_8e70_[arg0->unknown_8e80_];
-        func_ov000_02157d14((Struct_ov000_02157d14*)var27->unknown_10_);
+        InitActionActor_ov000_02157d14((Struct_ov000_02157d14*)var27->unknown_10_);
         var27->unknown_10_->unknown_20_ = var3.unknown_0_[var26];
 
         Struct_ov000_02182b04 var28 = data_ov000_02182ba4;
@@ -400,7 +400,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
             InitBattleAction_ov000_02160030(var50);
             var50->unknown_8_ = 1;
             var50->unknown_10_ = &arg0->unknown_8e70_[arg0->unknown_8e80_];
-            func_ov000_02157d14((Struct_ov000_02157d14*)var50->unknown_10_);
+            InitActionActor_ov000_02157d14((Struct_ov000_02157d14*)var50->unknown_10_);
             var50->unknown_10_->unknown_20_ = var3.unknown_0_[var26];
 
             Struct_ov000_02182b04 var51 = data_ov000_02182b04;

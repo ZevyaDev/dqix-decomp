@@ -128,7 +128,7 @@ extern "C" unsigned char GetGameMode_0200fb9c(char*);
 extern "C" void SetGameMode_0200fb94(char*, unsigned char);
 extern "C" void func_0205facc(void* arg0);
 extern "C" void func_02095518(char*);
-extern "C" void func_020ac0dc();
+extern "C" void ClearAlchemyRecipeEntries_020ac0dc();
 extern "C" void func_02096524(void* arg0);
 extern "C" void* GetColorFade_020704fc();
 struct Struct_02108d5c;
@@ -524,7 +524,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         if (GetTitleState_0201201c(var5) == 5 || GetGameMode_0200fb9c((char*)var5) == 4) {
             func_0205facc(var18);
             func_02095518((char*)var19);
-            func_020ac0dc();
+            ClearAlchemyRecipeEntries_020ac0dc();
         }
         func_02096524(var19);
     }
