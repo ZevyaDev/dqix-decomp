@@ -19,7 +19,7 @@ extern "C" void func_ov017_021c37a4(void);
 struct Struct_0202e6a8;
 extern "C" void func_0202e784(struct Struct_0202e6a8* arg0, int arg1);
 struct Struct_0202e6c0;
-extern "C" void func_0202e6c0(struct Struct_0202e6c0* arg0, int arg1);
+extern "C" void SetCameraHeight_0202e6c0(struct Struct_0202e6c0* camera, int height);
 struct Camera_0202e71c;
 extern "C" void SetCameraDistance_0202e71c(struct Camera_0202e71c* camera, int distance);
 struct MenuLayout_0207fe44;
@@ -102,7 +102,7 @@ extern "C" ARM void func_ov003_0216552c(Struct_ov003_0216552c_2* arg0) {
                     *(Vector3i*)var9->unknown_4_ = *(Vector3i const*)var7;
                     *(Vector3i*)var9->unknown_10_ = *(Vector3i const*)var8;
                     func_0202e784((struct Struct_0202e6a8*)var9, var6);
-                    func_0202e6c0((struct Struct_0202e6c0*)var9, var5);
+                    SetCameraHeight_0202e6c0((struct Struct_0202e6c0*)var9, var5);
                     SetCameraDistance_0202e71c((struct Camera_0202e71c*)var9, var4);
                     var9->unknown_220_ = var6;
                 }

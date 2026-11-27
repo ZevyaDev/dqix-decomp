@@ -12,7 +12,7 @@ extern "C" unsigned int func_ov023_021f6f08(struct Struct_ov004_02153978* arg0);
 
 struct Struct_ov023_021f88b8 { char unknown_0_[0x45]; unsigned char unknown_45_0_ : 1; };
 
-extern "C" int func_ov023_021f6f18(void* arg0);
+extern "C" int GetNextMenuObject_ov023_021f6f18(void* object);
 
 extern "C" void RedrawMenuWindow_ov023_021f809c(void* window, void* menu);
 
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov023_021f88b8(void* arg0, void* arg1, int arg2) {
                 ((struct Struct_ov023_021f88b8*)var1)->unknown_45_0_ = 0;
             }
         }
-        var1 = (void*)func_ov023_021f6f18(var1);
+        var1 = (void*)GetNextMenuObject_ov023_021f6f18(var1);
     }
     RedrawMenuWindow_ov023_021f809c(arg0, arg1);
 }

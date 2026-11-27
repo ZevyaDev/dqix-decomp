@@ -38,7 +38,7 @@ int fix32ReduceAngle0To2Pi(int a);
 extern "C" void Vector3fix_Add(const struct Struct_ov009_0218aa28* arg0, const struct Struct_ov009_0218aa28* arg1, struct Struct_ov009_0218aa28* arg2);
 struct Vector3i;
 void Vector3fixMultiplyScalar(Vector3i const*, int, Vector3i*);
-extern "C" void func_0202ec5c(char*, int*);
+extern "C" void SetCameraOrbitTarget_0202ec5c(char*, int*);
 extern "C" void SetCameraOrbitFromArray_0202e694(void* camera, int* orbit);
 
 static inline int inline_02061c04_5(int arg0, int arg1) {
@@ -74,7 +74,7 @@ extern "C" ARM int func_020a299c(struct Struct_020a299c* arg0, const struct Stru
         Vector3fixMultiplyScalar((Vector3i const*)arg1, (int)(0x1000u - (unsigned int)var3), (Vector3i*)&var4);
         Vector3fixMultiplyScalar((Vector3i const*)&var6, var3, (Vector3i*)&var5);
         Vector3fix_Add(&var4, &var5, &var7);
-        func_0202ec5c((char*)arg0, (int*)&var7);
+        SetCameraOrbitTarget_0202ec5c((char*)arg0, (int*)&var7);
         SetCameraOrbitFromArray_0202e694(arg0, (int*)&var1);
         return 1;
     }

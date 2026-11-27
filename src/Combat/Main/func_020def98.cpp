@@ -37,8 +37,8 @@ struct ItemData_02083508_2;
 
 typedef int (*Type_020de5fc)(ItemData_0201099c_9*);
 
-extern "C" int func_020de56c(void*);
-extern "C" ItemData_0201099c_9* func_020de650(Struct_020de5b0_2* arg0, int arg1, Type_020de5fc arg2);
+extern "C" int GetItemDataId_020de56c(void*);
+extern "C" ItemData_0201099c_9* BinarySearchItemTable_020de650(Struct_020de5b0_2* itemTable, int key, Type_020de5fc getKey);
 extern "C" int func_020df618(SafeAllocator*, void*, Struct_020def98*, void**, int, Struct_020def98*);
 extern "C" int func_020df6cc(void*, Struct_020def98_2*, int, Struct_020def98_2*);
 extern "C" void func_020836e4(ItemData_0208358c_2* arg0, ItemData_0208358c_2* arg1);
@@ -64,7 +64,7 @@ extern "C" ARM int func_020def98(SafeAllocator* arg0, Struct_020de5b0_2* arg1,
         for (int var5 = 0; var5 < var1; var5++, var4++) {
             int var6 = *var4;
             if (var6 < 0) continue;
-            ItemData_0201099c_9* var7 = func_020de650(arg2, var6, (Type_020de5fc)func_020de56c);
+            ItemData_0201099c_9* var7 = BinarySearchItemTable_020de650(arg2, var6, (Type_020de5fc)GetItemDataId_020de56c);
             if (!var7) continue;
             int var8 = 0;
             short* var9 = arg3;
@@ -93,7 +93,7 @@ extern "C" ARM int func_020def98(SafeAllocator* arg0, Struct_020de5b0_2* arg1,
     for (var12 = 0; var12 < var13; var12++, var15++) {
         short var16 = *var15;
         ItemData_0201099c_9* var17 = NULL;
-        if (var16 >= 0) var17 = func_020de650(arg2, var16, (Type_020de5fc)func_020de56c);
+        if (var16 >= 0) var17 = BinarySearchItemTable_020de650(arg2, var16, (Type_020de5fc)GetItemDataId_020de56c);
         if (!var17) {
             if (!arg0) { var0++; var11++; }
             continue;

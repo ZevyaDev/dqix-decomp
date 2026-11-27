@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-// USA: func_020e25cc
-extern "C" ARM void func_020e25cc(signed char* arg0) {
-    arg0[0x14] = arg0[0x16];
-    arg0[0x15] = -1;
-    arg0[0x17] = 0;
+// USA: ResetYesNoWindowCursor_020e25cc
+extern "C" ARM void ResetYesNoWindowCursor_020e25cc(signed char* yesNoWindow) {
+    yesNoWindow[0x14] = yesNoWindow[0x16];
+    yesNoWindow[0x15] = -1;
+    yesNoWindow[0x17] = 0;
 }

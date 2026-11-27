@@ -2,7 +2,7 @@
 #include "Memory/SafeAllocator.h"
 #include "Graphics/OBJSpriteSet.h"
 
-extern "C" void func_020e25cc(signed char* arg0);
+extern "C" void ResetYesNoWindowCursor_020e25cc(signed char* yesNoWindow);
 struct Struct_020200c0_3;
 extern "C" void func_02020520(struct Struct_020200c0_3* arg0);
 struct Struct_020e1568;
@@ -36,7 +36,7 @@ extern "C" ARM void InitYesNoWindow_020e2490(struct YesNoWindow_020e2490* yesNoW
     yesNoWindow->cursorX_18_ = 0;
     yesNoWindow->cursorY_1a_ = 0;
     yesNoWindow->defaultCursorIndex_16_ = 0;
-    func_020e25cc((signed char*)yesNoWindow);
+    ResetYesNoWindowCursor_020e25cc((signed char*)yesNoWindow);
 
     yesNoWindow->unknown_0_ = allocator->Allocate(maxSpriteCount * 0xc);
     yesNoWindow->unknown_4_ = allocator->Allocate(0xc);

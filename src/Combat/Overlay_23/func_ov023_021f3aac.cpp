@@ -115,7 +115,7 @@ extern const char data_ov023_021fe2b7[];
 
 extern "C" char* GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
-extern "C" void func_ov023_021d8b6c(void* arg0);
+extern "C" void CloseAndRedrawTextWindows_ov023_021d8b6c(void* panel);
 extern "C" void ResetSelectionScript_0209fe9c(char* script);
 extern "C" void LoadSelectionScript_0209fee4(SelectionScript_0209fee4* script, SafeAllocator* allocator, int scriptData, int scriptSize);
 extern "C" void QueueSelectionScriptEntry_0209ff64(SelectionScript_0209ff64* script, int entryId);
@@ -152,7 +152,7 @@ extern "C" ARM int func_ov023_021f3aac(Struct_ov023_021f3aac_4* arg0)
         if (arg0->unknown_5588_ != NULL)
         {
             func_ov023_021f1818(arg0->unknown_3760_, 1);
-            func_ov023_021d8b6c(arg0->unknown_5588_);
+            CloseAndRedrawTextWindows_ov023_021d8b6c(arg0->unknown_5588_);
             func_ov023_021d8af8(arg0->unknown_5588_);
             arg0->unknown_5588_ = NULL;
         }

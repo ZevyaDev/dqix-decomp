@@ -17,7 +17,7 @@ extern "C" int IsLocalWirelessHostDisconnected_ov017_021959b4(void);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void* battleScene, int flags);
 
 extern "C" void func_ov023_021f52c8(void* arg0);
-extern "C" void func_ov023_021d8b6c(void* arg0);
+extern "C" void CloseAndRedrawTextWindows_ov023_021d8b6c(void* panel);
 extern "C" void func_ov023_021d8af8(void* arg0);
 extern "C" void func_ov023_021d8bb4(void* arg0);
 
@@ -100,7 +100,7 @@ extern "C" ARM void func_ov023_021ed9f8(char* arg0) {
     if (var13) {
         func_ov023_021f52c8((char*)_ZZ21inline_ov023_021f4c04vE1s.unknown_0_ + 0xf4);
         if (*(void**)(arg0 + Enum_ov023_021ed9f8_21896) != NULL) {
-            func_ov023_021d8b6c(*(void**)(arg0 + Enum_ov023_021ed9f8_21896));
+            CloseAndRedrawTextWindows_ov023_021d8b6c(*(void**)(arg0 + Enum_ov023_021ed9f8_21896));
             func_ov023_021d8af8(*(void**)(arg0 + Enum_ov023_021ed9f8_21896));
             *(void**)(arg0 + Enum_ov023_021ed9f8_21896) = NULL;
         }

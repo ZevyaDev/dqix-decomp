@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 #include "Graphics/BGLayer.h"
 
-extern "C" int func_ov023_021f6f18(void* arg0);
+extern "C" int GetNextMenuObject_ov023_021f6f18(void* object);
 extern "C" unsigned int func_ov023_021f6f10(void* arg0);
 
 struct BGLayer_02020cb8_3;
@@ -20,7 +20,7 @@ extern "C" ARM void func_ov023_021f7984(void* arg0, void** arg1) {
 #endif
     void* var0 = *arg1;
     while (var0 != 0) {
-        void* var1 = (void*)func_ov023_021f6f18(var0);
+        void* var1 = (void*)GetNextMenuObject_ov023_021f6f18(var0);
         unsigned int var2 = func_ov023_021f6f10(var0);
         if (var2 == 6) {
             Struct_ov023_021f7984* var3 = (Struct_ov023_021f7984*)((char*)var0 + 0x20);

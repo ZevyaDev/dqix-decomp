@@ -24,7 +24,7 @@
 extern "C" void func_ov000_021742c8(void* arg0);
 extern "C" void func_ov013_021870c0(void* arg0);
 struct Struct_ov000_02160ad0;
-extern "C" void func_ov023_021d8c94(struct Struct_ov000_02160ad0* arg0);
+extern "C" void CopyTextWindowsToVRAM_ov023_021d8c94(struct Struct_ov000_02160ad0* panel);
 extern "C" void CopyAccoladeDisplayToVRAM_ov023_021eb4f4(char* display);
 extern "C" void func_ov013_02184aec(void* arg0);
 
@@ -41,7 +41,7 @@ extern "C" ARM void func_ov000_02160ad0(char* arg0) {
         return;
     }
     if (*(struct Struct_ov000_02160ad0**)(arg0 + 0x5000 + REGION_OFFSET_4) != 0) {
-        func_ov023_021d8c94(*(struct Struct_ov000_02160ad0**)(arg0 + 0x5000 + REGION_OFFSET_4));
+        CopyTextWindowsToVRAM_ov023_021d8c94(*(struct Struct_ov000_02160ad0**)(arg0 + 0x5000 + REGION_OFFSET_4));
         return;
     }
     if (*(int*)(arg0 + 0x5000 + REGION_OFFSET_5) & 0x40000) return;

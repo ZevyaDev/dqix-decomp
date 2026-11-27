@@ -51,7 +51,7 @@ struct Struct_ov000_02160c84 {
 extern "C" void DrawAccoladeDisplay_ov023_021eb4b8(void* display);
 extern "C" void func_ov000_02175480(void* arg0);
 extern "C" void func_ov013_02184a58(void* arg0);
-extern "C" void func_ov023_021d8c60(struct Struct_ov023_021d8c60* arg0);
+extern "C" void RedrawTextWindows_ov023_021d8c60(struct Struct_ov023_021d8c60* panel);
 extern "C" struct Struct_0203a588_2* GetBattleNumberPopups_02039e70(void);
 extern "C" int func_020a1fa8(void);
 extern "C" struct MessageWindow_020444e0* GetMessageWindow_020421a0();
@@ -78,7 +78,7 @@ extern "C" ARM void func_ov000_02160c84(struct Struct_ov000_02160c84* arg0) {
 #endif
         } else if (arg0->unknown_5588_) {
             func_ov000_02175480(arg0->unknown_3760_);
-            func_ov023_021d8c60(arg0->unknown_5588_);
+            RedrawTextWindows_ov023_021d8c60(arg0->unknown_5588_);
         } else if (!(arg0->unknown_55f4_ & 0x40000)) {
             func_ov000_02173954(arg0->unknown_3760_);
         }

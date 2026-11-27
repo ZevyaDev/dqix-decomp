@@ -3,16 +3,16 @@
 struct ScriptValue_ov011_02184c30;
 extern "C" int func_ov011_02184c30(ScriptValue_ov011_02184c30*);
 
-// USA: func_ov011_02185720
-extern "C" ARM int func_ov011_02185720(ScriptValue_ov011_02184c30* arg0) {
-    int var0 = func_ov011_02184c30(arg0);
-    int var1 = func_ov011_02184c30((ScriptValue_ov011_02184c30*)((char*)arg0 + 8));
-    if (var0 == 0) {
-        unsigned int* var2 = (unsigned int*)0x4000000;
-        *var2 = (*var2 & ~0x1f00) | (var1 << 8);
-    } else if (var0 == 1) {
-        unsigned int* var3 = (unsigned int*)0x4001000;
-        *var3 = (*var3 & ~0x1f00) | (var1 << 8);
+// USA: SetScreenLayers_ov011_02185720
+extern "C" ARM int SetScreenLayers_ov011_02185720(ScriptValue_ov011_02184c30* params) {
+    int screen = func_ov011_02184c30(params);
+    int layers = func_ov011_02184c30((ScriptValue_ov011_02184c30*)((char*)params + 8));
+    if (screen == 0) {
+        unsigned int* mainDisplayControl = (unsigned int*)0x4000000;
+        *mainDisplayControl = (*mainDisplayControl & ~0x1f00) | (layers << 8);
+    } else if (screen == 1) {
+        unsigned int* subDisplayControl = (unsigned int*)0x4001000;
+        *subDisplayControl = (*subDisplayControl & ~0x1f00) | (layers << 8);
     }
     return 1;
 }

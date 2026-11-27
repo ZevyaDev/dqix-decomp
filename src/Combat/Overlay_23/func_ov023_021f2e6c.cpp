@@ -46,7 +46,7 @@ struct Struct_ov023_021f2e6c_9 { int unknown_0_[0x15]; };
 
 extern "C" Struct_ov023_021f2e6c_4* GetQuestManager_02094d6c(void);
 extern "C" unsigned char* GetMessageWindow_020421a0(void);
-extern "C" void func_ov023_021d8b6c(void* arg0);
+extern "C" void CloseAndRedrawTextWindows_ov023_021d8b6c(void* panel);
 extern "C" void func_ov023_021d8af8(void* arg0);
 extern "C" void func_ov000_0215fa84(void* arg0, short* arg1, short* arg2, short* arg3);
 struct QuestManager_0205faf4_7;
@@ -109,7 +109,7 @@ extern "C" void ResetBattleCamera_ov000_0216d370(void* camera, int resetRoll, in
 extern "C" void SetBattleCameraAnchor_ov000_0216d530(void* camera, int objectIndex);
 extern "C" void SetCameraTarget_0202e5c8(unsigned char*, int, int, int);
 extern "C" void SetCameraOrbit_0202e5d8(void* camera, int angle, int height, int distance);
-extern "C" void func_ov000_02163b90(void* arg0, int arg1);
+extern "C" void SetBattlingPartyMembersVisible_ov000_02163b90(void* arg0, int isVisible);
 extern "C" void SetCombatantOffBattlefield_02049f3c(unsigned char* combatant);
 extern "C" Struct_ov023_021f2e6c_9* func_0202ed64(void* arg0);
 extern "C" void func_ov000_0216d2d0(void* arg0);
@@ -154,7 +154,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
     int var5 = var1[0];
     if (var5 == 0) {
         if (*(void**)(arg0 + Enum_ov023_021f2e6c_21896) != 0) {
-            func_ov023_021d8b6c(*(void**)(arg0 + Enum_ov023_021f2e6c_21896));
+            CloseAndRedrawTextWindows_ov023_021d8b6c(*(void**)(arg0 + Enum_ov023_021f2e6c_21896));
             func_ov023_021d8af8(*(void**)(arg0 + Enum_ov023_021f2e6c_21896));
             *(void**)(arg0 + Enum_ov023_021f2e6c_21896) = 0;
         }
@@ -455,7 +455,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
                                 var65 = 0;
                             }
                             SetCameraOrbit_0202e5d8(var61, 0, var65, var64 + 0x4000);
-                            func_ov000_02163b90(arg0, 0);
+                            SetBattlingPartyMembersVisible_ov000_02163b90(arg0, 0);
                             *(short*)(arg0 + Enum_ov023_021f2e6c_21946) = var54;
                         }
                     }
