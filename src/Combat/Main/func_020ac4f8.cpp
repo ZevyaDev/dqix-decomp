@@ -6,7 +6,7 @@ extern "C" void AddPlayTimeHours_020ac614(struct PlayTime_020ac4f8* playTime, in
 
 extern "C" void AddPlayTimeMinutes_020ac644(struct PlayTime_020ac4f8* playTime, int minutes);
 
-extern "C" void func_020ac6b8(PlayTime_020ac4f8* arg0, int arg1);
+extern "C" void AddPlayTimeSeconds_020ac6b8(PlayTime_020ac4f8* playTime, int seconds);
 
 struct GameState_020103f0;
 extern "C" void GetElapsedPlayTime_020103f0(struct GameState_020103f0* gameState, unsigned short* hours, unsigned char* minutes, unsigned char* seconds);
@@ -40,11 +40,11 @@ extern "C" ARM int AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded) {
 
     AddPlayTimeHours_020ac614(&records.playTimes_0_.playTime_0_, hours);
     AddPlayTimeMinutes_020ac644(&records.playTimes_0_.playTime_0_, minutes);
-    func_020ac6b8(&records.playTimes_0_.playTime_0_, seconds);
+    AddPlayTimeSeconds_020ac6b8(&records.playTimes_0_.playTime_0_, seconds);
 
     AddPlayTimeHours_020ac614(&var6->playTime_0_, hours);
     AddPlayTimeMinutes_020ac644(&var6->playTime_0_, minutes);
-    func_020ac6b8(&var6->playTime_0_, seconds);
+    AddPlayTimeSeconds_020ac6b8(&var6->playTime_0_, seconds);
 
     timestamp = GetCurrentTimestamp();
     gameState->mainTimestamp_ = timestamp;
@@ -56,11 +56,11 @@ extern "C" ARM int AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded) {
 
         AddPlayTimeHours_020ac614(multiplayerTime, hours);
         AddPlayTimeMinutes_020ac644(multiplayerTime, minutes);
-        func_020ac6b8(multiplayerTime, seconds);
+        AddPlayTimeSeconds_020ac6b8(multiplayerTime, seconds);
 
         AddPlayTimeHours_020ac614(&var6->multiplayerTime_4_, hours);
         AddPlayTimeMinutes_020ac644(&var6->multiplayerTime_4_, minutes);
-        func_020ac6b8(&var6->multiplayerTime_4_, seconds);
+        AddPlayTimeSeconds_020ac6b8(&var6->multiplayerTime_4_, seconds);
 
         timestamp = GetCurrentTimestamp();
         gameState->altTimestamp_ = timestamp;

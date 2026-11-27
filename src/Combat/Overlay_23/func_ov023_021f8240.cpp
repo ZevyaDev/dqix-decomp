@@ -195,7 +195,7 @@ extern "C" unsigned short func_ov023_021fc4fc(Struct_ov023_021f8240_4* arg0);
 extern "C" unsigned short func_ov023_021fc504(Struct_ov023_021f8240_7* arg0);
 extern "C" void FillTextWindowRect_0204f914(Struct_ov023_021f8240_5* textWindow, unsigned char colorIndex, short left, short top, short right,
                               short bottom);
-extern "C" Struct_ov023_021f8240* func_ov023_021f6f18(void* arg0);
+extern "C" Struct_ov023_021f8240* GetNextMenuObject_ov023_021f6f18(void* object);
 
 #if defined(jpn)
 extern "C" int func_020d2ff0(const char*);
@@ -210,7 +210,7 @@ extern "C" ARM void func_ov023_021f8240(Struct_ov023_021f8240_6* arg0, void* arg
 #endif
     Struct_ov023_021f68b8* var1 = GetMenuObjectList_ov011_021849c8(arg1);
     for (Struct_ov023_021f8240* var2 = func_ov023_021f68b8(var1, 0); var2 != NULL;
-         var2 = func_ov023_021f6f18(var2))
+         var2 = GetNextMenuObject_ov023_021f6f18(var2))
     {
         int var3 = 0;
         if (!(var2->unknown_c_ & 8))

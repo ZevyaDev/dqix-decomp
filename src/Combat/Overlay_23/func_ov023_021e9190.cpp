@@ -4,19 +4,19 @@ extern "C" int GetEarnedAccoladeBits_020ac460(void* earnedBits);
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void SetScriptRefInt_ov017_021d6134(void*, int);
 
-// USA: func_ov023_021e9190
-extern "C" ARM int func_ov023_021e9190(void* arg0) {
-    unsigned int var0[15];
-    GetEarnedAccoladeBits_020ac460(var0);
-    int var1 = 0;
-    int var2 = GetScriptValueAsInt_ov017_021d60f4(arg0);
-    int var3 = var2 / 32;
-    int var4 = var2 % 32;
-    if (var0[var3] & (1 << var4)) var1 = 1;
-    if (var1) {
-        SetScriptRefInt_ov017_021d6134((char*)arg0 + 8, 1);
+// USA: SetScriptRefToAccoladeEarned_ov023_021e9190
+extern "C" ARM int SetScriptRefToAccoladeEarned_ov023_021e9190(void* params) {
+    unsigned int earnedBits[15];
+    GetEarnedAccoladeBits_020ac460(earnedBits);
+    int isEarned = 0;
+    int accoladeIndex = GetScriptValueAsInt_ov017_021d60f4(params);
+    int wordIndex = accoladeIndex / 32;
+    int bitIndex = accoladeIndex % 32;
+    if (earnedBits[wordIndex] & (1 << bitIndex)) isEarned = 1;
+    if (isEarned) {
+        SetScriptRefInt_ov017_021d6134((char*)params + 8, 1);
     } else {
-        SetScriptRefInt_ov017_021d6134((char*)arg0 + 8, 0);
+        SetScriptRefInt_ov017_021d6134((char*)params + 8, 0);
     }
     return 1;
 }

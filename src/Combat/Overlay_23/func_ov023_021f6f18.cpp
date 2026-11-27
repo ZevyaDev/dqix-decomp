@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_ov023_021f6f18
-extern "C" ARM int func_ov023_021f6f18(void* arg0) {
-    return *(int*)((char*)arg0 + 0x18);
+// USA: GetNextMenuObject_ov023_021f6f18
+extern "C" ARM int GetNextMenuObject_ov023_021f6f18(void* object) {
+    return *(int*)((char*)object + 0x18);
 }
