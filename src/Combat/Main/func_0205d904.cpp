@@ -4,10 +4,10 @@ struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0;
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c* windowManager, int windowId);
 
-extern "C" void func_0204f138(unsigned char* arg0, unsigned char** arg1, unsigned char** arg2, unsigned char** arg3, unsigned char** arg4);
+extern "C" void GetTextWindowEntryRectArrays_0204f138(unsigned char* textWindow, unsigned char** outXs, unsigned char** outYs, unsigned char** outWidths, unsigned char** outHeights);
 
 struct Struct_0205bd58;
-extern "C" void func_0205bd58(struct Struct_0205bd58* arg0, int arg1, int arg2, int arg3, int arg4, int arg5);
+extern "C" void SetMenuCursorEntryRects_0205bd58(struct Struct_0205bd58* cursor, int entryCount, int entryXs, int entryYs, int entryWidths, int entryHeights);
 
 struct TextWindow_0205d904 {
     char unknown_0_[0xac];
@@ -27,8 +27,8 @@ extern "C" ARM void SetTouchMenuCursorEntryRects_0205d904(unsigned char* windowM
     cursorWindow = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)windowManager, windowManager[0xb0]);
     if (cursorWindow == NULL) return;
 
-    func_0204f138((unsigned char*)cursorWindow, &entryXs, &entryYs, &entryWidths, &entryHeights);
-    func_0205bd58((struct Struct_0205bd58*)(windowManager + 4), 0x12, (int)entryXs, (int)entryYs, (int)entryWidths, (int)entryHeights);
+    GetTextWindowEntryRectArrays_0204f138((unsigned char*)cursorWindow, &entryXs, &entryYs, &entryWidths, &entryHeights);
+    SetMenuCursorEntryRects_0205bd58((struct Struct_0205bd58*)(windowManager + 4), 0x12, (int)entryXs, (int)entryYs, (int)entryWidths, (int)entryHeights);
 
     textWindow = (struct TextWindow_0205d904*)cursorWindow;
     {
