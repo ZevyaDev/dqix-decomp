@@ -8,7 +8,7 @@
 
 extern "C" void func_020c9be0(void);
 extern "C" void InitScriptVM_ov017_021d4c04(void*, int, void*, int, void*, int);
-extern "C" void func_ov023_021eb000(void*);
+extern "C" void SetSelectionScriptNatives_ov023_021eb000(void*);
 
 extern void* data_02109d8c;
 
@@ -32,5 +32,5 @@ extern "C" ARM void LoadSelectionScript_0209fee4(struct SelectionScript_0209fee4
     }
 
     InitScriptVM_ov017_021d4c04(&script->scriptVM_c_, script->scriptData_4_, valueStack, 0x80, callStack, 0x200);
-    func_ov023_021eb000(&script->scriptVM_c_);
+    SetSelectionScriptNatives_ov023_021eb000(&script->scriptVM_c_);
 }

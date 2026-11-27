@@ -6,8 +6,8 @@ extern struct Struct_ov023_021fddb8 data_ov023_021fddb8[];
 extern int data_ov023_021ffa4c[];
 extern "C" void SetScriptNatives_ov017_021d4cc0(void* scriptVM, void* natives, int nativeCount);
 
-// USA: func_ov023_021eb000
-extern "C" ARM void func_ov023_021eb000(void* arg0) {
+// USA: SetSelectionScriptNatives_ov023_021eb000
+extern "C" ARM void SetSelectionScriptNatives_ov023_021eb000(void* scriptVM) {
     memset(data_ov023_021ffa4c, 0, 0x4b0);
     struct Struct_ov023_021fddb8* var0;
     for (var0 = data_ov023_021fddb8; var0 != 0; var0++) {
@@ -19,5 +19,5 @@ extern "C" ARM void func_ov023_021eb000(void* arg0) {
             data_ov023_021ffa4c[var0->unknown_4_] = var0->unknown_0_;
         }
     }
-    SetScriptNatives_ov017_021d4cc0(arg0, data_ov023_021ffa4c, 0x12c);
+    SetScriptNatives_ov017_021d4cc0(scriptVM, data_ov023_021ffa4c, 0x12c);
 }

@@ -4,7 +4,7 @@ struct TextWindowManager_0205d81c;
 struct TextWindow_0205d0e0;
 extern "C" struct TextWindow_0205d0e0* FindTextWindow_0205d81c(struct TextWindowManager_0205d81c*, int);
 struct Struct_0205d5b8;
-extern "C" void func_0205d5b8(struct Struct_0205d5b8*, int);
+extern "C" void SetTextWindowHidden_0205d5b8(struct Struct_0205d5b8*, int);
 
 struct TextWindowManager_0205def8 {
     char unknown_0_[0x98];
@@ -18,5 +18,5 @@ extern "C" ARM void SetTextWindowVisible_0205def8(struct TextWindowManager_0205d
     if (windowManager->unknown_98_ == 0 || windowManager->unknown_9c_ == 0) return;
     textWindow = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)windowManager, windowId);
     if (textWindow == 0) return;
-    func_0205d5b8((struct Struct_0205d5b8*)textWindow, isVisible == 0);
+    SetTextWindowHidden_0205d5b8((struct Struct_0205d5b8*)textWindow, isVisible == 0);
 }

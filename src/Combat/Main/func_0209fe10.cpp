@@ -5,7 +5,7 @@ struct Struct_0209fe10 {
     int unknown_64_;
 };
 
-// USA: func_0209fe10
-extern "C" ARM void func_0209fe10(struct Struct_0209fe10* arg0, int arg1) {
-    arg0->unknown_64_ = arg1;
+// USA: QueueQuestBattleScriptEntry_0209fe10
+extern "C" ARM void QueueQuestBattleScriptEntry_0209fe10(struct Struct_0209fe10* script, int entryId) {
+    script->unknown_64_ = entryId;
 }

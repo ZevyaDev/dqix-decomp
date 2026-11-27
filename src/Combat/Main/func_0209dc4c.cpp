@@ -15,8 +15,8 @@ extern struct Struct_020f1758 data_020f1758;
 
 extern "C" void SetScriptNatives_ov017_021d4cc0(void*, int*, int);
 
-// USA: func_0209dc4c
-extern "C" ARM void func_0209dc4c(void* arg0) {
+// USA: SetQuestBattleScriptNatives_0209dc4c
+extern "C" ARM void SetQuestBattleScriptNatives_0209dc4c(void* scriptVM) {
     memset(data_02109cc4, 0, sizeof(data_02109cc4));
 
     for (struct Struct_020f1758* var0 = &data_020f1758; var0 != NULL; var0++) {
@@ -32,5 +32,5 @@ extern "C" ARM void func_0209dc4c(void* arg0) {
         }
     }
 
-    SetScriptNatives_ov017_021d4cc0(arg0, data_02109cc4, 49);
+    SetScriptNatives_ov017_021d4cc0(scriptVM, data_02109cc4, 49);
 }
