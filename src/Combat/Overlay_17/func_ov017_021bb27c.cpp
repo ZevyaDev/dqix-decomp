@@ -113,7 +113,7 @@ extern "C" ARM void EndEventTask_ov017_021bb27c(Struct_ov017_021bb27c_7* eventTa
     GameState* gameState = GameState::GetInstance();
     GameResources* gameResources = GetGameResources();
     Queue_02038598_5* queue = (Queue_02038598_5*)gameResources->unknown_ptr_array_36fc[0];
-    Struct_ov017_021bb27c_6* battleTask = inline_ov017_021bb27c(gameResources);
+    Struct_ov017_021bb27c_6* battleManager = inline_ov017_021bb27c(gameResources);
     GameObject* currentLeader = gameState->GetUnknownGameObject();
     void* followCamera = (void*)GetFollowCamera_020100f8((char*)gameState);
     wireless = func_0202ae18();
@@ -181,7 +181,7 @@ extern "C" ARM void EndEventTask_ov017_021bb27c(Struct_ov017_021bb27c_7* eventTa
     for (int i = 0; i < 4; i++) func_ov017_02191fec(gameResources, i);
     ClearGlobalFlags_020466f4(func_020d6c00(), 0x400f);
     Struct_ov017_021bb27c_5* zoneEntry = (Struct_ov017_021bb27c_5*)GetZoneEntry_0200fd0c(gameState);
-    if (eventTask->unknown_104_ && !battleTask->unknown_2_ && (!zoneEntry->unknown_2_ || eventTask->unknown_10c_) &&
+    if (eventTask->unknown_104_ && !battleManager->unknown_2_ && (!zoneEntry->unknown_2_ || eventTask->unknown_10c_) &&
         !IsTypeInQueue_02046b60(queue, 10) && !(eventTask->unknown_16_ == 1 && eventTask->unknown_cf_ == 2)) {
         RestartMapDisplay_020dc2d0(0);
     }

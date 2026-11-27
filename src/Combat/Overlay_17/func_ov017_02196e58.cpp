@@ -14,7 +14,7 @@ extern "C" Zone3D* GetZone3D_02012fe4(void);
 extern "C" void func_ov004_0216fa08(void* arg0);
 extern "C" void func_ov004_0216fa74(void* arg0, unsigned char arg1);
 extern "C" int func_ov004_0216f990(int arg0, int arg1, int arg2);
-extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
+extern "C" void ResetBattleManager_ov017_021b6f18(void* battleManager);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" bool func_ov017_021b6e70(void* arg0, int arg1);
 extern "C" void ApplyBattleRequest_ov017_021b7104(void* battleManager, void* request);
@@ -71,7 +71,7 @@ extern "C" ARM void func_ov017_02196e58(struct Struct_ov017_02196e58* arg0) {
     *(unsigned short*)((unsigned char*)arg0->unknown_3b74_ + 8) = arg0->unknown_36b6_;
     func_ov004_0216fa74(arg0->unknown_3b74_, 1);
     AppendToQueue_020469b4(arg0->unknown_36fc_, arg0->unknown_3b74_);
-    ResetBattleTask_ov017_021b6f18(arg0->unknown_3718_);
+    ResetBattleManager_ov017_021b6f18(arg0->unknown_3718_);
 
     struct Struct_ov017_02196e58_2 var3;
     func_ov017_02196c08((unsigned char*)&var3);

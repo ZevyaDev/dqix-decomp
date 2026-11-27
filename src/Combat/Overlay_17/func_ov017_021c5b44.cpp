@@ -6,7 +6,7 @@ extern "C" GameObject* FindFieldMonsterById_ov017_021a278c(void* gameResources, 
 struct Queue_02046b38;
 struct QueueNode_02046b38_2;
 extern "C" int IsNodeInQueue_02046b38(struct Queue_02046b38* queue, struct QueueNode_02046b38_2* node);
-extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
+extern "C" void ResetBattleManager_ov017_021b6f18(void* battleManager);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" bool func_ov017_021b6e70(void* arg0, int arg1);
 extern "C" void ApplyBattleRequest_ov017_021b7104(unsigned char* battleManager, void* request);
@@ -57,7 +57,7 @@ extern "C" ARM void func_ov017_021c5b44(unsigned char arg0, int arg1, unsigned i
     }
 
     if (!IsNodeInQueue_02046b38((struct Queue_02046b38*)var3, (struct QueueNode_02046b38_2*)var4)) {
-        ResetBattleTask_ov017_021b6f18(var4);
+        ResetBattleManager_ov017_021b6f18(var4);
 
         struct Struct_ov017_021c5b44_2 var6;
         func_ov017_02196c08((unsigned char*)&var6);

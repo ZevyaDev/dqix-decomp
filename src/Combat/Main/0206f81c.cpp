@@ -66,7 +66,7 @@ extern "C" void DisableCameraTurning_020a27b8(unsigned char* camera);
 
 struct Vector3i;
 
-extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
+extern "C" void ResetBattleManager_ov017_021b6f18(void* battleManager);
 extern "C" void func_ov017_021b6e70(void* arg0, unsigned short arg1);
 extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" void ApplyBattleRequest_ov017_021b7104(void* battleManager, void* request);
@@ -305,7 +305,7 @@ extern "C" ARM void RunDeferredTriggerActions_0206f81c(void* triggerResult) {
                 unsigned char* var28 = *(unsigned char**)((char*)gameResources + 0x3000 + REGION_VALUE(0x508, 0x718));
                 var27 = *(struct Queue_0201bdac_2**)((char*)gameResources + 0x3000 + REGION_VALUE(0x4ec, 0x6fc));
                 void* lightingManager = LightingManager::GetInstance();
-                ResetBattleTask_ov017_021b6f18(var28);
+                ResetBattleManager_ov017_021b6f18(var28);
 
                 struct Struct_0206f81c_11 var30;
                 var30.unknown_0_ = 1;

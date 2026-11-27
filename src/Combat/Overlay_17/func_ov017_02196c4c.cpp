@@ -34,7 +34,7 @@ extern "C" int func_02053cdc(int* arg0);
 extern "C" int func_02039760(void* arg0);
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 int NextRandomBetween(struct Random* rng, int lo, int hi);
-extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
+extern "C" void ResetBattleManager_ov017_021b6f18(void* battleManager);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" unsigned short func_ov017_021a1a20(void);
@@ -137,7 +137,7 @@ extern "C" ARM int func_ov017_02196c4c(Struct_ov017_02196c4c* arg0) {
         return 0;
     }
 
-    ResetBattleTask_ov017_021b6f18(arg0->unknown_3718_);
+    ResetBattleManager_ov017_021b6f18(arg0->unknown_3718_);
     Struct_ov017_02196c4c_3 var9;
     func_ov017_02196c08((unsigned char*)&var9);
     var9.unknown_0_ = 1;

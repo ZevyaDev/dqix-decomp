@@ -37,7 +37,7 @@ extern "C" void func_ov017_021c5f00(Struct_ov017_021c530c_2* arg0);
 struct Queue_02046b38;
 struct QueueNode_02046b38_2;
 extern "C" int IsNodeInQueue_02046b38(struct Queue_02046b38* queue, struct QueueNode_02046b38_2* node);
-extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
+extern "C" void ResetBattleManager_ov017_021b6f18(void* battleManager);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" bool func_ov017_021b6e70(void* arg0, int arg1);
 extern "C" void ApplyBattleRequest_ov017_021b7104(void* battleManager, void* request);
@@ -291,7 +291,7 @@ extern "C" ARM void func_ov017_021c530c(int arg0, Struct_ov017_021c530c_3* arg1,
                 var35 = var11->unknown_36fc_;
                 var36 = var11->unknown_3718_;
                 if (!IsNodeInQueue_02046b38((Queue_02046b38*)var35, (QueueNode_02046b38_2*)var36)) {
-                    ResetBattleTask_ov017_021b6f18(var36);
+                    ResetBattleManager_ov017_021b6f18(var36);
                     Struct_ov017_021c530c_8 var39;
                     func_ov017_02196c08((unsigned char*)&var39);
                     var39.unknown_0_ = 0;

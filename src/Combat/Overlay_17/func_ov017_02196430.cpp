@@ -141,7 +141,7 @@ extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 struct BattleJoinRecord_0207d7f4;
 extern "C" BattleJoinRecord_0207d7f4* GetBattleJoinTable_0207d78c();
 extern "C" Struct_ov017_02196430_6* FindBattleJoinRecord_0207d9bc(BattleJoinRecord_0207d7f4* battleJoinTable, unsigned short monsterId);
-extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
+extern "C" void ResetBattleManager_ov017_021b6f18(void* battleManager);
 extern "C" void func_ov017_02196c08(unsigned char* arg0);
 extern "C" void func_ov017_021b6e70(Struct_ov017_02196430_5* arg0, int arg1);
 extern "C" int func_ov017_021970a0(int arg0);
@@ -367,7 +367,7 @@ extern "C" ARM int func_ov017_02196430(GameResources* arg0) {
         var12 = -1;
     }
     if (var23) {
-        ResetBattleTask_ov017_021b6f18(var0->unknown_3718_);
+        ResetBattleManager_ov017_021b6f18(var0->unknown_3718_);
         func_ov017_02196c08((unsigned char*)&var18);
         var18.unknown_0_ = 1;
         if (var10) {

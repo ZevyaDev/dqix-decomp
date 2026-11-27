@@ -373,7 +373,7 @@ extern "C" void func_020a6aac(void* arg0, int arg1, int arg2);
 extern "C" void func_020acecc(void* arg0, int arg1, int arg2);
 extern "C" int func_ov017_021a01f4(void* arg0, int arg1, int arg2, void* arg3, int* arg4);
 extern "C" void func_ov017_0219fc88(void* arg0, int arg1);
-extern "C" void ResetBattleTask_ov017_021b6f18(void* battleTask);
+extern "C" void ResetBattleManager_ov017_021b6f18(void* battleManager);
 extern "C" void func_ov017_02196c08(unsigned char*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov017_021b6e70(struct Struct_ov017_0219e384_7* arg0, int arg1);
@@ -881,7 +881,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 		} else if (var4->unknown_28_ >= 0 && var4->unknown_2c_ == var6->currentZoneID_ && var4->unknown_1e_ != var4->unknown_28_) {
 			if (func_0201b5d8(var6->currentZoneID_) == 0) {
 			void* var69 = *(void**)(var1 + Enum_ov017_0219e384_14104);
-			ResetBattleTask_ov017_021b6f18(var69);
+			ResetBattleManager_ov017_021b6f18(var69);
 			func_ov017_02196c08((unsigned char*)&var17.unknown_6c_);
 			var17.unknown_6c_.unknown_0_ = 1;
 			var17.unknown_6c_.unknown_1_ = GetProtagonistObjectIndex_020100a8(var0);
@@ -1068,7 +1068,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			int* var85 = (int*)LightingManager::GetInstance();
 			char* var86 = (char*)GetGameResources();
 			struct Struct_ov017_0219e384_3* var87;
-			ResetBattleTask_ov017_021b6f18(*(void**)(var86 + Enum_ov017_0219e384_14104));
+			ResetBattleManager_ov017_021b6f18(*(void**)(var86 + Enum_ov017_0219e384_14104));
 			var87 = (struct Struct_ov017_0219e384_3*)var84->GetPartyMemberByIndex(0);
 			func_ov017_02196c08((unsigned char*)&var18.unknown_24_);
 			var18.unknown_24_.unknown_0_ = 1;
@@ -1130,7 +1130,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 							break;
 						}
 						if (var89 >= 0) {
-							ResetBattleTask_ov017_021b6f18(*(void**)(var96 + Enum_ov017_0219e384_14104));
+							ResetBattleManager_ov017_021b6f18(*(void**)(var96 + Enum_ov017_0219e384_14104));
 							func_ov017_02196c08((unsigned char*)&var18.unknown_c_);
 							var18.unknown_c_.unknown_0_ = 1;
 							var18.unknown_c_.unknown_1_ = GetProtagonistObjectIndex_020100a8(var95);
