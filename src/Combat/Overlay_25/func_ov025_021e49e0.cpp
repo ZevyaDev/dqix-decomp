@@ -7,8 +7,8 @@ extern struct SoundEffectManager_02108760 gSoundEffectManager_02108760;
 
 struct Struct_ov025_021e49e0 { char unknown_0_[8]; unsigned short unknown_8_; };
 
-// USA: func_ov025_021e49e0
-extern "C" ARM int func_ov025_021e49e0(struct Struct_ov025_021e49e0* arg0) {
-    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, arg0->unknown_8_, 0);
+// USA: RunBACTPlaySoundEffectCommand_ov025_021e49e0
+extern "C" ARM int RunBACTPlaySoundEffectCommand_ov025_021e49e0(struct Struct_ov025_021e49e0* command) {
+    PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, command->unknown_8_, 0);
     return 1;
 }

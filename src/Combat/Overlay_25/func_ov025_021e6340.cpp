@@ -16,10 +16,10 @@ extern int gSoundEffectManager_02108760;
 extern "C" Struct_ov025_021e6340* GetBattleScene_ov000_02160130();
 extern "C" void PlayExtraSoundEffect_0205ebfc(void*, int, int);
 
-// USA: func_ov025_021e6340
-extern "C" ARM int func_ov025_021e6340(Struct_ov000_02175808* arg0) {
-    Struct_ov025_021e6340* var0 = GetBattleScene_ov000_02160130();
-    var0->unknown_6f04_ = arg0->unknown_8_;
-    PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, arg0->unknown_8_, 0);
+// USA: RunBACTPlayExtraSoundEffectCommand_ov025_021e6340
+extern "C" ARM int RunBACTPlayExtraSoundEffectCommand_ov025_021e6340(Struct_ov000_02175808* command) {
+    Struct_ov025_021e6340* battleScene = GetBattleScene_ov000_02160130();
+    battleScene->unknown_6f04_ = command->unknown_8_;
+    PlayExtraSoundEffect_0205ebfc(&gSoundEffectManager_02108760, command->unknown_8_, 0);
     return 1;
 }
