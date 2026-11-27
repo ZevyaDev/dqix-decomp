@@ -13,7 +13,7 @@ extern char data_ov025_021ef87f;
 
 extern "C" void* func_ov025_021e8a54(char* arg0);
 extern "C" int QueueBACTFileLoad_ov025_021e25a4(char* path);
-extern "C" void func_ov025_021eb05c(void* arg0, int arg1);
+extern "C" void AddBACTLoadTask_ov025_021eb05c(void* player, int taskId);
 
 struct Struct_ov025_021e8344 { char unknown_0_[0x10]; void* unknown_10_; };
 struct Struct_ov025_021e8344_2 { char unknown_0_[0x49c]; unsigned char unknown_49c_0_ : 1; };
@@ -38,6 +38,6 @@ extern "C" ARM int func_ov025_021e8344(void* arg0, struct Struct_ov025_021e8344*
     }
     sprintf(var0, &data_ov025_021ef87f, var5);
     int var6 = QueueBACTFileLoad_ov025_021e25a4(var0);
-    func_ov025_021eb05c(data_ov025_021ef988.unknown_c_, var6);
+    AddBACTLoadTask_ov025_021eb05c(data_ov025_021ef988.unknown_c_, var6);
     return 1;
 }

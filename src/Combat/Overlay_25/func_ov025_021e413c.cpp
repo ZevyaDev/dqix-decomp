@@ -16,8 +16,8 @@ struct Struct_ov025_021ef988_7 {
 };
 extern Struct_ov025_021ef988_7 data_ov025_021ef988;
 
-// USA: func_ov025_021e413c
-extern "C" ARM int func_ov025_021e413c(void) {
+// USA: RunBACTWaitForLoadsCommand_ov025_021e413c
+extern "C" ARM int RunBACTWaitForLoadsCommand_ov025_021e413c(void) {
     if (BackgroundLoader::GetInstance()->GetFlag0() == 0) {
         return 0;
     }
