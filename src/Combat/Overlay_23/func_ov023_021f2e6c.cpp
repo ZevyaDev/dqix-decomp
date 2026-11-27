@@ -46,7 +46,7 @@ struct Struct_ov023_021f2e6c_9 { int unknown_0_[0x15]; };
 
 extern "C" Struct_ov023_021f2e6c_4* GetQuestManager_02094d6c(void);
 extern "C" unsigned char* GetMessageWindow_020421a0(void);
-extern "C" void func_ov023_021d8b6c(void* arg0);
+extern "C" void CloseAndRedrawTextWindows_ov023_021d8b6c(void* panel);
 extern "C" void func_ov023_021d8af8(void* arg0);
 extern "C" void func_ov000_0215fa84(void* arg0, short* arg1, short* arg2, short* arg3);
 struct QuestManager_0205faf4_7;
@@ -154,7 +154,7 @@ extern "C" ARM int func_ov023_021f2e6c(char* arg0) {
     int var5 = var1[0];
     if (var5 == 0) {
         if (*(void**)(arg0 + Enum_ov023_021f2e6c_21896) != 0) {
-            func_ov023_021d8b6c(*(void**)(arg0 + Enum_ov023_021f2e6c_21896));
+            CloseAndRedrawTextWindows_ov023_021d8b6c(*(void**)(arg0 + Enum_ov023_021f2e6c_21896));
             func_ov023_021d8af8(*(void**)(arg0 + Enum_ov023_021f2e6c_21896));
             *(void**)(arg0 + Enum_ov023_021f2e6c_21896) = 0;
         }

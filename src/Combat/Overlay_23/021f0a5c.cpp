@@ -107,7 +107,7 @@ extern "C" void CalculatePartyMemberStats_02083e28(Struct_ov000_0215d63c_2*, int
 extern "C" unsigned char func_0209aa54(void*, GameObject*, unsigned char*, int);
 struct Struct_ov023_021edf54;
 extern "C" int func_ov023_021eea98(Struct_ov023_021edf54*);
-extern "C" void func_ov023_021d8b6c(void*);
+extern "C" void CloseAndRedrawTextWindows_ov023_021d8b6c(void*);
 extern "C" void func_ov023_021d8af8(Struct_ov023_021f03a0_2*);
 extern "C" void func_ov023_021d8a40(Struct_ov023_021f03a0_2*);
 extern "C" void func_ov023_021d8cb4(void*, void*);
@@ -212,7 +212,7 @@ extern "C" ARM int func_ov023_021f0a5c(BattleScene_ov000_02160da0* arg0) {
         var6->unknown_0_++;
     } else if (var6->unknown_0_ == 2) {
         if (arg0->unknown_5588_) {
-            func_ov023_021d8b6c(arg0->unknown_5588_);
+            CloseAndRedrawTextWindows_ov023_021d8b6c(arg0->unknown_5588_);
             func_ov023_021d8af8(arg0->unknown_5588_);
             arg0->unknown_5588_ = 0;
             return arg0->unknown_eac_;

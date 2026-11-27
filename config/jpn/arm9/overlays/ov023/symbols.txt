@@ -1,9 +1,9 @@
 func_ov023_021d8a40 kind:function(arm,size=0xb8) addr:0x021d9300
 func_ov023_021d8af8 kind:function(arm,size=0x74) addr:0x021d93b8
-func_ov023_021d8b6c kind:function(arm,size=0x48) addr:0x021d942c
+CloseAndRedrawTextWindows_ov023_021d8b6c kind:function(arm,size=0x48) addr:0x021d942c
 func_ov023_021d8bb4 kind:function(arm,size=0xac) addr:0x021d9474
-func_ov023_021d8c60 kind:function(arm,size=0x34) addr:0x021d9520
-func_ov023_021d8c94 kind:function(arm,size=0x20) addr:0x021d9554
+RedrawTextWindows_ov023_021d8c60 kind:function(arm,size=0x34) addr:0x021d9520
+CopyTextWindowsToVRAM_ov023_021d8c94 kind:function(arm,size=0x20) addr:0x021d9554
 func_ov023_021d8cb4 kind:function(arm,size=0x128) addr:0x021d9574
 func_ov023_021d8ddc kind:function(arm,size=0x70) addr:0x021d969c
 func_ov023_021d8e4c kind:function(arm,size=0x54) addr:0x021d970c

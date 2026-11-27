@@ -141,7 +141,7 @@ extern char gSoundEffectManager_02108760[];
 
 extern "C" Struct_ov023_021f1234_4* GetMessageWindow_020421a0();
 extern "C" int IsInParty_02086ef0(Party_02048150* party, int objectIndex);
-extern "C" void func_ov023_021d8b6c(void* arg0);
+extern "C" void CloseAndRedrawTextWindows_ov023_021d8b6c(void* panel);
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0* windowManager, int isAll);
 extern "C" int func_0206dfb0(int flagManager, unsigned char* flags, int flagIndex);
 extern "C" void SetFlag_0206df6c(void* flagManager, unsigned char* flags, int flagIndex, int isSet);
@@ -199,7 +199,7 @@ extern "C" ARM int func_ov023_021f1234(Struct_ov023_021f1234_3* arg0)
         if (arg0->unknown_5588_ != NULL)
         {
             func_ov023_021f1818(arg0->unknown_3760_, 1);
-            func_ov023_021d8b6c(arg0->unknown_5588_);
+            CloseAndRedrawTextWindows_ov023_021d8b6c(arg0->unknown_5588_);
             func_ov023_021d8af8(arg0->unknown_5588_);
             arg0->unknown_5588_ = NULL;
         }
