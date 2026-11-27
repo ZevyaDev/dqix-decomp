@@ -3,7 +3,7 @@
 
 struct Struct_02057930;
 extern "C" void ClearGameObjectByIndex_0200fd48(GameState* gameState, int index);
-extern "C" void func_02057930(Struct_02057930* arg0);
+extern "C" void ResetEffectManager_02057930(Struct_02057930* effectManager);
 
 // USA: func_02057978
 extern "C" ARM void func_02057978(Struct_02057930* arg0) {
@@ -12,5 +12,5 @@ extern "C" ARM void func_02057978(Struct_02057930* arg0) {
     for (var1 = 0; var1 < 16; var1++) {
         ClearGameObjectByIndex_0200fd48(var0, var1 + 0xd0);
     }
-    func_02057930(arg0);
+    ResetEffectManager_02057930(arg0);
 }

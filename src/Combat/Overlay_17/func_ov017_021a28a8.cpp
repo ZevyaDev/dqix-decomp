@@ -33,7 +33,7 @@ struct Struct_ov017_021a28a8_4 {
     char unknown_1150_[0x20];
 };
 
-extern "C" void func_ov017_021a27e8(void*);
+extern "C" void ClearEffectResourcesAndMonsterModelTemplates_ov017_021a27e8(void*);
 extern "C" Struct_ov017_021a28a8* FindCurrentActiveZone_02027cb0();
 extern "C" int func_0209c0ec(char*);
 extern "C" int func_0209c0a8(void*, int);
@@ -53,7 +53,7 @@ extern "C" ARM void func_ov017_021a28a8(Struct_ov017_021a28a8_4* arg0) {
     GameState* var0 = GameState::GetInstance();
     SafeAllocator* var1 = &arg0->unknown_113c_;
     char* var2 = arg0->unknown_1150_;
-    func_ov017_021a27e8(arg0);
+    ClearEffectResourcesAndMonsterModelTemplates_ov017_021a27e8(arg0);
     Struct_ov017_021a28a8* var3 = FindCurrentActiveZone_02027cb0();
     if (!var3) return;
     Struct_ov017_021a28a8_3* var4 = (Struct_ov017_021a28a8_3*)var1->Allocate(func_0209c0ec(var3->unknown_44_) * 0xb0);

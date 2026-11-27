@@ -196,7 +196,7 @@ extern "C" void UnloadZone_ov017_0219bf74();
 extern "C" void func_ov017_0219bd1c(int arg0, int arg1, int arg2, int arg3);
 extern "C" struct Struct_ov017_0219e384* GetZoneEntry_0200fd0c(GameState*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" void func_ov017_021a27e8(void* arg0);
+extern "C" void ClearEffectResourcesAndMonsterModelTemplates_ov017_021a27e8(void* gameResources);
 extern "C" void UnloadFieldIcons_ov017_0219b938(int gameResources);
 extern "C" int GetNPCManager_0203cf4c();
 extern "C" int func_0203e06c(void*);
@@ -341,7 +341,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         *(unsigned short*)var28 = var27;
         var28[0xa] = 0;
     }
-    func_ov017_021a27e8((void*)var3);
+    ClearEffectResourcesAndMonsterModelTemplates_ov017_021a27e8((void*)var3);
     UnloadFieldIcons_ov017_0219b938(var3);
     for (int var29 = 0; var29 < 12; var29++) {
         Struct_ov000_0215f7a8* var30 = (Struct_ov000_0215f7a8*)var0->GetMaybeFieldMonsterByIndex(var29 + (var4->unknown_2_0_ * 12 + 0x70));
