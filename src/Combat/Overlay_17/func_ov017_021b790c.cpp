@@ -226,7 +226,7 @@ extern "C" void func_02046608(void* arg0, int arg1, char* arg2, char* arg3, int 
 extern "C" int abs(int arg0);
 extern "C" void* GetColorFade_020704fc(void);
 extern "C" void func_02070900(Struct_02070900_2* arg0, Struct_02070900* arg1, unsigned int arg2);
-extern "C" void func_020707c8(Struct_020707c8* arg0);
+extern "C" void UpdateColorFade_020707c8(Struct_020707c8* colorFade);
 #if defined(jpn)
 extern "C" void StartMessage_0204500c(void* window, char* text, int arg2);
 #else
@@ -454,7 +454,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
                 __clear(&var39, sizeof(var39));
                 SetMainBrightness((GameResources*)var1, 0, 1);
                 func_02070900((Struct_02070900_2*)var38, (Struct_02070900*)&var39, 0);
-                func_020707c8((Struct_020707c8*)var38);
+                UpdateColorFade_020707c8((Struct_020707c8*)var38);
 #if defined(jpn)
                 StartMessage_0204500c(var3, var34, 0);
 #else

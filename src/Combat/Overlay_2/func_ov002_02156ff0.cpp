@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_0205d67c;
-extern "C" int func_0205d67c(struct Struct_0205d67c* arg0);
+extern "C" int GetOpenTextWindowCount_0205d67c(struct Struct_0205d67c* windowManager);
 extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void* menu);
 
 #if defined(jpn)
@@ -14,7 +14,7 @@ extern "C" void ReturnToPreviousMenuWindow_ov002_02156e90(void* menu);
 
 // USA: func_ov002_02156ff0
 extern "C" ARM void func_ov002_02156ff0(unsigned char* arg0, int arg1) {
-    while (func_0205d67c((struct Struct_0205d67c*)(arg0 + LIST_02156ff0))) {
+    while (GetOpenTextWindowCount_0205d67c((struct Struct_0205d67c*)(arg0 + LIST_02156ff0))) {
         if (*(int*)(arg0 + 0x1000 + KEY_02156ff0) == arg1) {
             return;
         }

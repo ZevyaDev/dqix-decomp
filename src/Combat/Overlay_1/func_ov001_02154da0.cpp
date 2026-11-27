@@ -7,7 +7,7 @@ extern "C" int GetMessageWindow_020421a0();
 extern "C" void ResetMessageWindow_02043204(char* window);
 extern "C" void CloseMessageWindow_02043124(char* window);
 extern "C" void* GetColorFade_020704fc(void);
-extern "C" void func_020708c8(struct Struct_020708c8* arg0, unsigned int arg1);
+extern "C" void StartColorFadeToClear_020708c8(struct Struct_020708c8* colorFade, unsigned int frames);
 struct GameResources;
 void SetBrightness(GameResources*, int, int);
 
@@ -23,6 +23,6 @@ extern "C" ARM void func_ov001_02154da0() {
     ResetMessageWindow_02043204(var0);
     CloseMessageWindow_02043124(var0);
     *(unsigned char*)(var0 + Enum_ov001_02154da0_6590) = 0;
-    func_020708c8((struct Struct_020708c8*)GetColorFade_020704fc(), 0);
+    StartColorFadeToClear_020708c8((struct Struct_020708c8*)GetColorFade_020704fc(), 0);
     SetBrightness(GetGameResources(), -16, 0);
 }

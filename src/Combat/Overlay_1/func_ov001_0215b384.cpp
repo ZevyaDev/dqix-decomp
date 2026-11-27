@@ -3,14 +3,14 @@
 extern "C" int GetScriptValueAsInt_ov017_021d60f4(void*);
 extern "C" void* GetColorFade_020704fc(void*);
 struct Struct_020708c8;
-extern "C" void func_020708c8(struct Struct_020708c8*, unsigned int);
+extern "C" void StartColorFadeToClear_020708c8(struct Struct_020708c8*, unsigned int);
 
 // USA: func_ov001_0215b384
 extern "C" ARM int func_ov001_0215b384(void* arg0) {
     int var0 = GetScriptValueAsInt_ov017_021d60f4(arg0);
     void* var1 = GetColorFade_020704fc((void*)var0);
     if (var1 != NULL) {
-        func_020708c8((struct Struct_020708c8*)var1, var0);
+        StartColorFadeToClear_020708c8((struct Struct_020708c8*)var1, var0);
     }
     return 1;
 }

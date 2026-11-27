@@ -2,12 +2,12 @@
 
 #include "World/Bounds3D.h"
 
-// USA: func_02031118
-extern "C" ARM int func_02031118(const Vector3fix* arg0, const BoundingBox_02018fbc* arg1) {
-    if (arg1->maxCorner_0_.x < arg0->x) return 0;
-    if (arg1->maxCorner_0_.y < arg0->y) return 0;
-    if (arg1->maxCorner_0_.z < arg0->z) return 0;
-    if (arg0->x < arg1->minCorner_c_.x) return 0;
-    if (arg0->y < arg1->minCorner_c_.y) return 0;
-    return arg0->z >= arg1->minCorner_c_.z ? 1 : 0;
+// USA: IsPointInBoundingBox_02031118
+extern "C" ARM int IsPointInBoundingBox_02031118(const Vector3fix* point, const BoundingBox_02018fbc* box) {
+    if (box->maxCorner_0_.x < point->x) return 0;
+    if (box->maxCorner_0_.y < point->y) return 0;
+    if (box->maxCorner_0_.z < point->z) return 0;
+    if (point->x < box->minCorner_c_.x) return 0;
+    if (point->y < box->minCorner_c_.y) return 0;
+    return point->z >= box->minCorner_c_.z ? 1 : 0;
 }

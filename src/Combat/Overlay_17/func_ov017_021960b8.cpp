@@ -44,7 +44,7 @@ extern "C" void ResetMatrixStacks_020c5414();
 extern "C" void WriteAndLoadViewMatrix_020c57d4(int, int, int, int, void*);
 extern "C" void SetOrthographicProjection_020c5770(int, int, int, int, int, int, int, int, void*);
 extern "C" void func_ov017_021a3b30(int);
-extern "C" void func_020707c8(Struct_020707c8*);
+extern "C" void UpdateColorFade_020707c8(Struct_020707c8*);
 extern "C" int GetQueueHeadType_02046b24(QueueNode_02015438**);
 extern "C" void DrawMessageWindow_020444e0(MessageWindow_020444e0*);
 extern "C" void func_ov017_0219ad84(Struct_ov017_021960b8*);
@@ -89,7 +89,7 @@ extern "C" ARM void func_ov017_021960b8(Struct_ov017_021960b8* arg0) {
     func_ov017_021a3b30((int)arg0->unknown_36fc_);
 
     if (var2->unknown_0_ != 0) {
-        func_020707c8(var2);
+        UpdateColorFade_020707c8(var2);
     }
 
     if (GetQueueHeadType_02046b24(arg0->unknown_36fc_) != 2 &&

@@ -42,7 +42,7 @@ extern "C" ARM void* func_0201e8fc(struct Struct_0201e8fc_2* arg0, struct Struct
         func_0201ce78(&var4.minCorner_c_.x, var1->unknown_0_.x - var1->unknown_c_.x / 2, var1->unknown_0_.y - var1->unknown_c_.y / 2, var1->unknown_0_.z - var1->unknown_c_.z / 2);
         func_0201ce78(&var4.maxCorner_0_.x, var1->unknown_0_.x + var1->unknown_c_.x / 2, var1->unknown_0_.y + var1->unknown_c_.y / 2, var1->unknown_0_.z + var1->unknown_c_.z / 2);
 
-        if (func_02031118(&var2, &var4) != 0)
+        if (IsPointInBoundingBox_02031118(&var2, &var4) != 0)
             return var1;
     }
     return 0;

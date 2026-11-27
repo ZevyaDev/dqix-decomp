@@ -8,8 +8,8 @@ struct Struct_0205d67c {
     unsigned char unknown_b4_;
 };
 
-// USA: func_0205d67c
-extern "C" ARM int func_0205d67c(struct Struct_0205d67c* arg0) {
-    if (arg0->unknown_98_ == 0) return 0;
-    return arg0->unknown_9c_ != 0 ? arg0->unknown_b4_ : 0;
+// USA: GetOpenTextWindowCount_0205d67c
+extern "C" ARM int GetOpenTextWindowCount_0205d67c(struct Struct_0205d67c* windowManager) {
+    if (windowManager->unknown_98_ == 0) return 0;
+    return windowManager->unknown_9c_ != 0 ? windowManager->unknown_b4_ : 0;
 }

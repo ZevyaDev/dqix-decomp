@@ -48,7 +48,7 @@ extern "C" void SetCameraRoll_0202e874(unsigned char*, unsigned short);
 extern "C" void func_0202f0c4(void* arg0, int arg1, int arg2);
 extern "C" void* GetColorFade_020704fc();
 struct Struct_020708c8;
-extern "C" void func_020708c8(Struct_020708c8*, unsigned int);
+extern "C" void StartColorFadeToClear_020708c8(Struct_020708c8*, unsigned int);
 extern "C" void func_0209c278(void* arg0);
 extern "C" void OpenMusicArchive_0209c290(void* manager);
 extern "C" void LoadSoundEffectSet_0205ea20(void* arg0, int soundSet);
@@ -157,7 +157,7 @@ extern "C" ARM unsigned short func_ov001_02155dd0(Struct_ov001_02155dd0* arg0) {
     ClearFlags04(var6, 0x2000);
     SetCameraRoll_0202e874((unsigned char*)var10, 0);
     func_0202f0c4(var10, 0xf000, 0);
-    func_020708c8((Struct_020708c8*)GetColorFade_020704fc(), 0);
+    StartColorFadeToClear_020708c8((Struct_020708c8*)GetColorFade_020704fc(), 0);
     var1->MaybeReset();
 
     REG_DISPSTAT_304 &= ~0x8000;
