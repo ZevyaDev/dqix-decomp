@@ -81,7 +81,7 @@ extern "C" int IsLocalWirelessOn_0202b7d8(int* wireless);
 extern "C" int GetOwnProtagonistObjectIndex_0202c1a4(LocalWireless_0202c1a4* wireless);
 extern "C" void func_020340e4(unsigned char* arg0);
 extern "C" void ResetFollowTrail_02039d24(unsigned char* object);
-extern "C" void func_0203986c(unsigned char*, int);
+extern "C" void SetFollowLineIndex_0203986c(unsigned char*, int);
 extern "C" void SetPartyLeaderObjectIndex_02039880(unsigned char*, int);
 extern "C" void func_020398a4(unsigned char* arg0);
 extern "C" void SetFacingInstantly_02033874(Struct_02033834* object, int angle);
@@ -290,7 +290,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
             }
             var46->unknown_0_.EnableFlag(0x80);
         }
-        func_0203986c((unsigned char*)var46, var45);
+        SetFollowLineIndex_0203986c((unsigned char*)var46, var45);
         var46->unknown_b4_ = 0x189;
         SetPartyLeaderObjectIndex_02039880((unsigned char*)var46, arg1[0]);
         if (arg3 != 0) {
@@ -333,7 +333,7 @@ extern "C" ARM void func_ov017_02190884(int arg0, int* arg1, int* arg2, int arg3
             if (arg4 != 0) {
                 DisablePlayerControl_020397cc((Struct_02018300_3*)var50, 1);
             }
-            func_0203986c((unsigned char*)var50, var48);
+            SetFollowLineIndex_0203986c((unsigned char*)var50, var48);
             var50->unknown_b4_ = 0x189;
             SetPartyLeaderObjectIndex_02039880((unsigned char*)var50, arg1[0]);
             var50->unknown_0_.EnableFlag(0x80);

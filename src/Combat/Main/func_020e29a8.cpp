@@ -5,10 +5,10 @@ struct Struct_020e29a8 {
     unsigned char unknown_16_;
 };
 
-// USA: func_020e29a8
-extern "C" ARM void func_020e29a8(struct Struct_020e29a8* arg0, int arg1) {
-    if (arg1 >= 3) {
-        arg1 = 2;
+// USA: SetYesNoWindowDefaultCursor_020e29a8
+extern "C" ARM void SetYesNoWindowDefaultCursor_020e29a8(struct Struct_020e29a8* yesNoWindow, int cursorIndex) {
+    if (cursorIndex >= 3) {
+        cursorIndex = 2;
     }
-    arg0->unknown_16_ = (unsigned char)arg1;
+    yesNoWindow->unknown_16_ = (unsigned char)cursorIndex;
 }

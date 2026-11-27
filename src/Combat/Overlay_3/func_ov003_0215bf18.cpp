@@ -14,7 +14,7 @@ struct SoundEffectManager_02108760;
 extern "C" void PlaySoundEffect_0205eaa0(struct SoundEffectManager_02108760* manager, int soundEffectIndex, int handle);
 
 struct Struct_020e29a8;
-extern "C" void func_020e29a8(struct Struct_020e29a8* arg0, int arg1);
+extern "C" void SetYesNoWindowDefaultCursor_020e29a8(struct Struct_020e29a8* yesNoWindow, int cursorIndex);
 
 struct YesNoWindow_020e280c;
 extern "C" void OpenYesNoWindow_020e280c(struct YesNoWindow_020e280c* yesNoWindow, void* objVRAMEnd);
@@ -37,7 +37,7 @@ extern "C" ARM int func_ov003_0215bf18(void* arg0, int arg1) {
     unsigned char var3 = *(unsigned char*)(var0 + 0x581);
     if (var3 == 0) {
         PlaySoundEffect_0205eaa0((struct SoundEffectManager_02108760*)&gSoundEffectManager_02108760, 5, 0);
-        func_020e29a8((struct Struct_020e29a8*)*(void**)(var0 + 0x570), (signed char)arg1);
+        SetYesNoWindowDefaultCursor_020e29a8((struct Struct_020e29a8*)*(void**)(var0 + 0x570), (signed char)arg1);
         OpenYesNoWindow_020e280c((struct YesNoWindow_020e280c*)*(void**)(var0 + 0x570), (void*)-1);
         *(unsigned char*)(var0 + 0x581) = *(unsigned char*)(var0 + 0x581) + 1;
     }

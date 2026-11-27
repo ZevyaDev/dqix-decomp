@@ -148,7 +148,7 @@ struct GameObject;
 extern "C" int HasLeftBattle_ov000_02153c0c(GameObject*);
 extern "C" int func_ov000_021599dc(GameObject*);
 extern "C" Struct_ov000_0215767c_10* GetNextBattleAction_ov000_0215e9d8(void* battle);
-extern "C" Struct_ov000_0215767c_8* func_ov000_0215e918(void* arg0);
+extern "C" Struct_ov000_0215767c_8* GetNextActionActor_ov000_0215e918(void* battle);
 struct BattleAction_ov000_0215440c;
 extern "C" Struct_ov000_0215767c_9* GetActionTarget_ov000_021600f8(BattleAction_ov000_0215440c*, int);
 struct BattleAction_ov000_0215440c_2;
@@ -568,7 +568,7 @@ extern "C" ARM void ProcessCombatTurn(Struct_ov000_0215767c_2* arg0, SafeAllocat
                     if (HasLeftBattle_ov000_02153c0c((GameObject*)var81) != 0) {
                         break;
                     }
-                    Struct_ov000_0215767c_8* var82 = func_ov000_0215e918(arg0);
+                    Struct_ov000_0215767c_8* var82 = GetNextActionActor_ov000_0215e918(arg0);
                     if (var82 == 0) {
                         break;
                     }

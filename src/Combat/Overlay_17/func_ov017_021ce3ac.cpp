@@ -11,7 +11,7 @@ extern "C" GameObject* GetCompanionByIndex_0200ff58(GameState* gameState, int in
 extern "C" void SetLeaderObjectIndex_020546a0(void*, int);
 extern "C" void SetFollowerIndex_020546b4(void*, int);
 extern "C" void func_02039858(unsigned char*, int);
-extern "C" void func_0203986c(unsigned char*, int);
+extern "C" void SetFollowLineIndex_0203986c(unsigned char*, int);
 
 struct Struct_ov017_021ce3ac {
     unsigned char unknown_0_[4];
@@ -32,6 +32,6 @@ extern "C" ARM void func_ov017_021ce3ac(int arg0, Struct_ov017_021ce3ac* arg1, G
     SetLeaderObjectIndex_020546a0(var0, arg1->unknown_6_);
     SetFollowerIndex_020546b4(var0, arg1->unknown_7_);
     func_02039858((unsigned char*)var0, arg1->unknown_8_);
-    func_0203986c((unsigned char*)var0, arg1->unknown_9_);
+    SetFollowLineIndex_0203986c((unsigned char*)var0, arg1->unknown_9_);
     *((unsigned char*)var0 + Enum_ov017_021ce3ac_722) = arg1->unknown_a_;
 }

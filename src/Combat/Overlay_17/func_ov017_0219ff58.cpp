@@ -43,7 +43,7 @@ extern "C" int func_02048260(struct Struct_02048260_2* arg0);
 extern "C" int func_020482bc(struct Struct_02010604_3* arg0);
 extern "C" int SetMotion_02033b88(struct Struct_02010604* object, int motion);
 extern "C" void func_02039858(unsigned char*, int);
-extern "C" void func_0203986c(unsigned char* arg0, int arg1);
+extern "C" void SetFollowLineIndex_0203986c(unsigned char* object, int lineIndex);
 extern "C" void EnablePlayerControl_020397c0(void* object);
 extern "C" void func_ov017_021cedf4(int arg0, int arg1, int arg2);
 extern "C" void func_ov017_021c9e00(int arg0, int arg1, int arg2, int arg3);
@@ -74,7 +74,7 @@ extern "C" ARM int func_ov017_0219ff58(unsigned char* arg0, int arg1, int arg2, 
                 SetMotion_02033b88((struct Struct_02010604*)var2, 0);
                 if (var2->unknown_130_->unknown_0_ & 1) {
                     func_02039858((unsigned char*)var2, -1);
-                    func_0203986c((unsigned char*)var2, 0);
+                    SetFollowLineIndex_0203986c((unsigned char*)var2, 0);
                     EnablePlayerControl_020397c0(var2);
                 }
                 func_ov017_021cedf4(var1, 1, 0);

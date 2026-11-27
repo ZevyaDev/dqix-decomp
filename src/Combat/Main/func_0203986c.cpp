@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_0203986c
-extern "C" ARM void func_0203986c(unsigned char* arg0, int arg1) {
+// USA: SetFollowLineIndex_0203986c
+extern "C" ARM void SetFollowLineIndex_0203986c(unsigned char* object, int lineIndex) {
 #if defined(jpn)
-    arg0[0x1bd] = arg1;
+    object[0x1bd] = lineIndex;
 #else
-    arg0[0x1c9] = arg1;
+    object[0x1c9] = lineIndex;
 #endif
 }

@@ -21,7 +21,7 @@ extern "C" int func_ov000_02159c58(void*,int);extern "C" int func_0208555c(unsig
 struct Struct_02088418;extern "C" int func_02088418(Struct_02088418*,int,int);extern "C" int func_ov000_02157cc4(GameObject*);extern "C" void func_02088474(void*,int,int);
 extern "C" int func_ov000_02159d94(void*, int);extern "C" void func_0208a910(int*);struct Struct_02070b6c_3;extern "C" void* FindMonsterBattleData_02070fd0(Struct_02070b6c_3*,int);
 struct Struct_0204887c;extern "C" void func_0204887c(Struct_0204887c*,char*);extern "C" Struct_ov000_0215767c* FindActionData_02079e2c(char*,int);
-extern "C" void InitActionTarget_ov000_02157cdc(void*);extern "C" void* func_ov000_0215e918(void*);extern "C" void func_02089758(unsigned char*);
+extern "C" void InitActionTarget_ov000_02157cdc(void*);extern "C" void* GetNextActionActor_ov000_0215e918(void*);extern "C" void func_02089758(unsigned char*);
 extern "C" int func_ov000_02156050(GameObject*);extern "C" int func_ov000_021543f4(GameObject*);
 struct BattleAction_ov000_0215767c_5;struct ActionTarget_ov000_0215767c_4;extern "C" void AppendActionTarget_ov000_021600cc(BattleAction_ov000_0215767c_5*,ActionTarget_ov000_0215767c_4*);
 struct BattleAction_ov000_0215767c_7;struct ActionActor_ov000_0215767c_6;extern "C" void AppendActionActor_ov000_02160068(BattleAction_ov000_0215767c_7*,ActionActor_ov000_0215767c_6*);
@@ -64,7 +64,7 @@ extern "C" ARM void func_ov000_0215767c(Struct_ov000_0215767c_2* arg0,Struct_ov0
   }
  }
  for(signed char var25=0;var25<var5;var25++){
-  Struct_ov000_0215767c_8* var26=(Struct_ov000_0215767c_8*)func_ov000_0215e918(arg0);if(!var26)break;memset(var26,0,0x30);var26->unknown_1c_=-1;var26->unknown_30_=0;int var27=var4.unknown_0_[var25];int var28=0;var26->unknown_20_=var27;
+  Struct_ov000_0215767c_8* var26=(Struct_ov000_0215767c_8*)GetNextActionActor_ov000_0215e918(arg0);if(!var26)break;memset(var26,0,0x30);var26->unknown_1c_=-1;var26->unknown_30_=0;int var27=var4.unknown_0_[var25];int var28=0;var26->unknown_20_=var27;
   if(!var7)var28=func_ov000_0215833c(arg0,var27,arg1);
   GameObject* var29=GameState::GetInstance()->GetCombatantByIndex(var27);if(var29)func_02089758((unsigned char*)var29->unknown_138_);
   if(!var28){

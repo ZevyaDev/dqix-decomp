@@ -7,7 +7,7 @@ extern "C" int func_ov000_0215fb54(int, int, Struct_ov024_021fea1c*);
 extern "C" void* func_ov000_02162d88(void*,int);
 extern "C" int func_ov000_02161380(void*,int,int,int);
 struct Struct_ov024_021dc2a0_8 {char unknown_0_[0xe];short unknown_e_;short unknown_10_;short unknown_12_;short unknown_14_;char unknown_16_;unsigned char unknown_17_;char unknown_18_[8];int unknown_20_;};
-extern "C" Struct_ov024_021dc2a0_8* func_ov000_0215e938(void*);
+extern "C" Struct_ov024_021dc2a0_8* GetNextActionTarget_ov000_0215e938(void*);
 struct Struct_ov000_0215fef0;
 extern "C" void func_ov000_0215fef0(Struct_ov000_0215fef0*);
 extern "C" Struct_ov024_021dc2a0_8* GetNextActionResult_ov000_0215e958(void*);
@@ -49,7 +49,7 @@ extern "C" ARM void* func_ov024_021dc2a0(Struct_ov024_021dc2a0_6* arg0,short arg
             for(int var8=0;var8<1;var8++){
                 int var9=func_ov000_02161380(var1,var3.unknown_0_[var7],var5,1);
                 if(var9>=0xc0){
-                    Struct_ov024_021dc2a0_8* var10=func_ov000_0215e938(arg0->unknown_10_);
+                    Struct_ov024_021dc2a0_8* var10=GetNextActionTarget_ov000_0215e938(arg0->unknown_10_);
                     if(var10){
                         func_ov000_0215fef0((Struct_ov000_0215fef0*)var10);
                         var10->unknown_20_=0;
