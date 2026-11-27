@@ -36,7 +36,7 @@ extern "C" int func_02046608(void* arg0, int arg1, unsigned int arg2, void* arg3
 #if defined(jpn)
 struct Struct_ov004_021707c8 { char unknown_0_[4]; short* unknown1_8_; struct AccoladeTable_020a15bc* unknown_8_; };
 extern "C" void func_02041f50(void* arg0, char* arg1);
-extern "C" void func_02042428(char* arg0, int arg1);
+extern "C" void AppendFontSizeTag_02041d9c(char* buffer, int fontSize);
 extern "C" int func_020d2ff0(const char* string);
 extern "C" void func_ov023_021f8960(char* arg0, short arg1, unsigned short arg2);
 #else
@@ -101,7 +101,7 @@ extern "C" ARM int func_ov004_021564f0(void* arg0) {
         if (var13 != func_020d2ff0((const char*)var12)) {
             var15 = 8;
         }
-        func_02042428(var10, 0xc);
+        AppendFontSizeTag_02041d9c(var10, 0xc);
         AppendPositionTag_02041a90(var10, var14, var15);
         AppendText_02042058(var10, (const char*)var12);
         *(void**)((char*)var11 + 0x20) = var10;

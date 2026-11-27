@@ -12,7 +12,7 @@ struct Struct_ov012_0218b634 {
     unsigned char unknown_1374_;
 };
 
-extern "C" int func_02042428(char* arg0, int arg1);
+extern "C" int AppendFontSizeTag_02041d9c(char* buffer, int fontSize);
 extern "C" int AppendXPositionTag_02041a28(char* buffer, int x);
 extern "C" int func_02042638(char* arg0, const char* arg1, int arg2);
 extern "C" int func_020420e8(char* arg0, int arg1);
@@ -30,7 +30,7 @@ extern "C" ARM void func_ov012_0218b634(Struct_ov012_0218b634* arg0, char* arg1)
         return;
     }
     var1[2] = 0;
-    func_02042428(arg1, 12);
+    AppendFontSizeTag_02041d9c(arg1, 12);
     AppendXPositionTag_02041a28(arg1, 0x32);
     func_02042638(arg1, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_1314_, 0xe), 0x18);
     if (arg0->unknown_1374_ == 0) {
@@ -95,7 +95,7 @@ extern "C" ARM void func_ov012_0218b634(Struct_ov012_0218b634* arg0, char* arg1)
     } else {
         var11 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_1314_, var10 + 0x6e);
     }
-    func_02042428(arg1, 10);
+    AppendFontSizeTag_02041d9c(arg1, 10);
     for (var12 = 0; var12 < 2; var12++, var10 += 10) {
         AppendPositionTag_02041a90(arg1, var10, 0x1e);
         memcpy(var0, var11 + var12 * 2, 2);
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov012_0218b634(Struct_ov012_0218b634* arg0, char* arg1)
     AppendText_02042058(arg1, FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_1314_, 0x193));
     var11 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_1314_, 0x194);
     var10 = 0xc6;
-    func_02042428(arg1, 10);
+    AppendFontSizeTag_02041d9c(arg1, 10);
     for (var12 = 0; var12 < 3; var12++, var10 += 10) {
         AppendPositionTag_02041a90(arg1, var10, 0x5f);
         memcpy(var0, var11 + var12 * 2, 2);
@@ -117,7 +117,7 @@ extern "C" ARM void func_ov012_0218b634(Struct_ov012_0218b634* arg0, char* arg1)
     }
     var11 = FindStringInList_02072a68((StringList_02072a68_2*)arg0->unknown_1314_, 0x190);
     var10 = 0xc5;
-    func_02042428(arg1, 10);
+    AppendFontSizeTag_02041d9c(arg1, 10);
     for (int var13 = 0; var13 < 3; var13++, var10 += 10) {
         AppendPositionTag_02041a90(arg1, var10, 0x6e);
         memcpy(var0, var11 + var13 * 2, 2);

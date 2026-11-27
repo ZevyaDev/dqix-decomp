@@ -2,7 +2,6 @@
 #include "Resource/StringList.h"
 
 #if defined(jpn)
-#define func_02041d9c func_02042428
 #define func_ov013_02185900 func_ov013_02186aec
 #endif
 
@@ -22,13 +21,13 @@ enum { Enum_ov013_02185900_1000 = 2000, Enum_ov013_02185900_1001 = 2001, Enum_ov
 #else
 enum { Enum_ov013_02185900_1000 = 1000, Enum_ov013_02185900_1001 = 1001, Enum_ov013_02185900_1002 = 1002 };
 #endif
-extern "C" int func_02041d9c(char* arg0, int arg1);
+extern "C" int AppendFontSizeTag_02041d9c(char* buffer, int fontSize);
 struct Struct_0201099c_3;
 extern "C" int AppendText_02042058(char* buffer, const char* text);
 
 // USA: func_ov013_02185900
 extern "C" ARM void func_ov013_02185900(Struct_ov013_021846a0_2* arg0, char* arg1) {
-    func_02041d9c(arg1, 12);
+    AppendFontSizeTag_02041d9c(arg1, 12);
 
     unsigned char var0 = arg0->unknown_63c_;
     if (var0 == 4) {

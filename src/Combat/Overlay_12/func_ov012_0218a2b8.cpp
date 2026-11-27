@@ -26,7 +26,7 @@ struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(struct MessageWindow_020465c0* window, int index, int number);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char* window, int index, unsigned char width);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char* window, int index, unsigned char alignment);
-extern "C" void func_02042428(char* arg0, int arg1);
+extern "C" void AppendFontSizeTag_02041d9c(char* buffer, int fontSize);
 #endif
 
 // USA: func_ov012_0218a2b8
@@ -37,7 +37,7 @@ extern "C" ARM void func_ov012_0218a2b8(unsigned char* arg0, char* arg1) {
     SetMessageNumber_020465c0(var0, 0, arg0[0x1456]);
     SetMessageNumberWidth_020465f0((unsigned char*)var0, 0, 2);
     SetMessageNumberAlignment_020465d8((unsigned char*)var0, 0, 1);
-    func_02042428(arg1, 0xc);
+    AppendFontSizeTag_02041d9c(arg1, 0xc);
     if (arg0[0x1341] == 8) {
         void* var1 = FindStringInList_02072a68((struct StringList_02072a68_2*)(arg0 + 0x1314), 0x68);
         AppendMenuEntry_02041b70(arg1, 0, (const char*)var1);

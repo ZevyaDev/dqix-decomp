@@ -8,7 +8,7 @@ struct MessageWindow_020465c0;
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*,int,int);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char*,int,unsigned char);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*,int,unsigned char);
-extern "C" void func_02042428(char*, int);
+extern "C" void AppendFontSizeTag_02041d9c(char*, int);
 #else
 enum { Enum_ov003_0217dfb4_20=0x14 };
 #endif
@@ -85,7 +85,7 @@ extern "C" ARM void func_ov003_0217dfb4(struct Struct_ov003_0217dfb4_2* arg0) {
         SetMessageNumberWidth_020465f0((unsigned char*)var1, 1, 2);
         SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 1);
         SetMessageNumberAlignment_020465d8((unsigned char*)var1, 1, 0);
-        func_02042428(var0, 8);
+        AppendFontSizeTag_02041d9c(var0, 8);
         AppendText_02042058(var0, (const char*)((int)((StringList*)((Struct_0201099c_3*)arg0->unknown_cc_))->GetString(0xc8)));
 #else
         unsigned char* var6 = FindTextWindow_0205d81c((struct TextWindowManager_0205d81c*)arg0->unknown_90_, 0);

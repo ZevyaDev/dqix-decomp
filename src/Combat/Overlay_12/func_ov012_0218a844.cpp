@@ -60,7 +60,7 @@ extern "C" void ClearMessageParams_02046380(void*);
 extern "C" void SetMessageNumber_020465c0(MessageWindow_020465c0*, int, int);
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char*, int, unsigned char);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char*, int, unsigned char);
-extern "C" void func_02042428(char*, int);
+extern "C" void AppendFontSizeTag_02041d9c(char*, int);
 extern "C" const char* FindStringInList_02072a68(StringList_02072a68_2*, int);
 #endif
 
@@ -109,7 +109,7 @@ extern "C" ARM void func_ov012_0218a844(Struct_ov012_0218a844_2* arg0, char* arg
         SetMessageNumberWidth_020465f0((unsigned char*)var1, 1, 2);
         SetMessageNumberAlignment_020465d8((unsigned char*)var1, 0, 1);
         SetMessageNumberAlignment_020465d8((unsigned char*)var1, 1, 0);
-        func_02042428(arg1, 8);
+        AppendFontSizeTag_02041d9c(arg1, 8);
         AppendText_02042058(arg1, FindStringInList_02072a68((StringList_02072a68_2*)((char*)arg0 + 0x1314), 0x7a));
 #else
         func_ov012_021842a0(arg0, 12, var4, var5);

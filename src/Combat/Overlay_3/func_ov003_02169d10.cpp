@@ -4,8 +4,7 @@
 
 #if defined(jpn)
 #define PANEL_SHIFT 4
-extern "C" void func_02042428(char*, int);
-#define func_02041d9c func_02042428
+extern "C" void AppendFontSizeTag_02041d9c(char*, int);
 #define data_ov003_02180156 data_ov003_0217e8e5
 #define data_ov003_02180159 data_ov003_0217e8e8
 #else
@@ -31,7 +30,7 @@ extern "C" void AppendText_02042058(char* buffer, const char* text);
 extern "C" void AppendFrameTag_02041c08(char* buffer, int entryIndex, int leftMargin, int topMargin, int rightMargin, int bottomMargin);
 extern "C" void func_02041ed8(char* arg0, int arg1, int arg2, int arg3);
 extern "C" void func_02041f24(char* arg0, int arg1, int arg2, int arg3);
-extern "C" void func_02041d9c(char* arg0, int arg1);
+extern "C" void AppendFontSizeTag_02041d9c(char* buffer, int fontSize);
 extern "C" void AppendMenuEntry_02041b70(char* buffer, int entryIndex, const char* text);
 extern "C" void AppendXPositionTag_02041a28(char* buffer, int x);
 
@@ -68,7 +67,7 @@ extern "C" ARM void func_ov003_02169d10(Struct_ov003_02169d10* arg0, char* arg1,
         AppendFrameTag_02041c08(arg1, var1, 3, 0xb, 3, 0xa);
     func_02041ed8(arg1, var1, arg0->unknown_5a6_, 2);
     func_02041f24(arg1, var1, arg0->unknown_5a7_, 2);
-    func_02041d9c(arg1, 0xc);
+    AppendFontSizeTag_02041d9c(arg1, 0xc);
     for (int var2 = 0; var2 < 7; var2++)
     {
         memset(var0, 0, 2);

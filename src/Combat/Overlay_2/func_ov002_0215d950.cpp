@@ -34,7 +34,7 @@ extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int 
 extern "C" void SetMessageNumberWidth_020465f0(unsigned char *window, int index, unsigned char width);
 extern "C" void SetMessageNumberAlignment_020465d8(unsigned char *window, int index, unsigned char alignment);
 extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
-extern "C" void func_02042428(char *arg0, int arg1);
+extern "C" void AppendFontSizeTag_02041d9c(char *buffer, int fontSize);
 extern "C" void *memset(void *arg0, int arg1, unsigned int arg2);
 #endif
 
@@ -83,7 +83,7 @@ extern "C" ARM void func_ov002_0215d950(char *arg0, char *arg1, int arg2) {
         SetMessageNumberWidth_020465f0((unsigned char *) var4, 1, 2);
         SetMessageNumberAlignment_020465d8((unsigned char *) var4, 0, 1);
         SetMessageNumberAlignment_020465d8((unsigned char *) var4, 1, 0);
-        func_02042428(arg1, 8);
+        AppendFontSizeTag_02041d9c(arg1, 8);
         AppendText_02042058(arg1, (const char *) ((int)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(0x47f)));
     }
 #else

@@ -17,7 +17,7 @@ struct TextWindow_0205d0e0 {
 };
 extern "C" TextWindow_0205d0e0* FindTextWindow_0205d81c(TextWindowManager_0205d81c*, int);
 extern "C" int AppendText_02042058(char*, const char*);
-extern "C" int func_02042428(char*, int);
+extern "C" int AppendFontSizeTag_02041d9c(char*, int);
 
 // USA: 021d9e60; JPN: 021da6f0.
 extern "C" ARM void func_ov023_021d9e60(char* arg0) {
@@ -28,7 +28,7 @@ extern "C" ARM void func_ov023_021d9e60(char* arg0) {
         TextWindow_0205d0e0* var1 = FindTextWindow_0205d81c((TextWindowManager_0205d81c*)&var0->unknown_1f8_[1], 3);
         var1->unknown_b8_ = 0x11;
         var1->unknown_ba_ = 0x10;
-        func_02042428(var0->unknown_f8_, 12);
+        AppendFontSizeTag_02041d9c(var0->unknown_f8_, 12);
         AppendText_02042058(var0->unknown_f8_, var0->unknown_d74_[var0->unknown_da3_]);
     } else {
         int var2 = ((int)((StringList*)(&var0->unknown_e0_))->GetString(0x4274));

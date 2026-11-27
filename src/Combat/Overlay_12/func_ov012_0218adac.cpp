@@ -70,7 +70,7 @@ extern "C" int func_ov012_0218ae74(Struct_ov012_02185ab8* arg0, const Struct_ov0
 #endif
 
 #if defined(jpn)
-extern "C" void func_02042428(char*, int);
+extern "C" void AppendFontSizeTag_02041d9c(char*, int);
 extern "C" int func_02099304(const Struct_ov008_02188f5c*, const char*, const void*, unsigned int, char*, unsigned int, unsigned char, const char*, const char*);
 #endif
 
@@ -96,7 +96,7 @@ extern "C" ARM void func_ov012_0218adac(Struct_ov012_02185ab8* arg0, int arg1, i
 
 #if defined(jpn)
     memset(arg0->unknown_1374_, 0, 0x800);
-    func_02042428(arg0->unknown_1374_, 12);
+    AppendFontSizeTag_02041d9c(arg0->unknown_1374_, 12);
     char* var3 = arg0->unknown_1374_;
     unsigned int var4 = strlen(var3);
     func_02099304(var2, arg0->unknown_13b0_, arg0->unknown_13b4_, arg0->unknown_13b8_, var3 + var4, 0x800 - var4, 0, arg0->unknown_1440_, arg0->unknown_1400_);

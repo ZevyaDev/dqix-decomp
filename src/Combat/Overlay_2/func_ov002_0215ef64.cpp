@@ -32,7 +32,7 @@ extern "C" int func_020d2ff0(const char *string);
 extern "C" void SetMessageString_02046574(struct Struct_02046574_2 *window, int index, const char *text);
 extern "C" void func_020474a8(void *arg0, int arg1, const char *arg2, char *arg3);
 extern "C" int AppendText_02042058(char *buffer, const char *text);
-extern "C" int func_02042428(char *arg0, int arg1);
+extern "C" int AppendFontSizeTag_02041d9c(char *buffer, int fontSize);
 extern "C" int CountUsedBagSlots_020a0b8c(struct ItemBag_020a0b8c *bag);
 extern "C" int GetBagItemCount_020a0b3c(ItemBag_0207cf30_3 *bag, int itemId);
 extern "C" void ClearMessageParams_02046380(void *window);
@@ -130,7 +130,7 @@ extern "C" ARM void func_ov002_0215ef64(char *arg0, char *arg1, int arg2) {
         SetMessageNumber_020465c0((struct MessageWindow_020465c0 *) var5, 1, var12);
         SetMessageNumberWidth_020465f0((unsigned char *) var5, 1, 2);
         SetMessageNumberAlignment_020465d8((unsigned char *) var5, 1, 0);
-        func_02042428(arg1, 8);
+        AppendFontSizeTag_02041d9c(arg1, 8);
         AppendText_02042058(arg1, ((char*)((StringList*)((struct Struct_0201099c_3 *) (arg0 + 8)))->GetString(0x47f)));
     }
 }

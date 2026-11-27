@@ -2,7 +2,7 @@
 #include <globaldefs.h>
 #if defined(jpn)
 enum { Enum_ov003_0215c0ec_2400=0x800 };
-extern "C" void func_02042428(char*, int);
+extern "C" void AppendFontSizeTag_02041d9c(char*, int);
 extern "C" void AppendXOffsetTag_02041acc(char*, int);
 extern char data_ov003_0217e68e[];
 extern char data_ov003_0217e696[];
@@ -84,7 +84,7 @@ extern "C" ARM void func_ov003_0215c0ec(struct Struct_ov003_0215c0ec_3* arg0) {
         int var4 = GetMessageWindow_020421a0();
         memset(arg0->unknown_7c_, 0, Enum_ov003_0215c0ec_2400);
 #if defined(jpn)
-        func_02042428(arg0->unknown_7c_, 8);
+        AppendFontSizeTag_02041d9c(arg0->unknown_7c_, 8);
         AppendText_02042058(arg0->unknown_7c_, data_ov003_0217e68e);
         AppendXOffsetTag_02041acc(arg0->unknown_7c_, 2);
         AppendText_02042058(arg0->unknown_7c_, data_ov003_0217e696);

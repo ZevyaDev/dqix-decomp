@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 #if defined(jpn)
-extern "C" void func_02042428(char*, int);
+extern "C" void AppendFontSizeTag_02041d9c(char*, int);
 #endif
 
 struct StringList_02072a68_2;
@@ -13,7 +13,7 @@ extern "C" ARM void func_ov023_021e8ef8(void* arg0) {
     if (!var0) return;
     char* var1 = *(char**)((char*)arg0 + 0x5d8);
 #if defined(jpn)
-    func_02042428(var1, 12);
+    AppendFontSizeTag_02041d9c(var1, 12);
     var0 = *(struct StringList_02072a68_2**)((char*)arg0 + 0x5f4);
 #endif
     void* var2 = FindStringInList_02072a68(var0, 0x77);

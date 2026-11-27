@@ -86,7 +86,7 @@ struct Struct_ov012_02189314
 extern "C" void CloseTextWindows_0205d6a0(void* windowManager, int isAll);
 extern "C" void func_ov023_021e20c0(void* arg0);
 extern "C" int LoadLayout_ov023_021e20f0(void* layout, SafeAllocator* allocator, void* fileData, unsigned int fileSize);
-extern "C" void func_02042428(char* arg0, int arg1);
+extern "C" void AppendFontSizeTag_02041d9c(char* buffer, int fontSize);
 extern "C" int func_02099304(Struct_ov012_02189314_2* arg0, char* arg1, const void* arg2, unsigned int arg3, void* arg4, int arg5, unsigned char arg6, char* arg7, char* arg8);
 extern "C" void SetNextTextWindowBGLayer_0205de24(void* windowManager, unsigned char isSubScreen, unsigned char bgIndex);
 extern "C" void ConfigureProfileMenuCursors_ov023_021e6e60(Struct_ov012_02189314* menu);
@@ -161,7 +161,7 @@ extern "C" ARM void func_ov012_02189314(Struct_ov012_02189314* arg0)
     {
         Struct_ov012_02189314_2* var4 = inline_ov012_02189314(GameState::GetInstance());
         memset(arg0->unknown_1344_, 0, 0x800);
-        func_02042428(arg0->unknown_1344_, 0xc);
+        AppendFontSizeTag_02041d9c(arg0->unknown_1344_, 0xc);
         char* var5 = arg0->unknown_1344_;
         int var6 = strlen(var5);
         func_02099304(var4, arg0->unknown_1408_, arg0->unknown_140c_, arg0->unknown_1410_, var5 + var6, 0x800 - var6, 0, arg0->unknown_1498_, arg0->unknown_1458_);

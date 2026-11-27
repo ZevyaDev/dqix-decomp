@@ -8,7 +8,7 @@
 #if defined(jpn)
 #define MENU_SHIFT 4
 #define TEXT_BYTES 0x800
-extern "C" void func_02042428(char*, int);
+extern "C" void AppendFontSizeTag_02041d9c(char*, int);
 #else
 #define MENU_SHIFT 0
 #define TEXT_BYTES 0x960
@@ -111,7 +111,7 @@ extern "C" ARM void func_ov003_0216aa28(struct Struct_ov003_0216aa28_2* arg0) {
     struct Struct_ov003_0216aa28_3* var5 = (struct Struct_ov003_0216aa28_3*)GetParty_02010828(var3);
     memset(arg0->unknown_7c_, 0, TEXT_BYTES);
 #if defined(jpn)
-    func_02042428(arg0->unknown_7c_, 8);
+    AppendFontSizeTag_02041d9c(arg0->unknown_7c_, 8);
 #endif
     AppendText_02042058(arg0->unknown_7c_, ((StringList*)((struct Struct_0201099c_3*)arg0->unknown_64_))->GetString(0x65));
     ClearMessageParams_02046380(var4);

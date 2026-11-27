@@ -30,7 +30,7 @@ enum { Enum_ov003_0216982c_409 = 0x199 };
 #endif
 
 #if defined(jpn)
-extern "C" void func_02042428(void*, int);
+extern "C" void AppendFontSizeTag_02041d9c(void*, int);
 extern "C" void OpenTextWindow_0205d304(void*, void*, int, int, int, int, int);
 struct Struct_0201099c_3;
 #endif
@@ -77,7 +77,7 @@ extern "C" ARM void func_ov003_0216982c(unsigned char* arg0) {
     memset(*(void**)(arg0 + 0x7c), 0, Enum_ov003_0216982c_2400);
 
 #if defined(jpn)
-    func_02042428(*(void**)(arg0 + 0x7c), 8);
+    AppendFontSizeTag_02041d9c(*(void**)(arg0 + 0x7c), 8);
     int var3 = ((int)((StringList*)((Struct_0201099c_3*)(arg0 + 0x64)))->GetString(0x65));
     AppendText_02042058((char*)*(void**)(arg0 + 0x7c), (const char*)var3);
 #else
