@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 
-// USA: func_020881c4
-extern "C" ARM int func_020881c4(unsigned char* arg0) {
-    int var0 = *(int*)(arg0 + 0x14);
+// USA: CanRaiseTension_020881c4
+extern "C" ARM int CanRaiseTension_020881c4(unsigned char* stats) {
+    int var0 = *(int*)(stats + 0x14);
     if (var0 & 1) {
         return 0;
     }

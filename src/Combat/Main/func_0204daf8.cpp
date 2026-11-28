@@ -32,7 +32,7 @@ struct Struct_0204daf8 {
 };
 
 extern "C" unsigned char func_02042764(void* arg0);
-extern "C" char* func_02042a50(int arg0, const char* arg1);
+extern "C" char* FindGlyphForFontSize_02042a50(int fontSize, const char* character);
 extern "C" void func_0204cc68(Struct_0204daf8* arg0, int arg1, short arg2, short arg3, short arg4, short arg5);
 extern "C" void FillTextWindowRect_0204f914(Struct_0204daf8* textWindow, int colorIndex, short left, short top, short right, short bottom);
 extern "C" void func_0204ea5c(Struct_0204daf8* arg0);
@@ -457,7 +457,7 @@ extern "C" ARM void func_0204daf8(Struct_0204daf8* arg0, char* arg1, short arg2)
             }
         }
         if (var4 != 6 || var48 == 12) {
-            char* var78 = func_02042a50(var4, var0);
+            char* var78 = FindGlyphForFontSize_02042a50(var4, var0);
             if (var78 != 0) {
                 if (var4 == 6) {
                     func_0204f284(arg0, var78, var5, var6, var4, 0x60, 6);
@@ -492,10 +492,10 @@ extern "C" ARM void func_0204daf8(Struct_0204daf8* arg0, char* arg1, short arg2)
         short var83 = arg0->unknown_c_[var22] + (arg0->unknown_54_[var22] - 10) / 2;
         short var84 = var36 + arg0->unknown_30_[var22] - (var26 + 5);
         if (var30 != 0) {
-            char* var85 = func_02042a50(12, data_020f030f);
+            char* var85 = FindGlyphForFontSize_02042a50(12, data_020f030f);
             if (var85 != 0) func_0204e038(arg0, var85, var83, var84, 12, 12, 0xd0, 0xd);
         } else {
-            char* var85 = func_02042a50(12, data_020f030f);
+            char* var85 = FindGlyphForFontSize_02042a50(12, data_020f030f);
             if (var85 != 0) func_0204e038(arg0, var85, var83, var84, 12, 12, 0xf0, 0xf);
         }
     }
@@ -503,10 +503,10 @@ extern "C" ARM void func_0204daf8(Struct_0204daf8* arg0, char* arg1, short arg2)
         short var83 = arg0->unknown_c_[var23] + (arg0->unknown_54_[var23] - 10) / 2;
         short var84 = var36 + arg0->unknown_30_[var23] + (var4 + var27);
         if (var31 != 0) {
-            char* var85 = func_02042a50(12, data_020f030f);
+            char* var85 = FindGlyphForFontSize_02042a50(12, data_020f030f);
             if (var85 != 0) func_0204e038(arg0, var85, var83, var84, 12, 12, 0xd0, 0xd);
         } else {
-            char* var85 = func_02042a50(12, data_020f030f);
+            char* var85 = FindGlyphForFontSize_02042a50(12, data_020f030f);
             if (var85 != 0) func_0204e038(arg0, var85, var83, var84, 12, 12, 0xf0, 0xf);
         }
     }
@@ -514,10 +514,10 @@ extern "C" ARM void func_0204daf8(Struct_0204daf8* arg0, char* arg1, short arg2)
         short var83 = arg0->unknown_c_[var24] + (arg0->unknown_54_[var24] - 10) / 2;
         short var84 = var36 + arg0->unknown_30_[var24] - (var28 + 5);
         if (var32 != 0) {
-            char* var85 = func_02042a50(12, data_020f0312);
+            char* var85 = FindGlyphForFontSize_02042a50(12, data_020f0312);
             if (var85 != 0) func_0204e038(arg0, var85, var83, var84, 12, 12, 0xd0, 0xd);
         } else {
-            char* var85 = func_02042a50(12, data_020f0312);
+            char* var85 = FindGlyphForFontSize_02042a50(12, data_020f0312);
             if (var85 != 0) func_0204e038(arg0, var85, var83, var84, 12, 12, 0xf0, 0xf);
         }
     }
@@ -525,10 +525,10 @@ extern "C" ARM void func_0204daf8(Struct_0204daf8* arg0, char* arg1, short arg2)
         short var83 = arg0->unknown_c_[var25] + (arg0->unknown_54_[var25] - 10) / 2;
         short var84 = var36 + arg0->unknown_30_[var25] + (var4 + var29);
         if (var33 != 0) {
-            char* var85 = func_02042a50(12, data_020f0312);
+            char* var85 = FindGlyphForFontSize_02042a50(12, data_020f0312);
             if (var85 != 0) func_0204e038(arg0, var85, var83, var84, 12, 12, 0xd0, 0xd);
         } else {
-            char* var85 = func_02042a50(12, data_020f0312);
+            char* var85 = FindGlyphForFontSize_02042a50(12, data_020f0312);
             if (var85 != 0) func_0204e038(arg0, var85, var83, var84, 12, 12, 0xf0, 0xf);
         }
     }

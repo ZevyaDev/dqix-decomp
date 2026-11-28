@@ -20,8 +20,8 @@ struct Struct_ov024_021e1120_2 { unsigned char unknown_0_0_ : 7; unsigned char u
 struct Struct_ov024_021e1120_3 { char unknown_0_[0xc]; void* unknown_c_; void* unknown_10_; };
 struct Struct_ov024_021e1120_4 { char unknown_0_[0x20]; struct Struct_ov024_021e1120 unknown_20_; struct Struct_ov024_021e1120 unknown_24_; };
 
-// USA: func_ov024_021e1120
-extern "C" ARM void* func_ov024_021e1120(struct Struct_ov024_021e1120_3* arg0, int arg1, int arg2, struct Struct_ov024_021e1120_4* arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: ApplyHolyImpregnableEffect_ov024_021e1120
+extern "C" ARM void* ApplyHolyImpregnableEffect_ov024_021e1120(struct Struct_ov024_021e1120_3* arg0, int arg1, int arg2, struct Struct_ov024_021e1120_4* arg3, int arg4, int arg5, unsigned char arg6) {
 	GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
 	if (!var0) return 0;
 	int var1 = func_02088cb8((unsigned char*)var0->currentStats_);

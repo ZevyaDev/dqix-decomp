@@ -237,7 +237,7 @@ extern "C" void DespawnFieldMonster_ov017_021a23b0(void *gameResources, unsigned
 extern "C" void func_ov017_021c9544(int arg0, int arg1, int arg2, int arg3);
 extern "C" int GetLocalWirelessState_0202ba00(int *wireless);
 extern "C" void AddElapsedPlayTime_020ac4f8(int isMultiplayerTimeIncluded);
-extern "C" void func_02010810(char*, int);
+extern "C" void SetStoryProgress_02010810(char*, int);
 extern "C" int GetStoryProgress_0201081c(char*);
 
 // USA: func_02061c04
@@ -1112,7 +1112,7 @@ extern "C" ARM int func_02061c04(void *arg0, Struct_02061c04_17 *arg1, void *arg
         if (var142 != var143) {
             memset(inline_02061c04_2(inline_02061c04(var135)) + 0xa4, 0, 0x28);
         }
-        func_02010810((char*)var135, arg1->unknown_2_);
+        SetStoryProgress_02010810((char*)var135, arg1->unknown_2_);
         return 1;
     }
     case 0xc6: {

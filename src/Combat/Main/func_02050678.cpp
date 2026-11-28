@@ -10,7 +10,7 @@ struct Struct_02050678 {
 extern "C" int func_0204fc40(Struct_02050678* arg0, const char** arg1, const char* arg2, short* arg3, int arg4);
 extern "C" void func_0204f284(Struct_02050678* arg0, char* arg1, short arg2, short arg3, int arg4,
                               unsigned char arg5, unsigned char arg6);
-extern "C" char* func_02042a50(int arg0, const char* arg1);
+extern "C" char* FindGlyphForFontSize_02042a50(int fontSize, const char* character);
 extern "C" int func_02042764(const char* arg0);
 
 extern const char data_020f0270[];
@@ -175,7 +175,7 @@ extern "C" ARM void func_02050678(Struct_02050678* arg0, short arg1, short arg2,
             }
         }
         if (var8 != 6 || var20 == 12) {
-            char* var9 = func_02042a50(var8, var6);
+            char* var9 = FindGlyphForFontSize_02042a50(var8, var6);
             if (var9 != NULL) {
                 if (var8 == 6) {
                     unsigned char var29 = 0x60;

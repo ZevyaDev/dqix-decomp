@@ -36,7 +36,7 @@ extern "C" int HasLeftBattle_ov000_02153c0c(GameObject*);
 extern "C" int IsAsleep_020882f8(unsigned char*);
 extern "C" int func_ov000_02156038(GameObject*);
 extern "C" int func_ov000_02156050(GameObject*);
-extern "C" int func_020881c4(unsigned char*);
+extern "C" int CanRaiseTension_020881c4(unsigned char*);
 extern "C" Struct_ov000_0215b5a0_3* GetNextBattleAction_ov000_0215e9d8(void*);
 extern "C" void InitBattleAction_ov000_02160030(void*);
 extern "C" Struct_ov000_0215b5a0_4* func_ov000_0215e918(void*);
@@ -87,7 +87,7 @@ extern "C" ARM void func_ov000_0215b5a0(Struct_ov000_0215b5a0_2* arg0, BattleAct
         if (func_ov000_02156038(var14)) continue;
         if (func_ov000_02156050(var14)) continue;
         if (inline_ov000_0215b5a0(var14)->unknown_14_ & 0x1000000) continue;
-        if (!func_020881c4((unsigned char*)var14->currentStats_)) continue;
+        if (!CanRaiseTension_020881c4((unsigned char*)var14->currentStats_)) continue;
         int var15 = inline_ov000_0215b5a0(var14)->unknown_24_;
         if (NextRandomMax(&arg0->unknown_0_, 100) >= sSleepChance[var15]) continue;
 

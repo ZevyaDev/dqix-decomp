@@ -6,11 +6,11 @@ struct Struct_02087860;
 struct Struct_02087e18;
 struct Struct_02087e6c;
 extern "C" int func_02087860(Struct_02087860* arg0, unsigned char arg1);
-extern "C" int func_020878b4(void* arg0, int arg1);
+extern "C" int ChangeDefenseBuff_020878b4(void* stats, int stages);
 extern "C" int func_02087e18(Struct_02087e18* arg0, unsigned char arg1);
-extern "C" int func_02087e6c(Struct_02087e6c* arg0, int arg1);
+extern "C" int ChangeBreathResistanceBuff_02087e6c(Struct_02087e6c* stats, int stages);
 extern "C" int func_0208776c(void* arg0, int arg1);
-extern "C" int func_020877c0(void* arg0, int arg1);
+extern "C" int ChangeAttackBuff_020877c0(void* stats, int stages);
 void UpdateCombatantDefense(int random, int combatantId);
 void UpdateCombatantAttack(int random, int combatantId);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
@@ -40,13 +40,13 @@ extern "C" ARM void* func_ov024_021e1ed4(struct Struct_ov024_021e1ed4_2* arg0, i
 	int var2 = 0;
 	if (func_02087860((Struct_02087860*)var0->currentStats_, 0)) {
 		var2 = 1;
-		int var3 = func_020878b4(var0->currentStats_, 1);
+		int var3 = ChangeDefenseBuff_020878b4(var0->currentStats_, 1);
 		UpdateCombatantDefense((int)arg0->unknown_10_, arg2);
 		AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, func_ov024_021e95d4(arg0, arg2, arg3, 0, var3, 1, 1));
 	}
 	if (func_02087e18((Struct_02087e18*)var0->currentStats_, 0)) {
 		var2 = 1;
-		int var4 = func_02087e6c((Struct_02087e6c*)var0->currentStats_, 1);
+		int var4 = ChangeBreathResistanceBuff_02087e6c((Struct_02087e6c*)var0->currentStats_, 1);
 		int var5;
 		switch (var4) {
 			case 2: var5 = 0x1b0; break;
@@ -57,7 +57,7 @@ extern "C" ARM void* func_ov024_021e1ed4(struct Struct_ov024_021e1ed4_2* arg0, i
 	}
 	if (func_0208776c(var0->currentStats_, 0)) {
 		var2 = 1;
-		int var6 = func_020877c0(var0->currentStats_, 1);
+		int var6 = ChangeAttackBuff_020877c0(var0->currentStats_, 1);
 		UpdateCombatantAttack((int)arg0->unknown_10_, arg2);
 		AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var1, func_ov024_021e94c4(arg0, arg2, arg3, 0, var6, 1, 1));
 	}

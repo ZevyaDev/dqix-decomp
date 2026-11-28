@@ -55,14 +55,14 @@ extern "C" ARM void func_02028a20(int arg0, int arg1, const unsigned char* arg2)
     var6 = 10;
     var7 = 11;
     if ((unsigned int)(data_020ef74c[0].unknown_c_ - 3) <= 1) {
-        Struct_0203bebc* var8 = func_020429bc(var6);
+        Struct_0203bebc* var8 = GetFontSetForFontSize_020429bc(var6);
         if (var8 == NULL) {
             return;
         }
         var4 = var8->unknown_2_;
         var5 = var8->unknown_3_;
     } else if ((unsigned int)(data_020ef74c[0].unknown_c_ - 5) <= 1) {
-        Struct_0203bebc* var8 = func_020429bc(12);
+        Struct_0203bebc* var8 = GetFontSetForFontSize_020429bc(12);
         if (var8 == NULL) {
             return;
         }
@@ -87,7 +87,7 @@ extern "C" ARM void func_02028a20(int arg0, int arg1, const unsigned char* arg2)
         __clear(var14, 3);
         var14[0] = arg2[0];
         var14[1] = arg2[1];
-        unsigned char* var15 = (unsigned char*)func_02042a50(var6, var14);
+        unsigned char* var15 = (unsigned char*)FindGlyphForFontSize_02042a50(var6, var14);
         if (var15 != NULL) {
             unsigned char var17 = 0;
             unsigned char* var16 = var1;

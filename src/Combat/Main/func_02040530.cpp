@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_02040530
-extern "C" ARM void func_02040530(int* arg0, int arg1) {
-    arg0[3] = arg1;
+// USA: SetNPCPlacement_02040530
+extern "C" ARM void SetNPCPlacement_02040530(int* npc, int placement) {
+    npc[3] = placement;
 }

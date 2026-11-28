@@ -5,7 +5,7 @@
 
 struct Struct_020877c0;
 extern "C" int func_0208776c(void* arg0, int arg1);
-extern "C" int func_020877c0(struct Struct_020877c0* arg0, int arg1);
+extern "C" int ChangeAttackBuff_020877c0(struct Struct_020877c0* stats, int stages);
 void UpdateCombatantAttack(int a, int id);
 struct ActionRunner_ov024_021e2bd0;
 extern "C" void* AddExtraTargetResult_ov024_021e8ca0(struct ActionRunner_ov024_021e2bd0* actionRunner, int messageId);
@@ -41,7 +41,7 @@ extern "C" ARM unsigned long long func_ov024_021e2ebc(struct Struct_ov024_021e2e
     int var6 = 0;
     int var7 = 0;
     if (func_0208776c(var0->currentStats_, (unsigned char)var3)) {
-        var7 = func_020877c0((struct Struct_020877c0*)var0->currentStats_, (signed char)var2);
+        var7 = ChangeAttackBuff_020877c0((struct Struct_020877c0*)var0->currentStats_, (signed char)var2);
         UpdateCombatantAttack((int)arg0->unknown_10_, arg2);
         var6 = 1;
     }

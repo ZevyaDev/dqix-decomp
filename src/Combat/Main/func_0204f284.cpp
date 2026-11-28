@@ -17,7 +17,7 @@ extern "C" ARM void func_0204f284(Struct_0204f284* arg0, char* arg1, short arg2,
     if (arg1 == NULL) {
         return;
     }
-    Struct_0203bebc* var0 = func_020429bc(arg4);
+    Struct_0203bebc* var0 = GetFontSetForFontSize_020429bc(arg4);
     if (var0 == NULL) {
         return;
     }

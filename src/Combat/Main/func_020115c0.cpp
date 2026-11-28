@@ -9,7 +9,7 @@ struct Struct_02000c9c_14 {
     unsigned char unknown_63d6_;
 };
 
-// USA: func_020115c0
-extern "C" ARM void func_020115c0(struct Struct_02000c9c_14* arg0) {
-    arg0->unknown_63d6_ = 0;
+// USA: ClearRequestedMovie_020115c0
+extern "C" ARM void ClearRequestedMovie_020115c0(struct Struct_02000c9c_14* gameState) {
+    gameState->unknown_63d6_ = 0;
 }

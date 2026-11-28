@@ -9,7 +9,7 @@ extern "C" Struct_0205b1ac* func_0205b1ac(Struct_0205b1ac*, unsigned int, int, i
 #if defined(jpn)
 extern "C" ARM void func_0205b530(Struct_0205b530* arg0, unsigned char* arg1, short arg2, short arg3, unsigned char arg4) {
     if (!arg1) return;
-    Struct_0203bebc* var17 = func_020429bc(arg4);
+    Struct_0203bebc* var17 = GetFontSetForFontSize_020429bc(arg4);
     if (!var17) return;
     unsigned char var18 = var17->unknown_2_;
     unsigned char var19 = var17->unknown_3_;

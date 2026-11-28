@@ -1,10 +1,10 @@
 #include <globaldefs.h>
 
-// USA: func_02010810
-extern "C" ARM void func_02010810(char* arg0, int arg1) {
+// USA: SetStoryProgress_02010810
+extern "C" ARM void SetStoryProgress_02010810(char* gameState, int progress) {
 #if defined(jpn)
-    *(int*)(arg0 + 0x5a5c) = arg1;
+    *(int*)(gameState + 0x5a5c) = progress;
 #else
-    *(int*)(arg0 + 0x5cbc) = arg1;
+    *(int*)(gameState + 0x5cbc) = progress;
 #endif
 }

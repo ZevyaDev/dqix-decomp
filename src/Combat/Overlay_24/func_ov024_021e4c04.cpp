@@ -94,7 +94,7 @@ extern "C" int func_020883ac(unsigned char*);
 extern "C" int func_02088540(unsigned char*);
 extern "C" int func_0208824c(unsigned char*);
 extern "C" void func_02088854(unsigned char*);
-extern "C" void func_02088338(unsigned char*);
+extern "C" void SetSleep_02088338(unsigned char*);
 extern "C" void func_02088b34(unsigned char*);
 extern "C" void func_020883cc(unsigned char*);
 extern "C" void func_020888a4(unsigned char*);
@@ -119,8 +119,8 @@ extern "C" int HasEnemyTrait_ov000_02156068(void*, int, int, int);
 extern "C" void ApplyDamage_ov000_0215a004(void*, int, int, int, void*, Struct_ov024_021e4c04_6*, int, int);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*, void*, GameObject*, int, unsigned long long, int);
 extern "C" int func_ov024_021e9198(Struct_ov024_021e4c04_5*, int, int, int);
-extern "C" int func_020877c0(void*, int);
-extern "C" int func_020878b4(void*, int);
+extern "C" int ChangeAttackBuff_020877c0(void*, int);
+extern "C" int ChangeDefenseBuff_020878b4(void*, int);
 extern "C" int func_ov024_021e94c4(Struct_ov024_021e4c04_5*, int, Struct_ov024_021e4c04_6*, int, signed char, unsigned char, unsigned char);
 extern "C" int func_ov024_021e95d4(Struct_ov024_021e4c04_5*, int, Struct_ov024_021e4c04_6*, int, signed char, unsigned char, unsigned char);
 
@@ -193,7 +193,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
                 int var12 = func_ov024_021e929c((Struct_ov024_021dbd84_6*)arg0, arg2, 1);
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var12);
                 var6 = 1;
-                func_02088338((unsigned char*)var1->currentStats_);
+                SetSleep_02088338((unsigned char*)var1->currentStats_);
             }
         }
 
@@ -286,7 +286,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             && inline_ov000_0215a908_5(var1)->unknown_4f_ != 0) {
             var4 = 20.0f;
             if ((float)var9 < var4) {
-                int var19 = func_020877c0(var1->currentStats_, -1);
+                int var19 = ChangeAttackBuff_020877c0(var1->currentStats_, -1);
                 UpdateCombatantAttack((int)arg0->unknown_10_, arg2);
                 int var20 = func_ov024_021e94c4(arg0, arg2, arg3, 1, (signed char)var19, 1, 1);
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var20);
@@ -299,7 +299,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             && inline_ov000_0215a908_5(var1)->unknown_50_ != 0) {
             var4 = 20.0f;
             if ((float)var9 < var4) {
-                int var21 = func_020878b4(var1->currentStats_, -1);
+                int var21 = ChangeDefenseBuff_020878b4(var1->currentStats_, -1);
                 UpdateCombatantDefense((int)arg0->unknown_10_, arg2);
                 int var22 = func_ov024_021e95d4(arg0, arg2, arg3, 1, (signed char)var21, 1, 1);
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var22);

@@ -36,7 +36,7 @@ struct Struct_ov017_02198e30_3 {
 };
 
 extern "C" struct Struct_ov017_02198e30_2* func_0205ec34(void);
-extern "C" int func_020321e0(Vector3fix* arg0, void* arg1, int arg2, void* arg3, unsigned int arg4);
+extern "C" int IsPointInRotatedBoundingBox_020321e0(Vector3fix* point, void* box, int angle, void* pivot, unsigned int maxDistanceSq);
 extern "C" int RunTrigger_020649b0(void* flagManager, int triggerType, void* triggerResult);
 extern "C" void RunDeferredTriggerActions_0206f81c(void* triggerResult);
 
@@ -48,7 +48,7 @@ extern "C" ARM void func_ov017_02198e30(unsigned char* arg0) {
     GameObject* var3 = var0->GetUnknownGameObject();
 
     for (; var2 != 0; var2 = var2->unknown_2c_) {
-        if (func_020321e0(&var3->obj3D_.position_, var2->unknown_14_, var2->unknown_2_, var2->unknown_4_, var2->unknown_10_)) {
+        if (IsPointInRotatedBoundingBox_020321e0(&var3->obj3D_.position_, var2->unknown_14_, var2->unknown_2_, var2->unknown_4_, var2->unknown_10_)) {
             break;
         }
     }

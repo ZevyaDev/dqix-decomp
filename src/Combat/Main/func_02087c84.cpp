@@ -10,18 +10,18 @@ struct Struct_02087c84 {
 
 extern "C" void ClearMagicalMendingBuff_02087cfc(void* stats);
 
-// USA: func_02087c84
-extern "C" ARM int func_02087c84(struct Struct_02087c84* arg0, int arg1) {
-    int var0 = arg0->unknown_59_7_ + arg1;
+// USA: ChangeMagicalMendingBuff_02087c84
+extern "C" ARM int ChangeMagicalMendingBuff_02087c84(struct Struct_02087c84* stats, int stages) {
+    int var0 = stats->unknown_59_7_ + stages;
     if (var0 > 2) var0 = 2;
     if (var0 < -2) var0 = -2;
     if (var0 == 0) {
-        ClearMagicalMendingBuff_02087cfc(arg0);
+        ClearMagicalMendingBuff_02087cfc(stats);
         return 0;
     }
-    arg0->unknown_59_7_ = var0;
-    *((unsigned char*)arg0 + 0x73) = 5;
-    *((unsigned char*)arg0 + 0x96) = 0;
-    arg0->unknown_14_ |= 0x8000;
-    return arg0->unknown_59_7_;
+    stats->unknown_59_7_ = var0;
+    *((unsigned char*)stats + 0x73) = 5;
+    *((unsigned char*)stats + 0x96) = 0;
+    stats->unknown_14_ |= 0x8000;
+    return stats->unknown_59_7_;
 }

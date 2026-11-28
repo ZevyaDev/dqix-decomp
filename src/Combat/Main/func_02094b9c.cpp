@@ -22,7 +22,7 @@ struct Struct_02032148 {
     int unknown_10_;
 };
 
-extern "C" ARM int func_020321e0(void* arg0, struct BoundingBox_02094b9c* arg1, short arg2, int* arg3, int arg4);
+extern "C" ARM int IsPointInRotatedBoundingBox_020321e0(void* point, struct BoundingBox_02094b9c* box, short angle, int* pivot, int maxDistanceSq);
 extern "C" ARM int func_02032148(void* arg0, struct Struct_02032148* arg1, int arg2);
 
 // USA: IsInsideZoneFeature_02094b9c
@@ -48,7 +48,7 @@ extern "C" ARM int IsInsideZoneFeature_02094b9c(struct ZoneFeature_02094b9c_2* f
     int isInVolume;
     int isBox = feature->size_14_[2] > 0;
     if (isBox) {
-        isInVolume = func_020321e0(position, &box, feature->angle_22_, &feature->center_8_[0], feature->unknown_24_);
+        isInVolume = IsPointInRotatedBoundingBox_020321e0(position, &box, feature->angle_22_, &feature->center_8_[0], feature->unknown_24_);
     } else {
         cylinder.unknown_0_ = feature->center_8_[0];
         cylinder.unknown_4_ = feature->center_8_[1];

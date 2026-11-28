@@ -5,10 +5,10 @@ extern "C" void* GetParty_02010828(GameState*);
 struct Party_02048150;
 extern "C" int IsInParty_02086ef0(Party_02048150*, int);
 extern "C" void IncrementQuestBattleCounter_ov000_0215a8d4(unsigned char*, int);
-extern "C" int func_020881c4(unsigned char*);
+extern "C" int CanRaiseTension_020881c4(unsigned char*);
 extern "C" int func_0208810c(unsigned char*);
 extern "C" void func_02088220(void*, int);
-extern "C" int func_02088208(void*, int);
+extern "C" int RaiseTension_02088208(void*, int);
 extern "C" void SetSuperHighTension_02088150(void*);
 extern "C" int func_ov024_021e8c48(void*, signed char);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int,int,int);
@@ -26,8 +26,8 @@ struct Struct_ov024_021dc93c_5 {char unknown_0_[4];Struct_ov024_021dc93c_3 unkno
 struct Struct_ov024_021dc93c_6 {char unknown_0_[0x24];unsigned char unknown_24_;};
 static inline void* inline_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0){ SDK_NULL_ASSERT(arg0); return arg0->unknown_10_; }
 static inline int inline_ov000_02156cc4_2(int arg0){ return arg0>=0 && arg0<=3; }
-// USA: func_ov024_021dc93c
-extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg1,int arg2,Struct_ov024_021dc93c_5* arg3,int arg4,int arg5,unsigned char arg6){
+// USA: ApplyTensionEffect_ov024_021dc93c
+extern "C" ARM void* ApplyTensionEffect_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg1,int arg2,Struct_ov024_021dc93c_5* arg3,int arg4,int arg5,unsigned char arg6){
  GameObject* var0=GetCombatantByID((int)arg0->unknown_10_,arg2);
  if(!var0)return 0;
  int var1=0;
@@ -38,7 +38,7 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
  if(arg6){
   if(var5==0x151 || var5==0x152){
    if(var5==0x151){
-    if(func_020881c4((unsigned char*)var0->currentStats_))var2=1;
+    if(CanRaiseTension_020881c4((unsigned char*)var0->currentStats_))var2=1;
    }else if(var5==0x152){
     if(func_0208810c((unsigned char*)var0->currentStats_))var2=1;
    }
@@ -85,12 +85,12 @@ extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg
      }
     }
    }
-  }else if(func_020881c4((unsigned char*)var0->currentStats_)){
+  }else if(CanRaiseTension_020881c4((unsigned char*)var0->currentStats_)){
    int var10=arg3->unknown_30_;
    int var11=((Struct_ov024_021dc93c_6*)var0->currentStats_)->unknown_24_+var10;
    if(var11>4)var10-=var11-4;
    for(;var10>0;var10--){
-    int var12=func_02088208(var0->currentStats_, (int)inline_ov024_021dc93c(arg0));
+    int var12=RaiseTension_02088208(var0->currentStats_, (int)inline_ov024_021dc93c(arg0));
     var4=0;
     var3=func_ov024_021e8c48(arg0, var12);
     void* var13=GetNextActionResult_ov000_0215e958(arg0->unknown_10_);

@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-extern "C" int func_0208767c(void*, int);
+extern "C" int RaiseTensionStage_0208767c(void*, int);
 
-// USA: func_02088208
-extern "C" ARM int func_02088208(void* arg0, int arg1) {
-    *(unsigned int*)((char*)arg0 + 0x14) |= 0x800000;
-    return func_0208767c(arg0, arg1);
+// USA: RaiseTension_02088208
+extern "C" ARM int RaiseTension_02088208(void* stats, int random) {
+    *(unsigned int*)((char*)stats + 0x14) |= 0x800000;
+    return RaiseTensionStage_0208767c(stats, random);
 }

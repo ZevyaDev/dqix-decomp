@@ -17,18 +17,18 @@ struct Struct_02107800_2 {
 
 extern Struct_02107800_2 data_02107800;
 
-// USA: func_020429bc
-extern "C" ARM Struct_0203bebc* func_020429bc(int arg0) {
+// USA: GetFontSetForFontSize_020429bc
+extern "C" ARM Struct_0203bebc* GetFontSetForFontSize_020429bc(int fontSize) {
     Struct_0203bebc* var0 = NULL;
 #if defined(jpn)
-    switch (arg0) {
+    switch (fontSize) {
     case 6: var0 = data_02107800.unknown_14_; break;
     case 8: var0 = data_02107800.unknown_20_; break;
     case 10: var0 = data_02107800.unknown_24_; break;
     case 12: var0 = data_02107800.unknown_28_; break;
     }
 #else
-    if (arg0 == 8) var0 = data_02107800.unknown_10_;
+    if (fontSize == 8) var0 = data_02107800.unknown_10_;
 #endif
     return var0;
 }

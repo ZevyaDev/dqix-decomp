@@ -53,7 +53,7 @@ extern "C" void func_ov017_0219bed0(void*);
 extern "C" unsigned char GetGameMode_0200fb9c(char*);
 extern "C" int GetTitleState_0201201c(void*);
 extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
-extern "C" int func_020321e0(const Vector3fix*, Struct_02000c9c_56*, int, const Vector3fix*, int);
+extern "C" int IsPointInRotatedBoundingBox_020321e0(const Vector3fix*, Struct_02000c9c_56*, int, const Vector3fix*, int);
 extern "C" void* func_ov017_0219c6f4(void*);
 extern "C" unsigned char IsControllable_02039820(void*);
 extern "C" void ResetInteractionPrompt_ov017_0219a674(unsigned char*);
@@ -98,7 +98,7 @@ extern "C" ARM void func_ov017_0219ca88(GameResources* arg0) {
             for (int var9 = 0; var9 < ((Struct_020134e0*)var2->substruct_6c_)->unknown_1c_; ++var9) {
                 GetProtagonistObjectIndex_020100a8(var0);
                 Struct_ov017_0219ca88_2* var10 = (Struct_ov017_0219ca88_2*)func_0201e548((Struct_020134e0*)(((Struct_020134e0*)var2->substruct_6c_)), var9);
-                if (func_020321e0(&var8, &var10->unknown_4_, var10->unknown_52_, &var10->unknown_58_, var10->unknown_54_)) {
+                if (IsPointInRotatedBoundingBox_020321e0(&var8, &var10->unknown_4_, var10->unknown_52_, &var10->unknown_58_, var10->unknown_54_)) {
                     func_ov017_0219c6f4(var10);
                     var5 = 1;
                 }

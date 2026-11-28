@@ -5,7 +5,7 @@
 struct Struct_02087c30;
 extern "C" int func_02087c30(Struct_02087c30* arg0, unsigned char arg1);
 struct Struct_02087c84;
-extern "C" int func_02087c84(struct Struct_02087c84* arg0, int arg1);
+extern "C" int ChangeMagicalMendingBuff_02087c84(struct Struct_02087c84* stats, int stages);
 void UpdateCombatantMagicalMending(int unused, int combatantId);
 struct Struct_ov024_021dee84_4;
 extern "C" unsigned short func_ov024_021e9990(Struct_ov024_021dee84_4* arg0, int arg1, int arg2, unsigned char arg3, signed char arg4);
@@ -25,8 +25,8 @@ struct Struct_ov024_021dee84 { unsigned char unknown_0_0_ : 7; unsigned char unk
 struct Struct_ov024_021dee84_2 { char unknown_0_[0xc]; void* unknown_c_; void* unknown_10_; int unknown_14_; };
 struct Struct_ov024_021dee84_3 { char unknown_0_[0x24]; struct Struct_ov024_021dee84_5 unknown_24_; char unknown_28_[0x8]; short unknown_30_; };
 
-// USA: func_ov024_021dee84
-extern "C" ARM void* func_ov024_021dee84(struct Struct_ov024_021dee84_2* arg0, int arg1, int arg2, struct Struct_ov024_021dee84_3* arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: ApplyMagicalMendingBuffEffect_ov024_021dee84
+extern "C" ARM void* ApplyMagicalMendingBuffEffect_ov024_021dee84(struct Struct_ov024_021dee84_2* arg0, int arg1, int arg2, struct Struct_ov024_021dee84_3* arg3, int arg4, int arg5, unsigned char arg6) {
 	GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
 	if (!var0) return 0;
 	int var1 = 0;
@@ -38,7 +38,7 @@ extern "C" ARM void* func_ov024_021dee84(struct Struct_ov024_021dee84_2* arg0, i
 		if (var4 > 2) var4 = 2;
 		if (var4 < 0) var3 = 1;
 		if (func_02087c30((struct Struct_02087c30*)var0->currentStats_, var3)) {
-			var2 = func_02087c84((struct Struct_02087c84*)var0->currentStats_, (signed char)var4);
+			var2 = ChangeMagicalMendingBuff_02087c84((struct Struct_02087c84*)var0->currentStats_, (signed char)var4);
 			UpdateCombatantMagicalMending((int)arg0->unknown_10_, arg2);
 			arg0->unknown_14_++;
 			var1 = 1;

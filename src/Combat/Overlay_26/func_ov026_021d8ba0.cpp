@@ -144,7 +144,7 @@ extern "C" void BuildSkillTable_0209a470(SkillTable_0209a470*, SafeAllocator*, S
 extern "C" void ClearSpellTable_0209a804(int*);
 extern "C" void BuildSpellTable_0209a8b4(SpellTable_02086f24_6*, SafeAllocator*, Struct_02013fb4*, int);
 extern "C" void UnloadExtraSoundSet_0205eb80(void*);
-extern "C" int func_0204671c(Struct_0204671c*);
+extern "C" int GetGlobalFlags_0204671c(Struct_0204671c*);
 extern "C" void func_ov000_02180b3c(void*);
 extern "C" Struct_ov026_021d8ba0_8* func_ov000_0216f208(void*);
 extern "C" void func_ov000_0216118c(void*, int);
@@ -604,7 +604,7 @@ state1:
         }
         arg0->unknown_7734_ = arg0->unknown_55f4_;
         arg0->unknown_7710_ = 0;
-        arg0->unknown_7738_ = func_0204671c((Struct_0204671c*)func_020d6c00());
+        arg0->unknown_7738_ = GetGlobalFlags_0204671c((Struct_0204671c*)func_020d6c00());
         arg0->unknown_eb4_ = 0;
         SetBattleSceneFlags_ov000_02160fa8(arg0, 0x80000);
         ClearFlags00(var18, 0x10);

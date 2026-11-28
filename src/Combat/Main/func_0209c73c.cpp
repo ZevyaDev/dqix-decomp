@@ -26,25 +26,25 @@ struct Struct_02109bf4_5 {
     short unknown_ce_;                                // 0xce
 };
 
-// USA: func_0209c73c
-extern "C" ARM void func_0209c73c(struct Struct_02109bf4_5* arg0) {
-    if (arg0->unknown_ce_ < 0) return;
-    StopSequence_0203ac10(arg0, (void*)&arg0->unknown_c4_, 0);
-    arg0->unknown_ce_ = -1;
-    if (arg0->unknown_b0_ == 1) {
-        if (arg0->unknown_b4_ > 0) {
-            RestoreSoundHeapState_0203aa80(arg0, arg0->unknown_b4_);
+// USA: StopJingleAndResumeMusic_0209c73c
+extern "C" ARM void StopJingleAndResumeMusic_0209c73c(struct Struct_02109bf4_5* manager) {
+    if (manager->unknown_ce_ < 0) return;
+    StopSequence_0203ac10(manager, (void*)&manager->unknown_c4_, 0);
+    manager->unknown_ce_ = -1;
+    if (manager->unknown_b0_ == 1) {
+        if (manager->unknown_b4_ > 0) {
+            RestoreSoundHeapState_0203aa80(manager, manager->unknown_b4_);
         }
-        func_0203ab6c(arg0, (void*)(int)arg0->unknown_b8_);
-        RestartMusic_0209c5e8(arg0);
-        SetMusicVolume_0209c2e0(arg0, arg0->unknown_cd_, 0);
+        func_0203ab6c(manager, (void*)(int)manager->unknown_b8_);
+        RestartMusic_0209c5e8(manager);
+        SetMusicVolume_0209c2e0(manager, manager->unknown_cd_, 0);
         return;
     }
-    if (arg0->unknown_b0_ != 2) return;
-    if (arg0->unknown_b4_ > 0) {
-        RestoreSoundHeapState_0203aa80(arg0, arg0->unknown_b4_);
+    if (manager->unknown_b0_ != 2) return;
+    if (manager->unknown_b4_ > 0) {
+        RestoreSoundHeapState_0203aa80(manager, manager->unknown_b4_);
     }
-    LoadSequence_0203aaf8(arg0, (void*)(int)arg0->unknown_ba_, 0);
-    PlaySequence_0203aba8((struct MusicManager_0203aba8*)arg0, (void*)(int)arg0->unknown_ba_, &arg0->unknown_c0_);
-    SetMusicVolume_0209c2e0(arg0, arg0->unknown_cd_, 0);
+    LoadSequence_0203aaf8(manager, (void*)(int)manager->unknown_ba_, 0);
+    PlaySequence_0203aba8((struct MusicManager_0203aba8*)manager, (void*)(int)manager->unknown_ba_, &manager->unknown_c0_);
+    SetMusicVolume_0209c2e0(manager, manager->unknown_cd_, 0);
 }

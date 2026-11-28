@@ -172,7 +172,7 @@ void func_0203c794(struct Struct_ov001_021539d8_12* arg0);
 char* strstr(const char* arg0, const char* arg1);
 void* memcpy(void* arg0, const void* arg1, unsigned int arg2);
 int sprintf(char* arg0, const char* arg1, ...);
-void func_02040530(struct Struct_ov001_021539d8* arg0, void* arg1);
+void SetNPCPlacement_02040530(struct Struct_ov001_021539d8* npc, void* placement);
 void func_02040520(struct Struct_ov001_021539d8* arg0, struct Struct_ov001_021539d8_2* arg1);
 void func_0203f02c(struct Struct_ov001_021539d8_12* arg0, char* arg1, SafeAllocator* arg2, struct Struct_ov001_021539d8_7* arg3, void* arg4, unsigned int arg5);
 void func_0203f138(struct Struct_ov001_021539d8_12* arg0, int arg1);
@@ -459,7 +459,7 @@ extern "C" ARM void func_ov001_021539d8(struct Struct_ov001_021539d8_6* arg0) {
                 sprintf(var20->unknown_4_, data_ov001_02164bc8, var5->unknown1_8_);
             }
             var19->unknown_14_ = var46;
-            func_02040530(var19, var15);
+            SetNPCPlacement_02040530(var19, var15);
             func_02040520(var19, var20);
             var45 = func_0203d004(var2);
             if (var19->unknown_14_ != 0) {

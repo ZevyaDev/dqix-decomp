@@ -5,7 +5,7 @@ struct Struct_020424e4;
 struct Canvas_0205b234_2 { unsigned char* pCharacterData_0_; Struct_020424e4* pRects_4_; unsigned char rectCount_8_; };
 
 #if defined(jpn)
-extern "C" FontGlyph_020420e8* func_02042a50(unsigned char arg0, const char* arg1);
+extern "C" FontGlyph_020420e8* FindGlyphForFontSize_02042a50(unsigned char fontSize, const char* character);
 extern "C" void func_0205b36c(Canvas_0205b234_2* arg0, FontGlyph_020420e8* arg1, short arg2, short arg3, int arg4, int arg5);
 
 // JPN: DrawCanvasText_0205b234 (fixed-width Shift-JIS text)
@@ -13,7 +13,7 @@ extern "C" ARM void DrawCanvasText_0205b234(Canvas_0205b234_2* canvas, short x, 
     if (canvas->pCharacterData_0_ == 0 || canvas->pRects_4_ == 0 || canvas->rectCount_8_ == 0 || text == 0) return;
     unsigned char glyphSize = arg4;
     while (*text != 0) {
-        FontGlyph_020420e8* glyph = func_02042a50(glyphSize, text);
+        FontGlyph_020420e8* glyph = FindGlyphForFontSize_02042a50(glyphSize, text);
         if (glyph != 0) func_0205b36c(canvas, glyph, x, y, glyphSize & 0xff, arg5);
         unsigned char firstByte = *text;
         if ((firstByte >= 0x81 && firstByte <= 0x9f) || (firstByte >= 0xe0 && firstByte <= 0xea)) text++;

@@ -68,7 +68,7 @@ extern "C" int HasLeftBattle_ov000_02153c0c(GameObject* combatant);
 extern "C" void ClearRage_02088e64(unsigned char* stats);
 extern "C" void func_020488cc(unsigned char* arg0, int arg1);
 extern "C" int HasFource_02088660(struct ModifiableCombatStats_02088660* stats);
-extern "C" void func_02088674(struct Struct_02088674* arg0);
+extern "C" void ClearFource_02088674(struct Struct_02088674* stats);
 void UpdateCombatantAttack(int random, int combatantId);
 void UpdateCombatantDefense(int random, int combatantId);
 void UpdateCombatantAgility(int random, int combatantId);
@@ -304,7 +304,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         if (data_ov000_02182bd4[var0->unknown_8d_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_8d_ = 0;
             unsigned int var21 = AILMENTS(var1)->unknown_23_1_;
-            func_02088674((struct Struct_02088674*)var1->currentStats_);
+            ClearFource_02088674((struct Struct_02088674*)var1->currentStats_);
             switch (var21) {
             case 1:
                 func_ov000_021584e8(arg0, var20, var1, arg2, 0x219, 0);

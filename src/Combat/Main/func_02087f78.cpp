@@ -10,18 +10,18 @@ struct Struct_02087f78 {
 
 extern "C" void ClearEvasionBuff_02087ff0(void* stats);
 
-// USA: func_02087f78
-extern "C" ARM int func_02087f78(struct Struct_02087f78* arg0, int arg1) {
-    int var0 = arg0->unknown_5b_3_ + arg1;
+// USA: ChangeEvasionBuff_02087f78
+extern "C" ARM int ChangeEvasionBuff_02087f78(struct Struct_02087f78* stats, int stages) {
+    int var0 = stats->unknown_5b_3_ + stages;
     if (var0 > 2) var0 = 2;
     if (var0 < -2) var0 = -2;
     if (var0 == 0) {
-        ClearEvasionBuff_02087ff0(arg0);
+        ClearEvasionBuff_02087ff0(stats);
         return 0;
     }
-    arg0->unknown_5b_3_ = var0;
-    *((unsigned char*)arg0 + 0x77) = 5;
-    *((unsigned char*)arg0 + 0x9a) = 0;
-    arg0->unknown_14_ |= 0x2000000;
-    return arg0->unknown_5b_3_;
+    stats->unknown_5b_3_ = var0;
+    *((unsigned char*)stats + 0x77) = 5;
+    *((unsigned char*)stats + 0x9a) = 0;
+    stats->unknown_14_ |= 0x2000000;
+    return stats->unknown_5b_3_;
 }
