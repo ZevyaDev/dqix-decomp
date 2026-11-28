@@ -93,7 +93,7 @@ extern "C" int func_0208830c(unsigned char*);
 extern "C" int func_020883ac(unsigned char*);
 extern "C" int func_02088540(unsigned char*);
 extern "C" int func_0208824c(unsigned char*);
-extern "C" void func_02088854(unsigned char*);
+extern "C" void SetDazzle_02088854(unsigned char*);
 extern "C" void func_02088338(unsigned char*);
 extern "C" void func_02088b34(unsigned char*);
 extern "C" void func_020883cc(unsigned char*);
@@ -180,7 +180,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
                 if (!var11) var11 = 0x25;
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var11);
                 var6 = 1;
-                func_02088854((unsigned char*)var1->currentStats_);
+                SetDazzle_02088854((unsigned char*)var1->currentStats_);
                 inline_ov000_0215a908_5(var1)->unknown_22_6_ = 1;
             }
         }

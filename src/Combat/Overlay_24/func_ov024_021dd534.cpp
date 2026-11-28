@@ -37,7 +37,7 @@ struct Struct_ov024_021dd534_6 {
 };
 
 extern "C" int func_02088840(unsigned char* arg0);
-extern "C" void func_02088854(unsigned char* arg0);
+extern "C" void SetDazzle_02088854(unsigned char* arg0);
 extern "C" int func_ov024_021e9198(struct Struct_ov024_021dd534_6* arg0, int arg1, short arg2, int arg3);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" int func_ov024_021eb4b0(int arg0, int arg1, int arg2);
@@ -47,8 +47,8 @@ extern "C" void func_ov024_021e8bf0(struct Struct_ov024_021dd534_6* arg0, void* 
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, GameObject* combatant, int amount, unsigned long long flags, int isCriticalHit);
 
-// USA: func_ov024_021dd534
-extern "C" ARM void* func_ov024_021dd534(struct Struct_ov024_021dd534_6* arg0, int arg1, int arg2, struct Struct_ov024_021dd534_2* arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: ApplyDazzleEffect_ov024_021dd534
+extern "C" ARM void* ApplyDazzleEffect_ov024_021dd534(struct Struct_ov024_021dd534_6* arg0, int arg1, int arg2, struct Struct_ov024_021dd534_2* arg3, int arg4, int arg5, unsigned char arg6) {
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
     unsigned short var1 = 0;
@@ -62,7 +62,7 @@ extern "C" ARM void* func_ov024_021dd534(struct Struct_ov024_021dd534_6* arg0, i
         if (func_ov024_021eb4b0((int)arg0, ((struct Struct_ov024_021dd534_4*)var0->currentStats_)->unknown_14_, 0x40)) {
             SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x2b);
         }
-        func_02088854((unsigned char*)var0->currentStats_);
+        SetDazzle_02088854((unsigned char*)var0->currentStats_);
         ((struct Struct_ov024_021dd534_4*)var0->currentStats_)->unknown_22_.unknown_0_6_ = (unsigned char)var3;
     } else {
         var1 = func_ov024_021e9198(arg0, arg2, var3, 0);
