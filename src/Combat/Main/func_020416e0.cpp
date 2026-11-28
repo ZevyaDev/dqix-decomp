@@ -5,7 +5,7 @@
 // JPN: func_02041c10
 extern "C" ARM void func_02041c10(Struct_0204166c* arg0, const char* arg1, unsigned char* arg2, int arg3, unsigned int arg4, unsigned char arg5) {
     if (!arg2) return;
-    func_0204166c(arg0);
+    ClearGlyphEntry_0204166c(arg0);
     arg0->unknown_18_[0] = arg1[0];
     arg0->unknown_18_[1] = arg1[1];
     arg0->unknown_8_ = arg3;
@@ -34,12 +34,12 @@ struct Struct_0204166c {
     int unknown_18_;
 };
 
-extern "C" void func_0204166c(struct Struct_0204166c* arg0);
+extern "C" void ClearGlyphEntry_0204166c(struct Struct_0204166c* arg0);
 
 // USA: SetGlyphEntry_020416e0
 extern "C" ARM void SetGlyphEntry_020416e0(struct Struct_0204166c* arg0, unsigned char arg1, int arg2, int arg3, int arg4, int arg5, unsigned char arg6) {
     if (arg3 == 0) return;
-    func_0204166c(arg0);
+    ClearGlyphEntry_0204166c(arg0);
     arg0->unknown_17_ = arg1;
     arg0->unknown_18_ = arg2;
     arg0->unknown_8_ = arg4;

@@ -4,7 +4,7 @@
 extern "C" void InitChoiceList_0205c790(char* choiceList);
 
 struct Struct_0204166c;
-extern "C" void func_0204166c(struct Struct_0204166c* arg0);
+extern "C" void ClearGlyphEntry_0204166c(struct Struct_0204166c* arg0);
 
 struct Struct_020e2bd8;
 extern "C" void func_020e2bd8(struct Struct_020e2bd8* arg0, int arg1, int arg2);
@@ -69,7 +69,7 @@ extern "C" ARM void InitMessageWindow_02042c68(char* window) {
     *(unsigned char*)(window + REGION_OFFSET(0x17e0, 0x19b0)) = 0;
     *(int*)(window + REGION_OFFSET(0x880, 0x9b0)) = 0;
     for (slot = 0; slot < 0x80; slot++) {
-        func_0204166c((struct Struct_0204166c*)(window + REGION_OFFSET(0x888, 0x9b8) + slot * 0x1c));
+        ClearGlyphEntry_0204166c((struct Struct_0204166c*)(window + REGION_OFFSET(0x888, 0x9b8) + slot * 0x1c));
         *(unsigned char*)(window + slot + REGION_OFFSET(0x1688, 0x17b8)) = 0;
     }
 

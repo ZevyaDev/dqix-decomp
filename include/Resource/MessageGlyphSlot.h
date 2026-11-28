@@ -45,4 +45,4 @@ struct Struct_0204166c {
 
 typedef Struct_0204166c Struct_0204166c;
 
-extern "C" void func_0204166c(Struct_0204166c* arg0);
+extern "C" void ClearGlyphEntry_0204166c(Struct_0204166c* arg0);
