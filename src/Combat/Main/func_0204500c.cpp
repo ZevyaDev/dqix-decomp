@@ -46,10 +46,10 @@ extern "C" void func_02042fcc(struct Struct_02042c68*);
 extern "C" void func_02045824(struct Struct_02042c68_2*, int, int);
 extern "C" void func_02044d0c(void);
 extern "C" void func_0204394c(struct Struct_0204394c*);
-extern "C" void func_0206831c(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2);
+extern "C" void ExpandMessageValueTags_0206831c(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2);
 extern "C" void func_02068418(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2, unsigned char arg3);
 extern "C" void func_02068f40(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2, unsigned char arg3);
-extern "C" void func_02069234(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2, unsigned char arg3);
+extern "C" void ExpandMessageTextTags_02069234(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2, unsigned char arg3);
 extern "C" void func_020695f4(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2, unsigned char arg3);
 extern "C" void ConvertMessageControlTags_02069fec(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2);
 extern "C" void func_0206a974(struct Struct_0204500c_3*, const char*, int);
@@ -326,10 +326,10 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
         }
         char* var21 = window->unknown_60_;
         char* var22 = window->unknown_64_;
-        func_0206831c(window, text, var21);
+        ExpandMessageValueTags_0206831c(window, text, var21);
         func_02068418(window, var21, var22, window->unknown_19dc_);
         func_02068f40(window, var22, var21, window->unknown_19dc_);
-        func_02069234(window, var21, var22, window->unknown_19dc_);
+        ExpandMessageTextTags_02069234(window, var21, var22, window->unknown_19dc_);
         func_020695f4(window, var22, var21, window->unknown_19dc_);
         ConvertMessageControlTags_02069fec(window, var21, var22);
         func_0206a974((struct Struct_0204500c_3*)window, var22, arg3);

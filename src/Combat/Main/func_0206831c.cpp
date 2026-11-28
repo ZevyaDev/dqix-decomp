@@ -12,8 +12,8 @@ struct Struct_020e7e5c {
     void (*unknown_4_)(signed char*, signed char**, void*, int);
 };
 extern Struct_020e7e5c data_020e7e5c[];
-// USA: func_0206831c
-extern "C" ARM void func_0206831c(void* arg0, signed char* arg1, signed char* arg2) {
+// USA: ExpandMessageValueTags_0206831c
+extern "C" ARM void ExpandMessageValueTags_0206831c(void* arg0, signed char* arg1, signed char* arg2) {
     signed char* var0;
     if (!arg1 || !arg2) return;
     var0 = arg2;
