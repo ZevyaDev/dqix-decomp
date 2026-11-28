@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_02042af4
-extern "C" ARM void func_02042af4(int arg0, unsigned char* arg1, int arg2) {
-    arg1[arg2 >> 3] &= ~(1 << (arg2 & 7));
+// USA: FreeGlyphSlot_02042af4
+extern "C" ARM void FreeGlyphSlot_02042af4(int arg0, unsigned char* slotBits, int slot) {
+    slotBits[slot >> 3] &= ~(1 << (slot & 7));
 }
