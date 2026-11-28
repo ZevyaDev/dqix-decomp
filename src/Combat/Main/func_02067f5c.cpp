@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
-// USA: func_02067f5c
-extern "C" ARM void func_02067f5c(signed char* arg0, int arg1) {
+// USA: UppercaseText_02067f5c
+extern "C" ARM void UppercaseText_02067f5c(signed char* arg0, int arg1) {
     if (arg0 == NULL) {
         return;
     }

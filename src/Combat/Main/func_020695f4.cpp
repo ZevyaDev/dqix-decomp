@@ -12,12 +12,12 @@ struct Struct_020695f4 {
 
 extern "C" char* func_020424ac(char* arg0);
 extern "C" struct Struct_020695f4* FindFontGlyph_0204254c(int text, int font);
-extern "C" void func_02067f5c(signed char* arg0, int arg1);
+extern "C" void UppercaseText_02067f5c(signed char* arg0, int arg1);
 
 extern char data_020f0916[];
 
-// USA: func_020695f4
-extern "C" ARM void func_020695f4(void* arg0, char* arg1, char* arg2, unsigned char arg3) {
+// USA: ApplyMessageCapitalization_020695f4
+extern "C" ARM void ApplyMessageCapitalization_020695f4(void* arg0, char* arg1, char* arg2, unsigned char arg3) {
     for (;;) {
         char var0 = *arg1;
         if (var0 == 0) {
@@ -31,7 +31,7 @@ extern "C" ARM void func_020695f4(void* arg0, char* arg1, char* arg2, unsigned c
                 if (var2 != 0 && var2->unknown_5_7_) {
                     int var3 = var2->unknown_5_0_;
                     memcpy(arg2, arg1, var3);
-                    func_02067f5c((signed char*)arg2, var3);
+                    UppercaseText_02067f5c((signed char*)arg2, var3);
                     arg1 += var3;
                     arg2 += var3;
                 }
