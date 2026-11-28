@@ -17,7 +17,7 @@ extern const unsigned char data_020e7a8c[];
 extern const short data_020e7aa6[];
 extern const short data_020e7ab0[];
 
-extern "C" void func_020416e0(Struct_0204166c*, unsigned char, int, int, int, int, unsigned char);
+extern "C" void SetGlyphEntry_020416e0(Struct_0204166c*, unsigned char, int, int, int, int, unsigned char);
 extern "C" void func_02045864(int arg0, int arg1, FontGlyph_020420e8* arg2, unsigned char* arg3, int arg4, int arg5,
                               unsigned char arg6, unsigned char arg7);
 
@@ -61,7 +61,7 @@ extern "C" ARM int func_020459b8(MessageWindow_02021b84* arg0, unsigned char arg
                         func_02045864(1, 1, arg2, var5, 16, 16, 0xf, arg3);
                     }
                 }
-                func_020416e0(var6, arg1, (int)arg2, (int)var5, var3,
+                SetGlyphEntry_020416e0(var6, arg1, (int)arg2, (int)var5, var3,
                                           (var4 << 7) + inline_020459b8(arg0->pTextureArena_1e28_), arg3);
                 if (var8) {
                     var6->unknown_16_2_ = 1;

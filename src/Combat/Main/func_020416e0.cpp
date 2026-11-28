@@ -36,8 +36,8 @@ struct Struct_0204166c {
 
 extern "C" void func_0204166c(struct Struct_0204166c* arg0);
 
-// USA: func_020416e0
-extern "C" ARM void func_020416e0(struct Struct_0204166c* arg0, unsigned char arg1, int arg2, int arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: SetGlyphEntry_020416e0
+extern "C" ARM void SetGlyphEntry_020416e0(struct Struct_0204166c* arg0, unsigned char arg1, int arg2, int arg3, int arg4, int arg5, unsigned char arg6) {
     if (arg3 == 0) return;
     func_0204166c(arg0);
     arg0->unknown_17_ = arg1;

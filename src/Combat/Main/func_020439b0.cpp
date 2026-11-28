@@ -34,7 +34,7 @@ struct DisplayWindow_020439b0;
 extern "C" void SetDisplayWindowEnabled_020e2cc4(struct DisplayWindow_020439b0* displayWindow, int isEnabled);
 
 struct Struct_0200f3a4_13;
-extern "C" void func_02041754(Struct_0204166c* arg0);
+extern "C" void UploadGlyphTexture_02041754(Struct_0204166c* arg0);
 extern "C" void func_02042af4(int arg0, unsigned char* arg1, int arg2);
 
 struct Struct_020439b0_3;
@@ -263,7 +263,7 @@ extern "C" ARM void UpdateMessageWindowGraphics_020439b0(char* window, int arg1)
                             glyphEntry->unknown_16_0_ = 0;
                         } else {
                             ((TextureArena*)((char*)messageWindow->pTextureArena_1e28_))->Restore();
-                            func_02041754(glyphEntry);
+                            UploadGlyphTexture_02041754(glyphEntry);
                             ((TextureArena*)((char*)messageWindow->pTextureArena_1e28_))->Save();
                         }
                         func_02042af4((int)window, messageWindow->unknown_2cc_, glyphEntry->unknown_8_);
