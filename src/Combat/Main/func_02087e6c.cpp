@@ -16,9 +16,9 @@ struct Struct_02087e6c {
     unsigned char unknown_97_;
 };
 
-// USA: func_02087e6c
-extern "C" ARM int func_02087e6c(struct Struct_02087e6c* arg0, int arg1) {
-    int var0 = arg1 + arg0->unknown_5a_5_;
+// USA: ChangeBreathResistanceBuff_02087e6c
+extern "C" ARM int ChangeBreathResistanceBuff_02087e6c(struct Struct_02087e6c* stats, int stages) {
+    int var0 = stages + stats->unknown_5a_5_;
 
     if (var0 > 2) {
         var0 = 2;
@@ -28,15 +28,15 @@ extern "C" ARM int func_02087e6c(struct Struct_02087e6c* arg0, int arg1) {
     }
 
     if (var0 == 0) {
-        ClearBreathResistanceBuff_02087efc((unsigned char*)arg0);
+        ClearBreathResistanceBuff_02087efc((unsigned char*)stats);
         return 0;
     }
 
-    arg0->unknown_5a_5_ = var0;
-    arg0->unknown_74_ = 5;
-    arg0->unknown_97_ = 0;
-    arg0->unknown_14_ |= 0x20000;
-    ClearFireBarrier_02088c38((unsigned char*)arg0);
-    ClearIceBarrier_02088c9c((unsigned char*)arg0);
-    return arg0->unknown_5a_5_;
+    stats->unknown_5a_5_ = var0;
+    stats->unknown_74_ = 5;
+    stats->unknown_97_ = 0;
+    stats->unknown_14_ |= 0x20000;
+    ClearFireBarrier_02088c38((unsigned char*)stats);
+    ClearIceBarrier_02088c9c((unsigned char*)stats);
+    return stats->unknown_5a_5_;
 }

@@ -5,7 +5,7 @@
 struct Struct_02088018;
 struct Struct_0208806c;
 extern "C" int func_02088018(struct Struct_02088018* arg0, int arg1);
-extern "C" int func_0208806c(struct Struct_0208806c* arg0, int arg1);
+extern "C" int ChangeBlockChanceBuff_0208806c(struct Struct_0208806c* stats, int stages);
 extern "C" unsigned short SelectPartyOrEnemyMessage_ov024_021da644(int combatantIndex, int partyMessageId, int enemyMessageId);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
@@ -28,8 +28,8 @@ struct Struct_ov024_021ded48_4 {
 	short unknown_30_;
 };
 
-// USA: func_ov024_021ded48
-extern "C" ARM void* func_ov024_021ded48(struct Struct_ov024_021ded48_3* arg0, int arg1, int arg2, struct Struct_ov024_021ded48_4* arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: ApplyBlockChanceBuffEffect_ov024_021ded48
+extern "C" ARM void* ApplyBlockChanceBuffEffect_ov024_021ded48(struct Struct_ov024_021ded48_3* arg0, int arg1, int arg2, struct Struct_ov024_021ded48_4* arg3, int arg4, int arg5, unsigned char arg6) {
 	GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
 	if (!var0) return 0;
 	int var1 = 0;
@@ -40,7 +40,7 @@ extern "C" ARM void* func_ov024_021ded48(struct Struct_ov024_021ded48_3* arg0, i
 		int var3 = 0;
 		if (var2 < 0) var3 = 1;
 		if (func_02088018((struct Struct_02088018*)var0->currentStats_, (unsigned char)var3)) {
-			func_0208806c((struct Struct_0208806c*)var0->currentStats_, (signed char)var2);
+			ChangeBlockChanceBuff_0208806c((struct Struct_0208806c*)var0->currentStats_, (signed char)var2);
 			var1 = 1;
 		}
 	}

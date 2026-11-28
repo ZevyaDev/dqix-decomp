@@ -4,7 +4,7 @@
 
 extern "C" int func_0208776c(void* arg0, int arg1);
 struct Struct_020877c0;
-extern "C" int func_020877c0(struct Struct_020877c0* arg0, int arg1);
+extern "C" int ChangeAttackBuff_020877c0(struct Struct_020877c0* stats, int stages);
 void UpdateCombatantAttack(int unused, int combatantId);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 
@@ -29,8 +29,8 @@ extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void func_ov024_021e8bf0(struct Struct_ov024_021db5ec_3* arg0, struct Struct_ov024_021db5ec_2* arg1, unsigned short* arg2);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, GameObject* combatant, int amount, unsigned long long flags, unsigned char isCriticalHit);
 
-// USA: func_ov024_021db5ec
-extern "C" ARM void* func_ov024_021db5ec(struct Struct_ov024_021db5ec_3* arg0, short arg1, int arg2, struct Struct_ov024_021db5ec* arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: ApplyAttackBuffEffect_ov024_021db5ec
+extern "C" ARM void* ApplyAttackBuffEffect_ov024_021db5ec(struct Struct_ov024_021db5ec_3* arg0, short arg1, int arg2, struct Struct_ov024_021db5ec* arg3, int arg4, int arg5, unsigned char arg6) {
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
     unsigned long long var1 = 0;
@@ -44,7 +44,7 @@ extern "C" ARM void* func_ov024_021db5ec(struct Struct_ov024_021db5ec_3* arg0, s
     if (arg6 != 0) {
         var1 = func_ov024_021e4b14(arg0, arg1, arg2, arg3, 1);
         if (func_0208776c(var0->currentStats_, (unsigned char)var3)) {
-            var5 = func_020877c0((struct Struct_020877c0*)var0->currentStats_, (signed char)var4);
+            var5 = ChangeAttackBuff_020877c0((struct Struct_020877c0*)var0->currentStats_, (signed char)var4);
             UpdateCombatantAttack((int)arg0->unknown_10_, arg2);
             var2 = true;
         } else {
