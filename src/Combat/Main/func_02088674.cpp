@@ -13,10 +13,10 @@ struct Struct_02088674 {
     unsigned char unknown_8d_;
 };
 
-// USA: func_02088674
-extern "C" ARM void func_02088674(struct Struct_02088674* arg0) {
-    arg0->unknown_18_ &= ~0x80;
-    arg0->unknown_23_1_ = 0;
-    arg0->unknown_6a_ = 0;
-    arg0->unknown_8d_ = 0;
+// USA: ClearFource_02088674
+extern "C" ARM void ClearFource_02088674(struct Struct_02088674* stats) {
+    stats->unknown_18_ &= ~0x80;
+    stats->unknown_23_1_ = 0;
+    stats->unknown_6a_ = 0;
+    stats->unknown_8d_ = 0;
 }

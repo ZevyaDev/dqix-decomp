@@ -14,8 +14,8 @@ struct Struct_02000c9c_28 {
 
 extern "C" int func_ov000_02156c94(GameObject* arg0);
 extern "C" int func_ov000_02156cac(GameObject* arg0);
-extern "C" int func_020886b0(struct Struct_020886b0* arg0);
-extern "C" int func_020886f8(struct Struct_020886f8* arg0);
+extern "C" int HasFireFource_020886b0(struct Struct_020886b0* stats);
+extern "C" int HasFrostFource_020886f8(struct Struct_020886f8* stats);
 extern "C" int func_02088740(struct Struct_02088740* arg0);
 extern "C" int func_02088788(struct Struct_02088788* arg0);
 extern "C" int func_020887d0(struct Struct_020887d0* arg0);
@@ -41,11 +41,11 @@ extern "C" ARM float func_ov000_02156b38(void* arg0, int arg1, int arg2) {
     }
 
     var0 = 0.0f;
-    if (func_020886b0((struct Struct_020886b0*)var6->currentStats_)) {
+    if (HasFireFource_020886b0((struct Struct_020886b0*)var6->currentStats_)) {
         var0 = -50.0f;
     }
     var1 = 0.0f;
-    if (func_020886f8((struct Struct_020886f8*)var6->currentStats_)) {
+    if (HasFrostFource_020886f8((struct Struct_020886f8*)var6->currentStats_)) {
         var1 = -50.0f;
     }
     var2 = 0.0f;

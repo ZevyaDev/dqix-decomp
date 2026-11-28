@@ -9,10 +9,10 @@ struct Struct_020886f8 {
     unsigned short unknown_23_4_ : 4;
 };
 
-// USA: func_020886f8
-extern "C" ARM int func_020886f8(struct Struct_020886f8* arg0) {
-    if (arg0->unknown_18_ & 0x80) {
-        if (arg0->unknown_23_1_ == 2) {
+// USA: HasFrostFource_020886f8
+extern "C" ARM int HasFrostFource_020886f8(struct Struct_020886f8* stats) {
+    if (stats->unknown_18_ & 0x80) {
+        if (stats->unknown_23_1_ == 2) {
             return 1;
         }
     }

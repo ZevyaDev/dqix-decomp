@@ -1,7 +1,7 @@
 #include <globaldefs.h>
 
 struct Struct_02109bf4_5;
-extern "C" void func_0209c73c(struct Struct_02109bf4_5* arg0);
+extern "C" void StopJingleAndResumeMusic_0209c73c(struct Struct_02109bf4_5* manager);
 extern "C" void func_0203aa44(void* arg0);
 extern "C" int LoadSequence_0203aaf8(void* manager, void* sequenceIndex, int* heapState);
 struct MusicManager_0203aba8;
@@ -39,7 +39,7 @@ extern "C" ARM void PlayMusic_0209c3b4(struct Struct_0209c3b4_2* manager, int mu
     if (manager->musicState_b0_ == 1 && musicIndex == manager->musicIndex_b8_) return;
     if (manager->unknown_c8_.unknown_0_2_) return;
     if (manager->unknown_ce_ > -1) {
-        func_0209c73c((struct Struct_02109bf4_5*)manager);
+        StopJingleAndResumeMusic_0209c73c((struct Struct_02109bf4_5*)manager);
     }
     manager->musicState_b0_ = 1;
     func_0203aa44(manager);

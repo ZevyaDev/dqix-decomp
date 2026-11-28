@@ -139,9 +139,9 @@ extern "C" float func_02074838(int, int, Random*);
 extern "C" float func_ov000_02156b38(struct Struct_ov024_021e6a90_4* arg0, int arg1, int arg2);
 extern "C" int func_02085748(unsigned char* arg0);
 struct Struct_020886b0;
-extern "C" int func_020886b0(Struct_020886b0*);
+extern "C" int HasFireFource_020886b0(Struct_020886b0*);
 struct Struct_020886f8;
-extern "C" int func_020886f8(Struct_020886f8*);
+extern "C" int HasFrostFource_020886f8(Struct_020886f8*);
 struct Struct_02088740;
 extern "C" int func_02088740(Struct_02088740*);
 struct Struct_02088788;
@@ -308,10 +308,10 @@ extern "C" ARM int func_ov024_021e6a90(struct Struct_ov024_021e6a90_5* arg0, int
 
     float var21 = 0;
     if (var2 && arg3->unknown_a_6_ == 8 && arg3->unknown_4_0_ != 0x1f9 && arg3->unknown_4_0_ != 0x205) {
-        if (func_020886b0((Struct_020886b0*)var1->unknown_138_)) {
+        if (HasFireFource_020886b0((Struct_020886b0*)var1->unknown_138_)) {
             var21 = 1.1f * var4;
             var21 = var21 * (var2->unknown_138_->unknown_3e_ / 100.0f);
-        } else if (func_020886f8((Struct_020886f8*)var1->unknown_138_)) {
+        } else if (HasFrostFource_020886f8((Struct_020886f8*)var1->unknown_138_)) {
             var21 = 1.1f * var4;
             var21 = var21 * (var2->unknown_138_->unknown_3f_ / 100.0f);
         } else if (func_02088740((Struct_02088740*)var1->unknown_138_)) {

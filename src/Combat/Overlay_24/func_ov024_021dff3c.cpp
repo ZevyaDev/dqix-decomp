@@ -7,8 +7,8 @@ struct Struct_020886dc;
 struct Struct_02088724;
 struct Struct_0208876c;
 struct Struct_020887b4;
-extern "C" void func_020886dc(struct Struct_020886dc* arg0);
-extern "C" void func_02088724(struct Struct_02088724* arg0);
+extern "C" void SetFireFource_020886dc(struct Struct_020886dc* stats);
+extern "C" void SetFrostFource_02088724(struct Struct_02088724* stats);
 extern "C" void func_0208876c(struct Struct_0208876c* arg0);
 extern "C" void func_020887b4(struct Struct_020887b4* arg0);
 extern "C" void func_020887fc(unsigned char* arg0);
@@ -44,10 +44,10 @@ extern "C" ARM void* func_ov024_021dff3c(struct Struct_ov024_021dff3c_2* arg0, i
             var1 = SelectPartyOrEnemyMessage_ov024_021da644(arg2, arg3->unknown_20_.unknown_2_4_, arg3->unknown_24_.unknown_0_0_);
             switch (arg3->unknown_30_) {
                 case 1:
-                    func_020886dc((struct Struct_020886dc*)var0->currentStats_);
+                    SetFireFource_020886dc((struct Struct_020886dc*)var0->currentStats_);
                     break;
                 case 2:
-                    func_02088724((struct Struct_02088724*)var0->currentStats_);
+                    SetFrostFource_02088724((struct Struct_02088724*)var0->currentStats_);
                     break;
                 case 3:
                     func_0208876c((struct Struct_0208876c*)var0->currentStats_);
