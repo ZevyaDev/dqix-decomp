@@ -9,7 +9,7 @@ struct Struct_ov024_021db7c0_3;
 
 extern "C" unsigned long long func_ov024_021e4b14(struct Struct_ov024_021db7c0_2* arg0, int arg1, int arg2, struct Struct_ov024_021db7c0_3* arg3, int arg4);
 extern "C" int func_02087860(Struct_02087860*, unsigned char);
-extern "C" int func_020878b4(struct Struct_020878b4* arg0, int arg1);
+extern "C" int ChangeDefenseBuff_020878b4(struct Struct_020878b4* stats, int stages);
 void UpdateCombatantDefense(int unused, int combatantId);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" unsigned short func_ov024_021e95d4(struct Struct_ov024_021db7c0_2* arg0, int arg1, struct Struct_ov024_021db7c0_3* arg2, unsigned char arg3, signed char arg4, int arg5, unsigned char arg6);
@@ -41,8 +41,8 @@ static inline int inline_ov000_02169850(int arg0) {
     return arg0 >= 0 && arg0 <= 3;
 }
 
-// USA: func_ov024_021db7c0
-extern "C" ARM void* func_ov024_021db7c0(struct Struct_ov024_021db7c0_2* arg0, short arg1, int arg2, struct Struct_ov024_021db7c0_3* arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: ApplyDefenseBuffEffect_ov024_021db7c0
+extern "C" ARM void* ApplyDefenseBuffEffect_ov024_021db7c0(struct Struct_ov024_021db7c0_2* arg0, short arg1, int arg2, struct Struct_ov024_021db7c0_3* arg3, int arg4, int arg5, unsigned char arg6) {
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
     unsigned long long var1 = 0;
@@ -56,7 +56,7 @@ extern "C" ARM void* func_ov024_021db7c0(struct Struct_ov024_021db7c0_2* arg0, s
     if (arg6) {
         var1 = func_ov024_021e4b14(arg0, arg1, arg2, arg3, 1);
         if (func_02087860((struct Struct_02087860*)var0->currentStats_, var3)) {
-            var5 = func_020878b4((struct Struct_020878b4*)var0->currentStats_, (signed char)var4);
+            var5 = ChangeDefenseBuff_020878b4((struct Struct_020878b4*)var0->currentStats_, (signed char)var4);
             UpdateCombatantDefense((int)arg0->unknown_10_, arg2);
             var2 = 1;
         } else {

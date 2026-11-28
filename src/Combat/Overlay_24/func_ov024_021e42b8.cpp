@@ -4,7 +4,7 @@
 
 struct Struct_02087954;
 extern "C" int func_02087954(struct Struct_02087954* arg0, int arg1);
-extern "C" int func_020879a8(void* arg0, signed char arg1);
+extern "C" int ChangeAgilityBuff_020879a8(void* stats, signed char stages);
 void UpdateCombatantAgility(int unused, int id);
 extern "C" int func_ov024_021e96e4(void* arg0, int arg1, void* arg2, unsigned char arg3, signed char arg4, unsigned char arg5, unsigned char arg6);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
@@ -27,7 +27,7 @@ extern "C" ARM unsigned long long func_ov024_021e42b8(struct Struct_ov024_021e42
 	int var3 = 0;
 	int var4 = 0;
 	if (func_02087954((struct Struct_02087954*)var0->currentStats_, (unsigned char)var2)) {
-		var4 = func_020879a8(var0->currentStats_, var1);
+		var4 = ChangeAgilityBuff_020879a8(var0->currentStats_, var1);
 		UpdateCombatantAgility((int)arg0->unknown_10_, arg2);
 		var3 = 1;
 	}

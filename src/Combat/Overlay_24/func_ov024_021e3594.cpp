@@ -18,7 +18,7 @@ struct Struct_ov024_021e3594_5 { char unknown_0_[0x50]; unsigned char unknown_50
 struct Struct_02087860;
 extern "C" int func_02087860(Struct_02087860* arg0, unsigned char arg1);
 struct Struct_020878b4;
-extern "C" int func_020878b4(struct Struct_020878b4* arg0, int arg1);
+extern "C" int ChangeDefenseBuff_020878b4(struct Struct_020878b4* stats, int stages);
 void UpdateCombatantDefense(int unused, int combatantId);
 extern "C" int func_ov024_021e95d4(struct Struct_ov024_021e3594_3* arg0, int arg1, struct Struct_ov024_021e3594_4* arg2, unsigned char arg3, signed char arg4, unsigned char arg5, unsigned char arg6);
 extern "C" void SetActionResultFlag_ov000_02159eac(void* battle, void* flags, int flagIndex);
@@ -50,7 +50,7 @@ extern "C" ARM unsigned long long func_ov024_021e3594(struct Struct_ov024_021e35
 	int var6 = 0;
 	int var7 = 0;
 	if (func_02087860((struct Struct_02087860*)var0->currentStats_, var3)) {
-		var7 = func_020878b4((struct Struct_020878b4*)var0->currentStats_, (signed char)var2);
+		var7 = ChangeDefenseBuff_020878b4((struct Struct_020878b4*)var0->currentStats_, (signed char)var2);
 		UpdateCombatantDefense((int)arg0->unknown_10_, arg2);
 		var6 = 1;
 	}

@@ -5,7 +5,7 @@
 struct Struct_02087c30;
 extern "C" int func_02087c30(Struct_02087c30*, unsigned char);
 struct Struct_02087c84;
-extern "C" int func_02087c84(struct Struct_02087c84* arg0, int arg1);
+extern "C" int ChangeMagicalMendingBuff_02087c84(struct Struct_02087c84* stats, int stages);
 void UpdateCombatantMagicalMending(int random, int combatantId);
 struct Struct_ov024_021dee84_4;
 struct Struct_ov024_021e47f4;
@@ -30,7 +30,7 @@ extern "C" ARM unsigned long long func_ov024_021e47f4(struct Struct_ov024_021e47
 	int var3 = 0;
 	int var4 = 0;
 	if (func_02087c30((struct Struct_02087c30*)var0->currentStats_, var2)) {
-		var4 = func_02087c84((struct Struct_02087c84*)var0->currentStats_, (signed char)var1);
+		var4 = ChangeMagicalMendingBuff_02087c84((struct Struct_02087c84*)var0->currentStats_, (signed char)var1);
 		UpdateCombatantMagicalMending((int)arg0->unknown_10_, arg2);
 		var3 = 1;
 	}

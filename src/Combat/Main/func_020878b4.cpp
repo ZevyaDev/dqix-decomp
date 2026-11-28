@@ -10,18 +10,18 @@ struct Struct_020878b4 {
 
 extern "C" void ClearDefenseBuff_0208792c(void* stats);
 
-// USA: func_020878b4
-extern "C" ARM int func_020878b4(struct Struct_020878b4* arg0, int arg1) {
-    int var0 = arg0->unknown_58_3_ + arg1;
+// USA: ChangeDefenseBuff_020878b4
+extern "C" ARM int ChangeDefenseBuff_020878b4(struct Struct_020878b4* stats, int stages) {
+    int var0 = stats->unknown_58_3_ + stages;
     if (var0 > 2) var0 = 2;
     if (var0 < -2) var0 = -2;
     if (var0 == 0) {
-        ClearDefenseBuff_0208792c(arg0);
+        ClearDefenseBuff_0208792c(stats);
         return 0;
     }
-    arg0->unknown_58_3_ = var0;
-    *((unsigned char*)arg0 + 0x6f) = 6;
-    *((unsigned char*)arg0 + 0x92) = 0;
-    arg0->unknown_14_ |= 0x800;
-    return arg0->unknown_58_3_;
+    stats->unknown_58_3_ = var0;
+    *((unsigned char*)stats + 0x6f) = 6;
+    *((unsigned char*)stats + 0x92) = 0;
+    stats->unknown_14_ |= 0x800;
+    return stats->unknown_58_3_;
 }

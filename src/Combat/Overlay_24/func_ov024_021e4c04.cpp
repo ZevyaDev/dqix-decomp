@@ -120,7 +120,7 @@ extern "C" void ApplyDamage_ov000_0215a004(void*, int, int, int, void*, Struct_o
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*, void*, GameObject*, int, unsigned long long, int);
 extern "C" int func_ov024_021e9198(Struct_ov024_021e4c04_5*, int, int, int);
 extern "C" int ChangeAttackBuff_020877c0(void*, int);
-extern "C" int func_020878b4(void*, int);
+extern "C" int ChangeDefenseBuff_020878b4(void*, int);
 extern "C" int func_ov024_021e94c4(Struct_ov024_021e4c04_5*, int, Struct_ov024_021e4c04_6*, int, signed char, unsigned char, unsigned char);
 extern "C" int func_ov024_021e95d4(Struct_ov024_021e4c04_5*, int, Struct_ov024_021e4c04_6*, int, signed char, unsigned char, unsigned char);
 
@@ -299,7 +299,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
             && inline_ov000_0215a908_5(var1)->unknown_50_ != 0) {
             var4 = 20.0f;
             if ((float)var9 < var4) {
-                int var21 = func_020878b4(var1->currentStats_, -1);
+                int var21 = ChangeDefenseBuff_020878b4(var1->currentStats_, -1);
                 UpdateCombatantDefense((int)arg0->unknown_10_, arg2);
                 int var22 = func_ov024_021e95d4(arg0, arg2, arg3, 1, (signed char)var21, 1, 1);
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var22);

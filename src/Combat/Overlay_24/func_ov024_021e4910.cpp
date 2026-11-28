@@ -18,8 +18,8 @@ struct Struct_02087860;
 struct Struct_02087954;
 extern "C" int func_02087860(Struct_02087860*, unsigned char);
 extern "C" int func_02087954(Struct_02087954*, int);
-extern "C" int func_020878b4(ModifiableCombatStats*, int);
-extern "C" int func_020879a8(ModifiableCombatStats*, int);
+extern "C" int ChangeDefenseBuff_020878b4(ModifiableCombatStats*, int);
+extern "C" int ChangeAgilityBuff_020879a8(ModifiableCombatStats*, int);
 void UpdateCombatantDefense(int, int);
 void UpdateCombatantAgility(int, int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void*);
@@ -44,7 +44,7 @@ extern "C" ARM unsigned long long func_ov024_021e4910(Struct_ov024_021e4910* arg
     void* var5 = GetNextActionResult_ov000_0215e958(arg0->unknown_10_);
     if (!var5) return 0;
     if (func_02087860((Struct_02087860*)var0->currentStats_, var2)) {
-        var4 = func_020878b4(var0->currentStats_, (signed char)var1);
+        var4 = ChangeDefenseBuff_020878b4(var0->currentStats_, (signed char)var1);
         UpdateCombatantDefense((int)arg0->unknown_10_, arg2);
         var3 = 1;
     }
@@ -54,7 +54,7 @@ extern "C" ARM unsigned long long func_ov024_021e4910(Struct_ov024_021e4910* arg
     }
     int var7 = 0;
     if (func_02087954((Struct_02087954*)var0->currentStats_, var2 & 0xff)) {
-        var4 = func_020879a8(var0->currentStats_, (signed char)var1);
+        var4 = ChangeAgilityBuff_020879a8(var0->currentStats_, (signed char)var1);
         UpdateCombatantAgility((int)arg0->unknown_10_, arg2);
         var7 = 1;
     }
