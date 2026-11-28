@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0203e06c
-extern "C" ARM int func_0203e06c(void* arg0) {
-    return *(int*)((char*)arg0 + 0x8c);
+// USA: GetNPCCount_0203e06c
+extern "C" ARM int GetNPCCount_0203e06c(void* npcManager) {
+    return *(int*)((char*)npcManager + 0x8c);
 }

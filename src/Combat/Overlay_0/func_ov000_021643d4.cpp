@@ -199,7 +199,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState*);
 extern "C" void func_ov017_021a27e8(void* arg0);
 extern "C" void UnloadFieldIcons_ov017_0219b938(int gameResources);
 extern "C" int GetNPCManager_0203cf4c();
-extern "C" int func_0203e06c(void*);
+extern "C" int GetNPCCount_0203e06c(void*);
 extern "C" void SetBattleSceneFlags_ov000_02160fa8(void*, int);
 struct NPCManager_0203cfb4;
 extern "C" void ResetNPCManager_0203cfb4(NPCManager_0203cfb4*);
@@ -348,7 +348,7 @@ extern "C" ARM void func_ov000_021643d4(Struct_ov000_021643d4_7* arg0) {
         if (var30) ((Object3D*)var30)->Destroy();
     }
     int var31 = GetNPCManager_0203cf4c();
-    if (func_0203e06c((void*)var31) > 0) {
+    if (GetNPCCount_0203e06c((void*)var31) > 0) {
         SetBattleSceneFlags_ov000_02160fa8(arg0, 0x1000);
     }
     ResetNPCManager_0203cfb4((NPCManager_0203cfb4*)var31);
