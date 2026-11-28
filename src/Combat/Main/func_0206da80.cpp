@@ -23,22 +23,22 @@ struct Struct_02013fb4;
 struct Struct_0201f040_3;
 extern int data_020f0994;
 
-// USA: func_0206da80
-extern "C" ARM int func_0206da80(int* arg0, unsigned char arg1, unsigned char arg2, unsigned char arg3, int arg4, int arg5, struct Struct_02013fb4* arg6, int arg7) {
+// USA: ParseNPCPlacementFile_0206da80
+extern "C" ARM int ParseNPCPlacementFile_0206da80(int* placementList, unsigned char arg1, unsigned char arg2, unsigned char arg3, int arg4, int arg5, struct Struct_02013fb4* arg6, int arg7) {
     char var0[0x430];
     if (gNPCPlacementParseState_02108cec.unknown_10_ != 0) {
-        *arg0 = 0;
+        *placementList = 0;
         gNPCPlacementParseState_02108cec.unknown_a_ = 0;
         gNPCPlacementParseState_02108cec.unknown_8_ = -1;
         gNPCPlacementParseState_02108cec.unknown_4_ = -1;
         gNPCPlacementParseState_02108cec.unknown_6_ = -1;
     }
-    *arg0 = 0;
+    *placementList = 0;
     gNPCPlacementParseState_02108cec.unknown_2_ = arg1;
     gNPCPlacementParseState_02108cec.unknown_1_ = arg2;
     gNPCPlacementParseState_02108cec.unknown_0_ = arg3;
     gNPCPlacementParseState_02108cec.unknown_c_ = arg4;
-    gNPCPlacementParseState_02108cec.unknown_10_ = arg0;
+    gNPCPlacementParseState_02108cec.unknown_10_ = placementList;
     gNPCPlacementParseState_02108cec.unknown_14_ = (void*)arg5;
     ((Script*)((struct Struct_0201f040*)var0))->Initialize();
     ((Script*)((struct Struct_0201f040*)var0))->SetOpcodeLookup((Script::OpcodeLookupEntry*)&data_020f0994);

@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0206da74
-extern "C" ARM void func_0206da74(int* arg0) {
-    *arg0 = 0;
+// USA: ClearNPCPlacementList_0206da74
+extern "C" ARM void ClearNPCPlacementList_0206da74(int* placementList) {
+    *placementList = 0;
 }
