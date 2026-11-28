@@ -59,7 +59,7 @@ extern "C" void func_0208660c(char* arg0);
 extern "C" void func_02099cb8(char* arg0);
 extern "C" int GetRequestedMovie_020115a8(GameState_02000c9c_12* gameState);
 extern "C" void func_020115b4(Struct_02000c9c_13* arg0, unsigned char arg1);
-extern "C" void func_020115c0(Struct_02000c9c_14* arg0);
+extern "C" void ClearRequestedMovie_020115c0(Struct_02000c9c_14* gameState);
 extern "C" void func_020d6cb4();
 extern "C" void CloseSoundEffectArchive_0205e8d4(void* manager);
 extern "C" void CloseSoundArchive_0203a950(void* manager);
@@ -288,7 +288,7 @@ extern "C" ARM void main() {
                         RUNOV16(var6);
                     }
                     func_020a1bb4(&OVERLAY_16_ID);
-                    func_020115c0((Struct_02000c9c_14*)var0);
+                    ClearRequestedMovie_020115c0((Struct_02000c9c_14*)var0);
                 } else {
                     *(unsigned char*)&var0->unk_6fc0[SCENE_SKIP_MEMBER_INDEX] = 0;
                 }

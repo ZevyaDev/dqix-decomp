@@ -5,7 +5,7 @@
 extern "C" void SetStoryChapter_02010774(char* gameState, int chapter);
 extern "C" void SetStoryStep_020107a8(char* gameState, int step);
 extern "C" void SetStorySubStep_020107dc(char* gameState, int subStep);
-extern "C" void func_02010810(char* arg0, int arg1);
+extern "C" void SetStoryProgress_02010810(char* gameState, int progress);
 struct Struct_020a99d0_3;
 extern "C" void func_020a99d0(struct Struct_020a99d0_3* arg0, struct Struct_020a99d0_3* arg1);
 
@@ -24,7 +24,7 @@ extern "C" ARM int func_020a9a50(Struct_020a9a50* arg0, char* arg1, int arg2) {
     SetStoryChapter_02010774(var0, arg0->unknown_0_);
     SetStoryStep_020107a8(var0, arg0->unknown_4_);
     SetStorySubStep_020107dc(var0, arg0->unknown_8_);
-    func_02010810(var0, arg0->unknown_c_);
+    SetStoryProgress_02010810(var0, arg0->unknown_c_);
     if (arg2 != 0) {
         memcpy(arg1, (char*)arg0 + 0x10, 0x8c);
         memcpy(arg1 + 0x8c, (char*)arg0 + 0x9c, 0x15f);

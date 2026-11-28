@@ -86,7 +86,7 @@ extern "C" void SetTitleState_02012010(void* gameState, int state);
 struct GameState_02000c9c_12;
 extern "C" unsigned char GetRequestedMovie_020115a8(GameState_02000c9c_12*);
 struct Struct_02000c9c_14;
-extern "C" void func_020115c0(Struct_02000c9c_14*);
+extern "C" void ClearRequestedMovie_020115c0(Struct_02000c9c_14*);
 extern "C" void SetLoadingIndicator_020daf9c(int isShown, int isFadeWaitSkipped, int isScreenBlanked, int isMainScreenForced);
 void SetMainBrightness(GameResources*, int, int);
 void SetSubBrightness(GameResources*, int, int);
@@ -868,7 +868,7 @@ extern "C" ARM void func_ov017_0218b688(Struct_ov017_0218b688_5* arg0) {
         AppendToQueue_020469b4((Queue_0201bdac_2*)arg0->unknown_36fc_, (QueueNode_0201bdac*)arg0->unknown_3b60_);
     }
     if (GetRequestedMovie_020115a8((GameState_02000c9c_12*)var5) != 0) {
-        func_020115c0((Struct_02000c9c_14*)var5);
+        ClearRequestedMovie_020115c0((Struct_02000c9c_14*)var5);
     }
     FontLoader_0208cb08* var59 = GetFontLoader_02094a00();
     func_0202ad30();
