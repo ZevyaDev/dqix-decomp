@@ -40,8 +40,8 @@ static inline int inline_ov024_021ddf5c(int arg0) {
     return arg0 >= 0 && arg0 <= 3;
 }
 
-// USA: func_ov024_021ddf5c
-extern "C" ARM struct ActionResult_ov000_021584e8* func_ov024_021ddf5c(struct Struct_ov024_021ddf5c_2* arg0, int arg1, int arg2, struct Struct_ov024_021ddf5c_3* arg3, int arg4) {
+// USA: ApplyRestoreMPEffect_ov024_021ddf5c
+extern "C" ARM struct ActionResult_ov000_021584e8* ApplyRestoreMPEffect_ov024_021ddf5c(struct Struct_ov024_021ddf5c_2* arg0, int arg1, int arg2, struct Struct_ov024_021ddf5c_3* arg3, int arg4) {
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
     unsigned short var1 = arg3->unknown_4_.unknown_0_0_;
