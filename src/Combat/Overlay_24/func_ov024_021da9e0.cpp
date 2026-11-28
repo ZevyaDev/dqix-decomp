@@ -102,8 +102,8 @@ static inline int inline_ov024_021da9e0_2(short arg0) {
 
 static inline unsigned short inline_ov024_021da9e0_3(GameObject* arg0) { SDK_NULL_ASSERT(arg0); return arg0->currentStats_->primaryStats.currMP; }
 
-// USA: func_ov024_021da9e0
-extern "C" ARM struct Struct_ov024_021da9e0_10* func_ov024_021da9e0(struct Struct_ov024_021da9e0_2* arg0, short arg1, int arg2, struct Struct_ov024_021da9e0_8* arg3, int arg4, int* arg5, unsigned char arg6) {
+// USA: ApplyDamageEffect_ov024_021da9e0
+extern "C" ARM struct Struct_ov024_021da9e0_10* ApplyDamageEffect_ov024_021da9e0(struct Struct_ov024_021da9e0_2* arg0, short arg1, int arg2, struct Struct_ov024_021da9e0_8* arg3, int arg4, int* arg5, unsigned char arg6) {
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
     float var1 = GetHPRatio_ov024_021db358(var0);
