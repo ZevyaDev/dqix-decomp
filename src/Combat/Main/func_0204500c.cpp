@@ -18,7 +18,7 @@ extern "C" void SetMessageWindowRect_02042b98(void*, int, int, int, int);
 extern "C" void func_02044d0c(void);
 extern "C" void func_02044104(Struct_0204394c*);
 extern "C" void func_020698d8(void*, int, const char*, char*);
-extern "C" void func_02069ecc(Struct_0204500c_5*, const char*, char*);
+extern "C" void ConvertMessageControlTags_02069fec(Struct_0204500c_5*, const char*, char*);
 extern "C" void func_0206c570(void*, const char*);
 extern "C" unsigned char* func_020e1b24(void*);
 extern "C" void func_020e1b2c(void*, int);
@@ -51,7 +51,7 @@ extern "C" void func_02068418(struct MessageWindow_02021b84* arg0, const char* a
 extern "C" void func_02068f40(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2, unsigned char arg3);
 extern "C" void func_02069234(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2, unsigned char arg3);
 extern "C" void func_020695f4(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2, unsigned char arg3);
-extern "C" void func_02069fec(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2);
+extern "C" void ConvertMessageControlTags_02069fec(struct MessageWindow_02021b84* arg0, const char* arg1, char* arg2);
 extern "C" void func_0206a974(struct Struct_0204500c_3*, const char*, int);
 extern "C" unsigned char* func_020e1b24(void*);
 extern "C" void func_020e1b2c(void*, int);
@@ -160,7 +160,7 @@ extern "C" ARM void StartMessage_0204500c(MessageWindow_02021b84* window, const 
             func_02044104((Struct_0204394c*)window->pTextureArena_1e28_);
         }
         func_020698d8(window, window->unknown_1788_, text, window->unknown_2c_);
-        func_02069ecc((Struct_0204500c_5*)window, window->unknown_2c_, window->unknown_30_);
+        ConvertMessageControlTags_02069fec((Struct_0204500c_5*)window, window->unknown_2c_, window->unknown_30_);
         func_0206c570(window, window->unknown_30_);
         SetMessageWindowRect_02042b98(window, 2, 0x74, 0xfc, 0x4a);
         window->unknown_1728_ = 2;
@@ -331,7 +331,7 @@ extern "C" ARM void StartMessage_0204500c(struct MessageWindow_02021b84* window,
         func_02068f40(window, var22, var21, window->unknown_19dc_);
         func_02069234(window, var21, var22, window->unknown_19dc_);
         func_020695f4(window, var22, var21, window->unknown_19dc_);
-        func_02069fec(window, var21, var22);
+        ConvertMessageControlTags_02069fec(window, var21, var22);
         func_0206a974((struct Struct_0204500c_3*)window, var22, arg3);
         SetMessageWindowRect_02042b98(window, 2, 0x74, 0xfc, 0x4a);
         window->unknown_1858_ = 2;

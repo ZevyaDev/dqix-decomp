@@ -45,8 +45,8 @@ struct Struct_02069fec_2 {
     struct Struct_02069fec unknown_1000_;
 };
 
-// USA: func_02069fec
-extern "C" ARM void func_02069fec(struct Struct_02069fec_2* arg0, int arg1, char* arg2) {
+// USA: ConvertMessageControlTags_02069fec
+extern "C" ARM void ConvertMessageControlTags_02069fec(struct Struct_02069fec_2* arg0, int arg1, char* arg2) {
     unsigned short var0;
     char* var1;
     if (arg1 == 0 || arg2 == 0) return;

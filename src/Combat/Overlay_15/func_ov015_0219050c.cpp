@@ -2,7 +2,6 @@
 
 #if defined(jpn)
 #define func_ov015_0219050c func_ov015_021910b0
-#define func_02069fec func_02069ecc
 #define PrepareLineMode 8
 #else
 #define PrepareLineMode 0
@@ -54,7 +53,7 @@ struct Struct_ov015_0219050c_2
 };
 
 extern "C" Struct_0204500c_5* GetMessageWindow_020421a0();
-extern "C" void func_02069fec(Struct_0204500c_5* arg0, const char* arg1, char* arg2);
+extern "C" void ConvertMessageControlTags_02069fec(Struct_0204500c_5* arg0, const char* arg1, char* arg2);
 #if defined(jpn)
 extern "C" int ConvertTextToMessageGlyphs_02045d14(Struct_0204500c_5* arg0, const char* arg1, unsigned short* arg2, int arg3);
 #else
@@ -85,7 +84,7 @@ extern const char data_ov015_02194295[];
         memset(var1, 0, sizeof(var1));                                    \
         Struct_0204500c_5* system = GetMessageWindow_020421a0();     \
         char converted[0x40] = {};                                        \
-        func_02069fec(system, var0, converted);                           \
+        ConvertMessageControlTags_02069fec(system, var0, converted);                           \
         ConvertTextToMessageGlyphs_02045d14(system, converted, var1, PrepareLineMode);          \
     }
 

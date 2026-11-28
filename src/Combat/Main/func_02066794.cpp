@@ -601,7 +601,7 @@ extern "C" int func_02045c00(MessageWindow_02045c00_2*, const char*, int);
 extern "C" int func_02046530(void*, unsigned short*, int, int);
 extern "C" void func_02067b28(Struct_02067b28* arg0);
 extern "C" void func_020698d8(Struct_020698d8* arg0, int arg1, signed char* arg2, char* arg3);
-extern "C" void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2);
+extern "C" void ConvertMessageControlTags_02069fec(Struct_02069ecc* arg0, char* arg1, char* arg2);
 extern "C" void func_0206c570(void* arg0, const char* arg1);
 extern "C" int func_020d857c(const char* arg0, const char* arg1);
 extern "C" int func_020d2ff0(const char* string);
@@ -629,7 +629,7 @@ extern "C" void func_0206b198(struct Struct_0204500c_4* arg0, unsigned short arg
 
 extern "C" int func_02044420(void* arg0, void* arg1);
 extern "C" void func_02041bbc(Struct_0204166c*);
-extern "C" void func_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, unsigned char arg7);
+extern "C" void WrapMessageText_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, unsigned char arg7);
 extern "C" int func_0206cc50(Struct_0206cc50* arg0, unsigned short* arg1);
 extern "C" int func_02067ad8(int arg0, void* arg1);
 
@@ -2036,7 +2036,7 @@ extern "C" ARM void func_02069878(Struct_02069878* arg0, signed char* arg1) {
     func_0206b104((Struct_0206b104*)arg0);
     memset(arg0->unknown_14_, 0, 0x800);
     func_020698d8((Struct_020698d8*)arg0, arg0->unknown_1788_, arg1, arg0->unknown_2c_);
-    func_02069ecc((Struct_02069ecc*)arg0, arg0->unknown_2c_, arg0->unknown_30_);
+    ConvertMessageControlTags_02069fec((Struct_02069ecc*)arg0, arg0->unknown_2c_, arg0->unknown_30_);
     func_0206c570(arg0, arg0->unknown_30_);
     arg0->unknown_870_ = 5;
 }
@@ -2198,7 +2198,7 @@ static inline void inline_02069ecc(char* arg0, unsigned short arg1) {
     memcpy(arg0, &arg1, 2);
 }
 
-extern "C" ARM void func_02069ecc(Struct_02069ecc* arg0, char* arg1, char* arg2) {
+extern "C" ARM void ConvertMessageControlTags_02069fec(Struct_02069ecc* arg0, char* arg1, char* arg2) {
     unsigned short var0;
     if (arg1 == 0 || arg2 == 0) {
         return;

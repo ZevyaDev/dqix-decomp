@@ -67,8 +67,8 @@ struct Struct_020e7ec4
 
 extern const Struct_020e7ec4 data_020e7ec4[];
 
-// USA: func_0206b974
-extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, char *arg3,
+// USA: WrapMessageText_0206b974
+extern "C" ARM void WrapMessageText_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, char *arg3,
     int arg4, int arg5, bool arg6, unsigned char arg7)
 {
     int var0;
