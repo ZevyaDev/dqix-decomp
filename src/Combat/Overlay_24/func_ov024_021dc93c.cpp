@@ -26,8 +26,8 @@ struct Struct_ov024_021dc93c_5 {char unknown_0_[4];Struct_ov024_021dc93c_3 unkno
 struct Struct_ov024_021dc93c_6 {char unknown_0_[0x24];unsigned char unknown_24_;};
 static inline void* inline_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0){ SDK_NULL_ASSERT(arg0); return arg0->unknown_10_; }
 static inline int inline_ov000_02156cc4_2(int arg0){ return arg0>=0 && arg0<=3; }
-// USA: func_ov024_021dc93c
-extern "C" ARM void* func_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg1,int arg2,Struct_ov024_021dc93c_5* arg3,int arg4,int arg5,unsigned char arg6){
+// USA: ApplyTensionEffect_ov024_021dc93c
+extern "C" ARM void* ApplyTensionEffect_ov024_021dc93c(Struct_ov024_021dc93c_2* arg0,short arg1,int arg2,Struct_ov024_021dc93c_5* arg3,int arg4,int arg5,unsigned char arg6){
  GameObject* var0=GetCombatantByID((int)arg0->unknown_10_,arg2);
  if(!var0)return 0;
  int var1=0;

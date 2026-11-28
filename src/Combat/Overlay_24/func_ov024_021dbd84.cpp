@@ -41,8 +41,8 @@ struct Struct_ov024_021dbd84_4 {
 };
 struct Struct_ov024_021dbd84_5 { char unknown_0_[0x14]; int unknown_14_; };
 
-// USA: func_ov024_021dbd84
-extern "C" ARM void* func_ov024_021dbd84(struct Struct_ov024_021dbd84_2* arg0, int arg1, int arg2, struct Struct_ov024_021dbd84_4* arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: ApplySleepEffect_ov024_021dbd84
+extern "C" ARM void* ApplySleepEffect_ov024_021dbd84(struct Struct_ov024_021dbd84_2* arg0, int arg1, int arg2, struct Struct_ov024_021dbd84_4* arg3, int arg4, int arg5, unsigned char arg6) {
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
     int var1 = 0;

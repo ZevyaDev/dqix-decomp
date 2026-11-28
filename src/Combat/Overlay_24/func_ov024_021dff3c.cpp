@@ -34,8 +34,8 @@ struct Struct_ov024_021dff3c_3 {
     short unknown_30_;
 };
 
-// USA: func_ov024_021dff3c
-extern "C" ARM void* func_ov024_021dff3c(struct Struct_ov024_021dff3c_2* arg0, int arg1, int arg2, struct Struct_ov024_021dff3c_3* arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: ApplyFourceEffect_ov024_021dff3c
+extern "C" ARM void* ApplyFourceEffect_ov024_021dff3c(struct Struct_ov024_021dff3c_2* arg0, int arg1, int arg2, struct Struct_ov024_021dff3c_3* arg3, int arg4, int arg5, unsigned char arg6) {
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
     unsigned short var1;
