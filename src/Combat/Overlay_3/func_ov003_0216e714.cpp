@@ -378,11 +378,11 @@ extern "C" ARM void func_ov003_0216e714(Struct_ov003_0216e714_7 *arg0) {
                 func_0204f41c(&var27, 0xf4 - func_020420e8(var28, 0), var42, var28, 10, 15, &var36, &var37, 0);
             }
             if (inline_ov003_0216e714(inline_ov003_0216e714_2(var25)) > 8) {
-                char *var47 = func_02042a50(8, data_ov003_021802b9);
+                char *var47 = FindGlyphForFontSize_02042a50(8, data_ov003_021802b9);
                 if (var47 != 0) {
                     func_0204e038(&var27, var47, 0xc, 0xb2, 8, 8, 0xf0, 0xf);
                 }
-                var47 = func_02042a50(8, data_ov003_021802bc);
+                var47 = FindGlyphForFontSize_02042a50(8, data_ov003_021802bc);
                 if (var47 != 0) {
                     func_0204e038(&var27, var47, 0xee, 0xb2, 8, 8, 0xf0, 0xf);
                 }

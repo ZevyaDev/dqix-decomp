@@ -17,7 +17,7 @@ struct Struct_02095d18 {
 
 extern "C" void __clear(void* arg0, int arg1);
 extern "C" void func_0209651c(FontLoader_0208cb08* arg0);
-extern "C" Struct_02095d18* func_020429bc(int arg0);
+extern "C" Struct_02095d18* GetFontSetForFontSize_020429bc(int fontSize);
 
 extern char data_020f151f[];
 
@@ -158,7 +158,7 @@ extern "C" ARM void func_02095d18(FontLoader_0208cb08* arg0) {
                 }
                 if (var25 == 0) {
                     int var27 = 0;
-                    Struct_02095d18* var28 = func_020429bc(var11);
+                    Struct_02095d18* var28 = GetFontSetForFontSize_020429bc(var11);
                     unsigned short* var29 = &var28->unknown_8_[0xd2];
                     unsigned short var30 = *var23;
                     short var31 = var28->unknown_6_;

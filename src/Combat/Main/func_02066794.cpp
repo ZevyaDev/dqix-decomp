@@ -749,9 +749,9 @@ extern "C" ARM void func_02066794(void* arg0, int arg1, int arg2, char* arg3, sh
     __clear(&var0, sizeof(var0));
     var0.unknown_0_ = *(signed char*)(arg3 + 0x18);
     var0.unknown_1_ = *(signed char*)(arg3 + 0x19);
-    char* var1 = func_02042a50(*(unsigned char*)(arg3 + 0x1a), (const char*)&var0);
+    char* var1 = FindGlyphForFontSize_02042a50(*(unsigned char*)(arg3 + 0x1a), (const char*)&var0);
     if (var1 == NULL) return;
-    Struct_0203bebc* var2 = func_020429bc(*(unsigned char*)(arg3 + 0x1a));
+    Struct_0203bebc* var2 = GetFontSetForFontSize_020429bc(*(unsigned char*)(arg3 + 0x1a));
     if (var2 == NULL) return;
     unsigned char var3 = var2->unknown_2_;
     unsigned char var4 = var2->unknown_3_;

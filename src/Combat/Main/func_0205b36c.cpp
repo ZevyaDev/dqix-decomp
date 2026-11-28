@@ -15,7 +15,7 @@ extern "C" Struct_0205b1ac* func_0205b1ac(Struct_0205b1ac*, unsigned int, int, i
 // JPN: func_0205c68c
 extern "C" ARM void func_0205b36c(Struct_0205b36c_3* arg0, const unsigned char* arg1, short arg2, short arg3, unsigned char arg4, unsigned char arg5) {
     if (arg1 == NULL) return;
-    Struct_0203bebc* var0 = func_020429bc(arg4);
+    Struct_0203bebc* var0 = GetFontSetForFontSize_020429bc(arg4);
     if (var0 == NULL) return;
     unsigned char var1 = 0;
     short var2 = 0;

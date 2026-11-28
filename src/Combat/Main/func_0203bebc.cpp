@@ -92,7 +92,7 @@ extern "C" ARM void func_0203bebc(void* arg0, void* arg1, void* arg2)
         break;
     }
     var0->unknown_0_ = arg4;
-    Struct_0203bebc* var1 = func_020429bc(10);
+    Struct_0203bebc* var1 = GetFontSetForFontSize_020429bc(10);
     if (var1 == NULL) return;
     int var2 = var1->unknown_3_;
     unsigned char var3[256];

@@ -25,9 +25,9 @@ extern "C" ARM void func_0204fae8(Struct_0204fae8* arg0) {
     }
     var0 += 4;
     var0 -= var2;
-    char* var3 = func_02042a50(8, data_020f0303);
+    char* var3 = FindGlyphForFontSize_02042a50(8, data_020f0303);
     if (var3) func_0204e038(arg0, var3, var0, var1, 8, 8, 0xf0, 0xf);
     var0 = (short)((short)(arg0->unknown_a8_ << 3) - 10) + var2;
-    var3 = func_02042a50(8, data_020f0306);
+    var3 = FindGlyphForFontSize_02042a50(8, data_020f0306);
     if (var3) func_0204e038(arg0, var3, (short)(var0 - 1), var1, 8, 8, 0xf0, 0xf);
 }
