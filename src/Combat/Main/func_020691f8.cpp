@@ -5,8 +5,8 @@ extern "C" int sprintf(int arg0, void* arg1);
 
 struct Struct_020691f8 { unsigned char unknown_0_[0x40]; };
 
-// USA: func_020691f8
-extern "C" ARM void func_020691f8(signed char* arg0, int* arg1, char* arg2) {
+// USA: ApplyStringTag_020691f8
+extern "C" ARM void ApplyStringTag_020691f8(signed char* arg0, int* arg1, char* arg2) {
     int var0 = func_02068200(arg0) - 1;
     struct Struct_020691f8* var1 = (struct Struct_020691f8*)(arg2 + 0x4ac) + var0;
     if (var1 != NULL) {

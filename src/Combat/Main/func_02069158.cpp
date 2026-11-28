@@ -5,8 +5,8 @@ static inline BaseCombatStats* inline_02069120(GameObject* arg0) {
     return arg0->baseStats_;
 }
 
-// USA: func_02069158
-extern "C" ARM void func_02069158(void* arg0, int* arg1) {
+// USA: ApplyLeaderTag_02069158
+extern "C" ARM void ApplyLeaderTag_02069158(void* arg0, int* arg1) {
     GameState* var0 = GameState::GetInstance();
     GameObject* var1 = var0->GetUnknownGameObject();
     if (var1 == NULL) {

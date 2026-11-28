@@ -6,8 +6,8 @@ extern "C" char* GetMessageWindow_020421a0();
 
 struct Struct_020697b8 { void* unknown_0_; };
 
-// USA: func_020697b8
-extern "C" ARM int func_020697b8(Struct_020697b8* arg0, int arg1) {
+// USA: ApplyAutoTag_020697b8
+extern "C" ARM int ApplyAutoTag_020697b8(Struct_020697b8* arg0, int arg1) {
     int var0;
     unsigned short var1;
     void* var2;
