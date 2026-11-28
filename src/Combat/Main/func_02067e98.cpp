@@ -12,8 +12,8 @@ extern "C" void ConvertMessageControlTags_02069fec(void* arg0, unsigned int arg1
 struct Struct_0204500c_3;
 extern "C" void func_0206a974(struct Struct_0204500c_3* arg0, const char* arg1, int arg2);
 
-// USA: func_02067e98
-extern "C" ARM void func_02067e98(unsigned char* arg0, int arg1) {
+// USA: ProcessMessageText_02067e98
+extern "C" ARM void ProcessMessageText_02067e98(unsigned char* arg0, int arg1) {
     func_0206b104(arg0, arg1);
     memset(*(void**)(arg0 + 0x48), 0, 0x960);
     unsigned int var0 = *(unsigned int*)(arg0 + 0x60);

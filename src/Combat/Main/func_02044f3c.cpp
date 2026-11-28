@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" void func_02067e98(unsigned char* arg0, int arg1);
+extern "C" void ProcessMessageText_02067e98(unsigned char* arg0, int arg1);
 extern "C" void func_02044d0c(unsigned char* arg0);
 
 struct Struct_0204394c;
@@ -47,7 +47,7 @@ extern "C" ARM void func_02044f3c(unsigned char* arg0, int arg1, int arg2) {
 // USA: func_02044f3c
 extern "C" ARM void func_02044f3c(unsigned char* arg0, int arg1, int arg2) {
     (arg0 + 0x1000)[0x9bd] = 1;
-    func_02067e98(arg0, arg1);
+    ProcessMessageText_02067e98(arg0, arg1);
     if ((arg0 + 0x1000)[0x9cc] == 0 && arg2 == 1) {
         (arg0 + 0x1000)[0x9ae] = 0;
         (arg0 + 0x1000)[0x9af] = 0;

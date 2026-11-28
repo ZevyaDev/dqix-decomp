@@ -5,7 +5,7 @@
 extern "C" void __clear(void*, int);
 extern "C" char* FindTagEnd_020424ac(char* arg0);
 extern "C" int StringStartsWithIgnoreCase_020d85dc(const char* arg0, const char* arg1);
-extern "C" char* func_02068e1c(char* arg0, char* arg1, char* arg2, char* arg3);
+extern "C" char* KeepConditionBranch_02068e1c(char* arg0, char* arg1, char* arg2, char* arg3);
 extern "C" ARM void BuildConditionTag_02068ea0(signed char* arg0, char* arg1);
 
 extern char data_020e833c[];
@@ -48,20 +48,20 @@ extern "C" ARM int ExpandMessageConditionTags_02068f40(void* arg0, char* arg1, c
                     BuildConditionTag_02068ea0(var7->unknown_c_, var3);
                     switch (var8) {
                     case 0:
-                        arg1 = func_02068e1c(arg1, var0, var1, var3);
+                        arg1 = KeepConditionBranch_02068e1c(arg1, var0, var1, var3);
                         break;
                     case 1:
                         if (var2[0] != 0) {
-                            arg1 = func_02068e1c(arg1, var1, var2, var3);
+                            arg1 = KeepConditionBranch_02068e1c(arg1, var1, var2, var3);
                         } else {
-                            arg1 = func_02068e1c(arg1, var1, var3, var3);
+                            arg1 = KeepConditionBranch_02068e1c(arg1, var1, var3, var3);
                         }
                         break;
                     case 2:
-                        arg1 = func_02068e1c(arg1, var2, var3, var3);
+                        arg1 = KeepConditionBranch_02068e1c(arg1, var2, var3, var3);
                         break;
                     default:
-                        arg1 = func_02068e1c(arg1, var0, var1, var3);
+                        arg1 = KeepConditionBranch_02068e1c(arg1, var0, var1, var3);
                         break;
                     }
                     break;
