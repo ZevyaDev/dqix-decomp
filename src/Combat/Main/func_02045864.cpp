@@ -16,8 +16,8 @@ struct Struct_02045864 {
 
 extern Struct_02045864* data_02107834[];
 
-// USA: func_02045864
-extern "C" ARM void func_02045864(int arg0, int arg1, Struct_02045864_2* arg2, unsigned char* arg3, int arg4, int arg5,
+// USA: DrawGlyphToBuffer_02045864
+extern "C" ARM void DrawGlyphToBuffer_02045864(int arg0, int arg1, Struct_02045864_2* arg2, unsigned char* arg3, int arg4, int arg5,
                                   unsigned char arg6, unsigned char arg7) {
     if (arg2 == NULL || arg3 == NULL) {
         return;
