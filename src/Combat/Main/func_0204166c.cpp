@@ -1,8 +1,8 @@
 #include <globaldefs.h>
 #include "Resource/MessageGlyphSlot.h"
 
-// USA: func_0204166c
-extern "C" ARM void func_0204166c(Struct_0204166c* arg0) {
+// USA: ClearGlyphEntry_0204166c
+extern "C" ARM void ClearGlyphEntry_0204166c(Struct_0204166c* arg0) {
     arg0->unknown_0_ = NULL;
     arg0->unknown_4_ = 0;
     arg0->unknown_8_ = -1;

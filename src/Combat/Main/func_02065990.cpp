@@ -245,7 +245,7 @@ extern "C" ARM void func_02065990(MessageWindow_02021b84* arg0, int arg1) {
             int var15 = func_02069444(var0, var1);
 #else
         if (IsControlCode_02044494(var0, &var1) != 0) {
-            int var15 = func_02044420(var0, &var1);
+            int var15 = GetControlCodeParamCount_02044420(var0, &var1);
 #endif
             if (var15 != 0) {
                 *(int*)(var0 + REGION_VALUE(0x44, 0x78)) = *(int*)(var0 + REGION_VALUE(0x44, 0x78)) + var15 + 1;

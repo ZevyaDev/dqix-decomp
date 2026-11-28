@@ -123,7 +123,7 @@ extern "C" void PushSubOverlay_020a1ef0(int subOverlayEntry);
 extern "C" void func_ov008_021843f8(void* arg0);
 extern "C" void func_ov008_021842a0(void* arg0, SafeAllocator* arg1);
 struct Struct_0209cae8;
-extern "C" int func_0209cae8(Struct_0209cae8*);
+extern "C" int GetMusicIndex_0209cae8(Struct_0209cae8*);
 struct MusicManager_02109bf4_4;
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" void* GetZone3D_02012fe4(void);
@@ -244,7 +244,7 @@ extern "C" ARM void func_ov017_021c0850(Struct_ov017_021c0850_2* arg0) {
         }
         if (arg0->unknown_bc_) {
             arg0->unknown_1c_->unknown_b18_ |= 1;
-            if (func_0209cae8((Struct_0209cae8*)&gMusicManager_02109bf4) != 0x29) {
+            if (GetMusicIndex_0209cae8((Struct_0209cae8*)&gMusicManager_02109bf4) != 0x29) {
                 StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0xf);
             }
         }

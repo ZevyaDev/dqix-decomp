@@ -7,8 +7,8 @@ extern char data_020f08f8[];
 extern char data_020e80cc[];
 extern char data_020f08fa[];
 
-// USA: func_02068ea0
-extern "C" ARM void func_02068ea0(signed char* arg0, char* arg1) {
+// USA: BuildConditionTag_02068ea0
+extern "C" ARM void BuildConditionTag_02068ea0(signed char* arg0, char* arg1) {
     if (arg0[0] < 0) {
         return;
     }

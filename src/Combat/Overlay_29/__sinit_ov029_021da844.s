@@ -3,7 +3,7 @@
 
 	.global __sinit_ov029_021da844
 	.extern Encryptor_DecodeFunctionTable
-	.extern func_ov024_021dbc64
+	.extern ApplyCurePoisonEffect_ov024_021dbc64
 
 // USA: func_ov029_021da844
 __sinit_ov029_021da844:
@@ -15,7 +15,7 @@ __sinit_ov029_021da844:
 	.word 0x021db5cc, 0x021dbb64
 	.word 0x021db6b0, 0x021dbb10
 	.word 0x021db6e8, 0x021dbbf4
-	.word 0x021db7fc, func_ov024_021dbc64
+	.word 0x021db7fc, ApplyCurePoisonEffect_ov024_021dbc64
 	.word 0x021db984, 0x021dbb40
 	.word 0x021db9e4, 0x021dbb40
 	.word 0x021db658, 0x021dbb38

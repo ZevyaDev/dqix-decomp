@@ -31,7 +31,7 @@ extern "C" ARM void func_0206c570(void* arg0, const char* arg1) {
 extern "C" int func_020d2ff0(const char* string);
 
 extern "C" void func_0206aa28(void* arg0);
-extern "C" void func_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, unsigned char arg7);
+extern "C" void WrapMessageText_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, unsigned char arg7);
 
 struct Struct_0204500c_3 {
     char unknown_0_[0x48];
@@ -61,7 +61,7 @@ extern "C" ARM void func_0206a974(struct Struct_0204500c_3* arg0, const char* ar
     memset(arg0->unknown_4c_, 0, 0x280);
     memset(arg0->unknown_50_, 0, 0x280);
     func_0206aa28(arg0);
-    func_0206b974(arg0, 1, arg0->unknown_50_, arg0->unknown_60_, arg2, 0, 1, 1);
+    WrapMessageText_0206b974(arg0, 1, arg0->unknown_50_, arg0->unknown_60_, arg2, 0, 1, 1);
     {
         int var2 = func_020d2ff0((const char*)arg0->unknown_60_);
         memcpy(arg0->unknown_50_, arg0->unknown_60_, var2);

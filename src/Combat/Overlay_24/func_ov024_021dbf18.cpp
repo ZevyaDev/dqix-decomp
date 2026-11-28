@@ -25,8 +25,8 @@ extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
 extern "C" void AddActionResultMessage_ov000_0215a88c(void* battle, void* result, int messageId);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void* battle, void* result, void* combatant, int amount, unsigned long long flags, int isCriticalHit);
 
-// USA: func_ov024_021dbf18
-extern "C" ARM void* func_ov024_021dbf18(struct Struct_ov024_021dbf18_4* arg0, int arg1, int arg2, struct Struct_ov024_021dbf18_5* arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: ApplyWakeUpEffect_ov024_021dbf18
+extern "C" ARM void* ApplyWakeUpEffect_ov024_021dbf18(struct Struct_ov024_021dbf18_4* arg0, int arg1, int arg2, struct Struct_ov024_021dbf18_5* arg3, int arg4, int arg5, unsigned char arg6) {
 	GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
 	if (!var0) return 0;
 	int var1 = 0;

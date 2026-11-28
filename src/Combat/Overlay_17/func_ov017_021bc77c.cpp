@@ -71,7 +71,7 @@ extern "C" int IsLocalWirelessGuest_0202c540(void* wireless);
 extern "C" int func_0206dfb0(int, unsigned char*, int);
 extern "C" unsigned char* func_ov017_021b8478(unsigned char* battleManager);
 extern "C" void RemoveFromQueue_02046a8c(void* queue, unsigned char* node);
-extern "C" int func_0209ca68(char*);
+extern "C" int GetMusicState_0209ca68(char*);
 extern "C" void func_0209c530(void* arg0);
 extern "C" unsigned char* GetZoneEntry_0200fd0c(GameState* gameState);
 extern "C" void* GetEventSyncTable_020e3808();
@@ -345,7 +345,7 @@ extern "C" ARM int func_ov017_021bc77c(Struct_ov017_021bc77c_3* arg0, void* arg1
             }
             if (var25) {
                 RemoveFromQueue_02046a8c(arg1, var14);
-                if (func_0209ca68((char*)gMusicManager_02109bf4) == 2) {
+                if (GetMusicState_0209ca68((char*)gMusicManager_02109bf4) == 2) {
                     func_0209c530(gMusicManager_02109bf4);
                 }
                 ClearFlags04(var1, 4);

@@ -33,14 +33,14 @@ public:
 
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
 
-extern "C" char* func_020424ac(char*);
+extern "C" char* FindTagEnd_020424ac(char*);
 extern "C" Struct_0206b974_2::Struct_0206b974_3* GetFontGlyph_020425b4(int glyphIndex, int font);
 extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 extern "C" int GetFontDefaultWidth_02042648(int font);
-extern "C" int func_02044420(void*, void*);
+extern "C" int GetControlCodeParamCount_02044420(void*, void*);
 extern "C" bool IsControlCode_02044494(void*, void*);
 extern "C" int func_020d2ff0(const char*);
-extern "C" bool func_020d85dc(const char* arg0, const char* arg1);
+extern "C" bool StringStartsWithIgnoreCase_020d85dc(const char* arg0, const char* arg1);
 
 struct Struct_020e7e04
 {
@@ -67,8 +67,8 @@ struct Struct_020e7ec4
 
 extern const Struct_020e7ec4 data_020e7ec4[];
 
-// USA: func_0206b974
-extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, char *arg3,
+// USA: WrapMessageText_0206b974
+extern "C" ARM void WrapMessageText_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, char *arg3,
     int arg4, int arg5, bool arg6, unsigned char arg7)
 {
     int var0;
@@ -99,7 +99,7 @@ extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, 
         memcpy(&var12, arg2, 2);
         if (IsControlCode_02044494(arg0, &var12) && var12 != Enum_0206b974_65305)
         {
-            int var13 = (func_02044420(arg0, &var12) + 1) * 2;
+            int var13 = (GetControlCodeParamCount_02044420(arg0, &var12) + 1) * 2;
             memcpy(arg3, arg2, var13);
             arg2 += var13;
             arg3 += var13;
@@ -182,14 +182,14 @@ extern "C" ARM void func_0206b974(Struct_0206b974* arg0, bool arg1, char *arg2, 
             var16 = -1;
         if (var11 == '<' && var16 < 0)
         {
-            char* var17 = func_020424ac(arg2);
+            char* var17 = FindTagEnd_020424ac(arg2);
             if (var17 != NULL)
             {
                 char* var18 = arg2 + 1;
                 for (const Struct_020e7ec4* var19 = data_020e7ec4;
                     var19->unknown_0_ != NULL && var19->unknown_4_ != NULL; var19++)
                 {
-                    if (!func_020d85dc(var18, var19->unknown_0_))
+                    if (!StringStartsWithIgnoreCase_020d85dc(var18, var19->unknown_0_))
                         continue;
 
                     int var20 = var19->unknown_4_(var18 + func_020d2ff0(var19->unknown_0_), &var0, arg7, arg5);

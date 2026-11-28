@@ -289,7 +289,7 @@ struct Struct_02095924_2;
 extern "C" void* func_02099950(Struct_02095924_2*, int);
 extern "C" int func_0209cd50(int arg0);
 struct Struct_0209cae8;
-extern "C" int func_0209cae8(Struct_0209cae8*);
+extern "C" int GetMusicIndex_0209cae8(Struct_0209cae8*);
 struct MusicManager_02109bf4_4;
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" int func_0203adfc(void* arg0, void* arg1);
@@ -471,7 +471,7 @@ extern "C" ARM void func_ov017_0219e384(struct Struct_ov017_0219e384_2* arg0, vo
 			var28 = (unsigned char*)var6->pUnknownStruct_8_;
 			arg0->unknown_a_ = 1;
 			if (var27 != 0 && var28 != 0) {
-				if (func_0209cd50(var4->unknown_0_) == func_0209cae8((Struct_0209cae8*)&gMusicManager_02109bf4)) {
+				if (func_0209cd50(var4->unknown_0_) == GetMusicIndex_0209cae8((Struct_0209cae8*)&gMusicManager_02109bf4)) {
 					arg0->unknown_a_ = 0;
 				}
 			}

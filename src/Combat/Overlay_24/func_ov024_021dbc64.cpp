@@ -33,8 +33,8 @@ struct Struct_ov024_021dbc64 {
 };
 struct Struct_ov024_021dbc64_2 { char unknown_0_[0x24]; struct Struct_ov024_021dbc64_3 unknown_24_; };
 
-// USA: func_ov024_021dbc64
-extern "C" ARM void* func_ov024_021dbc64(struct Struct_ov024_021dbc64* arg0, int arg1, int arg2, struct Struct_ov024_021dbc64_2* arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: ApplyCurePoisonEffect_ov024_021dbc64
+extern "C" ARM void* ApplyCurePoisonEffect_ov024_021dbc64(struct Struct_ov024_021dbc64* arg0, int arg1, int arg2, struct Struct_ov024_021dbc64_2* arg3, int arg4, int arg5, unsigned char arg6) {
 	GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
 	if (!var0) return 0;
 	union { struct { int unknown_0_; int unknown_4_; }; unsigned long long unknown1_0_; } var1;

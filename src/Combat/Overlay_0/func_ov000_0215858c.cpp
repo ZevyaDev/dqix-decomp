@@ -76,7 +76,7 @@ void UpdateCombatantCharm(int random, int combatantId);
 void UpdateCombatantMagicalMight(int random, int combatantId);
 void UpdateCombatantMagicalMending(int random, int combatantId);
 extern "C" int func_ov000_02156b20(GameObject* arg0);
-extern "C" void func_02088874(unsigned char* arg0);
+extern "C" void ClearDazzle_02088874(unsigned char* arg0);
 extern "C" int func_ov000_0215985c(GameObject* arg0);
 extern "C" void func_020888c4(unsigned char* arg0);
 extern "C" int func_ov000_02159874(GameObject* arg0);
@@ -199,7 +199,7 @@ extern "C" ARM void func_ov000_0215858c(struct Random* arg0, int arg1, int arg2)
         var0->unknown_82_ = var0->unknown_82_ - 1;
         if (data_ov000_02182bd4[var0->unknown_82_] > (float)NextRandomMax(arg0, 100) / 100.0f) {
             var0->unknown_82_ = 0;
-            func_02088874((unsigned char*)var1->currentStats_);
+            ClearDazzle_02088874((unsigned char*)var1->currentStats_);
             func_ov000_021584e8(arg0, var12, var1, arg2, 0x1c7, 0);
         }
     }

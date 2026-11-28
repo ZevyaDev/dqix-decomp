@@ -3,7 +3,7 @@
 #if defined(jpn)
 #define func_020d2ff0 func_020d4a54
 #endif
-extern "C" char* func_020424ac(char*);
+extern "C" char* FindTagEnd_020424ac(char*);
 extern "C" int func_020d857c(signed char*, signed char*);
 extern "C" int func_020d2ff0(const char*);
 extern "C" int ParseDecimal_02005a94(const char*);
@@ -12,15 +12,15 @@ struct Struct_020e7e5c {
     void (*unknown_4_)(signed char*, signed char**, void*, int);
 };
 extern Struct_020e7e5c data_020e7e5c[];
-// USA: func_0206831c
-extern "C" ARM void func_0206831c(void* arg0, signed char* arg1, signed char* arg2) {
+// USA: ExpandMessageValueTags_0206831c
+extern "C" ARM void ExpandMessageValueTags_0206831c(void* arg0, signed char* arg1, signed char* arg2) {
     signed char* var0;
     if (!arg1 || !arg2) return;
     var0 = arg2;
     while (1) {
         if (!*arg1) break;
         if (*arg1 == '<') {
-            signed char* var1 = (signed char*)func_020424ac((char*)arg1);
+            signed char* var1 = (signed char*)FindTagEnd_020424ac((char*)arg1);
             if (var1) {
                 int var2 = 0;
                 Struct_020e7e5c* var3 = data_020e7e5c;

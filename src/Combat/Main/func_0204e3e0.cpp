@@ -23,7 +23,7 @@ struct Struct_0204e3e0 {
 extern "C" void* __clear(void* arg0, int arg1);
 extern "C" int func_020420e8(char* arg0, int arg1);
 extern "C" int FindFontGlyphIndex_020424e4(int text, int font);
-extern "C" char* func_020424ac(char* arg0);
+extern "C" char* FindTagEnd_020424ac(char* arg0);
 extern "C" Struct_0204e3e0* GetFontGlyph_020425b4(int glyphIndex, int font);
 extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 extern "C" int func_0204fc40(void* arg0, char** arg1, char* arg2, short* arg3, int arg4);
@@ -95,7 +95,7 @@ extern "C" ARM short func_0204e3e0(Struct_0204e3e0_2* arg0, char* arg1, int arg2
         int var20 = FindFontGlyphIndex_020424e4((int)var12, arg5);
         if (*var12 == '<' && var20 < 0) {
             var13 = var12 + 1;
-            var11 = func_020424ac(var12);
+            var11 = FindTagEnd_020424ac(var12);
             if (func_0204fc40(arg0, &var13, data_020f0248, var14, 1)) {
             } else if (func_0204fc40(arg0, &var13, data_020f024e, var14, 1)) {
                 if (var3 < var1) var3 = var1;

@@ -393,7 +393,7 @@ extern "C" void func_02066a6c(void* arg0, int arg1);
 extern "C" void func_020e2110(void* arg0);
 extern "C" void func_020675fc(void* arg0);
 extern "C" void func_020654b8(void* arg0, int arg1, void* arg2, short arg3, short arg4, int arg5);
-extern "C" void func_02045864(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, unsigned char arg7);
+extern "C" void DrawGlyphToBuffer_02045864(int arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, unsigned char arg7);
 extern "C" void func_020417b0(void* arg0, unsigned short arg1, void* arg2, int arg3);
 extern "C" void func_0204459c(void* arg0, int arg1);
 extern "C" void func_020653e4(int arg0, int arg1);
@@ -620,17 +620,17 @@ extern "C" ARM void func_02066cf0(Struct_02066cf0_3* arg0, int arg1) {
                         unsigned char var64 = ((Struct_02066cf0_4*)GetMessageWindow_020421a0())->unknown_195b_;
                         if (var64 & 0x80) {
                             for (var60 = 0; var60 < 4; var60++) {
-                                func_02045864(data_020e7e54[var60] + (short)var37, data_020e7e3c[var60] + (short)(var38 - 0x74),
+                                DrawGlyphToBuffer_02045864(data_020e7e54[var60] + (short)var37, data_020e7e3c[var60] + (short)(var38 - 0x74),
                                               var63, var59, 0x100, 0x60, 0xf, var62);
                             }
-                            func_02045864((short)var37 + 1, (short)(var38 - 0x74) + 1, var63, var59, 0x100, 0x60, 0xf, var62);
+                            DrawGlyphToBuffer_02045864((short)var37 + 1, (short)(var38 - 0x74) + 1, var63, var59, 0x100, 0x60, 0xf, var62);
                         } else if (var64 & 2) {
                             short var65 = var38 - 0x74;
                             short var66 = var37;
-                            func_02045864(var66 + 1, var65 + 1, var63, var59, 0x100, 0x60, 0xf, var62);
-                            func_02045864(var66, var65, var63, var59, 0x100, 0x60, 0xf, var62);
+                            DrawGlyphToBuffer_02045864(var66 + 1, var65 + 1, var63, var59, 0x100, 0x60, 0xf, var62);
+                            DrawGlyphToBuffer_02045864(var66, var65, var63, var59, 0x100, 0x60, 0xf, var62);
                         } else {
-                            func_02045864((short)var37, (short)(var38 - 0x74), var63, var59, 0x100, 0x60, 0xf, var62);
+                            DrawGlyphToBuffer_02045864((short)var37, (short)(var38 - 0x74), var63, var59, 0x100, 0x60, 0xf, var62);
                         }
                     }
 

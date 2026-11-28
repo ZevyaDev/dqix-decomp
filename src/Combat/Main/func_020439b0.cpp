@@ -17,7 +17,7 @@ extern "C" void func_02044074(struct Struct_02044074* arg0);
 #define func_02043600 func_02043de0
 #endif
 extern "C" void SetMessageWindowRect_02042b98(void* window, int x, int y, int width, int height);
-extern "C" void func_0204408c(struct Struct_020439b0_7* arg0, short arg1, short arg2, short arg3, short arg4);
+extern "C" void SetRect_0204408c(struct Struct_020439b0_7* arg0, short arg1, short arg2, short arg3, short arg4);
 extern "C" void func_02043600(void* arg0, void* arg1);
 #include "Resource/MessageUpdate.h"
 #include "Graphics/TextureArena.h"
@@ -34,7 +34,7 @@ struct DisplayWindow_020439b0;
 extern "C" void SetDisplayWindowEnabled_020e2cc4(struct DisplayWindow_020439b0* displayWindow, int isEnabled);
 
 struct Struct_0200f3a4_13;
-extern "C" void func_02041754(Struct_0204166c* arg0);
+extern "C" void UploadGlyphTexture_02041754(Struct_0204166c* arg0);
 extern "C" void func_02042af4(int arg0, unsigned char* arg1, int arg2);
 
 struct Struct_020439b0_3;
@@ -117,9 +117,9 @@ extern "C" ARM void UpdateMessageWindowGraphics_020439b0(char* window, int arg1)
             prepareBounds:
                 if (messageWindow->unknown_19b1_ != 0) {
                     SetMessageWindowRect_02042b98(window, 2, 0x74, 0xfc, 0x4a);
-                    func_0204408c(&frameRect.unknown1_0_, offsetX + 2, offsetY + 0x74, 0xfc, 0x4a);
+                    SetRect_0204408c(&frameRect.unknown1_0_, offsetX + 2, offsetY + 0x74, 0xfc, 0x4a);
                     func_02043600((*(TextWindow_020439b0_6**)(window + Enum_020439b0_52)), &frameRect);
-                    func_0204408c(&frameRect.unknown1_0_, 2, 0x74, 0xfc, 0x4a);
+                    SetRect_0204408c(&frameRect.unknown1_0_, 2, 0x74, 0xfc, 0x4a);
 
                 }
 
@@ -137,16 +137,16 @@ extern "C" ARM void UpdateMessageWindowGraphics_020439b0(char* window, int arg1)
                             var12 = var8->unknown_440_->unknown_4_;
                             var13 = var8->unknown_440_->unknown_6_;
                         }
-                        func_0204408c(&var4.unknown1_0_, var10 + offsetX, var11 + offsetY, var12, var13);
+                        SetRect_0204408c(&var4.unknown1_0_, var10 + offsetX, var11 + offsetY, var12, var13);
                         func_02043600((*(TextWindow_020439b0_6**)(window + Enum_020439b0_52)), &var4);
-                        func_0204408c(&var4.unknown1_0_, var10, var11, var12, var13);
+                        SetRect_0204408c(&var4.unknown1_0_, var10, var11, var12, var13);
                     }
                     var8->unknown_440_ = &(*(Struct_020439b0_5*)(window + Enum_020439b0_2324));
                 }
 
                 if (messageWindow->unknown_9a0_ == 6) {
                     if ((*(unsigned char*)(window + Enum_020439b0_6586)) != 0 && (*(unsigned char*)(window + Enum_020439b0_707)) != 0) {
-                        func_0204408c(&var5.unknown1_0_, (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_0_, (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_2_,
+                        SetRect_0204408c(&var5.unknown1_0_, (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_0_, (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_2_,
                             (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_4_, (*(Struct_020439b0_7*)(window + Enum_020439b0_324)).unknown_6_);
                         func_02043600((*(TextWindow_020439b0_6**)(window + Enum_020439b0_52)), &var5);
                     }
@@ -263,7 +263,7 @@ extern "C" ARM void UpdateMessageWindowGraphics_020439b0(char* window, int arg1)
                             glyphEntry->unknown_16_0_ = 0;
                         } else {
                             ((TextureArena*)((char*)messageWindow->pTextureArena_1e28_))->Restore();
-                            func_02041754(glyphEntry);
+                            UploadGlyphTexture_02041754(glyphEntry);
                             ((TextureArena*)((char*)messageWindow->pTextureArena_1e28_))->Save();
                         }
                         func_02042af4((int)window, messageWindow->unknown_2cc_, glyphEntry->unknown_8_);

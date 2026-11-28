@@ -27,7 +27,7 @@ extern "C" NPCManager_0203dce4_2* GetNPCManager_0203cf4c();
 extern "C" NPC_0203dce4* GetNPCByIndex_0203dce4(NPCManager_0203dce4_2*, int);
 extern "C" void GetNPCPosition_020406f8(Struct_0203de84*, NPC_0203de84_2*);
 extern "C" int func_020d857c(signed char*, signed char*);
-extern "C" int func_020d85dc(const char*, const char*);
+extern "C" int StringStartsWithIgnoreCase_020d85dc(const char*, const char*);
 extern "C" void PlaySoundEffect_0205eaa0(SoundEffectManager_02108760*, int, int);
 extern SoundEffectManager_02108760 gSoundEffectManager_02108760;
 extern "C" int ParseDecimal_02005a94(const char*);
@@ -134,7 +134,7 @@ extern "C" ARM const char* func_0206a3c0(Struct_0206a3c0_2* arg0, const char* ar
             arg1 += 5;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 28, 0);
         }
-        else if (func_020d85dc(arg1, data_020f0949))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f0949))
         {
             unsigned char var6;
             int var7 = 6;
@@ -195,17 +195,17 @@ extern "C" ARM const char* func_0206a3c0(Struct_0206a3c0_2* arg0, const char* ar
             SetMessageWindowRect_02042b98(arg0, var9, var10, var11, var12);
             arg1 += var8 + 1;
         }
-        else if (func_020d85dc(arg1, data_020f0950))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f0950))
         {
             arg0->unknown_1000_.unknown_9b1_ = 0;
             arg1 += 5;
         }
-        else if (func_020d85dc(arg1, data_020f0956))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f0956))
         {
             arg0->unknown_1000_.unknown_9b8_ = 1;
             arg1 += 5;
         }
-        else if (func_020d85dc(arg1, data_020f095c))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f095c))
         {
             int var13 = 6;
             int var14 = ParseDecimal_02005a94(arg1 + 6);
@@ -218,7 +218,7 @@ extern "C" ARM const char* func_0206a3c0(Struct_0206a3c0_2* arg0, const char* ar
             arg0->unknown_9a4_ = var14;
             arg1 += var13 + 1;
         }
-        else if (func_020d85dc(arg1, data_020f0963))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f0963))
         {
             int var15 = 6;
             int var16 = var15;
@@ -244,7 +244,7 @@ extern "C" ARM const char* func_0206a3c0(Struct_0206a3c0_2* arg0, const char* ar
             arg0->unknown_1000_.unknown_864_ = var18;
             arg1 += var16 + 1;
         }
-        else if (func_020d85dc(arg1, data_020f096a))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f096a))
         {
             int var19 = 7;
             int var20 = var19;
@@ -303,7 +303,7 @@ extern "C" ARM const char* func_0206a3c0(Struct_0206a3c0_2* arg0, const char* ar
             arg0->unknown_1000_.unknown_87c_ = (var24 >> 3) | ((var25 >> 3) << 5) | ((var26 >> 3) << 10);
             arg1 += var20 + 1;
         }
-        else if (func_020d85dc(arg1, data_020f0972))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f0972))
         {
             arg0->unknown_1000_.unknown_9bb_ = 0;
             arg1 += 6;

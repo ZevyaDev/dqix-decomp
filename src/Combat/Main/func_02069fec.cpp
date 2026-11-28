@@ -8,9 +8,9 @@
 extern "C" void* func_0206a3c0(void* arg0, int arg1);
 extern "C" int ParseDecimal_02005a94(char* string);
 
-extern "C" char* func_020424ac(char* arg0);
+extern "C" char* FindTagEnd_020424ac(char* arg0);
 extern "C" int func_020d857c(signed char* arg0, signed char* arg1);
-extern "C" int func_020d85dc(const char* arg0, const char* arg1);
+extern "C" int StringStartsWithIgnoreCase_020d85dc(const char* arg0, const char* arg1);
 extern "C" int func_020d2ff0(const char* string);
 
 struct Struct_020e7f84 {
@@ -45,8 +45,8 @@ struct Struct_02069fec_2 {
     struct Struct_02069fec unknown_1000_;
 };
 
-// USA: func_02069fec
-extern "C" ARM void func_02069fec(struct Struct_02069fec_2* arg0, int arg1, char* arg2) {
+// USA: ConvertMessageControlTags_02069fec
+extern "C" ARM void ConvertMessageControlTags_02069fec(struct Struct_02069fec_2* arg0, int arg1, char* arg2) {
     unsigned short var0;
     char* var1;
     if (arg1 == 0 || arg2 == 0) return;
@@ -74,13 +74,13 @@ extern "C" ARM void func_02069fec(struct Struct_02069fec_2* arg0, int arg1, char
             continue;
         }
         if (var4 == '<') {
-            char* var7 = func_020424ac(var1);
+            char* var7 = FindTagEnd_020424ac(var1);
             if (var7 != 0) {
                 char* var8 = var1 + 1;
                 int var9 = 0;
                 struct Struct_020e7f84* var10 = data_020e7f84;
                 while (var10->unknown_0_ != 0 && var10->unknown_4_ != 0) {
-                    if (func_020d85dc(var8, var10->unknown_0_)) {
+                    if (StringStartsWithIgnoreCase_020d85dc(var8, var10->unknown_0_)) {
                         int var11 = func_020d2ff0(var10->unknown_0_);
                         int var12 = var10->unknown_4_(&var2, var8 + var11);
                         var2 += var12;

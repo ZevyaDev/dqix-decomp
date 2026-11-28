@@ -11,7 +11,7 @@ struct TextWindowManager_0205d6a0;
 extern "C" void CloseTextWindows_0205d6a0(TextWindowManager_0205d6a0*, int);
 
 struct Struct_0209cae8;
-extern "C" short func_0209cae8(struct Struct_0209cae8* arg0);
+extern "C" short GetMusicIndex_0209cae8(struct Struct_0209cae8* manager);
 
 struct MusicManager_02109bf4_4;
 extern "C" void StopMusic_0209c678(struct MusicManager_02109bf4_4* manager, int fadeDuration);
@@ -36,7 +36,7 @@ extern "C" ARM void func_ov008_021868a8(struct Struct_ov008_021868a8* arg0) {
         if (arg0->unknown_b24_ == 0) {
             SetBrightness((GameResources*)var0, -16, 15);
             if (arg0->unknown_b13_ == 0) {
-                if (func_0209cae8((struct Struct_0209cae8*)&gMusicManager_02109bf4) != 0x29) {
+                if (GetMusicIndex_0209cae8((struct Struct_0209cae8*)&gMusicManager_02109bf4) != 0x29) {
                     StopMusic_0209c678((struct MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 15);
                 }
             }

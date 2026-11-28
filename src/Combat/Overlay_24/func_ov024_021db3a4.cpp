@@ -19,8 +19,8 @@ struct Struct_ov024_021db3a4_4 { char unknown_0_[0x1c]; unsigned char unknown_1c
 struct Struct_ov024_021db3a4 { char unknown_0_[0xc]; Struct_ov024_021db3a4_4* unknown_c_; void* unknown_10_; int unknown_14_; };
 struct Struct_ov024_021db3a4_2 { unsigned int unknown_0_0_:12; unsigned int unknown_1_4_:20; };
 struct Struct_ov024_021db3a4_3 { char unknown_0_[4]; Struct_ov024_021db3a4_2 unknown_4_; };
-// USA: func_ov024_021db3a4
-extern "C" ARM void* func_ov024_021db3a4(Struct_ov024_021db3a4* arg0, short arg1, int arg2, Struct_ov024_021db3a4_3* arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: ApplyHealEffect_ov024_021db3a4
+extern "C" ARM void* ApplyHealEffect_ov024_021db3a4(Struct_ov024_021db3a4* arg0, short arg1, int arg2, Struct_ov024_021db3a4_3* arg3, int arg4, int arg5, unsigned char arg6) {
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
     if (!var0) return 0;
     unsigned short var1 = arg3->unknown_4_.unknown_0_0_;

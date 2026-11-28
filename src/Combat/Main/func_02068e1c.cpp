@@ -5,8 +5,8 @@
 #define func_020d2ff0 func_020d4a54
 #endif
 extern "C" int func_020d2ff0(const char* string);
-// USA: func_02068e1c
-extern "C" char* func_02068e1c(char* arg0, char* arg1, char* arg2, char* arg3) {
+// USA: KeepConditionBranch_02068e1c
+extern "C" char* KeepConditionBranch_02068e1c(char* arg0, char* arg1, char* arg2, char* arg3) {
     char* var0 = arg0;
     char* var1 = strstr(arg0, arg1);
     if (!var1) {

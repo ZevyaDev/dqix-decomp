@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-// USA: func_0209ca68
-extern "C" ARM int func_0209ca68(char* arg0) {
-    return *(int*)(arg0 + 0xb0);
+// USA: GetMusicState_0209ca68
+extern "C" ARM int GetMusicState_0209ca68(char* manager) {
+    return *(int*)(manager + 0xb0);
 }

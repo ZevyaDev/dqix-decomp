@@ -1,6 +1,6 @@
 #include <globaldefs.h>
 
-extern "C" int func_02068200(signed char* arg0);
+extern "C" int ParseFirstNumber_02068200(signed char* arg0);
 extern "C" int func_02042658(void* arg0, int arg1);
 extern "C" int sprintf(char* arg0, const char* arg1, ...);
 
@@ -17,9 +17,9 @@ struct Struct_02068238 {
     unsigned char unknown_902_[0x10];
 };
 
-// USA: func_02068238
-extern "C" ARM void func_02068238(signed char* arg0, char** arg1, struct Struct_02068238* arg2) {
-    int var0 = func_02068200(arg0) - 1;
+// USA: ApplyValueTag_02068238
+extern "C" ARM void ApplyValueTag_02068238(signed char* arg0, char** arg1, struct Struct_02068238* arg2) {
+    int var0 = ParseFirstNumber_02068200(arg0) - 1;
     int var1 = arg2->unknown_8b0_[var0];
     unsigned char var2 = arg2->unknown_902_[var0];
     unsigned char var3 = arg2->unknown_8f1_[var0];

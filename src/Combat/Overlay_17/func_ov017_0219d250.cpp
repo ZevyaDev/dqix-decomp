@@ -156,7 +156,7 @@ extern "C" void QueueNotice_02094030(void* noticeQueue, int noticeId, int arg2, 
 extern "C" void func_0203e074(char*);
 extern "C" int func_0209cd50(int arg0);
 struct Struct_0209cae8;
-extern "C" int func_0209cae8(Struct_0209cae8*);
+extern "C" int GetMusicIndex_0209cae8(Struct_0209cae8*);
 struct MusicManager_02109bf4_4;
 extern "C" void StopMusic_0209c678(MusicManager_02109bf4_4*, int);
 extern "C" Struct_ov017_0219d250_6* func_020999d8(unsigned char*, unsigned int);
@@ -310,7 +310,7 @@ extern "C" ARM void func_ov017_0219d250(Struct_ov017_0219d250_5* arg0, unsigned 
                     var1->unknown_6e_ &= ~2;
                     func_0203e074((char*)var13);
                 }
-                if (func_0209cd50(var2) != func_0209cae8((Struct_0209cae8*)&gMusicManager_02109bf4) &&
+                if (func_0209cd50(var2) != GetMusicIndex_0209cae8((Struct_0209cae8*)&gMusicManager_02109bf4) &&
                     var1->unknown_20_ <= 0) {
                     StopMusic_0209c678((MusicManager_02109bf4_4*)&gMusicManager_02109bf4, 0);
                     var23[0xa] = 1;

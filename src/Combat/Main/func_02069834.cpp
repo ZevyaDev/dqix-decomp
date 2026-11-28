@@ -14,8 +14,8 @@ extern "C" void func_020457e8(struct Struct_0204483c_2* arg0, int arg1);
 
 struct Struct_02069834 { void* unknown_0_; };
 
-// USA: func_02069834
-extern "C" ARM int func_02069834(Struct_02069834* arg0, int arg1) {
+// USA: ApplyTimeTag_02069834
+extern "C" ARM int ApplyTimeTag_02069834(Struct_02069834* arg0, int arg1) {
     int var0;
     unsigned short var1;
     void* var2;

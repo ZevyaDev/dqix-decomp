@@ -31,11 +31,11 @@ struct MessageWindow_02045c00_2 {
 typedef MessageWindow_02045c00_2 MessageWindow_02045c00_2;
 extern "C" void __clear(void*, unsigned int);
 extern "C" void func_0204483c(MessageWindow_02045c00_2*, const char*, char*);
-extern "C" int func_02044420(void*, void*);
+extern "C" int GetControlCodeParamCount_02044420(void*, void*);
 extern "C" FontGlyph_02045d14_3* FindFontGlyph_0204254c(int, int);
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" int func_02045c00(MessageWindow_02045c00_2*, int);
-extern "C" unsigned short func_020459b8(MessageWindow_02045c00_2*, int, FontGlyph_02045d14_3*, int);
+extern "C" unsigned short AddMessageGlyph_020459b8(MessageWindow_02045c00_2*, int, FontGlyph_02045d14_3*, int);
 
 // USA: ConvertTextToMessageGlyphs_02045d14
 extern "C" ARM unsigned short ConvertTextToMessageGlyphs_02045d14(MessageWindow_02045c00_2* window, const char* text, unsigned short* glyphCodes, int font) {
@@ -62,7 +62,7 @@ extern "C" ARM unsigned short ConvertTextToMessageGlyphs_02045d14(MessageWindow_
             textOffset += 2;
             ++codeIndex;
             ++codeCount;
-            paramCount = func_02044420(window, &codedText.controlCode_2_);
+            paramCount = GetControlCodeParamCount_02044420(window, &codedText.controlCode_2_);
             unsigned int paramSize = paramCount * sizeof(unsigned short);
             memcpy(glyphCodes + codeIndex, codedText.buffer_4_ + textOffset, paramSize);
             codeCount += paramCount;
@@ -74,7 +74,7 @@ extern "C" ARM unsigned short ConvertTextToMessageGlyphs_02045d14(MessageWindow_
             if (glyph != 0 && glyphIndex >= 0) {
                 int foundSlot = func_02045c00(window, (int)glyph);
                 if (foundSlot == -1) {
-                    glyphCodes[codeIndex] = func_020459b8(window, glyphIndex & 0xff, glyph, font);
+                    glyphCodes[codeIndex] = AddMessageGlyph_020459b8(window, glyphIndex & 0xff, glyph, font);
                     glyphSlotCounter = window->inline_02045d14();
                     ++glyphSlotCounter->usedGlyphSlotCount_800_;
                     glyphSlotCounter->usedGlyphSlotCount_800_ &= 0x7f;

@@ -20,6 +20,6 @@ extern "C" ARM void func_02041bbc(Struct_0204166c* arg0) {
 #else
 // USA: func_020416c0
 extern "C" ARM void func_020416c0(Struct_0204166c* arg0) {
-    func_0204166c(arg0);
+    ClearGlyphEntry_0204166c(arg0);
 }
 #endif

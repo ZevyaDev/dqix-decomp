@@ -1,9 +1,9 @@
 #include <globaldefs.h>
 
-extern "C" signed char func_020d8550(int arg0);
+extern "C" signed char LowercaseChar_020d8550(int arg0);
 
-// USA: func_020d85dc
-extern "C" ARM int func_020d85dc(const char* arg0, const char* arg1) {
+// USA: StringStartsWithIgnoreCase_020d85dc
+extern "C" ARM int StringStartsWithIgnoreCase_020d85dc(const char* arg0, const char* arg1) {
     if (arg0 == 0) {
         return 0;
     }
@@ -14,7 +14,7 @@ extern "C" ARM int func_020d85dc(const char* arg0, const char* arg1) {
         return 1;
     }
     signed char var0, var1;
-    while ((var0 = *arg0) != 0 && (var1 = *arg1) != 0 && func_020d8550(var0) == func_020d8550(var1)) {
+    while ((var0 = *arg0) != 0 && (var1 = *arg1) != 0 && LowercaseChar_020d8550(var0) == LowercaseChar_020d8550(var1)) {
         arg0++;
         arg1++;
     }

@@ -1,5 +1,5 @@
 #include <globaldefs.h>
-extern "C" void func_0206da74(int*);
+extern "C" void ClearNPCPlacementList_0206da74(int*);
 extern "C" void func_02064e20(int*);
 #include "std_library_functions.h"
 
@@ -22,7 +22,7 @@ struct NPCManager_0203cf58 {
 extern "C" ARM void InitNPCManager_0203cf58(struct NPCManager_0203cf58* npcManager) {
     func_020401e4((struct Struct_020401e4*)npcManager);
     func_02064e20((int*)((char*)npcManager + 0x90));
-    func_0206da74((int*)((char*)npcManager + 0x94));
+    ClearNPCPlacementList_0206da74((int*)((char*)npcManager + 0x94));
     memset((char*)npcManager + 0xc, 0, 0x80);
     npcManager->unknown_98_ = 0;
     npcManager->npcCount_8c_ = 0;

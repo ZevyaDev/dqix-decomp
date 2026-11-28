@@ -22,8 +22,8 @@ struct Struct_ov024_021dced0_4 { unsigned char unknown_0_0_ : 7; unsigned char u
 struct Struct_ov024_021dced0_5 { char unknown_0_[0xc]; void* unknown_c_; void* unknown_10_; char unknown_14_[0x75 - 0x14]; unsigned char unknown_75_; };
 struct Struct_ov024_021dced0 { char unknown_0_[0x20]; struct Struct_ov024_021dced0_3 unknown_20_; struct Struct_ov024_021dced0_3 unknown_24_; };
 
-// USA: func_ov024_021dced0
-extern "C" ARM void* func_ov024_021dced0(struct Struct_ov024_021dced0_5* arg0, int arg1, int arg2, struct Struct_ov024_021dced0* arg3, int arg4, int arg5, unsigned char arg6) {
+// USA: ApplySpellcastingBlockedEffect_ov024_021dced0
+extern "C" ARM void* ApplySpellcastingBlockedEffect_ov024_021dced0(struct Struct_ov024_021dced0_5* arg0, int arg1, int arg2, struct Struct_ov024_021dced0* arg3, int arg4, int arg5, unsigned char arg6) {
 	GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg2);
 	if (!var0) return 0;
 	unsigned short var1 = 0;

@@ -35,11 +35,11 @@ extern "C" int GetStorySubStep_02010804(char*);
 extern "C" void ResetNPCManager_0203cfb4(NPCManager_0203cfb4*);
 extern "C" NPCSpriteCache_0203d028_6* func_0203d004(void*);
 extern "C" void InitNPCSpriteCache_020401fc(NPCSpriteCache_0203d028_6*, unsigned int, SafeAllocator*);
-extern "C" void* func_0203cffc(void*);
+extern "C" void* GetNPCPlacementList_0203cffc(void*);
 extern "C" void* func_0203cff4(void*);
-extern "C" void func_0206da74(int*);
+extern "C" void ClearNPCPlacementList_0206da74(int*);
 extern "C" void func_02064e20(int*);
-extern "C" void func_0206da80(void*, int, int, int, int, SafeAllocator*, const void*, int);
+extern "C" void ParseNPCPlacementFile_0206da80(void*, int, int, int, int, SafeAllocator*, const void*, int);
 extern "C" void func_02064e2c(int, int, int, Struct_02013fb4*, int);
 extern "C" void func_02064e88(void*, void*, SafeAllocator*);
 extern "C" void func_0203d028(void*, int, SafeAllocator*, unsigned char*);
@@ -92,15 +92,15 @@ extern "C" ARM int func_ov017_021a2c14(GameResources* arg0, Zone3D_StructPtr_8* 
     unsigned int var16;
     unsigned int var17;
     int var18;
-    void* var19 = func_0203cffc(var2);
-    func_0206da74((int*)var19);
+    void* var19 = GetNPCPlacementList_0203cffc(var2);
+    ClearNPCPlacementList_0206da74((int*)var19);
     var16 = 0;
     while (PrepareReadFileInNARCByID(&var11, &var10, var16)) {
         NitroVM_WriteOutFilePath(&var11, var12, 0x50);
         const void* var20 = var10.GetFileByIndex(var16);
         var18 = var11.fileInfo.endOffset - var11.fileInfo.startOffset;
         if (strstr(var12, data_ov017_021d76bf)) {
-            func_0206da80(var19, var6, var7, var8, var5, var3, var20, var18);
+            ParseNPCPlacementFile_0206da80(var19, var6, var7, var8, var5, var3, var20, var18);
         }
         NitroVM_FinishRead(&var11);
         ++var16;

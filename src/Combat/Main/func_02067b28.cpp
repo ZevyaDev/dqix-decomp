@@ -152,11 +152,11 @@ struct Struct_02067b28 {
     unsigned char unknown_19dc_;
 };
 extern "C" int IsControlCode_02044494(void*, void*);
-extern "C" int func_02044420(void*, void*);
+extern "C" int GetControlCodeParamCount_02044420(void*, void*);
 extern "C" FontGlyph_0204254c* FindFontGlyph_0204254c(int, int);
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" int func_02045c00(MessageWindow_02045c00_2*, int);
-extern "C" int func_020459b8(Struct_02067b28*, unsigned char, FontGlyph_0204254c*, unsigned char);
+extern "C" int AddMessageGlyph_020459b8(Struct_02067b28*, unsigned char, FontGlyph_0204254c*, unsigned char);
 extern char data_020f08dc[3];
 
 // USA: func_02067b28
@@ -172,7 +172,7 @@ extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
             *var1 = var2;
             arg0->unknown_7c_ += 2;
             ++arg0->unknown_6c_;
-            int var3 = func_02044420(arg0, &var2);
+            int var3 = GetControlCodeParamCount_02044420(arg0, &var2);
             memcpy(var1 + 1, var0 + 2, var3 * 2);
             arg0->unknown_7c_ += var3 * 2;
             arg0->unknown_6c_ += var3;
@@ -197,7 +197,7 @@ extern "C" ARM void func_02067b28(Struct_02067b28* arg0) {
             int var6 = func_02045c00((MessageWindow_02045c00_2*)arg0, (int)var4);
             arg0->unknown_7c_ += var4->codeLength_5_0_;
             if (var6 < 0) {
-                unsigned short var7 = func_020459b8(arg0, (unsigned char)var5, var4, arg0->unknown_19dc_);
+                unsigned short var7 = AddMessageGlyph_020459b8(arg0, (unsigned char)var5, var4, arg0->unknown_19dc_);
                 if (!arg0->unknown_19c2_) arg0->unknown_1882_[arg0->unknown_1942_] = var7;
                 *var1 = var7;
                 ++arg0->unknown_6c_;
