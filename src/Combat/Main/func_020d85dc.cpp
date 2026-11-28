@@ -2,8 +2,8 @@
 
 extern "C" signed char LowercaseChar_020d8550(int arg0);
 
-// USA: func_020d85dc
-extern "C" ARM int func_020d85dc(const char* arg0, const char* arg1) {
+// USA: StringStartsWithIgnoreCase_020d85dc
+extern "C" ARM int StringStartsWithIgnoreCase_020d85dc(const char* arg0, const char* arg1) {
     if (arg0 == 0) {
         return 0;
     }

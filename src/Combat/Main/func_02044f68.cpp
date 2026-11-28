@@ -30,7 +30,7 @@ extern const char data_020f00bd[];
 
 extern "C" char* func_02045504(Struct_02044f68* arg0, const char* arg1);
 extern "C" void func_020454dc(char** arg0, unsigned short arg1);
-extern "C" int func_020d85dc(const char* arg0, const char* arg1);
+extern "C" int StringStartsWithIgnoreCase_020d85dc(const char* arg0, const char* arg1);
 extern "C" int func_020d857c(const char* arg0, const char* arg1);
 extern "C" int ParseDecimal_02005a94(const char* string);
 extern "C" void func_020436dc(Struct_02044f68* arg0, int arg1, int arg2);
@@ -75,7 +75,7 @@ extern "C" ARM void func_02044f68(Struct_02044f68* arg0, char* arg1, char* arg2,
                 break;
             }
             var31 = var4 + 1;
-            if (func_020d85dc(var3, data_020f00a7)) {
+            if (StringStartsWithIgnoreCase_020d85dc(var3, data_020f00a7)) {
                 int var5 = ParseDecimal_02005a94(var3 + 5);
                 if (var5 < 0) {
                     var5 = 0;

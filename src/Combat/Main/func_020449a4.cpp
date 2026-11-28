@@ -11,7 +11,7 @@ struct Struct_020449a4 {
     char unknown_19b9_[2];
     unsigned char unknown_19bb_;
 };
-extern "C" int func_020d85dc(const char* arg0, const char* arg1);
+extern "C" int StringStartsWithIgnoreCase_020d85dc(const char* arg0, const char* arg1);
 extern "C" int ParseDecimal_02005a94(const char* string);
 extern "C" void SetMessageWindowRect_02042b98(Struct_020449a4*, int, int, int, int);
 extern char data_020f00a9[];
@@ -24,7 +24,7 @@ extern char data_020f00c3[];
 extern "C" ARM const char* func_020449a4(Struct_020449a4* arg0, const char* arg1) {
     int var0 = 1;
     while (var0) {
-        if (func_020d85dc(arg1, data_020f00a9)) {
+        if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f00a9)) {
             int var1;
             int var2;
             int var3;
@@ -81,13 +81,13 @@ extern "C" ARM const char* func_020449a4(Struct_020449a4* arg0, const char* arg1
             if (var7 > 192) var7 = 192 - var6;
             SetMessageWindowRect_02042b98(arg0, var5, var6, var1, var7);
             arg1 += var4 + 1;
-        } else if (func_020d85dc(arg1, data_020f00b0)) {
+        } else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f00b0)) {
             arg0->unknown_19b1_ = 0;
             arg1 += 5;
-        } else if (func_020d85dc(arg1, data_020f00b6)) {
+        } else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f00b6)) {
             arg0->unknown_19b8_ = 1;
             arg1 += 5;
-        } else if (func_020d85dc(arg1, data_020f00bc)) {
+        } else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f00bc)) {
             int var8 = 6;
             int var9 = var8;
             while (arg1[var9] != '>') {
@@ -108,7 +108,7 @@ extern "C" ARM const char* func_020449a4(Struct_020449a4* arg0, const char* arg1
             arg0->unknown_1860_ = var10;
             arg0->unknown_1864_ = var11;
             arg1 += var9 + 1;
-        } else if (func_020d85dc(arg1, data_020f00c3)) {
+        } else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f00c3)) {
             arg0->unknown_19bb_ = 0;
             arg1 += 6;
         } else {

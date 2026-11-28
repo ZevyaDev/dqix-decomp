@@ -611,7 +611,7 @@ extern "C" int GetProtagonistObjectIndex_020100a8(GameState* gameState);
 extern "C" int func_020474b4(Struct_020698d8* arg0, int arg1);
 extern "C" void func_020de968(int arg0, char* arg1);
 extern "C" const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* arg1);
-extern "C" int func_020d85dc(const char* arg0, const char* arg1);
+extern "C" int StringStartsWithIgnoreCase_020d85dc(const char* arg0, const char* arg1);
 extern "C" double func_020055d4(const char* arg0);
 extern "C" void func_020436dc(Struct_02069ecc* arg0, int arg1, int arg2);
 extern "C" void GetOwnPartyMemberObjectIndices_02010834(GameState* gameState, int protagonistObjectIndex, int* outMemberObjectIndices, int* outMemberCount);
@@ -2275,7 +2275,7 @@ extern "C" ARM void ConvertMessageControlTags_02069fec(Struct_02069ecc* arg0, ch
                     var17++;
                 }
             }
-            if (func_020d85dc(var140, data_020f085d)) {
+            if (StringStartsWithIgnoreCase_020d85dc(var140, data_020f085d)) {
                 int var18 = 8;
                 arg0->unknown_178e_ = ParseDecimal_02005a94(var140 + var18);
                 while (var140[var18] != '>') {
@@ -2289,7 +2289,7 @@ extern "C" ARM void ConvertMessageControlTags_02069fec(Struct_02069ecc* arg0, ch
                 arg2 += 2;
                 continue;
             }
-            if (func_020d85dc(var140, data_020f0866)) {
+            if (StringStartsWithIgnoreCase_020d85dc(var140, data_020f0866)) {
                 inline_02069ecc(arg2, 0xff0d);
                 var140 += 6;
                 arg2 += 2;
@@ -3076,7 +3076,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             arg1 += 5;
             PlaySoundEffect_0205eaa0(&gSoundEffectManager_02108760, 28, 0);
         }
-        else if (func_020d85dc(arg1, data_020f0abb))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f0abb))
         {
             unsigned char var6;
             int var7 = 6;
@@ -3137,17 +3137,17 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             SetMessageWindowRect_02042b98(arg0, var9, var10, var11, var12);
             arg1 += var8 + 1;
         }
-        else if (func_020d85dc(arg1, data_020f0ac2))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f0ac2))
         {
             arg0->unknown_1000_.unknown_9b1_ = 0;
             arg1 += 5;
         }
-        else if (func_020d85dc(arg1, data_020f0ac8))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f0ac8))
         {
             arg0->unknown_1000_.unknown_9b8_ = 1;
             arg1 += 5;
         }
-        else if (func_020d85dc(arg1, data_020f0ace))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f0ace))
         {
             int var13 = 6;
             int var14 = ParseDecimal_02005a94(arg1 + 6);
@@ -3160,7 +3160,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             arg0->unknown_9a4_ = var14;
             arg1 += var13 + 1;
         }
-        else if (func_020d85dc(arg1, data_020f0ad5))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f0ad5))
         {
             int var15 = 6;
             int var16 = var15;
@@ -3186,7 +3186,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             arg0->unknown_1000_.unknown_864_ = var18;
             arg1 += var16 + 1;
         }
-        else if (func_020d85dc(arg1, data_020f0adc))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f0adc))
         {
             int var19 = 7;
             int var20 = var19;
@@ -3243,7 +3243,7 @@ extern "C" ARM const char* func_0206bed8(Struct_0206a3c0_2* arg0, const char* ar
             arg0->unknown_1000_.unknown_87c_ = (var24 >> 3) | ((var25 >> 3) << 5) | ((var26 >> 3) << 10);
             arg1 += var20 + 1;
         }
-        else if (func_020d85dc(arg1, data_020f0ae4))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f0ae4))
         {
             arg0->unknown_1000_.unknown_9bb_ = 0;
             arg1 += 6;

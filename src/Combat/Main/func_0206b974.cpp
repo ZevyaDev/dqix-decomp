@@ -40,7 +40,7 @@ extern "C" int GetFontDefaultWidth_02042648(int font);
 extern "C" int func_02044420(void*, void*);
 extern "C" bool IsControlCode_02044494(void*, void*);
 extern "C" int func_020d2ff0(const char*);
-extern "C" bool func_020d85dc(const char* arg0, const char* arg1);
+extern "C" bool StringStartsWithIgnoreCase_020d85dc(const char* arg0, const char* arg1);
 
 struct Struct_020e7e04
 {
@@ -189,7 +189,7 @@ extern "C" ARM void WrapMessageText_0206b974(Struct_0206b974* arg0, bool arg1, c
                 for (const Struct_020e7ec4* var19 = data_020e7ec4;
                     var19->unknown_0_ != NULL && var19->unknown_4_ != NULL; var19++)
                 {
-                    if (!func_020d85dc(var18, var19->unknown_0_))
+                    if (!StringStartsWithIgnoreCase_020d85dc(var18, var19->unknown_0_))
                         continue;
 
                     int var20 = var19->unknown_4_(var18 + func_020d2ff0(var19->unknown_0_), &var0, arg7, arg5);

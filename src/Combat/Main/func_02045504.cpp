@@ -3,7 +3,7 @@
 
 #if defined(jpn)
 extern "C" int ParseDecimal_02005a94(const char*);
-extern "C" int func_020d85dc(const char*, const char*);
+extern "C" int StringStartsWithIgnoreCase_020d85dc(const char*, const char*);
 extern "C" void SetMessageWindowRect_02042b98(void*, int, int, int, int);
 extern const char data_020f00c1[], data_020f00c8[], data_020f00ce[], data_020f00d4[];
 extern const char data_020f00db[], data_020f00e2[], data_020f00ea[];
@@ -38,7 +38,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
     unsigned char var0 = 1;
     while (var0)
     {
-        if (func_020d85dc(arg1, data_020f00c1))
+        if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f00c1))
         {
             unsigned char var6;
             int var7 = 6;
@@ -99,17 +99,17 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
             SetMessageWindowRect_02042b98(arg0, var9, var10, var11, var12);
             arg1 += var8 + 1;
         }
-        else if (func_020d85dc(arg1, data_020f00c8))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f00c8))
         {
             arg0->unknown_1000_.unknown_7e1_ = 0;
             arg1 += 5;
         }
-        else if (func_020d85dc(arg1, data_020f00ce))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f00ce))
         {
             arg0->unknown_1000_.unknown_7e8_ = 1;
             arg1 += 5;
         }
-        else if (func_020d85dc(arg1, data_020f00d4))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f00d4))
         {
             int var13 = 6;
             int var14 = ParseDecimal_02005a94(arg1 + 6);
@@ -122,7 +122,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
             arg0->unknown_874_ = var14;
             arg1 += var13 + 1;
         }
-        else if (func_020d85dc(arg1, data_020f00db))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f00db))
         {
             int var15 = 6;
             int var16 = var15;
@@ -148,7 +148,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
             arg0->unknown_1000_.unknown_734_ = var18;
             arg1 += var16 + 1;
         }
-        else if (func_020d85dc(arg1, data_020f00e2))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f00e2))
         {
             int var19 = 7;
             int var20 = var19;
@@ -205,7 +205,7 @@ extern "C" ARM const char* func_02045504(Struct_02045504* arg0, const char* arg1
             arg0->unknown_1000_.unknown_74c_ = (var24 >> 3) | ((var25 >> 3) << 5) | ((var26 >> 3) << 10);
             arg1 += var20 + 1;
         }
-        else if (func_020d85dc(arg1, data_020f00ea))
+        else if (StringStartsWithIgnoreCase_020d85dc(arg1, data_020f00ea))
         {
             arg0->unknown_1000_.unknown_7eb_ = 0;
             arg1 += 6;
