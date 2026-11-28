@@ -3,10 +3,10 @@
 #include "GameState/GameState.h"
 
 extern "C" void __clear(void*, int);
-extern "C" char* func_020424ac(char* arg0);
+extern "C" char* FindTagEnd_020424ac(char* arg0);
 extern "C" int func_020d85dc(const char* arg0, const char* arg1);
 extern "C" char* func_02068e1c(char* arg0, char* arg1, char* arg2, char* arg3);
-extern "C" ARM void func_02068ea0(signed char* arg0, char* arg1);
+extern "C" ARM void BuildConditionTag_02068ea0(signed char* arg0, char* arg1);
 
 extern char data_020e833c[];
 extern char data_020f08ff[];
@@ -32,20 +32,20 @@ extern "C" ARM int ExpandMessageConditionTags_02068f40(void* arg0, char* arg1, c
             break;
         }
         if (var5 == '<' && func_020d85dc(arg1, data_020f08ff) != 0
-            && func_020424ac(arg1) != 0) {
+            && FindTagEnd_020424ac(arg1) != 0) {
             char* var6 = arg1;
             Struct_02068f40* var7 = (Struct_02068f40*)data_020e833c;
             while (var7->unknown_10_ != 0) {
                 __clear(var0, 0x30);
-                func_02068ea0(var7->unknown_0_, var0);
+                BuildConditionTag_02068ea0(var7->unknown_0_, var0);
                 if (func_020d85dc(arg1, var0) != 0) {
                     int var8 = var7->unknown_10_(var4, arg0, arg3);
                     __clear(var1, 0x30);
                     __clear(var2, 0x30);
                     __clear(var3, 0x30);
-                    func_02068ea0(var7->unknown_4_, var1);
-                    func_02068ea0(var7->unknown_8_, var2);
-                    func_02068ea0(var7->unknown_c_, var3);
+                    BuildConditionTag_02068ea0(var7->unknown_4_, var1);
+                    BuildConditionTag_02068ea0(var7->unknown_8_, var2);
+                    BuildConditionTag_02068ea0(var7->unknown_c_, var3);
                     switch (var8) {
                     case 0:
                         arg1 = func_02068e1c(arg1, var0, var1, var3);

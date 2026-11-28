@@ -33,7 +33,7 @@ public:
 
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
 
-extern "C" char* func_020424ac(char*);
+extern "C" char* FindTagEnd_020424ac(char*);
 extern "C" Struct_0206b974_2::Struct_0206b974_3* GetFontGlyph_020425b4(int glyphIndex, int font);
 extern "C" int GetFontKerning_020425e4(int previousGlyphIndex, int glyphIndex, int font);
 extern "C" int GetFontDefaultWidth_02042648(int font);
@@ -182,7 +182,7 @@ extern "C" ARM void WrapMessageText_0206b974(Struct_0206b974* arg0, bool arg1, c
             var16 = -1;
         if (var11 == '<' && var16 < 0)
         {
-            char* var17 = func_020424ac(arg2);
+            char* var17 = FindTagEnd_020424ac(arg2);
             if (var17 != NULL)
             {
                 char* var18 = arg2 + 1;

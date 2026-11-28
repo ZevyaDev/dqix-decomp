@@ -41,7 +41,7 @@ struct Struct_02069234 {
     signed char unknown_1880_;
 };
 
-extern "C" char* func_020424ac(char* arg0);
+extern "C" char* FindTagEnd_020424ac(char* arg0);
 extern "C" int func_020d857c(signed char* arg0, signed char* arg1);
 extern "C" int func_020d2ff0(const char* string);
 extern "C" int ParseDecimal_02005a94(void* string);
@@ -85,7 +85,7 @@ extern "C" ARM void ExpandMessageTextTags_02069234(Struct_02069234* arg0, char* 
             break;
         }
         if (var1 == '<') {
-            char* var2 = func_020424ac(arg1);
+            char* var2 = FindTagEnd_020424ac(arg1);
             if (var2 == 0) {
                 goto copy_char;
             }

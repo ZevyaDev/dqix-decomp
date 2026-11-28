@@ -8,7 +8,7 @@
 extern "C" void* func_0206a3c0(void* arg0, int arg1);
 extern "C" int ParseDecimal_02005a94(char* string);
 
-extern "C" char* func_020424ac(char* arg0);
+extern "C" char* FindTagEnd_020424ac(char* arg0);
 extern "C" int func_020d857c(signed char* arg0, signed char* arg1);
 extern "C" int func_020d85dc(const char* arg0, const char* arg1);
 extern "C" int func_020d2ff0(const char* string);
@@ -74,7 +74,7 @@ extern "C" ARM void ConvertMessageControlTags_02069fec(struct Struct_02069fec_2*
             continue;
         }
         if (var4 == '<') {
-            char* var7 = func_020424ac(var1);
+            char* var7 = FindTagEnd_020424ac(var1);
             if (var7 != 0) {
                 char* var8 = var1 + 1;
                 int var9 = 0;

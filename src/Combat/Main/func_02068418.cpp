@@ -10,7 +10,7 @@ struct Struct_02068418 {
 };
 
 extern "C" struct Struct_02068418* FindFontGlyph_0204254c(int text, int font);
-extern "C" char* func_020424ac(char* arg0);
+extern "C" char* FindTagEnd_020424ac(char* arg0);
 extern "C" void UppercaseText_02067f5c(signed char* arg0, int arg1);
 extern char data_020f08f4[];
 
@@ -39,7 +39,7 @@ extern "C" ARM void NormalizeMessageText_02068418(void* arg0, char* arg1, char* 
             continue;
         }
         if (var0 == 0x3c) {
-            char* var3 = func_020424ac(arg1);
+            char* var3 = FindTagEnd_020424ac(arg1);
             if (var3 != 0) {
                 int var4 = var3 - arg1;
                 memcpy(arg2, arg1, var4 + 1);

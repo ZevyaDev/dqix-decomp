@@ -10,7 +10,7 @@ struct Struct_020695f4 {
     char unknown_6_[2];
 };
 
-extern "C" char* func_020424ac(char* arg0);
+extern "C" char* FindTagEnd_020424ac(char* arg0);
 extern "C" struct Struct_020695f4* FindFontGlyph_0204254c(int text, int font);
 extern "C" void UppercaseText_02067f5c(signed char* arg0, int arg1);
 
@@ -24,7 +24,7 @@ extern "C" ARM void ApplyMessageCapitalization_020695f4(void* arg0, char* arg1, 
             break;
         }
         if (var0 == '<') {
-            char* var1 = func_020424ac(arg1);
+            char* var1 = FindTagEnd_020424ac(arg1);
             if (var1 != 0 && memcmp(arg1 + 1, data_020f0916, 4) == 0) {
                 arg1 = var1 + 1;
                 struct Struct_020695f4* var2 = FindFontGlyph_0204254c((int)arg1, arg3);
