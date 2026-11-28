@@ -5,9 +5,9 @@ struct LocalWireless_0202c1a4 {
     signed char protagonistObjectIndexByConsole_1038_[16];
 };
 
-extern "C" unsigned short func_0202df58(void);
+extern "C" unsigned short GetOwnConsoleIndex_0202df58(void);
 
 // USA: GetOwnProtagonistObjectIndex_0202c1a4
 extern "C" ARM signed char GetOwnProtagonistObjectIndex_0202c1a4(struct LocalWireless_0202c1a4* wireless) {
-    return wireless->protagonistObjectIndexByConsole_1038_[func_0202df58()];
+    return wireless->protagonistObjectIndexByConsole_1038_[GetOwnConsoleIndex_0202df58()];
 }

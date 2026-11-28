@@ -3,7 +3,7 @@
 #include "GameState/GameState.h"
 
 extern "C" int func_0208830c(unsigned char* arg0);
-extern "C" void func_02088338(unsigned char* arg0);
+extern "C" void SetSleep_02088338(unsigned char* stats);
 struct Struct_ov024_021dbd84_6;
 extern "C" int func_ov024_021e929c(struct Struct_ov024_021dbd84_6* arg0, int arg1, int arg2);
 struct Struct_ov024_021da670_6;
@@ -58,7 +58,7 @@ extern "C" ARM void* func_ov024_021dbd84(struct Struct_ov024_021dbd84_2* arg0, i
         if (func_ov024_021eb4b0((int)arg0, ((struct Struct_ov024_021dbd84_5*)var0->currentStats_)->unknown_14_, 0x10)) {
             SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0x2b);
         }
-        func_02088338((unsigned char*)var0->currentStats_);
+        SetSleep_02088338((unsigned char*)var0->currentStats_);
         SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var2, 0xe);
         arg0->unknown_14_++;
         if (var5) func_ov024_021e8cfc(arg0, var0, 0, 0);

@@ -7,8 +7,8 @@ extern "C" int HasTension_ov024_021da998(struct Struct_ov024_021da670_6* combata
 struct Struct_ov024_021dd028_5;
 extern "C" int HasSuperHighTension_ov024_021dd260(struct Struct_ov024_021dd028_5* combatant);
 
-extern "C" void func_02088234(void* arg0);
-extern "C" void func_020881ac(void* arg0);
+extern "C" void ClearTension_02088234(void* stats);
+extern "C" void ClearSuperHighTension_020881ac(void* stats);
 extern "C" void func_02088914(unsigned char* arg0);
 extern "C" void func_020889b4(void* arg0);
 extern "C" void func_02088a04(void* arg0);
@@ -59,8 +59,8 @@ extern "C" ARM void* func_ov024_021ea85c(struct Struct_ov024_021ea85c* arg0, int
 	if (!var0) return 0;
 	int var1 = HasTension_ov024_021da998((struct Struct_ov024_021da670_6*)var0);
 	int var2 = HasSuperHighTension_ov024_021dd260((struct Struct_ov024_021dd028_5*)var0);
-	func_02088234(var0->currentStats_);
-	func_020881ac(var0->currentStats_);
+	ClearTension_02088234(var0->currentStats_);
+	ClearSuperHighTension_020881ac(var0->currentStats_);
 	func_02088914((unsigned char*)var0->currentStats_);
 	func_020889b4(var0->currentStats_);
 	func_02088a04(var0->currentStats_);

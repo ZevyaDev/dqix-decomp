@@ -3,7 +3,7 @@
 
 struct LocalWireless_0202b2f0;
 extern "C" int IsLocalWirelessPlayerJoined_0202c1c0(struct LocalWireless_0202b2f0* wireless, int protagonistObjectIndex);
-extern "C" unsigned short func_0202df58(void);
+extern "C" unsigned short GetOwnConsoleIndex_0202df58(void);
 
 // USA: func_0202bd68
 extern "C" ARM int func_0202bd68(struct LocalWireless_0202b2f0* arg0, int arg1) {
@@ -18,7 +18,7 @@ extern "C" ARM int func_0202bd68(struct LocalWireless_0202b2f0* arg0, int arg1) 
         if (!IsLocalWirelessPlayerJoined_0202c1c0(arg0, var0[var1])) continue;
 
         void* var3;
-        if (var1 == func_0202df58()) {
+        if (var1 == GetOwnConsoleIndex_0202df58()) {
             var3 = (char*)arg0 + 0x7c0;
         } else {
             var3 = GetLocalWirelessPlayerRecord_0202c178(arg0, var0[var1]);

@@ -27,7 +27,7 @@ extern "C" int func_ov024_021e929c(Struct_ov024_021dbd84_6*, int, int);
 extern "C" int func_ov024_021eb4b0(int, int, int);
 extern "C" void SetActionResultFlag_ov000_02159eac(void*, Struct_ov024_021e2bd0_6*, int);
 extern "C" int HasTension_ov024_021da998(Struct_ov024_021da670_6*);
-extern "C" void func_02088338(unsigned char*);
+extern "C" void SetSleep_02088338(unsigned char*);
 extern "C" void* AddExtraTargetResult_ov024_021e8ca0(ActionRunner_ov024_021e2bd0*, int);
 extern "C" void SetActionResultFromCombatant_ov000_0215cd44(void*, void*, GameObject*, int, int, int, int);
 extern "C" void func_ov024_021e8cfc(Struct_ov024_021e2bd0_3*, GameObject*, int, int);
@@ -56,7 +56,7 @@ extern "C" ARM unsigned long long func_ov024_021e33a4(Struct_ov024_021e2bd0_3* a
     if (func_ov024_021eb4b0((int)arg0, ((Struct_ov024_021e2bd0_4*)var0->currentStats_)->unknown_14_, 0x10))
         SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var5, 0x2b);
     int var6 = HasTension_ov024_021da998((Struct_ov024_021da670_6*)var0);
-    func_02088338((unsigned char*)var0->currentStats_);
+    SetSleep_02088338((unsigned char*)var0->currentStats_);
     SetActionResultFlag_ov000_02159eac(arg0->unknown_10_, &var5, 0xe);
     void* var7 = AddExtraTargetResult_ov024_021e8ca0((ActionRunner_ov024_021e2bd0*)arg0, var4);
     if (var7) SetActionResultFromCombatant_ov000_0215cd44(arg0->unknown_10_, var7, var0, 0, 0, 0, 0);

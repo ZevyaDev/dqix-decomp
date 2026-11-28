@@ -94,7 +94,7 @@ extern "C" int func_020883ac(unsigned char*);
 extern "C" int func_02088540(unsigned char*);
 extern "C" int func_0208824c(unsigned char*);
 extern "C" void func_02088854(unsigned char*);
-extern "C" void func_02088338(unsigned char*);
+extern "C" void SetSleep_02088338(unsigned char*);
 extern "C" void func_02088b34(unsigned char*);
 extern "C" void func_020883cc(unsigned char*);
 extern "C" void func_020888a4(unsigned char*);
@@ -193,7 +193,7 @@ extern "C" ARM void func_ov024_021e4c04(Struct_ov024_021e4c04_5* arg0, int arg1,
                 int var12 = func_ov024_021e929c((Struct_ov024_021dbd84_6*)arg0, arg2, 1);
                 AddActionResultMessage_ov000_0215a88c(arg0->unknown_10_, var2, var12);
                 var6 = 1;
-                func_02088338((unsigned char*)var1->currentStats_);
+                SetSleep_02088338((unsigned char*)var1->currentStats_);
             }
         }
 

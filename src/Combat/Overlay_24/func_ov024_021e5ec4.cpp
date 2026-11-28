@@ -2,7 +2,7 @@
 #include "Combat/Overlay_0/GetCombatantByID.h"
 #include "GameState/GameState.h"
 
-extern "C" int func_020881c4(unsigned char* arg0);
+extern "C" int CanRaiseTension_020881c4(unsigned char* stats);
 extern "C" void SetSuperHighTension_02088150(void* stats);
 extern "C" void func_02088220(void*, int);
 extern "C" void* GetNextActionResult_ov000_0215e958(void* battle);
@@ -19,7 +19,7 @@ struct Struct_ov024_021e5ec4_3 { char unknown_0_[0x24]; unsigned char unknown_24
 extern "C" ARM void func_ov024_021e5ec4(struct Struct_ov024_021e5ec4_2* arg0, int arg1) {
     GameObject* var0 = GetCombatantByID((int)arg0->unknown_10_, arg1);
     if (!var0) return;
-    if (!func_020881c4((unsigned char*)var0->currentStats_)) return;
+    if (!CanRaiseTension_020881c4((unsigned char*)var0->currentStats_)) return;
 
     int var1;
     int var2 = 0;

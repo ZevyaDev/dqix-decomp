@@ -5,19 +5,19 @@
 extern "C" int func_0208810c(unsigned char* arg0);
 extern "C" void SetSuperHighTension_02088150(void* stats);
 
-// USA: func_0208767c
-extern "C" ARM int func_0208767c(unsigned char* arg0, struct Random* arg1) {
-    unsigned char var0 = arg0[0x24];
+// USA: RaiseTensionStage_0208767c
+extern "C" ARM int RaiseTensionStage_0208767c(unsigned char* stats, struct Random* random) {
+    unsigned char var0 = stats[0x24];
     if (var0 >= 4) return -2;
     if (var0 == 3) {
-        if (arg1 == 0) arg1 = GetBTRandom();
-        if (NextRandomMax(arg1, 2) >= 1) return -1;
+        if (random == 0) random = GetBTRandom();
+        if (NextRandomMax(random, 2) >= 1) return -1;
     }
-    if (++arg0[0x24] >= 4) {
-        if (func_0208810c(arg0)) {
-            arg0[0x24] = 4;
-            SetSuperHighTension_02088150(arg0);
+    if (++stats[0x24] >= 4) {
+        if (func_0208810c(stats)) {
+            stats[0x24] = 4;
+            SetSuperHighTension_02088150(stats);
         }
     }
-    return arg0[0x24];
+    return stats[0x24];
 }

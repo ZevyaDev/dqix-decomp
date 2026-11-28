@@ -373,8 +373,8 @@ extern "C" int func_02085038(char*);
 extern "C" int func_ov000_02159d24(void* arg0, int arg1);
 struct BattleAction_ov000_0215440c_2;
 extern "C" struct Struct_ov024_021eb5d0_7* GetActionActor_ov000_02160094(BattleAction_ov000_0215440c_2*, int);
-extern "C" void func_020881ac(void* arg0);
-extern "C" void func_02088234(void* arg0);
+extern "C" void ClearSuperHighTension_020881ac(void* stats);
+extern "C" void ClearTension_02088234(void* stats);
 extern "C" void func_ov024_021e80e4(struct Struct_ov024_021ea4d0* arg0, struct Struct_ov024_021eb5d0_9* arg1, struct Struct_ov024_021eaa50_2* arg2, int arg3, int arg4, struct Struct_ov024_021eaa50_2* arg5);
 extern "C" unsigned short func_ov024_021e99d8(struct Struct_ov024_021ea4d0* arg0, struct Struct_ov024_021eb5d0_9* arg1, struct Struct_ov024_021eaa50_2* arg2);
 extern "C" void* GetBattleScene_ov000_02160130();
@@ -996,8 +996,8 @@ extern "C" ARM void func_ov024_021eb5d0(struct Struct_ov024_021ea4d0* arg0, stru
                     arg0->unknown_10_->unknown_8e02_ = arg0->unknown_10_->unknown_8e02_ + 1;
                 }
             }
-            func_020881ac(var102->unknown_138_);
-            func_02088234(var102->unknown_138_);
+            ClearSuperHighTension_020881ac(var102->unknown_138_);
+            ClearTension_02088234(var102->unknown_138_);
         }
     }
     if (arg0->unknown_6e_ == 0) {

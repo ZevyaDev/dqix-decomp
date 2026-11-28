@@ -40,7 +40,7 @@ struct LocalWireless_0202b2f0 {
     }
 };
 struct GlobalFlags_02012de8;
-extern "C" unsigned short func_0202df58();
+extern "C" unsigned short GetOwnConsoleIndex_0202df58();
 extern "C" void* func_020d6c00();
 extern "C" int func_02046708(GlobalFlags_02012de8*, unsigned int);
 extern "C" int GetLocalWirelessLinkState_0202d6a8();
@@ -66,7 +66,7 @@ extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
     unsigned short var1[4];
     unsigned short var2[4];
     for (int var3 = 0; var3 < 4; var3++) {
-        if (var3 == arg0->protagonistObjectIndexByConsole_1038_[func_0202df58()]) {
+        if (var3 == arg0->protagonistObjectIndexByConsole_1038_[GetOwnConsoleIndex_0202df58()]) {
             continue;
         }
         Struct_0202b2f0_2* var4 = GetLocalWirelessPlayerRecord_0202c178(arg0, var3);
@@ -115,7 +115,7 @@ extern "C" ARM void func_0202b2f0(LocalWireless_0202b2f0* arg0) {
     }
     if (arg0->unknown_fc0_) {
         for (int var8 = 0; var8 < 4; var8++) {
-            if (var8 == arg0->protagonistObjectIndexByConsole_1038_[func_0202df58()]) {
+            if (var8 == arg0->protagonistObjectIndexByConsole_1038_[GetOwnConsoleIndex_0202df58()]) {
                 continue;
             }
             Struct_0202b2f0_2* var9 = GetLocalWirelessPlayerRecord_0202c178(arg0, var8);
@@ -199,7 +199,7 @@ selectorFound:
             arg0->unknown_1048_[3] = var21->unknown_3_1_;
         }
     }
-    if (arg0->protagonistObjectIndexByConsole_1038_[func_0202df58()] != 0 && func_0202d6b8() == 20) {
+    if (arg0->protagonistObjectIndexByConsole_1038_[GetOwnConsoleIndex_0202df58()] != 0 && func_0202d6b8() == 20) {
         func_0202c5bc(arg0, 0);
     }
 }
