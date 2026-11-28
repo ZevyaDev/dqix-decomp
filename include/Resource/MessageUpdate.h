@@ -11,5 +11,5 @@ extern "C" int func_02069430(void* arg0, unsigned short arg1);
 extern "C" int func_02069444(void* arg0, unsigned short arg1);
 #else
 extern "C" bool IsControlCode_02044494(void* window, void* text);
-extern "C" int func_02044420(void* arg0, void* arg1);
+extern "C" int GetControlCodeParamCount_02044420(void* arg0, void* arg1);
 #endif

@@ -627,7 +627,7 @@ extern "C" void func_0206cb14(void* arg0, int arg1, unsigned short arg2);
 extern "C" int func_020694a0(void* arg0, unsigned int arg1);
 extern "C" void func_0206b198(struct Struct_0204500c_4* arg0, unsigned short arg1);
 
-extern "C" int func_02044420(void* arg0, void* arg1);
+extern "C" int GetControlCodeParamCount_02044420(void* arg0, void* arg1);
 extern "C" void func_02041bbc(Struct_0204166c*);
 extern "C" void WrapMessageText_0206b974(void* arg0, int arg1, void* arg2, void* arg3, int arg4, int arg5, int arg6, unsigned char arg7);
 extern "C" int func_0206cc50(Struct_0206cc50* arg0, unsigned short* arg1);

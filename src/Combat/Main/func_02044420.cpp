@@ -13,8 +13,8 @@ extern "C" ARM int func_02069444(void* arg0, unsigned short var0) {
     int var1 = 0;
     if (!func_02069430(arg0, var0)) return 0;
 #else
-// USA: func_02044420
-extern "C" ARM int func_02044420(void* arg0, void* arg1) {
+// USA: GetControlCodeParamCount_02044420
+extern "C" ARM int GetControlCodeParamCount_02044420(void* arg0, void* arg1) {
     unsigned short var0;
     int var1 = 0;
     memcpy(&var0, arg1, 2);

@@ -31,7 +31,7 @@ struct MessageWindow_02045c00_2 {
 typedef MessageWindow_02045c00_2 MessageWindow_02045c00_2;
 extern "C" void __clear(void*, unsigned int);
 extern "C" void func_0204483c(MessageWindow_02045c00_2*, const char*, char*);
-extern "C" int func_02044420(void*, void*);
+extern "C" int GetControlCodeParamCount_02044420(void*, void*);
 extern "C" FontGlyph_02045d14_3* FindFontGlyph_0204254c(int, int);
 extern "C" int FindFontGlyphIndex_020424e4(int, int);
 extern "C" int func_02045c00(MessageWindow_02045c00_2*, int);
@@ -62,7 +62,7 @@ extern "C" ARM unsigned short ConvertTextToMessageGlyphs_02045d14(MessageWindow_
             textOffset += 2;
             ++codeIndex;
             ++codeCount;
-            paramCount = func_02044420(window, &codedText.controlCode_2_);
+            paramCount = GetControlCodeParamCount_02044420(window, &codedText.controlCode_2_);
             unsigned int paramSize = paramCount * sizeof(unsigned short);
             memcpy(glyphCodes + codeIndex, codedText.buffer_4_ + textOffset, paramSize);
             codeCount += paramCount;

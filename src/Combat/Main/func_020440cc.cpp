@@ -100,7 +100,7 @@ ARM int MessageWindow_02021b84::func_020440cc() {
                     int var10 = func_02069444(this, var9);
 #else
                 if (IsControlCode_02044494(this, &var9)) {
-                    int var10 = func_02044420(this, &var9);
+                    int var10 = GetControlCodeParamCount_02044420(this, &var9);
 #endif
                     if (var10) {
                         unknown_78_ = unknown_78_ + var10 + 1;

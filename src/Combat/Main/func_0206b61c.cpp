@@ -8,7 +8,7 @@ extern "C" void func_0206cb14(void*, int, unsigned short);
 
 extern "C" int func_02067ad8(int arg0, void* arg1);
 extern "C" bool IsControlCode_02044494(void* window, void* text);
-extern "C" int func_02044420(void* arg0, void* arg1);
+extern "C" int GetControlCodeParamCount_02044420(void* arg0, void* arg1);
 
 struct Struct_0204500c_4;
 extern "C" void func_0206b198(struct Struct_0204500c_4* arg0, unsigned short arg1);
@@ -48,7 +48,7 @@ extern "C" ARM void func_0206b61c(struct Struct_02065990* arg0) {
             #if defined(jpn)
             var4 = func_02069444(arg0, *var3);
 #else
-            var4 = func_02044420(arg0, var3);
+            var4 = GetControlCodeParamCount_02044420(arg0, var3);
 #endif
             var3 += var4;
             var1 += var4;
