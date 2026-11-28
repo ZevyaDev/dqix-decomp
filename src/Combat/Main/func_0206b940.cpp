@@ -2,8 +2,8 @@
 
 extern "C" void ParseTagNumbers_020696bc(int text, int* values, int count);
 
-// USA: func_0206b940
-extern "C" ARM int func_0206b940(int arg0, int* arg1) {
+// USA: ApplyXRTag_0206b940
+extern "C" ARM int ApplyXRTag_0206b940(int arg0, int* arg1) {
     int var0;
     ParseTagNumbers_020696bc(arg0, &var0, 1);
     *arg1 = var0;
