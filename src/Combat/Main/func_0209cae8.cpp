@@ -5,7 +5,7 @@ struct Struct_0209cae8 {
     short unknown_b8_;
 };
 
-// USA: func_0209cae8
-extern "C" ARM short func_0209cae8(struct Struct_0209cae8* arg0) {
-    return arg0->unknown_b8_;
+// USA: GetMusicIndex_0209cae8
+extern "C" ARM short GetMusicIndex_0209cae8(struct Struct_0209cae8* manager) {
+    return manager->unknown_b8_;
 }

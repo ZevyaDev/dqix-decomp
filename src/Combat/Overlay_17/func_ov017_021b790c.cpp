@@ -170,7 +170,7 @@ extern "C" void func_020a1df8(int overlayEntry);
 extern "C" void func_020a1edc();
 extern "C" void func_ov017_021b71d8(Struct_ov017_021b790c_4* arg0);
 extern "C" void func_ov017_021b7284(Struct_ov017_021b790c_4* arg0);
-extern "C" int func_0209ca68(char* arg0);
+extern "C" int GetMusicState_0209ca68(char* manager);
 extern "C" void func_ov017_021b621c(void* arg0, void* arg1, void* arg2);
 extern "C" void PrependToQueue_020469f8(Queue_020469f8* queue, QueueNode_020469f8_2* node);
 extern "C" void func_ov000_02160620(void* arg0);
@@ -269,7 +269,7 @@ extern "C" ARM void func_ov017_021b790c(Struct_ov017_021b790c_4* arg0, Queue_020
 
     unsigned short var6 = arg0->unknown_6b4_;
     if (var6 == 6) {
-        if (func_0209ca68(gMusicManager_02109bf4) != 2) {
+        if (GetMusicState_0209ca68(gMusicManager_02109bf4) != 2) {
             Queue_020469f8* var7 = *(Queue_020469f8**)(var1 + 0x3000 + SCENE_NODES_021b790c);
             QueueNode_020469f8_2* var8 = *(QueueNode_020469f8_2**)(var1 + 0x3000 + SCENE_NODE_021b790c);
             func_ov017_021b621c(var8, 0, 0);
